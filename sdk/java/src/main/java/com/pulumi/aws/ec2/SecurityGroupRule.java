@@ -151,10 +151,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var s3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
- *             .name(String.format("com.amazonaws.%s.s3", current.applyValue(getRegionResult -> getRegionResult.name())))
+ *             .name(String.format("com.amazonaws.%s.s3", current.name()))
  *             .build());
  * 
  *         var s3GatewayEgress = new SecurityGroupRule("s3GatewayEgress", SecurityGroupRuleArgs.builder()
@@ -164,7 +165,7 @@ import javax.annotation.Nullable;
  *             .fromPort(443)
  *             .toPort(443)
  *             .protocol("tcp")
- *             .prefixListIds(s3.applyValue(getPrefixListResult -> getPrefixListResult.id()))
+ *             .prefixListIds(s3.id())
  *             .build());
  * 
  *     }

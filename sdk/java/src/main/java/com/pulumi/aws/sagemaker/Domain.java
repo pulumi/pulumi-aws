@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .path("/")
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(example.json())
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
@@ -90,74 +90,6 @@ import javax.annotation.Nullable;
  * ### Using Custom Images
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Image;
- * import com.pulumi.aws.sagemaker.ImageArgs;
- * import com.pulumi.aws.sagemaker.AppImageConfig;
- * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.ImageVersion;
- * import com.pulumi.aws.sagemaker.ImageVersionArgs;
- * import com.pulumi.aws.sagemaker.Domain;
- * import com.pulumi.aws.sagemaker.DomainArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Image("example", ImageArgs.builder()
- *             .imageName("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .build());
- * 
- *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()
- *             .appImageConfigName("example")
- *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .build())
- *             .build());
- * 
- *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()
- *             .imageName(example.id())
- *             .baseImage("base-image")
- *             .build());
- * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .domainName("example")
- *             .authMode("IAM")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
- *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(exampleAwsIamRole.arn())
- *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
- *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
- *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
- *                         .imageName(exampleImageVersion.imageName())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

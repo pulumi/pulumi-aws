@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
  *                     .name("my-stream")
  *                     .serializationLibrary("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe")
- *                     .parameters(Map.of("serialization.format", 1))
+ *                     .parameters(Map.of("serialization.format", "1"))
  *                     .build())
  *                 .columns(                
  *                     CatalogTableStorageDescriptorColumnArgs.builder()

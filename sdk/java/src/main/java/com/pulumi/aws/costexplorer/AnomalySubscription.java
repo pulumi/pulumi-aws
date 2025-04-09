@@ -234,48 +234,52 @@ import javax.annotation.Nullable;
  *             .name("CostAnomalyUpdates")
  *             .build());
  * 
- *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId("__default_policy_ID")
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("AWSAnomalyDetectionSNSPublishingPermissions")
- *                     .actions("SNS:Publish")
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("costalerts.amazonaws.com")
+ *         final var snsTopicPolicy = Output.tuple(costAnomalyUpdates.arn(), costAnomalyUpdates.arn()).applyValue(values -> {
+ *             var costAnomalyUpdatesArn = values.t1;
+ *             var costAnomalyUpdatesArn1 = values.t2;
+ *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *                 .policyId("__default_policy_ID")
+ *                 .statements(                
+ *                     GetPolicyDocumentStatementArgs.builder()
+ *                         .sid("AWSAnomalyDetectionSNSPublishingPermissions")
+ *                         .actions("SNS:Publish")
+ *                         .effect("Allow")
+ *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                             .type("Service")
+ *                             .identifiers("costalerts.amazonaws.com")
+ *                             .build())
+ *                         .resources(costAnomalyUpdatesArn)
+ *                         .build(),
+ *                     GetPolicyDocumentStatementArgs.builder()
+ *                         .sid("__default_statement_ID")
+ *                         .actions(                        
+ *                             "SNS:Subscribe",
+ *                             "SNS:SetTopicAttributes",
+ *                             "SNS:RemovePermission",
+ *                             "SNS:Receive",
+ *                             "SNS:Publish",
+ *                             "SNS:ListSubscriptionsByTopic",
+ *                             "SNS:GetTopicAttributes",
+ *                             "SNS:DeleteTopic",
+ *                             "SNS:AddPermission")
+ *                         .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test("StringEquals")
+ *                             .variable("AWS:SourceOwner")
+ *                             .values(accountId)
+ *                             .build())
+ *                         .effect("Allow")
+ *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                             .type("AWS")
+ *                             .identifiers("*")
+ *                             .build())
+ *                         .resources(costAnomalyUpdatesArn1)
  *                         .build())
- *                     .resources(costAnomalyUpdates.arn())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("__default_statement_ID")
- *                     .actions(                    
- *                         "SNS:Subscribe",
- *                         "SNS:SetTopicAttributes",
- *                         "SNS:RemovePermission",
- *                         "SNS:Receive",
- *                         "SNS:Publish",
- *                         "SNS:ListSubscriptionsByTopic",
- *                         "SNS:GetTopicAttributes",
- *                         "SNS:DeleteTopic",
- *                         "SNS:AddPermission")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .variable("AWS:SourceOwner")
- *                         .values(accountId)
- *                         .build())
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers("*")
- *                         .build())
- *                     .resources(costAnomalyUpdates.arn())
- *                     .build())
- *             .build());
+ *                 .build());
+ *         });
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(costAnomalyUpdates.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
  *             .build());
  * 
  *         var anomalyMonitor = new AnomalyMonitor("anomalyMonitor", AnomalyMonitorArgs.builder()

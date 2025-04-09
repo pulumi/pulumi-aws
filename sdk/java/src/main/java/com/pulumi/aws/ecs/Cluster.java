@@ -158,7 +158,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("example")
@@ -189,7 +190,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Action", jsonArray("kms:GenerateDataKeyWithoutPlaintext")),
  *                             jsonProperty("Condition", jsonObject(
  *                                 jsonProperty("StringEquals", jsonObject(
- *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))),
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.accountId())),
  *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterName", jsonArray("example"))
  *                                 ))
  *                             )),
@@ -204,7 +205,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Action", jsonArray("kms:CreateGrant")),
  *                             jsonProperty("Condition", jsonObject(
  *                                 jsonProperty("StringEquals", jsonObject(
- *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))),
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.accountId())),
  *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterName", jsonArray("example"))
  *                                 )),
  *                                 jsonProperty("ForAllValues:StringEquals", jsonObject(

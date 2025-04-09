@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const config = new pulumi.Config();
- * const vpcId = config.requireObject("vpcId");
+ * const vpcId = config.requireObject<any>("vpcId");
  * const selected = aws.ec2.getVpc({
  *     id: vpcId,
  * });
@@ -170,7 +170,7 @@ export interface GetVpcResult {
  * import * as std from "@pulumi/std";
  *
  * const config = new pulumi.Config();
- * const vpcId = config.requireObject("vpcId");
+ * const vpcId = config.requireObject<any>("vpcId");
  * const selected = aws.ec2.getVpc({
  *     id: vpcId,
  * });

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .name("backup-vault-events")
  *             .build());
  * 
- *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = testTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("SNS:Publish")
@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
  *                     .type("Service")
  *                     .identifiers("backup.amazonaws.com")
  *                     .build())
- *                 .resources(testTopic.arn())
+ *                 .resources(_arn)
  *                 .sid("__default_statement_ID")
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(testTopic.arn())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(_test -> _test.json()))
  *             .build());
  * 
  *         var testVaultNotifications = new VaultNotifications("testVaultNotifications", VaultNotificationsArgs.builder()

@@ -960,7 +960,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -982,7 +982,7 @@ public final class OutpostsFunctions {
      *             .build());
      * 
      *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
+     *             .instanceType(example.instanceType())
      *             .build());
      * 
      *     }
@@ -1011,7 +1011,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1033,7 +1033,7 @@ public final class OutpostsFunctions {
      *             .build());
      * 
      *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
+     *             .instanceType(example.instanceType())
      *             .build());
      * 
      *     }
@@ -1062,7 +1062,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1084,7 +1084,7 @@ public final class OutpostsFunctions {
      *             .build());
      * 
      *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
+     *             .instanceType(example.instanceType())
      *             .build());
      * 
      *     }
@@ -1113,7 +1113,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1135,7 +1135,7 @@ public final class OutpostsFunctions {
      *             .build());
      * 
      *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
+     *             .instanceType(example.instanceType())
      *             .build());
      * 
      *     }
@@ -1164,7 +1164,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1186,7 +1186,7 @@ public final class OutpostsFunctions {
      *             .build());
      * 
      *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
+     *             .instanceType(example.instanceType())
      *             .build());
      * 
      *     }
@@ -2024,7 +2024,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2063,7 +2063,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2102,7 +2102,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2141,7 +2141,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2180,7 +2180,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2219,7 +2219,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2258,7 +2258,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OutpostsFunctions.getSites();
+     *         final var all = OutpostsFunctions.getSites(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.NotebookInstanceLifecycleConfiguration;
  * import com.pulumi.aws.sagemaker.NotebookInstanceLifecycleConfigurationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  *         var groupRoleRole = new Role("groupRoleRole", RoleArgs.builder()
  *             .name("user-group-role")
- *             .assumeRolePolicy(groupRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(groupRole.json())
  *             .build());
  * 
  *         var mainUserGroup = new UserGroup("mainUserGroup", UserGroupArgs.builder()

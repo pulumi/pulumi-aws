@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64sha256Args;
  * import com.pulumi.aws.apigateway.Authorizer;
  * import com.pulumi.aws.apigateway.AuthorizerArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -73,7 +75,7 @@ import javax.annotation.Nullable;
  *         var invocationRole = new Role("invocationRole", RoleArgs.builder()
  *             .name("api_gateway_auth_invocation")
  *             .path("/")
- *             .assumeRolePolicy(invocationAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(invocationAssumeRole.json())
  *             .build());
  * 
  *         final var lambdaAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -89,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  *         var lambda = new Role("lambda", RoleArgs.builder()
  *             .name("demo-lambda")
- *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(lambdaAssumeRole.json())
  *             .build());
  * 
  *         var authorizer = new Function("authorizer", FunctionArgs.builder()
@@ -120,7 +122,7 @@ import javax.annotation.Nullable;
  *         var invocationPolicyRolePolicy = new RolePolicy("invocationPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(invocationRole.id())
- *             .policy(invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(invocationPolicy -> invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(invocationPolicy.applyValue(_invocationPolicy -> _invocationPolicy.json()))
  *             .build());
  * 
  *     }

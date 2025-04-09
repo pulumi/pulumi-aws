@@ -198,12 +198,12 @@ import javax.annotation.Nullable;
  * 
  *         var ssmLifecycleRole = new Role("ssmLifecycleRole", RoleArgs.builder()
  *             .name("SSMLifecycle")
- *             .assumeRolePolicy(ssmLifecycleTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(ssmLifecycleTrust.json())
  *             .build());
  * 
  *         var ssmLifecyclePolicy = new Policy("ssmLifecyclePolicy", PolicyArgs.builder()
  *             .name("SSMLifecycle")
- *             .policy(ssmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(ssmLifecycle -> ssmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(ssmLifecycle.applyValue(_ssmLifecycle -> _ssmLifecycle.json()))
  *             .build());
  * 
  *         var ssmLifecycleRolePolicyAttachment = new RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
@@ -300,6 +300,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
@@ -332,7 +334,7 @@ import javax.annotation.Nullable;
  * 
  *         var ecsEvents = new Role("ecsEvents", RoleArgs.builder()
  *             .name("ecs_events")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var ecsEventsRunTaskWithAnyRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -356,7 +358,7 @@ import javax.annotation.Nullable;
  *         var ecsEventsRunTaskWithAnyRoleRolePolicy = new RolePolicy("ecsEventsRunTaskWithAnyRoleRolePolicy", RolePolicyArgs.builder()
  *             .name("ecs_events_run_task_with_any_role")
  *             .role(ecsEvents.id())
- *             .policy(ecsEventsRunTaskWithAnyRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(ecsEventsRunTaskWithAnyRole.json())
  *             .build());
  * 
  *         var ecsScheduledTask = new EventTarget("ecsScheduledTask", EventTargetArgs.builder()
@@ -429,7 +431,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new EventTarget("example", EventTargetArgs.builder()
- *             .arn(exampleStage.executionArn().applyValue(executionArn -> String.format("%s/GET", executionArn)))
+ *             .arn(exampleStage.executionArn().applyValue(_executionArn -> String.format("%s/GET", _executionArn)))
  *             .rule(exampleEventRule.id())
  *             .httpTarget(EventTargetHttpTargetArgs.builder()
  *                 .queryStringParameters(Map.of("Body", "$.detail.body"))
@@ -491,7 +493,7 @@ import javax.annotation.Nullable;
  * 
  *         var eventBusInvokeRemoteEventBusRole = new Role("eventBusInvokeRemoteEventBusRole", RoleArgs.builder()
  *             .name("event-bus-invoke-remote-event-bus")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var eventBusInvokeRemoteEventBus = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -504,7 +506,7 @@ import javax.annotation.Nullable;
  * 
  *         var eventBusInvokeRemoteEventBusPolicy = new Policy("eventBusInvokeRemoteEventBusPolicy", PolicyArgs.builder()
  *             .name("event_bus_invoke_remote_event_bus")
- *             .policy(eventBusInvokeRemoteEventBus.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(eventBusInvokeRemoteEventBus.json())
  *             .build());
  * 
  *         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
@@ -684,7 +686,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
  *                     .actions("logs:CreateLogStream")
- *                     .resources(example.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *                     .resources(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers(                        
@@ -695,7 +697,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
  *                     .actions("logs:PutLogEvents")
- *                     .resources(example.arn().applyValue(arn -> String.format("%s:*:*", arn)))
+ *                     .resources(example.arn().applyValue(_arn -> String.format("%s:*:*", _arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers(                        
@@ -711,7 +713,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(exampleLogPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleLogPolicy -> exampleLogPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policyDocument(exampleLogPolicy.applyValue(_exampleLogPolicy -> _exampleLogPolicy.json()))
  *             .policyName("guardduty-log-publishing-policy")
  *             .build());
  * 
@@ -748,6 +750,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetAppsyncTargetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -783,7 +787,7 @@ import javax.annotation.Nullable;
  * 
  *         var appsyncMutationRole = new Role("appsyncMutationRole", RoleArgs.builder()
  *             .name("appsync-mutation-role")
- *             .assumeRolePolicy(appsyncMutationRoleTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(appsyncMutationRoleTrust.json())
  *             .build());
  * 
  *         var graphql_api = new GraphQLApi("graphql-api", GraphQLApiArgs.builder()
@@ -814,7 +818,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var invokeAppsyncMutationEventTarget = new EventTarget("invokeAppsyncMutationEventTarget", EventTargetArgs.builder()
- *             .arn(StdFunctions.replace().applyValue(invoke -> invoke.result()))
+ *             .arn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(graphql_api.arn())
+ *                 .search("apis")
+ *                 .replace("endpoints/graphql-api")
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .rule(invokeAppsyncMutation.id())
  *             .roleArn(appsyncMutationRole.arn())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
@@ -840,7 +848,7 @@ import javax.annotation.Nullable;
  * 
  *         var appsyncMutationRolePolicy = new Policy("appsyncMutationRolePolicy", PolicyArgs.builder()
  *             .name("appsync-mutation-role-policy")
- *             .policy(appsyncMutationRolePolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(appsyncMutationRolePolicyDocument -> appsyncMutationRolePolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(appsyncMutationRolePolicyDocument.applyValue(_appsyncMutationRolePolicyDocument -> _appsyncMutationRolePolicyDocument.json()))
  *             .build());
  * 
  *         var appsyncMutationRoleAttachment = new RolePolicyAttachment("appsyncMutationRoleAttachment", RolePolicyAttachmentArgs.builder()

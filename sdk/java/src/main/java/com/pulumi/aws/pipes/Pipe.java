@@ -64,7 +64,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var main = AwsFunctions.getCallerIdentity();
+ *         final var main = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
@@ -78,7 +79,7 @@ import javax.annotation.Nullable;
  *                         )),
  *                         jsonProperty("Condition", jsonObject(
  *                             jsonProperty("StringEquals", jsonObject(
- *                                 jsonProperty("aws:SourceAccount", main.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                                 jsonProperty("aws:SourceAccount", main.accountId())
  *                             ))
  *                         ))
  *                     ))
@@ -89,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  *         var source = new RolePolicy("source", RolePolicyArgs.builder()
  *             .role(example.id())
- *             .policy(sourceQueue.arn().applyValue(arn -> serializeJson(
+ *             .policy(sourceQueue.arn().applyValue(_arn -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -99,7 +100,7 @@ import javax.annotation.Nullable;
  *                             "sqs:GetQueueAttributes", 
  *                             "sqs:ReceiveMessage"
  *                         )),
- *                         jsonProperty("Resource", jsonArray(arn))
+ *                         jsonProperty("Resource", jsonArray(_arn))
  *                     )))
  *                 ))))
  *             .build());
@@ -108,13 +109,13 @@ import javax.annotation.Nullable;
  * 
  *         var target = new RolePolicy("target", RolePolicyArgs.builder()
  *             .role(example.id())
- *             .policy(targetQueue.arn().applyValue(arn -> serializeJson(
+ *             .policy(targetQueue.arn().applyValue(_arn -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
- *                         jsonProperty("Resource", jsonArray(arn))
+ *                         jsonProperty("Resource", jsonArray(_arn))
  *                     )))
  *                 ))))
  *             .build());

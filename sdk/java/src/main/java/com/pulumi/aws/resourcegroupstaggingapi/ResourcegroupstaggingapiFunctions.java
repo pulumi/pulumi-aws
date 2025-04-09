@@ -45,7 +45,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -162,7 +163,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -279,7 +281,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -396,7 +399,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -513,7 +517,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -630,7 +635,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -747,7 +753,8 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *             .build());
      * 
      *     }
      * }

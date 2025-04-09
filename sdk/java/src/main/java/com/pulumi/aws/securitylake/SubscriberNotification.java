@@ -50,7 +50,8 @@ import javax.annotation.Nullable;
  *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
  *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
- *                 .sqsNotificationConfiguration()
+ *                 .sqsNotificationConfiguration(SubscriberNotificationConfigurationSqsNotificationConfigurationArgs.builder()
+ *                     .build())
  *                 .build())
  *             .build());
  * 

@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *             .startReplication(true)
  *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
  *                 .replicationSubnetGroupId(default_.replicationSubnetGroupId())
- *                 .maxCapacityUnits("64")
- *                 .minCapacityUnits("2")
+ *                 .maxCapacityUnits(64)
+ *                 .minCapacityUnits(2)
  *                 .preferredMaintenanceWindow("sun:23:45-mon:00:30")
  *                 .build())
  *             .build());

@@ -105,9 +105,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var domain = config.get("domain").orElse("tf-test");
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName(domain)
@@ -126,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * ", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),domain))
+ * ", current.name(),currentGetCallerIdentity.accountId(),domain))
  *             .build());
  * 
  *     }
@@ -188,7 +190,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyName("example")
- *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policyDocument(example.json())
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
@@ -253,24 +255,26 @@ import javax.annotation.Nullable;
  *         final var selectedGetSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
  *                 .name("vpc-id")
- *                 .values(selected.applyValue(getVpcResult -> getVpcResult.id()))
+ *                 .values(selected.id())
  *                 .build())
  *             .tags(Map.of("Tier", "private"))
  *             .build());
  * 
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var es = new SecurityGroup("es", SecurityGroupArgs.builder()
  *             .name(String.format("%s-elasticsearch-%s", vpc,domain))
  *             .description("Managed by Pulumi")
- *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+ *             .vpcId(selected.id())
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol("tcp")
- *                 .cidrBlocks(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+ *                 .cidrBlocks(selected.cidrBlock())
  *                 .build())
  *             .build());
  * 
@@ -287,8 +291,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     selectedGetSubnets.applyValue(getSubnetsResult -> getSubnetsResult.ids()[0]),
- *                     selectedGetSubnets.applyValue(getSubnetsResult -> getSubnetsResult.ids()[1]))
+ *                     selectedGetSubnets.ids()[0],
+ *                     selectedGetSubnets.ids()[1])
  *                 .securityGroupIds(es.id())
  *                 .build())
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
@@ -304,7 +308,7 @@ import javax.annotation.Nullable;
  * 		}
  * 	]
  * }
- * ", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),domain))
+ * ", current.name(),currentGetCallerIdentity.accountId(),domain))
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(esServiceLinkedRole)

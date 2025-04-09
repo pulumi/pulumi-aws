@@ -277,7 +277,8 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
+     *         final var example = VpclatticeFunctions.getListener(GetListenerArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -319,7 +320,8 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
+     *         final var example = VpclatticeFunctions.getListener(GetListenerArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -361,7 +363,8 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
+     *         final var example = VpclatticeFunctions.getListener(GetListenerArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -403,7 +406,8 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
+     *         final var example = VpclatticeFunctions.getListener(GetListenerArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -445,7 +449,8 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
+     *         final var example = VpclatticeFunctions.getListener(GetListenerArgs.builder()
+     *             .build());
      * 
      *     }
      * }

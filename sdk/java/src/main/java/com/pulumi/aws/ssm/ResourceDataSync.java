@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(hogeBucketV2.id())
- *             .policy(hoge.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(hoge.json())
  *             .build());
  * 
  *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()

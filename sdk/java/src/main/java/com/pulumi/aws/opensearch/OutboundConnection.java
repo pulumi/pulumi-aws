@@ -53,21 +53,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
  *             .connectionAlias("outbound_connection")
  *             .connectionMode("DIRECT")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
- *                 .region(currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .ownerId(current.accountId())
+ *                 .region(currentGetRegion.name())
  *                 .domainName(localDomain.domainName())
  *                 .build())
  *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
- *                 .region(currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .ownerId(current.accountId())
+ *                 .region(currentGetRegion.name())
  *                 .domainName(remoteDomain.domainName())
  *                 .build())
  *             .build());

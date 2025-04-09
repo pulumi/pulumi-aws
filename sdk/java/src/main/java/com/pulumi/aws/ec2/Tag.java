@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new TransitGateway("example");
  * 
  *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn(65000)
+ *             .bgpAsn("65000")
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());

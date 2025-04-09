@@ -89,6 +89,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -429,7 +431,8 @@ import javax.annotation.Nullable;
  *                     .id("foobar")
  *                     .status("Enabled")
  *                     .filter(BucketReplicationConfigurationRuleFilterArgs.builder()
- *                         .tags()
+ *                         .tags(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .destination(BucketReplicationConfigurationRuleDestinationArgs.builder()
  *                         .bucket(destination.arn())
@@ -584,13 +587,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var currentUser = S3Functions.getCanonicalUserId();
+ *         final var currentUser = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .grants(            
  *                 BucketGrantArgs.builder()
- *                     .id(currentUser.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+ *                     .id(currentUser.id())
  *                     .type("CanonicalUser")
  *                     .permissions("FULL_CONTROL")
  *                     .build(),

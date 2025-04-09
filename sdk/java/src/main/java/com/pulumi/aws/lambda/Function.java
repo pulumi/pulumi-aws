@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var lambda = ArchiveFunctions.getFile(GetFileArgs.builder()
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
  *             .handler("index.test")
- *             .sourceCodeHash(lambda.applyValue(getFileResult -> getFileResult.outputBase64sha256()))
+ *             .sourceCodeHash(lambda.outputBase64sha256())
  *             .runtime("nodejs18.x")
  *             .environment(FunctionEnvironmentArgs.builder()
  *                 .variables(Map.of("foo", "bar"))
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var testLambda = new Function("testLambda", FunctionArgs.builder()
@@ -372,7 +372,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_logging")
  *             .path("/")
  *             .description("IAM policy for logging from a lambda")
- *             .policy(lambdaLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(lambdaLogging.json())
  *             .build());
  * 
  *         var lambdaLogs = new RolePolicyAttachment("lambdaLogs", RolePolicyAttachmentArgs.builder()

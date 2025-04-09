@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()
  *             .name("s3-event-notification-topic")
- *             .policy(topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(topic -> topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(topic.applyValue(_topic -> _topic.json()))
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  * 
  *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()
  *             .name("s3-event-notification-queue")
- *             .policy(queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(queue -> queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(queue.applyValue(_queue -> _queue.json()))
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
@@ -197,8 +197,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var func = new Function("func", FunctionArgs.builder()
@@ -289,8 +289,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -317,7 +317,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var func1 = new Function("func1", FunctionArgs.builder()
@@ -437,7 +437,7 @@ import javax.annotation.Nullable;
  * 
  *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()
  *             .name("s3-event-notification-queue")
- *             .policy(queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(queue -> queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(queue.applyValue(_queue -> _queue.json()))
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()

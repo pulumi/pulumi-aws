@@ -48,11 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleTableBucketPolicy = new TableBucketPolicy("exampleTableBucketPolicy", TableBucketPolicyArgs.builder()
- *             .resourcePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .resourcePolicy(example.json())
  *             .tableBucketArn(exampleAwsS3tablesTableBucket.arn())
  *             .build());
  * 

@@ -250,10 +250,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = OutpostsFunctions.getOutposts();
+ *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+ *             .build());
  * 
  *         final var exampleGetOutpost = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
- *             .id(example.applyValue(getOutpostsResult -> getOutpostsResult.ids()[0]))
+ *             .id(example.ids()[0])
  *             .build());
  * 
  *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
@@ -274,7 +275,7 @@ import javax.annotation.Nullable;
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .outpostMode("single-outpost")
- *             .preferredOutpostArn(exampleGetOutpost.applyValue(getOutpostResult -> getOutpostResult.arn()))
+ *             .preferredOutpostArn(exampleGetOutpost.arn())
  *             .engine("memcached")
  *             .nodeType("cache.r5.large")
  *             .numCacheNodes(2)

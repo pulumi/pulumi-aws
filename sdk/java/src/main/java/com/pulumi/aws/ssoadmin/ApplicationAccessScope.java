@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
  *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *         var exampleApplicationAccessScope = new ApplicationAccessScope("exampleApplicationAccessScope", ApplicationAccessScopeArgs.builder()

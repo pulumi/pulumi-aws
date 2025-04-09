@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .zoneId(main.zoneId())
  *             .name("dev.example.com")
  *             .type("NS")
- *             .ttl("30")
+ *             .ttl(30)
  *             .records(dev.nameServers())
  *             .build());
  * 

@@ -50,7 +50,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -65,8 +65,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -115,7 +115,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -130,8 +130,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -180,7 +180,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -195,8 +195,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -245,7 +245,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -260,8 +260,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -310,7 +310,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -325,8 +325,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -375,7 +375,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -390,8 +390,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }
@@ -440,7 +440,7 @@ public final class InspectorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Declare the data source
-     *         final var rules = InspectorFunctions.getRulesPackages();
+     *         final var rules = InspectorFunctions.getRulesPackages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
@@ -455,8 +455,8 @@ public final class InspectorFunctions {
      *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration("60")
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
+     *             .duration(60)
+     *             .rulesPackageArns(rules.arns())
      *             .build());
      * 
      *     }

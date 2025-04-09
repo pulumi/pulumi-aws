@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .name("example-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var aWSCodeDeployRole = new RolePolicyAttachment("aWSCodeDeployRole", RolePolicyAttachmentArgs.builder()

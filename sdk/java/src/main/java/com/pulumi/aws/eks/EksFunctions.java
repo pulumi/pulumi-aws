@@ -522,11 +522,11 @@ public final class EksFunctions {
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
-     *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
+     *             .addonVersion(latest.version())
      *             .build());
      * 
      *         ctx.export("default", default_.version());
-     *         ctx.export("latest", latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()));
+     *         ctx.export("latest", latest.version());
      *     }
      * }
      * }
@@ -581,11 +581,11 @@ public final class EksFunctions {
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
-     *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
+     *             .addonVersion(latest.version())
      *             .build());
      * 
      *         ctx.export("default", default_.version());
-     *         ctx.export("latest", latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()));
+     *         ctx.export("latest", latest.version());
      *     }
      * }
      * }
@@ -640,11 +640,11 @@ public final class EksFunctions {
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
-     *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
+     *             .addonVersion(latest.version())
      *             .build());
      * 
      *         ctx.export("default", default_.version());
-     *         ctx.export("latest", latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()));
+     *         ctx.export("latest", latest.version());
      *     }
      * }
      * }
@@ -699,11 +699,11 @@ public final class EksFunctions {
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
-     *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
+     *             .addonVersion(latest.version())
      *             .build());
      * 
      *         ctx.export("default", default_.version());
-     *         ctx.export("latest", latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()));
+     *         ctx.export("latest", latest.version());
      *     }
      * }
      * }
@@ -758,11 +758,11 @@ public final class EksFunctions {
      *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
-     *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
+     *             .addonVersion(latest.version())
      *             .build());
      * 
      *         ctx.export("default", default_.version());
-     *         ctx.export("latest", latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()));
+     *         ctx.export("latest", latest.version());
      *     }
      * }
      * }
@@ -805,8 +805,8 @@ public final class EksFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
-     *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export("endpoint", example.endpoint());
+     *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthorities()[0].data());
      *     }
      * }
      * }
@@ -849,8 +849,8 @@ public final class EksFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
-     *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export("endpoint", example.endpoint());
+     *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthorities()[0].data());
      *     }
      * }
      * }
@@ -893,8 +893,8 @@ public final class EksFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
-     *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export("endpoint", example.endpoint());
+     *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthorities()[0].data());
      *     }
      * }
      * }
@@ -937,8 +937,8 @@ public final class EksFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
-     *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export("endpoint", example.endpoint());
+     *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthorities()[0].data());
      *     }
      * }
      * }
@@ -981,8 +981,8 @@ public final class EksFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
-     *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export("endpoint", example.endpoint());
+     *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthorities()[0].data());
      *     }
      * }
      * }
@@ -1283,7 +1283,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1395,7 +1396,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1507,7 +1509,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1619,7 +1622,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1731,7 +1735,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1843,7 +1848,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1955,7 +1961,8 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getClusterVersions();
+     *         final var example = EksFunctions.getClusterVersions(GetClusterVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }

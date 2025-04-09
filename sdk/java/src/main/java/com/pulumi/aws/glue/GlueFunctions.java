@@ -458,36 +458,6 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id("123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -500,36 +470,6 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id("123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -542,36 +482,6 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id("123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -584,36 +494,6 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id("123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -626,36 +506,6 @@ public final class GlueFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
-     *             .id("123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -993,7 +843,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.pythonScript());
      *     }
      * }
      * }
@@ -1106,7 +956,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.scalaCode());
      *     }
      * }
      * }
@@ -1228,7 +1078,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.pythonScript());
      *     }
      * }
      * }
@@ -1341,7 +1191,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.scalaCode());
      *     }
      * }
      * }
@@ -1463,7 +1313,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.pythonScript());
      *     }
      * }
      * }
@@ -1576,7 +1426,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.scalaCode());
      *     }
      * }
      * }
@@ -1698,7 +1548,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.pythonScript());
      *     }
      * }
      * }
@@ -1811,7 +1661,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.scalaCode());
      *     }
      * }
      * }
@@ -1933,7 +1783,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *         ctx.export("pythonScript", example.pythonScript());
      *     }
      * }
      * }
@@ -2046,7 +1896,7 @@ public final class GlueFunctions {
      *                     .build())
      *             .build());
      * 
-     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *         ctx.export("scalaCode", example.scalaCode());
      *     }
      * }
      * }

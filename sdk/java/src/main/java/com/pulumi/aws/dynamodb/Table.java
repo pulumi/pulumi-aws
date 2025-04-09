@@ -196,6 +196,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
  * import com.pulumi.aws.dynamodb.Tag;
  * import com.pulumi.aws.dynamodb.TagArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -209,11 +211,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var alternate = AwsFunctions.getRegion();
+ *         final var alternate = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var third = AwsFunctions.getRegion();
+ *         final var third = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new Table("example", TableArgs.builder()
  *             .billingMode("PAY_PER_REQUEST")
@@ -227,10 +232,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .replicas(            
  *                 TableReplicaArgs.builder()
- *                     .regionName(alternate.applyValue(getRegionResult -> getRegionResult.name()))
+ *                     .regionName(alternate.name())
  *                     .build(),
  *                 TableReplicaArgs.builder()
- *                     .regionName(third.applyValue(getRegionResult -> getRegionResult.name()))
+ *                     .regionName(third.name())
  *                     .propagateTags(true)
  *                     .build())
  *             .tags(Map.ofEntries(
@@ -240,7 +245,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(_arn)
+ *                 .search(current.name())
+ *                 .replace(alternate.name())
+ *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .key("Architect")
  *             .value("Gigi")
  *             .build());

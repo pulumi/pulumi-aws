@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Workspace("example", WorkspaceArgs.builder()
  *             .directoryId(exampleAwsWorkspacesDirectory.id())
- *             .bundleId(valueWindows10.applyValue(getBundleResult -> getBundleResult.id()))
+ *             .bundleId(valueWindows10.id())
  *             .userName("john.doe")
  *             .rootVolumeEncryptionEnabled(true)
  *             .userVolumeEncryptionEnabled(true)
- *             .volumeEncryptionKey(workspaces.applyValue(getKeyResult -> getKeyResult.arn()))
+ *             .volumeEncryptionKey(workspaces.arn())
  *             .workspaceProperties(WorkspaceWorkspacePropertiesArgs.builder()
  *                 .computeTypeName("VALUE")
  *                 .userVolumeSizeGib(10)

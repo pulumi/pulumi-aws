@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
- *             .maxConcurrency(2)
- *             .maxErrors(1)
+ *             .maxConcurrency("2")
+ *             .maxErrors("1")
  *             .priority(1)
  *             .taskArn("AWS-RestartEC2Instance")
  *             .taskType("AUTOMATION")
@@ -94,6 +94,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
  * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
  * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,8 +110,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
- *             .maxConcurrency(2)
- *             .maxErrors(1)
+ *             .maxConcurrency("2")
+ *             .maxErrors("1")
  *             .priority(1)
  *             .taskArn(exampleAwsLambdaFunction.arn())
  *             .taskType("LAMBDA")
@@ -164,8 +166,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
- *             .maxConcurrency(2)
- *             .maxErrors(1)
+ *             .maxConcurrency("2")
+ *             .maxErrors("1")
  *             .priority(1)
  *             .taskArn("AWS-RunShellScript")
  *             .taskType("RUN_COMMAND")
@@ -228,8 +230,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
- *             .maxConcurrency(2)
- *             .maxErrors(1)
+ *             .maxConcurrency("2")
+ *             .maxErrors("1")
  *             .priority(1)
  *             .taskArn(exampleAwsSfnActivity.id())
  *             .taskType("STEP_FUNCTIONS")

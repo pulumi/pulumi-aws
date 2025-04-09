@@ -21,67 +21,6 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3tables.TablePolicy;
- * import com.pulumi.aws.s3tables.TablePolicyArgs;
- * import com.pulumi.aws.s3tables.TableBucket;
- * import com.pulumi.aws.s3tables.TableBucketArgs;
- * import com.pulumi.aws.s3tables.Namespace;
- * import com.pulumi.aws.s3tables.NamespaceArgs;
- * import com.pulumi.aws.s3tables.Table;
- * import com.pulumi.aws.s3tables.TableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements()
- *             .build());
- * 
- *         var exampleTablePolicy = new TablePolicy("exampleTablePolicy", TablePolicyArgs.builder()
- *             .resourcePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
- *             .name(test.name())
- *             .namespace(test.namespace())
- *             .tableBucketArn(test.tableBucketArn())
- *             .build());
- * 
- *         var exampleTableBucket = new TableBucket("exampleTableBucket", TableBucketArgs.builder()
- *             .name("example-bucket")
- *             .build());
- * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
- *             .namespace("example-namespace")
- *             .tableBucketArn(exampleTableBucket.arn())
- *             .build());
- * 
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .name("example_table")
- *             .namespace(exampleNamespace)
- *             .tableBucketArn(exampleNamespace.tableBucketArn())
- *             .format("ICEBERG")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

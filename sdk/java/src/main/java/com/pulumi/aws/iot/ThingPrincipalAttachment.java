@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iot.ThingArgs;
  * import com.pulumi.aws.iot.Certificate;
  * import com.pulumi.aws.iot.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.aws.iot.ThingPrincipalAttachment;
  * import com.pulumi.aws.iot.ThingPrincipalAttachmentArgs;
  * import java.util.List;

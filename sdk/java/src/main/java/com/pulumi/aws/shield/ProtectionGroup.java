@@ -93,9 +93,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
@@ -103,14 +105,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example")
- *             .resourceArn(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
+ *             .resourceArn(example.id().applyValue(_id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.name(),currentGetCallerIdentity.accountId(),_id)))
  *             .build());
  * 
  *         var exampleProtectionGroup = new ProtectionGroup("exampleProtectionGroup", ProtectionGroupArgs.builder()
  *             .protectionGroupId("example")
  *             .aggregation("MEAN")
  *             .pattern("ARBITRARY")
- *             .members(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
+ *             .members(example.id().applyValue(_id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.name(),currentGetCallerIdentity.accountId(),_id)))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleProtection)
  *                 .build());

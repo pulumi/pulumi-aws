@@ -151,22 +151,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var default = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var default = defaultContainerService.privateRegistryAccess().applyValue(_privateRegistryAccess -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
- *                     .identifiers(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -> privateRegistryAccess.ecrImagePullerRole().principalArn()))
+ *                     .identifiers(_privateRegistryAccess.ecrImagePullerRole().principalArn())
  *                     .build())
  *                 .actions(                
  *                     "ecr:BatchGetImage",
  *                     "ecr:GetDownloadUrlForLayer")
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var defaultRepositoryPolicy = new RepositoryPolicy("defaultRepositoryPolicy", RepositoryPolicyArgs.builder()
  *             .repository(defaultAwsEcrRepository.name())
- *             .policy(default_.applyValue(default_ -> default_.json()))
+ *             .policy(default_.applyValue(_default_ -> _default_.json()))
  *             .build());
  * 
  *     }

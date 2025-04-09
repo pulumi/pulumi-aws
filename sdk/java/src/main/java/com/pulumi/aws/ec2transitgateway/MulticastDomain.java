@@ -92,35 +92,35 @@ import javax.annotation.Nullable;
  *         var subnet1 = new Subnet("subnet1", SubnetArgs.builder()
  *             .vpcId(vpc1.id())
  *             .cidrBlock("10.0.1.0/24")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .build());
  * 
  *         var subnet2 = new Subnet("subnet2", SubnetArgs.builder()
  *             .vpcId(vpc1.id())
  *             .cidrBlock("10.0.2.0/24")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(available.names()[1])
  *             .build());
  * 
  *         var subnet3 = new Subnet("subnet3", SubnetArgs.builder()
  *             .vpcId(vpc2.id())
  *             .cidrBlock("10.1.1.0/24")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .build());
  * 
  *         var instance1 = new Instance("instance1", InstanceArgs.builder()
- *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(amazonLinux.id())
  *             .instanceType("t2.micro")
  *             .subnetId(subnet1.id())
  *             .build());
  * 
  *         var instance2 = new Instance("instance2", InstanceArgs.builder()
- *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(amazonLinux.id())
  *             .instanceType("t2.micro")
  *             .subnetId(subnet2.id())
  *             .build());
  * 
  *         var instance3 = new Instance("instance3", InstanceArgs.builder()
- *             .ami(amazonLinux.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(amazonLinux.id())
  *             .instanceType("t2.micro")
  *             .subnetId(subnet3.id())
  *             .build());

@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var metricStreamToFirehoseRole = new Role("metricStreamToFirehoseRole", RoleArgs.builder()
  *             .name("metric_stream_to_firehose_role")
- *             .assumeRolePolicy(streamsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(streamsAssumeRole.json())
  *             .build());
  * 
  *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var firehoseToS3Role = new Role("firehoseToS3Role", RoleArgs.builder()
- *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(firehoseAssumeRole.json())
  *             .build());
  * 
  *         var s3Stream = new FirehoseDeliveryStream("s3Stream", FirehoseDeliveryStreamArgs.builder()
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *         var metricStreamToFirehoseRolePolicy = new RolePolicy("metricStreamToFirehoseRolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(metricStreamToFirehoseRole.id())
- *             .policy(metricStreamToFirehose.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(metricStreamToFirehose -> metricStreamToFirehose.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(metricStreamToFirehose.applyValue(_metricStreamToFirehose -> _metricStreamToFirehose.json()))
  *             .build());
  * 
  *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
@@ -161,14 +161,14 @@ import javax.annotation.Nullable;
  *                     "s3:PutObject")
  *                 .resources(                
  *                     bucket.arn(),
- *                     bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
  *         var firehoseToS3RolePolicy = new RolePolicy("firehoseToS3RolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(firehoseToS3Role.id())
- *             .policy(firehoseToS3.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(firehoseToS3 -> firehoseToS3.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(firehoseToS3.applyValue(_firehoseToS3 -> _firehoseToS3.json()))
  *             .build());
  * 
  *     }

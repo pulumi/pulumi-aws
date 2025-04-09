@@ -66,7 +66,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -125,7 +125,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -184,7 +184,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -243,7 +243,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -302,7 +302,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -361,7 +361,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -420,7 +420,7 @@ public final class AlbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 

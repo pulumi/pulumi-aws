@@ -248,7 +248,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -278,7 +279,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -292,7 +294,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(2)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -320,7 +323,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -334,7 +338,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -348,7 +353,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -378,7 +384,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -392,7 +399,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -406,7 +414,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -489,7 +498,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -519,7 +529,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -533,7 +544,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(2)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -561,7 +573,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -575,7 +588,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -589,7 +603,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -619,7 +634,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -633,7 +649,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -647,7 +664,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
@@ -675,7 +693,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .valuesImportanceMap()
+ *                         .valuesImportanceMap(Map.ofEntries(
+ *                         ))
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()

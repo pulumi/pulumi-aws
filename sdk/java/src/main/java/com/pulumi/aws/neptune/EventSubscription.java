@@ -55,15 +55,15 @@ import javax.annotation.Nullable;
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .skipFinalSnapshot(true)
- *             .iamDatabaseAuthenticationEnabled("true")
- *             .applyImmediately("true")
+ *             .iamDatabaseAuthenticationEnabled(true)
+ *             .applyImmediately(true)
  *             .build());
  * 
  *         var example = new ClusterInstance("example", ClusterInstanceArgs.builder()
  *             .clusterIdentifier(default_.id())
  *             .engine("neptune")
  *             .instanceClass("db.r4.large")
- *             .applyImmediately("true")
+ *             .applyImmediately(true)
  *             .build());
  * 
  *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()

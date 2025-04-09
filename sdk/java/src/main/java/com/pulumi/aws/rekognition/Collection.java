@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Collection("example", CollectionArgs.builder()
  *             .collectionId("my-collection")
- *             .tags(Map.of("example", 1))
+ *             .tags(Map.of("example", "1"))
  *             .build());
  * 
  *     }

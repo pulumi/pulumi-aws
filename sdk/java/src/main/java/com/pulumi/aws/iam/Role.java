@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *         var instance = new Role("instance", RoleArgs.builder()
  *             .name("instance_role")
  *             .path("/system/")
- *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .build());
  * 
  *     }
@@ -186,7 +186,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 RoleInlinePolicyArgs.builder()
  *                     .name("policy-8675309")
- *                     .policy(inlinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *                     .policy(inlinePolicy.json())
  *                     .build())
  *             .build());
  * 
@@ -227,7 +227,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Role("example", RoleArgs.builder()
- *             .inlinePolicies()
+ *             .inlinePolicies(RoleInlinePolicyArgs.builder()
+ *                 .build())
  *             .name("yak_role")
  *             .assumeRolePolicy(instanceAssumeRolePolicy.json())
  *             .build());

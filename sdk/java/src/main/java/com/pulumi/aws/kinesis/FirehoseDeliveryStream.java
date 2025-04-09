@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()
  *             .name("firehose_test_role")
- *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(firehoseAssumeRole.json())
  *             .build());
  * 
  *         final var lambdaAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *         var lambdaIam = new Role("lambdaIam", RoleArgs.builder()
  *             .name("lambda_iam")
- *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(lambdaAssumeRole.json())
  *             .build());
  * 
  *         var lambdaProcessor = new Function("lambdaProcessor", FunctionArgs.builder()
@@ -123,12 +123,12 @@ import javax.annotation.Nullable;
  *                 .roleArn(firehoseRole.arn())
  *                 .bucketArn(bucket.arn())
  *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("Lambda")
  *                         .parameters(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
  *                             .parameterName("LambdaArn")
- *                             .parameterValue(lambdaProcessor.arn().applyValue(arn -> String.format("%s:$LATEST", arn)))
+ *                             .parameterValue(lambdaProcessor.arn().applyValue(_arn -> String.format("%s:$LATEST", _arn)))
  *                             .build())
  *                         .build())
  *                     .build())
@@ -184,12 +184,12 @@ import javax.annotation.Nullable;
  *                 .bucketArn(bucket.arn())
  *                 .bufferingSize(64)
  *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .build())
  *                 .prefix("data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/")
  *                 .errorOutputPrefix("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/")
  *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(                    
  *                         FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
  *                             .type("RecordDeAggregation")
@@ -261,12 +261,12 @@ import javax.annotation.Nullable;
  *                 .bucketArn(bucket.arn())
  *                 .bufferingSize(64)
  *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .build())
  *                 .prefix("data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/")
  *                 .errorOutputPrefix("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/")
  *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("MetadataExtraction")
  *                         .parameters(                        
@@ -417,7 +417,7 @@ import javax.annotation.Nullable;
  *                     .compressionFormat("GZIP")
  *                     .build())
  *                 .processingConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("Lambda")
  *                         .parameters(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs.builder()
@@ -499,7 +499,7 @@ import javax.annotation.Nullable;
  *                     .actions("es:*")
  *                     .resources(                    
  *                         testCluster.arn(),
- *                         testCluster.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                         testCluster.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
@@ -519,7 +519,7 @@ import javax.annotation.Nullable;
  *         var firehose_elasticsearchRolePolicy = new RolePolicy("firehose-elasticsearchRolePolicy", RolePolicyArgs.builder()
  *             .name("elasticsearch")
  *             .role(firehose.id())
- *             .policy(firehose_elasticsearch.applyValue(firehose_elasticsearch -> firehose_elasticsearch.json()))
+ *             .policy(firehose_elasticsearch.applyValue(_firehose_elasticsearch -> _firehose_elasticsearch.json()))
  *             .build());
  * 
  *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()
@@ -601,7 +601,7 @@ import javax.annotation.Nullable;
  *                     .compressionFormat("GZIP")
  *                     .build())
  *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("Lambda")
  *                         .parameters(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs.builder()
@@ -794,7 +794,7 @@ import javax.annotation.Nullable;
  *                     .compressionFormat("GZIP")
  *                     .build())
  *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("Lambda")
  *                         .parameters(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs.builder()
@@ -853,11 +853,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("test-bucket")
@@ -876,11 +879,11 @@ import javax.annotation.Nullable;
  *             .openTableFormatInput(CatalogTableOpenTableFormatInputArgs.builder()
  *                 .icebergInput(CatalogTableOpenTableFormatInputIcebergInputArgs.builder()
  *                     .metadataOperation("CREATE")
- *                     .version(2)
+ *                     .version("2")
  *                     .build())
  *                 .build())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .location(bucket.id().applyValue(id -> String.format("s3://%s", id)))
+ *                 .location(bucket.id().applyValue(_id -> String.format("s3://%s", _id)))
  *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
  *                     .name("my_column_1")
  *                     .type("int")
@@ -893,7 +896,7 @@ import javax.annotation.Nullable;
  *             .destination("iceberg")
  *             .icebergConfiguration(FirehoseDeliveryStreamIcebergConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
- *                 .catalogArn(String.format("arn:%s:glue:%s:%s:catalog", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                 .catalogArn(String.format("arn:%s:glue:%s:%s:catalog", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
  *                 .bufferingSize(10)
  *                 .bufferingInterval(400)
  *                 .s3Configuration(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs.builder()
@@ -905,7 +908,7 @@ import javax.annotation.Nullable;
  *                     .tableName(testCatalogTable.name())
  *                     .build())
  *                 .processingConfiguration(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled("true")
+ *                     .enabled(true)
  *                     .processors(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs.builder()
  *                         .type("Lambda")
  *                         .parameters(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs.builder()

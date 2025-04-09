@@ -109,7 +109,8 @@ import javax.annotation.Nullable;
  *                     .mutable(false)
  *                     .required(false)
  *                     .developerOnlyAttribute(false)
- *                     .stringAttributeConstraints()
+ *                     .stringAttributeConstraints(UserPoolSchemaStringAttributeConstraintsArgs.builder()
+ *                         .build())
  *                     .build())
  *             .build());
  * 
@@ -117,10 +118,10 @@ import javax.annotation.Nullable;
  *             .userPoolId(example.id())
  *             .username("example")
  *             .attributes(Map.ofEntries(
- *                 Map.entry("example", true),
+ *                 Map.entry("example", "true"),
  *                 Map.entry("foo", "bar"),
  *                 Map.entry("email", "no-reply}{@literal @}{@code example.com"),
- *                 Map.entry("email_verified", true)
+ *                 Map.entry("email_verified", "true")
  *             ))
  *             .build());
  * 

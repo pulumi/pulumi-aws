@@ -98,8 +98,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .airflowConfigurationOptions(Map.ofEntries(
- *                 Map.entry("core.default_task_retries", 16),
- *                 Map.entry("core.parallelism", 1)
+ *                 Map.entry("core.default_task_retries", "16"),
+ *                 Map.entry("core.parallelism", "1")
  *             ))
  *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())

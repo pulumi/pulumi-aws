@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .description("neptune cluster parameter group")
  *             .parameters(ClusterParameterGroupParameterArgs.builder()
  *                 .name("neptune_enable_audit_log")
- *                 .value(1)
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 

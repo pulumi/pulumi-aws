@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()
  *             .apiId(example.id())
  *             .routeKey("ANY /example/{proxy+}")
- *             .target(exampleIntegration.id().applyValue(id -> String.format("integrations/%s", id)))
+ *             .target(exampleIntegration.id().applyValue(_id -> String.format("integrations/%s", _id)))
  *             .build());
  * 
  *     }

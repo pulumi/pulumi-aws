@@ -62,11 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -78,12 +81,12 @@ import javax.annotation.Nullable;
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
- *                         .values(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .values(current.accountId())
  *                         .variable("aws:SourceAccount")
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnLike")
- *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
  *                         .variable("AWS:SourceArn")
  *                         .build())
  *                 .build())
@@ -93,25 +96,25 @@ import javax.annotation.Nullable;
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions("bedrock:InvokeModel")
- *                     .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
+ *                     .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.partition(),currentGetRegion.name()))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
  *                         "bedrock:GetAgentAlias",
  *                         "bedrock:InvokeAgent")
  *                     .resources(                    
- *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentAgent.partition(),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())),
- *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentAgent.partition(),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentAgent.partition(),currentGetRegion.name(),current.accountId()),
+ *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentAgent.partition(),currentGetRegion.name(),current.accountId()))
  *                     .build())
  *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
- *             .assumeRolePolicy(exampleAgentTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(exampleAgentTrust.json())
  *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
- *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(exampleAgentPermissions.json())
  *             .role(example.id())
  *             .build());
  * 

@@ -1112,9 +1112,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1132,13 +1133,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1195,9 +1196,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1215,13 +1217,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1278,9 +1280,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1298,13 +1301,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1361,9 +1364,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1381,13 +1385,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1444,9 +1448,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1464,13 +1469,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1527,9 +1532,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1547,13 +1553,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1610,9 +1616,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
@@ -1630,13 +1637,13 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(example.id())
      *                         .type("CanonicalUser")
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
-     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .id(current.id())
      *                     .build())
      *                 .build())
      *             .build(), CustomResourceOptions.builder()
@@ -1903,7 +1910,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1984,7 +1992,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2065,7 +2074,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2146,7 +2156,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2227,7 +2238,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2308,7 +2320,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2389,7 +2402,8 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *             .build());
      * 
      *     }
      * }

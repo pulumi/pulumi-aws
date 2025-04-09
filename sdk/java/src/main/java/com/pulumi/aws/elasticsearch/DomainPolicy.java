@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()
  *             .domainName(example.domainName())
- *             .accessPolicies(example.arn().applyValue(arn -> """
+ *             .accessPolicies(example.arn().applyValue(_arn -> """
  * {
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *         }
  *     ]
  * }
- * ", arn)))
+ * ", _arn)))
  *             .build());
  * 
  *     }

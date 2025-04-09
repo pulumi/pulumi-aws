@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("examplequeue")
  *             .build());
  * 
- *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = q.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid("First")
  *                 .effect("Allow")
@@ -62,18 +62,18 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("sqs:SendMessage")
- *                 .resources(q.arn())
+ *                 .resources(_arn)
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(example.arn())
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()
  *             .queueUrl(q.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(_test -> _test.json()))
  *             .build());
  * 
  *     }

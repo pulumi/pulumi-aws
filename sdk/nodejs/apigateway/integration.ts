@@ -61,8 +61,8 @@ import {RestApi} from "./index";
  * import * as std from "@pulumi/std";
  *
  * const config = new pulumi.Config();
- * const myregion = config.requireObject("myregion");
- * const accountId = config.requireObject("accountId");
+ * const myregion = config.requireObject<any>("myregion");
+ * const accountId = config.requireObject<any>("accountId");
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {name: "myapi"});
  * const resource = new aws.apigateway.Resource("resource", {
@@ -126,8 +126,8 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const name = config.requireObject("name");
- * const subnetId = config.requireObject("subnetId");
+ * const name = config.requireObject<any>("name");
+ * const subnetId = config.requireObject<any>("subnetId");
  * const test = new aws.lb.LoadBalancer("test", {
  *     name: name,
  *     internal: true,

@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *         var test = new Disk("test", DiskArgs.builder()
  *             .name("test-disk")
  *             .sizeInGb(8)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .build());
  * 
  *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("test-instance")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());

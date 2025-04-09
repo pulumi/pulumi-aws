@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var web = new Instance("web", InstanceArgs.builder()
- *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(ubuntu.id())
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
  *                 .marketType("spot")
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
- *                     .maxPrice(0.0031)
+ *                     .maxPrice("0.0031")
  *                     .build())
  *                 .build())
  *             .instanceType("t4g.nano")

@@ -47,16 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var example = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
+ *             .build());
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
- *                         .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .region(example.names()[0])
+ *                         .registryId(current.accountId())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -97,21 +99,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var example = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
+ *             .build());
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(                    
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
- *                             .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                             .region(example.names()[0])
+ *                             .registryId(current.accountId())
  *                             .build(),
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[1]))
- *                             .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                             .region(example.names()[1])
+ *                             .registryId(current.accountId())
  *                             .build())
  *                     .build())
  *                 .build())
@@ -152,16 +156,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var example = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions(GetRegionsArgs.builder()
+ *             .build());
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
- *                         .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .region(example.names()[0])
+ *                         .registryId(current.accountId())
  *                         .build())
  *                     .repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter("prod-microservice")

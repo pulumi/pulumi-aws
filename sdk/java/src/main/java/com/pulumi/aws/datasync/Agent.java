@@ -88,10 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .serviceName(String.format("com.amazonaws.%s.datasync", current.applyValue(getRegionResult -> getRegionResult.name())))
+ *             .serviceName(String.format("com.amazonaws.%s.datasync", current.name()))
  *             .vpcId(exampleAwsVpc.id())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .subnetIds(exampleAwsSubnet.id())
@@ -99,7 +100,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
- *             .id(exampleVpcEndpoint.networkInterfaceIds().applyValue(networkInterfaceIds -> networkInterfaceIds[0]))
+ *             .id(exampleVpcEndpoint.networkInterfaceIds().applyValue(_networkInterfaceIds -> _networkInterfaceIds[0]))
  *             .build());
  * 
  *         var exampleAgent = new Agent("exampleAgent", AgentArgs.builder()
@@ -107,7 +108,7 @@ import javax.annotation.Nullable;
  *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .subnetArns(exampleAwsSubnet.arn())
  *             .vpcEndpointId(exampleVpcEndpoint.id())
- *             .privateLinkEndpoint(example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult).applyValue(example -> example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.privateIp())))
+ *             .privateLinkEndpoint(example.applyValue(_example -> _example.privateIp()))
  *             .name("example")
  *             .build());
  * 

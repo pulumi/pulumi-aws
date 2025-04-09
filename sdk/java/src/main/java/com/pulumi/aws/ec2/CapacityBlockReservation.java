@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new CapacityBlockReservation("example", CapacityBlockReservationArgs.builder()
- *             .capacityBlockOfferingId(test.applyValue(getCapacityBlockOfferingResult -> getCapacityBlockOfferingResult.capacityBlockOfferingId()))
+ *             .capacityBlockOfferingId(test.capacityBlockOfferingId())
  *             .instancePlatform("Linux/UNIX")
  *             .tags(Map.of("Environment", "dev"))
  *             .build());

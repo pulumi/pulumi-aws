@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testRole = new Role("testRole", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var stream = new EventStream("stream", EventStreamArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *         var testRolePolicyRolePolicy = new RolePolicy("testRolePolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("test_policy")
  *             .role(testRole.id())
- *             .policy(testRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(testRolePolicy.json())
  *             .build());
  * 
  *     }}{@code

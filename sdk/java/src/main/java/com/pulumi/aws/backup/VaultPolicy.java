@@ -47,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = exampleVault.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
- *                     .identifiers(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                     .identifiers(current.accountId())
  *                     .build())
  *                 .actions(                
  *                     "backup:DescribeBackupVault",
@@ -69,13 +70,13 @@ import javax.annotation.Nullable;
  *                     "backup:StartBackupJob",
  *                     "backup:GetBackupVaultNotifications",
  *                     "backup:PutBackupVaultNotifications")
- *                 .resources(exampleVault.arn())
+ *                 .resources(_arn)
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()
  *             .backupVaultName(exampleVault.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

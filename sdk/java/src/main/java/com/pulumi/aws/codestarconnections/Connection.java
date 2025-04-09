@@ -55,7 +55,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
- *             .artifactStores()
+ *             .artifactStores(PipelineArtifactStoreArgs.builder()
+ *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
  *                     .name("Source")
@@ -74,11 +75,13 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .actions()
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .build())
  *                     .name("Build")
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .actions()
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .build())
  *                     .name("Deploy")
  *                     .build())
  *             .name("tf-test-pipeline")

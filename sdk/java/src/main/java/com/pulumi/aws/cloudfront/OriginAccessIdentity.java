@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
- *             .policy(s3Policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(s3Policy.json())
  *             .build());
  * 
  *     }

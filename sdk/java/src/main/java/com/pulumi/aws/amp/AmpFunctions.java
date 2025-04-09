@@ -47,7 +47,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -86,7 +86,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -125,7 +125,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -164,7 +164,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -203,7 +203,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -242,7 +242,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -281,7 +281,7 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -543,7 +543,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -621,7 +622,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -699,7 +701,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -777,7 +780,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -855,7 +859,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -933,7 +938,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1011,7 +1017,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .build());
      * 
      *     }
      * }

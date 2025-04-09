@@ -270,7 +270,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -311,7 +311,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -352,7 +352,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -393,7 +393,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -434,7 +434,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -475,7 +475,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -516,7 +516,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getLinks();
+     *         final var example = OamFunctions.getLinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -777,7 +777,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -818,7 +818,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -859,7 +859,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -900,7 +900,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -941,7 +941,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -982,7 +982,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1023,7 +1023,7 @@ public final class OamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OamFunctions.getSinks();
+     *         final var example = OamFunctions.getSinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

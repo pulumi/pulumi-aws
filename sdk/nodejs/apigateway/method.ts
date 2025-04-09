@@ -39,7 +39,7 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
+ * const cognitoUserPoolName = config.requireObject<any>("cognitoUserPoolName");
  * const _this = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * });

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testUploadBuffer = new UploadBuffer("testUploadBuffer", UploadBufferArgs.builder()
- *             .diskPath(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskPath()))
+ *             .diskPath(test.diskPath())
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 

@@ -58,9 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()
  *             .bucket("example")
@@ -72,7 +74,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("Allow PutObject")
  *                     .actions("s3:PutObject")
- *                     .resources(gdBucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     .resources(gdBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers("guardduty.amazonaws.com")
@@ -94,7 +96,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("Allow GuardDuty to encrypt findings")
  *                     .actions("kms:GenerateDataKey")
- *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.name(),current.accountId()))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("Service")
  *                         .identifiers("guardduty.amazonaws.com")
@@ -103,10 +105,10 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("Allow all users to modify/delete key (test only)")
  *                     .actions("kms:*")
- *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                     .resources(String.format("arn:aws:kms:%s:%s:key/*", currentGetRegion.name(),current.accountId()))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
- *                         .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
  *                         .build())
  *                     .build())
  *             .build());
@@ -122,13 +124,13 @@ import javax.annotation.Nullable;
  * 
  *         var gdBucketPolicy = new BucketPolicy("gdBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(gdBucket.id())
- *             .policy(bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(bucketPol -> bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(bucketPol.applyValue(_bucketPol -> _bucketPol.json()))
  *             .build());
  * 
  *         var gdKey = new Key("gdKey", KeyArgs.builder()
  *             .description("Temporary key for AccTest of TF")
  *             .deletionWindowInDays(7)
- *             .policy(kmsPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(kmsPol.json())
  *             .build());
  * 
  *         var test = new PublishingDestination("test", PublishingDestinationArgs.builder()

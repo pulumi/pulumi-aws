@@ -281,7 +281,7 @@ public final class SsmFunctions {
      *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
+     *         ctx.export("content", foo.content());
      *     }
      * }
      * }
@@ -363,7 +363,7 @@ public final class SsmFunctions {
      *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
+     *         ctx.export("content", foo.content());
      *     }
      * }
      * }
@@ -445,7 +445,7 @@ public final class SsmFunctions {
      *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
+     *         ctx.export("content", foo.content());
      *     }
      * }
      * }
@@ -527,7 +527,7 @@ public final class SsmFunctions {
      *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
+     *         ctx.export("content", foo.content());
      *     }
      * }
      * }
@@ -609,7 +609,7 @@ public final class SsmFunctions {
      *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
+     *         ctx.export("content", foo.content());
      *     }
      * }
      * }
@@ -1971,7 +1971,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2056,7 +2057,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2141,7 +2143,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2226,7 +2229,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2311,7 +2315,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2396,7 +2401,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2481,7 +2487,8 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getPatchBaselines();
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .build());
      * 
      *     }
      * }

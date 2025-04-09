@@ -72,17 +72,18 @@ import javax.annotation.Nullable;
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .description("My example policy")
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(example.json())
  *             .build());
  * 
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
- *                     .identifiers(String.format("budgets.%s", current.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
+ *                     .identifiers(String.format("budgets.%s", current.dnsSuffix()))
  *                     .build())
  *                 .actions("sts:AssumeRole")
  *                 .build())
@@ -90,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var exampleBudget = new Budget("exampleBudget", BudgetArgs.builder()
@@ -110,7 +111,7 @@ import javax.annotation.Nullable;
  *             .executionRoleArn(exampleRole.arn())
  *             .actionThreshold(BudgetActionActionThresholdArgs.builder()
  *                 .actionThresholdType("ABSOLUTE_VALUE")
- *                 .actionThresholdValue(100)
+ *                 .actionThresholdValue(100.0)
  *                 .build())
  *             .definition(BudgetActionDefinitionArgs.builder()
  *                 .iamActionDefinition(BudgetActionDefinitionIamActionDefinitionArgs.builder()

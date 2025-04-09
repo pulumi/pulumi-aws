@@ -126,9 +126,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var domain = config.get("domain").orElse("tf-test");
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -138,7 +140,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
@@ -149,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domainName(domain)
- *             .accessPolicies(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .accessPolicies(example.json())
  *             .build());
  * 
  *     }
@@ -211,7 +213,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyName("example")
- *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policyDocument(example.json())
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
@@ -278,24 +280,26 @@ import javax.annotation.Nullable;
  *         final var exampleGetSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
  *                 .name("vpc-id")
- *                 .values(example.applyValue(getVpcResult -> getVpcResult.id()))
+ *                 .values(example.id())
  *                 .build())
  *             .tags(Map.of("Tier", "private"))
  *             .build());
  * 
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
  *             .name(String.format("%s-opensearch-%s", vpc,domain))
  *             .description("Managed by Pulumi")
- *             .vpcId(example.applyValue(getVpcResult -> getVpcResult.id()))
+ *             .vpcId(example.id())
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol("tcp")
- *                 .cidrBlocks(example.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+ *                 .cidrBlocks(example.cidrBlock())
  *                 .build())
  *             .build());
  * 
@@ -311,7 +315,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
  *                 .build())
  *             .build());
  * 
@@ -324,12 +328,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     exampleGetSubnets.applyValue(getSubnetsResult -> getSubnetsResult.ids()[0]),
- *                     exampleGetSubnets.applyValue(getSubnetsResult -> getSubnetsResult.ids()[1]))
+ *                     exampleGetSubnets.ids()[0],
+ *                     exampleGetSubnets.ids()[1])
  *                 .securityGroupIds(exampleSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
- *             .accessPolicies(exampleGetPolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .accessPolicies(exampleGetPolicyDocument.json())
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleServiceLinkedRole)

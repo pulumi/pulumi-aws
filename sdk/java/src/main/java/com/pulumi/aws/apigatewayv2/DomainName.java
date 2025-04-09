@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .aliases(RecordAliasArgs.builder()
- *                 .name(example.domainNameConfiguration().applyValue(domainNameConfiguration -> domainNameConfiguration.targetDomainName()))
- *                 .zoneId(example.domainNameConfiguration().applyValue(domainNameConfiguration -> domainNameConfiguration.hostedZoneId()))
+ *                 .name(example.domainNameConfiguration().applyValue(_domainNameConfiguration -> _domainNameConfiguration.targetDomainName()))
+ *                 .zoneId(example.domainNameConfiguration().applyValue(_domainNameConfiguration -> _domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)
  *                 .build())
  *             .build());

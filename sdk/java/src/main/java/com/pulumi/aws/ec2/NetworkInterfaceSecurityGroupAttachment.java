@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var instance = new Instance("instance", InstanceArgs.builder()
  *             .instanceType("t2.micro")
- *             .ami(ami.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(ami.id())
  *             .tags(Map.of("type", "test-instance"))
  *             .build());
  * 
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  * 
  *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment("sgAttachment", NetworkInterfaceSecurityGroupAttachmentArgs.builder()
  *             .securityGroupId(sg.id())
- *             .networkInterfaceId(instance.applyValue(getInstanceResult -> getInstanceResult.networkInterfaceId()))
+ *             .networkInterfaceId(instance.networkInterfaceId())
  *             .build());
  * 
  *     }

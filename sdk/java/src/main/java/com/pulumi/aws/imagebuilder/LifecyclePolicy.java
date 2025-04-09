@@ -59,9 +59,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
@@ -71,7 +73,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Action", "sts:AssumeRole"),
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("Service", String.format("imagebuilder.%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
+ *                             jsonProperty("Service", String.format("imagebuilder.%s", currentGetPartition.dnsSuffix()))
  *                         ))
  *                     )))
  *                 )))
@@ -79,7 +81,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .policyArn(String.format("arn:%s:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition())))
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy", currentGetPartition.partition()))
  *             .role(example.name())
  *             .build());
  * 

@@ -273,7 +273,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -314,7 +314,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -355,7 +355,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -396,7 +396,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -437,7 +437,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -478,7 +478,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -519,7 +519,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters();
+     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1039,7 +1039,7 @@ public final class EcsFunctions {
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
      *     }
@@ -1120,7 +1120,7 @@ public final class EcsFunctions {
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
      *     }
@@ -1201,7 +1201,7 @@ public final class EcsFunctions {
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
      *     }
@@ -1282,7 +1282,7 @@ public final class EcsFunctions {
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
      *     }
@@ -1363,7 +1363,7 @@ public final class EcsFunctions {
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(_mongo -> _mongo.arn()))
      *             .build());
      * 
      *     }

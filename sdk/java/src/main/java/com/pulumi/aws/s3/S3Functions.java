@@ -64,7 +64,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -104,7 +105,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -144,7 +146,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -184,7 +187,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -224,7 +228,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -264,7 +269,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -304,7 +310,8 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     *         final var example = S3Functions.getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -363,12 +370,12 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .zoneId(testZone.id())
      *             .name("bucket")
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
+     *                 .name(selected.websiteDomain())
+     *                 .zoneId(selected.hostedZoneId())
      *                 .build())
      *             .build());
      * 
@@ -412,7 +419,7 @@ public final class S3Functions {
      * 
      *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.bucketDomainName())
      *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
@@ -474,12 +481,12 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .zoneId(testZone.id())
      *             .name("bucket")
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
+     *                 .name(selected.websiteDomain())
+     *                 .zoneId(selected.hostedZoneId())
      *                 .build())
      *             .build());
      * 
@@ -523,7 +530,7 @@ public final class S3Functions {
      * 
      *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.bucketDomainName())
      *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
@@ -585,12 +592,12 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .zoneId(testZone.id())
      *             .name("bucket")
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
+     *                 .name(selected.websiteDomain())
+     *                 .zoneId(selected.hostedZoneId())
      *                 .build())
      *             .build());
      * 
@@ -634,7 +641,7 @@ public final class S3Functions {
      * 
      *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.bucketDomainName())
      *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
@@ -696,12 +703,12 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .zoneId(testZone.id())
      *             .name("bucket")
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
+     *                 .name(selected.websiteDomain())
+     *                 .zoneId(selected.hostedZoneId())
      *                 .build())
      *             .build());
      * 
@@ -745,7 +752,7 @@ public final class S3Functions {
      * 
      *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.bucketDomainName())
      *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
@@ -807,12 +814,12 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
+     *             .zoneId(testZone.id())
      *             .name("bucket")
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.applyValue(getBucketResult -> getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.applyValue(getBucketResult -> getBucketResult.hostedZoneId()))
+     *                 .name(selected.websiteDomain())
+     *                 .zoneId(selected.hostedZoneId())
      *                 .build())
      *             .build());
      * 
@@ -856,7 +863,7 @@ public final class S3Functions {
      * 
      *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.bucketDomainName())
      *                 .originId("s3-selected-bucket")
      *                 .build())
      *             .build());
@@ -930,7 +937,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -976,9 +983,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.id())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -1053,7 +1060,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -1099,9 +1106,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.id())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -1176,7 +1183,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -1222,9 +1229,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.id())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -1299,7 +1306,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -1345,9 +1352,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.id())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -1422,7 +1429,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -1468,9 +1475,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
-     *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.id())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -1575,7 +1582,7 @@ public final class S3Functions {
      *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.policy());
      *     }
      * }
      * }
@@ -1620,7 +1627,7 @@ public final class S3Functions {
      *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.policy());
      *     }
      * }
      * }
@@ -1665,7 +1672,7 @@ public final class S3Functions {
      *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.policy());
      *     }
      * }
      * }
@@ -1710,7 +1717,7 @@ public final class S3Functions {
      *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.policy());
      *     }
      * }
      * }
@@ -1755,7 +1762,7 @@ public final class S3Functions {
      *             .bucket("example-bucket-name")
      *             .build());
      * 
-     *         ctx.export("foo", example.applyValue(getBucketPolicyResult -> getBucketPolicyResult.policy()));
+     *         ctx.export("foo", example.policy());
      *     }
      * }
      * }
@@ -1796,9 +1803,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -1839,9 +1846,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -1882,9 +1889,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -1925,9 +1932,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -1968,9 +1975,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -2011,9 +2018,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -2054,9 +2061,9 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId();
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("canonicalUserId", current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()));
+     *         ctx.export("canonicalUserId", current.id());
      *     }
      * }
      * }
@@ -2094,7 +2101,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2133,7 +2140,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2172,7 +2179,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2211,7 +2218,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2250,7 +2257,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2289,7 +2296,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2328,7 +2335,7 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = S3Functions.getDirectoryBuckets();
+     *         final var example = S3Functions.getDirectoryBuckets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2398,7 +2405,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -2444,9 +2451,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .s3Bucket(lambda.bucket())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -2520,7 +2527,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -2566,9 +2573,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .s3Bucket(lambda.bucket())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -2642,7 +2649,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -2688,9 +2695,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .s3Bucket(lambda.bucket())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -2764,7 +2771,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -2810,9 +2817,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .s3Bucket(lambda.bucket())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")
@@ -2886,7 +2893,7 @@ public final class S3Functions {
      *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
-     *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
+     *             .userData(bootstrapScript.body())
      *             .build());
      * 
      *     }
@@ -2932,9 +2939,9 @@ public final class S3Functions {
      *             .build());
      * 
      *         var testLambda = new Function("testLambda", FunctionArgs.builder()
-     *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
-     *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
+     *             .s3Bucket(lambda.bucket())
+     *             .s3Key(lambda.key())
+     *             .s3ObjectVersion(lambda.versionId())
      *             .name("lambda_function_name")
      *             .role(iamForLambda.arn())
      *             .handler("exports.test")

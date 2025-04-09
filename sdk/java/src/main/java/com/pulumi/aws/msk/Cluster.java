@@ -99,19 +99,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var subnetAz1 = new Subnet("subnetAz1", SubnetArgs.builder()
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(azs.names()[0])
  *             .cidrBlock("192.168.0.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
  *         var subnetAz2 = new Subnet("subnetAz2", SubnetArgs.builder()
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(azs.names()[1])
  *             .cidrBlock("192.168.1.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
  *         var subnetAz3 = new Subnet("subnetAz3", SubnetArgs.builder()
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[2]))
+ *             .availabilityZone(azs.names()[2])
  *             .cidrBlock("192.168.2.0/24")
  *             .vpcId(vpc.id())
  *             .build());
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  * 
  *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()
  *             .name("firehose_test_role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()

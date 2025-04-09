@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *         var example = new RestApi("example");
  * 
  *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
- *             .name(example.id().applyValue(id -> String.format("API-Gateway-Execution-Logs_%s/%s", id,stageName)))
+ *             .name(example.id().applyValue(_id -> String.format("API-Gateway-Execution-Logs_%s/%s", _id,stageName)))
  *             .retentionInDays(7)
  *             .build());
  * 

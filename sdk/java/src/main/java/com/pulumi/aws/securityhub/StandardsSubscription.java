@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var cis = new StandardsSubscription("cis", StandardsSubscriptionArgs.builder()
  *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()
- *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.applyValue(getRegionResult -> getRegionResult.name())))
+ *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.name()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

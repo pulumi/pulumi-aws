@@ -85,9 +85,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()
- *             .name(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
+ *             .name(examplepartner.name())
  *             .description("Event bus for example partner events")
- *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
+ *             .eventSourceName(examplepartner.name())
  *             .build());
  * 
  *     }

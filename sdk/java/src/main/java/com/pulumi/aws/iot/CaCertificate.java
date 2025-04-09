@@ -34,14 +34,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.tls.privateKey;
- * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.tls.privateKeyArgs;
  * import com.pulumi.tls.selfSignedCert;
- * import com.pulumi.tls.SelfSignedCertArgs;
+ * import com.pulumi.tls.selfSignedCertArgs;
  * import com.pulumi.aws.iot.IotFunctions;
  * import com.pulumi.tls.certRequest;
- * import com.pulumi.tls.CertRequestArgs;
+ * import com.pulumi.tls.certRequestArgs;
  * import com.pulumi.tls.locallySignedCert;
- * import com.pulumi.tls.LocallySignedCertArgs;
+ * import com.pulumi.tls.locallySignedCertArgs;
  * import com.pulumi.aws.iot.CaCertificate;
  * import com.pulumi.aws.iot.CaCertificateArgs;
  * import java.util.List;
@@ -63,12 +63,15 @@ import javax.annotation.Nullable;
  * 
  *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
- *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .subject(List.of(Map.ofEntries(
+ *                 Map.entry("commonName", "example.com"),
+ *                 Map.entry("organization", "ACME Examples, Inc")
+ *             )))
  *             .validityPeriodHours(12)
- *             .allowedUses(            
+ *             .allowedUses(List.of(            
  *                 "key_encipherment",
  *                 "digital_signature",
- *                 "server_auth")
+ *                 "server_auth"))
  *             .isCaCertificate(true)
  *             .build());
  * 
@@ -76,11 +79,11 @@ import javax.annotation.Nullable;
  *             .algorithm("RSA")
  *             .build());
  * 
- *         final var example = IotFunctions.getRegistrationCode();
+ *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
- *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .subject(List.of(Map.of("commonName", example.registrationCode())))
  *             .build());
  * 
  *         var verificationLocallySignedCert = new LocallySignedCert("verificationLocallySignedCert", LocallySignedCertArgs.builder()
@@ -88,10 +91,10 @@ import javax.annotation.Nullable;
  *             .caPrivateKeyPem(caPrivateKey.privateKeyPem())
  *             .caCertPem(ca.certPem())
  *             .validityPeriodHours(12)
- *             .allowedUses(            
+ *             .allowedUses(List.of(            
  *                 "key_encipherment",
  *                 "digital_signature",
- *                 "server_auth")
+ *                 "server_auth"))
  *             .build());
  * 
  *         var exampleCaCertificate = new CaCertificate("exampleCaCertificate", CaCertificateArgs.builder()

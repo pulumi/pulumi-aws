@@ -68,14 +68,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         final var currentGetSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
- *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+ *             .arn(current.arn())
  *             .build());
  * 
  *         var test = new DataLakeSettings("test", DataLakeSettingsArgs.builder()
- *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -> getSessionContextResult.issuerArn()))
+ *             .admins(currentGetSessionContext.issuerArn())
  *             .build());
  * 
  *     }

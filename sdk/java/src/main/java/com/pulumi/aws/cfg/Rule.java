@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var rRole = new Role("rRole", RoleArgs.builder()
  *             .name("my-awsconfig-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var foo = new Recorder("foo", RecorderArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
  *             .name("my-awsconfig-policy")
  *             .role(rRole.id())
- *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(p.json())
  *             .build());
  * 
  *     }

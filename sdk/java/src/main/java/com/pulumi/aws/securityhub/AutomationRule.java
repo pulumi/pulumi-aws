@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *                 .findingFieldsUpdate(AutomationRuleActionFindingFieldsUpdateArgs.builder()
  *                     .severity(AutomationRuleActionFindingFieldsUpdateSeverityArgs.builder()
  *                         .label("CRITICAL")
- *                         .product("0.0")
+ *                         .product(0.0)
  *                         .build())
  *                     .note(AutomationRuleActionFindingFieldsUpdateNoteArgs.builder()
  *                         .text("This is a critical resource. Please review ASAP.")

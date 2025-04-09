@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()
  *             .customModelName("example-model")
  *             .jobName("example-job-1")
- *             .baseModelIdentifier(example.applyValue(getModelResult -> getModelResult.modelArn()))
+ *             .baseModelIdentifier(example.modelArn())
  *             .roleArn(exampleAwsIamRole.arn())
  *             .hyperparameters(Map.ofEntries(
  *                 Map.entry("epochCount", "1"),

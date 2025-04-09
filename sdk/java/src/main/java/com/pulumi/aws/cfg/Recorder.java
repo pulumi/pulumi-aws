@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var r = new Role("r", RoleArgs.builder()
  *             .name("awsconfig-example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var foo = new Recorder("foo", RecorderArgs.builder()

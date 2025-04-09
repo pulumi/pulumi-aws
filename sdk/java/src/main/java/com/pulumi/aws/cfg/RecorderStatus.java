@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *         var r = new Role("r", RoleArgs.builder()
  *             .name("example-awsconfig")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()
@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
  *                 .actions("s3:*")
  *                 .resources(                
  *                     b.arn(),
- *                     b.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     b.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
  *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
  *             .name("awsconfig-example")
  *             .role(r.id())
- *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(p -> p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(p.applyValue(_p -> _p.json()))
  *             .build());
  * 
  *     }

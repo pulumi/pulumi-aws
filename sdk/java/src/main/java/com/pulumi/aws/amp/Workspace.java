@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
- *                 .logGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *                 .logGroupArn(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *                 .build())
  *             .build());
  * 

@@ -114,6 +114,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64sha256Args;
  * import com.pulumi.aws.apigateway.Integration;
  * import com.pulumi.aws.apigateway.IntegrationArgs;
  * import com.pulumi.aws.lambda.Permission;
@@ -167,7 +169,7 @@ import javax.annotation.Nullable;
  * 
  *         var role = new Role("role", RoleArgs.builder()
  *             .name("myrole")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var lambda = new Function("lambda", FunctionArgs.builder()

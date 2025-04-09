@@ -56,12 +56,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -103,12 +103,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -150,12 +150,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -197,12 +197,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -244,12 +244,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -291,12 +291,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -338,12 +338,12 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
+     *         final var current = EbsFunctions.getDefaultKmsKey(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.keyArn())
      *             .build());
      * 
      *     }
@@ -495,7 +495,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -534,7 +534,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -573,7 +573,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -612,7 +612,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -651,7 +651,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -690,7 +690,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -729,7 +729,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
+     *         final var current = EbsFunctions.getEncryptionByDefault(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

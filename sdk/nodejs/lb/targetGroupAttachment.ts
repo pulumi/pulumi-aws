@@ -52,29 +52,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Registering Multiple Targets
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example: aws.ec2.Instance[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     example.push(new aws.ec2.Instance(`example-${range.value}`, {}));
- * }
- * const exampleTargetGroup = new aws.lb.TargetGroup("example", {});
- * const exampleTargetGroupAttachment: aws.lb.TargetGroupAttachment[] = [];
- * pulumi.all(example.map((v, k) => [k, v]).reduce((__obj, [k, v]) => ({ ...__obj, [k]: v }))).apply(rangeBody => {
- *     for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
- *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`example-${range.key}`, {
- *             targetGroupArn: exampleTargetGroup.arn,
- *             targetId: range.value.id,
- *             port: 80,
- *         }));
- *     }
- * });
- * ```
- *
  * ## Import
  *
  * You cannot import Target Group Attachments.

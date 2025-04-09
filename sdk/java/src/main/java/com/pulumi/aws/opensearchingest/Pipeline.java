@@ -57,7 +57,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
@@ -76,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .pipelineName("example")
- *             .pipelineConfigurationBody(example.arn().applyValue(arn -> """
+ *             .pipelineConfigurationBody(example.arn().applyValue(_arn -> """
  * version: "2"
  * example-pipeline:
  *   source:
@@ -92,7 +93,7 @@ import javax.annotation.Nullable;
  *           event_collect_timeout: "60s"
  *         codec:
  *           ndjson:
- * ", arn,current.applyValue(getRegionResult -> getRegionResult.name()))))
+ * ", _arn,current.name())))
  *             .maxUnits(1)
  *             .minUnits(1)
  *             .build());
@@ -115,6 +116,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearchingest.Pipeline;
  * import com.pulumi.aws.opensearchingest.PipelineArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

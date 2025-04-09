@@ -701,7 +701,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -743,7 +743,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -785,7 +785,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -827,7 +827,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -869,7 +869,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -911,7 +911,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -953,7 +953,7 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
+     *         final var available = DirectconnectFunctions.getLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

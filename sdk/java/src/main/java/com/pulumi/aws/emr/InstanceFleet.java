@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .clusterId(cluster.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
  *                         .type("gp2")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                     .weightedCapacity(1)
  *                     .build(),
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
  *                         .type("gp2")

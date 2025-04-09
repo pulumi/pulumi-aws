@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dms_access_for_endpoint = new Role("dms-access-for-endpoint", RoleArgs.builder()
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.json())
  *             .name("dms-access-for-endpoint")
  *             .build());
  * 
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dms_cloudwatch_logs_role = new Role("dms-cloudwatch-logs-role", RoleArgs.builder()
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.json())
  *             .name("dms-cloudwatch-logs-role")
  *             .build());
  * 
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()
- *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.json())
  *             .name("dms-vpc-role")
  *             .build());
  * 

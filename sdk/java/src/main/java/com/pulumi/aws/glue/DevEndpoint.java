@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("AWSGlueServiceRole-foo")
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(example.json())
  *             .build());
  * 
  *         var exampleDevEndpoint = new DevEndpoint("exampleDevEndpoint", DevEndpointArgs.builder()

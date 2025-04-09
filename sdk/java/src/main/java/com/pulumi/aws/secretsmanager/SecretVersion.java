@@ -87,7 +87,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var example = config.get("example").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         final var example = config.get("example").orElse(Map.ofEntries(
+ *             Map.entry("key1", "value1"),
+ *             Map.entry("key2", "value2")
+ *         ));
  *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(

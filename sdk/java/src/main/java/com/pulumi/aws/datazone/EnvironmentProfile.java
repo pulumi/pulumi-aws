@@ -128,9 +128,11 @@ import javax.annotation.Nullable;
  *             .skipDeletionCheck(true)
  *             .build());
  * 
- *         final var test = AwsFunctions.getCallerIdentity();
+ *         final var test = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var testGetRegion = AwsFunctions.getRegion();
+ *         final var testGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var testGetEnvironmentBlueprint = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
  *             .domainId(testDomain.id())
@@ -140,16 +142,16 @@ import javax.annotation.Nullable;
  * 
  *         var testEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("testEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()
  *             .domainId(testDomain.id())
- *             .environmentBlueprintId(testGetEnvironmentBlueprint.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult).applyValue(testGetEnvironmentBlueprint -> testGetEnvironmentBlueprint.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult.id())))
+ *             .environmentBlueprintId(testGetEnvironmentBlueprint.applyValue(_testGetEnvironmentBlueprint -> _testGetEnvironmentBlueprint.id()))
  *             .provisioningRoleArn(domainExecutionRole.arn())
- *             .enabledRegions(testGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .enabledRegions(testGetRegion.name())
  *             .build());
  * 
  *         var testEnvironmentProfile = new EnvironmentProfile("testEnvironmentProfile", EnvironmentProfileArgs.builder()
- *             .awsAccountId(test.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
- *             .awsAccountRegion(testGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .awsAccountId(test.accountId())
+ *             .awsAccountRegion(testGetRegion.name())
  *             .description("description")
- *             .environmentBlueprintIdentifier(testGetEnvironmentBlueprint.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult).applyValue(testGetEnvironmentBlueprint -> testGetEnvironmentBlueprint.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult.id())))
+ *             .environmentBlueprintIdentifier(testGetEnvironmentBlueprint.applyValue(_testGetEnvironmentBlueprint -> _testGetEnvironmentBlueprint.id()))
  *             .name("example-name")
  *             .projectIdentifier(testProject.id())
  *             .domainIdentifier(testDomain.id())

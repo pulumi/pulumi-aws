@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()
  *             .name("test")
  *             .user(lbUser.name())
- *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(lbRo.json())
  *             .build());
  * 
  *         ctx.export("secret", lb.encryptedSecret());

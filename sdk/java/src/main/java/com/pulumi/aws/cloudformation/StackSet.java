@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aWSCloudFormationStackSetAdministrationRole = new Role("aWSCloudFormationStackSetAdministrationRole", RoleArgs.builder()
- *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json())
  *             .name("AWSCloudFormationStackSetAdministrationRole")
  *             .build());
  * 
@@ -110,13 +110,13 @@ import javax.annotation.Nullable;
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("sts:AssumeRole")
  *                 .effect("Allow")
- *                 .resources(example.executionRoleName().applyValue(executionRoleName -> String.format("arn:aws:iam::*:role/%s", executionRoleName)))
+ *                 .resources(example.executionRoleName().applyValue(_executionRoleName -> String.format("arn:aws:iam::*:role/%s", _executionRoleName)))
  *                 .build())
  *             .build());
  * 
  *         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("ExecutionPolicy")
- *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy -> aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(_aWSCloudFormationStackSetAdministrationRoleExecutionPolicy -> _aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.json()))
  *             .role(aWSCloudFormationStackSetAdministrationRole.name())
  *             .build());
  * 

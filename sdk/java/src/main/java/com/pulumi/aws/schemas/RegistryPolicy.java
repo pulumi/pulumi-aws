@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRegistryPolicy = new RegistryPolicy("exampleRegistryPolicy", RegistryPolicyArgs.builder()
  *             .registryName("example")
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(example.json())
  *             .build());
  * 
  *     }

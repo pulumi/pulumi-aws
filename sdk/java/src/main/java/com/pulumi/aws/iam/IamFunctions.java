@@ -305,9 +305,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -346,9 +346,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -387,9 +387,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -428,9 +428,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -469,9 +469,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -510,9 +510,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -551,9 +551,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = IamFunctions.getAccountAlias();
+     *         final var current = IamFunctions.getAccountAlias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.accountAlias());
      *     }
      * }
      * }
@@ -2389,7 +2389,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -2553,7 +2553,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -2605,7 +2605,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -2672,8 +2672,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -2739,8 +2739,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -2811,9 +2811,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -2900,7 +2900,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -3064,7 +3064,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -3116,7 +3116,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -3183,8 +3183,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -3250,8 +3250,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -3322,9 +3322,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -3411,7 +3411,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -3575,7 +3575,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -3627,7 +3627,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -3694,8 +3694,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -3761,8 +3761,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -3833,9 +3833,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -3922,7 +3922,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -4086,7 +4086,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -4138,7 +4138,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -4205,8 +4205,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -4272,8 +4272,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -4344,9 +4344,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -4433,7 +4433,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -4597,7 +4597,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -4649,7 +4649,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -4716,8 +4716,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -4783,8 +4783,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -4855,9 +4855,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -4944,7 +4944,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -5108,7 +5108,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -5160,7 +5160,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -5227,8 +5227,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -5294,8 +5294,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -5366,9 +5366,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -5455,7 +5455,7 @@ public final class IamFunctions {
      *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
-     *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -5619,7 +5619,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -5671,7 +5671,7 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -5738,8 +5738,8 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *             .sourcePolicyDocuments(source.json())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -5805,8 +5805,8 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 sourceTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 sourceOne.json(),
+     *                 sourceTwo.json())
      *             .build());
      * 
      *     }
@@ -5877,9 +5877,9 @@ public final class IamFunctions {
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyTwo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()),
-     *                 policyThree.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
@@ -5939,14 +5939,15 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
      *                 "s3:GetObject",
      *                 "s3:PutObject",
      *                 "s3:DeleteObject")
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .policySourceArn(current.arn())
      *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
@@ -6032,7 +6033,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("example")
@@ -6045,13 +6047,13 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", _arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -6068,7 +6070,7 @@ public final class IamFunctions {
      *                             jsonProperty("Action", "s3:*"),
      *                             jsonProperty("Effect", "Allow"),
      *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
@@ -6137,14 +6139,15 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
      *                 "s3:GetObject",
      *                 "s3:PutObject",
      *                 "s3:DeleteObject")
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .policySourceArn(current.arn())
      *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
@@ -6230,7 +6233,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("example")
@@ -6243,13 +6247,13 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", _arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -6266,7 +6270,7 @@ public final class IamFunctions {
      *                             jsonProperty("Action", "s3:*"),
      *                             jsonProperty("Effect", "Allow"),
      *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
@@ -6335,14 +6339,15 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
      *                 "s3:GetObject",
      *                 "s3:PutObject",
      *                 "s3:DeleteObject")
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .policySourceArn(current.arn())
      *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
@@ -6428,7 +6433,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("example")
@@ -6441,13 +6447,13 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", _arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -6464,7 +6470,7 @@ public final class IamFunctions {
      *                             jsonProperty("Action", "s3:*"),
      *                             jsonProperty("Effect", "Allow"),
      *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
@@ -6533,14 +6539,15 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
      *                 "s3:GetObject",
      *                 "s3:PutObject",
      *                 "s3:DeleteObject")
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .policySourceArn(current.arn())
      *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
@@ -6626,7 +6633,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("example")
@@ -6639,13 +6647,13 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", _arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -6662,7 +6670,7 @@ public final class IamFunctions {
      *                             jsonProperty("Action", "s3:*"),
      *                             jsonProperty("Effect", "Allow"),
      *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
@@ -6731,14 +6739,15 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
      *             .actionNames(            
      *                 "s3:GetObject",
      *                 "s3:PutObject",
      *                 "s3:DeleteObject")
-     *             .policySourceArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .policySourceArn(current.arn())
      *             .resourceArns("arn:aws:s3:::my-test-bucket")
      *             .build());
      * 
@@ -6824,7 +6833,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("example")
@@ -6837,13 +6847,13 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(exampleBucketV2.arn().applyValue(_arn -> serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", _arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -6860,7 +6870,7 @@ public final class IamFunctions {
      *                             jsonProperty("Action", "s3:*"),
      *                             jsonProperty("Effect", "Allow"),
      *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                                 jsonProperty("AWS", current.accountId())
      *                             )),
      *                             jsonProperty("Resource", jsonArray(
      *                                 exampleBucketV2Arn, 
@@ -7140,7 +7150,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7327,7 +7338,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7514,7 +7526,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7701,7 +7714,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -7888,7 +7902,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -8075,7 +8090,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -8262,7 +8278,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = IamFunctions.getRoles();
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9109,10 +9126,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .arn(current.arn())
      *             .build());
      * 
      *     }
@@ -9196,10 +9214,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .arn(current.arn())
      *             .build());
      * 
      *     }
@@ -9283,10 +9302,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .arn(current.arn())
      *             .build());
      * 
      *     }
@@ -9370,10 +9390,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .arn(current.arn())
      *             .build());
      * 
      *     }
@@ -9457,10 +9478,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
-     *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
+     *             .arn(current.arn())
      *             .build());
      * 
      *     }
@@ -9943,7 +9965,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10057,7 +10080,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10171,7 +10195,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10285,7 +10310,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10399,7 +10425,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10513,7 +10540,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -10627,7 +10655,8 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = IamFunctions.getUsers();
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *     }
      * }

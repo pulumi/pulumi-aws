@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpc = config.requireObject("vpc");
+ * const vpc = config.requireObject<any>("vpc");
  * const domain = config.get("domain") || "tf-test";
  * const example = aws.ec2.getVpc({
  *     tags: {

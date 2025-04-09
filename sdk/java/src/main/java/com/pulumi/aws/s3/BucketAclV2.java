@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = S3Functions.getCanonicalUserId();
+ *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-example-bucket")
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *                 .grants(                
  *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
  *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
- *                             .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+ *                             .id(current.id())
  *                             .type("CanonicalUser")
  *                             .build())
  *                         .permission("READ")
@@ -215,7 +215,7 @@ import javax.annotation.Nullable;
  *                         .permission("READ_ACP")
  *                         .build())
  *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
- *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+ *                     .id(current.id())
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

@@ -84,10 +84,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var test = new Enabler("test", EnablerArgs.builder()
- *             .accountIds(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .accountIds(current.accountId())
  *             .resourceTypes(            
  *                 "ECR",
  *                 "EC2")

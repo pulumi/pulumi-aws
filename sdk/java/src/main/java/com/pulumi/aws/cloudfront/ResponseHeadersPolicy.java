@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .serverTimingHeadersConfig(ResponseHeadersPolicyServerTimingHeadersConfigArgs.builder()
  *                 .enabled(true)
- *                 .samplingRate(50)
+ *                 .samplingRate(50.0)
  *                 .build())
  *             .build());
  * 

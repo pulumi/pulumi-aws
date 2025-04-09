@@ -313,7 +313,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -354,7 +354,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -395,7 +395,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -436,7 +436,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -477,7 +477,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -518,7 +518,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -559,7 +559,7 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getProfilesProfiles();
+     *         final var example = Route53Functions.getProfilesProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1191,7 +1191,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .build());
      * 
      *     }
@@ -1234,7 +1234,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .nameRegex("^www")
      *             .build());
      * 
@@ -1287,7 +1287,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .build());
      * 
      *     }
@@ -1330,7 +1330,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .nameRegex("^www")
      *             .build());
      * 
@@ -1383,7 +1383,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .build());
      * 
      *     }
@@ -1426,7 +1426,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .nameRegex("^www")
      *             .build());
      * 
@@ -1479,7 +1479,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .build());
      * 
      *     }
@@ -1522,7 +1522,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .nameRegex("^www")
      *             .build());
      * 
@@ -1575,7 +1575,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .build());
      * 
      *     }
@@ -1618,7 +1618,7 @@ public final class Route53Functions {
      *             .build());
      * 
      *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .zoneId(selected.zoneId())
      *             .nameRegex("^www")
      *             .build());
      * 
@@ -4514,7 +4514,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -4523,12 +4524,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -4546,7 +4547,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -4625,19 +4626,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -4647,7 +4648,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -4694,7 +4695,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -4703,12 +4705,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -4726,7 +4728,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -4805,19 +4807,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -4827,7 +4829,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -4874,7 +4876,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -4883,12 +4886,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -4906,7 +4909,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -4985,19 +4988,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -5007,7 +5010,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5054,7 +5057,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -5063,12 +5067,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -5086,7 +5090,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5165,19 +5169,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -5187,7 +5191,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5234,7 +5238,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -5243,12 +5248,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -5266,7 +5271,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5345,19 +5350,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -5367,7 +5372,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5414,7 +5419,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -5423,12 +5429,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -5446,7 +5452,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5525,19 +5531,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -5547,7 +5553,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5594,7 +5600,8 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType("A")
@@ -5603,12 +5610,12 @@ public final class Route53Functions {
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("my_elb")
      *                     .type("elastic-load-balancer")
-     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *                     .value(String.format("elb-111111.%s.elb.amazonaws.com", current.name()))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id("site_down_banner")
      *                     .type("s3-website")
-     *                     .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *                     .region(current.name())
      *                     .value("www.example.com")
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -5626,7 +5633,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5705,19 +5712,19 @@ public final class Route53Functions {
      *                     .geoProximityLocations(                    
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:us-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .ruleReference("na_rule")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:eu-west-1")
-     *                             .bias(10)
+     *                             .bias("10")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("eu_endpoint")
      *                             .build(),
      *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
      *                             .region("aws:route53:ap-northeast-2")
-     *                             .bias(0)
+     *                             .bias("0")
      *                             .evaluateTargetHealth(true)
      *                             .endpointReference("ap_endpoint")
      *                             .build())
@@ -5727,7 +5734,7 @@ public final class Route53Functions {
      *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
-     *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
+     *             .document(example.json())
      *             .build());
      * 
      *     }
@@ -5780,10 +5787,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -5837,10 +5844,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -5894,10 +5901,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -5951,10 +5958,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -6008,10 +6015,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -6065,10 +6072,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -6122,10 +6129,10 @@ public final class Route53Functions {
      *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
-     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
-     *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
+     *             .zoneId(selected.zoneId())
+     *             .name(String.format("www.%s", selected.name()))
      *             .type("A")
-     *             .ttl("300")
+     *             .ttl(300)
      *             .records("10.0.0.1")
      *             .build());
      * 
@@ -6168,9 +6175,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6210,9 +6217,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6252,9 +6259,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6294,9 +6301,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6336,9 +6343,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6378,9 +6385,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }
@@ -6420,9 +6427,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Route53Functions.getZones();
+     *         final var all = Route53Functions.getZones(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *         ctx.export("example", all.ids());
      *     }
      * }
      * }

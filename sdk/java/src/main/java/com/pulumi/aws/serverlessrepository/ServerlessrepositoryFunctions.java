@@ -51,9 +51,9 @@ public final class ServerlessrepositoryFunctions {
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
+     *             .applicationId(example.applicationId())
+     *             .semanticVersion(example.semanticVersion())
+     *             .capabilities(example.requiredCapabilities())
      *             .build());
      * 
      *     }
@@ -102,9 +102,9 @@ public final class ServerlessrepositoryFunctions {
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
+     *             .applicationId(example.applicationId())
+     *             .semanticVersion(example.semanticVersion())
+     *             .capabilities(example.requiredCapabilities())
      *             .build());
      * 
      *     }
@@ -153,9 +153,9 @@ public final class ServerlessrepositoryFunctions {
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
+     *             .applicationId(example.applicationId())
+     *             .semanticVersion(example.semanticVersion())
+     *             .capabilities(example.requiredCapabilities())
      *             .build());
      * 
      *     }
@@ -204,9 +204,9 @@ public final class ServerlessrepositoryFunctions {
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
+     *             .applicationId(example.applicationId())
+     *             .semanticVersion(example.semanticVersion())
+     *             .capabilities(example.requiredCapabilities())
      *             .build());
      * 
      *     }
@@ -255,9 +255,9 @@ public final class ServerlessrepositoryFunctions {
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
+     *             .applicationId(example.applicationId())
+     *             .semanticVersion(example.semanticVersion())
+     *             .capabilities(example.requiredCapabilities())
      *             .build());
      * 
      *     }

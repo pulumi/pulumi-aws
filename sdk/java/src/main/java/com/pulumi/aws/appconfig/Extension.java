@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test")
- *             .assumeRolePolicy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(test.json())
  *             .build());
  * 
  *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()

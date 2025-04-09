@@ -3149,7 +3149,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3196,7 +3197,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3243,7 +3245,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3290,7 +3293,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3337,7 +3341,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3384,7 +3389,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3431,7 +3437,8 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments(GetPeeringAttachmentsArgs.builder()
+     *             .build());
      * 
      *     }
      * }

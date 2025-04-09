@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aWSCloudFormationStackSetExecutionRole = new Role("aWSCloudFormationStackSetExecutionRole", RoleArgs.builder()
- *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json())
  *             .name("AWSCloudFormationStackSetExecutionRole")
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("MinimumExecutionPolicy")
- *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.json())
  *             .role(aWSCloudFormationStackSetExecutionRole.name())
  *             .build());
  * 

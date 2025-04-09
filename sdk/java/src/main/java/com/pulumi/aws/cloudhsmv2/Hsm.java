@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudhsmV2Hsm = new Hsm("cloudhsmV2Hsm", HsmArgs.builder()
- *             .subnetId(cluster.applyValue(getClusterResult -> getClusterResult.subnetIds()[0]))
- *             .clusterId(cluster.applyValue(getClusterResult -> getClusterResult.clusterId()))
+ *             .subnetId(cluster.subnetIds()[0])
+ *             .clusterId(cluster.clusterId())
  *             .build());
  * 
  *     }

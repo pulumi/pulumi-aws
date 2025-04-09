@@ -70,7 +70,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -110,7 +111,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -150,7 +152,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -190,7 +193,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -230,7 +234,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -270,7 +275,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -310,7 +316,8 @@ public final class ApigatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getApiKeys();
+     *         final var example = ApigatewayFunctions.getApiKeys(GetApiKeysArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1417,7 +1424,7 @@ public final class ApigatewayFunctions {
      *             .build());
      * 
      *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .restApiId(myRestApi.id())
      *             .path("/endpoint/path")
      *             .build());
      * 
@@ -1466,7 +1473,7 @@ public final class ApigatewayFunctions {
      *             .build());
      * 
      *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .restApiId(myRestApi.id())
      *             .path("/endpoint/path")
      *             .build());
      * 
@@ -1515,7 +1522,7 @@ public final class ApigatewayFunctions {
      *             .build());
      * 
      *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .restApiId(myRestApi.id())
      *             .path("/endpoint/path")
      *             .build());
      * 
@@ -1564,7 +1571,7 @@ public final class ApigatewayFunctions {
      *             .build());
      * 
      *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .restApiId(myRestApi.id())
      *             .path("/endpoint/path")
      *             .build());
      * 
@@ -1613,7 +1620,7 @@ public final class ApigatewayFunctions {
      *             .build());
      * 
      *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .restApiId(myRestApi.id())
      *             .path("/endpoint/path")
      *             .build());
      * 

@@ -48,12 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var accepter = AwsFunctions.getCallerIdentity();
+ *         final var accepter = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         // Creator's side of the VIF
  *         var creator = new HostedPublicVirtualInterface("creator", HostedPublicVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
- *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.accountId())
  *             .name("vif-foo")
  *             .vlan(4094)
  *             .addressFamily("ipv4")

@@ -502,7 +502,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -544,7 +545,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -586,7 +588,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -628,7 +631,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -670,7 +674,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -712,7 +717,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -754,7 +760,8 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
+     *         final var example = SsoadminFunctions.getApplicationProviders(GetApplicationProvidersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -793,10 +800,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -834,10 +841,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -875,10 +882,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -916,10 +923,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -957,10 +964,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -998,10 +1005,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -1039,10 +1046,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
-     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *         ctx.export("arn", example.arns()[0]);
+     *         ctx.export("identityStoreId", example.identityStoreIds()[0]);
      *     }
      * }
      * }
@@ -1081,14 +1088,14 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .name("Example")
      *             .build());
      * 
-     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *         ctx.export("arn", exampleGetPermissionSet.arn());
      *     }
      * }
      * }
@@ -1127,14 +1134,14 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .name("Example")
      *             .build());
      * 
-     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *         ctx.export("arn", exampleGetPermissionSet.arn());
      *     }
      * }
      * }
@@ -1173,14 +1180,14 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .name("Example")
      *             .build());
      * 
-     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *         ctx.export("arn", exampleGetPermissionSet.arn());
      *     }
      * }
      * }
@@ -1219,14 +1226,14 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .name("Example")
      *             .build());
      * 
-     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *         ctx.export("arn", exampleGetPermissionSet.arn());
      *     }
      * }
      * }
@@ -1265,14 +1272,14 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .name("Example")
      *             .build());
      * 
-     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *         ctx.export("arn", exampleGetPermissionSet.arn());
      *     }
      * }
      * }
@@ -1313,10 +1320,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .build());
      * 
      *     }
@@ -1359,10 +1366,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .build());
      * 
      *     }
@@ -1405,10 +1412,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .build());
      * 
      *     }
@@ -1451,10 +1458,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .build());
      * 
      *     }
@@ -1497,10 +1504,10 @@ public final class SsoadminFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
-     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .instanceArn(example.arns()[0])
      *             .build());
      * 
      *     }

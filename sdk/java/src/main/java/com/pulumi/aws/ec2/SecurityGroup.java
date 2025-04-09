@@ -310,6 +310,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.command.local.CommandArgs;
  * import com.pulumi.null.Resource;
  * import com.pulumi.null.ResourceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -344,7 +346,7 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
  * ", tags.workaround1(),tags.workaround2(),id))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
+ *                 .dependsOn(List.of(example))
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
@@ -359,7 +361,7 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
  * ", exampleAwsVpcEndpoint.id(),default_.id()))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleResource)
+ *                 .dependsOn(List.of(exampleResource))
  *                 .build());
  * 
  *     }

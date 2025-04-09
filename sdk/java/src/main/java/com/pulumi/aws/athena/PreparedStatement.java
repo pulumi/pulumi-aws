@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var testPreparedStatement = new PreparedStatement("testPreparedStatement", PreparedStatementArgs.builder()
  *             .name("tf_test")
- *             .queryStatement(testDatabase.name().applyValue(name -> String.format("SELECT * FROM %s WHERE x = ?", name)))
+ *             .queryStatement(testDatabase.name().applyValue(_name -> String.format("SELECT * FROM %s WHERE x = ?", _name)))
  *             .workgroup(testWorkgroup.name())
  *             .build());
  * 

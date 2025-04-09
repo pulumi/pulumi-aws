@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.random.password;
- * import com.pulumi.random.PasswordArgs;
+ * import com.pulumi.random.passwordArgs;
  * import com.pulumi.aws.memorydb.User;
  * import com.pulumi.aws.memorydb.UserArgs;
  * import com.pulumi.aws.memorydb.inputs.UserAuthenticationModeArgs;

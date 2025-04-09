@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
  * import com.pulumi.aws.dynamodb.Tag;
  * import com.pulumi.aws.dynamodb.TagArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.ReplaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,18 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var replica = AwsFunctions.getRegion();
+ *         final var replica = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new Table("example", TableArgs.builder()
  *             .replicas(TableReplicaArgs.builder()
- *                 .regionName(replica.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .regionName(replica.name())
  *                 .build())
  *             .build());
  * 
  *         var test = new Tag("test", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(_arn)
+ *                 .search(current.name())
+ *                 .replace(replica.name())
+ *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .key("testkey")
  *             .value("testvalue")
  *             .build());

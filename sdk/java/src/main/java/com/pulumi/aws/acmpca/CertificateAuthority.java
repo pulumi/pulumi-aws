@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *                     "s3:PutObjectAcl")
  *                 .resources(                
  *                     example.arn(),
- *                     example.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("acm-pca.amazonaws.com")
  *                     .type("Service")
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.id())
- *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(acmpcaBucketAccess -> acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(acmpcaBucketAccess.applyValue(_acmpcaBucketAccess -> _acmpcaBucketAccess.json()))
  *             .build());
  * 
  *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()

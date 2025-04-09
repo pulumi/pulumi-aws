@@ -200,6 +200,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -220,7 +222,7 @@ import javax.annotation.Nullable;
  * 
  *         for (var i = 0; i < 2; i++) {
  *             new Subnet("example-" + i, SubnetArgs.builder()
- *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
+ *                 .availabilityZone(available.names()[range.value()])
  *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
  *                     .input(exampleAwsVpc.cidrBlock())
  *                     .newbits(8)

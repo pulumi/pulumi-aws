@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *                 .instanceType("c4.large")
  *                 .instanceCount(1)
  *                 .ebsConfigs(ClusterCoreInstanceGroupEbsConfigArgs.builder()
- *                     .size("40")
+ *                     .size(40)
  *                     .type("gp2")
  *                     .volumesPerInstance(1)
  *                     .build())
@@ -223,7 +223,7 @@ import javax.annotation.Nullable;
  *             .coreInstanceFleet(ClusterCoreInstanceFleetArgs.builder()
  *                 .instanceTypeConfigs(                
  *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(80)
+ *                         .bidPriceAsPercentageOfOnDemandPrice(80.0)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
  *                             .type("gp2")
@@ -233,7 +233,7 @@ import javax.annotation.Nullable;
  *                         .weightedCapacity(1)
  *                         .build(),
  *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
  *                             .type("gp2")
@@ -243,7 +243,7 @@ import javax.annotation.Nullable;
  *                         .weightedCapacity(1)
  *                         .build(),
  *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                         .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
  *                             .type("gp2")
@@ -270,7 +270,7 @@ import javax.annotation.Nullable;
  *             .clusterId(example.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
  *                         .type("gp2")
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *                     .weightedCapacity(1)
  *                     .build(),
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
  *                         .type("gp2")
@@ -402,7 +402,8 @@ import javax.annotation.Nullable;
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
  *                 .instanceCount(3)
  *                 .build())
- *             .coreInstanceGroup()
+ *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

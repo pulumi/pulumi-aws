@@ -39,8 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.directoryservice.Directory;
- * import com.pulumi.aws.directoryservice.DirectoryArgs;
  * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
@@ -48,8 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.workspaces.Directory;
- * import com.pulumi.aws.workspaces.DirectoryArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
@@ -84,7 +80,7 @@ import javax.annotation.Nullable;
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()
+ *         var exampleDirectory = new com.pulumi.aws.directoryservice.Directory("exampleDirectory", com.pulumi.aws.directoryservice.DirectoryArgs.builder()
  *             .name("corp.example.com")
  *             .password("#S1ncerely")
  *             .size("Small")
@@ -108,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *         var workspacesDefault = new Role("workspacesDefault", RoleArgs.builder()
  *             .name("workspaces_DefaultRole")
- *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(workspaces.json())
  *             .build());
  * 
  *         var workspacesDefaultServiceAccess = new RolePolicyAttachment("workspacesDefaultServiceAccess", RolePolicyAttachmentArgs.builder()
@@ -133,12 +129,12 @@ import javax.annotation.Nullable;
  *             .cidrBlock("10.0.3.0/24")
  *             .build());
  * 
- *         var example = new Directory("example", DirectoryArgs.builder()
+ *         var example = new com.pulumi.aws.workspaces.Directory("example", com.pulumi.aws.workspaces.DirectoryArgs.builder()
  *             .directoryId(exampleDirectory.id())
  *             .subnetIds(            
  *                 exampleC.id(),
  *                 exampleD.id())
- *             .tags(Map.of("Example", true))
+ *             .tags(Map.of("Example", "true"))
  *             .samlProperties(DirectorySamlPropertiesArgs.builder()
  *                 .userAccessUrl("https://sso.example.com/")
  *                 .status("ENABLED")

@@ -815,7 +815,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -879,7 +879,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -943,7 +943,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -1007,7 +1007,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -1071,7 +1071,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -1135,7 +1135,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -1199,7 +1199,7 @@ public final class RdsFunctions {
      *         // a new dev database.
      *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
-     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
@@ -2016,9 +2016,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2054,7 +2055,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2093,9 +2094,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2131,7 +2133,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2170,9 +2172,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2208,7 +2211,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2247,9 +2250,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2285,7 +2289,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2324,9 +2328,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2362,7 +2367,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2401,9 +2406,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2439,7 +2445,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2478,9 +2484,10 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getEventCategories();
+     *         final var example = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -2516,7 +2523,7 @@ public final class RdsFunctions {
      *             .sourceType("db-snapshot")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getEventCategoriesResult -> getEventCategoriesResult.eventCategories()));
+     *         ctx.export("example", example.eventCategories());
      *     }
      * }
      * }
@@ -4564,7 +4571,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4631,7 +4638,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4698,7 +4705,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4765,7 +4772,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4832,7 +4839,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4899,7 +4906,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
@@ -4966,7 +4973,7 @@ public final class RdsFunctions {
      *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
-     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
      *             .build());
      * 
      *     }
