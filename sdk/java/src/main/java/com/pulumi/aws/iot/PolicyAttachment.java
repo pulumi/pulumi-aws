@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iot.PolicyArgs;
  * import com.pulumi.aws.iot.Certificate;
  * import com.pulumi.aws.iot.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.aws.iot.PolicyAttachment;
  * import com.pulumi.aws.iot.PolicyAttachmentArgs;
  * import java.util.List;
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var pubsubPolicy = new Policy("pubsubPolicy", PolicyArgs.builder()
  *             .name("PubSubToAnyTopic")
- *             .policy(pubsub.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(pubsub.json())
  *             .build());
  * 
  *         var cert = new Certificate("cert", CertificateArgs.builder()

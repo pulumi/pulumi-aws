@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("An example symmetric encryption KMS key")
@@ -69,7 +70,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Enable IAM User Permissions"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", "kms:*"),
  *                             jsonProperty("Resource", "*")
@@ -78,7 +79,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow administration of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:ReplicateKey", 
@@ -101,7 +102,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow use of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:DescribeKey", 
@@ -153,7 +154,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("An example symmetric encryption KMS key")
@@ -171,7 +173,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Sid", "Enable IAM User Permissions"),
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                         )),
  *                         jsonProperty("Action", "kms:*"),
  *                         jsonProperty("Resource", "*")
@@ -213,7 +215,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("RSA-3072 asymmetric KMS key for signing and verification")
@@ -229,7 +232,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Enable IAM User Permissions"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", "kms:*"),
  *                             jsonProperty("Resource", "*")
@@ -238,7 +241,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow administration of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:Create*", 
@@ -260,7 +263,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow use of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:Sign", 
@@ -307,7 +310,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("HMAC_384 key for tokens")
@@ -323,7 +327,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Enable IAM User Permissions"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", "kms:*"),
  *                             jsonProperty("Resource", "*")
@@ -332,7 +336,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow administration of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:Create*", 
@@ -354,7 +358,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow use of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:GenerateMac", 
@@ -401,7 +405,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .description("An example multi-Region primary key")
@@ -417,7 +422,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Enable IAM User Permissions"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", "kms:*"),
  *                             jsonProperty("Resource", "*")
@@ -426,7 +431,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow administration of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:ReplicateKey", 
@@ -449,7 +454,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Sid", "Allow use of the key"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.accountId()))
  *                             )),
  *                             jsonProperty("Action", jsonArray(
  *                                 "kms:DescribeKey", 

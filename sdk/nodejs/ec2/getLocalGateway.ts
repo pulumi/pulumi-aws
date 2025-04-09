@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const localGatewayId = config.requireObject("localGatewayId");
+ * const localGatewayId = config.requireObject<any>("localGatewayId");
  * const selected = aws.ec2.getLocalGateway({
  *     id: localGatewayId,
  * });
@@ -95,7 +95,7 @@ export interface GetLocalGatewayResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const localGatewayId = config.requireObject("localGatewayId");
+ * const localGatewayId = config.requireObject<any>("localGatewayId");
  * const selected = aws.ec2.getLocalGateway({
  *     id: localGatewayId,
  * });

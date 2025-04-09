@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title("title")
- *                 .impact("3")
+ *                 .impact(3)
  *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build(), CustomResourceOptions.builder()
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title("title")
- *                 .impact("3")
+ *                 .impact(3)
  *                 .dedupeString("dedupe")
  *                 .incidentTags(Map.of("key", "value"))
  *                 .notificationTargets(                

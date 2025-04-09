@@ -56,7 +56,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new StorageLensConfiguration("example", StorageLensConfigurationArgs.builder()
  *             .configId("example-1")
@@ -77,12 +78,13 @@ import javax.annotation.Nullable;
  *                         .enabled(true)
  *                         .build())
  *                     .s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.builder()
- *                         .accountId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .accountId(current.accountId())
  *                         .arn(target.arn())
  *                         .format("CSV")
  *                         .outputSchemaVersion("V_1")
  *                         .encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.builder()
- *                             .sseS3s()
+ *                             .sseS3s(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args.builder()
+ *                                 .build())
  *                             .build())
  *                         .build())
  *                     .build())

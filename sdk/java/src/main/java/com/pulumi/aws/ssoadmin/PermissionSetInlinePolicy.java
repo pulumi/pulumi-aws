@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePermissionSetInlinePolicy = new PermissionSetInlinePolicy("examplePermissionSetInlinePolicy", PermissionSetInlinePolicyArgs.builder()
- *             .inlinePolicy(exampleGetPolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .inlinePolicy(exampleGetPolicyDocument.json())
+ *             .instanceArn(example.arns()[0])
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
  * 

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const securityGroupId = config.requireObject("securityGroupId");
+ * const securityGroupId = config.requireObject<any>("securityGroupId");
  * const selected = aws.ec2.getSecurityGroup({
  *     id: securityGroupId,
  * });
@@ -112,7 +112,7 @@ export interface GetSecurityGroupResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const securityGroupId = config.requireObject("securityGroupId");
+ * const securityGroupId = config.requireObject<any>("securityGroupId");
  * const selected = aws.ec2.getSecurityGroup({
  *     id: securityGroupId,
  * });

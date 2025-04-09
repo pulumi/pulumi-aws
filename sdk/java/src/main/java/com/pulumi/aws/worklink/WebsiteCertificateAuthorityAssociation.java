@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.worklink.FleetArgs;
  * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociation;
  * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

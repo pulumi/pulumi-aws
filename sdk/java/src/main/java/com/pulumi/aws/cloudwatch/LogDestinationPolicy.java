@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", LogDestinationPolicyArgs.builder()
  *             .destinationName(testDestination.name())
- *             .accessPolicy(testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(testDestinationPolicy -> testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .accessPolicy(testDestinationPolicy.applyValue(_testDestinationPolicy -> _testDestinationPolicy.json()))
  *             .build());
  * 
  *     }

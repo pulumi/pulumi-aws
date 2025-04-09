@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .name("my-topic-with-policy")
  *             .build());
  * 
- *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var snsTopicPolicy = test.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
  *                     .type("AWS")
  *                     .identifiers("*")
  *                     .build())
- *                 .resources(test.arn())
+ *                 .resources(_arn)
  *                 .sid("__default_statement_ID")
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(test.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
  *             .build());
  * 
  *     }

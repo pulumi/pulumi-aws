@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .protectedResourceConditions(RestoreTestingSelectionProtectedResourceConditionsArgs.builder()
  *                 .stringEquals(RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs.builder()
  *                     .key("aws:ResourceTag/backup")
- *                     .value(true)
+ *                     .value("true")
  *                     .build())
  *                 .build())
  *             .build());

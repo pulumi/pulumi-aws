@@ -45,7 +45,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -122,7 +123,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -199,7 +201,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -276,7 +279,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -353,7 +357,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -430,7 +435,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -507,7 +513,8 @@ public final class PollyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PollyFunctions.getVoices();
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .build());
      * 
      *     }
      * }

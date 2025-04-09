@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("exampleEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()
  *             .domainId(example.id())
- *             .environmentBlueprintId(defaultDataLake.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult).applyValue(defaultDataLake -> defaultDataLake.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult.id())))
+ *             .environmentBlueprintId(defaultDataLake.applyValue(_defaultDataLake -> _defaultDataLake.id()))
  *             .enabledRegions("us-east-1")
  *             .regionalParameters(Map.of("us-east-1", Map.of("s3Location", "s3://my-amazon-datazone-bucket")))
  *             .build());

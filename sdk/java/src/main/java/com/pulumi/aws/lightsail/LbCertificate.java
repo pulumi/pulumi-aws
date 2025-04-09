@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var test = new Lb("test", LbArgs.builder()
  *             .name("test-load-balancer")
  *             .healthCheckPath("/")
- *             .instancePort("80")
+ *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

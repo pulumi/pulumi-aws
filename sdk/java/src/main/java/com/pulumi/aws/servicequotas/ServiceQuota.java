@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new ServiceQuota("example", ServiceQuotaArgs.builder()
  *             .quotaCode("L-F678F1CE")
  *             .serviceCode("vpc")
- *             .value(75)
+ *             .value(75.0)
  *             .build());
  * 
  *     }

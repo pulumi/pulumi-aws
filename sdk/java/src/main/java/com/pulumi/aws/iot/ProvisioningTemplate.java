@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var iotFleetProvisioning = new Role("iotFleetProvisioning", RoleArgs.builder()
  *             .name("IoTProvisioningServiceRole")
  *             .path("/service-role/")
- *             .assumeRolePolicy(iotAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(iotAssumeRolePolicy.json())
  *             .build());
  * 
  *         var iotFleetProvisioningRegistration = new RolePolicyAttachment("iotFleetProvisioningRegistration", RolePolicyAttachmentArgs.builder()
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var devicePolicyPolicy = new Policy("devicePolicyPolicy", PolicyArgs.builder()
  *             .name("DevicePolicy")
- *             .policy(devicePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(devicePolicy.json())
  *             .build());
  * 
  *         var fleet = new ProvisioningTemplate("fleet", ProvisioningTemplateArgs.builder()
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .description("My provisioning template")
  *             .provisioningRoleArn(iotFleetProvisioning.arn())
  *             .enabled(true)
- *             .templateBody(devicePolicyPolicy.name().applyValue(name -> serializeJson(
+ *             .templateBody(devicePolicyPolicy.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Parameters", jsonObject(
  *                         jsonProperty("SerialNumber", jsonObject(
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *                         )),
  *                         jsonProperty("policy", jsonObject(
  *                             jsonProperty("Properties", jsonObject(
- *                                 jsonProperty("PolicyName", name)
+ *                                 jsonProperty("PolicyName", _name)
  *                             )),
  *                             jsonProperty("Type", "AWS::IoT::Policy")
  *                         ))

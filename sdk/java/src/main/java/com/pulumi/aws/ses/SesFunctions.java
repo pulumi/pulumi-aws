@@ -47,7 +47,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -86,7 +86,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -125,7 +125,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -164,7 +164,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -203,7 +203,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -242,7 +242,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -281,7 +281,7 @@ public final class SesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     *         final var main = SesFunctions.getActiveReceiptRuleSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

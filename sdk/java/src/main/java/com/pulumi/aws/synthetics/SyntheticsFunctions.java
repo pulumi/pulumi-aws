@@ -453,7 +453,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -495,7 +496,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -537,7 +539,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -579,7 +582,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -621,7 +625,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -663,7 +668,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -705,7 +711,8 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
+     *         final var example = SyntheticsFunctions.getRuntimeVersions(GetRuntimeVersionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }

@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
- *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
+ *                 Map.entry("SECRET_ID", example.name())
  *             ))
  *             .build());
  * 
@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("CONNECTION_TYPE", "Jdbc"),
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&password=${password}"),
- *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
+ *                 Map.entry("SECRET_ID", example.name())
  *             ))
  *             .matchCriterias(            
  *                 "Connection",
@@ -270,9 +270,9 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("AZURECOSMOS")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", _name),
  *                     jsonProperty("spark.cosmos.accountEndpoint", "https://exampledbaccount.documents.azure.com:443/")
  *                 )))))
  *             .build());
@@ -331,9 +331,9 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("AZURECOSMOS")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", _name),
  *                     jsonProperty("url", "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase")
  *                 )))))
  *             .build());
@@ -360,6 +360,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretArgs;
  * import com.pulumi.aws.secretsmanager.SecretVersion;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import com.pulumi.aws.glue.Connection;
  * import com.pulumi.aws.glue.ConnectionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -407,9 +409,9 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("BIGQUERY")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name)
+ *                     jsonProperty("secretId", _name)
  *                 )))))
  *             .build());
  * 
@@ -467,9 +469,9 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("OPENSEARCH")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", _name),
  *                     jsonProperty("opensearch.nodes", "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com"),
  *                     jsonProperty("opensearch.port", "443"),
  *                     jsonProperty("opensearch.aws.sigv4.region", "us-east-1"),
@@ -532,9 +534,9 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("SNOWFLAKE")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(_name -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", _name),
  *                     jsonProperty("sfRole", "EXAMPLEETLROLE"),
  *                     jsonProperty("sfUrl", "exampleorg-exampleconnection.snowflakecomputing.com")
  *                 )))))

@@ -82,39 +82,6 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// 
-    /// ### Registering Multiple Targets
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new List&lt;Aws.Ec2.Instance&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         example.Add(new Aws.Ec2.Instance($"example-{range.Value}", new()
-    ///         {
-    ///         }));
-    ///     }
-    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("example");
-    /// 
-    ///     var exampleTargetGroupAttachment = new List&lt;Aws.LB.TargetGroupAttachment&gt;();
-    ///     foreach (var range in example.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(pair =&gt; new { pair.Key, pair.Value }))
-    ///     {
-    ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"example-{range.Key}", new()
-    ///         {
-    ///             TargetGroupArn = exampleTargetGroup.Arn,
-    ///             TargetId = range.Value.Id,
-    ///             Port = 80,
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You cannot import Target Group Attachments.

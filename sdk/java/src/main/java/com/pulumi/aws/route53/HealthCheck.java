@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  *             .port(80)
  *             .type("HTTP")
  *             .resourcePath("/")
- *             .failureThreshold("5")
- *             .requestInterval("30")
+ *             .failureThreshold(5)
+ *             .requestInterval(30)
  *             .tags(Map.of("Name", "tf-test-health-check"))
  *             .build());
  * 
@@ -90,10 +90,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HealthCheck("example", HealthCheckArgs.builder()
- *             .failureThreshold("5")
+ *             .failureThreshold(5)
  *             .fqdn("example.com")
  *             .port(443)
- *             .requestInterval("30")
+ *             .requestInterval(30)
  *             .resourcePath("/")
  *             .searchString("example")
  *             .type("HTTPS_STR_MATCH")
@@ -173,12 +173,12 @@ import javax.annotation.Nullable;
  *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
  *             .name("test-foobar5")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
- *             .evaluationPeriods("2")
+ *             .evaluationPeriods(2)
  *             .metricName("CPUUtilization")
  *             .namespace("AWS/EC2")
- *             .period("120")
+ *             .period(120)
  *             .statistic("Average")
- *             .threshold("80")
+ *             .threshold(80.0)
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .build());
  * 
@@ -228,12 +228,12 @@ import javax.annotation.Nullable;
  *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
  *             .name("example")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
- *             .evaluationPeriods("2")
+ *             .evaluationPeriods(2)
  *             .metricName("CPUUtilization")
  *             .namespace("AWS/EC2")
- *             .period("120")
+ *             .period(120)
  *             .statistic("Average")
- *             .threshold("80")
+ *             .threshold(80.0)
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .build());
  * 

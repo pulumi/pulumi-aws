@@ -50,7 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var accepter = AwsFunctions.getCallerIdentity();
+ *         final var accepter = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         // Accepter's side of the VIF.
  *         var vpnGw = new VpnGateway("vpnGw");
@@ -58,7 +59,7 @@ import javax.annotation.Nullable;
  *         // Creator's side of the VIF
  *         var creator = new HostedPrivateVirtualInterface("creator", HostedPrivateVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
- *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .ownerAccountId(accepter.accountId())
  *             .name("vif-foo")
  *             .vlan(4094)
  *             .addressFamily("ipv4")

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var policyFileSystemPolicy = new FileSystemPolicy("policyFileSystemPolicy", FileSystemPolicyArgs.builder()
  *             .fileSystemId(fs.id())
- *             .policy(policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(policy -> policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(policy.applyValue(_policy -> _policy.json()))
  *             .build());
  * 
  *     }

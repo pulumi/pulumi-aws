@@ -154,6 +154,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appsync.ResolverArgs;
  * import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
  * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

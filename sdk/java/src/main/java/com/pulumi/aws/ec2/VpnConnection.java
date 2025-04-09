@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var example = new TransitGateway("example");
  * 
  *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn(65000)
+ *             .bgpAsn("65000")
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn(65000)
+ *             .bgpAsn("65000")
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
@@ -178,13 +178,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
- *             .amazonSideAsn("64513")
+ *             .amazonSideAsn(64513)
  *             .description("example_ipsec_vpn_example")
  *             .transitGatewayCidrBlocks("10.0.0.0/24")
  *             .build());
  * 
  *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn(64514)
+ *             .bgpAsn("64514")
  *             .ipAddress("10.0.0.1")
  *             .type("ipsec.1")
  *             .tags(Map.of("Name", "example_ipsec_vpn_example"))
@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .outsideIpAddressType("PrivateIpv4")
  *             .transitGatewayId(exampleTransitGateway.id())
- *             .transportTransitGatewayAttachmentId(example.applyValue(getDirectConnectGatewayAttachmentResult -> getDirectConnectGatewayAttachmentResult).applyValue(example -> example.applyValue(getDirectConnectGatewayAttachmentResult -> getDirectConnectGatewayAttachmentResult.id())))
+ *             .transportTransitGatewayAttachmentId(example.applyValue(_example -> _example.id()))
  *             .type("ipsec.1")
  *             .tags(Map.of("Name", "example_ipsec_vpn_example"))
  *             .build());

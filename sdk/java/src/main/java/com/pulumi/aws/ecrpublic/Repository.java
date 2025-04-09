@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecrpublic.Repository;
  * import com.pulumi.aws.ecrpublic.RepositoryArgs;
  * import com.pulumi.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

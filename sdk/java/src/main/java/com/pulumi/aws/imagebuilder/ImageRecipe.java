@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .blockDeviceMappings(ImageRecipeBlockDeviceMappingArgs.builder()
  *                 .deviceName("/dev/xvdb")
  *                 .ebs(ImageRecipeBlockDeviceMappingEbsArgs.builder()
- *                     .deleteOnTermination(true)
+ *                     .deleteOnTermination("true")
  *                     .volumeSize(100)
  *                     .volumeType("gp2")
  *                     .build())

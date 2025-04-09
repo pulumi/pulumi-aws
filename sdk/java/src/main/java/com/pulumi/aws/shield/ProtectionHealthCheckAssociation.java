@@ -56,11 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
@@ -69,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example-protection")
- *             .resourceArn(example.id().applyValue(id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
+ *             .resourceArn(example.id().applyValue(_id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.partition(),current.name(),currentGetCallerIdentity.accountId(),_id)))
  *             .build());
  * 
  *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()
@@ -77,8 +80,8 @@ import javax.annotation.Nullable;
  *             .port(80)
  *             .type("HTTP")
  *             .resourcePath("/ready")
- *             .failureThreshold("3")
- *             .requestInterval("30")
+ *             .failureThreshold(3)
+ *             .requestInterval(30)
  *             .tags(Map.of("Name", "tf-example-health-check"))
  *             .build());
  * 

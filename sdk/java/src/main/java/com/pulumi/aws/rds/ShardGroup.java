@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *         var exampleShardGroup = new ShardGroup("exampleShardGroup", ShardGroupArgs.builder()
  *             .dbShardGroupIdentifier("example-shard-group")
  *             .dbClusterIdentifier(example.id())
- *             .maxAcu(1200)
+ *             .maxAcu(1200.0)
  *             .build());
  * 
  *     }

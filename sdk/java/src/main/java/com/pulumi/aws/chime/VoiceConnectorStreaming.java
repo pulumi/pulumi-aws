@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("ExampleResourceAccessRole")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()

@@ -53,8 +53,8 @@ public final class ElasticbeanstalkFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
-     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *         ctx.export("arn", example.arn());
+     *         ctx.export("description", example.description());
      *     }
      * }
      * }
@@ -97,8 +97,8 @@ public final class ElasticbeanstalkFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
-     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *         ctx.export("arn", example.arn());
+     *         ctx.export("description", example.description());
      *     }
      * }
      * }
@@ -141,8 +141,8 @@ public final class ElasticbeanstalkFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
-     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *         ctx.export("arn", example.arn());
+     *         ctx.export("description", example.description());
      *     }
      * }
      * }
@@ -185,8 +185,8 @@ public final class ElasticbeanstalkFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
-     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *         ctx.export("arn", example.arn());
+     *         ctx.export("description", example.description());
      *     }
      * }
      * }
@@ -229,8 +229,8 @@ public final class ElasticbeanstalkFunctions {
      *             .name("example")
      *             .build());
      * 
-     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
-     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *         ctx.export("arn", example.arn());
+     *         ctx.export("description", example.description());
      *     }
      * }
      * }
@@ -269,7 +269,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -309,7 +310,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -349,7 +351,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -389,7 +392,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -429,7 +433,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -469,7 +474,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -509,7 +515,8 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone(GetHostedZoneArgs.builder()
+     *             .build());
      * 
      *     }
      * }

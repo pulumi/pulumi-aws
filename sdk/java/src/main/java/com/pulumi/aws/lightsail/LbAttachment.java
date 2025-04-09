@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *         var test = new Lb("test", LbArgs.builder()
  *             .name("test-load-balancer")
  *             .healthCheckPath("/")
- *             .instancePort("80")
+ *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("test-instance")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());

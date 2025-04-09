@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new AccessGrantsInstance("example");
  * 
  *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()
- *             .policy(example.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -> """
+ *             .policy(example.accessGrantsInstanceArn().applyValue(_accessGrantsInstanceArn -> """
  * {
  *   "Version": "2012-10-17",
  *   "Id": "S3AccessGrantsPolicy",
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     "Resource": "%s"
  *   }]
  * }
- * ", accessGrantsInstanceArn)))
+ * ", _accessGrantsInstanceArn)))
  *             .build());
  * 
  *     }

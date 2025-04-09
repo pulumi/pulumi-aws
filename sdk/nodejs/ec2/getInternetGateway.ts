@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpcId = config.requireObject("vpcId");
+ * const vpcId = config.requireObject<any>("vpcId");
  * const _default = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
@@ -89,7 +89,7 @@ export interface GetInternetGatewayResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpcId = config.requireObject("vpcId");
+ * const vpcId = config.requireObject<any>("vpcId");
  * const _default = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",

@@ -934,7 +934,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -973,7 +973,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1012,7 +1012,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1051,7 +1051,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1090,7 +1090,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1129,7 +1129,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1168,7 +1168,7 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions();
+     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

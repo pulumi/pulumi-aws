@@ -124,7 +124,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnets = config.requireObject("subnets");
+ * const subnets = config.requireObject<any>("subnets");
  * const example = new aws.ec2.SpotFleetRequest("example", {
  *     launchSpecifications: .map(s => ({
  *         subnetId: s[1],

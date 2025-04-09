@@ -45,10 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var delegated = AwsFunctions.getCallerIdentity();
+ *         final var delegated = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new OrganizationDelegatedAdminAccount("example", OrganizationDelegatedAdminAccountArgs.builder()
- *             .accountId(delegated.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .accountId(delegated.accountId())
  *             .build());
  * 
  *     }

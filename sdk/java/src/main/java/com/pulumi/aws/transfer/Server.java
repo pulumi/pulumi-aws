@@ -307,7 +307,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamForTransfer = new Role("iamForTransfer", RoleArgs.builder()
  *             .namePrefix("iam_for_transfer_")
- *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(transferAssumeRole.json())
  *             .managedPolicyArns("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess")
  *             .build());
  * 
@@ -315,7 +315,7 @@ import javax.annotation.Nullable;
  *             .endpointType("PUBLIC")
  *             .loggingRole(iamForTransfer.arn())
  *             .protocols("SFTP")
- *             .structuredLogDestinations(transfer.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *             .structuredLogDestinations(transfer.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *             .build());
  * 
  *     }

@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleSourceBucketV2.id())
- *             .policy(exampleSource.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(exampleSource.json())
  *             .build());
  * 
  *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleDestinationBucketV2.id())
- *             .policy(exampleDestination.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(exampleDestination.json())
  *             .build());
  * 
  *         var exampleFlow = new Flow("exampleFlow", FlowArgs.builder()

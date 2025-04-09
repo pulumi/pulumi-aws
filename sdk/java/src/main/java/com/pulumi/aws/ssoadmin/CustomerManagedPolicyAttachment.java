@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()

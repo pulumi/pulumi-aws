@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .name("bar")
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())
- *             .query(hogeDatabase.name().applyValue(name -> String.format("SELECT * FROM %s limit 10;", name)))
+ *             .query(hogeDatabase.name().applyValue(_name -> String.format("SELECT * FROM %s limit 10;", _name)))
  *             .build());
  * 
  *     }

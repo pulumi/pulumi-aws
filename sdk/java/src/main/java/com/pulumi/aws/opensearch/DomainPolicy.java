@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(example.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                 .resources(example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var mainDomainPolicy = new DomainPolicy("mainDomainPolicy", DomainPolicyArgs.builder()
  *             .domainName(example.domainName())
- *             .accessPolicies(main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(main -> main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .accessPolicies(main.applyValue(_main -> _main.json()))
  *             .build());
  * 
  *     }

@@ -113,7 +113,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         final var keyPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
@@ -122,7 +123,7 @@ import javax.annotation.Nullable;
  *                     .resources("*")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
- *                         .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -137,7 +138,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .deletionWindowInDays(10)
- *             .policy(keyPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(keyPolicy.json())
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()

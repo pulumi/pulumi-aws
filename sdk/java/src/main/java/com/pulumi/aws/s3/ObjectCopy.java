@@ -101,7 +101,8 @@ import javax.annotation.Nullable;
  *             .source("source_bucket/source_key")
  *             .overrideProvider(ObjectCopyOverrideProviderArgs.builder()
  *                 .defaultTags(ObjectCopyOverrideProviderDefaultTagsArgs.builder()
- *                     .tags()
+ *                     .tags(Map.ofEntries(
+ *                     ))
  *                     .build())
  *                 .build())
  *             .build());

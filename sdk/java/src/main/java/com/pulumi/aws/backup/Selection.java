@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .name("example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()

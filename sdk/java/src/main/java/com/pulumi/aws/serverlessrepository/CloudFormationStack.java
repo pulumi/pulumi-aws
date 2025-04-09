@@ -47,9 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var postgres_rotator = new CloudFormationStack("postgres-rotator", CloudFormationStackArgs.builder()
  *             .name("postgres-rotator")
@@ -59,7 +61,7 @@ import javax.annotation.Nullable;
  *                 "CAPABILITY_RESOURCE_POLICY")
  *             .parameters(Map.ofEntries(
  *                 Map.entry("functionName", "func-postgres-rotator"),
- *                 Map.entry("endpoint", String.format("secretsmanager.%s.%s", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
+ *                 Map.entry("endpoint", String.format("secretsmanager.%s.%s", currentGetRegion.name(),current.dnsSuffix()))
  *             ))
  *             .build());
  * 

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleV2modelsBotVersion = new V2modelsBotVersion("exampleV2modelsBotVersion", V2modelsBotVersionArgs.builder()
  *             .botId(example.id())
- *             .localeSpecification(exampleV2modelsBotLocale.localeId().applyValue(localeId -> Map.of(localeId, Map.of("sourceBotVersion", "DRAFT"))))
+ *             .localeSpecification(exampleV2modelsBotLocale.localeId().applyValue(_localeId -> Map.of(_localeId, Map.of("sourceBotVersion", "DRAFT"))))
  *             .build());
  * 
  *         var exampleV2modelsSlotType = new V2modelsSlotType("exampleV2modelsSlotType", V2modelsSlotTypeArgs.builder()

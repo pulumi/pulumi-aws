@@ -56,7 +56,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new Key("example", KeyArgs.builder()
  *             .customerMasterKeySpec("ECC_NIST_P256")
@@ -83,7 +84,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Action", "kms:*"),
  *                             jsonProperty("Effect", "Allow"),
  *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.accountId()))
  *                             )),
  *                             jsonProperty("Resource", "*"),
  *                             jsonProperty("Sid", "Enable IAM User Permissions")

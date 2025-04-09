@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TaskSet("example", TaskSetArgs.builder()
  *             .scale(TaskSetScaleArgs.builder()
- *                 .value(50)
+ *                 .value(50.0)
  *                 .build())
  *             .build());
  * 

@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()
  *             .name("vpce-notification-topic")
- *             .policy(topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(topic.json())
  *             .build());
  * 
  *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()

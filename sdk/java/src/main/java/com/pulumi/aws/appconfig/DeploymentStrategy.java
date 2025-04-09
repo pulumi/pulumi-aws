@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .description("Example Deployment Strategy")
  *             .deploymentDurationInMinutes(3)
  *             .finalBakeTimeInMinutes(4)
- *             .growthFactor(10)
+ *             .growthFactor(10.0)
  *             .growthType("LINEAR")
  *             .replicateTo("NONE")
  *             .tags(Map.of("Type", "AppConfig Deployment Strategy"))

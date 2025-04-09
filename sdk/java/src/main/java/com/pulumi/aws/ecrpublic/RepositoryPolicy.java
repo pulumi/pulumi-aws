@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()
  *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(example.json())
  *             .build());
  * 
  *     }

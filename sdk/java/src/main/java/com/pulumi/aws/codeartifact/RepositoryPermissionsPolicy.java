@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", RepositoryPermissionsPolicyArgs.builder()
  *             .repository(exampleRepository.repository())
  *             .domain(exampleDomain.domain())
- *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

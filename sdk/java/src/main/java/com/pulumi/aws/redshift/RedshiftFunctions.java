@@ -39,61 +39,6 @@ public final class RedshiftFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -106,61 +51,6 @@ public final class RedshiftFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,61 +63,6 @@ public final class RedshiftFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -240,61 +75,6 @@ public final class RedshiftFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -307,61 +87,6 @@ public final class RedshiftFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -613,7 +338,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -655,7 +381,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -697,7 +424,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -739,7 +467,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -781,7 +510,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -823,7 +553,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -865,7 +596,8 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
+     *         final var example = RedshiftFunctions.getDataShares(GetDataSharesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1450,40 +1182,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1534,40 +1267,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1618,40 +1352,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1702,40 +1437,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1786,40 +1522,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1870,40 +1607,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }
@@ -1954,40 +1692,41 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
+     *         final var main = RedshiftFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowAuditLogging = bucket.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Put bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+     *                     .resources(String.format("%s/*", _arn))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid("Get bucket policy needed for audit logging")
      *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                         .identifiers(main.arn())
      *                         .build())
      *                     .actions("s3:GetBucketAcl")
      *                     .resources(bucketAwsS3Bucket.arn())
      *                     .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(_allowAuditLogging -> _allowAuditLogging.json()))
      *             .build());
      * 
      *     }

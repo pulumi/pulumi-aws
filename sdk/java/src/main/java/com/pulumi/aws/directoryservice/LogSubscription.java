@@ -63,13 +63,13 @@ import javax.annotation.Nullable;
  *                     .identifiers("ds.amazonaws.com")
  *                     .type("Service")
  *                     .build())
- *                 .resources(example.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *                 .resources(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
  *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy("ad-log-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(ad_log_policy.applyValue(ad_log_policy -> ad_log_policy.json()))
+ *             .policyDocument(ad_log_policy.applyValue(_ad_log_policy -> _ad_log_policy.json()))
  *             .policyName("ad-log-policy")
  *             .build());
  * 

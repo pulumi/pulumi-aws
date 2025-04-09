@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .serviceName(example.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+ *             .serviceName(example.serviceName())
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 

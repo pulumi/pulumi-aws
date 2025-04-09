@@ -56,13 +56,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -> serializeJson(
+ *             .policy(example.arn().applyValue(_arn -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Id", "default"),
@@ -70,7 +72,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Sid", "default"),
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", current.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", current.partition(),currentGetCallerIdentity.accountId()))
  *                         )),
  *                         jsonProperty("Action", jsonArray(
  *                             "codebuild:BatchGetReportGroups", 
@@ -78,7 +80,7 @@ import javax.annotation.Nullable;
  *                             "codebuild:ListReportsForReportGroup", 
  *                             "codebuild:DescribeTestCases"
  *                         )),
- *                         jsonProperty("Resource", arn)
+ *                         jsonProperty("Resource", _arn)
  *                     )))
  *                 ))))
  *             .build());

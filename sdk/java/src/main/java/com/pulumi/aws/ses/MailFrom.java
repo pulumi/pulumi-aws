@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new MailFrom("example", MailFromArgs.builder()
  *             .domain(exampleDomainIdentity.domain())
- *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -> String.format("bounce.%s", domain)))
+ *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(_domain -> String.format("bounce.%s", _domain)))
  *             .build());
  * 
  *         // Example Route53 MX record
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
  *             .type("MX")
- *             .ttl("600")
+ *             .ttl(600)
  *             .records("10 feedback-smtp.us-east-1.amazonses.com")
  *             .build());
  * 
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
  *             .type("TXT")
- *             .ttl("600")
+ *             .ttl(600)
  *             .records("v=spf1 include:amazonses.com ~all")
  *             .build());
  * 

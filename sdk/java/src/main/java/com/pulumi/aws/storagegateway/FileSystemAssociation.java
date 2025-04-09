@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Instance("test", InstanceArgs.builder()
- *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -> getParameterResult.value()))
+ *             .ami(awsServiceStoragegatewayAmiFILES3Latest.value())
  *             .associatePublicIpAddress(true)
  *             .instanceType(available.instanceType())
  *             .vpcSecurityGroupIds(testAwsSecurityGroup.id())

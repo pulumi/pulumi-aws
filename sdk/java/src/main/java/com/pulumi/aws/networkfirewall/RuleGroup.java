@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  *                         .action("DROP")
  *                         .header(RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.builder()
  *                             .destination("124.1.1.24/32")
- *                             .destinationPort(53)
+ *                             .destinationPort("53")
  *                             .direction("ANY")
  *                             .protocol("TCP")
  *                             .source("1.2.3.4/32")
- *                             .sourcePort(53)
+ *                             .sourcePort("53")
  *                             .build())
  *                         .ruleOptions(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.builder()
  *                             .keyword("sid")
@@ -155,6 +155,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -202,6 +204,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
  * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

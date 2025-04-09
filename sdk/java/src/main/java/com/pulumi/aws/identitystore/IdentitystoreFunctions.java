@@ -58,10 +58,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -70,7 +70,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()));
+     *         ctx.export("groupId", exampleGetGroup.groupId());
      *     }
      * }
      * }
@@ -112,10 +112,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -124,7 +124,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()));
+     *         ctx.export("groupId", exampleGetGroup.groupId());
      *     }
      * }
      * }
@@ -166,10 +166,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -178,7 +178,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()));
+     *         ctx.export("groupId", exampleGetGroup.groupId());
      *     }
      * }
      * }
@@ -220,10 +220,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -232,7 +232,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()));
+     *         ctx.export("groupId", exampleGetGroup.groupId());
      *     }
      * }
      * }
@@ -274,10 +274,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -286,7 +286,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("groupId", exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()));
+     *         ctx.export("groupId", exampleGetGroup.groupId());
      *     }
      * }
      * }
@@ -331,10 +331,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -344,8 +344,8 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
-     *             .groupId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+     *             .identityStoreId(example.identityStoreIds()[0])
+     *             .groupId(exampleGetGroup.groupId())
      *             .build());
      * 
      *     }
@@ -392,10 +392,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -405,8 +405,8 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
-     *             .groupId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+     *             .identityStoreId(example.identityStoreIds()[0])
+     *             .groupId(exampleGetGroup.groupId())
      *             .build());
      * 
      *     }
@@ -453,10 +453,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -466,8 +466,8 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
-     *             .groupId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+     *             .identityStoreId(example.identityStoreIds()[0])
+     *             .groupId(exampleGetGroup.groupId())
      *             .build());
      * 
      *     }
@@ -514,10 +514,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -527,8 +527,8 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
-     *             .groupId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+     *             .identityStoreId(example.identityStoreIds()[0])
+     *             .groupId(exampleGetGroup.groupId())
      *             .build());
      * 
      *     }
@@ -575,10 +575,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
@@ -588,8 +588,8 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
-     *             .groupId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+     *             .identityStoreId(example.identityStoreIds()[0])
+     *             .groupId(exampleGetGroup.groupId())
      *             .build());
      * 
      *     }
@@ -633,10 +633,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -680,10 +680,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -727,10 +727,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -774,10 +774,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -821,10 +821,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -868,10 +868,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
@@ -880,7 +880,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("userId", exampleGetUser.applyValue(getUserResult -> getUserResult.userId()));
+     *         ctx.export("userId", exampleGetUser.userId());
      *     }
      * }
      * }
@@ -922,10 +922,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
@@ -934,7 +934,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("userId", exampleGetUser.applyValue(getUserResult -> getUserResult.userId()));
+     *         ctx.export("userId", exampleGetUser.userId());
      *     }
      * }
      * }
@@ -976,10 +976,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
@@ -988,7 +988,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("userId", exampleGetUser.applyValue(getUserResult -> getUserResult.userId()));
+     *         ctx.export("userId", exampleGetUser.userId());
      *     }
      * }
      * }
@@ -1030,10 +1030,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
@@ -1042,7 +1042,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("userId", exampleGetUser.applyValue(getUserResult -> getUserResult.userId()));
+     *         ctx.export("userId", exampleGetUser.userId());
      *     }
      * }
      * }
@@ -1084,10 +1084,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
@@ -1096,7 +1096,7 @@ public final class IdentitystoreFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("userId", exampleGetUser.applyValue(getUserResult -> getUserResult.userId()));
+     *         ctx.export("userId", exampleGetUser.userId());
      *     }
      * }
      * }
@@ -1138,10 +1138,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -1185,10 +1185,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -1232,10 +1232,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -1279,10 +1279,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }
@@ -1326,10 +1326,10 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances();
+     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *     }

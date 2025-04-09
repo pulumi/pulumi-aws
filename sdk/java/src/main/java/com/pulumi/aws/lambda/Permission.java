@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.AliasArgs;
  * import com.pulumi.aws.lambda.Permission;
  * import com.pulumi.aws.lambda.PermissionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.asset.FileArchive;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,8 +118,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.sns.TopicSubscription;
  * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.asset.FileArchive;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *             .action("lambda:InvokeFunction")
  *             .function("MyDemoFunction")
  *             .principal("apigateway.amazonaws.com")
- *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -> String.format("%s/*", executionArn)))
+ *             .sourceArn(myDemoAPI.executionArn().applyValue(_executionArn -> String.format("%s/*", _executionArn)))
  *             .build());
  * 
  *     }
@@ -249,8 +249,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
  * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -281,7 +281,7 @@ import javax.annotation.Nullable;
  * 
  *         var defaultRole = new Role("defaultRole", RoleArgs.builder()
  *             .name("iam_for_lambda_called_from_cloudwatch_logs")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var loggingFunction = new Function("loggingFunction", FunctionArgs.builder()
@@ -296,7 +296,7 @@ import javax.annotation.Nullable;
  *             .action("lambda:InvokeFunction")
  *             .function(loggingFunction.name())
  *             .principal("logs.eu-west-1.amazonaws.com")
- *             .sourceArn(default_.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *             .sourceArn(default_.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *             .build());
  * 
  *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter("loggingLogSubscriptionFilter", LogSubscriptionFilterArgs.builder()

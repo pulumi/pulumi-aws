@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
+ * const subnetId = config.requireObject<any>("subnetId");
  * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
  * });
@@ -204,7 +204,7 @@ export interface GetSubnetResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
+ * const subnetId = config.requireObject<any>("subnetId");
  * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
  * });

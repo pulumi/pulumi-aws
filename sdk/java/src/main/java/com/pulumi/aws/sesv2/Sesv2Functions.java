@@ -720,7 +720,7 @@ public final class Sesv2Functions {
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.emailIdentity())
      *             .build());
      * 
      *     }
@@ -769,7 +769,7 @@ public final class Sesv2Functions {
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.emailIdentity())
      *             .build());
      * 
      *     }
@@ -818,7 +818,7 @@ public final class Sesv2Functions {
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.emailIdentity())
      *             .build());
      * 
      *     }
@@ -867,7 +867,7 @@ public final class Sesv2Functions {
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.emailIdentity())
      *             .build());
      * 
      *     }
@@ -916,7 +916,7 @@ public final class Sesv2Functions {
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.emailIdentity())
      *             .build());
      * 
      *     }

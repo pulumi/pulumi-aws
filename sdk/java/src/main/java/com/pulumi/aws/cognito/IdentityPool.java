@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.SamlProvider;
  * import com.pulumi.aws.iam.SamlProviderArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.aws.cognito.IdentityPool;
  * import com.pulumi.aws.cognito.IdentityPoolArgs;
  * import com.pulumi.aws.cognito.inputs.IdentityPoolCognitoIdentityProviderArgs;

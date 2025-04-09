@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .name("foo")
  *             .policyType("TargetTrackingScaling")
  *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
- *                 .targetValue(100)
+ *                 .targetValue(100.0)
  *                 .customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs.builder()
  *                     .metrics(                    
  *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *             .policyType("PredictiveScaling")
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
- *                     .targetValue(10)
+ *                     .targetValue(10.0)
  *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
  *                             .id("load_sum")
@@ -277,7 +277,7 @@ import javax.annotation.Nullable;
  *             .policyType("PredictiveScaling")
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
- *                     .targetValue(10)
+ *                     .targetValue(10.0)
  *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
  *                         .predefinedMetricType("ASGTotalCPUUtilization")
  *                         .resourceLabel("app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff")
@@ -531,13 +531,13 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *             .stepAdjustments(            
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(-1)
-     *                     .metricIntervalLowerBound(1)
-     *                     .metricIntervalUpperBound(2)
+     *                     .metricIntervalLowerBound("1")
+     *                     .metricIntervalUpperBound("2")
      *                     .build(),
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(1)
-     *                     .metricIntervalLowerBound(2)
-     *                     .metricIntervalUpperBound(3)
+     *                     .metricIntervalLowerBound("2")
+     *                     .metricIntervalUpperBound("3")
      *                     .build())
      *             .build());
      * 
@@ -585,13 +585,13 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *             .stepAdjustments(            
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(-1)
-     *                     .metricIntervalLowerBound(1)
-     *                     .metricIntervalUpperBound(2)
+     *                     .metricIntervalLowerBound("1")
+     *                     .metricIntervalUpperBound("2")
      *                     .build(),
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(1)
-     *                     .metricIntervalLowerBound(2)
-     *                     .metricIntervalUpperBound(3)
+     *                     .metricIntervalLowerBound("2")
+     *                     .metricIntervalUpperBound("3")
      *                     .build())
      *             .build());
      * 
@@ -640,7 +640,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
-     *                 .targetValue(40)
+     *                 .targetValue(40.0)
      *                 .build())
      *             .build());
      * 
@@ -689,7 +689,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
-     *                 .targetValue(40)
+     *                 .targetValue(40.0)
      *                 .build())
      *             .build());
      * 

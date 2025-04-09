@@ -1375,7 +1375,8 @@ public final class CloudwatchFunctions {
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
+     *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
+     *                                 .build())
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1383,7 +1384,7 @@ public final class CloudwatchFunctions {
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.json())
      *             .build());
      * 
      *     }
@@ -1459,7 +1460,8 @@ public final class CloudwatchFunctions {
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
+     *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
+     *                                 .build())
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1467,7 +1469,7 @@ public final class CloudwatchFunctions {
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.json())
      *             .build());
      * 
      *     }
@@ -1543,7 +1545,8 @@ public final class CloudwatchFunctions {
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
+     *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
+     *                                 .build())
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1551,7 +1554,7 @@ public final class CloudwatchFunctions {
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.json())
      *             .build());
      * 
      *     }
@@ -1627,7 +1630,8 @@ public final class CloudwatchFunctions {
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
+     *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
+     *                                 .build())
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1635,7 +1639,7 @@ public final class CloudwatchFunctions {
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.json())
      *             .build());
      * 
      *     }
@@ -1711,7 +1715,8 @@ public final class CloudwatchFunctions {
      *                         "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US")
      *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
      *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
+     *                             .maskConfig(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs.builder()
+     *                                 .build())
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1719,7 +1724,7 @@ public final class CloudwatchFunctions {
      * 
      *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
-     *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
+     *             .policyDocument(example.json())
      *             .build());
      * 
      *     }

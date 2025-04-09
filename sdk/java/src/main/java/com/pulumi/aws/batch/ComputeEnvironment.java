@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         var ecsInstanceRole = new Role("ecsInstanceRole", RoleArgs.builder()
  *             .name("ecs_instance_role")
- *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(ec2AssumeRole.json())
  *             .build());
  * 
  *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *         var awsBatchServiceRole = new Role("awsBatchServiceRole", RoleArgs.builder()
  *             .name("aws_batch_service_role")
- *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(batchAssumeRole.json())
  *             .build());
  * 
  *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()

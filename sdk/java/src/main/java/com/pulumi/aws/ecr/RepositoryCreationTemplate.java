@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .encryptionConfigurations(RepositoryCreationTemplateEncryptionConfigurationArgs.builder()
  *                 .encryptionType("AES256")
  *                 .build())
- *             .repositoryPolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .repositoryPolicy(example.json())
  *             .lifecyclePolicy("""
  * {
  *   "rules": [

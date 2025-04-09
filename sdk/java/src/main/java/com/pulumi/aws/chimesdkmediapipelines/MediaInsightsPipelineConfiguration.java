@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var callAnalyticsRole = new Role("callAnalyticsRole", RoleArgs.builder()
  *             .name("CallAnalyticsRole")
- *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(mediaPipelinesAssumeRole.json())
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  * 
  *         var postCallRole = new Role("postCallRole", RoleArgs.builder()
  *             .name("PostCallAccessRole")
- *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(transcribeAssumeRole.json())
  *             .build());
  * 
  *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()

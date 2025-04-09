@@ -47,7 +47,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -55,7 +56,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -102,7 +103,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -110,7 +112,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -157,7 +159,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -165,7 +168,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -212,7 +215,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -220,7 +224,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -267,7 +271,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -275,7 +280,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -322,7 +327,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -330,7 +336,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -377,7 +383,8 @@ public final class ApprunnerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     *         final var main = ApprunnerFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -385,7 +392,7 @@ public final class ApprunnerFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());

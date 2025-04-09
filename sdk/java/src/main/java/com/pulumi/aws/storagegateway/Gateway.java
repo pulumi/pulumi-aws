@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCache = new Cache("testCache", CacheArgs.builder()
- *             .diskId(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskId()))
+ *             .diskId(test.diskId())
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 

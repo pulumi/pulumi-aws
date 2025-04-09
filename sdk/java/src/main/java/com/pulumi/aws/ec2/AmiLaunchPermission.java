@@ -117,11 +117,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = OrganizationsFunctions.getOrganization();
+ *         final var current = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()
  *             .imageId("ami-12345678")
- *             .organizationArn(current.applyValue(getOrganizationResult -> getOrganizationResult.arn()))
+ *             .organizationArn(current.arn())
  *             .build());
  * 
  *     }

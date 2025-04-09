@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var awsRoute53ExampleCom = new LogGroup("awsRoute53ExampleCom", LogGroupArgs.builder()
- *             .name(exampleCom.name().applyValue(name -> String.format("/aws/route53/%s", name)))
+ *             .name(exampleCom.name().applyValue(_name -> String.format("/aws/route53/%s", _name)))
  *             .retentionInDays(30)
  *             .build());
  * 

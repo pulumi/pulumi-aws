@@ -52,12 +52,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var main = new VpcIpam("main", VpcIpamArgs.builder()
  *             .description("My IPAM")
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .regionName(current.name())
  *                 .build())
  *             .tags(Map.of("Test", "Main"))
  *             .build());

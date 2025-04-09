@@ -362,7 +362,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
+     *             .subnetId(subnetId.value())
      *             .build());
      * 
      *     }
@@ -415,7 +415,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
+     *             .subnetId(subnetId.value())
      *             .build());
      * 
      *     }
@@ -468,7 +468,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
+     *             .subnetId(subnetId.value())
      *             .build());
      * 
      *     }
@@ -521,7 +521,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
+     *             .subnetId(subnetId.value())
      *             .build());
      * 
      *     }
@@ -574,7 +574,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
+     *             .subnetId(subnetId.value())
      *             .build());
      * 
      *     }
@@ -625,7 +625,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.outputs().SubnetId())
      *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
@@ -677,7 +677,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.outputs().SubnetId())
      *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
@@ -729,7 +729,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.outputs().SubnetId())
      *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
@@ -781,7 +781,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.outputs().SubnetId())
      *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 
@@ -833,7 +833,7 @@ public final class CloudformationFunctions {
      *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
-     *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.outputs().SubnetId())
      *             .tags(Map.of("Name", "HelloWorld"))
      *             .build());
      * 

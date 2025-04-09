@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var foo = new Domain("foo", DomainArgs.builder()
  *             .name("foo")
  *             .description("SWF Domain")
- *             .workflowExecutionRetentionPeriodInDays(30)
+ *             .workflowExecutionRetentionPeriodInDays("30")
  *             .build());
  * 
  *     }

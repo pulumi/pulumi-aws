@@ -49,7 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var peer = AwsFunctions.getRegion();
+ *         final var peer = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var local = new TransitGateway("local", TransitGatewayArgs.builder()
  *             .tags(Map.of("Name", "Local TGW"))
@@ -61,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new PeeringAttachment("example", PeeringAttachmentArgs.builder()
  *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peer.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .peerRegion(peer.name())
  *             .peerTransitGatewayId(peerTransitGateway.id())
  *             .transitGatewayId(local.id())
  *             .tags(Map.of("Name", "TGW Peering Requestor"))

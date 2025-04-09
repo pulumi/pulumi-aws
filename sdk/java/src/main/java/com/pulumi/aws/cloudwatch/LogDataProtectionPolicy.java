@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
  *             .logGroupName(example.name())
- *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -> serializeJson(
+ *             .policyDocument(exampleBucketV2.bucket().applyValue(_bucket -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Name", "Example"),
  *                     jsonProperty("Version", "2021-06-01"),
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                                 jsonProperty("Audit", jsonObject(
  *                                     jsonProperty("FindingsDestination", jsonObject(
  *                                         jsonProperty("S3", jsonObject(
- *                                             jsonProperty("Bucket", bucket)
+ *                                             jsonProperty("Bucket", _bucket)
  *                                         ))
  *                                     ))
  *                                 ))

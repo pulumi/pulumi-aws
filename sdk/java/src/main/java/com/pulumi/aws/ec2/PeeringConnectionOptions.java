@@ -133,13 +133,14 @@ import javax.annotation.Nullable;
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         final var peer = AwsFunctions.getCallerIdentity();
+ *         final var peer = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         // Requester's side of the connection.
  *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .peerOwnerId(peer.accountId())
  *             .autoAccept(false)
  *             .tags(Map.of("Side", "Requester"))
  *             .build());

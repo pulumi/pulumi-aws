@@ -125,6 +125,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appsync.Function;
  * import com.pulumi.aws.appsync.FunctionArgs;
  * import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

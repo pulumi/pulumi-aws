@@ -73,16 +73,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var test = new Certificate("test", CertificateArgs.builder()
  *             .certificateAuthorityArn(example.arn())
  *             .certificateSigningRequest(example.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
- *                 .value(1)
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 

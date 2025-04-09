@@ -316,11 +316,12 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
      *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -396,11 +397,12 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
      *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -476,11 +478,12 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
      *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -556,11 +559,12 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
      *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -636,11 +640,12 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
      *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -659,38 +664,6 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -703,38 +676,6 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -747,38 +688,6 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -791,38 +700,6 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -835,38 +712,6 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,42 +760,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -999,42 +808,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1083,42 +856,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1167,42 +904,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1251,42 +952,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1787,12 +1452,13 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
      *             .name("example.mesh.local")
      *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -1869,12 +1535,13 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
      *             .name("example.mesh.local")
      *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -1951,12 +1618,13 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
      *             .name("example.mesh.local")
      *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -2033,12 +1701,13 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
      *             .name("example.mesh.local")
      *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }
@@ -2115,12 +1784,13 @@ public final class AppmeshFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
      *             .name("example.mesh.local")
      *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *             .meshOwner(current.accountId())
      *             .build());
      * 
      *     }

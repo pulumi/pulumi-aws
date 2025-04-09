@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Role("example", RoleArgs.builder()
  *             .name("eks-pod-identity-example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var exampleS3 = new RolePolicyAttachment("exampleS3", RolePolicyAttachmentArgs.builder()

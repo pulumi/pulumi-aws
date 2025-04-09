@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .namespace("AWS/EC2")
  *             .period(120)
  *             .statistic("Average")
- *             .threshold(80)
+ *             .threshold(80.0)
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .insufficientDataActions()
  *             .build());
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .namespace("AWS/EC2")
  *             .period(120)
  *             .statistic("Average")
- *             .threshold(80)
+ *             .threshold(80.0)
  *             .dimensions(Map.of("AutoScalingGroupName", bar.name()))
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .alarmActions(bat.arn())
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *             .name("test-foobar")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
- *             .threshold(10)
+ *             .threshold(10.0)
  *             .alarmDescription("Request error rate has exceeded 10%")
  *             .insufficientDataActions()
  *             .metricQueries(            
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                     .id("e1")
  *                     .expression("m2/m1*100")
  *                     .label("Error Rate")
- *                     .returnData("true")
+ *                     .returnData(true)
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("m1")
@@ -233,7 +233,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("m1")
- *                     .returnData("true")
+ *                     .returnData(true)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("CPUUtilization")
  *                         .namespace("AWS/EC2")
@@ -286,7 +286,7 @@ import javax.annotation.Nullable;
  *             .statistic("Average")
  *             .threshold(logstashServersCount)
  *             .alarmDescription("Number of healthy nodes in Target Group")
- *             .actionsEnabled("true")
+ *             .actionsEnabled(true)
  *             .alarmActions(sns.arn())
  *             .okActions(sns.arn())
  *             .dimensions(Map.ofEntries(

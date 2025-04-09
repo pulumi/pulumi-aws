@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
+ * const subnetId = config.requireObject<any>("subnetId");
  * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
  * });
@@ -152,7 +152,7 @@ export interface GetRouteResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
+ * const subnetId = config.requireObject<any>("subnetId");
  * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
  * });

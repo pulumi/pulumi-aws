@@ -48,16 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var glue-example-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("glue:CreateTable")
- *                 .resources(String.format("arn:%s:glue:%s:%s:*", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                 .resources(String.format("arn:%s:glue:%s:%s:*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("*")
  *                     .type("AWS")

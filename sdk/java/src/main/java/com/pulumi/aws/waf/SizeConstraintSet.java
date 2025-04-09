@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
  *                 .textTransformation("NONE")
  *                 .comparisonOperator("EQ")
- *                 .size("4096")
+ *                 .size(4096)
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
  *                     .type("BODY")
  *                     .build())

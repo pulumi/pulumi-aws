@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *         var example = new Multiplex("example", MultiplexArgs.builder()
  *             .name("example-multiplex-changed")
  *             .availabilityZones(            
- *                 available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]),
- *                 available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+ *                 available.names()[0],
+ *                 available.names()[1])
  *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
  *                 .transportStreamBitrate(1000000)
  *                 .transportStreamId(1)

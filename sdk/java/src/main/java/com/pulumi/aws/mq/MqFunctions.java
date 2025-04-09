@@ -700,7 +700,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -758,7 +759,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -816,7 +818,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -874,7 +877,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -932,7 +936,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -990,7 +995,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
@@ -1048,7 +1054,8 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings();
+     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .build());
      * 
      *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")

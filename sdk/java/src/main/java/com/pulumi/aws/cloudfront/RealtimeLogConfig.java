@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("cloudfront-realtime-log-config-example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .name("cloudfront-realtime-log-config-example")
  *             .role(exampleRole.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(example.json())
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()

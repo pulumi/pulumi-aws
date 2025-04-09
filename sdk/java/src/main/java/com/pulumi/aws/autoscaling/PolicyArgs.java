@@ -231,13 +231,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *             .stepAdjustments(            
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(-1)
-     *                     .metricIntervalLowerBound(1)
-     *                     .metricIntervalUpperBound(2)
+     *                     .metricIntervalLowerBound("1")
+     *                     .metricIntervalUpperBound("2")
      *                     .build(),
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(1)
-     *                     .metricIntervalLowerBound(2)
-     *                     .metricIntervalUpperBound(3)
+     *                     .metricIntervalLowerBound("2")
+     *                     .metricIntervalUpperBound("3")
      *                     .build())
      *             .build());
      * 
@@ -285,13 +285,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *             .stepAdjustments(            
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(-1)
-     *                     .metricIntervalLowerBound(1)
-     *                     .metricIntervalUpperBound(2)
+     *                     .metricIntervalLowerBound("1")
+     *                     .metricIntervalUpperBound("2")
      *                     .build(),
      *                 PolicyStepAdjustmentArgs.builder()
      *                     .scalingAdjustment(1)
-     *                     .metricIntervalLowerBound(2)
-     *                     .metricIntervalUpperBound(3)
+     *                     .metricIntervalLowerBound("2")
+     *                     .metricIntervalUpperBound("3")
      *                     .build())
      *             .build());
      * 
@@ -341,7 +341,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
-     *                 .targetValue(40)
+     *                 .targetValue(40.0)
      *                 .build())
      *             .build());
      * 
@@ -390,7 +390,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
      *                     .build())
-     *                 .targetValue(40)
+     *                 .targetValue(40.0)
      *                 .build())
      *             .build());
      * 
@@ -718,13 +718,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *             .stepAdjustments(            
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(-1)
-         *                     .metricIntervalLowerBound(1)
-         *                     .metricIntervalUpperBound(2)
+         *                     .metricIntervalLowerBound("1")
+         *                     .metricIntervalUpperBound("2")
          *                     .build(),
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(1)
-         *                     .metricIntervalLowerBound(2)
-         *                     .metricIntervalUpperBound(3)
+         *                     .metricIntervalLowerBound("2")
+         *                     .metricIntervalUpperBound("3")
          *                     .build())
          *             .build());
          * 
@@ -776,13 +776,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *             .stepAdjustments(            
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(-1)
-         *                     .metricIntervalLowerBound(1)
-         *                     .metricIntervalUpperBound(2)
+         *                     .metricIntervalLowerBound("1")
+         *                     .metricIntervalUpperBound("2")
          *                     .build(),
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(1)
-         *                     .metricIntervalLowerBound(2)
-         *                     .metricIntervalUpperBound(3)
+         *                     .metricIntervalLowerBound("2")
+         *                     .metricIntervalUpperBound("3")
          *                     .build())
          *             .build());
          * 
@@ -833,13 +833,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *             .stepAdjustments(            
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(-1)
-         *                     .metricIntervalLowerBound(1)
-         *                     .metricIntervalUpperBound(2)
+         *                     .metricIntervalLowerBound("1")
+         *                     .metricIntervalUpperBound("2")
          *                     .build(),
          *                 PolicyStepAdjustmentArgs.builder()
          *                     .scalingAdjustment(1)
-         *                     .metricIntervalLowerBound(2)
-         *                     .metricIntervalUpperBound(3)
+         *                     .metricIntervalLowerBound("2")
+         *                     .metricIntervalUpperBound("3")
          *                     .build())
          *             .build());
          * 
@@ -891,7 +891,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
          *                     .predefinedMetricType("ASGAverageCPUUtilization")
          *                     .build())
-         *                 .targetValue(40)
+         *                 .targetValue(40.0)
          *                 .build())
          *             .build());
          * 
@@ -944,7 +944,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
          *                     .predefinedMetricType("ASGAverageCPUUtilization")
          *                     .build())
-         *                 .targetValue(40)
+         *                 .targetValue(40.0)
          *                 .build())
          *             .build());
          * 

@@ -202,11 +202,11 @@ import javax.annotation.Nullable;
  *             ))
  *             .responseParameters(            
  *                 IntegrationResponseParameterArgs.builder()
- *                     .statusCode(403)
+ *                     .statusCode("403")
  *                     .mappings(Map.of("append:header.auth", "$context.authorizer.authorizerResponse"))
  *                     .build(),
  *                 IntegrationResponseParameterArgs.builder()
- *                     .statusCode(200)
+ *                     .statusCode("200")
  *                     .mappings(Map.of("overwrite:statuscode", "204"))
  *                     .build())
  *             .build());

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
  *             .description("An example")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .relayState("https://s3.console.aws.amazon.com/s3/home?region=us-east-1#")
  *             .sessionDuration("PT2H")
  *             .build());

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dynamodbTableReadPolicy = new Policy("dynamodbTableReadPolicy", PolicyArgs.builder()
- *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -> String.format("DynamoDBReadCapacityUtilization:%s", resourceId)))
+ *             .name(dynamodbTableReadTarget.resourceId().applyValue(_resourceId -> String.format("DynamoDBReadCapacityUtilization:%s", _resourceId)))
  *             .policyType("TargetTrackingScaling")
  *             .resourceId(dynamodbTableReadTarget.resourceId())
  *             .scalableDimension(dynamodbTableReadTarget.scalableDimension())
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
  *                     .predefinedMetricType("DynamoDBReadCapacityUtilization")
  *                     .build())
- *                 .targetValue(70)
+ *                 .targetValue(70.0)
  *                 .build())
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *                 .cooldown(60)
  *                 .metricAggregationType("Maximum")
  *                 .stepAdjustments(PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
- *                     .metricIntervalUpperBound(0)
+ *                     .metricIntervalUpperBound("0")
  *                     .scalingAdjustment(-1)
  *                     .build())
  *                 .build())
@@ -223,7 +223,7 @@ import javax.annotation.Nullable;
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
  *                     .predefinedMetricType("RDSReaderAverageCPUUtilization")
  *                     .build())
- *                 .targetValue(75)
+ *                 .targetValue(75.0)
  *                 .scaleInCooldown(300)
  *                 .scaleOutCooldown(300)
  *                 .build())
@@ -279,7 +279,7 @@ import javax.annotation.Nullable;
  *             .scalableDimension(ecsTarget.scalableDimension())
  *             .serviceNamespace(ecsTarget.serviceNamespace())
  *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
- *                 .targetValue(100)
+ *                 .targetValue(100.0)
  *                 .customizedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs.builder()
  *                     .metrics(                    
  *                         PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs.builder()
@@ -382,7 +382,7 @@ import javax.annotation.Nullable;
  *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
  *                     .predefinedMetricType("KafkaBrokerStorageUtilization")
  *                     .build())
- *                 .targetValue(55)
+ *                 .targetValue(55.0)
  *                 .build())
  *             .build());
  * 

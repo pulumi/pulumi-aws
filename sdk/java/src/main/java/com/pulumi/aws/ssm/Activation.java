@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test_role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var testAttach = new RolePolicyAttachment("testAttach", RolePolicyAttachmentArgs.builder()
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .name("test_ssm_activation")
  *             .description("Test")
  *             .iamRole(testRole.id())
- *             .registrationLimit("5")
+ *             .registrationLimit(5)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAttach)
  *                 .build());

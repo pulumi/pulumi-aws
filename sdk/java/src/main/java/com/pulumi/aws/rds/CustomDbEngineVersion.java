@@ -88,6 +88,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.rds.CustomDbEngineVersion;
  * import com.pulumi.aws.rds.CustomDbEngineVersionArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64sha256Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
