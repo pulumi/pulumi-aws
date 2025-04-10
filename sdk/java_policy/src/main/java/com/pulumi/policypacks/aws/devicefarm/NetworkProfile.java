@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/networkProfile:NetworkProfile")
-public final class NetworkProfile extends com.pulumi.resources.PolicyResource {
+public final class NetworkProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this network profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NetworkProfile.arn");
+    }
 
     /**
      * The description of the network profile.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("NetworkProfile.description");
+    }
 
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    public Integer downlinkBandwidthBits;
+    private @Nullable UndeferrableValue<Integer> downlinkBandwidthBits;
 
-
+    public @Nullable Integer downlinkBandwidthBits() {
+        if (downlinkBandwidthBits == null) return null;
+        return downlinkBandwidthBits.getValue("NetworkProfile.downlinkBandwidthBits");
+    }
 
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    public Integer downlinkDelayMs;
+    private @Nullable UndeferrableValue<Integer> downlinkDelayMs;
 
-
+    public @Nullable Integer downlinkDelayMs() {
+        if (downlinkDelayMs == null) return null;
+        return downlinkDelayMs.getValue("NetworkProfile.downlinkDelayMs");
+    }
 
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    public Integer downlinkJitterMs;
+    private @Nullable UndeferrableValue<Integer> downlinkJitterMs;
 
-
+    public @Nullable Integer downlinkJitterMs() {
+        if (downlinkJitterMs == null) return null;
+        return downlinkJitterMs.getValue("NetworkProfile.downlinkJitterMs");
+    }
 
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    public Integer downlinkLossPercent;
+    private @Nullable UndeferrableValue<Integer> downlinkLossPercent;
 
-
+    public @Nullable Integer downlinkLossPercent() {
+        if (downlinkLossPercent == null) return null;
+        return downlinkLossPercent.getValue("NetworkProfile.downlinkLossPercent");
+    }
 
     /**
      * The name for the network profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("NetworkProfile.name");
+    }
 
     /**
      * The ARN of the project for the network profile.
      * 
      */
-    public String projectArn;
+    private UndeferrableValue<String> projectArn;
 
-
+    public String projectArn() {
+        if (projectArn == null) return null;
+        return projectArn.getValue("NetworkProfile.projectArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NetworkProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,48 +121,66 @@ public final class NetworkProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NetworkProfile.tagsAll");
+    }
 
     /**
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("NetworkProfile.type");
+    }
 
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    public Integer uplinkBandwidthBits;
+    private @Nullable UndeferrableValue<Integer> uplinkBandwidthBits;
 
-
+    public @Nullable Integer uplinkBandwidthBits() {
+        if (uplinkBandwidthBits == null) return null;
+        return uplinkBandwidthBits.getValue("NetworkProfile.uplinkBandwidthBits");
+    }
 
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    public Integer uplinkDelayMs;
+    private @Nullable UndeferrableValue<Integer> uplinkDelayMs;
 
-
+    public @Nullable Integer uplinkDelayMs() {
+        if (uplinkDelayMs == null) return null;
+        return uplinkDelayMs.getValue("NetworkProfile.uplinkDelayMs");
+    }
 
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    public Integer uplinkJitterMs;
+    private @Nullable UndeferrableValue<Integer> uplinkJitterMs;
 
-
+    public @Nullable Integer uplinkJitterMs() {
+        if (uplinkJitterMs == null) return null;
+        return uplinkJitterMs.getValue("NetworkProfile.uplinkJitterMs");
+    }
 
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    public Integer uplinkLossPercent;
+    private @Nullable UndeferrableValue<Integer> uplinkLossPercent;
 
-
+    public @Nullable Integer uplinkLossPercent() {
+        if (uplinkLossPercent == null) return null;
+        return uplinkLossPercent.getValue("NetworkProfile.uplinkLossPercent");
+    }
 
 }

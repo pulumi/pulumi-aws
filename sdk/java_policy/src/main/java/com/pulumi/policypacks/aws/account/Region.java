@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.account;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:account/region:Region")
-public final class Region extends com.pulumi.resources.PolicyResource {
+public final class Region extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted. To use this parameter, the caller must be an identity in the organization&#39;s management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
      * 
      */
-    public String accountId;
+    private @Nullable UndeferrableValue<String> accountId;
 
-
+    public @Nullable String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Region.accountId");
+    }
 
     /**
      * Whether the region is enabled.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Region.enabled");
+    }
 
     /**
      * The region opt status.
      * 
      */
-    public String optStatus;
+    private UndeferrableValue<String> optStatus;
 
-
+    public String optStatus() {
+        if (optStatus == null) return null;
+        return optStatus.getValue("Region.optStatus");
+    }
 
     /**
      * The region name to manage.
      * 
      */
-    public String regionName;
+    private UndeferrableValue<String> regionName;
 
-
+    public String regionName() {
+        if (regionName == null) return null;
+        return regionName.getValue("Region.regionName");
+    }
 
 }

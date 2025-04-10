@@ -3,37 +3,50 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssoadmin.InstanceAccessControlAttributesAttribute;
+import com.pulumi.policypacks.aws.ssoadmin.outputs.InstanceAccessControlAttributesAttribute;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")
-public final class InstanceAccessControlAttributes extends com.pulumi.resources.PolicyResource {
+public final class InstanceAccessControlAttributes extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * See AccessControlAttribute for more details.
      * 
      */
-    public List<InstanceAccessControlAttributesAttribute> attributes;
+    private UndeferrableValue<List<InstanceAccessControlAttributesAttribute>> attributes;
 
-
+    public List<InstanceAccessControlAttributesAttribute> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("InstanceAccessControlAttributes.attributes");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("InstanceAccessControlAttributes.instanceArn");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("InstanceAccessControlAttributes.status");
+    }
 
+    private UndeferrableValue<String> statusReason;
 
-
-    public String statusReason;
-
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("InstanceAccessControlAttributes.statusReason");
+    }
 
 }

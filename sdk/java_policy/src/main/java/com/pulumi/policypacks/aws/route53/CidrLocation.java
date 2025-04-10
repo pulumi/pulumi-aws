@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:route53/cidrLocation:CidrLocation")
-public final class CidrLocation extends com.pulumi.resources.PolicyResource {
+public final class CidrLocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * CIDR blocks for the location.
      * 
      */
-    public List<String> cidrBlocks;
+    private UndeferrableValue<List<String>> cidrBlocks;
 
-
+    public List<String> cidrBlocks() {
+        if (cidrBlocks == null) return null;
+        return cidrBlocks.getValue("CidrLocation.cidrBlocks");
+    }
 
     /**
      * The ID of the CIDR collection to update.
      * 
      */
-    public String cidrCollectionId;
+    private UndeferrableValue<String> cidrCollectionId;
 
-
+    public String cidrCollectionId() {
+        if (cidrCollectionId == null) return null;
+        return cidrCollectionId.getValue("CidrLocation.cidrCollectionId");
+    }
 
     /**
      * Name for the CIDR location.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CidrLocation.name");
+    }
 
 }

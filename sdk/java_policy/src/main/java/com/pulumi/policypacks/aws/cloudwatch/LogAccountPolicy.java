@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logAccountPolicy:LogAccountPolicy")
-public final class LogAccountPolicy extends com.pulumi.resources.PolicyResource {
+public final class LogAccountPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("LogAccountPolicy.policyDocument");
+    }
 
     /**
      * Name of the account policy.
      * 
      */
-    public String policyName;
+    private UndeferrableValue<String> policyName;
 
-
+    public String policyName() {
+        if (policyName == null) return null;
+        return policyName.getValue("LogAccountPolicy.policyName");
+    }
 
     /**
      * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      * 
      */
-    public String policyType;
+    private UndeferrableValue<String> policyType;
 
-
+    public String policyType() {
+        if (policyType == null) return null;
+        return policyType.getValue("LogAccountPolicy.policyType");
+    }
 
     /**
      * Currently defaults to and only accepts the value: `ALL`.
      * 
      */
-    public String scope;
+    private @Nullable UndeferrableValue<String> scope;
 
-
+    public @Nullable String scope() {
+        if (scope == null) return null;
+        return scope.getValue("LogAccountPolicy.scope");
+    }
 
     /**
      * Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
      * 
      */
-    public String selectionCriteria;
+    private @Nullable UndeferrableValue<String> selectionCriteria;
 
-
+    public @Nullable String selectionCriteria() {
+        if (selectionCriteria == null) return null;
+        return selectionCriteria.getValue("LogAccountPolicy.selectionCriteria");
+    }
 
 }

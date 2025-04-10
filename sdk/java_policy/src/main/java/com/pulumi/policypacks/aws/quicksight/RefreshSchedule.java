@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.RefreshScheduleSchedule;
+import com.pulumi.policypacks.aws.quicksight.outputs.RefreshScheduleSchedule;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/refreshSchedule:RefreshSchedule")
-public final class RefreshSchedule extends com.pulumi.resources.PolicyResource {
+public final class RefreshSchedule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the refresh schedule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RefreshSchedule.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("RefreshSchedule.awsAccountId");
+    }
 
     /**
      * The ID of the dataset.
      * 
      */
-    public String dataSetId;
+    private UndeferrableValue<String> dataSetId;
 
-
+    public String dataSetId() {
+        if (dataSetId == null) return null;
+        return dataSetId.getValue("RefreshSchedule.dataSetId");
+    }
 
     /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -41,16 +52,22 @@ public final class RefreshSchedule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public RefreshScheduleSchedule schedule;
+    private @Nullable UndeferrableValue<RefreshScheduleSchedule> schedule;
 
-
+    public @Nullable RefreshScheduleSchedule schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("RefreshSchedule.schedule");
+    }
 
     /**
      * The ID of the refresh schedule.
      * 
      */
-    public String scheduleId;
+    private UndeferrableValue<String> scheduleId;
 
-
+    public String scheduleId() {
+        if (scheduleId == null) return null;
+        return scheduleId.getValue("RefreshSchedule.scheduleId");
+    }
 
 }

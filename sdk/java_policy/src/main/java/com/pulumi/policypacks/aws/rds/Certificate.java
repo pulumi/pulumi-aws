@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:rds/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Certificate identifier. For example, `rds-ca-rsa4096-g1`. Refer to [AWS RDS (Relational Database) Certificate Identifier](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificateIdentifier) for more information.
      * 
      */
-    public String certificateIdentifier;
+    private UndeferrableValue<String> certificateIdentifier;
 
-
+    public String certificateIdentifier() {
+        if (certificateIdentifier == null) return null;
+        return certificateIdentifier.getValue("Certificate.certificateIdentifier");
+    }
 
 }

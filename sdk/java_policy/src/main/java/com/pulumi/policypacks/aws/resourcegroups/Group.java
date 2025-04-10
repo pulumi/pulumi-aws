@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.resourcegroups;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.resourcegroups.GroupConfiguration;
-import com.pulumi.policypacks.aws.resourcegroups.GroupResourceQuery;
+import com.pulumi.policypacks.aws.resourcegroups.outputs.GroupConfiguration;
+import com.pulumi.policypacks.aws.resourcegroups.outputs.GroupResourceQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:resourcegroups/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN assigned by AWS for this resource group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Group.arn");
+    }
 
     /**
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      * 
      */
-    public List<GroupConfiguration> configurations;
+    private @Nullable UndeferrableValue<List<GroupConfiguration>> configurations;
 
-
+    public @Nullable List<GroupConfiguration> configurations() {
+        if (configurations == null) return null;
+        return configurations.getValue("Group.configurations");
+    }
 
     /**
      * A description of the resource group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Group.description");
+    }
 
     /**
      * The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Group.name");
+    }
 
     /**
      * A `resource_query` block. Resource queries are documented below.
      * 
      */
-    public GroupResourceQuery resourceQuery;
+    private @Nullable UndeferrableValue<GroupResourceQuery> resourceQuery;
 
-
+    public @Nullable GroupResourceQuery resourceQuery() {
+        if (resourceQuery == null) return null;
+        return resourceQuery.getValue("Group.resourceQuery");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Group.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,8 +90,11 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Group.tagsAll");
+    }
 
 }

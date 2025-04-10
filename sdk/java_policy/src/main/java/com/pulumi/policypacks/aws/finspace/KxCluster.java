@@ -3,47 +3,58 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.finspace.KxClusterAutoScalingConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterCacheStorageConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterCapacityConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterCode;
-import com.pulumi.policypacks.aws.finspace.KxClusterDatabase;
-import com.pulumi.policypacks.aws.finspace.KxClusterSavedownStorageConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterScalingGroupConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterTickerplantLogConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxClusterVpcConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterAutoScalingConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterCacheStorageConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterCapacityConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterCode;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterDatabase;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterSavedownStorageConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterScalingGroupConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterTickerplantLogConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxClusterVpcConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxCluster:KxCluster")
-public final class KxCluster extends com.pulumi.resources.PolicyResource {
+public final class KxCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxCluster.arn");
+    }
 
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      * 
      */
-    public KxClusterAutoScalingConfiguration autoScalingConfiguration;
+    private @Nullable UndeferrableValue<KxClusterAutoScalingConfiguration> autoScalingConfiguration;
 
-
+    public @Nullable KxClusterAutoScalingConfiguration autoScalingConfiguration() {
+        if (autoScalingConfiguration == null) return null;
+        return autoScalingConfiguration.getValue("KxCluster.autoScalingConfiguration");
+    }
 
     /**
      * The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
      * 
      */
-    public String availabilityZoneId;
+    private @Nullable UndeferrableValue<String> availabilityZoneId;
 
-
+    public @Nullable String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("KxCluster.availabilityZoneId");
+    }
 
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
@@ -51,145 +62,202 @@ public final class KxCluster extends com.pulumi.resources.PolicyResource {
      * * MULTI - Assigns all the availability zones per cluster.
      * 
      */
-    public String azMode;
+    private UndeferrableValue<String> azMode;
 
-
+    public String azMode() {
+        if (azMode == null) return null;
+        return azMode.getValue("KxCluster.azMode");
+    }
 
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      * 
      */
-    public List<KxClusterCacheStorageConfiguration> cacheStorageConfigurations;
+    private @Nullable UndeferrableValue<List<KxClusterCacheStorageConfiguration>> cacheStorageConfigurations;
 
-
+    public @Nullable List<KxClusterCacheStorageConfiguration> cacheStorageConfigurations() {
+        if (cacheStorageConfigurations == null) return null;
+        return cacheStorageConfigurations.getValue("KxCluster.cacheStorageConfigurations");
+    }
 
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    public KxClusterCapacityConfiguration capacityConfiguration;
+    private @Nullable UndeferrableValue<KxClusterCapacityConfiguration> capacityConfiguration;
 
-
+    public @Nullable KxClusterCapacityConfiguration capacityConfiguration() {
+        if (capacityConfiguration == null) return null;
+        return capacityConfiguration.getValue("KxCluster.capacityConfiguration");
+    }
 
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      * 
      */
-    public KxClusterCode code;
+    private @Nullable UndeferrableValue<KxClusterCode> code;
 
-
+    public @Nullable KxClusterCode code() {
+        if (code == null) return null;
+        return code.getValue("KxCluster.code");
+    }
 
     /**
      * List of key-value pairs to make available inside the cluster.
      * 
      */
-    public Map<String,String> commandLineArguments;
+    private @Nullable UndeferrableValue<Map<String,String>> commandLineArguments;
 
-
+    public @Nullable Map<String,String> commandLineArguments() {
+        if (commandLineArguments == null) return null;
+        return commandLineArguments.getValue("KxCluster.commandLineArguments");
+    }
 
     /**
      * Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("KxCluster.createdTimestamp");
+    }
 
     /**
      * KX database that will be available for querying. Defined below.
      * 
      */
-    public List<KxClusterDatabase> databases;
+    private @Nullable UndeferrableValue<List<KxClusterDatabase>> databases;
 
-
+    public @Nullable List<KxClusterDatabase> databases() {
+        if (databases == null) return null;
+        return databases.getValue("KxCluster.databases");
+    }
 
     /**
      * Description of the cluster.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("KxCluster.description");
+    }
 
     /**
      * Unique identifier for the KX environment.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("KxCluster.environmentId");
+    }
 
     /**
      * An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
      * 
      */
-    public String executionRole;
+    private @Nullable UndeferrableValue<String> executionRole;
 
-
+    public @Nullable String executionRole() {
+        if (executionRole == null) return null;
+        return executionRole.getValue("KxCluster.executionRole");
+    }
 
     /**
      * Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
      * 
      */
-    public String initializationScript;
+    private @Nullable UndeferrableValue<String> initializationScript;
 
-
+    public @Nullable String initializationScript() {
+        if (initializationScript == null) return null;
+        return initializationScript.getValue("KxCluster.initializationScript");
+    }
 
     /**
      * Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String lastModifiedTimestamp;
+    private UndeferrableValue<String> lastModifiedTimestamp;
 
-
+    public String lastModifiedTimestamp() {
+        if (lastModifiedTimestamp == null) return null;
+        return lastModifiedTimestamp.getValue("KxCluster.lastModifiedTimestamp");
+    }
 
     /**
      * Unique name for the cluster that you want to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxCluster.name");
+    }
 
     /**
      * Version of FinSpace Managed kdb to run.
      * 
      */
-    public String releaseLabel;
+    private UndeferrableValue<String> releaseLabel;
 
-
+    public String releaseLabel() {
+        if (releaseLabel == null) return null;
+        return releaseLabel.getValue("KxCluster.releaseLabel");
+    }
 
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      * 
      */
-    public KxClusterSavedownStorageConfiguration savedownStorageConfiguration;
+    private @Nullable UndeferrableValue<KxClusterSavedownStorageConfiguration> savedownStorageConfiguration;
 
-
+    public @Nullable KxClusterSavedownStorageConfiguration savedownStorageConfiguration() {
+        if (savedownStorageConfiguration == null) return null;
+        return savedownStorageConfiguration.getValue("KxCluster.savedownStorageConfiguration");
+    }
 
     /**
      * The structure that stores the configuration details of a scaling group.
      * 
      */
-    public KxClusterScalingGroupConfiguration scalingGroupConfiguration;
+    private @Nullable UndeferrableValue<KxClusterScalingGroupConfiguration> scalingGroupConfiguration;
 
+    public @Nullable KxClusterScalingGroupConfiguration scalingGroupConfiguration() {
+        if (scalingGroupConfiguration == null) return null;
+        return scalingGroupConfiguration.getValue("KxCluster.scalingGroupConfiguration");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("KxCluster.status");
+    }
 
+    private UndeferrableValue<String> statusReason;
 
-
-    public String statusReason;
-
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("KxCluster.statusReason");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxCluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -199,17 +267,23 @@ public final class KxCluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxCluster.tagsAll");
+    }
 
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      * 
      */
-    public List<KxClusterTickerplantLogConfiguration> tickerplantLogConfigurations;
+    private @Nullable UndeferrableValue<List<KxClusterTickerplantLogConfiguration>> tickerplantLogConfigurations;
 
-
+    public @Nullable List<KxClusterTickerplantLogConfiguration> tickerplantLogConfigurations() {
+        if (tickerplantLogConfigurations == null) return null;
+        return tickerplantLogConfigurations.getValue("KxCluster.tickerplantLogConfigurations");
+    }
 
     /**
      * Type of KDB database. The following types are available:
@@ -220,9 +294,12 @@ public final class KxCluster extends com.pulumi.resources.PolicyResource {
      * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("KxCluster.type");
+    }
 
     /**
      * Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
@@ -230,8 +307,11 @@ public final class KxCluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public KxClusterVpcConfiguration vpcConfiguration;
+    private UndeferrableValue<KxClusterVpcConfiguration> vpcConfiguration;
 
-
+    public KxClusterVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("KxCluster.vpcConfiguration");
+    }
 
 }

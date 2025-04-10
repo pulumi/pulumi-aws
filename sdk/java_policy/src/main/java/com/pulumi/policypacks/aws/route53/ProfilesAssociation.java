@@ -3,70 +3,96 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ProfilesAssociationTimeouts;
+import com.pulumi.policypacks.aws.route53.outputs.ProfilesAssociationTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/profilesAssociation:ProfilesAssociation")
-public final class ProfilesAssociation extends com.pulumi.resources.PolicyResource {
+public final class ProfilesAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProfilesAssociation.arn");
+    }
 
     /**
      * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProfilesAssociation.name");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
-
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ProfilesAssociation.ownerId");
+    }
 
     /**
      * ID of the profile associated with the VPC.
      * 
      */
-    public String profileId;
+    private UndeferrableValue<String> profileId;
 
-
+    public String profileId() {
+        if (profileId == null) return null;
+        return profileId.getValue("ProfilesAssociation.profileId");
+    }
 
     /**
      * Resource ID of the VPC the profile to be associated with.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ProfilesAssociation.resourceId");
+    }
 
     /**
      * Status of the Profile Association.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ProfilesAssociation.status");
+    }
 
     /**
      * Status message of the Profile Association.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
-
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("ProfilesAssociation.statusMessage");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProfilesAssociation.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,12 +102,18 @@ public final class ProfilesAssociation extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProfilesAssociation.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ProfilesAssociationTimeouts> timeouts;
 
-    public ProfilesAssociationTimeouts timeouts;
-
-
+    public @Nullable ProfilesAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ProfilesAssociation.timeouts");
+    }
 
 }

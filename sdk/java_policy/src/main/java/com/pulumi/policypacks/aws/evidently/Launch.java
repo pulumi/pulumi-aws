@@ -3,130 +3,174 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.evidently.LaunchExecution;
-import com.pulumi.policypacks.aws.evidently.LaunchGroup;
-import com.pulumi.policypacks.aws.evidently.LaunchMetricMonitor;
-import com.pulumi.policypacks.aws.evidently.LaunchScheduledSplitsConfig;
+import com.pulumi.policypacks.aws.evidently.outputs.LaunchExecution;
+import com.pulumi.policypacks.aws.evidently.outputs.LaunchGroup;
+import com.pulumi.policypacks.aws.evidently.outputs.LaunchMetricMonitor;
+import com.pulumi.policypacks.aws.evidently.outputs.LaunchScheduledSplitsConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:evidently/launch:Launch")
-public final class Launch extends com.pulumi.resources.PolicyResource {
+public final class Launch extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the launch.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Launch.arn");
+    }
 
     /**
      * The date and time that the launch is created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Launch.createdTime");
+    }
 
     /**
      * Specifies the description of the launch.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Launch.description");
+    }
 
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      * 
      */
-    public List<LaunchExecution> executions;
+    private UndeferrableValue<List<LaunchExecution>> executions;
 
-
+    public List<LaunchExecution> executions() {
+        if (executions == null) return null;
+        return executions.getValue("Launch.executions");
+    }
 
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      * 
      */
-    public List<LaunchGroup> groups;
+    private UndeferrableValue<List<LaunchGroup>> groups;
 
-
+    public List<LaunchGroup> groups() {
+        if (groups == null) return null;
+        return groups.getValue("Launch.groups");
+    }
 
     /**
      * The date and time that the launch was most recently updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Launch.lastUpdatedTime");
+    }
 
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      * 
      */
-    public List<LaunchMetricMonitor> metricMonitors;
+    private @Nullable UndeferrableValue<List<LaunchMetricMonitor>> metricMonitors;
 
-
+    public @Nullable List<LaunchMetricMonitor> metricMonitors() {
+        if (metricMonitors == null) return null;
+        return metricMonitors.getValue("Launch.metricMonitors");
+    }
 
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Launch.name");
+    }
 
     /**
      * The name or ARN of the project that is to contain the new launch.
      * 
      */
-    public String project;
+    private UndeferrableValue<String> project;
 
-
+    public String project() {
+        if (project == null) return null;
+        return project.getValue("Launch.project");
+    }
 
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      * 
      */
-    public String randomizationSalt;
+    private @Nullable UndeferrableValue<String> randomizationSalt;
 
-
+    public @Nullable String randomizationSalt() {
+        if (randomizationSalt == null) return null;
+        return randomizationSalt.getValue("Launch.randomizationSalt");
+    }
 
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      * 
      */
-    public LaunchScheduledSplitsConfig scheduledSplitsConfig;
+    private @Nullable UndeferrableValue<LaunchScheduledSplitsConfig> scheduledSplitsConfig;
 
-
+    public @Nullable LaunchScheduledSplitsConfig scheduledSplitsConfig() {
+        if (scheduledSplitsConfig == null) return null;
+        return scheduledSplitsConfig.getValue("Launch.scheduledSplitsConfig");
+    }
 
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Launch.status");
+    }
 
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      * 
      */
-    public String statusReason;
+    private UndeferrableValue<String> statusReason;
 
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("Launch.statusReason");
+    }
 
     /**
      * Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Launch.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -136,16 +180,22 @@ public final class Launch extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Launch.tagsAll");
+    }
 
     /**
      * The type of launch.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Launch.type");
+    }
 
 }

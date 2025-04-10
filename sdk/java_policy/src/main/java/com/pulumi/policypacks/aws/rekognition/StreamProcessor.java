@@ -3,93 +3,122 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorDataSharingPreference;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorInput;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorNotificationChannel;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorOutput;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorRegionsOfInterest;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorSettings;
-import com.pulumi.policypacks.aws.rekognition.StreamProcessorTimeouts;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorDataSharingPreference;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorInput;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorNotificationChannel;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorOutput;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorRegionsOfInterest;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorSettings;
+import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rekognition/streamProcessor:StreamProcessor")
-public final class StreamProcessor extends com.pulumi.resources.PolicyResource {
+public final class StreamProcessor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Stream Processor.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StreamProcessor.arn");
+    }
 
     /**
      * See `data_sharing_preference`.
      * 
      */
-    public StreamProcessorDataSharingPreference dataSharingPreference;
+    private @Nullable UndeferrableValue<StreamProcessorDataSharingPreference> dataSharingPreference;
 
-
+    public @Nullable StreamProcessorDataSharingPreference dataSharingPreference() {
+        if (dataSharingPreference == null) return null;
+        return dataSharingPreference.getValue("StreamProcessor.dataSharingPreference");
+    }
 
     /**
      * Input video stream. See `input`.
      * 
      */
-    public StreamProcessorInput input;
+    private @Nullable UndeferrableValue<StreamProcessorInput> input;
 
-
+    public @Nullable StreamProcessorInput input() {
+        if (input == null) return null;
+        return input.getValue("StreamProcessor.input");
+    }
 
     /**
      * Optional parameter for label detection stream processors.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("StreamProcessor.kmsKeyId");
+    }
 
     /**
      * The name of the Stream Processor.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StreamProcessor.name");
+    }
 
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
      * 
      */
-    public StreamProcessorNotificationChannel notificationChannel;
+    private @Nullable UndeferrableValue<StreamProcessorNotificationChannel> notificationChannel;
 
-
+    public @Nullable StreamProcessorNotificationChannel notificationChannel() {
+        if (notificationChannel == null) return null;
+        return notificationChannel.getValue("StreamProcessor.notificationChannel");
+    }
 
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      * 
      */
-    public StreamProcessorOutput output;
+    private @Nullable UndeferrableValue<StreamProcessorOutput> output;
 
-
+    public @Nullable StreamProcessorOutput output() {
+        if (output == null) return null;
+        return output.getValue("StreamProcessor.output");
+    }
 
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
      * 
      */
-    public List<StreamProcessorRegionsOfInterest> regionsOfInterests;
+    private @Nullable UndeferrableValue<List<StreamProcessorRegionsOfInterest>> regionsOfInterests;
 
-
+    public @Nullable List<StreamProcessorRegionsOfInterest> regionsOfInterests() {
+        if (regionsOfInterests == null) return null;
+        return regionsOfInterests.getValue("StreamProcessor.regionsOfInterests");
+    }
 
     /**
      * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("StreamProcessor.roleArn");
+    }
 
     /**
      * Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -97,9 +126,12 @@ public final class StreamProcessor extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public StreamProcessorSettings settings;
+    private @Nullable UndeferrableValue<StreamProcessorSettings> settings;
 
-
+    public @Nullable StreamProcessorSettings settings() {
+        if (settings == null) return null;
+        return settings.getValue("StreamProcessor.settings");
+    }
 
     /**
      * (**Deprecated**) ARN of the Stream Processor.
@@ -110,17 +142,23 @@ public final class StreamProcessor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
-    public String streamProcessorArn;
+    private UndeferrableValue<String> streamProcessorArn;
 
-
+    public String streamProcessorArn() {
+        if (streamProcessorArn == null) return null;
+        return streamProcessorArn.getValue("StreamProcessor.streamProcessorArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StreamProcessor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -130,12 +168,18 @@ public final class StreamProcessor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StreamProcessor.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<StreamProcessorTimeouts> timeouts;
 
-    public StreamProcessorTimeouts timeouts;
-
-
+    public @Nullable StreamProcessorTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("StreamProcessor.timeouts");
+    }
 
 }

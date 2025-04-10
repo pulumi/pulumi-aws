@@ -3,132 +3,176 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentClosingSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentConfirmationSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentDialogCodeHook;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentFulfillmentCodeHook;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentInitialResponseSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentInputContext;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentKendraConfiguration;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentOutputContext;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentSampleUtterance;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentSlotPriority;
-import com.pulumi.policypacks.aws.lex.V2modelsIntentTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentDialogCodeHook;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHook;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInputContext;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentKendraConfiguration;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentOutputContext;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentSampleUtterance;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentSlotPriority;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsIntent:V2modelsIntent")
-public final class V2modelsIntent extends com.pulumi.resources.PolicyResource {
+public final class V2modelsIntent extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the bot associated with this intent.
      * 
      */
-    public String botId;
+    private UndeferrableValue<String> botId;
 
-
+    public String botId() {
+        if (botId == null) return null;
+        return botId.getValue("V2modelsIntent.botId");
+    }
 
     /**
      * Version of the bot associated with this intent.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("V2modelsIntent.botVersion");
+    }
 
     /**
      * Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
      * 
      */
-    public V2modelsIntentClosingSetting closingSetting;
+    private @Nullable UndeferrableValue<V2modelsIntentClosingSetting> closingSetting;
 
+    public @Nullable V2modelsIntentClosingSetting closingSetting() {
+        if (closingSetting == null) return null;
+        return closingSetting.getValue("V2modelsIntent.closingSetting");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSetting> confirmationSetting;
 
-    public V2modelsIntentConfirmationSetting confirmationSetting;
-
-
+    public @Nullable V2modelsIntentConfirmationSetting confirmationSetting() {
+        if (confirmationSetting == null) return null;
+        return confirmationSetting.getValue("V2modelsIntent.confirmationSetting");
+    }
 
     /**
      * Timestamp of the date and time that the intent was created.
      * 
      */
-    public String creationDateTime;
+    private UndeferrableValue<String> creationDateTime;
 
-
+    public String creationDateTime() {
+        if (creationDateTime == null) return null;
+        return creationDateTime.getValue("V2modelsIntent.creationDateTime");
+    }
 
     /**
      * Description of the intent. Use the description to help identify the intent in lists.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsIntent.description");
+    }
 
     /**
      * Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
      * 
      */
-    public V2modelsIntentDialogCodeHook dialogCodeHook;
+    private @Nullable UndeferrableValue<V2modelsIntentDialogCodeHook> dialogCodeHook;
 
-
+    public @Nullable V2modelsIntentDialogCodeHook dialogCodeHook() {
+        if (dialogCodeHook == null) return null;
+        return dialogCodeHook.getValue("V2modelsIntent.dialogCodeHook");
+    }
 
     /**
      * Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
      * 
      */
-    public V2modelsIntentFulfillmentCodeHook fulfillmentCodeHook;
+    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHook> fulfillmentCodeHook;
 
-
+    public @Nullable V2modelsIntentFulfillmentCodeHook fulfillmentCodeHook() {
+        if (fulfillmentCodeHook == null) return null;
+        return fulfillmentCodeHook.getValue("V2modelsIntent.fulfillmentCodeHook");
+    }
 
     /**
      * Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
      * 
      */
-    public V2modelsIntentInitialResponseSetting initialResponseSetting;
+    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSetting> initialResponseSetting;
 
-
+    public @Nullable V2modelsIntentInitialResponseSetting initialResponseSetting() {
+        if (initialResponseSetting == null) return null;
+        return initialResponseSetting.getValue("V2modelsIntent.initialResponseSetting");
+    }
 
     /**
      * Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
      * 
      */
-    public List<V2modelsIntentInputContext> inputContexts;
+    private @Nullable UndeferrableValue<List<V2modelsIntentInputContext>> inputContexts;
 
-
+    public @Nullable List<V2modelsIntentInputContext> inputContexts() {
+        if (inputContexts == null) return null;
+        return inputContexts.getValue("V2modelsIntent.inputContexts");
+    }
 
     /**
      * Unique identifier for the intent.
      * 
      */
-    public String intentId;
+    private UndeferrableValue<String> intentId;
 
-
+    public String intentId() {
+        if (intentId == null) return null;
+        return intentId.getValue("V2modelsIntent.intentId");
+    }
 
     /**
      * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
      * 
      */
-    public V2modelsIntentKendraConfiguration kendraConfiguration;
+    private @Nullable UndeferrableValue<V2modelsIntentKendraConfiguration> kendraConfiguration;
 
-
+    public @Nullable V2modelsIntentKendraConfiguration kendraConfiguration() {
+        if (kendraConfiguration == null) return null;
+        return kendraConfiguration.getValue("V2modelsIntent.kendraConfiguration");
+    }
 
     /**
      * Timestamp of the last time that the intent was modified.
      * 
      */
-    public String lastUpdatedDateTime;
+    private UndeferrableValue<String> lastUpdatedDateTime;
 
-
+    public String lastUpdatedDateTime() {
+        if (lastUpdatedDateTime == null) return null;
+        return lastUpdatedDateTime.getValue("V2modelsIntent.lastUpdatedDateTime");
+    }
 
     /**
      * Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
-    public String localeId;
+    private UndeferrableValue<String> localeId;
 
-
+    public String localeId() {
+        if (localeId == null) return null;
+        return localeId.getValue("V2modelsIntent.localeId");
+    }
 
     /**
      * Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
@@ -136,44 +180,62 @@ public final class V2modelsIntent extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("V2modelsIntent.name");
+    }
 
     /**
      * Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
      * 
      */
-    public List<V2modelsIntentOutputContext> outputContexts;
+    private @Nullable UndeferrableValue<List<V2modelsIntentOutputContext>> outputContexts;
 
-
+    public @Nullable List<V2modelsIntentOutputContext> outputContexts() {
+        if (outputContexts == null) return null;
+        return outputContexts.getValue("V2modelsIntent.outputContexts");
+    }
 
     /**
      * Identifier for the built-in intent to base this intent on.
      * 
      */
-    public String parentIntentSignature;
+    private @Nullable UndeferrableValue<String> parentIntentSignature;
 
-
+    public @Nullable String parentIntentSignature() {
+        if (parentIntentSignature == null) return null;
+        return parentIntentSignature.getValue("V2modelsIntent.parentIntentSignature");
+    }
 
     /**
      * Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
      * 
      */
-    public List<V2modelsIntentSampleUtterance> sampleUtterances;
+    private @Nullable UndeferrableValue<List<V2modelsIntentSampleUtterance>> sampleUtterances;
 
-
+    public @Nullable List<V2modelsIntentSampleUtterance> sampleUtterances() {
+        if (sampleUtterances == null) return null;
+        return sampleUtterances.getValue("V2modelsIntent.sampleUtterances");
+    }
 
     /**
      * Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
      * 
      */
-    public List<V2modelsIntentSlotPriority> slotPriorities;
+    private @Nullable UndeferrableValue<List<V2modelsIntentSlotPriority>> slotPriorities;
 
+    public @Nullable List<V2modelsIntentSlotPriority> slotPriorities() {
+        if (slotPriorities == null) return null;
+        return slotPriorities.getValue("V2modelsIntent.slotPriorities");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsIntentTimeouts> timeouts;
 
-    public V2modelsIntentTimeouts timeouts;
-
-
+    public @Nullable V2modelsIntentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsIntent.timeouts");
+    }
 
 }

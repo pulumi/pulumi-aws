@@ -3,141 +3,188 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lb.TargetGroupHealthCheck;
-import com.pulumi.policypacks.aws.lb.TargetGroupStickiness;
-import com.pulumi.policypacks.aws.lb.TargetGroupTargetFailover;
-import com.pulumi.policypacks.aws.lb.TargetGroupTargetGroupHealth;
-import com.pulumi.policypacks.aws.lb.TargetGroupTargetHealthState;
+import com.pulumi.policypacks.aws.lb.outputs.TargetGroupHealthCheck;
+import com.pulumi.policypacks.aws.lb.outputs.TargetGroupStickiness;
+import com.pulumi.policypacks.aws.lb.outputs.TargetGroupTargetFailover;
+import com.pulumi.policypacks.aws.lb.outputs.TargetGroupTargetGroupHealth;
+import com.pulumi.policypacks.aws.lb.outputs.TargetGroupTargetHealthState;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/targetGroup:TargetGroup")
-public final class TargetGroup extends com.pulumi.resources.PolicyResource {
+public final class TargetGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Target Group (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TargetGroup.arn");
+    }
 
     /**
      * ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    public String arnSuffix;
+    private UndeferrableValue<String> arnSuffix;
 
-
+    public String arnSuffix() {
+        if (arnSuffix == null) return null;
+        return arnSuffix.getValue("TargetGroup.arnSuffix");
+    }
 
     /**
      * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      * 
      */
-    public Boolean connectionTermination;
+    private UndeferrableValue<Boolean> connectionTermination;
 
-
+    public Boolean connectionTermination() {
+        if (connectionTermination == null) return null;
+        return connectionTermination.getValue("TargetGroup.connectionTermination");
+    }
 
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      * 
      */
-    public Integer deregistrationDelay;
+    private @Nullable UndeferrableValue<Integer> deregistrationDelay;
 
-
+    public @Nullable Integer deregistrationDelay() {
+        if (deregistrationDelay == null) return null;
+        return deregistrationDelay.getValue("TargetGroup.deregistrationDelay");
+    }
 
     /**
      * Health Check configuration block. Detailed below.
      * 
      */
-    public TargetGroupHealthCheck healthCheck;
+    private UndeferrableValue<TargetGroupHealthCheck> healthCheck;
 
-
+    public TargetGroupHealthCheck healthCheck() {
+        if (healthCheck == null) return null;
+        return healthCheck.getValue("TargetGroup.healthCheck");
+    }
 
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      * 
      */
-    public String ipAddressType;
+    private UndeferrableValue<String> ipAddressType;
 
-
+    public String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("TargetGroup.ipAddressType");
+    }
 
     /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
      * 
      */
-    public Boolean lambdaMultiValueHeadersEnabled;
+    private @Nullable UndeferrableValue<Boolean> lambdaMultiValueHeadersEnabled;
 
-
+    public @Nullable Boolean lambdaMultiValueHeadersEnabled() {
+        if (lambdaMultiValueHeadersEnabled == null) return null;
+        return lambdaMultiValueHeadersEnabled.getValue("TargetGroup.lambdaMultiValueHeadersEnabled");
+    }
 
     /**
      * ARNs of the Load Balancers associated with the Target Group.
      * 
      */
-    public List<String> loadBalancerArns;
+    private UndeferrableValue<List<String>> loadBalancerArns;
 
-
+    public List<String> loadBalancerArns() {
+        if (loadBalancerArns == null) return null;
+        return loadBalancerArns.getValue("TargetGroup.loadBalancerArns");
+    }
 
     /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
-    public String loadBalancingAlgorithmType;
+    private UndeferrableValue<String> loadBalancingAlgorithmType;
 
-
+    public String loadBalancingAlgorithmType() {
+        if (loadBalancingAlgorithmType == null) return null;
+        return loadBalancingAlgorithmType.getValue("TargetGroup.loadBalancingAlgorithmType");
+    }
 
     /**
      * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
      * 
      */
-    public String loadBalancingAnomalyMitigation;
+    private UndeferrableValue<String> loadBalancingAnomalyMitigation;
 
-
+    public String loadBalancingAnomalyMitigation() {
+        if (loadBalancingAnomalyMitigation == null) return null;
+        return loadBalancingAnomalyMitigation.getValue("TargetGroup.loadBalancingAnomalyMitigation");
+    }
 
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
      * 
      */
-    public String loadBalancingCrossZoneEnabled;
+    private UndeferrableValue<String> loadBalancingCrossZoneEnabled;
 
-
+    public String loadBalancingCrossZoneEnabled() {
+        if (loadBalancingCrossZoneEnabled == null) return null;
+        return loadBalancingCrossZoneEnabled.getValue("TargetGroup.loadBalancingCrossZoneEnabled");
+    }
 
     /**
      * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TargetGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("TargetGroup.namePrefix");
+    }
 
     /**
      * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("TargetGroup.port");
+    }
 
     /**
      * Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
      * 
      */
-    public String preserveClientIp;
+    private UndeferrableValue<String> preserveClientIp;
 
-
+    public String preserveClientIp() {
+        if (preserveClientIp == null) return null;
+        return preserveClientIp.getValue("TargetGroup.preserveClientIp");
+    }
 
     /**
      * Protocol to use for routing traffic to the targets.
@@ -146,49 +193,67 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResource {
      * Does not apply when `target_type` is `lambda`.
      * 
      */
-    public String protocol;
+    private @Nullable UndeferrableValue<String> protocol;
 
-
+    public @Nullable String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("TargetGroup.protocol");
+    }
 
     /**
      * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
      * 
      */
-    public String protocolVersion;
+    private UndeferrableValue<String> protocolVersion;
 
-
+    public String protocolVersion() {
+        if (protocolVersion == null) return null;
+        return protocolVersion.getValue("TargetGroup.protocolVersion");
+    }
 
     /**
      * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
      * 
      */
-    public Boolean proxyProtocolV2;
+    private @Nullable UndeferrableValue<Boolean> proxyProtocolV2;
 
-
+    public @Nullable Boolean proxyProtocolV2() {
+        if (proxyProtocolV2 == null) return null;
+        return proxyProtocolV2.getValue("TargetGroup.proxyProtocolV2");
+    }
 
     /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      * 
      */
-    public Integer slowStart;
+    private @Nullable UndeferrableValue<Integer> slowStart;
 
-
+    public @Nullable Integer slowStart() {
+        if (slowStart == null) return null;
+        return slowStart.getValue("TargetGroup.slowStart");
+    }
 
     /**
      * Stickiness configuration block. Detailed below.
      * 
      */
-    public TargetGroupStickiness stickiness;
+    private UndeferrableValue<TargetGroupStickiness> stickiness;
 
-
+    public TargetGroupStickiness stickiness() {
+        if (stickiness == null) return null;
+        return stickiness.getValue("TargetGroup.stickiness");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TargetGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -198,33 +263,45 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TargetGroup.tagsAll");
+    }
 
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
      * 
      */
-    public List<TargetGroupTargetFailover> targetFailovers;
+    private UndeferrableValue<List<TargetGroupTargetFailover>> targetFailovers;
 
-
+    public List<TargetGroupTargetFailover> targetFailovers() {
+        if (targetFailovers == null) return null;
+        return targetFailovers.getValue("TargetGroup.targetFailovers");
+    }
 
     /**
      * Target health requirements block. See target_group_health for more information.
      * 
      */
-    public TargetGroupTargetGroupHealth targetGroupHealth;
+    private UndeferrableValue<TargetGroupTargetGroupHealth> targetGroupHealth;
 
-
+    public TargetGroupTargetGroupHealth targetGroupHealth() {
+        if (targetGroupHealth == null) return null;
+        return targetGroupHealth.getValue("TargetGroup.targetGroupHealth");
+    }
 
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
-    public List<TargetGroupTargetHealthState> targetHealthStates;
+    private UndeferrableValue<List<TargetGroupTargetHealthState>> targetHealthStates;
 
-
+    public List<TargetGroupTargetHealthState> targetHealthStates() {
+        if (targetHealthStates == null) return null;
+        return targetHealthStates.getValue("TargetGroup.targetHealthStates");
+    }
 
     /**
      * Type of target that you must specify when registering targets with this target group.
@@ -240,16 +317,22 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResource {
      * Application Load Balancers do not support the `alb` target type.
      * 
      */
-    public String targetType;
+    private @Nullable UndeferrableValue<String> targetType;
 
-
+    public @Nullable String targetType() {
+        if (targetType == null) return null;
+        return targetType.getValue("TargetGroup.targetType");
+    }
 
     /**
      * Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
-    public String vpcId;
+    private @Nullable UndeferrableValue<String> vpcId;
 
-
+    public @Nullable String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("TargetGroup.vpcId");
+    }
 
 }

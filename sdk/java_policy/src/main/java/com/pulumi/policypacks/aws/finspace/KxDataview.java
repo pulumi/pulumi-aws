@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.finspace.KxDataviewSegmentConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxDataviewSegmentConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxDataview:KxDataview")
-public final class KxDataview extends com.pulumi.resources.PolicyResource {
+public final class KxDataview extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX dataview.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxDataview.arn");
+    }
 
     /**
      * The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
      * 
      */
-    public Boolean autoUpdate;
+    private UndeferrableValue<Boolean> autoUpdate;
 
-
+    public Boolean autoUpdate() {
+        if (autoUpdate == null) return null;
+        return autoUpdate.getValue("KxDataview.autoUpdate");
+    }
 
     /**
      * The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
-    public String availabilityZoneId;
+    private @Nullable UndeferrableValue<String> availabilityZoneId;
 
-
+    public @Nullable String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("KxDataview.availabilityZoneId");
+    }
 
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
@@ -44,57 +55,78 @@ public final class KxDataview extends com.pulumi.resources.PolicyResource {
      * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
-    public String azMode;
+    private UndeferrableValue<String> azMode;
 
-
+    public String azMode() {
+        if (azMode == null) return null;
+        return azMode.getValue("KxDataview.azMode");
+    }
 
     /**
      * A unique identifier of the changeset of the database that you want to use to ingest data.
      * 
      */
-    public String changesetId;
+    private @Nullable UndeferrableValue<String> changesetId;
 
-
+    public @Nullable String changesetId() {
+        if (changesetId == null) return null;
+        return changesetId.getValue("KxDataview.changesetId");
+    }
 
     /**
      * Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("KxDataview.createdTimestamp");
+    }
 
     /**
      * The name of the database where you want to create a dataview.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("KxDataview.databaseName");
+    }
 
     /**
      * A description for the dataview.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("KxDataview.description");
+    }
 
     /**
      * Unique identifier for the KX environment.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("KxDataview.environmentId");
+    }
 
     /**
      * The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    public String lastModifiedTimestamp;
+    private UndeferrableValue<String> lastModifiedTimestamp;
 
-
+    public String lastModifiedTimestamp() {
+        if (lastModifiedTimestamp == null) return null;
+        return lastModifiedTimestamp.getValue("KxDataview.lastModifiedTimestamp");
+    }
 
     /**
      * A unique identifier for the dataview.
@@ -102,9 +134,12 @@ public final class KxDataview extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxDataview.name");
+    }
 
     /**
      * The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
@@ -113,29 +148,41 @@ public final class KxDataview extends com.pulumi.resources.PolicyResource {
      * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
      * 
      */
-    public Boolean readWrite;
+    private @Nullable UndeferrableValue<Boolean> readWrite;
 
-
+    public @Nullable Boolean readWrite() {
+        if (readWrite == null) return null;
+        return readWrite.getValue("KxDataview.readWrite");
+    }
 
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
      * 
      */
-    public List<KxDataviewSegmentConfiguration> segmentConfigurations;
+    private @Nullable UndeferrableValue<List<KxDataviewSegmentConfiguration>> segmentConfigurations;
 
+    public @Nullable List<KxDataviewSegmentConfiguration> segmentConfigurations() {
+        if (segmentConfigurations == null) return null;
+        return segmentConfigurations.getValue("KxDataview.segmentConfigurations");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("KxDataview.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxDataview.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -145,8 +192,11 @@ public final class KxDataview extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxDataview.tagsAll");
+    }
 
 }

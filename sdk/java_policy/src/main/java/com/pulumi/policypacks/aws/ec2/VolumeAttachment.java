@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/volumeAttachment:VolumeAttachment")
-public final class VolumeAttachment extends com.pulumi.resources.PolicyResource {
+public final class VolumeAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
-    public String deviceName;
+    private UndeferrableValue<String> deviceName;
 
-
+    public String deviceName() {
+        if (deviceName == null) return null;
+        return deviceName.getValue("VolumeAttachment.deviceName");
+    }
 
     /**
      * Set to `true` if you want to force the
@@ -27,17 +32,23 @@ public final class VolumeAttachment extends com.pulumi.resources.PolicyResource 
      * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
-    public Boolean forceDetach;
+    private @Nullable UndeferrableValue<Boolean> forceDetach;
 
-
+    public @Nullable Boolean forceDetach() {
+        if (forceDetach == null) return null;
+        return forceDetach.getValue("VolumeAttachment.forceDetach");
+    }
 
     /**
      * ID of the Instance to attach to
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("VolumeAttachment.instanceId");
+    }
 
     /**
      * Set this to true if you do not wish
@@ -47,25 +58,34 @@ public final class VolumeAttachment extends com.pulumi.resources.PolicyResource 
      * means attached.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("VolumeAttachment.skipDestroy");
+    }
 
     /**
      * Set this to true to ensure that the target instance is stopped
      * before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
-    public Boolean stopInstanceBeforeDetaching;
+    private @Nullable UndeferrableValue<Boolean> stopInstanceBeforeDetaching;
 
-
+    public @Nullable Boolean stopInstanceBeforeDetaching() {
+        if (stopInstanceBeforeDetaching == null) return null;
+        return stopInstanceBeforeDetaching.getValue("VolumeAttachment.stopInstanceBeforeDetaching");
+    }
 
     /**
      * ID of the Volume to be attached
      * 
      */
-    public String volumeId;
+    private UndeferrableValue<String> volumeId;
 
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("VolumeAttachment.volumeId");
+    }
 
 }

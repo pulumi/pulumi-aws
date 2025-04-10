@@ -3,123 +3,164 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.MLTransformInputRecordTable;
-import com.pulumi.policypacks.aws.glue.MLTransformParameters;
-import com.pulumi.policypacks.aws.glue.MLTransformSchema;
+import com.pulumi.policypacks.aws.glue.outputs.MLTransformInputRecordTable;
+import com.pulumi.policypacks.aws.glue.outputs.MLTransformParameters;
+import com.pulumi.policypacks.aws.glue.outputs.MLTransformSchema;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/mLTransform:MLTransform")
-public final class MLTransform extends com.pulumi.resources.PolicyResource {
+public final class MLTransform extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of Glue ML Transform.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MLTransform.arn");
+    }
 
     /**
      * Description of the ML Transform.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MLTransform.description");
+    }
 
     /**
      * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
-    public String glueVersion;
+    private UndeferrableValue<String> glueVersion;
 
-
+    public String glueVersion() {
+        if (glueVersion == null) return null;
+        return glueVersion.getValue("MLTransform.glueVersion");
+    }
 
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      * 
      */
-    public List<MLTransformInputRecordTable> inputRecordTables;
+    private UndeferrableValue<List<MLTransformInputRecordTable>> inputRecordTables;
 
-
+    public List<MLTransformInputRecordTable> inputRecordTables() {
+        if (inputRecordTables == null) return null;
+        return inputRecordTables.getValue("MLTransform.inputRecordTables");
+    }
 
     /**
      * The number of labels available for this transform.
      * 
      */
-    public Integer labelCount;
+    private UndeferrableValue<Integer> labelCount;
 
-
+    public Integer labelCount() {
+        if (labelCount == null) return null;
+        return labelCount.getValue("MLTransform.labelCount");
+    }
 
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
      * 
      */
-    public Double maxCapacity;
+    private UndeferrableValue<Double> maxCapacity;
 
-
+    public Double maxCapacity() {
+        if (maxCapacity == null) return null;
+        return maxCapacity.getValue("MLTransform.maxCapacity");
+    }
 
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      * 
      */
-    public Integer maxRetries;
+    private @Nullable UndeferrableValue<Integer> maxRetries;
 
-
+    public @Nullable Integer maxRetries() {
+        if (maxRetries == null) return null;
+        return maxRetries.getValue("MLTransform.maxRetries");
+    }
 
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MLTransform.name");
+    }
 
     /**
      * The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
      * 
      */
-    public Integer numberOfWorkers;
+    private @Nullable UndeferrableValue<Integer> numberOfWorkers;
 
-
+    public @Nullable Integer numberOfWorkers() {
+        if (numberOfWorkers == null) return null;
+        return numberOfWorkers.getValue("MLTransform.numberOfWorkers");
+    }
 
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      * 
      */
-    public MLTransformParameters parameters;
+    private UndeferrableValue<MLTransformParameters> parameters;
 
-
+    public MLTransformParameters parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("MLTransform.parameters");
+    }
 
     /**
      * The ARN of the IAM role associated with this ML Transform.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("MLTransform.roleArn");
+    }
 
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      * 
      */
-    public List<MLTransformSchema> schemas;
+    private UndeferrableValue<List<MLTransformSchema>> schemas;
 
-
+    public List<MLTransformSchema> schemas() {
+        if (schemas == null) return null;
+        return schemas.getValue("MLTransform.schemas");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MLTransform.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -129,24 +170,33 @@ public final class MLTransform extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MLTransform.tagsAll");
+    }
 
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
-    public Integer timeout;
+    private @Nullable UndeferrableValue<Integer> timeout;
 
-
+    public @Nullable Integer timeout() {
+        if (timeout == null) return null;
+        return timeout.getValue("MLTransform.timeout");
+    }
 
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
      * 
      */
-    public String workerType;
+    private @Nullable UndeferrableValue<String> workerType;
 
-
+    public @Nullable String workerType() {
+        if (workerType == null) return null;
+        return workerType.getValue("MLTransform.workerType");
+    }
 
 }

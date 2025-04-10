@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/model:Model")
-public final class Model extends com.pulumi.resources.PolicyResource {
+public final class Model extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Content type of the model
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("Model.contentType");
+    }
 
     /**
      * Description of the model
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Model.description");
+    }
 
     /**
      * Name of the model
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Model.name");
+    }
 
     /**
      * ID of the associated REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Model.restApi");
+    }
 
     /**
      * Schema of the model in a JSON form
      * 
      */
-    public String schema;
+    private @Nullable UndeferrableValue<String> schema;
 
-
+    public @Nullable String schema() {
+        if (schema == null) return null;
+        return schema.getValue("Model.schema");
+    }
 
 }

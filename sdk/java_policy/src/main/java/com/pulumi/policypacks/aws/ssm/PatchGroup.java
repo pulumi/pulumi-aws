@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssm/patchGroup:PatchGroup")
-public final class PatchGroup extends com.pulumi.resources.PolicyResource {
+public final class PatchGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the patch baseline to register the patch group with.
      * 
      */
-    public String baselineId;
+    private UndeferrableValue<String> baselineId;
 
-
+    public String baselineId() {
+        if (baselineId == null) return null;
+        return baselineId.getValue("PatchGroup.baselineId");
+    }
 
     /**
      * The name of the patch group that should be registered with the patch baseline.
      * 
      */
-    public String patchGroup;
+    private UndeferrableValue<String> patchGroup;
 
-
+    public String patchGroup() {
+        if (patchGroup == null) return null;
+        return patchGroup.getValue("PatchGroup.patchGroup");
+    }
 
 }

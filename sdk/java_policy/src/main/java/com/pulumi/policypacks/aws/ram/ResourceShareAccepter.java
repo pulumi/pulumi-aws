@@ -3,76 +3,101 @@
 
 package com.pulumi.policypacks.aws.ram;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:ram/resourceShareAccepter:ResourceShareAccepter")
-public final class ResourceShareAccepter extends com.pulumi.resources.PolicyResource {
+public final class ResourceShareAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the resource share invitation.
      * 
      */
-    public String invitationArn;
+    private UndeferrableValue<String> invitationArn;
 
-
+    public String invitationArn() {
+        if (invitationArn == null) return null;
+        return invitationArn.getValue("ResourceShareAccepter.invitationArn");
+    }
 
     /**
      * The account ID of the receiver account which accepts the invitation.
      * 
      */
-    public String receiverAccountId;
+    private UndeferrableValue<String> receiverAccountId;
 
-
+    public String receiverAccountId() {
+        if (receiverAccountId == null) return null;
+        return receiverAccountId.getValue("ResourceShareAccepter.receiverAccountId");
+    }
 
     /**
      * A list of the resource ARNs shared via the resource share.
      * 
      */
-    public List<String> resources;
+    private UndeferrableValue<List<String>> resources;
 
-
+    public List<String> resources() {
+        if (resources == null) return null;
+        return resources.getValue("ResourceShareAccepter.resources");
+    }
 
     /**
      * The account ID of the sender account which submits the invitation.
      * 
      */
-    public String senderAccountId;
+    private UndeferrableValue<String> senderAccountId;
 
-
+    public String senderAccountId() {
+        if (senderAccountId == null) return null;
+        return senderAccountId.getValue("ResourceShareAccepter.senderAccountId");
+    }
 
     /**
      * The ARN of the resource share.
      * 
      */
-    public String shareArn;
+    private UndeferrableValue<String> shareArn;
 
-
+    public String shareArn() {
+        if (shareArn == null) return null;
+        return shareArn.getValue("ResourceShareAccepter.shareArn");
+    }
 
     /**
      * The ID of the resource share as displayed in the console.
      * 
      */
-    public String shareId;
+    private UndeferrableValue<String> shareId;
 
-
+    public String shareId() {
+        if (shareId == null) return null;
+        return shareId.getValue("ResourceShareAccepter.shareId");
+    }
 
     /**
      * The name of the resource share.
      * 
      */
-    public String shareName;
+    private UndeferrableValue<String> shareName;
 
-
+    public String shareName() {
+        if (shareName == null) return null;
+        return shareName.getValue("ResourceShareAccepter.shareName");
+    }
 
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ResourceShareAccepter.status");
+    }
 
 }

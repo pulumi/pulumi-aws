@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")
-public final class VpcDhcpOptionsAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcDhcpOptionsAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      * 
      */
-    public String dhcpOptionsId;
+    private UndeferrableValue<String> dhcpOptionsId;
 
-
+    public String dhcpOptionsId() {
+        if (dhcpOptionsId == null) return null;
+        return dhcpOptionsId.getValue("VpcDhcpOptionsAssociation.dhcpOptionsId");
+    }
 
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcDhcpOptionsAssociation.vpcId");
+    }
 
 }

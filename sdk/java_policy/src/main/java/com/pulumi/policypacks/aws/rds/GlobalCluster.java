@@ -3,132 +3,179 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.GlobalClusterGlobalClusterMember;
+import com.pulumi.policypacks.aws.rds.outputs.GlobalClusterGlobalClusterMember;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/globalCluster:GlobalCluster")
-public final class GlobalCluster extends com.pulumi.resources.PolicyResource {
+public final class GlobalCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GlobalCluster.arn");
+    }
 
     /**
      * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("GlobalCluster.databaseName");
+    }
 
     /**
      * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("GlobalCluster.deletionProtection");
+    }
 
     /**
      * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("GlobalCluster.endpoint");
+    }
 
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("GlobalCluster.engine");
+    }
 
     /**
      * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    public String engineLifecycleSupport;
+    private UndeferrableValue<String> engineLifecycleSupport;
 
-
+    public String engineLifecycleSupport() {
+        if (engineLifecycleSupport == null) return null;
+        return engineLifecycleSupport.getValue("GlobalCluster.engineLifecycleSupport");
+    }
 
     /**
      * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("GlobalCluster.engineVersion");
+    }
 
+    private UndeferrableValue<String> engineVersionActual;
 
-    public String engineVersionActual;
-
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("GlobalCluster.engineVersionActual");
+    }
 
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("GlobalCluster.forceDestroy");
+    }
 
     /**
      * Global cluster identifier.
      * 
      */
-    public String globalClusterIdentifier;
+    private UndeferrableValue<String> globalClusterIdentifier;
 
-
+    public String globalClusterIdentifier() {
+        if (globalClusterIdentifier == null) return null;
+        return globalClusterIdentifier.getValue("GlobalCluster.globalClusterIdentifier");
+    }
 
     /**
      * Set of objects containing Global Cluster members.
      * 
      */
-    public List<GlobalClusterGlobalClusterMember> globalClusterMembers;
+    private UndeferrableValue<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
-
+    public List<GlobalClusterGlobalClusterMember> globalClusterMembers() {
+        if (globalClusterMembers == null) return null;
+        return globalClusterMembers.getValue("GlobalCluster.globalClusterMembers");
+    }
 
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
-    public String globalClusterResourceId;
+    private UndeferrableValue<String> globalClusterResourceId;
 
-
+    public String globalClusterResourceId() {
+        if (globalClusterResourceId == null) return null;
+        return globalClusterResourceId.getValue("GlobalCluster.globalClusterResourceId");
+    }
 
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
-    public String sourceDbClusterIdentifier;
+    private UndeferrableValue<String> sourceDbClusterIdentifier;
 
-
+    public String sourceDbClusterIdentifier() {
+        if (sourceDbClusterIdentifier == null) return null;
+        return sourceDbClusterIdentifier.getValue("GlobalCluster.sourceDbClusterIdentifier");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("GlobalCluster.storageEncrypted");
+    }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GlobalCluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -138,8 +185,11 @@ public final class GlobalCluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GlobalCluster.tagsAll");
+    }
 
 }

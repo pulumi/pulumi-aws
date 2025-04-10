@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/baiduChannel:BaiduChannel")
-public final class BaiduChannel extends com.pulumi.resources.PolicyResource {
+public final class BaiduChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Platform credential API key from Baidu.
      * 
      */
-    public String apiKey;
+    private UndeferrableValue<String> apiKey;
 
-
+    public String apiKey() {
+        if (apiKey == null) return null;
+        return apiKey.getValue("BaiduChannel.apiKey");
+    }
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("BaiduChannel.applicationId");
+    }
 
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("BaiduChannel.enabled");
+    }
 
     /**
      * Platform credential Secret key from Baidu.
      * 
      */
-    public String secretKey;
+    private UndeferrableValue<String> secretKey;
 
-
+    public String secretKey() {
+        if (secretKey == null) return null;
+        return secretKey.getValue("BaiduChannel.secretKey");
+    }
 
 }

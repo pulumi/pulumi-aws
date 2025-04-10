@@ -3,260 +3,352 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lb.LoadBalancerAccessLogs;
-import com.pulumi.policypacks.aws.lb.LoadBalancerConnectionLogs;
-import com.pulumi.policypacks.aws.lb.LoadBalancerIpamPools;
-import com.pulumi.policypacks.aws.lb.LoadBalancerSubnetMapping;
+import com.pulumi.policypacks.aws.lb.outputs.LoadBalancerAccessLogs;
+import com.pulumi.policypacks.aws.lb.outputs.LoadBalancerConnectionLogs;
+import com.pulumi.policypacks.aws.lb.outputs.LoadBalancerIpamPools;
+import com.pulumi.policypacks.aws.lb.outputs.LoadBalancerSubnetMapping;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/loadBalancer:LoadBalancer")
-public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
+public final class LoadBalancer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Access Logs block. See below.
      * 
      */
-    public LoadBalancerAccessLogs accessLogs;
+    private @Nullable UndeferrableValue<LoadBalancerAccessLogs> accessLogs;
 
-
+    public @Nullable LoadBalancerAccessLogs accessLogs() {
+        if (accessLogs == null) return null;
+        return accessLogs.getValue("LoadBalancer.accessLogs");
+    }
 
     /**
      * ARN of the load balancer (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LoadBalancer.arn");
+    }
 
     /**
      * ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    public String arnSuffix;
+    private UndeferrableValue<String> arnSuffix;
 
-
+    public String arnSuffix() {
+        if (arnSuffix == null) return null;
+        return arnSuffix.getValue("LoadBalancer.arnSuffix");
+    }
 
     /**
      * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
      * 
      */
-    public Integer clientKeepAlive;
+    private @Nullable UndeferrableValue<Integer> clientKeepAlive;
 
-
+    public @Nullable Integer clientKeepAlive() {
+        if (clientKeepAlive == null) return null;
+        return clientKeepAlive.getValue("LoadBalancer.clientKeepAlive");
+    }
 
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
-    public LoadBalancerConnectionLogs connectionLogs;
+    private @Nullable UndeferrableValue<LoadBalancerConnectionLogs> connectionLogs;
 
-
+    public @Nullable LoadBalancerConnectionLogs connectionLogs() {
+        if (connectionLogs == null) return null;
+        return connectionLogs.getValue("LoadBalancer.connectionLogs");
+    }
 
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
-    public String customerOwnedIpv4Pool;
+    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
 
-
+    public @Nullable String customerOwnedIpv4Pool() {
+        if (customerOwnedIpv4Pool == null) return null;
+        return customerOwnedIpv4Pool.getValue("LoadBalancer.customerOwnedIpv4Pool");
+    }
 
     /**
      * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
-    public String desyncMitigationMode;
+    private @Nullable UndeferrableValue<String> desyncMitigationMode;
 
-
+    public @Nullable String desyncMitigationMode() {
+        if (desyncMitigationMode == null) return null;
+        return desyncMitigationMode.getValue("LoadBalancer.desyncMitigationMode");
+    }
 
     /**
      * DNS name of the load balancer.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("LoadBalancer.dnsName");
+    }
 
     /**
      * How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
-    public String dnsRecordClientRoutingPolicy;
+    private @Nullable UndeferrableValue<String> dnsRecordClientRoutingPolicy;
 
-
+    public @Nullable String dnsRecordClientRoutingPolicy() {
+        if (dnsRecordClientRoutingPolicy == null) return null;
+        return dnsRecordClientRoutingPolicy.getValue("LoadBalancer.dnsRecordClientRoutingPolicy");
+    }
 
     /**
      * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
-    public Boolean dropInvalidHeaderFields;
+    private @Nullable UndeferrableValue<Boolean> dropInvalidHeaderFields;
 
-
+    public @Nullable Boolean dropInvalidHeaderFields() {
+        if (dropInvalidHeaderFields == null) return null;
+        return dropInvalidHeaderFields.getValue("LoadBalancer.dropInvalidHeaderFields");
+    }
 
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      * 
      */
-    public Boolean enableCrossZoneLoadBalancing;
+    private @Nullable UndeferrableValue<Boolean> enableCrossZoneLoadBalancing;
 
-
+    public @Nullable Boolean enableCrossZoneLoadBalancing() {
+        if (enableCrossZoneLoadBalancing == null) return null;
+        return enableCrossZoneLoadBalancing.getValue("LoadBalancer.enableCrossZoneLoadBalancing");
+    }
 
     /**
      * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
-    public Boolean enableDeletionProtection;
+    private @Nullable UndeferrableValue<Boolean> enableDeletionProtection;
 
-
+    public @Nullable Boolean enableDeletionProtection() {
+        if (enableDeletionProtection == null) return null;
+        return enableDeletionProtection.getValue("LoadBalancer.enableDeletionProtection");
+    }
 
     /**
      * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
-    public Boolean enableHttp2;
+    private @Nullable UndeferrableValue<Boolean> enableHttp2;
 
-
+    public @Nullable Boolean enableHttp2() {
+        if (enableHttp2 == null) return null;
+        return enableHttp2.getValue("LoadBalancer.enableHttp2");
+    }
 
     /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
-    public Boolean enableTlsVersionAndCipherSuiteHeaders;
+    private @Nullable UndeferrableValue<Boolean> enableTlsVersionAndCipherSuiteHeaders;
 
-
+    public @Nullable Boolean enableTlsVersionAndCipherSuiteHeaders() {
+        if (enableTlsVersionAndCipherSuiteHeaders == null) return null;
+        return enableTlsVersionAndCipherSuiteHeaders.getValue("LoadBalancer.enableTlsVersionAndCipherSuiteHeaders");
+    }
 
     /**
      * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
-    public Boolean enableWafFailOpen;
+    private @Nullable UndeferrableValue<Boolean> enableWafFailOpen;
 
-
+    public @Nullable Boolean enableWafFailOpen() {
+        if (enableWafFailOpen == null) return null;
+        return enableWafFailOpen.getValue("LoadBalancer.enableWafFailOpen");
+    }
 
     /**
      * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
-    public Boolean enableXffClientPort;
+    private @Nullable UndeferrableValue<Boolean> enableXffClientPort;
 
-
+    public @Nullable Boolean enableXffClientPort() {
+        if (enableXffClientPort == null) return null;
+        return enableXffClientPort.getValue("LoadBalancer.enableXffClientPort");
+    }
 
     /**
      * Whether zonal shift is enabled. Defaults to `false`.
      * 
      */
-    public Boolean enableZonalShift;
+    private @Nullable UndeferrableValue<Boolean> enableZonalShift;
 
-
+    public @Nullable Boolean enableZonalShift() {
+        if (enableZonalShift == null) return null;
+        return enableZonalShift.getValue("LoadBalancer.enableZonalShift");
+    }
 
     /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
-    public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    private UndeferrableValue<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
 
-
+    public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
+        if (enforceSecurityGroupInboundRulesOnPrivateLinkTraffic == null) return null;
+        return enforceSecurityGroupInboundRulesOnPrivateLinkTraffic.getValue("LoadBalancer.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
+    }
 
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
-    public Integer idleTimeout;
+    private @Nullable UndeferrableValue<Integer> idleTimeout;
 
-
+    public @Nullable Integer idleTimeout() {
+        if (idleTimeout == null) return null;
+        return idleTimeout.getValue("LoadBalancer.idleTimeout");
+    }
 
     /**
      * If true, the LB will be internal. Defaults to `false`.
      * 
      */
-    public Boolean internal;
+    private UndeferrableValue<Boolean> internal;
 
-
+    public Boolean internal() {
+        if (internal == null) return null;
+        return internal.getValue("LoadBalancer.internal");
+    }
 
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public String ipAddressType;
+    private UndeferrableValue<String> ipAddressType;
 
-
+    public String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("LoadBalancer.ipAddressType");
+    }
 
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
      * 
      */
-    public LoadBalancerIpamPools ipamPools;
+    private @Nullable UndeferrableValue<LoadBalancerIpamPools> ipamPools;
 
-
+    public @Nullable LoadBalancerIpamPools ipamPools() {
+        if (ipamPools == null) return null;
+        return ipamPools.getValue("LoadBalancer.ipamPools");
+    }
 
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    public String loadBalancerType;
+    private @Nullable UndeferrableValue<String> loadBalancerType;
 
-
+    public @Nullable String loadBalancerType() {
+        if (loadBalancerType == null) return null;
+        return loadBalancerType.getValue("LoadBalancer.loadBalancerType");
+    }
 
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LoadBalancer.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("LoadBalancer.namePrefix");
+    }
 
     /**
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
-    public Boolean preserveHostHeader;
+    private @Nullable UndeferrableValue<Boolean> preserveHostHeader;
 
-
+    public @Nullable Boolean preserveHostHeader() {
+        if (preserveHostHeader == null) return null;
+        return preserveHostHeader.getValue("LoadBalancer.preserveHostHeader");
+    }
 
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("LoadBalancer.securityGroups");
+    }
 
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
-    public List<LoadBalancerSubnetMapping> subnetMappings;
+    private UndeferrableValue<List<LoadBalancerSubnetMapping>> subnetMappings;
 
-
+    public List<LoadBalancerSubnetMapping> subnetMappings() {
+        if (subnetMappings == null) return null;
+        return subnetMappings.getValue("LoadBalancer.subnetMappings");
+    }
 
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
-    public List<String> subnets;
+    private UndeferrableValue<List<String>> subnets;
 
-
+    public List<String> subnets() {
+        if (subnets == null) return null;
+        return subnets.getValue("LoadBalancer.subnets");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LoadBalancer.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -266,28 +358,40 @@ public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LoadBalancer.tagsAll");
+    }
 
+    private UndeferrableValue<String> vpcId;
 
-    public String vpcId;
-
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("LoadBalancer.vpcId");
+    }
 
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
      */
-    public String xffHeaderProcessingMode;
+    private @Nullable UndeferrableValue<String> xffHeaderProcessingMode;
 
-
+    public @Nullable String xffHeaderProcessingMode() {
+        if (xffHeaderProcessingMode == null) return null;
+        return xffHeaderProcessingMode.getValue("LoadBalancer.xffHeaderProcessingMode");
+    }
 
     /**
      * Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("LoadBalancer.zoneId");
+    }
 
 }

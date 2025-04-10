@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sfn.AliasRoutingConfiguration;
+import com.pulumi.policypacks.aws.sfn.outputs.AliasRoutingConfiguration;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sfn/alias:Alias")
-public final class Alias extends com.pulumi.resources.PolicyResource {
+public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) identifying your state machine alias.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Alias.arn");
+    }
 
     /**
      * The date the state machine alias was created.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("Alias.creationDate");
+    }
 
     /**
      * Description of the alias.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Alias.description");
+    }
 
     /**
      * Name for the alias you are creating.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Alias.name");
+    }
 
     /**
      * The StateMachine alias&#39; route configuration settings. Fields documented below
      * 
      */
-    public List<AliasRoutingConfiguration> routingConfigurations;
+    private UndeferrableValue<List<AliasRoutingConfiguration>> routingConfigurations;
 
-
+    public List<AliasRoutingConfiguration> routingConfigurations() {
+        if (routingConfigurations == null) return null;
+        return routingConfigurations.getValue("Alias.routingConfigurations");
+    }
 
 }

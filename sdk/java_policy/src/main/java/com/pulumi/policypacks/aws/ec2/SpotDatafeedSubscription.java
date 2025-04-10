@@ -3,27 +3,35 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")
-public final class SpotDatafeedSubscription extends com.pulumi.resources.PolicyResource {
+public final class SpotDatafeedSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("SpotDatafeedSubscription.bucket");
+    }
 
     /**
      * Path of folder inside bucket to place spot pricing data.
      * 
      */
-    public String prefix;
+    private @Nullable UndeferrableValue<String> prefix;
 
-
+    public @Nullable String prefix() {
+        if (prefix == null) return null;
+        return prefix.getValue("SpotDatafeedSubscription.prefix");
+    }
 
 }

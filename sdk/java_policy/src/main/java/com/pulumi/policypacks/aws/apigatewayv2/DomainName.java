@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.DomainNameDomainNameConfiguration;
-import com.pulumi.policypacks.aws.apigatewayv2.DomainNameMutualTlsAuthentication;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.DomainNameDomainNameConfiguration;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.DomainNameMutualTlsAuthentication;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/domainName:DomainName")
-public final class DomainName extends com.pulumi.resources.PolicyResource {
+public final class DomainName extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      * 
      */
-    public String apiMappingSelectionExpression;
+    private UndeferrableValue<String> apiMappingSelectionExpression;
 
-
+    public String apiMappingSelectionExpression() {
+        if (apiMappingSelectionExpression == null) return null;
+        return apiMappingSelectionExpression.getValue("DomainName.apiMappingSelectionExpression");
+    }
 
     /**
      * ARN of the domain name.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainName.arn");
+    }
 
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainName.domainName");
+    }
 
     /**
      * Domain name configuration. See below.
      * 
      */
-    public DomainNameDomainNameConfiguration domainNameConfiguration;
+    private UndeferrableValue<DomainNameDomainNameConfiguration> domainNameConfiguration;
 
-
+    public DomainNameDomainNameConfiguration domainNameConfiguration() {
+        if (domainNameConfiguration == null) return null;
+        return domainNameConfiguration.getValue("DomainName.domainNameConfiguration");
+    }
 
     /**
      * Mutual TLS authentication configuration for the domain name.
      * 
      */
-    public DomainNameMutualTlsAuthentication mutualTlsAuthentication;
+    private @Nullable UndeferrableValue<DomainNameMutualTlsAuthentication> mutualTlsAuthentication;
 
-
+    public @Nullable DomainNameMutualTlsAuthentication mutualTlsAuthentication() {
+        if (mutualTlsAuthentication == null) return null;
+        return mutualTlsAuthentication.getValue("DomainName.mutualTlsAuthentication");
+    }
 
     /**
      * Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DomainName.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,8 +89,11 @@ public final class DomainName extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DomainName.tagsAll");
+    }
 
 }

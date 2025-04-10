@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")
-public final class VpcEndpointPolicy extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("VpcEndpointPolicy.policy");
+    }
 
     /**
      * The VPC Endpoint ID.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("VpcEndpointPolicy.vpcEndpointId");
+    }
 
 }

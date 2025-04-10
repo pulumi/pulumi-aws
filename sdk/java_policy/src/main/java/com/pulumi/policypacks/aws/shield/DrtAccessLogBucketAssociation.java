@@ -3,32 +3,43 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.shield.DrtAccessLogBucketAssociationTimeouts;
+import com.pulumi.policypacks.aws.shield.outputs.DrtAccessLogBucketAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")
-public final class DrtAccessLogBucketAssociation extends com.pulumi.resources.PolicyResource {
+public final class DrtAccessLogBucketAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon S3 bucket that contains the logs that you want to share.
      * 
      */
-    public String logBucket;
+    private UndeferrableValue<String> logBucket;
 
-
+    public String logBucket() {
+        if (logBucket == null) return null;
+        return logBucket.getValue("DrtAccessLogBucketAssociation.logBucket");
+    }
 
     /**
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      * 
      */
-    public String roleArnAssociationId;
+    private UndeferrableValue<String> roleArnAssociationId;
 
+    public String roleArnAssociationId() {
+        if (roleArnAssociationId == null) return null;
+        return roleArnAssociationId.getValue("DrtAccessLogBucketAssociation.roleArnAssociationId");
+    }
 
+    private @Nullable UndeferrableValue<DrtAccessLogBucketAssociationTimeouts> timeouts;
 
-    public DrtAccessLogBucketAssociationTimeouts timeouts;
-
-
+    public @Nullable DrtAccessLogBucketAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DrtAccessLogBucketAssociation.timeouts");
+    }
 
 }

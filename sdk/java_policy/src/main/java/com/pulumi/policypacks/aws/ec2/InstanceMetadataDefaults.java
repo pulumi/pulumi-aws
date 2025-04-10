@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults")
-public final class InstanceMetadataDefaults extends com.pulumi.resources.PolicyResource {
+public final class InstanceMetadataDefaults extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the metadata service is available. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    public String httpEndpoint;
+    private UndeferrableValue<String> httpEndpoint;
 
-
+    public String httpEndpoint() {
+        if (httpEndpoint == null) return null;
+        return httpEndpoint.getValue("InstanceMetadataDefaults.httpEndpoint");
+    }
 
     /**
      * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
      * 
      */
-    public Integer httpPutResponseHopLimit;
+    private UndeferrableValue<Integer> httpPutResponseHopLimit;
 
-
+    public Integer httpPutResponseHopLimit() {
+        if (httpPutResponseHopLimit == null) return null;
+        return httpPutResponseHopLimit.getValue("InstanceMetadataDefaults.httpPutResponseHopLimit");
+    }
 
     /**
      * Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;`, `&#34;required&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    public String httpTokens;
+    private UndeferrableValue<String> httpTokens;
 
-
+    public String httpTokens() {
+        if (httpTokens == null) return null;
+        return httpTokens.getValue("InstanceMetadataDefaults.httpTokens");
+    }
 
     /**
      * Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    public String instanceMetadataTags;
+    private UndeferrableValue<String> instanceMetadataTags;
 
-
+    public String instanceMetadataTags() {
+        if (instanceMetadataTags == null) return null;
+        return instanceMetadataTags.getValue("InstanceMetadataDefaults.instanceMetadataTags");
+    }
 
 }

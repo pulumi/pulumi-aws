@@ -3,83 +3,111 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:organizations/delegatedAdministrator:DelegatedAdministrator")
-public final class DelegatedAdministrator extends com.pulumi.resources.PolicyResource {
+public final class DelegatedAdministrator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The account ID number of the member account in the organization to register as a delegated administrator.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("DelegatedAdministrator.accountId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DelegatedAdministrator.arn");
+    }
 
     /**
      * The date when the account was made a delegated administrator.
      * 
      */
-    public String delegationEnabledDate;
+    private UndeferrableValue<String> delegationEnabledDate;
 
-
+    public String delegationEnabledDate() {
+        if (delegationEnabledDate == null) return null;
+        return delegationEnabledDate.getValue("DelegatedAdministrator.delegationEnabledDate");
+    }
 
     /**
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("DelegatedAdministrator.email");
+    }
 
     /**
      * The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    public String joinedMethod;
+    private UndeferrableValue<String> joinedMethod;
 
-
+    public String joinedMethod() {
+        if (joinedMethod == null) return null;
+        return joinedMethod.getValue("DelegatedAdministrator.joinedMethod");
+    }
 
     /**
      * The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    public String joinedTimestamp;
+    private UndeferrableValue<String> joinedTimestamp;
 
-
+    public String joinedTimestamp() {
+        if (joinedTimestamp == null) return null;
+        return joinedTimestamp.getValue("DelegatedAdministrator.joinedTimestamp");
+    }
 
     /**
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DelegatedAdministrator.name");
+    }
 
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      * 
      */
-    public String servicePrincipal;
+    private UndeferrableValue<String> servicePrincipal;
 
-
+    public String servicePrincipal() {
+        if (servicePrincipal == null) return null;
+        return servicePrincipal.getValue("DelegatedAdministrator.servicePrincipal");
+    }
 
     /**
      * The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("DelegatedAdministrator.status");
+    }
 
 }

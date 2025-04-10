@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dataexchange/revision:Revision")
-public final class Revision extends com.pulumi.resources.PolicyResource {
+public final class Revision extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this data set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Revision.arn");
+    }
 
     /**
      * An optional comment about the revision.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("Revision.comment");
+    }
 
     /**
      * The dataset id.
      * 
      */
-    public String dataSetId;
+    private UndeferrableValue<String> dataSetId;
 
-
+    public String dataSetId() {
+        if (dataSetId == null) return null;
+        return dataSetId.getValue("Revision.dataSetId");
+    }
 
     /**
      * The Id of the revision.
      * 
      */
-    public String revisionId;
+    private UndeferrableValue<String> revisionId;
 
-
+    public String revisionId() {
+        if (revisionId == null) return null;
+        return revisionId.getValue("Revision.revisionId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Revision.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class Revision extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Revision.tagsAll");
+    }
 
 }

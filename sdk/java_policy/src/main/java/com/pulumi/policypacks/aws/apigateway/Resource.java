@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:apigateway/resource:Resource")
-public final class Resource extends com.pulumi.resources.PolicyResource {
+public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the parent API resource
      * 
      */
-    public String parentId;
+    private UndeferrableValue<String> parentId;
 
-
+    public String parentId() {
+        if (parentId == null) return null;
+        return parentId.getValue("Resource.parentId");
+    }
 
     /**
      * Complete path for this API resource, including all parent paths.
      * 
      */
-    public String path;
+    private UndeferrableValue<String> path;
 
-
+    public String path() {
+        if (path == null) return null;
+        return path.getValue("Resource.path");
+    }
 
     /**
      * Last path segment of this API resource.
      * 
      */
-    public String pathPart;
+    private UndeferrableValue<String> pathPart;
 
-
+    public String pathPart() {
+        if (pathPart == null) return null;
+        return pathPart.getValue("Resource.pathPart");
+    }
 
     /**
      * ID of the associated REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Resource.restApi");
+    }
 
 }

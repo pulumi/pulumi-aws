@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.cloudcontrol;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudcontrol/resource:Resource")
-public final class Resource extends com.pulumi.resources.PolicyResource {
+public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * JSON string matching the CloudFormation resource type schema with desired configuration.
      * 
      */
-    public String desiredState;
+    private UndeferrableValue<String> desiredState;
 
-
+    public String desiredState() {
+        if (desiredState == null) return null;
+        return desiredState.getValue("Resource.desiredState");
+    }
 
     /**
      * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
      * 
      */
-    public String properties;
+    private UndeferrableValue<String> properties;
 
-
+    public String properties() {
+        if (properties == null) return null;
+        return properties.getValue("Resource.properties");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Resource.roleArn");
+    }
 
     /**
      * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      * 
      */
-    public String schema;
+    private UndeferrableValue<String> schema;
 
-
+    public String schema() {
+        if (schema == null) return null;
+        return schema.getValue("Resource.schema");
+    }
 
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -48,16 +62,22 @@ public final class Resource extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String typeName;
+    private UndeferrableValue<String> typeName;
 
-
+    public String typeName() {
+        if (typeName == null) return null;
+        return typeName.getValue("Resource.typeName");
+    }
 
     /**
      * Identifier of the CloudFormation resource type version.
      * 
      */
-    public String typeVersionId;
+    private @Nullable UndeferrableValue<String> typeVersionId;
 
-
+    public @Nullable String typeVersionId() {
+        if (typeVersionId == null) return null;
+        return typeVersionId.getValue("Resource.typeVersionId");
+    }
 
 }

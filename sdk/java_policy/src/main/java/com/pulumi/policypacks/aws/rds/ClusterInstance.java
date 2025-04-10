@@ -3,280 +3,381 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/clusterInstance:ClusterInstance")
-public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
+public final class ClusterInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("ClusterInstance.applyImmediately");
+    }
 
     /**
      * Amazon Resource Name (ARN) of cluster instance
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ClusterInstance.arn");
+    }
 
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public @Nullable Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("ClusterInstance.autoMinorVersionUpgrade");
+    }
 
     /**
      * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("ClusterInstance.availabilityZone");
+    }
 
     /**
      * Identifier of the CA certificate for the DB instance.
      * 
      */
-    public String caCertIdentifier;
+    private UndeferrableValue<String> caCertIdentifier;
 
-
+    public String caCertIdentifier() {
+        if (caCertIdentifier == null) return null;
+        return caCertIdentifier.getValue("ClusterInstance.caCertIdentifier");
+    }
 
     /**
      * Identifier of the `aws.rds.Cluster` in which to launch this instance.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterInstance.clusterIdentifier");
+    }
 
     /**
      * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      * 
      */
-    public Boolean copyTagsToSnapshot;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
 
-
+    public @Nullable Boolean copyTagsToSnapshot() {
+        if (copyTagsToSnapshot == null) return null;
+        return copyTagsToSnapshot.getValue("ClusterInstance.copyTagsToSnapshot");
+    }
 
     /**
      * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
      * 
      */
-    public String customIamInstanceProfile;
+    private @Nullable UndeferrableValue<String> customIamInstanceProfile;
 
-
+    public @Nullable String customIamInstanceProfile() {
+        if (customIamInstanceProfile == null) return null;
+        return customIamInstanceProfile.getValue("ClusterInstance.customIamInstanceProfile");
+    }
 
     /**
      * Name of the DB parameter group to associate with this instance.
      * 
      */
-    public String dbParameterGroupName;
+    private UndeferrableValue<String> dbParameterGroupName;
 
-
+    public String dbParameterGroupName() {
+        if (dbParameterGroupName == null) return null;
+        return dbParameterGroupName.getValue("ClusterInstance.dbParameterGroupName");
+    }
 
     /**
      * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
      * 
      */
-    public String dbSubnetGroupName;
+    private UndeferrableValue<String> dbSubnetGroupName;
 
-
+    public String dbSubnetGroupName() {
+        if (dbSubnetGroupName == null) return null;
+        return dbSubnetGroupName.getValue("ClusterInstance.dbSubnetGroupName");
+    }
 
     /**
      * Region-unique, immutable identifier for the DB instance.
      * 
      */
-    public String dbiResourceId;
+    private UndeferrableValue<String> dbiResourceId;
 
-
+    public String dbiResourceId() {
+        if (dbiResourceId == null) return null;
+        return dbiResourceId.getValue("ClusterInstance.dbiResourceId");
+    }
 
     /**
      * DNS address for this instance. May not be writable
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ClusterInstance.endpoint");
+    }
 
     /**
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterInstance.engine");
+    }
 
     /**
      * Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterInstance.engineVersion");
+    }
 
     /**
      * Database engine version
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("ClusterInstance.engineVersionActual");
+    }
 
     /**
      * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("ClusterInstance.forceDestroy");
+    }
 
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("ClusterInstance.identifier");
+    }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public String identifierPrefix;
+    private UndeferrableValue<String> identifierPrefix;
 
-
+    public String identifierPrefix() {
+        if (identifierPrefix == null) return null;
+        return identifierPrefix.getValue("ClusterInstance.identifierPrefix");
+    }
 
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
      * 
      */
-    public String instanceClass;
+    private UndeferrableValue<String> instanceClass;
 
-
+    public String instanceClass() {
+        if (instanceClass == null) return null;
+        return instanceClass.getValue("ClusterInstance.instanceClass");
+    }
 
     /**
      * ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterInstance.kmsKeyId");
+    }
 
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
-    public Integer monitoringInterval;
+    private @Nullable UndeferrableValue<Integer> monitoringInterval;
 
-
+    public @Nullable Integer monitoringInterval() {
+        if (monitoringInterval == null) return null;
+        return monitoringInterval.getValue("ClusterInstance.monitoringInterval");
+    }
 
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
-    public String monitoringRoleArn;
+    private UndeferrableValue<String> monitoringRoleArn;
 
-
+    public String monitoringRoleArn() {
+        if (monitoringRoleArn == null) return null;
+        return monitoringRoleArn.getValue("ClusterInstance.monitoringRoleArn");
+    }
 
     /**
      * Network type of the DB instance.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("ClusterInstance.networkType");
+    }
 
     /**
      * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
-    public Boolean performanceInsightsEnabled;
+    private UndeferrableValue<Boolean> performanceInsightsEnabled;
 
-
+    public Boolean performanceInsightsEnabled() {
+        if (performanceInsightsEnabled == null) return null;
+        return performanceInsightsEnabled.getValue("ClusterInstance.performanceInsightsEnabled");
+    }
 
     /**
      * ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
      * 
      */
-    public String performanceInsightsKmsKeyId;
+    private UndeferrableValue<String> performanceInsightsKmsKeyId;
 
-
+    public String performanceInsightsKmsKeyId() {
+        if (performanceInsightsKmsKeyId == null) return null;
+        return performanceInsightsKmsKeyId.getValue("ClusterInstance.performanceInsightsKmsKeyId");
+    }
 
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
-    public Integer performanceInsightsRetentionPeriod;
+    private UndeferrableValue<Integer> performanceInsightsRetentionPeriod;
 
-
+    public Integer performanceInsightsRetentionPeriod() {
+        if (performanceInsightsRetentionPeriod == null) return null;
+        return performanceInsightsRetentionPeriod.getValue("ClusterInstance.performanceInsightsRetentionPeriod");
+    }
 
     /**
      * Database port
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("ClusterInstance.port");
+    }
 
     /**
      * Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("ClusterInstance.preferredBackupWindow");
+    }
 
     /**
      * Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("ClusterInstance.preferredMaintenanceWindow");
+    }
 
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      * 
      */
-    public Integer promotionTier;
+    private @Nullable UndeferrableValue<Integer> promotionTier;
 
-
+    public @Nullable Integer promotionTier() {
+        if (promotionTier == null) return null;
+        return promotionTier.getValue("ClusterInstance.promotionTier");
+    }
 
     /**
      * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      * 
      */
-    public Boolean publiclyAccessible;
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("ClusterInstance.publiclyAccessible");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterInstance.storageEncrypted");
+    }
 
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterInstance.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -286,16 +387,22 @@ public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterInstance.tagsAll");
+    }
 
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Boolean writer;
+    private UndeferrableValue<Boolean> writer;
 
-
+    public Boolean writer() {
+        if (writer == null) return null;
+        return writer.getValue("ClusterInstance.writer");
+    }
 
 }

@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/smsChannel:SmsChannel")
-public final class SmsChannel extends com.pulumi.resources.PolicyResource {
+public final class SmsChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the application.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("SmsChannel.applicationId");
+    }
 
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("SmsChannel.enabled");
+    }
 
     /**
      * Maximum number of promotional messages that can be sent per second.
      * 
      */
-    public Integer promotionalMessagesPerSecond;
+    private UndeferrableValue<Integer> promotionalMessagesPerSecond;
 
-
+    public Integer promotionalMessagesPerSecond() {
+        if (promotionalMessagesPerSecond == null) return null;
+        return promotionalMessagesPerSecond.getValue("SmsChannel.promotionalMessagesPerSecond");
+    }
 
     /**
      * Identifier of the sender for your messages.
      * 
      */
-    public String senderId;
+    private @Nullable UndeferrableValue<String> senderId;
 
-
+    public @Nullable String senderId() {
+        if (senderId == null) return null;
+        return senderId.getValue("SmsChannel.senderId");
+    }
 
     /**
      * Short Code registered with the phone provider.
      * 
      */
-    public String shortCode;
+    private @Nullable UndeferrableValue<String> shortCode;
 
-
+    public @Nullable String shortCode() {
+        if (shortCode == null) return null;
+        return shortCode.getValue("SmsChannel.shortCode");
+    }
 
     /**
      * Maximum number of transactional messages per second that can be sent.
      * 
      */
-    public Integer transactionalMessagesPerSecond;
+    private UndeferrableValue<Integer> transactionalMessagesPerSecond;
 
-
+    public Integer transactionalMessagesPerSecond() {
+        if (transactionalMessagesPerSecond == null) return null;
+        return transactionalMessagesPerSecond.getValue("SmsChannel.transactionalMessagesPerSecond");
+    }
 
 }

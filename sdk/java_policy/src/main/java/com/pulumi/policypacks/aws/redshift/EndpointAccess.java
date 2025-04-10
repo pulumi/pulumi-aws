@@ -3,78 +3,103 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshift.EndpointAccessVpcEndpoint;
+import com.pulumi.policypacks.aws.redshift.outputs.EndpointAccessVpcEndpoint;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:redshift/endpointAccess:EndpointAccess")
-public final class EndpointAccess extends com.pulumi.resources.PolicyResource {
+public final class EndpointAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The DNS address of the endpoint.
      * 
      */
-    public String address;
+    private UndeferrableValue<String> address;
 
-
+    public String address() {
+        if (address == null) return null;
+        return address.getValue("EndpointAccess.address");
+    }
 
     /**
      * The cluster identifier of the cluster to access.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("EndpointAccess.clusterIdentifier");
+    }
 
     /**
      * The Redshift-managed VPC endpoint name.
      * 
      */
-    public String endpointName;
+    private UndeferrableValue<String> endpointName;
 
-
+    public String endpointName() {
+        if (endpointName == null) return null;
+        return endpointName.getValue("EndpointAccess.endpointName");
+    }
 
     /**
      * The port number on which the cluster accepts incoming connections.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("EndpointAccess.port");
+    }
 
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("EndpointAccess.resourceOwner");
+    }
 
     /**
      * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
      * 
      */
-    public String subnetGroupName;
+    private UndeferrableValue<String> subnetGroupName;
 
-
+    public String subnetGroupName() {
+        if (subnetGroupName == null) return null;
+        return subnetGroupName.getValue("EndpointAccess.subnetGroupName");
+    }
 
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      * 
      */
-    public List<EndpointAccessVpcEndpoint> vpcEndpoints;
+    private UndeferrableValue<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
-
+    public List<EndpointAccessVpcEndpoint> vpcEndpoints() {
+        if (vpcEndpoints == null) return null;
+        return vpcEndpoints.getValue("EndpointAccess.vpcEndpoints");
+    }
 
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("EndpointAccess.vpcSecurityGroupIds");
+    }
 
 }

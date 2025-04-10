@@ -3,47 +3,61 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.SdkvoiceSipRuleTargetApplication;
+import com.pulumi.policypacks.aws.chime.outputs.SdkvoiceSipRuleTargetApplication;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/sdkvoiceSipRule:SdkvoiceSipRule")
-public final class SdkvoiceSipRule extends com.pulumi.resources.PolicyResource {
+public final class SdkvoiceSipRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Enables or disables a rule. You must disable rules before you can delete them.
      * 
      */
-    public Boolean disabled;
+    private @Nullable UndeferrableValue<Boolean> disabled;
 
-
+    public @Nullable Boolean disabled() {
+        if (disabled == null) return null;
+        return disabled.getValue("SdkvoiceSipRule.disabled");
+    }
 
     /**
      * The name of the SIP rule.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SdkvoiceSipRule.name");
+    }
 
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
      * 
      */
-    public List<SdkvoiceSipRuleTargetApplication> targetApplications;
+    private UndeferrableValue<List<SdkvoiceSipRuleTargetApplication>> targetApplications;
 
-
+    public List<SdkvoiceSipRuleTargetApplication> targetApplications() {
+        if (targetApplications == null) return null;
+        return targetApplications.getValue("SdkvoiceSipRule.targetApplications");
+    }
 
     /**
      * The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      * 
      */
-    public String triggerType;
+    private UndeferrableValue<String> triggerType;
 
-
+    public String triggerType() {
+        if (triggerType == null) return null;
+        return triggerType.getValue("SdkvoiceSipRule.triggerType");
+    }
 
     /**
      * If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the &#34;To&#34; header in the incoming SIP request matches the `ToPhoneNumber` value.
@@ -51,8 +65,11 @@ public final class SdkvoiceSipRule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String triggerValue;
+    private UndeferrableValue<String> triggerValue;
 
-
+    public String triggerValue() {
+        if (triggerValue == null) return null;
+        return triggerValue.getValue("SdkvoiceSipRule.triggerValue");
+    }
 
 }

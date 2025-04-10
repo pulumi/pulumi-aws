@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/apnsChannel:ApnsChannel")
-public final class ApnsChannel extends com.pulumi.resources.PolicyResource {
+public final class ApnsChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("ApnsChannel.applicationId");
+    }
 
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
      * 
      */
-    public String bundleId;
+    private @Nullable UndeferrableValue<String> bundleId;
 
-
+    public @Nullable String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("ApnsChannel.bundleId");
+    }
 
     /**
      * The pem encoded TLS Certificate from Apple.
      * 
      */
-    public String certificate;
+    private @Nullable UndeferrableValue<String> certificate;
 
-
+    public @Nullable String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("ApnsChannel.certificate");
+    }
 
     /**
      * The default authentication method used for APNs.
@@ -46,17 +57,23 @@ public final class ApnsChannel extends com.pulumi.resources.PolicyResource {
      * If you choose to use __Certificate credentials__ you will have to provide:
      * 
      */
-    public String defaultAuthenticationMethod;
+    private @Nullable UndeferrableValue<String> defaultAuthenticationMethod;
 
-
+    public @Nullable String defaultAuthenticationMethod() {
+        if (defaultAuthenticationMethod == null) return null;
+        return defaultAuthenticationMethod.getValue("ApnsChannel.defaultAuthenticationMethod");
+    }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ApnsChannel.enabled");
+    }
 
     /**
      * The Certificate Private Key file (ie. `.key` file).
@@ -64,32 +81,44 @@ public final class ApnsChannel extends com.pulumi.resources.PolicyResource {
      * If you choose to use __Key credentials__ you will have to provide:
      * 
      */
-    public String privateKey;
+    private @Nullable UndeferrableValue<String> privateKey;
 
-
+    public @Nullable String privateKey() {
+        if (privateKey == null) return null;
+        return privateKey.getValue("ApnsChannel.privateKey");
+    }
 
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      * 
      */
-    public String teamId;
+    private @Nullable UndeferrableValue<String> teamId;
 
-
+    public @Nullable String teamId() {
+        if (teamId == null) return null;
+        return teamId.getValue("ApnsChannel.teamId");
+    }
 
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      * 
      */
-    public String tokenKey;
+    private @Nullable UndeferrableValue<String> tokenKey;
 
-
+    public @Nullable String tokenKey() {
+        if (tokenKey == null) return null;
+        return tokenKey.getValue("ApnsChannel.tokenKey");
+    }
 
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
      * 
      */
-    public String tokenKeyId;
+    private @Nullable UndeferrableValue<String> tokenKeyId;
 
-
+    public @Nullable String tokenKeyId() {
+        if (tokenKeyId == null) return null;
+        return tokenKeyId.getValue("ApnsChannel.tokenKeyId");
+    }
 
 }

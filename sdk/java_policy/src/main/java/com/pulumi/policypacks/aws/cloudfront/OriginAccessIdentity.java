@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/originAccessIdentity:OriginAccessIdentity")
-public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResource {
+public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The origin access identity ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OriginAccessIdentity.arn");
+    }
 
     /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      * 
      */
-    public String callerReference;
+    private UndeferrableValue<String> callerReference;
 
-
+    public String callerReference() {
+        if (callerReference == null) return null;
+        return callerReference.getValue("OriginAccessIdentity.callerReference");
+    }
 
     /**
      * A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    public String cloudfrontAccessIdentityPath;
+    private UndeferrableValue<String> cloudfrontAccessIdentityPath;
 
-
+    public String cloudfrontAccessIdentityPath() {
+        if (cloudfrontAccessIdentityPath == null) return null;
+        return cloudfrontAccessIdentityPath.getValue("OriginAccessIdentity.cloudfrontAccessIdentityPath");
+    }
 
     /**
      * An optional comment for the origin access identity.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("OriginAccessIdentity.comment");
+    }
 
     /**
      * The current version of the origin access identity&#39;s information.
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("OriginAccessIdentity.etag");
+    }
 
     /**
      * A pre-generated ARN for use in S3 bucket policies (see below).
@@ -59,9 +76,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * E2QWRUHAPOMQZL`.
      * 
      */
-    public String iamArn;
+    private UndeferrableValue<String> iamArn;
 
-
+    public String iamArn() {
+        if (iamArn == null) return null;
+        return iamArn.getValue("OriginAccessIdentity.iamArn");
+    }
 
     /**
      * The Amazon S3 canonical user ID for the origin
@@ -69,8 +89,11 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * permission to an object in Amazon S3.
      * 
      */
-    public String s3CanonicalUserId;
+    private UndeferrableValue<String> s3CanonicalUserId;
 
-
+    public String s3CanonicalUserId() {
+        if (s3CanonicalUserId == null) return null;
+        return s3CanonicalUserId.getValue("OriginAccessIdentity.s3CanonicalUserId");
+    }
 
 }

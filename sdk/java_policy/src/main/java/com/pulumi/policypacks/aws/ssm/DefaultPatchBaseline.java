@@ -3,12 +3,13 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")
-public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResource {
+public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the patch baseline.
@@ -16,9 +17,12 @@ public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResou
      * When specifying an AWS-provided patch baseline, must be the ARN.
      * 
      */
-    public String baselineId;
+    private UndeferrableValue<String> baselineId;
 
-
+    public String baselineId() {
+        if (baselineId == null) return null;
+        return baselineId.getValue("DefaultPatchBaseline.baselineId");
+    }
 
     /**
      * The operating system the patch baseline applies to.
@@ -38,8 +42,11 @@ public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResou
      * `WINDOWS`.
      * 
      */
-    public String operatingSystem;
+    private UndeferrableValue<String> operatingSystem;
 
-
+    public String operatingSystem() {
+        if (operatingSystem == null) return null;
+        return operatingSystem.getValue("DefaultPatchBaseline.operatingSystem");
+    }
 
 }

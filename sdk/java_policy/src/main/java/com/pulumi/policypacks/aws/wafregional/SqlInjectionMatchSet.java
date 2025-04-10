@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple;
+import com.pulumi.policypacks.aws.wafregional.outputs.SqlInjectionMatchSetSqlInjectionMatchTuple;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet")
-public final class SqlInjectionMatchSet extends com.pulumi.resources.PolicyResource {
+public final class SqlInjectionMatchSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name or description of the SizeConstraintSet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SqlInjectionMatchSet.name");
+    }
 
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      * 
      */
-    public List<SqlInjectionMatchSetSqlInjectionMatchTuple> sqlInjectionMatchTuples;
+    private @Nullable UndeferrableValue<List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
 
-
+    public @Nullable List<SqlInjectionMatchSetSqlInjectionMatchTuple> sqlInjectionMatchTuples() {
+        if (sqlInjectionMatchTuples == null) return null;
+        return sqlInjectionMatchTuples.getValue("SqlInjectionMatchSet.sqlInjectionMatchTuples");
+    }
 
 }

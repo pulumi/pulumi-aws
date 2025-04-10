@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/integrationResponse:IntegrationResponse")
-public final class IntegrationResponse extends com.pulumi.resources.PolicyResource {
+public final class IntegrationResponse extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
-    public String contentHandling;
+    private @Nullable UndeferrableValue<String> contentHandling;
 
-
+    public @Nullable String contentHandling() {
+        if (contentHandling == null) return null;
+        return contentHandling.getValue("IntegrationResponse.contentHandling");
+    }
 
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
-    public String httpMethod;
+    private UndeferrableValue<String> httpMethod;
 
-
+    public String httpMethod() {
+        if (httpMethod == null) return null;
+        return httpMethod.getValue("IntegrationResponse.httpMethod");
+    }
 
     /**
      * API resource ID.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("IntegrationResponse.resourceId");
+    }
 
     /**
      * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
-    public Map<String,String> responseParameters;
+    private @Nullable UndeferrableValue<Map<String,String>> responseParameters;
 
-
+    public @Nullable Map<String,String> responseParameters() {
+        if (responseParameters == null) return null;
+        return responseParameters.getValue("IntegrationResponse.responseParameters");
+    }
 
     /**
      * Map of templates used to transform the integration response body.
      * 
      */
-    public Map<String,String> responseTemplates;
+    private @Nullable UndeferrableValue<Map<String,String>> responseTemplates;
 
-
+    public @Nullable Map<String,String> responseTemplates() {
+        if (responseTemplates == null) return null;
+        return responseTemplates.getValue("IntegrationResponse.responseTemplates");
+    }
 
     /**
      * ID of the associated REST API.
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("IntegrationResponse.restApi");
+    }
 
     /**
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
-    public String selectionPattern;
+    private @Nullable UndeferrableValue<String> selectionPattern;
 
-
+    public @Nullable String selectionPattern() {
+        if (selectionPattern == null) return null;
+        return selectionPattern.getValue("IntegrationResponse.selectionPattern");
+    }
 
     /**
      * HTTP status code.
@@ -73,8 +96,11 @@ public final class IntegrationResponse extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String statusCode;
+    private UndeferrableValue<String> statusCode;
 
-
+    public String statusCode() {
+        if (statusCode == null) return null;
+        return statusCode.getValue("IntegrationResponse.statusCode");
+    }
 
 }

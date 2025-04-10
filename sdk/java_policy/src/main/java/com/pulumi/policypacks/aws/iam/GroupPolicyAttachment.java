@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/groupPolicyAttachment:GroupPolicyAttachment")
-public final class GroupPolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class GroupPolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The group the policy should be applied to
      * 
      */
-    public String group;
+    private UndeferrableValue<String> group;
 
-
+    public String group() {
+        if (group == null) return null;
+        return group.getValue("GroupPolicyAttachment.group");
+    }
 
     /**
      * The ARN of the policy you want to apply
      * 
      */
-    public String policyArn;
+    private UndeferrableValue<String> policyArn;
 
-
+    public String policyArn() {
+        if (policyArn == null) return null;
+        return policyArn.getValue("GroupPolicyAttachment.policyArn");
+    }
 
 }

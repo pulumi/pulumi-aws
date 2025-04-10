@@ -3,93 +3,125 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/snapshot:Snapshot")
-public final class Snapshot extends com.pulumi.resources.PolicyResource {
+public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      * 
      */
-    public List<String> accountsWithProvisionedRestoreAccesses;
+    private UndeferrableValue<List<String>> accountsWithProvisionedRestoreAccesses;
 
-
+    public List<String> accountsWithProvisionedRestoreAccesses() {
+        if (accountsWithProvisionedRestoreAccesses == null) return null;
+        return accountsWithProvisionedRestoreAccesses.getValue("Snapshot.accountsWithProvisionedRestoreAccesses");
+    }
 
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      * 
      */
-    public List<String> accountsWithRestoreAccesses;
+    private UndeferrableValue<List<String>> accountsWithRestoreAccesses;
 
-
+    public List<String> accountsWithRestoreAccesses() {
+        if (accountsWithRestoreAccesses == null) return null;
+        return accountsWithRestoreAccesses.getValue("Snapshot.accountsWithRestoreAccesses");
+    }
 
     /**
      * The username of the database within a snapshot.
      * 
      */
-    public String adminUsername;
+    private UndeferrableValue<String> adminUsername;
 
-
+    public String adminUsername() {
+        if (adminUsername == null) return null;
+        return adminUsername.getValue("Snapshot.adminUsername");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Snapshot.arn");
+    }
 
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Snapshot.kmsKeyId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      * 
      */
-    public String namespaceArn;
+    private UndeferrableValue<String> namespaceArn;
 
-
+    public String namespaceArn() {
+        if (namespaceArn == null) return null;
+        return namespaceArn.getValue("Snapshot.namespaceArn");
+    }
 
     /**
      * The namespace to create a snapshot for.
      * 
      */
-    public String namespaceName;
+    private UndeferrableValue<String> namespaceName;
 
-
+    public String namespaceName() {
+        if (namespaceName == null) return null;
+        return namespaceName.getValue("Snapshot.namespaceName");
+    }
 
     /**
      * The owner Amazon Web Services; account of the snapshot.
      * 
      */
-    public String ownerAccount;
+    private UndeferrableValue<String> ownerAccount;
 
-
+    public String ownerAccount() {
+        if (ownerAccount == null) return null;
+        return ownerAccount.getValue("Snapshot.ownerAccount");
+    }
 
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      * 
      */
-    public Integer retentionPeriod;
+    private @Nullable UndeferrableValue<Integer> retentionPeriod;
 
-
+    public @Nullable Integer retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("Snapshot.retentionPeriod");
+    }
 
     /**
      * The name of the snapshot.
      * 
      */
-    public String snapshotName;
+    private UndeferrableValue<String> snapshotName;
 
-
+    public String snapshotName() {
+        if (snapshotName == null) return null;
+        return snapshotName.getValue("Snapshot.snapshotName");
+    }
 
 }

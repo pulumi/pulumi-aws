@@ -3,99 +3,134 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/lb:Lb")
-public final class Lb extends com.pulumi.resources.PolicyResource {
+public final class Lb extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Lightsail load balancer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Lb.arn");
+    }
 
     /**
      * The timestamp when the load balancer was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Lb.createdAt");
+    }
 
     /**
      * The DNS name of the load balancer.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("Lb.dnsName");
+    }
 
     /**
      * The health check path of the load balancer. Default value &#34;/&#34;.
      * 
      */
-    public String healthCheckPath;
+    private @Nullable UndeferrableValue<String> healthCheckPath;
 
-
+    public @Nullable String healthCheckPath() {
+        if (healthCheckPath == null) return null;
+        return healthCheckPath.getValue("Lb.healthCheckPath");
+    }
 
     /**
      * The instance port the load balancer will connect.
      * 
      */
-    public Integer instancePort;
+    private UndeferrableValue<Integer> instancePort;
 
+    public Integer instancePort() {
+        if (instancePort == null) return null;
+        return instancePort.getValue("Lb.instancePort");
+    }
 
+    private @Nullable UndeferrableValue<String> ipAddressType;
 
-    public String ipAddressType;
-
-
+    public @Nullable String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("Lb.ipAddressType");
+    }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Lb.name");
+    }
 
     /**
      * The protocol of the load balancer.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Lb.protocol");
+    }
 
     /**
      * The public ports of the load balancer.
      * 
      */
-    public List<Integer> publicPorts;
+    private UndeferrableValue<List<Integer>> publicPorts;
 
-
+    public List<Integer> publicPorts() {
+        if (publicPorts == null) return null;
+        return publicPorts.getValue("Lb.publicPorts");
+    }
 
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public String supportCode;
+    private UndeferrableValue<String> supportCode;
 
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("Lb.supportCode");
+    }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Lb.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -105,8 +140,11 @@ public final class Lb extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Lb.tagsAll");
+    }
 
 }

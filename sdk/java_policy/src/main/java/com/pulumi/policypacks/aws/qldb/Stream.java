@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.qldb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.qldb.StreamKinesisConfiguration;
+import com.pulumi.policypacks.aws.qldb.outputs.StreamKinesisConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:qldb/stream:Stream")
-public final class Stream extends com.pulumi.resources.PolicyResource {
+public final class Stream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the QLDB Stream.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stream.arn");
+    }
 
     /**
      * The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
-    public String exclusiveEndTime;
+    private @Nullable UndeferrableValue<String> exclusiveEndTime;
 
-
+    public @Nullable String exclusiveEndTime() {
+        if (exclusiveEndTime == null) return null;
+        return exclusiveEndTime.getValue("Stream.exclusiveEndTime");
+    }
 
     /**
      * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
-    public String inclusiveStartTime;
+    private UndeferrableValue<String> inclusiveStartTime;
 
-
+    public String inclusiveStartTime() {
+        if (inclusiveStartTime == null) return null;
+        return inclusiveStartTime.getValue("Stream.inclusiveStartTime");
+    }
 
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
-    public StreamKinesisConfiguration kinesisConfiguration;
+    private UndeferrableValue<StreamKinesisConfiguration> kinesisConfiguration;
 
-
+    public StreamKinesisConfiguration kinesisConfiguration() {
+        if (kinesisConfiguration == null) return null;
+        return kinesisConfiguration.getValue("Stream.kinesisConfiguration");
+    }
 
     /**
      * The name of the QLDB ledger.
      * 
      */
-    public String ledgerName;
+    private UndeferrableValue<String> ledgerName;
 
-
+    public String ledgerName() {
+        if (ledgerName == null) return null;
+        return ledgerName.getValue("Stream.ledgerName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Stream.roleArn");
+    }
 
     /**
      * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
-    public String streamName;
+    private UndeferrableValue<String> streamName;
 
-
+    public String streamName() {
+        if (streamName == null) return null;
+        return streamName.getValue("Stream.streamName");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stream.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,8 +110,11 @@ public final class Stream extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stream.tagsAll");
+    }
 
 }

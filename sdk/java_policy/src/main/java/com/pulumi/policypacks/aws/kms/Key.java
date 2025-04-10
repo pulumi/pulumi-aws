@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/key:Key")
-public final class Key extends com.pulumi.resources.PolicyResource {
+public final class Key extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the key.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Key.arn");
+    }
 
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -28,26 +33,35 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * The default value is `false`.
      * 
      */
-    public Boolean bypassPolicyLockoutSafetyCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
+        if (bypassPolicyLockoutSafetyCheck == null) return null;
+        return bypassPolicyLockoutSafetyCheck.getValue("Key.bypassPolicyLockoutSafetyCheck");
+    }
 
     /**
      * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
      * 
      */
-    public String customKeyStoreId;
+    private @Nullable UndeferrableValue<String> customKeyStoreId;
 
-
+    public @Nullable String customKeyStoreId() {
+        if (customKeyStoreId == null) return null;
+        return customKeyStoreId.getValue("Key.customKeyStoreId");
+    }
 
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
      */
-    public String customerMasterKeySpec;
+    private @Nullable UndeferrableValue<String> customerMasterKeySpec;
 
-
+    public @Nullable String customerMasterKeySpec() {
+        if (customerMasterKeySpec == null) return null;
+        return customerMasterKeySpec.getValue("Key.customerMasterKeySpec");
+    }
 
     /**
      * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -55,58 +69,79 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
      * 
      */
-    public Integer deletionWindowInDays;
+    private @Nullable UndeferrableValue<Integer> deletionWindowInDays;
 
-
+    public @Nullable Integer deletionWindowInDays() {
+        if (deletionWindowInDays == null) return null;
+        return deletionWindowInDays.getValue("Key.deletionWindowInDays");
+    }
 
     /**
      * The description of the key as viewed in AWS console.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Key.description");
+    }
 
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
-    public Boolean enableKeyRotation;
+    private @Nullable UndeferrableValue<Boolean> enableKeyRotation;
 
-
+    public @Nullable Boolean enableKeyRotation() {
+        if (enableKeyRotation == null) return null;
+        return enableKeyRotation.getValue("Key.enableKeyRotation");
+    }
 
     /**
      * Specifies whether the key is enabled. Defaults to `true`.
      * 
      */
-    public Boolean isEnabled;
+    private @Nullable UndeferrableValue<Boolean> isEnabled;
 
-
+    public @Nullable Boolean isEnabled() {
+        if (isEnabled == null) return null;
+        return isEnabled.getValue("Key.isEnabled");
+    }
 
     /**
      * The globally unique identifier for the key.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("Key.keyId");
+    }
 
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
-    public String keyUsage;
+    private @Nullable UndeferrableValue<String> keyUsage;
 
-
+    public @Nullable String keyUsage() {
+        if (keyUsage == null) return null;
+        return keyUsage.getValue("Key.keyUsage");
+    }
 
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    public Boolean multiRegion;
+    private UndeferrableValue<Boolean> multiRegion;
 
-
+    public Boolean multiRegion() {
+        if (multiRegion == null) return null;
+        return multiRegion.getValue("Key.multiRegion");
+    }
 
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -114,25 +149,34 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Key.policy");
+    }
 
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      * 
      */
-    public Integer rotationPeriodInDays;
+    private UndeferrableValue<Integer> rotationPeriodInDays;
 
-
+    public Integer rotationPeriodInDays() {
+        if (rotationPeriodInDays == null) return null;
+        return rotationPeriodInDays.getValue("Key.rotationPeriodInDays");
+    }
 
     /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Key.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -142,16 +186,22 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Key.tagsAll");
+    }
 
     /**
      * Identifies the external key that serves as key material for the KMS key in an external key store.
      * 
      */
-    public String xksKeyId;
+    private @Nullable UndeferrableValue<String> xksKeyId;
 
-
+    public @Nullable String xksKeyId() {
+        if (xksKeyId == null) return null;
+        return xksKeyId.getValue("Key.xksKeyId");
+    }
 
 }

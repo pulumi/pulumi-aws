@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:evidently/segment:Segment")
-public final class Segment extends com.pulumi.resources.PolicyResource {
+public final class Segment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the segment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Segment.arn");
+    }
 
     /**
      * The date and time that the segment is created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Segment.createdTime");
+    }
 
     /**
      * Specifies the description of the segment.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Segment.description");
+    }
 
     /**
      * The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
      * 
      */
-    public Integer experimentCount;
+    private UndeferrableValue<Integer> experimentCount;
 
-
+    public Integer experimentCount() {
+        if (experimentCount == null) return null;
+        return experimentCount.getValue("Segment.experimentCount");
+    }
 
     /**
      * The date and time that this segment was most recently updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Segment.lastUpdatedTime");
+    }
 
     /**
      * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      * 
      */
-    public Integer launchCount;
+    private UndeferrableValue<Integer> launchCount;
 
-
+    public Integer launchCount() {
+        if (launchCount == null) return null;
+        return launchCount.getValue("Segment.launchCount");
+    }
 
     /**
      * A name for the segment.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Segment.name");
+    }
 
     /**
      * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
      * 
      */
-    public String pattern;
+    private UndeferrableValue<String> pattern;
 
-
+    public String pattern() {
+        if (pattern == null) return null;
+        return pattern.getValue("Segment.pattern");
+    }
 
     /**
      * Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Segment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class Segment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Segment.tagsAll");
+    }
 
 }

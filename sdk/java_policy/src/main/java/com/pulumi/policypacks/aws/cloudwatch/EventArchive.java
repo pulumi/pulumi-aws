@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventArchive:EventArchive")
-public final class EventArchive extends com.pulumi.resources.PolicyResource {
+public final class EventArchive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the event archive.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventArchive.arn");
+    }
 
     /**
      * The description of the new event archive.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EventArchive.description");
+    }
 
     /**
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
-    public String eventPattern;
+    private @Nullable UndeferrableValue<String> eventPattern;
 
-
+    public @Nullable String eventPattern() {
+        if (eventPattern == null) return null;
+        return eventPattern.getValue("EventArchive.eventPattern");
+    }
 
     /**
      * Event bus source ARN from where these events should be archived.
      * 
      */
-    public String eventSourceArn;
+    private UndeferrableValue<String> eventSourceArn;
 
-
+    public String eventSourceArn() {
+        if (eventSourceArn == null) return null;
+        return eventSourceArn.getValue("EventArchive.eventSourceArn");
+    }
 
     /**
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventArchive.name");
+    }
 
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      * 
      */
-    public Integer retentionDays;
+    private @Nullable UndeferrableValue<Integer> retentionDays;
 
-
+    public @Nullable Integer retentionDays() {
+        if (retentionDays == null) return null;
+        return retentionDays.getValue("EventArchive.retentionDays");
+    }
 
 }

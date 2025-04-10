@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcBlockPublicAccessExclusionTimeouts;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcBlockPublicAccessExclusionTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion")
-public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.PolicyResource {
+public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
@@ -18,33 +20,45 @@ public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    public String internetGatewayExclusionMode;
+    private UndeferrableValue<String> internetGatewayExclusionMode;
 
-
+    public String internetGatewayExclusionMode() {
+        if (internetGatewayExclusionMode == null) return null;
+        return internetGatewayExclusionMode.getValue("VpcBlockPublicAccessExclusion.internetGatewayExclusionMode");
+    }
 
     /**
      * The Amazon Resource Name (ARN) the excluded resource.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("VpcBlockPublicAccessExclusion.resourceArn");
+    }
 
     /**
      * Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("VpcBlockPublicAccessExclusion.subnetId");
+    }
 
     /**
      * A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcBlockPublicAccessExclusion.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -54,20 +68,29 @@ public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.Po
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcBlockPublicAccessExclusion.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<VpcBlockPublicAccessExclusionTimeouts> timeouts;
 
-    public VpcBlockPublicAccessExclusionTimeouts timeouts;
-
-
+    public @Nullable VpcBlockPublicAccessExclusionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("VpcBlockPublicAccessExclusion.timeouts");
+    }
 
     /**
      * Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
      * 
      */
-    public String vpcId;
+    private @Nullable UndeferrableValue<String> vpcId;
 
-
+    public @Nullable String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcBlockPublicAccessExclusion.vpcId");
+    }
 
 }

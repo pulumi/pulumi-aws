@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.NetworkAclEgress;
-import com.pulumi.policypacks.aws.ec2.NetworkAclIngress;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkAclEgress;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkAclIngress;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkAcl:NetworkAcl")
-public final class NetworkAcl extends com.pulumi.resources.PolicyResource {
+public final class NetworkAcl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the network ACL
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NetworkAcl.arn");
+    }
 
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
      */
-    public List<NetworkAclEgress> egress;
+    private UndeferrableValue<List<NetworkAclEgress>> egress;
 
-
+    public List<NetworkAclEgress> egress() {
+        if (egress == null) return null;
+        return egress.getValue("NetworkAcl.egress");
+    }
 
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
      */
-    public List<NetworkAclIngress> ingress;
+    private UndeferrableValue<List<NetworkAclIngress>> ingress;
 
-
+    public List<NetworkAclIngress> ingress() {
+        if (ingress == null) return null;
+        return ingress.getValue("NetworkAcl.ingress");
+    }
 
     /**
      * The ID of the AWS account that owns the network ACL.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("NetworkAcl.ownerId");
+    }
 
     /**
      * A list of Subnet IDs to apply the ACL to
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("NetworkAcl.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NetworkAcl.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,16 +90,22 @@ public final class NetworkAcl extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NetworkAcl.tagsAll");
+    }
 
     /**
      * The ID of the associated VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("NetworkAcl.vpcId");
+    }
 
 }

@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appfabric.IngestionDestinationDestinationConfiguration;
-import com.pulumi.policypacks.aws.appfabric.IngestionDestinationProcessingConfiguration;
-import com.pulumi.policypacks.aws.appfabric.IngestionDestinationTimeouts;
+import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationDestinationConfiguration;
+import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationProcessingConfiguration;
+import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appfabric/ingestionDestination:IngestionDestination")
-public final class IngestionDestination extends com.pulumi.resources.PolicyResource {
+public final class IngestionDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    public String appBundleArn;
+    private UndeferrableValue<String> appBundleArn;
 
-
+    public String appBundleArn() {
+        if (appBundleArn == null) return null;
+        return appBundleArn.getValue("IngestionDestination.appBundleArn");
+    }
 
     /**
      * ARN of the Ingestion Destination.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("IngestionDestination.arn");
+    }
 
     /**
      * Contains information about the destination of ingested data.
      * 
      */
-    public IngestionDestinationDestinationConfiguration destinationConfiguration;
+    private @Nullable UndeferrableValue<IngestionDestinationDestinationConfiguration> destinationConfiguration;
 
-
+    public @Nullable IngestionDestinationDestinationConfiguration destinationConfiguration() {
+        if (destinationConfiguration == null) return null;
+        return destinationConfiguration.getValue("IngestionDestination.destinationConfiguration");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
-    public String ingestionArn;
+    private UndeferrableValue<String> ingestionArn;
 
-
+    public String ingestionArn() {
+        if (ingestionArn == null) return null;
+        return ingestionArn.getValue("IngestionDestination.ingestionArn");
+    }
 
     /**
      * Contains information about how ingested data is processed.
      * 
      */
-    public IngestionDestinationProcessingConfiguration processingConfiguration;
+    private @Nullable UndeferrableValue<IngestionDestinationProcessingConfiguration> processingConfiguration;
 
-
+    public @Nullable IngestionDestinationProcessingConfiguration processingConfiguration() {
+        if (processingConfiguration == null) return null;
+        return processingConfiguration.getValue("IngestionDestination.processingConfiguration");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("IngestionDestination.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,12 +90,18 @@ public final class IngestionDestination extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("IngestionDestination.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<IngestionDestinationTimeouts> timeouts;
 
-    public IngestionDestinationTimeouts timeouts;
-
-
+    public @Nullable IngestionDestinationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("IngestionDestination.timeouts");
+    }
 
 }

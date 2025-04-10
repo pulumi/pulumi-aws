@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsBotDataPrivacy;
-import com.pulumi.policypacks.aws.lex.V2modelsBotMember;
-import com.pulumi.policypacks.aws.lex.V2modelsBotTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotDataPrivacy;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotMember;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsBot:V2modelsBot")
-public final class V2modelsBot extends com.pulumi.resources.PolicyResource {
+public final class V2modelsBot extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("V2modelsBot.arn");
+    }
 
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `data_privacy`
      * 
      */
-    public List<V2modelsBotDataPrivacy> dataPrivacies;
+    private @Nullable UndeferrableValue<List<V2modelsBotDataPrivacy>> dataPrivacies;
 
-
+    public @Nullable List<V2modelsBotDataPrivacy> dataPrivacies() {
+        if (dataPrivacies == null) return null;
+        return dataPrivacies.getValue("V2modelsBot.dataPrivacies");
+    }
 
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsBot.description");
+    }
 
     /**
      * Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      * 
      */
-    public Integer idleSessionTtlInSeconds;
+    private UndeferrableValue<Integer> idleSessionTtlInSeconds;
 
-
+    public Integer idleSessionTtlInSeconds() {
+        if (idleSessionTtlInSeconds == null) return null;
+        return idleSessionTtlInSeconds.getValue("V2modelsBot.idleSessionTtlInSeconds");
+    }
 
     /**
      * List of bot members in a network to be created. See `bot_members`.
      * 
      */
-    public List<V2modelsBotMember> members;
+    private @Nullable UndeferrableValue<List<V2modelsBotMember>> members;
 
-
+    public @Nullable List<V2modelsBotMember> members() {
+        if (members == null) return null;
+        return members.getValue("V2modelsBot.members");
+    }
 
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("V2modelsBot.name");
+    }
 
     /**
      * ARN of an IAM role that has permission to access the bot.
@@ -66,17 +86,23 @@ public final class V2modelsBot extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("V2modelsBot.roleArn");
+    }
 
     /**
      * List of tags to add to the bot. You can only add tags when you create a bot.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("V2modelsBot.tags");
+    }
 
     /**
      * @deprecated
@@ -84,28 +110,40 @@ public final class V2modelsBot extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("V2modelsBot.tagsAll");
+    }
 
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      * 
      */
-    public Map<String,String> testBotAliasTags;
+    private @Nullable UndeferrableValue<Map<String,String>> testBotAliasTags;
 
+    public @Nullable Map<String,String> testBotAliasTags() {
+        if (testBotAliasTags == null) return null;
+        return testBotAliasTags.getValue("V2modelsBot.testBotAliasTags");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsBotTimeouts> timeouts;
 
-    public V2modelsBotTimeouts timeouts;
-
-
+    public @Nullable V2modelsBotTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsBot.timeouts");
+    }
 
     /**
      * Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("V2modelsBot.type");
+    }
 
 }

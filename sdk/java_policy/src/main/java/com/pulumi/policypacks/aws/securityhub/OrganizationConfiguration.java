@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securityhub.OrganizationConfigurationOrganizationConfiguration;
+import com.pulumi.policypacks.aws.securityhub.outputs.OrganizationConfigurationOrganizationConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/organizationConfiguration:OrganizationConfiguration")
-public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to automatically enable Security Hub for new accounts in the organization.
      * 
      */
-    public Boolean autoEnable;
+    private UndeferrableValue<Boolean> autoEnable;
 
-
+    public Boolean autoEnable() {
+        if (autoEnable == null) return null;
+        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+    }
 
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      * 
      */
-    public String autoEnableStandards;
+    private UndeferrableValue<String> autoEnableStandards;
 
-
+    public String autoEnableStandards() {
+        if (autoEnableStandards == null) return null;
+        return autoEnableStandards.getValue("OrganizationConfiguration.autoEnableStandards");
+    }
 
     /**
      * Provides information about the way an organization is configured in Security Hub.
      * 
      */
-    public OrganizationConfigurationOrganizationConfiguration organizationConfiguration;
+    private UndeferrableValue<OrganizationConfigurationOrganizationConfiguration> organizationConfiguration;
 
-
+    public OrganizationConfigurationOrganizationConfiguration organizationConfiguration() {
+        if (organizationConfiguration == null) return null;
+        return organizationConfiguration.getValue("OrganizationConfiguration.organizationConfiguration");
+    }
 
 }

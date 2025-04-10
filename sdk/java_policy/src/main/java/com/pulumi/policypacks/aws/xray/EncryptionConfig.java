@@ -3,27 +3,35 @@
 
 package com.pulumi.policypacks.aws.xray;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:xray/encryptionConfig:EncryptionConfig")
-public final class EncryptionConfig extends com.pulumi.resources.PolicyResource {
+public final class EncryptionConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An AWS KMS customer master key (CMK) ARN.
      * 
      */
-    public String keyId;
+    private @Nullable UndeferrableValue<String> keyId;
 
-
+    public @Nullable String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("EncryptionConfig.keyId");
+    }
 
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("EncryptionConfig.type");
+    }
 
 }

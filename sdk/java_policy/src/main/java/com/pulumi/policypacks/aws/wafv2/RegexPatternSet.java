@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafv2.RegexPatternSetRegularExpression;
+import com.pulumi.policypacks.aws.wafv2.outputs.RegexPatternSetRegularExpression;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafv2/regexPatternSet:RegexPatternSet")
-public final class RegexPatternSet extends com.pulumi.resources.PolicyResource {
+public final class RegexPatternSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that identifies the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RegexPatternSet.arn");
+    }
 
     /**
      * A friendly description of the regular expression pattern set.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("RegexPatternSet.description");
+    }
 
+    private UndeferrableValue<String> lockToken;
 
-    public String lockToken;
-
-
+    public String lockToken() {
+        if (lockToken == null) return null;
+        return lockToken.getValue("RegexPatternSet.lockToken");
+    }
 
     /**
      * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RegexPatternSet.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("RegexPatternSet.namePrefix");
+    }
 
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
-    public List<RegexPatternSetRegularExpression> regularExpressions;
+    private @Nullable UndeferrableValue<List<RegexPatternSetRegularExpression>> regularExpressions;
 
-
+    public @Nullable List<RegexPatternSetRegularExpression> regularExpressions() {
+        if (regularExpressions == null) return null;
+        return regularExpressions.getValue("RegexPatternSet.regularExpressions");
+    }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    public String scope;
+    private UndeferrableValue<String> scope;
 
-
+    public String scope() {
+        if (scope == null) return null;
+        return scope.getValue("RegexPatternSet.scope");
+    }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RegexPatternSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -81,8 +107,11 @@ public final class RegexPatternSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RegexPatternSet.tagsAll");
+    }
 
 }

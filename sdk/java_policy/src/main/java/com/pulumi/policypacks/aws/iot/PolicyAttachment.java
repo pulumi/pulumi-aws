@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iot/policyAttachment:PolicyAttachment")
-public final class PolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class PolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the policy to attach.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("PolicyAttachment.policy");
+    }
 
     /**
      * The identity to which the policy is attached.
      * 
      */
-    public String target;
+    private UndeferrableValue<String> target;
 
-
+    public String target() {
+        if (target == null) return null;
+        return target.getValue("PolicyAttachment.target");
+    }
 
 }

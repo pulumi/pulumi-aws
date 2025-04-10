@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")
-public final class ApplicationSnapshot extends com.pulumi.resources.PolicyResource {
+public final class ApplicationSnapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
-    public String applicationName;
+    private UndeferrableValue<String> applicationName;
 
-
+    public String applicationName() {
+        if (applicationName == null) return null;
+        return applicationName.getValue("ApplicationSnapshot.applicationName");
+    }
 
     /**
      * The current application version ID when the snapshot was created.
      * 
      */
-    public Integer applicationVersionId;
+    private UndeferrableValue<Integer> applicationVersionId;
 
-
+    public Integer applicationVersionId() {
+        if (applicationVersionId == null) return null;
+        return applicationVersionId.getValue("ApplicationSnapshot.applicationVersionId");
+    }
 
     /**
      * The timestamp of the application snapshot.
      * 
      */
-    public String snapshotCreationTimestamp;
+    private UndeferrableValue<String> snapshotCreationTimestamp;
 
-
+    public String snapshotCreationTimestamp() {
+        if (snapshotCreationTimestamp == null) return null;
+        return snapshotCreationTimestamp.getValue("ApplicationSnapshot.snapshotCreationTimestamp");
+    }
 
     /**
      * The name of the application snapshot.
      * 
      */
-    public String snapshotName;
+    private UndeferrableValue<String> snapshotName;
 
-
+    public String snapshotName() {
+        if (snapshotName == null) return null;
+        return snapshotName.getValue("ApplicationSnapshot.snapshotName");
+    }
 
 }

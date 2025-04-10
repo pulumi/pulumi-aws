@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/profile:Profile")
-public final class Profile extends com.pulumi.resources.PolicyResource {
+public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Profile.arn");
+    }
 
     /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      * 
      */
-    public String as2Id;
+    private UndeferrableValue<String> as2Id;
 
-
+    public String as2Id() {
+        if (as2Id == null) return null;
+        return as2Id.getValue("Profile.as2Id");
+    }
 
     /**
      * The list of certificate Ids from the imported certificate operation.
      * 
      */
-    public List<String> certificateIds;
+    private @Nullable UndeferrableValue<List<String>> certificateIds;
 
-
+    public @Nullable List<String> certificateIds() {
+        if (certificateIds == null) return null;
+        return certificateIds.getValue("Profile.certificateIds");
+    }
 
     /**
      * The unique identifier for the AS2 profile.
      * 
      */
-    public String profileId;
+    private UndeferrableValue<String> profileId;
 
-
+    public String profileId() {
+        if (profileId == null) return null;
+        return profileId.getValue("Profile.profileId");
+    }
 
     /**
      * The profile type should be LOCAL or PARTNER.
      * 
      */
-    public String profileType;
+    private UndeferrableValue<String> profileType;
 
-
+    public String profileType() {
+        if (profileType == null) return null;
+        return profileType.getValue("Profile.profileType");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Profile.tags");
+    }
 
     /**
      * @deprecated
@@ -66,8 +86,11 @@ public final class Profile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Profile.tagsAll");
+    }
 
 }

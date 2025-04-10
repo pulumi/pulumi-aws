@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.workspaces.WorkspaceWorkspaceProperties;
+import com.pulumi.policypacks.aws.workspaces.outputs.WorkspaceWorkspaceProperties;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:workspaces/workspace:Workspace")
-public final class Workspace extends com.pulumi.resources.PolicyResource {
+public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the bundle for the WorkSpace.
      * 
      */
-    public String bundleId;
+    private UndeferrableValue<String> bundleId;
 
-
+    public String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("Workspace.bundleId");
+    }
 
     /**
      * The name of the WorkSpace, as seen by the operating system.
      * 
      */
-    public String computerName;
+    private UndeferrableValue<String> computerName;
 
-
+    public String computerName() {
+        if (computerName == null) return null;
+        return computerName.getValue("Workspace.computerName");
+    }
 
     /**
      * The ID of the directory for the WorkSpace.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("Workspace.directoryId");
+    }
 
     /**
      * The IP address of the WorkSpace.
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("Workspace.ipAddress");
+    }
 
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      * 
      */
-    public Boolean rootVolumeEncryptionEnabled;
+    private @Nullable UndeferrableValue<Boolean> rootVolumeEncryptionEnabled;
 
-
+    public @Nullable Boolean rootVolumeEncryptionEnabled() {
+        if (rootVolumeEncryptionEnabled == null) return null;
+        return rootVolumeEncryptionEnabled.getValue("Workspace.rootVolumeEncryptionEnabled");
+    }
 
     /**
      * The operational state of the WorkSpace.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Workspace.state");
+    }
 
     /**
      * The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workspace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,40 +100,55 @@ public final class Workspace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workspace.tagsAll");
+    }
 
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("Workspace.userName");
+    }
 
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      * 
      */
-    public Boolean userVolumeEncryptionEnabled;
+    private @Nullable UndeferrableValue<Boolean> userVolumeEncryptionEnabled;
 
-
+    public @Nullable Boolean userVolumeEncryptionEnabled() {
+        if (userVolumeEncryptionEnabled == null) return null;
+        return userVolumeEncryptionEnabled.getValue("Workspace.userVolumeEncryptionEnabled");
+    }
 
     /**
      * The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
-    public String volumeEncryptionKey;
+    private @Nullable UndeferrableValue<String> volumeEncryptionKey;
 
-
+    public @Nullable String volumeEncryptionKey() {
+        if (volumeEncryptionKey == null) return null;
+        return volumeEncryptionKey.getValue("Workspace.volumeEncryptionKey");
+    }
 
     /**
      * The WorkSpace properties.
      * 
      */
-    public WorkspaceWorkspaceProperties workspaceProperties;
+    private UndeferrableValue<WorkspaceWorkspaceProperties> workspaceProperties;
 
-
+    public WorkspaceWorkspaceProperties workspaceProperties() {
+        if (workspaceProperties == null) return null;
+        return workspaceProperties.getValue("Workspace.workspaceProperties");
+    }
 
 }

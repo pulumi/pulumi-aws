@@ -3,59 +3,79 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssoadmin/accountAssignment:AccountAssignment")
-public final class AccountAssignment extends com.pulumi.resources.PolicyResource {
+public final class AccountAssignment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("AccountAssignment.instanceArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
-    public String permissionSetArn;
+    private UndeferrableValue<String> permissionSetArn;
 
-
+    public String permissionSetArn() {
+        if (permissionSetArn == null) return null;
+        return permissionSetArn.getValue("AccountAssignment.permissionSetArn");
+    }
 
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      * 
      */
-    public String principalId;
+    private UndeferrableValue<String> principalId;
 
-
+    public String principalId() {
+        if (principalId == null) return null;
+        return principalId.getValue("AccountAssignment.principalId");
+    }
 
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      * 
      */
-    public String principalType;
+    private UndeferrableValue<String> principalType;
 
-
+    public String principalType() {
+        if (principalType == null) return null;
+        return principalType.getValue("AccountAssignment.principalType");
+    }
 
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("AccountAssignment.targetId");
+    }
 
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    public String targetType;
+    private @Nullable UndeferrableValue<String> targetType;
 
-
+    public @Nullable String targetType() {
+        if (targetType == null) return null;
+        return targetType.getValue("AccountAssignment.targetType");
+    }
 
 }

@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:pinpoint/eventStream:EventStream")
-public final class EventStream extends com.pulumi.resources.PolicyResource {
+public final class EventStream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("EventStream.applicationId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      */
-    public String destinationStreamArn;
+    private UndeferrableValue<String> destinationStreamArn;
 
-
+    public String destinationStreamArn() {
+        if (destinationStreamArn == null) return null;
+        return destinationStreamArn.getValue("EventStream.destinationStreamArn");
+    }
 
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("EventStream.roleArn");
+    }
 
 }

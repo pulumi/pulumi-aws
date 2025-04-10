@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:backup/vaultPolicy:VaultPolicy")
-public final class VaultPolicy extends com.pulumi.resources.PolicyResource {
+public final class VaultPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the vault.
      * 
      */
-    public String backupVaultArn;
+    private UndeferrableValue<String> backupVaultArn;
 
-
+    public String backupVaultArn() {
+        if (backupVaultArn == null) return null;
+        return backupVaultArn.getValue("VaultPolicy.backupVaultArn");
+    }
 
     /**
      * Name of the backup vault to add policy for.
      * 
      */
-    public String backupVaultName;
+    private UndeferrableValue<String> backupVaultName;
 
-
+    public String backupVaultName() {
+        if (backupVaultName == null) return null;
+        return backupVaultName.getValue("VaultPolicy.backupVaultName");
+    }
 
     /**
      * The backup vault access policy document in JSON format.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("VaultPolicy.policy");
+    }
 
 }

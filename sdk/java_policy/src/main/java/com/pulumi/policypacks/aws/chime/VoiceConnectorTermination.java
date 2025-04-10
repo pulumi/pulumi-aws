@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorTermination:VoiceConnectorTermination")
-public final class VoiceConnectorTermination extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorTermination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
      * 
      */
-    public List<String> callingRegions;
+    private UndeferrableValue<List<String>> callingRegions;
 
-
+    public List<String> callingRegions() {
+        if (callingRegions == null) return null;
+        return callingRegions.getValue("VoiceConnectorTermination.callingRegions");
+    }
 
     /**
      * The IP addresses allowed to make calls, in CIDR format.
      * 
      */
-    public List<String> cidrAllowLists;
+    private UndeferrableValue<List<String>> cidrAllowLists;
 
-
+    public List<String> cidrAllowLists() {
+        if (cidrAllowLists == null) return null;
+        return cidrAllowLists.getValue("VoiceConnectorTermination.cidrAllowLists");
+    }
 
     /**
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      * 
      */
-    public Integer cpsLimit;
+    private @Nullable UndeferrableValue<Integer> cpsLimit;
 
-
+    public @Nullable Integer cpsLimit() {
+        if (cpsLimit == null) return null;
+        return cpsLimit.getValue("VoiceConnectorTermination.cpsLimit");
+    }
 
     /**
      * The default caller ID phone number.
      * 
      */
-    public String defaultPhoneNumber;
+    private @Nullable UndeferrableValue<String> defaultPhoneNumber;
 
-
+    public @Nullable String defaultPhoneNumber() {
+        if (defaultPhoneNumber == null) return null;
+        return defaultPhoneNumber.getValue("VoiceConnectorTermination.defaultPhoneNumber");
+    }
 
     /**
      * When termination settings are disabled, outbound calls can not be made.
      * 
      */
-    public Boolean disabled;
+    private @Nullable UndeferrableValue<Boolean> disabled;
 
-
+    public @Nullable Boolean disabled() {
+        if (disabled == null) return null;
+        return disabled.getValue("VoiceConnectorTermination.disabled");
+    }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    public String voiceConnectorId;
+    private UndeferrableValue<String> voiceConnectorId;
 
-
+    public String voiceConnectorId() {
+        if (voiceConnectorId == null) return null;
+        return voiceConnectorId.getValue("VoiceConnectorTermination.voiceConnectorId");
+    }
 
 }

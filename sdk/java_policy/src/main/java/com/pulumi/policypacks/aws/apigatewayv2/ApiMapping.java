@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/apiMapping:ApiMapping")
-public final class ApiMapping extends com.pulumi.resources.PolicyResource {
+public final class ApiMapping extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("ApiMapping.apiId");
+    }
 
     /**
      * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      * 
      */
-    public String apiMappingKey;
+    private @Nullable UndeferrableValue<String> apiMappingKey;
 
-
+    public @Nullable String apiMappingKey() {
+        if (apiMappingKey == null) return null;
+        return apiMappingKey.getValue("ApiMapping.apiMappingKey");
+    }
 
     /**
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("ApiMapping.domainName");
+    }
 
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
-    public String stage;
+    private UndeferrableValue<String> stage;
 
-
+    public String stage() {
+        if (stage == null) return null;
+        return stage.getValue("ApiMapping.stage");
+    }
 
 }

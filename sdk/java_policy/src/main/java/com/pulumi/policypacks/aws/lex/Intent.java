@@ -3,38 +3,46 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.IntentConclusionStatement;
-import com.pulumi.policypacks.aws.lex.IntentConfirmationPrompt;
-import com.pulumi.policypacks.aws.lex.IntentDialogCodeHook;
-import com.pulumi.policypacks.aws.lex.IntentFollowUpPrompt;
-import com.pulumi.policypacks.aws.lex.IntentFulfillmentActivity;
-import com.pulumi.policypacks.aws.lex.IntentRejectionStatement;
-import com.pulumi.policypacks.aws.lex.IntentSlot;
+import com.pulumi.policypacks.aws.lex.outputs.IntentConclusionStatement;
+import com.pulumi.policypacks.aws.lex.outputs.IntentConfirmationPrompt;
+import com.pulumi.policypacks.aws.lex.outputs.IntentDialogCodeHook;
+import com.pulumi.policypacks.aws.lex.outputs.IntentFollowUpPrompt;
+import com.pulumi.policypacks.aws.lex.outputs.IntentFulfillmentActivity;
+import com.pulumi.policypacks.aws.lex.outputs.IntentRejectionStatement;
+import com.pulumi.policypacks.aws.lex.outputs.IntentSlot;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/intent:Intent")
-public final class Intent extends com.pulumi.resources.PolicyResource {
+public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Lex intent.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Intent.arn");
+    }
 
     /**
      * Checksum identifying the version of the intent that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    public String checksum;
+    private UndeferrableValue<String> checksum;
 
-
+    public String checksum() {
+        if (checksum == null) return null;
+        return checksum.getValue("Intent.checksum");
+    }
 
     /**
      * The statement that you want Amazon Lex to convey to the user
@@ -44,9 +52,12 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * mutually exclusive. You can specify only one. Attributes are documented under statement.
      * 
      */
-    public IntentConclusionStatement conclusionStatement;
+    private @Nullable UndeferrableValue<IntentConclusionStatement> conclusionStatement;
 
-
+    public @Nullable IntentConclusionStatement conclusionStatement() {
+        if (conclusionStatement == null) return null;
+        return conclusionStatement.getValue("Intent.conclusionStatement");
+    }
 
     /**
      * Prompts the user to confirm the intent. This question should
@@ -54,43 +65,58 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * or neither. Attributes are documented under prompt.
      * 
      */
-    public IntentConfirmationPrompt confirmationPrompt;
+    private @Nullable UndeferrableValue<IntentConfirmationPrompt> confirmationPrompt;
 
-
+    public @Nullable IntentConfirmationPrompt confirmationPrompt() {
+        if (confirmationPrompt == null) return null;
+        return confirmationPrompt.getValue("Intent.confirmationPrompt");
+    }
 
     /**
      * Determines if a new slot type version is created when the initial
      * resource is created and on each update. Defaults to `false`.
      * 
      */
-    public Boolean createVersion;
+    private @Nullable UndeferrableValue<Boolean> createVersion;
 
-
+    public @Nullable Boolean createVersion() {
+        if (createVersion == null) return null;
+        return createVersion.getValue("Intent.createVersion");
+    }
 
     /**
      * The date when the intent version was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Intent.createdDate");
+    }
 
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Intent.description");
+    }
 
     /**
      * Specifies a Lambda function to invoke for each user input. You can
      * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
      * 
      */
-    public IntentDialogCodeHook dialogCodeHook;
+    private @Nullable UndeferrableValue<IntentDialogCodeHook> dialogCodeHook;
 
-
+    public @Nullable IntentDialogCodeHook dialogCodeHook() {
+        if (dialogCodeHook == null) return null;
+        return dialogCodeHook.getValue("Intent.dialogCodeHook");
+    }
 
     /**
      * Amazon Lex uses this prompt to solicit additional activity after
@@ -99,9 +125,12 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
      * 
      */
-    public IntentFollowUpPrompt followUpPrompt;
+    private @Nullable UndeferrableValue<IntentFollowUpPrompt> followUpPrompt;
 
-
+    public @Nullable IntentFollowUpPrompt followUpPrompt() {
+        if (followUpPrompt == null) return null;
+        return followUpPrompt.getValue("Intent.followUpPrompt");
+    }
 
     /**
      * Describes how the intent is fulfilled. For example, after a
@@ -109,25 +138,34 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
      * 
      */
-    public IntentFulfillmentActivity fulfillmentActivity;
+    private UndeferrableValue<IntentFulfillmentActivity> fulfillmentActivity;
 
-
+    public IntentFulfillmentActivity fulfillmentActivity() {
+        if (fulfillmentActivity == null) return null;
+        return fulfillmentActivity.getValue("Intent.fulfillmentActivity");
+    }
 
     /**
      * The date when the $LATEST version of this intent was updated.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("Intent.lastUpdatedDate");
+    }
 
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Intent.name");
+    }
 
     /**
      * A unique identifier for the built-in intent to base this
@@ -136,9 +174,12 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * in the Alexa Skills Kit.
      * 
      */
-    public String parentIntentSignature;
+    private @Nullable UndeferrableValue<String> parentIntentSignature;
 
-
+    public @Nullable String parentIntentSignature() {
+        if (parentIntentSignature == null) return null;
+        return parentIntentSignature.getValue("Intent.parentIntentSignature");
+    }
 
     /**
      * When the user answers &#34;no&#34; to the question defined in
@@ -147,9 +188,12 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * Attributes are documented under statement.
      * 
      */
-    public IntentRejectionStatement rejectionStatement;
+    private @Nullable UndeferrableValue<IntentRejectionStatement> rejectionStatement;
 
-
+    public @Nullable IntentRejectionStatement rejectionStatement() {
+        if (rejectionStatement == null) return null;
+        return rejectionStatement.getValue("Intent.rejectionStatement");
+    }
 
     /**
      * An array of utterances (strings) that a user might say to signal
@@ -157,25 +201,34 @@ public final class Intent extends com.pulumi.resources.PolicyResource {
      * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
-    public List<String> sampleUtterances;
+    private @Nullable UndeferrableValue<List<String>> sampleUtterances;
 
-
+    public @Nullable List<String> sampleUtterances() {
+        if (sampleUtterances == null) return null;
+        return sampleUtterances.getValue("Intent.sampleUtterances");
+    }
 
     /**
      * An list of intent slots. At runtime, Amazon Lex elicits required slot values
      * from the user using prompts defined in the slots. Attributes are documented under slot.
      * 
      */
-    public List<IntentSlot> slots;
+    private @Nullable UndeferrableValue<List<IntentSlot>> slots;
 
-
+    public @Nullable List<IntentSlot> slots() {
+        if (slots == null) return null;
+        return slots.getValue("Intent.slots");
+    }
 
     /**
      * The version of the bot.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Intent.version");
+    }
 
 }

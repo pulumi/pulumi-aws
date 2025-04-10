@@ -3,27 +3,35 @@
 
 package com.pulumi.policypacks.aws.bcmdata;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bcmdata.ExportExport;
-import com.pulumi.policypacks.aws.bcmdata.ExportTimeouts;
+import com.pulumi.policypacks.aws.bcmdata.outputs.ExportExport;
+import com.pulumi.policypacks.aws.bcmdata.outputs.ExportTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bcmdata/export:Export")
-public final class Export extends com.pulumi.resources.PolicyResource {
+public final class Export extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      * 
      */
-    public ExportExport export;
+    private @Nullable UndeferrableValue<ExportExport> export;
 
+    public @Nullable ExportExport export() {
+        if (export == null) return null;
+        return export.getValue("Export.export");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Export.tags");
+    }
 
     /**
      * @deprecated
@@ -31,12 +39,18 @@ public final class Export extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Export.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ExportTimeouts> timeouts;
 
-    public ExportTimeouts timeouts;
-
-
+    public @Nullable ExportTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Export.timeouts");
+    }
 
 }

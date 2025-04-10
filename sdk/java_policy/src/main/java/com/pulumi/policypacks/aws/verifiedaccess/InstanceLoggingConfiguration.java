@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedaccess.InstanceLoggingConfigurationAccessLogs;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.InstanceLoggingConfigurationAccessLogs;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")
-public final class InstanceLoggingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class InstanceLoggingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
-    public InstanceLoggingConfigurationAccessLogs accessLogs;
+    private UndeferrableValue<InstanceLoggingConfigurationAccessLogs> accessLogs;
 
-
+    public InstanceLoggingConfigurationAccessLogs accessLogs() {
+        if (accessLogs == null) return null;
+        return accessLogs.getValue("InstanceLoggingConfiguration.accessLogs");
+    }
 
     /**
      * The ID of the Verified Access instance.
      * 
      */
-    public String verifiedaccessInstanceId;
+    private UndeferrableValue<String> verifiedaccessInstanceId;
 
-
+    public String verifiedaccessInstanceId() {
+        if (verifiedaccessInstanceId == null) return null;
+        return verifiedaccessInstanceId.getValue("InstanceLoggingConfiguration.verifiedaccessInstanceId");
+    }
 
 }

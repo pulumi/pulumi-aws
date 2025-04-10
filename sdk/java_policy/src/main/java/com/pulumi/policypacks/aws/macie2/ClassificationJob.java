@@ -3,123 +3,167 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.macie2.ClassificationJobS3JobDefinition;
-import com.pulumi.policypacks.aws.macie2.ClassificationJobScheduleFrequency;
-import com.pulumi.policypacks.aws.macie2.ClassificationJobUserPausedDetail;
+import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinition;
+import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobScheduleFrequency;
+import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobUserPausedDetail;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:macie2/classificationJob:ClassificationJob")
-public final class ClassificationJob extends com.pulumi.resources.PolicyResource {
+public final class ClassificationJob extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("ClassificationJob.createdAt");
+    }
 
     /**
      * The custom data identifiers to use for data analysis and classification.
      * 
      */
-    public List<String> customDataIdentifierIds;
+    private UndeferrableValue<List<String>> customDataIdentifierIds;
 
-
+    public List<String> customDataIdentifierIds() {
+        if (customDataIdentifierIds == null) return null;
+        return customDataIdentifierIds.getValue("ClassificationJob.customDataIdentifierIds");
+    }
 
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ClassificationJob.description");
+    }
 
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
-    public Boolean initialRun;
+    private @Nullable UndeferrableValue<Boolean> initialRun;
 
+    public @Nullable Boolean initialRun() {
+        if (initialRun == null) return null;
+        return initialRun.getValue("ClassificationJob.initialRun");
+    }
 
+    private UndeferrableValue<String> jobArn;
 
-    public String jobArn;
+    public String jobArn() {
+        if (jobArn == null) return null;
+        return jobArn.getValue("ClassificationJob.jobArn");
+    }
 
+    private UndeferrableValue<String> jobId;
 
-
-    public String jobId;
-
-
+    public String jobId() {
+        if (jobId == null) return null;
+        return jobId.getValue("ClassificationJob.jobId");
+    }
 
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      * 
      */
-    public String jobStatus;
+    private UndeferrableValue<String> jobStatus;
 
-
+    public String jobStatus() {
+        if (jobStatus == null) return null;
+        return jobStatus.getValue("ClassificationJob.jobStatus");
+    }
 
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
      * 
      */
-    public String jobType;
+    private UndeferrableValue<String> jobType;
 
-
+    public String jobType() {
+        if (jobType == null) return null;
+        return jobType.getValue("ClassificationJob.jobType");
+    }
 
     /**
      * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ClassificationJob.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("ClassificationJob.namePrefix");
+    }
 
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      * 
      */
-    public ClassificationJobS3JobDefinition s3JobDefinition;
+    private UndeferrableValue<ClassificationJobS3JobDefinition> s3JobDefinition;
 
-
+    public ClassificationJobS3JobDefinition s3JobDefinition() {
+        if (s3JobDefinition == null) return null;
+        return s3JobDefinition.getValue("ClassificationJob.s3JobDefinition");
+    }
 
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
-    public Integer samplingPercentage;
+    private UndeferrableValue<Integer> samplingPercentage;
 
-
+    public Integer samplingPercentage() {
+        if (samplingPercentage == null) return null;
+        return samplingPercentage.getValue("ClassificationJob.samplingPercentage");
+    }
 
     /**
      * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
      * 
      */
-    public ClassificationJobScheduleFrequency scheduleFrequency;
+    private UndeferrableValue<ClassificationJobScheduleFrequency> scheduleFrequency;
 
-
+    public ClassificationJobScheduleFrequency scheduleFrequency() {
+        if (scheduleFrequency == null) return null;
+        return scheduleFrequency.getValue("ClassificationJob.scheduleFrequency");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClassificationJob.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -129,16 +173,22 @@ public final class ClassificationJob extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClassificationJob.tagsAll");
+    }
 
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
-    public List<ClassificationJobUserPausedDetail> userPausedDetails;
+    private UndeferrableValue<List<ClassificationJobUserPausedDetail>> userPausedDetails;
 
-
+    public List<ClassificationJobUserPausedDetail> userPausedDetails() {
+        if (userPausedDetails == null) return null;
+        return userPausedDetails.getValue("ClassificationJob.userPausedDetails");
+    }
 
 }

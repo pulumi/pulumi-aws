@@ -3,54 +3,68 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionEphemeralStorage;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionInferenceAccelerator;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionPlacementConstraint;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionProxyConfiguration;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionRuntimePlatform;
-import com.pulumi.policypacks.aws.ecs.TaskDefinitionVolume;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionEphemeralStorage;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionInferenceAccelerator;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionPlacementConstraint;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionProxyConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionRuntimePlatform;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionVolume;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/taskDefinition:TaskDefinition")
-public final class TaskDefinition extends com.pulumi.resources.PolicyResource {
+public final class TaskDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TaskDefinition.arn");
+    }
 
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
-    public String arnWithoutRevision;
+    private UndeferrableValue<String> arnWithoutRevision;
 
-
+    public String arnWithoutRevision() {
+        if (arnWithoutRevision == null) return null;
+        return arnWithoutRevision.getValue("TaskDefinition.arnWithoutRevision");
+    }
 
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
-    public String containerDefinitions;
+    private UndeferrableValue<String> containerDefinitions;
 
-
+    public String containerDefinitions() {
+        if (containerDefinitions == null) return null;
+        return containerDefinitions.getValue("TaskDefinition.containerDefinitions");
+    }
 
     /**
      * Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    public String cpu;
+    private @Nullable UndeferrableValue<String> cpu;
 
-
+    public @Nullable String cpu() {
+        if (cpu == null) return null;
+        return cpu.getValue("TaskDefinition.cpu");
+    }
 
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
@@ -58,25 +72,34 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResource {
      * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
-    public Boolean enableFaultInjection;
+    private UndeferrableValue<Boolean> enableFaultInjection;
 
-
+    public Boolean enableFaultInjection() {
+        if (enableFaultInjection == null) return null;
+        return enableFaultInjection.getValue("TaskDefinition.enableFaultInjection");
+    }
 
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
-    public TaskDefinitionEphemeralStorage ephemeralStorage;
+    private @Nullable UndeferrableValue<TaskDefinitionEphemeralStorage> ephemeralStorage;
 
-
+    public @Nullable TaskDefinitionEphemeralStorage ephemeralStorage() {
+        if (ephemeralStorage == null) return null;
+        return ephemeralStorage.getValue("TaskDefinition.ephemeralStorage");
+    }
 
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      * 
      */
-    public String executionRoleArn;
+    private @Nullable UndeferrableValue<String> executionRoleArn;
 
-
+    public @Nullable String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("TaskDefinition.executionRoleArn");
+    }
 
     /**
      * A unique name for your task definition.
@@ -84,105 +107,144 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String family;
+    private UndeferrableValue<String> family;
 
-
+    public String family() {
+        if (family == null) return null;
+        return family.getValue("TaskDefinition.family");
+    }
 
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      * 
      */
-    public List<TaskDefinitionInferenceAccelerator> inferenceAccelerators;
+    private @Nullable UndeferrableValue<List<TaskDefinitionInferenceAccelerator>> inferenceAccelerators;
 
-
+    public @Nullable List<TaskDefinitionInferenceAccelerator> inferenceAccelerators() {
+        if (inferenceAccelerators == null) return null;
+        return inferenceAccelerators.getValue("TaskDefinition.inferenceAccelerators");
+    }
 
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      * 
      */
-    public String ipcMode;
+    private @Nullable UndeferrableValue<String> ipcMode;
 
-
+    public @Nullable String ipcMode() {
+        if (ipcMode == null) return null;
+        return ipcMode.getValue("TaskDefinition.ipcMode");
+    }
 
     /**
      * Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    public String memory;
+    private @Nullable UndeferrableValue<String> memory;
 
-
+    public @Nullable String memory() {
+        if (memory == null) return null;
+        return memory.getValue("TaskDefinition.memory");
+    }
 
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
-    public String networkMode;
+    private UndeferrableValue<String> networkMode;
 
-
+    public String networkMode() {
+        if (networkMode == null) return null;
+        return networkMode.getValue("TaskDefinition.networkMode");
+    }
 
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      * 
      */
-    public String pidMode;
+    private @Nullable UndeferrableValue<String> pidMode;
 
-
+    public @Nullable String pidMode() {
+        if (pidMode == null) return null;
+        return pidMode.getValue("TaskDefinition.pidMode");
+    }
 
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
      * 
      */
-    public List<TaskDefinitionPlacementConstraint> placementConstraints;
+    private @Nullable UndeferrableValue<List<TaskDefinitionPlacementConstraint>> placementConstraints;
 
-
+    public @Nullable List<TaskDefinitionPlacementConstraint> placementConstraints() {
+        if (placementConstraints == null) return null;
+        return placementConstraints.getValue("TaskDefinition.placementConstraints");
+    }
 
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      * 
      */
-    public TaskDefinitionProxyConfiguration proxyConfiguration;
+    private @Nullable UndeferrableValue<TaskDefinitionProxyConfiguration> proxyConfiguration;
 
-
+    public @Nullable TaskDefinitionProxyConfiguration proxyConfiguration() {
+        if (proxyConfiguration == null) return null;
+        return proxyConfiguration.getValue("TaskDefinition.proxyConfiguration");
+    }
 
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
      */
-    public List<String> requiresCompatibilities;
+    private @Nullable UndeferrableValue<List<String>> requiresCompatibilities;
 
-
+    public @Nullable List<String> requiresCompatibilities() {
+        if (requiresCompatibilities == null) return null;
+        return requiresCompatibilities.getValue("TaskDefinition.requiresCompatibilities");
+    }
 
     /**
      * Revision of the task in a particular family.
      * 
      */
-    public Integer revision;
+    private UndeferrableValue<Integer> revision;
 
-
+    public Integer revision() {
+        if (revision == null) return null;
+        return revision.getValue("TaskDefinition.revision");
+    }
 
     /**
      * Configuration block for runtime_platform that containers in your task may use.
      * 
      */
-    public TaskDefinitionRuntimePlatform runtimePlatform;
+    private @Nullable UndeferrableValue<TaskDefinitionRuntimePlatform> runtimePlatform;
 
-
+    public @Nullable TaskDefinitionRuntimePlatform runtimePlatform() {
+        if (runtimePlatform == null) return null;
+        return runtimePlatform.getValue("TaskDefinition.runtimePlatform");
+    }
 
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("TaskDefinition.skipDestroy");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TaskDefinition.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -192,32 +254,44 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TaskDefinition.tagsAll");
+    }
 
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      * 
      */
-    public String taskRoleArn;
+    private @Nullable UndeferrableValue<String> taskRoleArn;
 
-
+    public @Nullable String taskRoleArn() {
+        if (taskRoleArn == null) return null;
+        return taskRoleArn.getValue("TaskDefinition.taskRoleArn");
+    }
 
     /**
      * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      * 
      */
-    public Boolean trackLatest;
+    private @Nullable UndeferrableValue<Boolean> trackLatest;
 
-
+    public @Nullable Boolean trackLatest() {
+        if (trackLatest == null) return null;
+        return trackLatest.getValue("TaskDefinition.trackLatest");
+    }
 
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      */
-    public List<TaskDefinitionVolume> volumes;
+    private @Nullable UndeferrableValue<List<TaskDefinitionVolume>> volumes;
 
-
+    public @Nullable List<TaskDefinitionVolume> volumes() {
+        if (volumes == null) return null;
+        return volumes.getValue("TaskDefinition.volumes");
+    }
 
 }

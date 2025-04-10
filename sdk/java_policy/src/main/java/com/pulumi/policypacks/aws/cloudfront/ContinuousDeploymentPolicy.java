@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames;
-import com.pulumi.policypacks.aws.cloudfront.ContinuousDeploymentPolicyTrafficConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfig;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")
-public final class ContinuousDeploymentPolicy extends com.pulumi.resources.PolicyResource {
+public final class ContinuousDeploymentPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The continuous deployment policy ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContinuousDeploymentPolicy.arn");
+    }
 
     /**
      * Whether this continuous deployment policy is enabled.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ContinuousDeploymentPolicy.enabled");
+    }
 
     /**
      * Current version of the continuous distribution policy.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("ContinuousDeploymentPolicy.etag");
+    }
 
     /**
      * Date and time the continuous deployment policy was last modified.
      * 
      */
-    public String lastModifiedTime;
+    private UndeferrableValue<String> lastModifiedTime;
 
-
+    public String lastModifiedTime() {
+        if (lastModifiedTime == null) return null;
+        return lastModifiedTime.getValue("ContinuousDeploymentPolicy.lastModifiedTime");
+    }
 
     /**
      * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
      * 
      */
-    public ContinuousDeploymentPolicyStagingDistributionDnsNames stagingDistributionDnsNames;
+    private @Nullable UndeferrableValue<ContinuousDeploymentPolicyStagingDistributionDnsNames> stagingDistributionDnsNames;
 
-
+    public @Nullable ContinuousDeploymentPolicyStagingDistributionDnsNames stagingDistributionDnsNames() {
+        if (stagingDistributionDnsNames == null) return null;
+        return stagingDistributionDnsNames.getValue("ContinuousDeploymentPolicy.stagingDistributionDnsNames");
+    }
 
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
      * 
      */
-    public ContinuousDeploymentPolicyTrafficConfig trafficConfig;
+    private @Nullable UndeferrableValue<ContinuousDeploymentPolicyTrafficConfig> trafficConfig;
 
-
+    public @Nullable ContinuousDeploymentPolicyTrafficConfig trafficConfig() {
+        if (trafficConfig == null) return null;
+        return trafficConfig.getValue("ContinuousDeploymentPolicy.trafficConfig");
+    }
 
 }

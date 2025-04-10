@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:appstream/fleetStackAssociation:FleetStackAssociation")
-public final class FleetStackAssociation extends com.pulumi.resources.PolicyResource {
+public final class FleetStackAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the fleet.
      * 
      */
-    public String fleetName;
+    private UndeferrableValue<String> fleetName;
 
-
+    public String fleetName() {
+        if (fleetName == null) return null;
+        return fleetName.getValue("FleetStackAssociation.fleetName");
+    }
 
     /**
      * Name of the stack.
      * 
      */
-    public String stackName;
+    private UndeferrableValue<String> stackName;
 
-
+    public String stackName() {
+        if (stackName == null) return null;
+        return stackName.getValue("FleetStackAssociation.stackName");
+    }
 
 }

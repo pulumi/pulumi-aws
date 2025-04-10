@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:organizations/policyAttachment:PolicyAttachment")
-public final class PolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class PolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      * 
      */
-    public String policyId;
+    private UndeferrableValue<String> policyId;
 
-
+    public String policyId() {
+        if (policyId == null) return null;
+        return policyId.getValue("PolicyAttachment.policyId");
+    }
 
     /**
      * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("PolicyAttachment.skipDestroy");
+    }
 
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("PolicyAttachment.targetId");
+    }
 
 }

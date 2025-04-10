@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
-public final class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the principal to allow permissions.
      * 
      */
-    public String principalArn;
+    private UndeferrableValue<String> principalArn;
 
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("VpcEndpointServiceAllowedPrinciple.principalArn");
+    }
 
     /**
      * The ID of the VPC endpoint service to allow permission.
      * 
      */
-    public String vpcEndpointServiceId;
+    private UndeferrableValue<String> vpcEndpointServiceId;
 
-
+    public String vpcEndpointServiceId() {
+        if (vpcEndpointServiceId == null) return null;
+        return vpcEndpointServiceId.getValue("VpcEndpointServiceAllowedPrinciple.vpcEndpointServiceId");
+    }
 
 }

@@ -3,111 +3,149 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")
-public final class StoredIscsiVolume extends com.pulumi.resources.PolicyResource {
+public final class StoredIscsiVolume extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StoredIscsiVolume.arn");
+    }
 
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
-    public Boolean chapEnabled;
+    private UndeferrableValue<Boolean> chapEnabled;
 
-
+    public Boolean chapEnabled() {
+        if (chapEnabled == null) return null;
+        return chapEnabled.getValue("StoredIscsiVolume.chapEnabled");
+    }
 
     /**
      * The unique identifier for the gateway local disk that is configured as a stored volume.
      * 
      */
-    public String diskId;
+    private UndeferrableValue<String> diskId;
 
-
+    public String diskId() {
+        if (diskId == null) return null;
+        return diskId.getValue("StoredIscsiVolume.diskId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    public String gatewayArn;
+    private UndeferrableValue<String> gatewayArn;
 
-
+    public String gatewayArn() {
+        if (gatewayArn == null) return null;
+        return gatewayArn.getValue("StoredIscsiVolume.gatewayArn");
+    }
 
     /**
      * `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
      * 
      */
-    public Boolean kmsEncrypted;
+    private @Nullable UndeferrableValue<Boolean> kmsEncrypted;
 
-
+    public @Nullable Boolean kmsEncrypted() {
+        if (kmsEncrypted == null) return null;
+        return kmsEncrypted.getValue("StoredIscsiVolume.kmsEncrypted");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
      * 
      */
-    public String kmsKey;
+    private @Nullable UndeferrableValue<String> kmsKey;
 
-
+    public @Nullable String kmsKey() {
+        if (kmsKey == null) return null;
+        return kmsKey.getValue("StoredIscsiVolume.kmsKey");
+    }
 
     /**
      * Logical disk number.
      * 
      */
-    public Integer lunNumber;
+    private UndeferrableValue<Integer> lunNumber;
 
-
+    public Integer lunNumber() {
+        if (lunNumber == null) return null;
+        return lunNumber.getValue("StoredIscsiVolume.lunNumber");
+    }
 
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("StoredIscsiVolume.networkInterfaceId");
+    }
 
     /**
      * The port used to communicate with iSCSI targets.
      * 
      */
-    public Integer networkInterfacePort;
+    private UndeferrableValue<Integer> networkInterfacePort;
 
-
+    public Integer networkInterfacePort() {
+        if (networkInterfacePort == null) return null;
+        return networkInterfacePort.getValue("StoredIscsiVolume.networkInterfacePort");
+    }
 
     /**
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      * 
      */
-    public Boolean preserveExistingData;
+    private UndeferrableValue<Boolean> preserveExistingData;
 
-
+    public Boolean preserveExistingData() {
+        if (preserveExistingData == null) return null;
+        return preserveExistingData.getValue("StoredIscsiVolume.preserveExistingData");
+    }
 
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      * 
      */
-    public String snapshotId;
+    private @Nullable UndeferrableValue<String> snapshotId;
 
-
+    public @Nullable String snapshotId() {
+        if (snapshotId == null) return null;
+        return snapshotId.getValue("StoredIscsiVolume.snapshotId");
+    }
 
     /**
      * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StoredIscsiVolume.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,64 +155,88 @@ public final class StoredIscsiVolume extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StoredIscsiVolume.tagsAll");
+    }
 
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
-
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("StoredIscsiVolume.targetArn");
+    }
 
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      * 
      */
-    public String targetName;
+    private UndeferrableValue<String> targetName;
 
-
+    public String targetName() {
+        if (targetName == null) return null;
+        return targetName.getValue("StoredIscsiVolume.targetName");
+    }
 
     /**
      * A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
      * 
      */
-    public String volumeAttachmentStatus;
+    private UndeferrableValue<String> volumeAttachmentStatus;
 
-
+    public String volumeAttachmentStatus() {
+        if (volumeAttachmentStatus == null) return null;
+        return volumeAttachmentStatus.getValue("StoredIscsiVolume.volumeAttachmentStatus");
+    }
 
     /**
      * Volume ID, e.g., `vol-12345678`.
      * 
      */
-    public String volumeId;
+    private UndeferrableValue<String> volumeId;
 
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("StoredIscsiVolume.volumeId");
+    }
 
     /**
      * The size of the data stored on the volume in bytes.
      * 
      */
-    public Integer volumeSizeInBytes;
+    private UndeferrableValue<Integer> volumeSizeInBytes;
 
-
+    public Integer volumeSizeInBytes() {
+        if (volumeSizeInBytes == null) return null;
+        return volumeSizeInBytes.getValue("StoredIscsiVolume.volumeSizeInBytes");
+    }
 
     /**
      * indicates the state of the storage volume.
      * 
      */
-    public String volumeStatus;
+    private UndeferrableValue<String> volumeStatus;
 
-
+    public String volumeStatus() {
+        if (volumeStatus == null) return null;
+        return volumeStatus.getValue("StoredIscsiVolume.volumeStatus");
+    }
 
     /**
      * indicates the type of the volume.
      * 
      */
-    public String volumeType;
+    private UndeferrableValue<String> volumeType;
 
-
+    public String volumeType() {
+        if (volumeType == null) return null;
+        return volumeType.getValue("StoredIscsiVolume.volumeType");
+    }
 
 }

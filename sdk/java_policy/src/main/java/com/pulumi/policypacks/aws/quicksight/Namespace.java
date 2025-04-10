@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.NamespaceTimeouts;
+import com.pulumi.policypacks.aws.quicksight.outputs.NamespaceTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/namespace:Namespace")
-public final class Namespace extends com.pulumi.resources.PolicyResource {
+public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Namespace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Namespace.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Namespace.awsAccountId");
+    }
 
     /**
      * Namespace AWS Region.
      * 
      */
-    public String capacityRegion;
+    private UndeferrableValue<String> capacityRegion;
 
-
+    public String capacityRegion() {
+        if (capacityRegion == null) return null;
+        return capacityRegion.getValue("Namespace.capacityRegion");
+    }
 
     /**
      * Creation status of the namespace.
      * 
      */
-    public String creationStatus;
+    private UndeferrableValue<String> creationStatus;
 
-
+    public String creationStatus() {
+        if (creationStatus == null) return null;
+        return creationStatus.getValue("Namespace.creationStatus");
+    }
 
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      * 
      */
-    public String identityStore;
+    private UndeferrableValue<String> identityStore;
 
-
+    public String identityStore() {
+        if (identityStore == null) return null;
+        return identityStore.getValue("Namespace.identityStore");
+    }
 
     /**
      * Name of the namespace.
@@ -58,17 +75,23 @@ public final class Namespace extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("Namespace.namespace");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Namespace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,12 +101,18 @@ public final class Namespace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Namespace.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<NamespaceTimeouts> timeouts;
 
-    public NamespaceTimeouts timeouts;
-
-
+    public @Nullable NamespaceTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Namespace.timeouts");
+    }
 
 }

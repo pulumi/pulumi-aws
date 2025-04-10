@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.glacier;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glacier.VaultNotification;
+import com.pulumi.policypacks.aws.glacier.outputs.VaultNotification;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glacier/vault:Vault")
-public final class Vault extends com.pulumi.resources.PolicyResource {
+public final class Vault extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      * 
      */
-    public String accessPolicy;
+    private @Nullable UndeferrableValue<String> accessPolicy;
 
-
+    public @Nullable String accessPolicy() {
+        if (accessPolicy == null) return null;
+        return accessPolicy.getValue("Vault.accessPolicy");
+    }
 
     /**
      * The ARN of the vault.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Vault.arn");
+    }
 
     /**
      * The URI of the vault that was created.
      * 
      */
-    public String location;
+    private UndeferrableValue<String> location;
 
-
+    public String location() {
+        if (location == null) return null;
+        return location.getValue("Vault.location");
+    }
 
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Vault.name");
+    }
 
     /**
      * The notifications for the Vault. Fields documented below.
      * 
      */
-    public VaultNotification notification;
+    private @Nullable UndeferrableValue<VaultNotification> notification;
 
-
+    public @Nullable VaultNotification notification() {
+        if (notification == null) return null;
+        return notification.getValue("Vault.notification");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Vault.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,8 +89,11 @@ public final class Vault extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Vault.tagsAll");
+    }
 
 }

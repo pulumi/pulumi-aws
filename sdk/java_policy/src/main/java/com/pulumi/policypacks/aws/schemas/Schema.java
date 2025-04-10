@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:schemas/schema:Schema")
-public final class Schema extends com.pulumi.resources.PolicyResource {
+public final class Schema extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the discoverer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Schema.arn");
+    }
 
     /**
      * The schema specification. Must be a valid Open API 3.0 spec.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("Schema.content");
+    }
 
     /**
      * The description of the schema. Maximum of 256 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Schema.description");
+    }
 
     /**
      * The last modified date of the schema.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("Schema.lastModified");
+    }
 
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, {@literal @}.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Schema.name");
+    }
 
     /**
      * The name of the registry in which this schema belongs.
      * 
      */
-    public String registryName;
+    private UndeferrableValue<String> registryName;
 
-
+    public String registryName() {
+        if (registryName == null) return null;
+        return registryName.getValue("Schema.registryName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Schema.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -75,32 +98,44 @@ public final class Schema extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Schema.tagsAll");
+    }
 
     /**
      * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Schema.type");
+    }
 
     /**
      * The version of the schema.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Schema.version");
+    }
 
     /**
      * The created date of the version of the schema.
      * 
      */
-    public String versionCreatedDate;
+    private UndeferrableValue<String> versionCreatedDate;
 
-
+    public String versionCreatedDate() {
+        if (versionCreatedDate == null) return null;
+        return versionCreatedDate.getValue("Schema.versionCreatedDate");
+    }
 
 }

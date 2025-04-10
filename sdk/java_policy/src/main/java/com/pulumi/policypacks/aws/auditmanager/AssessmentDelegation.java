@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/assessmentDelegation:AssessmentDelegation")
-public final class AssessmentDelegation extends com.pulumi.resources.PolicyResource {
+public final class AssessmentDelegation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the assessment.
      * 
      */
-    public String assessmentId;
+    private UndeferrableValue<String> assessmentId;
 
-
+    public String assessmentId() {
+        if (assessmentId == null) return null;
+        return assessmentId.getValue("AssessmentDelegation.assessmentId");
+    }
 
     /**
      * Comment describing the delegation request.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("AssessmentDelegation.comment");
+    }
 
     /**
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      * 
      */
-    public String controlSetId;
+    private UndeferrableValue<String> controlSetId;
 
-
+    public String controlSetId() {
+        if (controlSetId == null) return null;
+        return controlSetId.getValue("AssessmentDelegation.controlSetId");
+    }
 
     /**
      * Unique identifier for the delegation.
      * 
      */
-    public String delegationId;
+    private UndeferrableValue<String> delegationId;
 
-
+    public String delegationId() {
+        if (delegationId == null) return null;
+        return delegationId.getValue("AssessmentDelegation.delegationId");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("AssessmentDelegation.roleArn");
+    }
 
     /**
      * Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -56,16 +73,22 @@ public final class AssessmentDelegation extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    public String roleType;
+    private UndeferrableValue<String> roleType;
 
-
+    public String roleType() {
+        if (roleType == null) return null;
+        return roleType.getValue("AssessmentDelegation.roleType");
+    }
 
     /**
      * Status of the delegation.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("AssessmentDelegation.status");
+    }
 
 }

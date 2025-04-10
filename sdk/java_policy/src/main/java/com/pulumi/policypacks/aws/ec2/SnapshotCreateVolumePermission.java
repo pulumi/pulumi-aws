@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")
-public final class SnapshotCreateVolumePermission extends com.pulumi.resources.PolicyResource {
+public final class SnapshotCreateVolumePermission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("SnapshotCreateVolumePermission.accountId");
+    }
 
     /**
      * A snapshot ID
      * 
      */
-    public String snapshotId;
+    private UndeferrableValue<String> snapshotId;
 
-
+    public String snapshotId() {
+        if (snapshotId == null) return null;
+        return snapshotId.getValue("SnapshotCreateVolumePermission.snapshotId");
+    }
 
 }

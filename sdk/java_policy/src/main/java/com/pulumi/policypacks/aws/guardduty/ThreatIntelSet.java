@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/threatIntelSet:ThreatIntelSet")
-public final class ThreatIntelSet extends com.pulumi.resources.PolicyResource {
+public final class ThreatIntelSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      * 
      */
-    public Boolean activate;
+    private UndeferrableValue<Boolean> activate;
 
-
+    public Boolean activate() {
+        if (activate == null) return null;
+        return activate.getValue("ThreatIntelSet.activate");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ThreatIntelSet.arn");
+    }
 
     /**
      * The detector ID of the GuardDuty.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("ThreatIntelSet.detectorId");
+    }
 
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
-    public String format;
+    private UndeferrableValue<String> format;
 
-
+    public String format() {
+        if (format == null) return null;
+        return format.getValue("ThreatIntelSet.format");
+    }
 
     /**
      * The URI of the file that contains the ThreatIntelSet.
      * 
      */
-    public String location;
+    private UndeferrableValue<String> location;
 
-
+    public String location() {
+        if (location == null) return null;
+        return location.getValue("ThreatIntelSet.location");
+    }
 
     /**
      * The friendly name to identify the ThreatIntelSet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ThreatIntelSet.name");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ThreatIntelSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class ThreatIntelSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ThreatIntelSet.tagsAll");
+    }
 
 }

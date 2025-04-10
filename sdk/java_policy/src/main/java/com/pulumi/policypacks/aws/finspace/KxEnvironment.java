@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.finspace.KxEnvironmentCustomDnsConfiguration;
-import com.pulumi.policypacks.aws.finspace.KxEnvironmentTransitGatewayConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentCustomDnsConfiguration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentTransitGatewayConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxEnvironment:KxEnvironment")
-public final class KxEnvironment extends com.pulumi.resources.PolicyResource {
+public final class KxEnvironment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX environment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxEnvironment.arn");
+    }
 
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("KxEnvironment.availabilityZones");
+    }
 
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("KxEnvironment.createdTimestamp");
+    }
 
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      * 
      */
-    public List<KxEnvironmentCustomDnsConfiguration> customDnsConfigurations;
+    private @Nullable UndeferrableValue<List<KxEnvironmentCustomDnsConfiguration>> customDnsConfigurations;
 
-
+    public @Nullable List<KxEnvironmentCustomDnsConfiguration> customDnsConfigurations() {
+        if (customDnsConfigurations == null) return null;
+        return customDnsConfigurations.getValue("KxEnvironment.customDnsConfigurations");
+    }
 
     /**
      * Description for the KX environment.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("KxEnvironment.description");
+    }
 
     /**
      * Unique identifier for the AWS environment infrastructure account.
      * 
      */
-    public String infrastructureAccountId;
+    private UndeferrableValue<String> infrastructureAccountId;
 
-
+    public String infrastructureAccountId() {
+        if (infrastructureAccountId == null) return null;
+        return infrastructureAccountId.getValue("KxEnvironment.infrastructureAccountId");
+    }
 
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
@@ -68,41 +88,56 @@ public final class KxEnvironment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("KxEnvironment.kmsKeyId");
+    }
 
     /**
      * Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String lastModifiedTimestamp;
+    private UndeferrableValue<String> lastModifiedTimestamp;
 
-
+    public String lastModifiedTimestamp() {
+        if (lastModifiedTimestamp == null) return null;
+        return lastModifiedTimestamp.getValue("KxEnvironment.lastModifiedTimestamp");
+    }
 
     /**
      * Name of the KX environment that you want to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxEnvironment.name");
+    }
 
     /**
      * Status of environment creation
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("KxEnvironment.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxEnvironment.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,16 +147,22 @@ public final class KxEnvironment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxEnvironment.tagsAll");
+    }
 
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      * 
      */
-    public KxEnvironmentTransitGatewayConfiguration transitGatewayConfiguration;
+    private @Nullable UndeferrableValue<KxEnvironmentTransitGatewayConfiguration> transitGatewayConfiguration;
 
-
+    public @Nullable KxEnvironmentTransitGatewayConfiguration transitGatewayConfiguration() {
+        if (transitGatewayConfiguration == null) return null;
+        return transitGatewayConfiguration.getValue("KxEnvironment.transitGatewayConfiguration");
+    }
 
 }

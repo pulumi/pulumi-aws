@@ -3,24 +3,29 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.DefaultNetworkAclEgress;
-import com.pulumi.policypacks.aws.ec2.DefaultNetworkAclIngress;
+import com.pulumi.policypacks.aws.ec2.outputs.DefaultNetworkAclEgress;
+import com.pulumi.policypacks.aws.ec2.outputs.DefaultNetworkAclIngress;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")
-public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource {
+public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Default Network ACL
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DefaultNetworkAcl.arn");
+    }
 
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
@@ -28,49 +33,67 @@ public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public String defaultNetworkAclId;
+    private UndeferrableValue<String> defaultNetworkAclId;
 
-
+    public String defaultNetworkAclId() {
+        if (defaultNetworkAclId == null) return null;
+        return defaultNetworkAclId.getValue("DefaultNetworkAcl.defaultNetworkAclId");
+    }
 
     /**
      * Configuration block for an egress rule. Detailed below.
      * 
      */
-    public List<DefaultNetworkAclEgress> egress;
+    private @Nullable UndeferrableValue<List<DefaultNetworkAclEgress>> egress;
 
-
+    public @Nullable List<DefaultNetworkAclEgress> egress() {
+        if (egress == null) return null;
+        return egress.getValue("DefaultNetworkAcl.egress");
+    }
 
     /**
      * Configuration block for an ingress rule. Detailed below.
      * 
      */
-    public List<DefaultNetworkAclIngress> ingress;
+    private @Nullable UndeferrableValue<List<DefaultNetworkAclIngress>> ingress;
 
-
+    public @Nullable List<DefaultNetworkAclIngress> ingress() {
+        if (ingress == null) return null;
+        return ingress.getValue("DefaultNetworkAcl.ingress");
+    }
 
     /**
      * ID of the AWS account that owns the Default Network ACL
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DefaultNetworkAcl.ownerId");
+    }
 
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
-    public List<String> subnetIds;
+    private @Nullable UndeferrableValue<List<String>> subnetIds;
 
-
+    public @Nullable List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("DefaultNetworkAcl.subnetIds");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DefaultNetworkAcl.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -80,16 +103,22 @@ public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DefaultNetworkAcl.tagsAll");
+    }
 
     /**
      * ID of the associated VPC
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("DefaultNetworkAcl.vpcId");
+    }
 
 }

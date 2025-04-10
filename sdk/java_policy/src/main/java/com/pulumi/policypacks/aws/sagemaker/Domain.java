@@ -3,154 +3,207 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.DomainDefaultSpaceSettings;
-import com.pulumi.policypacks.aws.sagemaker.DomainDefaultUserSettings;
-import com.pulumi.policypacks.aws.sagemaker.DomainDomainSettings;
-import com.pulumi.policypacks.aws.sagemaker.DomainRetentionPolicy;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultSpaceSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDomainSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DomainRetentionPolicy;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      * 
      */
-    public String appNetworkAccessType;
+    private @Nullable UndeferrableValue<String> appNetworkAccessType;
 
-
+    public @Nullable String appNetworkAccessType() {
+        if (appNetworkAccessType == null) return null;
+        return appNetworkAccessType.getValue("Domain.appNetworkAccessType");
+    }
 
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
-    public String appSecurityGroupManagement;
+    private @Nullable UndeferrableValue<String> appSecurityGroupManagement;
 
-
+    public @Nullable String appSecurityGroupManagement() {
+        if (appSecurityGroupManagement == null) return null;
+        return appSecurityGroupManagement.getValue("Domain.appSecurityGroupManagement");
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      * 
      */
-    public String authMode;
+    private UndeferrableValue<String> authMode;
 
-
+    public String authMode() {
+        if (authMode == null) return null;
+        return authMode.getValue("Domain.authMode");
+    }
 
     /**
      * The default space settings. See `default_space_settings` Block below.
      * 
      */
-    public DomainDefaultSpaceSettings defaultSpaceSettings;
+    private @Nullable UndeferrableValue<DomainDefaultSpaceSettings> defaultSpaceSettings;
 
-
+    public @Nullable DomainDefaultSpaceSettings defaultSpaceSettings() {
+        if (defaultSpaceSettings == null) return null;
+        return defaultSpaceSettings.getValue("Domain.defaultSpaceSettings");
+    }
 
     /**
      * The default user settings. See `default_user_settings` Block below.
      * 
      */
-    public DomainDefaultUserSettings defaultUserSettings;
+    private UndeferrableValue<DomainDefaultUserSettings> defaultUserSettings;
 
-
+    public DomainDefaultUserSettings defaultUserSettings() {
+        if (defaultUserSettings == null) return null;
+        return defaultUserSettings.getValue("Domain.defaultUserSettings");
+    }
 
     /**
      * The domain name.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
     /**
      * The domain settings. See `domain_settings` Block below.
      * 
      */
-    public DomainDomainSettings domainSettings;
+    private @Nullable UndeferrableValue<DomainDomainSettings> domainSettings;
 
-
+    public @Nullable DomainDomainSettings domainSettings() {
+        if (domainSettings == null) return null;
+        return domainSettings.getValue("Domain.domainSettings");
+    }
 
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
-    public String homeEfsFileSystemId;
+    private UndeferrableValue<String> homeEfsFileSystemId;
 
-
+    public String homeEfsFileSystemId() {
+        if (homeEfsFileSystemId == null) return null;
+        return homeEfsFileSystemId.getValue("Domain.homeEfsFileSystemId");
+    }
 
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Domain.kmsKeyId");
+    }
 
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
-    public DomainRetentionPolicy retentionPolicy;
+    private @Nullable UndeferrableValue<DomainRetentionPolicy> retentionPolicy;
 
-
+    public @Nullable DomainRetentionPolicy retentionPolicy() {
+        if (retentionPolicy == null) return null;
+        return retentionPolicy.getValue("Domain.retentionPolicy");
+    }
 
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      * 
      */
-    public String securityGroupIdForDomainBoundary;
+    private UndeferrableValue<String> securityGroupIdForDomainBoundary;
 
-
+    public String securityGroupIdForDomainBoundary() {
+        if (securityGroupIdForDomainBoundary == null) return null;
+        return securityGroupIdForDomainBoundary.getValue("Domain.securityGroupIdForDomainBoundary");
+    }
 
     /**
      * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      * 
      */
-    public String singleSignOnApplicationArn;
+    private UndeferrableValue<String> singleSignOnApplicationArn;
 
-
+    public String singleSignOnApplicationArn() {
+        if (singleSignOnApplicationArn == null) return null;
+        return singleSignOnApplicationArn.getValue("Domain.singleSignOnApplicationArn");
+    }
 
     /**
      * The SSO managed application instance ID.
      * 
      */
-    public String singleSignOnManagedApplicationInstanceId;
+    private UndeferrableValue<String> singleSignOnManagedApplicationInstanceId;
 
-
+    public String singleSignOnManagedApplicationInstanceId() {
+        if (singleSignOnManagedApplicationInstanceId == null) return null;
+        return singleSignOnManagedApplicationInstanceId.getValue("Domain.singleSignOnManagedApplicationInstanceId");
+    }
 
     /**
      * The VPC subnets that Studio uses for communication.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Domain.subnetIds");
+    }
 
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      * 
      */
-    public String tagPropagation;
+    private @Nullable UndeferrableValue<String> tagPropagation;
 
-
+    public @Nullable String tagPropagation() {
+        if (tagPropagation == null) return null;
+        return tagPropagation.getValue("Domain.tagPropagation");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -160,17 +213,23 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
     /**
      * The domain&#39;s URL.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Domain.url");
+    }
 
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -178,8 +237,11 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Domain.vpcId");
+    }
 
 }

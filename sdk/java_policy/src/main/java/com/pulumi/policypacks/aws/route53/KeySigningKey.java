@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/keySigningKey:KeySigningKey")
-public final class KeySigningKey extends com.pulumi.resources.PolicyResource {
+public final class KeySigningKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    public String digestAlgorithmMnemonic;
+    private UndeferrableValue<String> digestAlgorithmMnemonic;
 
-
+    public String digestAlgorithmMnemonic() {
+        if (digestAlgorithmMnemonic == null) return null;
+        return digestAlgorithmMnemonic.getValue("KeySigningKey.digestAlgorithmMnemonic");
+    }
 
     /**
      * An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    public Integer digestAlgorithmType;
+    private UndeferrableValue<Integer> digestAlgorithmType;
 
-
+    public Integer digestAlgorithmType() {
+        if (digestAlgorithmType == null) return null;
+        return digestAlgorithmType.getValue("KeySigningKey.digestAlgorithmType");
+    }
 
     /**
      * A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
      * 
      */
-    public String digestValue;
+    private UndeferrableValue<String> digestValue;
 
-
+    public String digestValue() {
+        if (digestValue == null) return null;
+        return digestValue.getValue("KeySigningKey.digestValue");
+    }
 
     /**
      * A string that represents a DNSKEY record.
      * 
      */
-    public String dnskeyRecord;
+    private UndeferrableValue<String> dnskeyRecord;
 
-
+    public String dnskeyRecord() {
+        if (dnskeyRecord == null) return null;
+        return dnskeyRecord.getValue("KeySigningKey.dnskeyRecord");
+    }
 
     /**
      * A string that represents a delegation signer (DS) record.
      * 
      */
-    public String dsRecord;
+    private UndeferrableValue<String> dsRecord;
 
-
+    public String dsRecord() {
+        if (dsRecord == null) return null;
+        return dsRecord.getValue("KeySigningKey.dsRecord");
+    }
 
     /**
      * An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
      * 
      */
-    public Integer flag;
+    private UndeferrableValue<Integer> flag;
 
-
+    public Integer flag() {
+        if (flag == null) return null;
+        return flag.getValue("KeySigningKey.flag");
+    }
 
     /**
      * Identifier of the Route 53 Hosted Zone.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("KeySigningKey.hostedZoneId");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
      * 
      */
-    public String keyManagementServiceArn;
+    private UndeferrableValue<String> keyManagementServiceArn;
 
-
+    public String keyManagementServiceArn() {
+        if (keyManagementServiceArn == null) return null;
+        return keyManagementServiceArn.getValue("KeySigningKey.keyManagementServiceArn");
+    }
 
     /**
      * An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    public Integer keyTag;
+    private UndeferrableValue<Integer> keyTag;
 
-
+    public Integer keyTag() {
+        if (keyTag == null) return null;
+        return keyTag.getValue("KeySigningKey.keyTag");
+    }
 
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
@@ -89,40 +118,55 @@ public final class KeySigningKey extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KeySigningKey.name");
+    }
 
     /**
      * The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    public String publicKey;
+    private UndeferrableValue<String> publicKey;
 
-
+    public String publicKey() {
+        if (publicKey == null) return null;
+        return publicKey.getValue("KeySigningKey.publicKey");
+    }
 
     /**
      * A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    public String signingAlgorithmMnemonic;
+    private UndeferrableValue<String> signingAlgorithmMnemonic;
 
-
+    public String signingAlgorithmMnemonic() {
+        if (signingAlgorithmMnemonic == null) return null;
+        return signingAlgorithmMnemonic.getValue("KeySigningKey.signingAlgorithmMnemonic");
+    }
 
     /**
      * An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    public Integer signingAlgorithmType;
+    private UndeferrableValue<Integer> signingAlgorithmType;
 
-
+    public Integer signingAlgorithmType() {
+        if (signingAlgorithmType == null) return null;
+        return signingAlgorithmType.getValue("KeySigningKey.signingAlgorithmType");
+    }
 
     /**
      * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("KeySigningKey.status");
+    }
 
 }

@@ -3,84 +3,110 @@
 
 package com.pulumi.policypacks.aws.opensearchingest;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearchingest.PipelineBufferOptions;
-import com.pulumi.policypacks.aws.opensearchingest.PipelineEncryptionAtRestOptions;
-import com.pulumi.policypacks.aws.opensearchingest.PipelineLogPublishingOptions;
-import com.pulumi.policypacks.aws.opensearchingest.PipelineTimeouts;
-import com.pulumi.policypacks.aws.opensearchingest.PipelineVpcOptions;
+import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineBufferOptions;
+import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineEncryptionAtRestOptions;
+import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineLogPublishingOptions;
+import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineTimeouts;
+import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineVpcOptions;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearchingest/pipeline:Pipeline")
-public final class Pipeline extends com.pulumi.resources.PolicyResource {
+public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
      * 
      */
-    public PipelineBufferOptions bufferOptions;
+    private @Nullable UndeferrableValue<PipelineBufferOptions> bufferOptions;
 
-
+    public @Nullable PipelineBufferOptions bufferOptions() {
+        if (bufferOptions == null) return null;
+        return bufferOptions.getValue("Pipeline.bufferOptions");
+    }
 
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
      * 
      */
-    public PipelineEncryptionAtRestOptions encryptionAtRestOptions;
+    private @Nullable UndeferrableValue<PipelineEncryptionAtRestOptions> encryptionAtRestOptions;
 
-
+    public @Nullable PipelineEncryptionAtRestOptions encryptionAtRestOptions() {
+        if (encryptionAtRestOptions == null) return null;
+        return encryptionAtRestOptions.getValue("Pipeline.encryptionAtRestOptions");
+    }
 
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      * 
      */
-    public List<String> ingestEndpointUrls;
+    private UndeferrableValue<List<String>> ingestEndpointUrls;
 
-
+    public List<String> ingestEndpointUrls() {
+        if (ingestEndpointUrls == null) return null;
+        return ingestEndpointUrls.getValue("Pipeline.ingestEndpointUrls");
+    }
 
     /**
      * Key-value pairs to configure log publishing. See `log_publishing_options` below.
      * 
      */
-    public PipelineLogPublishingOptions logPublishingOptions;
+    private @Nullable UndeferrableValue<PipelineLogPublishingOptions> logPublishingOptions;
 
-
+    public @Nullable PipelineLogPublishingOptions logPublishingOptions() {
+        if (logPublishingOptions == null) return null;
+        return logPublishingOptions.getValue("Pipeline.logPublishingOptions");
+    }
 
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      * 
      */
-    public Integer maxUnits;
+    private UndeferrableValue<Integer> maxUnits;
 
-
+    public Integer maxUnits() {
+        if (maxUnits == null) return null;
+        return maxUnits.getValue("Pipeline.maxUnits");
+    }
 
     /**
      * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
      * 
      */
-    public Integer minUnits;
+    private UndeferrableValue<Integer> minUnits;
 
-
+    public Integer minUnits() {
+        if (minUnits == null) return null;
+        return minUnits.getValue("Pipeline.minUnits");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the pipeline.
      * 
      */
-    public String pipelineArn;
+    private UndeferrableValue<String> pipelineArn;
 
-
+    public String pipelineArn() {
+        if (pipelineArn == null) return null;
+        return pipelineArn.getValue("Pipeline.pipelineArn");
+    }
 
     /**
      * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
      * 
      */
-    public String pipelineConfigurationBody;
+    private UndeferrableValue<String> pipelineConfigurationBody;
 
-
+    public String pipelineConfigurationBody() {
+        if (pipelineConfigurationBody == null) return null;
+        return pipelineConfigurationBody.getValue("Pipeline.pipelineConfigurationBody");
+    }
 
     /**
      * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
@@ -88,17 +114,23 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String pipelineName;
+    private UndeferrableValue<String> pipelineName;
 
-
+    public String pipelineName() {
+        if (pipelineName == null) return null;
+        return pipelineName.getValue("Pipeline.pipelineName");
+    }
 
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Pipeline.tags");
+    }
 
     /**
      * @deprecated
@@ -106,20 +138,29 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Pipeline.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<PipelineTimeouts> timeouts;
 
-    public PipelineTimeouts timeouts;
-
-
+    public @Nullable PipelineTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Pipeline.timeouts");
+    }
 
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
      * 
      */
-    public PipelineVpcOptions vpcOptions;
+    private @Nullable UndeferrableValue<PipelineVpcOptions> vpcOptions;
 
-
+    public @Nullable PipelineVpcOptions vpcOptions() {
+        if (vpcOptions == null) return null;
+        return vpcOptions.getValue("Pipeline.vpcOptions");
+    }
 
 }

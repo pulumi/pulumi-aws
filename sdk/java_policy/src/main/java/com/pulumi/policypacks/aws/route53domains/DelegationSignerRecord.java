@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.route53domains;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53domains.DelegationSignerRecordSigningAttributes;
-import com.pulumi.policypacks.aws.route53domains.DelegationSignerRecordTimeouts;
+import com.pulumi.policypacks.aws.route53domains.outputs.DelegationSignerRecordSigningAttributes;
+import com.pulumi.policypacks.aws.route53domains.outputs.DelegationSignerRecordTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53domains/delegationSignerRecord:DelegationSignerRecord")
-public final class DelegationSignerRecord extends com.pulumi.resources.PolicyResource {
+public final class DelegationSignerRecord extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An ID assigned to the created DS record.
      * 
      */
-    public String dnssecKeyId;
+    private UndeferrableValue<String> dnssecKeyId;
 
-
+    public String dnssecKeyId() {
+        if (dnssecKeyId == null) return null;
+        return dnssecKeyId.getValue("DelegationSignerRecord.dnssecKeyId");
+    }
 
     /**
      * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DelegationSignerRecord.domainName");
+    }
 
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      * 
      */
-    public DelegationSignerRecordSigningAttributes signingAttributes;
+    private @Nullable UndeferrableValue<DelegationSignerRecordSigningAttributes> signingAttributes;
 
+    public @Nullable DelegationSignerRecordSigningAttributes signingAttributes() {
+        if (signingAttributes == null) return null;
+        return signingAttributes.getValue("DelegationSignerRecord.signingAttributes");
+    }
 
+    private @Nullable UndeferrableValue<DelegationSignerRecordTimeouts> timeouts;
 
-    public DelegationSignerRecordTimeouts timeouts;
-
-
+    public @Nullable DelegationSignerRecordTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DelegationSignerRecord.timeouts");
+    }
 
 }

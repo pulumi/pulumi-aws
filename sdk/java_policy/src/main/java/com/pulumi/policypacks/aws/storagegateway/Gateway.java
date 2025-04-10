@@ -3,195 +3,263 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.storagegateway.GatewayGatewayNetworkInterface;
-import com.pulumi.policypacks.aws.storagegateway.GatewayMaintenanceStartTime;
-import com.pulumi.policypacks.aws.storagegateway.GatewaySmbActiveDirectorySettings;
+import com.pulumi.policypacks.aws.storagegateway.outputs.GatewayGatewayNetworkInterface;
+import com.pulumi.policypacks.aws.storagegateway.outputs.GatewayMaintenanceStartTime;
+import com.pulumi.policypacks.aws.storagegateway.outputs.GatewaySmbActiveDirectorySettings;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:storagegateway/gateway:Gateway")
-public final class Gateway extends com.pulumi.resources.PolicyResource {
+public final class Gateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    public String activationKey;
+    private UndeferrableValue<String> activationKey;
 
-
+    public String activationKey() {
+        if (activationKey == null) return null;
+        return activationKey.getValue("Gateway.activationKey");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Gateway.arn");
+    }
 
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      * 
      */
-    public Integer averageDownloadRateLimitInBitsPerSec;
+    private @Nullable UndeferrableValue<Integer> averageDownloadRateLimitInBitsPerSec;
 
-
+    public @Nullable Integer averageDownloadRateLimitInBitsPerSec() {
+        if (averageDownloadRateLimitInBitsPerSec == null) return null;
+        return averageDownloadRateLimitInBitsPerSec.getValue("Gateway.averageDownloadRateLimitInBitsPerSec");
+    }
 
     /**
      * The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      * 
      */
-    public Integer averageUploadRateLimitInBitsPerSec;
+    private @Nullable UndeferrableValue<Integer> averageUploadRateLimitInBitsPerSec;
 
-
+    public @Nullable Integer averageUploadRateLimitInBitsPerSec() {
+        if (averageUploadRateLimitInBitsPerSec == null) return null;
+        return averageUploadRateLimitInBitsPerSec.getValue("Gateway.averageUploadRateLimitInBitsPerSec");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      * 
      */
-    public String cloudwatchLogGroupArn;
+    private @Nullable UndeferrableValue<String> cloudwatchLogGroupArn;
 
-
+    public @Nullable String cloudwatchLogGroupArn() {
+        if (cloudwatchLogGroupArn == null) return null;
+        return cloudwatchLogGroupArn.getValue("Gateway.cloudwatchLogGroupArn");
+    }
 
     /**
      * The ID of the Amazon EC2 instance that was used to launch the gateway.
      * 
      */
-    public String ec2InstanceId;
+    private UndeferrableValue<String> ec2InstanceId;
 
-
+    public String ec2InstanceId() {
+        if (ec2InstanceId == null) return null;
+        return ec2InstanceId.getValue("Gateway.ec2InstanceId");
+    }
 
     /**
      * The type of endpoint for your gateway.
      * 
      */
-    public String endpointType;
+    private UndeferrableValue<String> endpointType;
 
-
+    public String endpointType() {
+        if (endpointType == null) return null;
+        return endpointType.getValue("Gateway.endpointType");
+    }
 
     /**
      * Identifier of the gateway.
      * 
      */
-    public String gatewayId;
+    private UndeferrableValue<String> gatewayId;
 
-
+    public String gatewayId() {
+        if (gatewayId == null) return null;
+        return gatewayId.getValue("Gateway.gatewayId");
+    }
 
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    public String gatewayIpAddress;
+    private UndeferrableValue<String> gatewayIpAddress;
 
-
+    public String gatewayIpAddress() {
+        if (gatewayIpAddress == null) return null;
+        return gatewayIpAddress.getValue("Gateway.gatewayIpAddress");
+    }
 
     /**
      * Name of the gateway.
      * 
      */
-    public String gatewayName;
+    private UndeferrableValue<String> gatewayName;
 
-
+    public String gatewayName() {
+        if (gatewayName == null) return null;
+        return gatewayName.getValue("Gateway.gatewayName");
+    }
 
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      * 
      */
-    public List<GatewayGatewayNetworkInterface> gatewayNetworkInterfaces;
+    private UndeferrableValue<List<GatewayGatewayNetworkInterface>> gatewayNetworkInterfaces;
 
-
+    public List<GatewayGatewayNetworkInterface> gatewayNetworkInterfaces() {
+        if (gatewayNetworkInterfaces == null) return null;
+        return gatewayNetworkInterfaces.getValue("Gateway.gatewayNetworkInterfaces");
+    }
 
     /**
      * Time zone for the gateway. The time zone is of the format &#34;GMT&#34;, &#34;GMT-hr:mm&#34;, or &#34;GMT+hr:mm&#34;. For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway&#39;s maintenance schedule.
      * 
      */
-    public String gatewayTimezone;
+    private UndeferrableValue<String> gatewayTimezone;
 
-
+    public String gatewayTimezone() {
+        if (gatewayTimezone == null) return null;
+        return gatewayTimezone.getValue("Gateway.gatewayTimezone");
+    }
 
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      * 
      */
-    public String gatewayType;
+    private @Nullable UndeferrableValue<String> gatewayType;
 
-
+    public @Nullable String gatewayType() {
+        if (gatewayType == null) return null;
+        return gatewayType.getValue("Gateway.gatewayType");
+    }
 
     /**
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      * 
      */
-    public String gatewayVpcEndpoint;
+    private @Nullable UndeferrableValue<String> gatewayVpcEndpoint;
 
-
+    public @Nullable String gatewayVpcEndpoint() {
+        if (gatewayVpcEndpoint == null) return null;
+        return gatewayVpcEndpoint.getValue("Gateway.gatewayVpcEndpoint");
+    }
 
     /**
      * The type of hypervisor environment used by the host.
      * 
      */
-    public String hostEnvironment;
+    private UndeferrableValue<String> hostEnvironment;
 
-
+    public String hostEnvironment() {
+        if (hostEnvironment == null) return null;
+        return hostEnvironment.getValue("Gateway.hostEnvironment");
+    }
 
     /**
      * The gateway&#39;s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway&#39;s time zone. More details below.
      * 
      */
-    public GatewayMaintenanceStartTime maintenanceStartTime;
+    private UndeferrableValue<GatewayMaintenanceStartTime> maintenanceStartTime;
 
-
+    public GatewayMaintenanceStartTime maintenanceStartTime() {
+        if (maintenanceStartTime == null) return null;
+        return maintenanceStartTime.getValue("Gateway.maintenanceStartTime");
+    }
 
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      * 
      */
-    public String mediumChangerType;
+    private @Nullable UndeferrableValue<String> mediumChangerType;
 
-
+    public @Nullable String mediumChangerType() {
+        if (mediumChangerType == null) return null;
+        return mediumChangerType.getValue("Gateway.mediumChangerType");
+    }
 
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      * 
      */
-    public GatewaySmbActiveDirectorySettings smbActiveDirectorySettings;
+    private @Nullable UndeferrableValue<GatewaySmbActiveDirectorySettings> smbActiveDirectorySettings;
 
-
+    public @Nullable GatewaySmbActiveDirectorySettings smbActiveDirectorySettings() {
+        if (smbActiveDirectorySettings == null) return null;
+        return smbActiveDirectorySettings.getValue("Gateway.smbActiveDirectorySettings");
+    }
 
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      * 
      */
-    public Boolean smbFileShareVisibility;
+    private @Nullable UndeferrableValue<Boolean> smbFileShareVisibility;
 
-
+    public @Nullable Boolean smbFileShareVisibility() {
+        if (smbFileShareVisibility == null) return null;
+        return smbFileShareVisibility.getValue("Gateway.smbFileShareVisibility");
+    }
 
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      * 
      */
-    public String smbGuestPassword;
+    private @Nullable UndeferrableValue<String> smbGuestPassword;
 
-
+    public @Nullable String smbGuestPassword() {
+        if (smbGuestPassword == null) return null;
+        return smbGuestPassword.getValue("Gateway.smbGuestPassword");
+    }
 
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      * 
      */
-    public String smbSecurityStrategy;
+    private UndeferrableValue<String> smbSecurityStrategy;
 
-
+    public String smbSecurityStrategy() {
+        if (smbSecurityStrategy == null) return null;
+        return smbSecurityStrategy.getValue("Gateway.smbSecurityStrategy");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Gateway.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -201,16 +269,22 @@ public final class Gateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Gateway.tagsAll");
+    }
 
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      * 
      */
-    public String tapeDriveType;
+    private @Nullable UndeferrableValue<String> tapeDriveType;
 
-
+    public @Nullable String tapeDriveType() {
+        if (tapeDriveType == null) return null;
+        return tapeDriveType.getValue("Gateway.tapeDriveType");
+    }
 
 }

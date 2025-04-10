@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.GlossaryTermTermRelations;
-import com.pulumi.policypacks.aws.datazone.GlossaryTermTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.GlossaryTermTermRelations;
+import com.pulumi.policypacks.aws.datazone.outputs.GlossaryTermTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/glossaryTerm:GlossaryTerm")
-public final class GlossaryTerm extends com.pulumi.resources.PolicyResource {
+public final class GlossaryTerm extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Time of glossary term creation.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("GlossaryTerm.createdAt");
+    }
 
     /**
      * Creator of glossary term.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("GlossaryTerm.createdBy");
+    }
 
     /**
      * Identifier of domain.
      * 
      */
-    public String domainIdentifier;
+    private @Nullable UndeferrableValue<String> domainIdentifier;
 
-
+    public @Nullable String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("GlossaryTerm.domainIdentifier");
+    }
 
     /**
      * Identifier of glossary.
      * 
      */
-    public String glossaryIdentifier;
+    private UndeferrableValue<String> glossaryIdentifier;
 
-
+    public String glossaryIdentifier() {
+        if (glossaryIdentifier == null) return null;
+        return glossaryIdentifier.getValue("GlossaryTerm.glossaryIdentifier");
+    }
 
     /**
      * Long description of entry.
      * 
      */
-    public String longDescription;
+    private @Nullable UndeferrableValue<String> longDescription;
 
-
+    public @Nullable String longDescription() {
+        if (longDescription == null) return null;
+        return longDescription.getValue("GlossaryTerm.longDescription");
+    }
 
     /**
      * Name of glossary term.
@@ -58,36 +75,51 @@ public final class GlossaryTerm extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GlossaryTerm.name");
+    }
 
     /**
      * Short description of entry.
      * 
      */
-    public String shortDescription;
+    private @Nullable UndeferrableValue<String> shortDescription;
 
-
+    public @Nullable String shortDescription() {
+        if (shortDescription == null) return null;
+        return shortDescription.getValue("GlossaryTerm.shortDescription");
+    }
 
     /**
      * If glossary term is ENABLED or DISABLED.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("GlossaryTerm.status");
+    }
 
     /**
      * Object classifying the term relations through the following attributes:
      * 
      */
-    public GlossaryTermTermRelations termRelations;
+    private @Nullable UndeferrableValue<GlossaryTermTermRelations> termRelations;
 
+    public @Nullable GlossaryTermTermRelations termRelations() {
+        if (termRelations == null) return null;
+        return termRelations.getValue("GlossaryTerm.termRelations");
+    }
 
+    private @Nullable UndeferrableValue<GlossaryTermTimeouts> timeouts;
 
-    public GlossaryTermTimeouts timeouts;
-
-
+    public @Nullable GlossaryTermTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("GlossaryTerm.timeouts");
+    }
 
 }

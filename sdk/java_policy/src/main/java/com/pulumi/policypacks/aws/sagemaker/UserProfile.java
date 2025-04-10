@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.UserProfileUserSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettings;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/userProfile:UserProfile")
-public final class UserProfile extends com.pulumi.resources.PolicyResource {
+public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The user profile Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UserProfile.arn");
+    }
 
     /**
      * The ID of the associated Domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("UserProfile.domainId");
+    }
 
     /**
      * The ID of the user&#39;s profile in the Amazon Elastic File System (EFS) volume.
      * 
      */
-    public String homeEfsFileSystemUid;
+    private UndeferrableValue<String> homeEfsFileSystemUid;
 
-
+    public String homeEfsFileSystemUid() {
+        if (homeEfsFileSystemUid == null) return null;
+        return homeEfsFileSystemUid.getValue("UserProfile.homeEfsFileSystemUid");
+    }
 
     /**
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    public String singleSignOnUserIdentifier;
+    private @Nullable UndeferrableValue<String> singleSignOnUserIdentifier;
 
-
+    public @Nullable String singleSignOnUserIdentifier() {
+        if (singleSignOnUserIdentifier == null) return null;
+        return singleSignOnUserIdentifier.getValue("UserProfile.singleSignOnUserIdentifier");
+    }
 
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain&#39;s AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    public String singleSignOnUserValue;
+    private @Nullable UndeferrableValue<String> singleSignOnUserValue;
 
-
+    public @Nullable String singleSignOnUserValue() {
+        if (singleSignOnUserValue == null) return null;
+        return singleSignOnUserValue.getValue("UserProfile.singleSignOnUserValue");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UserProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,24 +88,33 @@ public final class UserProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UserProfile.tagsAll");
+    }
 
     /**
      * The name for the User Profile.
      * 
      */
-    public String userProfileName;
+    private UndeferrableValue<String> userProfileName;
 
-
+    public String userProfileName() {
+        if (userProfileName == null) return null;
+        return userProfileName.getValue("UserProfile.userProfileName");
+    }
 
     /**
      * The user settings. See User Settings below.
      * 
      */
-    public UserProfileUserSettings userSettings;
+    private @Nullable UndeferrableValue<UserProfileUserSettings> userSettings;
 
-
+    public @Nullable UserProfileUserSettings userSettings() {
+        if (userSettings == null) return null;
+        return userSettings.getValue("UserProfile.userSettings");
+    }
 
 }

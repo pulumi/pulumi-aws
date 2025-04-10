@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedpermissions.PolicyStoreValidationSettings;
+import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyStoreValidationSettings;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedpermissions/policyStore:PolicyStore")
-public final class PolicyStore extends com.pulumi.resources.PolicyResource {
+public final class PolicyStore extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Policy Store.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PolicyStore.arn");
+    }
 
     /**
      * A description of the Policy Store.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PolicyStore.description");
+    }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    public String policyStoreId;
+    private UndeferrableValue<String> policyStoreId;
 
-
+    public String policyStoreId() {
+        if (policyStoreId == null) return null;
+        return policyStoreId.getValue("PolicyStore.policyStoreId");
+    }
 
     /**
      * Validation settings for the policy store.
      * 
      */
-    public PolicyStoreValidationSettings validationSettings;
+    private @Nullable UndeferrableValue<PolicyStoreValidationSettings> validationSettings;
 
-
+    public @Nullable PolicyStoreValidationSettings validationSettings() {
+        if (validationSettings == null) return null;
+        return validationSettings.getValue("PolicyStore.validationSettings");
+    }
 
 }

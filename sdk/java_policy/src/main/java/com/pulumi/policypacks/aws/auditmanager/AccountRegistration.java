@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/accountRegistration:AccountRegistration")
-public final class AccountRegistration extends com.pulumi.resources.PolicyResource {
+public final class AccountRegistration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the delegated administrator account.
      * 
      */
-    public String delegatedAdminAccount;
+    private @Nullable UndeferrableValue<String> delegatedAdminAccount;
 
-
+    public @Nullable String delegatedAdminAccount() {
+        if (delegatedAdminAccount == null) return null;
+        return delegatedAdminAccount.getValue("AccountRegistration.delegatedAdminAccount");
+    }
 
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      * 
      */
-    public Boolean deregisterOnDestroy;
+    private @Nullable UndeferrableValue<Boolean> deregisterOnDestroy;
 
-
+    public @Nullable Boolean deregisterOnDestroy() {
+        if (deregisterOnDestroy == null) return null;
+        return deregisterOnDestroy.getValue("AccountRegistration.deregisterOnDestroy");
+    }
 
     /**
      * KMS key identifier.
      * 
      */
-    public String kmsKey;
+    private @Nullable UndeferrableValue<String> kmsKey;
 
-
+    public @Nullable String kmsKey() {
+        if (kmsKey == null) return null;
+        return kmsKey.getValue("AccountRegistration.kmsKey");
+    }
 
     /**
      * Status of the account registration request.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("AccountRegistration.status");
+    }
 
 }

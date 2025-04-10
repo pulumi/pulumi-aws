@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")
-public final class TrafficMirrorFilter extends com.pulumi.resources.PolicyResource {
+public final class TrafficMirrorFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the traffic mirror filter.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficMirrorFilter.arn");
+    }
 
     /**
      * A description of the filter.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TrafficMirrorFilter.description");
+    }
 
     /**
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      * 
      */
-    public List<String> networkServices;
+    private @Nullable UndeferrableValue<List<String>> networkServices;
 
-
+    public @Nullable List<String> networkServices() {
+        if (networkServices == null) return null;
+        return networkServices.getValue("TrafficMirrorFilter.networkServices");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrafficMirrorFilter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class TrafficMirrorFilter extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrafficMirrorFilter.tagsAll");
+    }
 
 }

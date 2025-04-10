@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lb/listenerCertificate:ListenerCertificate")
-public final class ListenerCertificate extends com.pulumi.resources.PolicyResource {
+public final class ListenerCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the certificate to attach to the listener.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("ListenerCertificate.certificateArn");
+    }
 
     /**
      * The ARN of the listener to which to attach the certificate.
      * 
      */
-    public String listenerArn;
+    private UndeferrableValue<String> listenerArn;
 
-
+    public String listenerArn() {
+        if (listenerArn == null) return null;
+        return listenerArn.getValue("ListenerCertificate.listenerArn");
+    }
 
 }

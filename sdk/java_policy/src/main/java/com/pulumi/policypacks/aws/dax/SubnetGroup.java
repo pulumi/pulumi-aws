@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.dax;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dax/subnetGroup:SubnetGroup")
-public final class SubnetGroup extends com.pulumi.resources.PolicyResource {
+public final class SubnetGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A description of the subnet group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SubnetGroup.description");
+    }
 
     /**
      * The name of the subnet group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SubnetGroup.name");
+    }
 
     /**
      * A list of VPC subnet IDs for the subnet group.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("SubnetGroup.subnetIds");
+    }
 
     /**
      * VPC ID of the subnet group.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("SubnetGroup.vpcId");
+    }
 
 }

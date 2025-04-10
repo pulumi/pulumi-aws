@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/image:Image")
-public final class Image extends com.pulumi.resources.PolicyResource {
+public final class Image extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Image.arn");
+    }
 
     /**
      * The description of the image.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Image.description");
+    }
 
     /**
      * The display name of the image. When the image is added to a domain (must be unique to the domain).
      * 
      */
-    public String displayName;
+    private @Nullable UndeferrableValue<String> displayName;
 
-
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Image.displayName");
+    }
 
     /**
      * The name of the image. Must be unique to your account.
      * 
      */
-    public String imageName;
+    private UndeferrableValue<String> imageName;
 
-
+    public String imageName() {
+        if (imageName == null) return null;
+        return imageName.getValue("Image.imageName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Image.roleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Image.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,8 +87,11 @@ public final class Image extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Image.tagsAll");
+    }
 
 }

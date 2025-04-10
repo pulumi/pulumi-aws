@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/accessLogSubscription:AccessLogSubscription")
-public final class AccessLogSubscription extends com.pulumi.resources.PolicyResource {
+public final class AccessLogSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the access log subscription.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AccessLogSubscription.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the log destination.
      * 
      */
-    public String destinationArn;
+    private UndeferrableValue<String> destinationArn;
 
-
+    public String destinationArn() {
+        if (destinationArn == null) return null;
+        return destinationArn.getValue("AccessLogSubscription.destinationArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the service network or service.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("AccessLogSubscription.resourceArn");
+    }
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -41,21 +52,30 @@ public final class AccessLogSubscription extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public String resourceIdentifier;
+    private UndeferrableValue<String> resourceIdentifier;
 
-
+    public String resourceIdentifier() {
+        if (resourceIdentifier == null) return null;
+        return resourceIdentifier.getValue("AccessLogSubscription.resourceIdentifier");
+    }
 
     /**
      * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
      * 
      */
-    public String serviceNetworkLogType;
+    private UndeferrableValue<String> serviceNetworkLogType;
 
+    public String serviceNetworkLogType() {
+        if (serviceNetworkLogType == null) return null;
+        return serviceNetworkLogType.getValue("AccessLogSubscription.serviceNetworkLogType");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AccessLogSubscription.tags");
+    }
 
     /**
      * @deprecated
@@ -63,8 +83,11 @@ public final class AccessLogSubscription extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AccessLogSubscription.tagsAll");
+    }
 
 }

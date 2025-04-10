@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/placementGroup:PlacementGroup")
-public final class PlacementGroup extends com.pulumi.resources.PolicyResource {
+public final class PlacementGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the placement group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PlacementGroup.arn");
+    }
 
     /**
      * The name of the placement group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PlacementGroup.name");
+    }
 
     /**
      * The number of partitions to create in the
@@ -34,42 +42,57 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResource {
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
-    public Integer partitionCount;
+    private UndeferrableValue<Integer> partitionCount;
 
-
+    public Integer partitionCount() {
+        if (partitionCount == null) return null;
+        return partitionCount.getValue("PlacementGroup.partitionCount");
+    }
 
     /**
      * The ID of the placement group.
      * 
      */
-    public String placementGroupId;
+    private UndeferrableValue<String> placementGroupId;
 
-
+    public String placementGroupId() {
+        if (placementGroupId == null) return null;
+        return placementGroupId.getValue("PlacementGroup.placementGroupId");
+    }
 
     /**
      * Determines how placement groups spread instances. Can only be used
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
-    public String spreadLevel;
+    private UndeferrableValue<String> spreadLevel;
 
-
+    public String spreadLevel() {
+        if (spreadLevel == null) return null;
+        return spreadLevel.getValue("PlacementGroup.spreadLevel");
+    }
 
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
-    public String strategy;
+    private UndeferrableValue<String> strategy;
 
-
+    public String strategy() {
+        if (strategy == null) return null;
+        return strategy.getValue("PlacementGroup.strategy");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PlacementGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -79,8 +102,11 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PlacementGroup.tagsAll");
+    }
 
 }

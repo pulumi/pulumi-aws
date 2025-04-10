@@ -3,247 +3,336 @@
 
 package com.pulumi.policypacks.aws.mwaa;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mwaa.EnvironmentLastUpdated;
-import com.pulumi.policypacks.aws.mwaa.EnvironmentLoggingConfiguration;
-import com.pulumi.policypacks.aws.mwaa.EnvironmentNetworkConfiguration;
+import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentLastUpdated;
+import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentLoggingConfiguration;
+import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentNetworkConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mwaa/environment:Environment")
-public final class Environment extends com.pulumi.resources.PolicyResource {
+public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
-    public Map<String,String> airflowConfigurationOptions;
+    private @Nullable UndeferrableValue<Map<String,String>> airflowConfigurationOptions;
 
-
+    public @Nullable Map<String,String> airflowConfigurationOptions() {
+        if (airflowConfigurationOptions == null) return null;
+        return airflowConfigurationOptions.getValue("Environment.airflowConfigurationOptions");
+    }
 
     /**
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      * 
      */
-    public String airflowVersion;
+    private UndeferrableValue<String> airflowVersion;
 
-
+    public String airflowVersion() {
+        if (airflowVersion == null) return null;
+        return airflowVersion.getValue("Environment.airflowVersion");
+    }
 
     /**
      * The ARN of the MWAA Environment
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Environment.arn");
+    }
 
     /**
      * The Created At date of the MWAA Environment
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Environment.createdAt");
+    }
 
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    public String dagS3Path;
+    private UndeferrableValue<String> dagS3Path;
 
-
+    public String dagS3Path() {
+        if (dagS3Path == null) return null;
+        return dagS3Path.getValue("Environment.dagS3Path");
+    }
 
     /**
      * The VPC endpoint for the environment&#39;s Amazon RDS database
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
-    public String databaseVpcEndpointService;
+    private UndeferrableValue<String> databaseVpcEndpointService;
 
-
+    public String databaseVpcEndpointService() {
+        if (databaseVpcEndpointService == null) return null;
+        return databaseVpcEndpointService.getValue("Environment.databaseVpcEndpointService");
+    }
 
     /**
      * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      * 
      */
-    public String endpointManagement;
+    private UndeferrableValue<String> endpointManagement;
 
-
+    public String endpointManagement() {
+        if (endpointManagement == null) return null;
+        return endpointManagement.getValue("Environment.endpointManagement");
+    }
 
     /**
      * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
-    public String environmentClass;
+    private UndeferrableValue<String> environmentClass;
 
-
+    public String environmentClass() {
+        if (environmentClass == null) return null;
+        return environmentClass.getValue("Environment.environmentClass");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("Environment.executionRoleArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      * 
      */
-    public String kmsKey;
+    private @Nullable UndeferrableValue<String> kmsKey;
 
+    public @Nullable String kmsKey() {
+        if (kmsKey == null) return null;
+        return kmsKey.getValue("Environment.kmsKey");
+    }
 
+    private UndeferrableValue<List<EnvironmentLastUpdated>> lastUpdateds;
 
-    public List<EnvironmentLastUpdated> lastUpdateds;
-
-
+    public List<EnvironmentLastUpdated> lastUpdateds() {
+        if (lastUpdateds == null) return null;
+        return lastUpdateds.getValue("Environment.lastUpdateds");
+    }
 
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
-    public EnvironmentLoggingConfiguration loggingConfiguration;
+    private UndeferrableValue<EnvironmentLoggingConfiguration> loggingConfiguration;
 
-
+    public EnvironmentLoggingConfiguration loggingConfiguration() {
+        if (loggingConfiguration == null) return null;
+        return loggingConfiguration.getValue("Environment.loggingConfiguration");
+    }
 
     /**
      * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
-    public Integer maxWebservers;
+    private UndeferrableValue<Integer> maxWebservers;
 
-
+    public Integer maxWebservers() {
+        if (maxWebservers == null) return null;
+        return maxWebservers.getValue("Environment.maxWebservers");
+    }
 
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
-    public Integer maxWorkers;
+    private UndeferrableValue<Integer> maxWorkers;
 
-
+    public Integer maxWorkers() {
+        if (maxWorkers == null) return null;
+        return maxWorkers.getValue("Environment.maxWorkers");
+    }
 
     /**
      * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
-    public Integer minWebservers;
+    private UndeferrableValue<Integer> minWebservers;
 
-
+    public Integer minWebservers() {
+        if (minWebservers == null) return null;
+        return minWebservers.getValue("Environment.minWebservers");
+    }
 
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
-    public Integer minWorkers;
+    private UndeferrableValue<Integer> minWorkers;
 
-
+    public Integer minWorkers() {
+        if (minWorkers == null) return null;
+        return minWorkers.getValue("Environment.minWorkers");
+    }
 
     /**
      * The name of the Apache Airflow Environment
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Environment.name");
+    }
 
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
-    public EnvironmentNetworkConfiguration networkConfiguration;
+    private UndeferrableValue<EnvironmentNetworkConfiguration> networkConfiguration;
 
-
+    public EnvironmentNetworkConfiguration networkConfiguration() {
+        if (networkConfiguration == null) return null;
+        return networkConfiguration.getValue("Environment.networkConfiguration");
+    }
 
     /**
      * The plugins.zip file version you want to use.
      * 
      */
-    public String pluginsS3ObjectVersion;
+    private UndeferrableValue<String> pluginsS3ObjectVersion;
 
-
+    public String pluginsS3ObjectVersion() {
+        if (pluginsS3ObjectVersion == null) return null;
+        return pluginsS3ObjectVersion.getValue("Environment.pluginsS3ObjectVersion");
+    }
 
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    public String pluginsS3Path;
+    private @Nullable UndeferrableValue<String> pluginsS3Path;
 
-
+    public @Nullable String pluginsS3Path() {
+        if (pluginsS3Path == null) return null;
+        return pluginsS3Path.getValue("Environment.pluginsS3Path");
+    }
 
     /**
      * The requirements.txt file version you want to use.
      * 
      */
-    public String requirementsS3ObjectVersion;
+    private UndeferrableValue<String> requirementsS3ObjectVersion;
 
-
+    public String requirementsS3ObjectVersion() {
+        if (requirementsS3ObjectVersion == null) return null;
+        return requirementsS3ObjectVersion.getValue("Environment.requirementsS3ObjectVersion");
+    }
 
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    public String requirementsS3Path;
+    private @Nullable UndeferrableValue<String> requirementsS3Path;
 
-
+    public @Nullable String requirementsS3Path() {
+        if (requirementsS3Path == null) return null;
+        return requirementsS3Path.getValue("Environment.requirementsS3Path");
+    }
 
     /**
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
-    public Integer schedulers;
+    private UndeferrableValue<Integer> schedulers;
 
-
+    public Integer schedulers() {
+        if (schedulers == null) return null;
+        return schedulers.getValue("Environment.schedulers");
+    }
 
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      * 
      */
-    public String serviceRoleArn;
+    private UndeferrableValue<String> serviceRoleArn;
 
-
+    public String serviceRoleArn() {
+        if (serviceRoleArn == null) return null;
+        return serviceRoleArn.getValue("Environment.serviceRoleArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      * 
      */
-    public String sourceBucketArn;
+    private UndeferrableValue<String> sourceBucketArn;
 
-
+    public String sourceBucketArn() {
+        if (sourceBucketArn == null) return null;
+        return sourceBucketArn.getValue("Environment.sourceBucketArn");
+    }
 
     /**
      * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      * 
      */
-    public String startupScriptS3ObjectVersion;
+    private UndeferrableValue<String> startupScriptS3ObjectVersion;
 
-
+    public String startupScriptS3ObjectVersion() {
+        if (startupScriptS3ObjectVersion == null) return null;
+        return startupScriptS3ObjectVersion.getValue("Environment.startupScriptS3ObjectVersion");
+    }
 
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      * 
      */
-    public String startupScriptS3Path;
+    private @Nullable UndeferrableValue<String> startupScriptS3Path;
 
-
+    public @Nullable String startupScriptS3Path() {
+        if (startupScriptS3Path == null) return null;
+        return startupScriptS3Path.getValue("Environment.startupScriptS3Path");
+    }
 
     /**
      * The status of the Amazon MWAA Environment
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Environment.status");
+    }
 
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Environment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -253,40 +342,55 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Environment.tagsAll");
+    }
 
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      * 
      */
-    public String webserverAccessMode;
+    private UndeferrableValue<String> webserverAccessMode;
 
-
+    public String webserverAccessMode() {
+        if (webserverAccessMode == null) return null;
+        return webserverAccessMode.getValue("Environment.webserverAccessMode");
+    }
 
     /**
      * The webserver URL of the MWAA Environment
      * 
      */
-    public String webserverUrl;
+    private UndeferrableValue<String> webserverUrl;
 
-
+    public String webserverUrl() {
+        if (webserverUrl == null) return null;
+        return webserverUrl.getValue("Environment.webserverUrl");
+    }
 
     /**
      * The VPC endpoint for the environment&#39;s web server
      * 
      */
-    public String webserverVpcEndpointService;
+    private UndeferrableValue<String> webserverVpcEndpointService;
 
-
+    public String webserverVpcEndpointService() {
+        if (webserverVpcEndpointService == null) return null;
+        return webserverVpcEndpointService.getValue("Environment.webserverVpcEndpointService");
+    }
 
     /**
      * Specifies the start date for the weekly maintenance window.
      * 
      */
-    public String weeklyMaintenanceWindowStart;
+    private UndeferrableValue<String> weeklyMaintenanceWindowStart;
 
-
+    public String weeklyMaintenanceWindowStart() {
+        if (weeklyMaintenanceWindowStart == null) return null;
+        return weeklyMaintenanceWindowStart.getValue("Environment.weeklyMaintenanceWindowStart");
+    }
 
 }

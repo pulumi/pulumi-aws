@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/domainIdentity:DomainIdentity")
-public final class DomainIdentity extends com.pulumi.resources.PolicyResource {
+public final class DomainIdentity extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the domain identity.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainIdentity.arn");
+    }
 
     /**
      * The domain name to assign to SES
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("DomainIdentity.domain");
+    }
 
     /**
      * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state &#34;verification pending&#34; until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */
-    public String verificationToken;
+    private UndeferrableValue<String> verificationToken;
 
-
+    public String verificationToken() {
+        if (verificationToken == null) return null;
+        return verificationToken.getValue("DomainIdentity.verificationToken");
+    }
 
 }

@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.ReportPlanReportDeliveryChannel;
-import com.pulumi.policypacks.aws.backup.ReportPlanReportSetting;
+import com.pulumi.policypacks.aws.backup.outputs.ReportPlanReportDeliveryChannel;
+import com.pulumi.policypacks.aws.backup.outputs.ReportPlanReportSetting;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/reportPlan:ReportPlan")
-public final class ReportPlan extends com.pulumi.resources.PolicyResource {
+public final class ReportPlan extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the backup report plan.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReportPlan.arn");
+    }
 
     /**
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("ReportPlan.creationTime");
+    }
 
     /**
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    public String deploymentStatus;
+    private UndeferrableValue<String> deploymentStatus;
 
-
+    public String deploymentStatus() {
+        if (deploymentStatus == null) return null;
+        return deploymentStatus.getValue("ReportPlan.deploymentStatus");
+    }
 
     /**
      * The description of the report plan with a maximum of 1,024 characters
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ReportPlan.description");
+    }
 
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ReportPlan.name");
+    }
 
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    public ReportPlanReportDeliveryChannel reportDeliveryChannel;
+    private UndeferrableValue<ReportPlanReportDeliveryChannel> reportDeliveryChannel;
 
-
+    public ReportPlanReportDeliveryChannel reportDeliveryChannel() {
+        if (reportDeliveryChannel == null) return null;
+        return reportDeliveryChannel.getValue("ReportPlan.reportDeliveryChannel");
+    }
 
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    public ReportPlanReportSetting reportSetting;
+    private UndeferrableValue<ReportPlanReportSetting> reportSetting;
 
-
+    public ReportPlanReportSetting reportSetting() {
+        if (reportSetting == null) return null;
+        return reportSetting.getValue("ReportPlan.reportSetting");
+    }
 
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReportPlan.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class ReportPlan extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReportPlan.tagsAll");
+    }
 
 }

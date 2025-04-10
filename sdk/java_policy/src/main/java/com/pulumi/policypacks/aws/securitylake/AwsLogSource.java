@@ -3,19 +3,24 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securitylake.AwsLogSourceSource;
+import com.pulumi.policypacks.aws.securitylake.outputs.AwsLogSourceSource;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securitylake/awsLogSource:AwsLogSource")
-public final class AwsLogSource extends com.pulumi.resources.PolicyResource {
+public final class AwsLogSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      * 
      */
-    public AwsLogSourceSource source;
+    private @Nullable UndeferrableValue<AwsLogSourceSource> source;
 
-
+    public @Nullable AwsLogSourceSource source() {
+        if (source == null) return null;
+        return source.getValue("AwsLogSource.source");
+    }
 
 }

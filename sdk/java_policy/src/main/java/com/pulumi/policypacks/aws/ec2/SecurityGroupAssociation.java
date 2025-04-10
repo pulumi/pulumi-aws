@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/securityGroupAssociation:SecurityGroupAssociation")
-public final class SecurityGroupAssociation extends com.pulumi.resources.PolicyResource {
+public final class SecurityGroupAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
-    public Boolean replaceDefaultAssociation;
+    private @Nullable UndeferrableValue<Boolean> replaceDefaultAssociation;
 
-
+    public @Nullable Boolean replaceDefaultAssociation() {
+        if (replaceDefaultAssociation == null) return null;
+        return replaceDefaultAssociation.getValue("SecurityGroupAssociation.replaceDefaultAssociation");
+    }
 
     /**
      * The ID of the security group to be associated with the VPC endpoint.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("SecurityGroupAssociation.securityGroupId");
+    }
 
     /**
      * The ID of the VPC endpoint with which the security group will be associated.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("SecurityGroupAssociation.vpcEndpointId");
+    }
 
 }

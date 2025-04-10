@@ -3,94 +3,126 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafv2.RuleGroupCustomResponseBody;
-import com.pulumi.policypacks.aws.wafv2.RuleGroupRule;
-import com.pulumi.policypacks.aws.wafv2.RuleGroupVisibilityConfig;
+import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupCustomResponseBody;
+import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRule;
+import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupVisibilityConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafv2/ruleGroup:RuleGroup")
-public final class RuleGroup extends com.pulumi.resources.PolicyResource {
+public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the WAF rule group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RuleGroup.arn");
+    }
 
     /**
      * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      * 
      */
-    public Integer capacity;
+    private UndeferrableValue<Integer> capacity;
 
-
+    public Integer capacity() {
+        if (capacity == null) return null;
+        return capacity.getValue("RuleGroup.capacity");
+    }
 
     /**
      * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
      * 
      */
-    public List<RuleGroupCustomResponseBody> customResponseBodies;
+    private @Nullable UndeferrableValue<List<RuleGroupCustomResponseBody>> customResponseBodies;
 
-
+    public @Nullable List<RuleGroupCustomResponseBody> customResponseBodies() {
+        if (customResponseBodies == null) return null;
+        return customResponseBodies.getValue("RuleGroup.customResponseBodies");
+    }
 
     /**
      * A friendly description of the rule group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("RuleGroup.description");
+    }
 
+    private UndeferrableValue<String> lockToken;
 
-    public String lockToken;
-
-
+    public String lockToken() {
+        if (lockToken == null) return null;
+        return lockToken.getValue("RuleGroup.lockToken");
+    }
 
     /**
      * A friendly name of the rule group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RuleGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("RuleGroup.namePrefix");
+    }
 
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 
      */
-    public List<RuleGroupRule> rules;
+    private @Nullable UndeferrableValue<List<RuleGroupRule>> rules;
 
-
+    public @Nullable List<RuleGroupRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("RuleGroup.rules");
+    }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    public String scope;
+    private UndeferrableValue<String> scope;
 
-
+    public String scope() {
+        if (scope == null) return null;
+        return scope.getValue("RuleGroup.scope");
+    }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RuleGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -100,16 +132,22 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RuleGroup.tagsAll");
+    }
 
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      * 
      */
-    public RuleGroupVisibilityConfig visibilityConfig;
+    private UndeferrableValue<RuleGroupVisibilityConfig> visibilityConfig;
 
-
+    public RuleGroupVisibilityConfig visibilityConfig() {
+        if (visibilityConfig == null) return null;
+        return visibilityConfig.getValue("RuleGroup.visibilityConfig");
+    }
 
 }

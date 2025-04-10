@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")
-public final class ManagedPolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class ManagedPolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("ManagedPolicyAttachment.instanceArn");
+    }
 
     /**
      * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
      * 
      */
-    public String managedPolicyArn;
+    private UndeferrableValue<String> managedPolicyArn;
 
-
+    public String managedPolicyArn() {
+        if (managedPolicyArn == null) return null;
+        return managedPolicyArn.getValue("ManagedPolicyAttachment.managedPolicyArn");
+    }
 
     /**
      * The name of the IAM Managed Policy.
      * 
      */
-    public String managedPolicyName;
+    private UndeferrableValue<String> managedPolicyName;
 
-
+    public String managedPolicyName() {
+        if (managedPolicyName == null) return null;
+        return managedPolicyName.getValue("ManagedPolicyAttachment.managedPolicyName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    public String permissionSetArn;
+    private UndeferrableValue<String> permissionSetArn;
 
-
+    public String permissionSetArn() {
+        if (permissionSetArn == null) return null;
+        return permissionSetArn.getValue("ManagedPolicyAttachment.permissionSetArn");
+    }
 
 }

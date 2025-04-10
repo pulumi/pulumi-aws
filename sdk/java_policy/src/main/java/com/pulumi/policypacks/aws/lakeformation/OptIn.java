@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lakeformation.OptInCondition;
-import com.pulumi.policypacks.aws.lakeformation.OptInPrincipal;
-import com.pulumi.policypacks.aws.lakeformation.OptInResourceData;
+import com.pulumi.policypacks.aws.lakeformation.outputs.OptInCondition;
+import com.pulumi.policypacks.aws.lakeformation.outputs.OptInPrincipal;
+import com.pulumi.policypacks.aws.lakeformation.outputs.OptInResourceData;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lakeformation/optIn:OptIn")
-public final class OptIn extends com.pulumi.resources.PolicyResource {
+public final class OptIn extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      * 
      */
-    public List<OptInCondition> conditions;
+    private @Nullable UndeferrableValue<List<OptInCondition>> conditions;
 
-
+    public @Nullable List<OptInCondition> conditions() {
+        if (conditions == null) return null;
+        return conditions.getValue("OptIn.conditions");
+    }
 
     /**
      * Last modified date and time of the record.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("OptIn.lastModified");
+    }
 
+    private UndeferrableValue<String> lastUpdatedBy;
 
-    public String lastUpdatedBy;
-
-
+    public String lastUpdatedBy() {
+        if (lastUpdatedBy == null) return null;
+        return lastUpdatedBy.getValue("OptIn.lastUpdatedBy");
+    }
 
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      * 
      */
-    public List<OptInPrincipal> principals;
+    private @Nullable UndeferrableValue<List<OptInPrincipal>> principals;
 
-
+    public @Nullable List<OptInPrincipal> principals() {
+        if (principals == null) return null;
+        return principals.getValue("OptIn.principals");
+    }
 
     /**
      * Structure for the resource. See Resource for more details.
      * 
      */
-    public List<OptInResourceData> resourceDatas;
+    private @Nullable UndeferrableValue<List<OptInResourceData>> resourceDatas;
 
-
+    public @Nullable List<OptInResourceData> resourceDatas() {
+        if (resourceDatas == null) return null;
+        return resourceDatas.getValue("OptIn.resourceDatas");
+    }
 
 }

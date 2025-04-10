@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.TargetGroupConfig;
+import com.pulumi.policypacks.aws.vpclattice.outputs.TargetGroupConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/targetGroup:TargetGroup")
-public final class TargetGroup extends com.pulumi.resources.PolicyResource {
+public final class TargetGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the target group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TargetGroup.arn");
+    }
 
     /**
      * The target group configuration.
      * 
      */
-    public TargetGroupConfig config;
+    private @Nullable UndeferrableValue<TargetGroupConfig> config;
 
-
+    public @Nullable TargetGroupConfig config() {
+        if (config == null) return null;
+        return config.getValue("TargetGroup.config");
+    }
 
     /**
      * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TargetGroup.name");
+    }
 
     /**
      * Status of the target group.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("TargetGroup.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TargetGroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,9 +77,12 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TargetGroup.tagsAll");
+    }
 
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
@@ -70,8 +90,11 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("TargetGroup.type");
+    }
 
 }

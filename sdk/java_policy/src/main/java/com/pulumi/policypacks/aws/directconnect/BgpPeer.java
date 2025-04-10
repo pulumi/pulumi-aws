@@ -3,86 +3,114 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directconnect/bgpPeer:BgpPeer")
-public final class BgpPeer extends com.pulumi.resources.PolicyResource {
+public final class BgpPeer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("BgpPeer.addressFamily");
+    }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon.
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    public String amazonAddress;
+    private UndeferrableValue<String> amazonAddress;
 
-
+    public String amazonAddress() {
+        if (amazonAddress == null) return null;
+        return amazonAddress.getValue("BgpPeer.amazonAddress");
+    }
 
     /**
      * The Direct Connect endpoint on which the BGP peer terminates.
      * 
      */
-    public String awsDevice;
+    private UndeferrableValue<String> awsDevice;
 
-
+    public String awsDevice() {
+        if (awsDevice == null) return null;
+        return awsDevice.getValue("BgpPeer.awsDevice");
+    }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    public Integer bgpAsn;
+    private UndeferrableValue<Integer> bgpAsn;
 
-
+    public Integer bgpAsn() {
+        if (bgpAsn == null) return null;
+        return bgpAsn.getValue("BgpPeer.bgpAsn");
+    }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    public String bgpAuthKey;
+    private UndeferrableValue<String> bgpAuthKey;
 
-
+    public String bgpAuthKey() {
+        if (bgpAuthKey == null) return null;
+        return bgpAuthKey.getValue("BgpPeer.bgpAuthKey");
+    }
 
     /**
      * The ID of the BGP peer.
      * 
      */
-    public String bgpPeerId;
+    private UndeferrableValue<String> bgpPeerId;
 
-
+    public String bgpPeerId() {
+        if (bgpPeerId == null) return null;
+        return bgpPeerId.getValue("BgpPeer.bgpPeerId");
+    }
 
     /**
      * The Up/Down state of the BGP peer.
      * 
      */
-    public String bgpStatus;
+    private UndeferrableValue<String> bgpStatus;
 
-
+    public String bgpStatus() {
+        if (bgpStatus == null) return null;
+        return bgpStatus.getValue("BgpPeer.bgpStatus");
+    }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic.
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    public String customerAddress;
+    private UndeferrableValue<String> customerAddress;
 
-
+    public String customerAddress() {
+        if (customerAddress == null) return null;
+        return customerAddress.getValue("BgpPeer.customerAddress");
+    }
 
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      * 
      */
-    public String virtualInterfaceId;
+    private UndeferrableValue<String> virtualInterfaceId;
 
-
+    public String virtualInterfaceId() {
+        if (virtualInterfaceId == null) return null;
+        return virtualInterfaceId.getValue("BgpPeer.virtualInterfaceId");
+    }
 
 }

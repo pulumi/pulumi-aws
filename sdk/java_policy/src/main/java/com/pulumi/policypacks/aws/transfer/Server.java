@@ -3,155 +3,208 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transfer.ServerEndpointDetails;
-import com.pulumi.policypacks.aws.transfer.ServerProtocolDetails;
-import com.pulumi.policypacks.aws.transfer.ServerS3StorageOptions;
-import com.pulumi.policypacks.aws.transfer.ServerWorkflowDetails;
+import com.pulumi.policypacks.aws.transfer.outputs.ServerEndpointDetails;
+import com.pulumi.policypacks.aws.transfer.outputs.ServerProtocolDetails;
+import com.pulumi.policypacks.aws.transfer.outputs.ServerS3StorageOptions;
+import com.pulumi.policypacks.aws.transfer.outputs.ServerWorkflowDetails;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/server:Server")
-public final class Server extends com.pulumi.resources.PolicyResource {
+public final class Server extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of Transfer Server
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Server.arn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      * 
      */
-    public String certificate;
+    private @Nullable UndeferrableValue<String> certificate;
 
-
+    public @Nullable String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("Server.certificate");
+    }
 
     /**
      * The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
-    public String directoryId;
+    private @Nullable UndeferrableValue<String> directoryId;
 
-
+    public @Nullable String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("Server.directoryId");
+    }
 
     /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
-    public String domain;
+    private @Nullable UndeferrableValue<String> domain;
 
-
+    public @Nullable String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Server.domain");
+    }
 
     /**
      * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Server.endpoint");
+    }
 
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
-    public ServerEndpointDetails endpointDetails;
+    private @Nullable UndeferrableValue<ServerEndpointDetails> endpointDetails;
 
-
+    public @Nullable ServerEndpointDetails endpointDetails() {
+        if (endpointDetails == null) return null;
+        return endpointDetails.getValue("Server.endpointDetails");
+    }
 
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      * 
      */
-    public String endpointType;
+    private @Nullable UndeferrableValue<String> endpointType;
 
-
+    public @Nullable String endpointType() {
+        if (endpointType == null) return null;
+        return endpointType.getValue("Server.endpointType");
+    }
 
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Server.forceDestroy");
+    }
 
     /**
      * The ARN for a lambda function to use for the Identity provider.
      * 
      */
-    public String function;
+    private @Nullable UndeferrableValue<String> function;
 
-
+    public @Nullable String function() {
+        if (function == null) return null;
+        return function.getValue("Server.function");
+    }
 
     /**
      * RSA, ECDSA, or ED25519 private key (e.g., as generated by the `ssh-keygen -t rsa -b 2048 -N &#34;&#34; -m PEM -f my-new-server-key`, `ssh-keygen -t ecdsa -b 256 -N &#34;&#34; -m PEM -f my-new-server-key` or `ssh-keygen -t ed25519 -N &#34;&#34; -f my-new-server-key` commands).
      * 
      */
-    public String hostKey;
+    private @Nullable UndeferrableValue<String> hostKey;
 
-
+    public @Nullable String hostKey() {
+        if (hostKey == null) return null;
+        return hostKey.getValue("Server.hostKey");
+    }
 
     /**
      * This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
-    public String hostKeyFingerprint;
+    private UndeferrableValue<String> hostKeyFingerprint;
 
-
+    public String hostKeyFingerprint() {
+        if (hostKeyFingerprint == null) return null;
+        return hostKeyFingerprint.getValue("Server.hostKeyFingerprint");
+    }
 
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
-    public String identityProviderType;
+    private @Nullable UndeferrableValue<String> identityProviderType;
 
-
+    public @Nullable String identityProviderType() {
+        if (identityProviderType == null) return null;
+        return identityProviderType.getValue("Server.identityProviderType");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    public String invocationRole;
+    private @Nullable UndeferrableValue<String> invocationRole;
 
-
+    public @Nullable String invocationRole() {
+        if (invocationRole == null) return null;
+        return invocationRole.getValue("Server.invocationRole");
+    }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
-    public String loggingRole;
+    private @Nullable UndeferrableValue<String> loggingRole;
 
-
+    public @Nullable String loggingRole() {
+        if (loggingRole == null) return null;
+        return loggingRole.getValue("Server.loggingRole");
+    }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
      * 
      */
-    public String postAuthenticationLoginBanner;
+    private @Nullable UndeferrableValue<String> postAuthenticationLoginBanner;
 
-
+    public @Nullable String postAuthenticationLoginBanner() {
+        if (postAuthenticationLoginBanner == null) return null;
+        return postAuthenticationLoginBanner.getValue("Server.postAuthenticationLoginBanner");
+    }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
      * 
      */
-    public String preAuthenticationLoginBanner;
+    private @Nullable UndeferrableValue<String> preAuthenticationLoginBanner;
 
-
+    public @Nullable String preAuthenticationLoginBanner() {
+        if (preAuthenticationLoginBanner == null) return null;
+        return preAuthenticationLoginBanner.getValue("Server.preAuthenticationLoginBanner");
+    }
 
     /**
      * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
-    public ServerProtocolDetails protocolDetails;
+    private UndeferrableValue<ServerProtocolDetails> protocolDetails;
 
-
+    public ServerProtocolDetails protocolDetails() {
+        if (protocolDetails == null) return null;
+        return protocolDetails.getValue("Server.protocolDetails");
+    }
 
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
@@ -161,17 +214,23 @@ public final class Server extends com.pulumi.resources.PolicyResource {
      * * `FTP`: Unencrypted file transfer
      * 
      */
-    public List<String> protocols;
+    private UndeferrableValue<List<String>> protocols;
 
-
+    public List<String> protocols() {
+        if (protocols == null) return null;
+        return protocols.getValue("Server.protocols");
+    }
 
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
-    public ServerS3StorageOptions s3StorageOptions;
+    private UndeferrableValue<ServerS3StorageOptions> s3StorageOptions;
 
-
+    public ServerS3StorageOptions s3StorageOptions() {
+        if (s3StorageOptions == null) return null;
+        return s3StorageOptions.getValue("Server.s3StorageOptions");
+    }
 
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -193,33 +252,45 @@ public final class Server extends com.pulumi.resources.PolicyResource {
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
-    public String securityPolicyName;
+    private @Nullable UndeferrableValue<String> securityPolicyName;
 
-
+    public @Nullable String securityPolicyName() {
+        if (securityPolicyName == null) return null;
+        return securityPolicyName.getValue("Server.securityPolicyName");
+    }
 
     /**
      * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
-    public String sftpAuthenticationMethods;
+    private UndeferrableValue<String> sftpAuthenticationMethods;
 
-
+    public String sftpAuthenticationMethods() {
+        if (sftpAuthenticationMethods == null) return null;
+        return sftpAuthenticationMethods.getValue("Server.sftpAuthenticationMethods");
+    }
 
     /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
-    public List<String> structuredLogDestinations;
+    private @Nullable UndeferrableValue<List<String>> structuredLogDestinations;
 
-
+    public @Nullable List<String> structuredLogDestinations() {
+        if (structuredLogDestinations == null) return null;
+        return structuredLogDestinations.getValue("Server.structuredLogDestinations");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Server.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -229,24 +300,33 @@ public final class Server extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Server.tagsAll");
+    }
 
     /**
      * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    public String url;
+    private @Nullable UndeferrableValue<String> url;
 
-
+    public @Nullable String url() {
+        if (url == null) return null;
+        return url.getValue("Server.url");
+    }
 
     /**
      * Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
-    public ServerWorkflowDetails workflowDetails;
+    private @Nullable UndeferrableValue<ServerWorkflowDetails> workflowDetails;
 
-
+    public @Nullable ServerWorkflowDetails workflowDetails() {
+        if (workflowDetails == null) return null;
+        return workflowDetails.getValue("Server.workflowDetails");
+    }
 
 }

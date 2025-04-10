@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/workflow:Workflow")
-public final class Workflow extends com.pulumi.resources.PolicyResource {
+public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of Glue Workflow
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workflow.arn");
+    }
 
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    public Map<String,String> defaultRunProperties;
+    private @Nullable UndeferrableValue<Map<String,String>> defaultRunProperties;
 
-
+    public @Nullable Map<String,String> defaultRunProperties() {
+        if (defaultRunProperties == null) return null;
+        return defaultRunProperties.getValue("Workflow.defaultRunProperties");
+    }
 
     /**
      * Description of the workflow.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Workflow.description");
+    }
 
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      * 
      */
-    public Integer maxConcurrentRuns;
+    private @Nullable UndeferrableValue<Integer> maxConcurrentRuns;
 
-
+    public @Nullable Integer maxConcurrentRuns() {
+        if (maxConcurrentRuns == null) return null;
+        return maxConcurrentRuns.getValue("Workflow.maxConcurrentRuns");
+    }
 
     /**
      * The name you assign to this workflow.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Workflow.name");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workflow.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class Workflow extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workflow.tagsAll");
+    }
 
 }

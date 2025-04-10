@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.detective;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:detective/graph:Graph")
-public final class Graph extends com.pulumi.resources.PolicyResource {
+public final class Graph extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Graph.createdTime");
+    }
 
     /**
      * ARN of the Detective Graph.
      * 
      */
-    public String graphArn;
+    private UndeferrableValue<String> graphArn;
 
-
+    public String graphArn() {
+        if (graphArn == null) return null;
+        return graphArn.getValue("Graph.graphArn");
+    }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Graph.tags");
+    }
 
     /**
      * @deprecated
@@ -41,8 +52,11 @@ public final class Graph extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Graph.tagsAll");
+    }
 
 }

@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.SdkvoiceGlobalSettingsVoiceConnector;
+import com.pulumi.policypacks.aws.chime.outputs.SdkvoiceGlobalSettingsVoiceConnector;
 
 
 @PolicyResourceType(type="aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")
-public final class SdkvoiceGlobalSettings extends com.pulumi.resources.PolicyResource {
+public final class SdkvoiceGlobalSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Voice Connector settings. See voice_connector.
      * 
      */
-    public SdkvoiceGlobalSettingsVoiceConnector voiceConnector;
+    private UndeferrableValue<SdkvoiceGlobalSettingsVoiceConnector> voiceConnector;
 
-
+    public SdkvoiceGlobalSettingsVoiceConnector voiceConnector() {
+        if (voiceConnector == null) return null;
+        return voiceConnector.getValue("SdkvoiceGlobalSettings.voiceConnector");
+    }
 
 }

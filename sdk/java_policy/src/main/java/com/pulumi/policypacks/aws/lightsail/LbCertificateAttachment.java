@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")
-public final class LbCertificateAttachment extends com.pulumi.resources.PolicyResource {
+public final class LbCertificateAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of your SSL/TLS certificate.
      * 
      */
-    public String certificateName;
+    private UndeferrableValue<String> certificateName;
 
-
+    public String certificateName() {
+        if (certificateName == null) return null;
+        return certificateName.getValue("LbCertificateAttachment.certificateName");
+    }
 
     /**
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
      */
-    public String lbName;
+    private UndeferrableValue<String> lbName;
 
-
+    public String lbName() {
+        if (lbName == null) return null;
+        return lbName.getValue("LbCertificateAttachment.lbName");
+    }
 
 }

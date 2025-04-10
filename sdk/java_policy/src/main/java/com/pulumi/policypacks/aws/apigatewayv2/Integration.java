@@ -3,124 +3,165 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.IntegrationResponseParameter;
-import com.pulumi.policypacks.aws.apigatewayv2.IntegrationTlsConfig;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.IntegrationResponseParameter;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.IntegrationTlsConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/integration:Integration")
-public final class Integration extends com.pulumi.resources.PolicyResource {
+public final class Integration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Integration.apiId");
+    }
 
     /**
      * ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      * 
      */
-    public String connectionId;
+    private @Nullable UndeferrableValue<String> connectionId;
 
-
+    public @Nullable String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("Integration.connectionId");
+    }
 
     /**
      * Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
      * 
      */
-    public String connectionType;
+    private @Nullable UndeferrableValue<String> connectionType;
 
-
+    public @Nullable String connectionType() {
+        if (connectionType == null) return null;
+        return connectionType.getValue("Integration.connectionType");
+    }
 
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
      * 
      */
-    public String contentHandlingStrategy;
+    private @Nullable UndeferrableValue<String> contentHandlingStrategy;
 
-
+    public @Nullable String contentHandlingStrategy() {
+        if (contentHandlingStrategy == null) return null;
+        return contentHandlingStrategy.getValue("Integration.contentHandlingStrategy");
+    }
 
     /**
      * Credentials required for the integration, if any.
      * 
      */
-    public String credentialsArn;
+    private @Nullable UndeferrableValue<String> credentialsArn;
 
-
+    public @Nullable String credentialsArn() {
+        if (credentialsArn == null) return null;
+        return credentialsArn.getValue("Integration.credentialsArn");
+    }
 
     /**
      * Description of the integration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Integration.description");
+    }
 
     /**
      * Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
      * 
      */
-    public String integrationMethod;
+    private @Nullable UndeferrableValue<String> integrationMethod;
 
-
+    public @Nullable String integrationMethod() {
+        if (integrationMethod == null) return null;
+        return integrationMethod.getValue("Integration.integrationMethod");
+    }
 
     /**
      * The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
      * 
      */
-    public String integrationResponseSelectionExpression;
+    private UndeferrableValue<String> integrationResponseSelectionExpression;
 
-
+    public String integrationResponseSelectionExpression() {
+        if (integrationResponseSelectionExpression == null) return null;
+        return integrationResponseSelectionExpression.getValue("Integration.integrationResponseSelectionExpression");
+    }
 
     /**
      * AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
-    public String integrationSubtype;
+    private @Nullable UndeferrableValue<String> integrationSubtype;
 
-
+    public @Nullable String integrationSubtype() {
+        if (integrationSubtype == null) return null;
+        return integrationSubtype.getValue("Integration.integrationSubtype");
+    }
 
     /**
      * Integration type of an integration.
      * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
-    public String integrationType;
+    private UndeferrableValue<String> integrationType;
 
-
+    public String integrationType() {
+        if (integrationType == null) return null;
+        return integrationType.getValue("Integration.integrationType");
+    }
 
     /**
      * URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
-    public String integrationUri;
+    private @Nullable UndeferrableValue<String> integrationUri;
 
-
+    public @Nullable String integrationUri() {
+        if (integrationUri == null) return null;
+        return integrationUri.getValue("Integration.integrationUri");
+    }
 
     /**
      * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
-    public String passthroughBehavior;
+    private @Nullable UndeferrableValue<String> passthroughBehavior;
 
-
+    public @Nullable String passthroughBehavior() {
+        if (passthroughBehavior == null) return null;
+        return passthroughBehavior.getValue("Integration.passthroughBehavior");
+    }
 
     /**
      * The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      * 
      */
-    public String payloadFormatVersion;
+    private @Nullable UndeferrableValue<String> payloadFormatVersion;
 
-
+    public @Nullable String payloadFormatVersion() {
+        if (payloadFormatVersion == null) return null;
+        return payloadFormatVersion.getValue("Integration.payloadFormatVersion");
+    }
 
     /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
@@ -129,33 +170,45 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
-    public Map<String,String> requestParameters;
+    private @Nullable UndeferrableValue<Map<String,String>> requestParameters;
 
-
+    public @Nullable Map<String,String> requestParameters() {
+        if (requestParameters == null) return null;
+        return requestParameters.getValue("Integration.requestParameters");
+    }
 
     /**
      * Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      * 
      */
-    public Map<String,String> requestTemplates;
+    private @Nullable UndeferrableValue<Map<String,String>> requestTemplates;
 
-
+    public @Nullable Map<String,String> requestTemplates() {
+        if (requestTemplates == null) return null;
+        return requestTemplates.getValue("Integration.requestTemplates");
+    }
 
     /**
      * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      * 
      */
-    public List<IntegrationResponseParameter> responseParameters;
+    private @Nullable UndeferrableValue<List<IntegrationResponseParameter>> responseParameters;
 
-
+    public @Nullable List<IntegrationResponseParameter> responseParameters() {
+        if (responseParameters == null) return null;
+        return responseParameters.getValue("Integration.responseParameters");
+    }
 
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      * 
      */
-    public String templateSelectionExpression;
+    private @Nullable UndeferrableValue<String> templateSelectionExpression;
 
-
+    public @Nullable String templateSelectionExpression() {
+        if (templateSelectionExpression == null) return null;
+        return templateSelectionExpression.getValue("Integration.templateSelectionExpression");
+    }
 
     /**
      * Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
@@ -163,16 +216,22 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * this provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public Integer timeoutMilliseconds;
+    private UndeferrableValue<Integer> timeoutMilliseconds;
 
-
+    public Integer timeoutMilliseconds() {
+        if (timeoutMilliseconds == null) return null;
+        return timeoutMilliseconds.getValue("Integration.timeoutMilliseconds");
+    }
 
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.
      * 
      */
-    public IntegrationTlsConfig tlsConfig;
+    private @Nullable UndeferrableValue<IntegrationTlsConfig> tlsConfig;
 
-
+    public @Nullable IntegrationTlsConfig tlsConfig() {
+        if (tlsConfig == null) return null;
+        return tlsConfig.getValue("Integration.tlsConfig");
+    }
 
 }

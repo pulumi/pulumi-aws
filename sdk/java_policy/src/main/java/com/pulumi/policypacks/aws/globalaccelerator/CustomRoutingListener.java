@@ -3,33 +3,43 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.CustomRoutingListenerPortRange;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingListenerPortRange;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/customRoutingListener:CustomRoutingListener")
-public final class CustomRoutingListener extends com.pulumi.resources.PolicyResource {
+public final class CustomRoutingListener extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      * 
      */
-    public String acceleratorArn;
+    private UndeferrableValue<String> acceleratorArn;
 
+    public String acceleratorArn() {
+        if (acceleratorArn == null) return null;
+        return acceleratorArn.getValue("CustomRoutingListener.acceleratorArn");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomRoutingListener.arn");
+    }
 
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
      */
-    public List<CustomRoutingListenerPortRange> portRanges;
+    private UndeferrableValue<List<CustomRoutingListenerPortRange>> portRanges;
 
-
+    public List<CustomRoutingListenerPortRange> portRanges() {
+        if (portRanges == null) return null;
+        return portRanges.getValue("CustomRoutingListener.portRanges");
+    }
 
 }

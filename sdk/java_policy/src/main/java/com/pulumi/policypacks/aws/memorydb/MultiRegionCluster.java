@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.memorydb.MultiRegionClusterTimeouts;
+import com.pulumi.policypacks.aws.memorydb.outputs.MultiRegionClusterTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:memorydb/multiRegionCluster:MultiRegionCluster")
-public final class MultiRegionCluster extends com.pulumi.resources.PolicyResource {
+public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the multi-region cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MultiRegionCluster.arn");
+    }
 
     /**
      * description for the multi-region cluster.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MultiRegionCluster.description");
+    }
 
     /**
      * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("MultiRegionCluster.engine");
+    }
 
     /**
      * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("MultiRegionCluster.engineVersion");
+    }
 
     /**
      * The name of the multi-region cluster.
      * 
      */
-    public String multiRegionClusterName;
+    private UndeferrableValue<String> multiRegionClusterName;
 
-
+    public String multiRegionClusterName() {
+        if (multiRegionClusterName == null) return null;
+        return multiRegionClusterName.getValue("MultiRegionCluster.multiRegionClusterName");
+    }
 
     /**
      * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
-    public String multiRegionClusterNameSuffix;
+    private UndeferrableValue<String> multiRegionClusterNameSuffix;
 
-
+    public String multiRegionClusterNameSuffix() {
+        if (multiRegionClusterNameSuffix == null) return null;
+        return multiRegionClusterNameSuffix.getValue("MultiRegionCluster.multiRegionClusterNameSuffix");
+    }
 
     /**
      * The name of the multi-region parameter group to be associated with the cluster.
      * 
      */
-    public String multiRegionParameterGroupName;
+    private UndeferrableValue<String> multiRegionParameterGroupName;
 
-
+    public String multiRegionParameterGroupName() {
+        if (multiRegionParameterGroupName == null) return null;
+        return multiRegionParameterGroupName.getValue("MultiRegionCluster.multiRegionParameterGroupName");
+    }
 
     /**
      * The node type to be used for the multi-region cluster.
@@ -76,29 +99,41 @@ public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String nodeType;
+    private UndeferrableValue<String> nodeType;
 
-
+    public String nodeType() {
+        if (nodeType == null) return null;
+        return nodeType.getValue("MultiRegionCluster.nodeType");
+    }
 
     /**
      * The number of shards for the multi-region cluster.
      * 
      */
-    public Integer numShards;
+    private UndeferrableValue<Integer> numShards;
 
+    public Integer numShards() {
+        if (numShards == null) return null;
+        return numShards.getValue("MultiRegionCluster.numShards");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("MultiRegionCluster.status");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MultiRegionCluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,24 +143,36 @@ public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MultiRegionCluster.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<MultiRegionClusterTimeouts> timeouts;
 
-    public MultiRegionClusterTimeouts timeouts;
-
-
+    public @Nullable MultiRegionClusterTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("MultiRegionCluster.timeouts");
+    }
 
     /**
      * A flag to enable in-transit encryption on the cluster.
      * 
      */
-    public Boolean tlsEnabled;
+    private UndeferrableValue<Boolean> tlsEnabled;
 
+    public Boolean tlsEnabled() {
+        if (tlsEnabled == null) return null;
+        return tlsEnabled.getValue("MultiRegionCluster.tlsEnabled");
+    }
 
+    private @Nullable UndeferrableValue<String> updateStrategy;
 
-    public String updateStrategy;
-
-
+    public @Nullable String updateStrategy() {
+        if (updateStrategy == null) return null;
+        return updateStrategy.getValue("MultiRegionCluster.updateStrategy");
+    }
 
 }

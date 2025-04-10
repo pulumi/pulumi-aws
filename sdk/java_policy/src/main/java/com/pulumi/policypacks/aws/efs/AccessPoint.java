@@ -3,67 +3,90 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.efs.AccessPointPosixUser;
-import com.pulumi.policypacks.aws.efs.AccessPointRootDirectory;
+import com.pulumi.policypacks.aws.efs.outputs.AccessPointPosixUser;
+import com.pulumi.policypacks.aws.efs.outputs.AccessPointRootDirectory;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:efs/accessPoint:AccessPoint")
-public final class AccessPoint extends com.pulumi.resources.PolicyResource {
+public final class AccessPoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the access point.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AccessPoint.arn");
+    }
 
     /**
      * ARN of the file system.
      * 
      */
-    public String fileSystemArn;
+    private UndeferrableValue<String> fileSystemArn;
 
-
+    public String fileSystemArn() {
+        if (fileSystemArn == null) return null;
+        return fileSystemArn.getValue("AccessPoint.fileSystemArn");
+    }
 
     /**
      * ID of the file system for which the access point is intended.
      * 
      */
-    public String fileSystemId;
+    private UndeferrableValue<String> fileSystemId;
 
+    public String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("AccessPoint.fileSystemId");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
-
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("AccessPoint.ownerId");
+    }
 
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      * 
      */
-    public AccessPointPosixUser posixUser;
+    private @Nullable UndeferrableValue<AccessPointPosixUser> posixUser;
 
-
+    public @Nullable AccessPointPosixUser posixUser() {
+        if (posixUser == null) return null;
+        return posixUser.getValue("AccessPoint.posixUser");
+    }
 
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
-    public AccessPointRootDirectory rootDirectory;
+    private UndeferrableValue<AccessPointRootDirectory> rootDirectory;
 
-
+    public AccessPointRootDirectory rootDirectory() {
+        if (rootDirectory == null) return null;
+        return rootDirectory.getValue("AccessPoint.rootDirectory");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AccessPoint.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -73,8 +96,11 @@ public final class AccessPoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AccessPoint.tagsAll");
+    }
 
 }

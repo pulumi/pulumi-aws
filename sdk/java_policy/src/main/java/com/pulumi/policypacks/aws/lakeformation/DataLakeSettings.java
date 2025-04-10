@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission;
-import com.pulumi.policypacks.aws.lakeformation.DataLakeSettingsCreateTableDefaultPermission;
+import com.pulumi.policypacks.aws.lakeformation.outputs.DataLakeSettingsCreateDatabaseDefaultPermission;
+import com.pulumi.policypacks.aws.lakeformation.outputs.DataLakeSettingsCreateTableDefaultPermission;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lakeformation/dataLakeSettings:DataLakeSettings")
-public final class DataLakeSettings extends com.pulumi.resources.PolicyResource {
+public final class DataLakeSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
      */
-    public List<String> admins;
+    private UndeferrableValue<List<String>> admins;
 
-
+    public List<String> admins() {
+        if (admins == null) return null;
+        return admins.getValue("DataLakeSettings.admins");
+    }
 
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      * 
      */
-    public Boolean allowExternalDataFiltering;
+    private @Nullable UndeferrableValue<Boolean> allowExternalDataFiltering;
 
-
+    public @Nullable Boolean allowExternalDataFiltering() {
+        if (allowExternalDataFiltering == null) return null;
+        return allowExternalDataFiltering.getValue("DataLakeSettings.allowExternalDataFiltering");
+    }
 
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      * 
      */
-    public Boolean allowFullTableExternalDataAccess;
+    private @Nullable UndeferrableValue<Boolean> allowFullTableExternalDataAccess;
 
-
+    public @Nullable Boolean allowFullTableExternalDataAccess() {
+        if (allowFullTableExternalDataAccess == null) return null;
+        return allowFullTableExternalDataAccess.getValue("DataLakeSettings.allowFullTableExternalDataAccess");
+    }
 
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
      */
-    public List<String> authorizedSessionTagValueLists;
+    private UndeferrableValue<List<String>> authorizedSessionTagValueLists;
 
-
+    public List<String> authorizedSessionTagValueLists() {
+        if (authorizedSessionTagValueLists == null) return null;
+        return authorizedSessionTagValueLists.getValue("DataLakeSettings.authorizedSessionTagValueLists");
+    }
 
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      * 
      */
-    public String catalogId;
+    private @Nullable UndeferrableValue<String> catalogId;
 
-
+    public @Nullable String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("DataLakeSettings.catalogId");
+    }
 
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      * 
      */
-    public List<DataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
+    private UndeferrableValue<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
-
+    public List<DataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions() {
+        if (createDatabaseDefaultPermissions == null) return null;
+        return createDatabaseDefaultPermissions.getValue("DataLakeSettings.createDatabaseDefaultPermissions");
+    }
 
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
-    public List<DataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
+    private UndeferrableValue<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
 
-
+    public List<DataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions() {
+        if (createTableDefaultPermissions == null) return null;
+        return createTableDefaultPermissions.getValue("DataLakeSettings.createTableDefaultPermissions");
+    }
 
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      * 
      */
-    public List<String> externalDataFilteringAllowLists;
+    private UndeferrableValue<List<String>> externalDataFilteringAllowLists;
 
-
+    public List<String> externalDataFilteringAllowLists() {
+        if (externalDataFilteringAllowLists == null) return null;
+        return externalDataFilteringAllowLists.getValue("DataLakeSettings.externalDataFilteringAllowLists");
+    }
 
     /**
      * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
      * 
      */
-    public Map<String,String> parameters;
+    private UndeferrableValue<Map<String,String>> parameters;
 
-
+    public Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("DataLakeSettings.parameters");
+    }
 
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
-    public List<String> readOnlyAdmins;
+    private UndeferrableValue<List<String>> readOnlyAdmins;
 
-
+    public List<String> readOnlyAdmins() {
+        if (readOnlyAdmins == null) return null;
+        return readOnlyAdmins.getValue("DataLakeSettings.readOnlyAdmins");
+    }
 
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
@@ -101,8 +133,11 @@ public final class DataLakeSettings extends com.pulumi.resources.PolicyResource 
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
-    public List<String> trustedResourceOwners;
+    private UndeferrableValue<List<String>> trustedResourceOwners;
 
-
+    public List<String> trustedResourceOwners() {
+        if (trustedResourceOwners == null) return null;
+        return trustedResourceOwners.getValue("DataLakeSettings.trustedResourceOwners");
+    }
 
 }

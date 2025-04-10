@@ -3,90 +3,119 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecr.RepositoryEncryptionConfiguration;
-import com.pulumi.policypacks.aws.ecr.RepositoryImageScanningConfiguration;
+import com.pulumi.policypacks.aws.ecr.outputs.RepositoryEncryptionConfiguration;
+import com.pulumi.policypacks.aws.ecr.outputs.RepositoryImageScanningConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecr/repository:Repository")
-public final class Repository extends com.pulumi.resources.PolicyResource {
+public final class Repository extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Full ARN of the repository.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Repository.arn");
+    }
 
     /**
      * Encryption configuration for the repository. See below for schema.
      * 
      */
-    public List<RepositoryEncryptionConfiguration> encryptionConfigurations;
+    private @Nullable UndeferrableValue<List<RepositoryEncryptionConfiguration>> encryptionConfigurations;
 
-
+    public @Nullable List<RepositoryEncryptionConfiguration> encryptionConfigurations() {
+        if (encryptionConfigurations == null) return null;
+        return encryptionConfigurations.getValue("Repository.encryptionConfigurations");
+    }
 
     /**
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("Repository.forceDelete");
+    }
 
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      * 
      */
-    public RepositoryImageScanningConfiguration imageScanningConfiguration;
+    private @Nullable UndeferrableValue<RepositoryImageScanningConfiguration> imageScanningConfiguration;
 
-
+    public @Nullable RepositoryImageScanningConfiguration imageScanningConfiguration() {
+        if (imageScanningConfiguration == null) return null;
+        return imageScanningConfiguration.getValue("Repository.imageScanningConfiguration");
+    }
 
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      * 
      */
-    public String imageTagMutability;
+    private @Nullable UndeferrableValue<String> imageTagMutability;
 
-
+    public @Nullable String imageTagMutability() {
+        if (imageTagMutability == null) return null;
+        return imageTagMutability.getValue("Repository.imageTagMutability");
+    }
 
     /**
      * Name of the repository.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Repository.name");
+    }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("Repository.registryId");
+    }
 
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    public String repositoryUrl;
+    private UndeferrableValue<String> repositoryUrl;
 
-
+    public String repositoryUrl() {
+        if (repositoryUrl == null) return null;
+        return repositoryUrl.getValue("Repository.repositoryUrl");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Repository.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,8 +125,11 @@ public final class Repository extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Repository.tagsAll");
+    }
 
 }

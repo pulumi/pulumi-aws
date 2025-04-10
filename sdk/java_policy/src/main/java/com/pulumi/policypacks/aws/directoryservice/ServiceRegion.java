@@ -3,47 +3,61 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.directoryservice.ServiceRegionVpcSettings;
+import com.pulumi.policypacks.aws.directoryservice.outputs.ServiceRegionVpcSettings;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directoryservice/serviceRegion:ServiceRegion")
-public final class ServiceRegion extends com.pulumi.resources.PolicyResource {
+public final class ServiceRegion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      * 
      */
-    public Integer desiredNumberOfDomainControllers;
+    private UndeferrableValue<Integer> desiredNumberOfDomainControllers;
 
-
+    public Integer desiredNumberOfDomainControllers() {
+        if (desiredNumberOfDomainControllers == null) return null;
+        return desiredNumberOfDomainControllers.getValue("ServiceRegion.desiredNumberOfDomainControllers");
+    }
 
     /**
      * The identifier of the directory to which you want to add Region replication.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("ServiceRegion.directoryId");
+    }
 
     /**
      * The name of the Region where you want to add domain controllers for replication.
      * 
      */
-    public String regionName;
+    private UndeferrableValue<String> regionName;
 
-
+    public String regionName() {
+        if (regionName == null) return null;
+        return regionName.getValue("ServiceRegion.regionName");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServiceRegion.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -53,16 +67,22 @@ public final class ServiceRegion extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServiceRegion.tagsAll");
+    }
 
     /**
      * VPC information in the replicated Region. Detailed below.
      * 
      */
-    public ServiceRegionVpcSettings vpcSettings;
+    private UndeferrableValue<ServiceRegionVpcSettings> vpcSettings;
 
-
+    public ServiceRegionVpcSettings vpcSettings() {
+        if (vpcSettings == null) return null;
+        return vpcSettings.getValue("ServiceRegion.vpcSettings");
+    }
 
 }

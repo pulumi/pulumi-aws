@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appfabric/ingestion:Ingestion")
-public final class Ingestion extends com.pulumi.resources.PolicyResource {
+public final class Ingestion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the application.
      * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
      * 
      */
-    public String app;
+    private UndeferrableValue<String> app;
 
-
+    public String app() {
+        if (app == null) return null;
+        return app.getValue("Ingestion.app");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    public String appBundleArn;
+    private UndeferrableValue<String> appBundleArn;
 
-
+    public String appBundleArn() {
+        if (appBundleArn == null) return null;
+        return appBundleArn.getValue("Ingestion.appBundleArn");
+    }
 
     /**
      * ARN of the Ingestion.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Ingestion.arn");
+    }
 
     /**
      * Ingestion type. Valid values are `auditLog`.
      * 
      */
-    public String ingestionType;
+    private UndeferrableValue<String> ingestionType;
 
-
+    public String ingestionType() {
+        if (ingestionType == null) return null;
+        return ingestionType.getValue("Ingestion.ingestionType");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Ingestion.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,16 +77,22 @@ public final class Ingestion extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Ingestion.tagsAll");
+    }
 
     /**
      * ID of the application tenant.
      * 
      */
-    public String tenantId;
+    private UndeferrableValue<String> tenantId;
 
-
+    public String tenantId() {
+        if (tenantId == null) return null;
+        return tenantId.getValue("Ingestion.tenantId");
+    }
 
 }

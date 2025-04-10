@@ -3,27 +3,35 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dynamodb/contributorInsights:ContributorInsights")
-public final class ContributorInsights extends com.pulumi.resources.PolicyResource {
+public final class ContributorInsights extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The global secondary index name
      * 
      */
-    public String indexName;
+    private @Nullable UndeferrableValue<String> indexName;
 
-
+    public @Nullable String indexName() {
+        if (indexName == null) return null;
+        return indexName.getValue("ContributorInsights.indexName");
+    }
 
     /**
      * The name of the table to enable contributor insights
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("ContributorInsights.tableName");
+    }
 
 }

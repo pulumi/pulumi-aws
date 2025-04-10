@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecr/lifecyclePolicy:LifecyclePolicy")
-public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
+public final class LifecyclePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("LifecyclePolicy.policy");
+    }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("LifecyclePolicy.registryId");
+    }
 
     /**
      * Name of the repository to apply the policy.
      * 
      */
-    public String repository;
+    private UndeferrableValue<String> repository;
 
-
+    public String repository() {
+        if (repository == null) return null;
+        return repository.getValue("LifecyclePolicy.repository");
+    }
 
 }

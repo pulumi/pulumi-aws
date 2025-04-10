@@ -3,91 +3,123 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3control.AccessGrantAccessGrantsLocationConfiguration;
-import com.pulumi.policypacks.aws.s3control.AccessGrantGrantee;
+import com.pulumi.policypacks.aws.s3control.outputs.AccessGrantAccessGrantsLocationConfiguration;
+import com.pulumi.policypacks.aws.s3control.outputs.AccessGrantGrantee;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3control/accessGrant:AccessGrant")
-public final class AccessGrant extends com.pulumi.resources.PolicyResource {
+public final class AccessGrant extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grant.
      * 
      */
-    public String accessGrantArn;
+    private UndeferrableValue<String> accessGrantArn;
 
-
+    public String accessGrantArn() {
+        if (accessGrantArn == null) return null;
+        return accessGrantArn.getValue("AccessGrant.accessGrantArn");
+    }
 
     /**
      * Unique ID of the S3 Access Grant.
      * 
      */
-    public String accessGrantId;
+    private UndeferrableValue<String> accessGrantId;
 
-
+    public String accessGrantId() {
+        if (accessGrantId == null) return null;
+        return accessGrantId.getValue("AccessGrant.accessGrantId");
+    }
 
     /**
      * See Location Configuration below for more details.
      * 
      */
-    public AccessGrantAccessGrantsLocationConfiguration accessGrantsLocationConfiguration;
+    private @Nullable UndeferrableValue<AccessGrantAccessGrantsLocationConfiguration> accessGrantsLocationConfiguration;
 
-
+    public @Nullable AccessGrantAccessGrantsLocationConfiguration accessGrantsLocationConfiguration() {
+        if (accessGrantsLocationConfiguration == null) return null;
+        return accessGrantsLocationConfiguration.getValue("AccessGrant.accessGrantsLocationConfiguration");
+    }
 
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
-    public String accessGrantsLocationId;
+    private UndeferrableValue<String> accessGrantsLocationId;
 
+    public String accessGrantsLocationId() {
+        if (accessGrantsLocationId == null) return null;
+        return accessGrantsLocationId.getValue("AccessGrant.accessGrantsLocationId");
+    }
 
+    private UndeferrableValue<String> accountId;
 
-    public String accountId;
-
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AccessGrant.accountId");
+    }
 
     /**
      * The access grant&#39;s scope.
      * 
      */
-    public String grantScope;
+    private UndeferrableValue<String> grantScope;
 
-
+    public String grantScope() {
+        if (grantScope == null) return null;
+        return grantScope.getValue("AccessGrant.grantScope");
+    }
 
     /**
      * See Grantee below for more details.
      * 
      */
-    public AccessGrantGrantee grantee;
+    private @Nullable UndeferrableValue<AccessGrantGrantee> grantee;
 
-
+    public @Nullable AccessGrantGrantee grantee() {
+        if (grantee == null) return null;
+        return grantee.getValue("AccessGrant.grantee");
+    }
 
     /**
      * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
-    public String permission;
+    private UndeferrableValue<String> permission;
 
-
+    public String permission() {
+        if (permission == null) return null;
+        return permission.getValue("AccessGrant.permission");
+    }
 
     /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      * 
      */
-    public String s3PrefixType;
+    private @Nullable UndeferrableValue<String> s3PrefixType;
 
-
+    public @Nullable String s3PrefixType() {
+        if (s3PrefixType == null) return null;
+        return s3PrefixType.getValue("AccessGrant.s3PrefixType");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AccessGrant.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -97,8 +129,11 @@ public final class AccessGrant extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AccessGrant.tagsAll");
+    }
 
 }

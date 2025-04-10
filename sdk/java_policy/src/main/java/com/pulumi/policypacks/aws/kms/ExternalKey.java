@@ -3,111 +3,149 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/externalKey:ExternalKey")
-public final class ExternalKey extends com.pulumi.resources.PolicyResource {
+public final class ExternalKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the key.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ExternalKey.arn");
+    }
 
     /**
      * Specifies whether to disable the policy lockout check performed when creating or updating the key&#39;s policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      * 
      */
-    public Boolean bypassPolicyLockoutSafetyCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
+        if (bypassPolicyLockoutSafetyCheck == null) return null;
+        return bypassPolicyLockoutSafetyCheck.getValue("ExternalKey.bypassPolicyLockoutSafetyCheck");
+    }
 
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      * 
      */
-    public Integer deletionWindowInDays;
+    private @Nullable UndeferrableValue<Integer> deletionWindowInDays;
 
-
+    public @Nullable Integer deletionWindowInDays() {
+        if (deletionWindowInDays == null) return null;
+        return deletionWindowInDays.getValue("ExternalKey.deletionWindowInDays");
+    }
 
     /**
      * Description of the key.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ExternalKey.description");
+    }
 
     /**
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ExternalKey.enabled");
+    }
 
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
-    public String expirationModel;
+    private UndeferrableValue<String> expirationModel;
 
-
+    public String expirationModel() {
+        if (expirationModel == null) return null;
+        return expirationModel.getValue("ExternalKey.expirationModel");
+    }
 
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      * 
      */
-    public String keyMaterialBase64;
+    private @Nullable UndeferrableValue<String> keyMaterialBase64;
 
-
+    public @Nullable String keyMaterialBase64() {
+        if (keyMaterialBase64 == null) return null;
+        return keyMaterialBase64.getValue("ExternalKey.keyMaterialBase64");
+    }
 
     /**
      * The state of the CMK.
      * 
      */
-    public String keyState;
+    private UndeferrableValue<String> keyState;
 
-
+    public String keyState() {
+        if (keyState == null) return null;
+        return keyState.getValue("ExternalKey.keyState");
+    }
 
     /**
      * The cryptographic operations for which you can use the CMK.
      * 
      */
-    public String keyUsage;
+    private UndeferrableValue<String> keyUsage;
 
-
+    public String keyUsage() {
+        if (keyUsage == null) return null;
+        return keyUsage.getValue("ExternalKey.keyUsage");
+    }
 
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    public Boolean multiRegion;
+    private UndeferrableValue<Boolean> multiRegion;
 
-
+    public Boolean multiRegion() {
+        if (multiRegion == null) return null;
+        return multiRegion.getValue("ExternalKey.multiRegion");
+    }
 
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ExternalKey.policy");
+    }
 
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ExternalKey.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,16 +155,22 @@ public final class ExternalKey extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ExternalKey.tagsAll");
+    }
 
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String validTo;
+    private @Nullable UndeferrableValue<String> validTo;
 
-
+    public @Nullable String validTo() {
+        if (validTo == null) return null;
+        return validTo.getValue("ExternalKey.validTo");
+    }
 
 }

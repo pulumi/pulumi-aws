@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53recoverycontrol/routingControl:RoutingControl")
-public final class RoutingControl extends com.pulumi.resources.PolicyResource {
+public final class RoutingControl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the routing control.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RoutingControl.arn");
+    }
 
     /**
      * ARN of the cluster in which this routing control will reside.
      * 
      */
-    public String clusterArn;
+    private UndeferrableValue<String> clusterArn;
 
-
+    public String clusterArn() {
+        if (clusterArn == null) return null;
+        return clusterArn.getValue("RoutingControl.clusterArn");
+    }
 
     /**
      * ARN of the control panel in which this routing control will reside.
      * 
      */
-    public String controlPanelArn;
+    private UndeferrableValue<String> controlPanelArn;
 
-
+    public String controlPanelArn() {
+        if (controlPanelArn == null) return null;
+        return controlPanelArn.getValue("RoutingControl.controlPanelArn");
+    }
 
     /**
      * The name describing the routing control.
@@ -40,16 +50,22 @@ public final class RoutingControl extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RoutingControl.name");
+    }
 
     /**
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("RoutingControl.status");
+    }
 
 }

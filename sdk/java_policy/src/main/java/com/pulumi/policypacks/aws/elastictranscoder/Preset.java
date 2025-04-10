@@ -3,102 +3,137 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elastictranscoder.PresetAudio;
-import com.pulumi.policypacks.aws.elastictranscoder.PresetAudioCodecOptions;
-import com.pulumi.policypacks.aws.elastictranscoder.PresetThumbnails;
-import com.pulumi.policypacks.aws.elastictranscoder.PresetVideo;
-import com.pulumi.policypacks.aws.elastictranscoder.PresetVideoWatermark;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PresetAudio;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PresetAudioCodecOptions;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PresetThumbnails;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PresetVideo;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PresetVideoWatermark;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elastictranscoder/preset:Preset")
-public final class Preset extends com.pulumi.resources.PolicyResource {
+public final class Preset extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Preset.arn");
+    }
 
     /**
      * Audio parameters object (documented below).
      * 
      */
-    public PresetAudio audio;
+    private @Nullable UndeferrableValue<PresetAudio> audio;
 
-
+    public @Nullable PresetAudio audio() {
+        if (audio == null) return null;
+        return audio.getValue("Preset.audio");
+    }
 
     /**
      * Codec options for the audio parameters (documented below)
      * 
      */
-    public PresetAudioCodecOptions audioCodecOptions;
+    private UndeferrableValue<PresetAudioCodecOptions> audioCodecOptions;
 
-
+    public PresetAudioCodecOptions audioCodecOptions() {
+        if (audioCodecOptions == null) return null;
+        return audioCodecOptions.getValue("Preset.audioCodecOptions");
+    }
 
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      * 
      */
-    public String container;
+    private UndeferrableValue<String> container;
 
-
+    public String container() {
+        if (container == null) return null;
+        return container.getValue("Preset.container");
+    }
 
     /**
      * A description of the preset (maximum 255 characters)
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Preset.description");
+    }
 
     /**
      * The name of the preset. (maximum 40 characters)
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Preset.name");
+    }
 
     /**
      * Thumbnail parameters object (documented below)
      * 
      */
-    public PresetThumbnails thumbnails;
+    private @Nullable UndeferrableValue<PresetThumbnails> thumbnails;
 
+    public @Nullable PresetThumbnails thumbnails() {
+        if (thumbnails == null) return null;
+        return thumbnails.getValue("Preset.thumbnails");
+    }
 
+    private UndeferrableValue<String> type;
 
-    public String type;
-
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Preset.type");
+    }
 
     /**
      * Video parameters object (documented below)
      * 
      */
-    public PresetVideo video;
+    private @Nullable UndeferrableValue<PresetVideo> video;
 
-
+    public @Nullable PresetVideo video() {
+        if (video == null) return null;
+        return video.getValue("Preset.video");
+    }
 
     /**
      * Codec options for the video parameters
      * 
      */
-    public Map<String,String> videoCodecOptions;
+    private @Nullable UndeferrableValue<Map<String,String>> videoCodecOptions;
 
-
+    public @Nullable Map<String,String> videoCodecOptions() {
+        if (videoCodecOptions == null) return null;
+        return videoCodecOptions.getValue("Preset.videoCodecOptions");
+    }
 
     /**
      * Watermark parameters for the video parameters (documented below)
      * 
      */
-    public List<PresetVideoWatermark> videoWatermarks;
+    private @Nullable UndeferrableValue<List<PresetVideoWatermark>> videoWatermarks;
 
-
+    public @Nullable List<PresetVideoWatermark> videoWatermarks() {
+        if (videoWatermarks == null) return null;
+        return videoWatermarks.getValue("Preset.videoWatermarks");
+    }
 
 }

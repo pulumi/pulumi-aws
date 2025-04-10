@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy")
-public final class ServerlessAccessPolicy extends com.pulumi.resources.PolicyResource {
+public final class ServerlessAccessPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Description of the policy. Typically used to store information about the permissions defined in the policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ServerlessAccessPolicy.description");
+    }
 
     /**
      * Name of the policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessAccessPolicy.name");
+    }
 
     /**
      * JSON policy document to use as the content for the new policy
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ServerlessAccessPolicy.policy");
+    }
 
     /**
      * Version of the policy.
      * 
      */
-    public String policyVersion;
+    private UndeferrableValue<String> policyVersion;
 
-
+    public String policyVersion() {
+        if (policyVersion == null) return null;
+        return policyVersion.getValue("ServerlessAccessPolicy.policyVersion");
+    }
 
     /**
      * Type of access policy. Must be `data`.
@@ -48,8 +62,11 @@ public final class ServerlessAccessPolicy extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ServerlessAccessPolicy.type");
+    }
 
 }

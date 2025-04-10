@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.cloud9;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloud9/environmentEC2:EnvironmentEC2")
-public final class EnvironmentEC2 extends com.pulumi.resources.PolicyResource {
+public final class EnvironmentEC2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the environment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EnvironmentEC2.arn");
+    }
 
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      * 
      */
-    public Integer automaticStopTimeMinutes;
+    private @Nullable UndeferrableValue<Integer> automaticStopTimeMinutes;
 
-
+    public @Nullable Integer automaticStopTimeMinutes() {
+        if (automaticStopTimeMinutes == null) return null;
+        return automaticStopTimeMinutes.getValue("EnvironmentEC2.automaticStopTimeMinutes");
+    }
 
     /**
      * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
      * 
      */
-    public String connectionType;
+    private @Nullable UndeferrableValue<String> connectionType;
 
-
+    public @Nullable String connectionType() {
+        if (connectionType == null) return null;
+        return connectionType.getValue("EnvironmentEC2.connectionType");
+    }
 
     /**
      * The description of the environment.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EnvironmentEC2.description");
+    }
 
     /**
      * The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
@@ -56,49 +70,67 @@ public final class EnvironmentEC2 extends com.pulumi.resources.PolicyResource {
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
-    public String imageId;
+    private UndeferrableValue<String> imageId;
 
-
+    public String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("EnvironmentEC2.imageId");
+    }
 
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("EnvironmentEC2.instanceType");
+    }
 
     /**
      * The name of the environment.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EnvironmentEC2.name");
+    }
 
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment&#39;s creator.
      * 
      */
-    public String ownerArn;
+    private UndeferrableValue<String> ownerArn;
 
-
+    public String ownerArn() {
+        if (ownerArn == null) return null;
+        return ownerArn.getValue("EnvironmentEC2.ownerArn");
+    }
 
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("EnvironmentEC2.subnetId");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EnvironmentEC2.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,16 +140,22 @@ public final class EnvironmentEC2 extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EnvironmentEC2.tagsAll");
+    }
 
     /**
      * The type of the environment (e.g., `ssh` or `ec2`).
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("EnvironmentEC2.type");
+    }
 
 }

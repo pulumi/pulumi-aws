@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter")
-public final class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.PolicyResource {
+public final class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HostedPublicVirtualInterfaceAccepter.arn");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HostedPublicVirtualInterfaceAccepter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -35,16 +43,22 @@ public final class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HostedPublicVirtualInterfaceAccepter.tagsAll");
+    }
 
     /**
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    public String virtualInterfaceId;
+    private UndeferrableValue<String> virtualInterfaceId;
 
-
+    public String virtualInterfaceId() {
+        if (virtualInterfaceId == null) return null;
+        return virtualInterfaceId.getValue("HostedPublicVirtualInterfaceAccepter.virtualInterfaceId");
+    }
 
 }

@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions;
-import com.pulumi.policypacks.aws.imagebuilder.InfrastructureConfigurationLogging;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.InfrastructureConfigurationInstanceMetadataOptions;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.InfrastructureConfigurationLogging;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")
-public final class InfrastructureConfiguration extends com.pulumi.resources.PolicyResource {
+public final class InfrastructureConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("InfrastructureConfiguration.arn");
+    }
 
     /**
      * Date when the configuration was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("InfrastructureConfiguration.dateCreated");
+    }
 
     /**
      * Date when the configuration was updated.
      * 
      */
-    public String dateUpdated;
+    private UndeferrableValue<String> dateUpdated;
 
-
+    public String dateUpdated() {
+        if (dateUpdated == null) return null;
+        return dateUpdated.getValue("InfrastructureConfiguration.dateUpdated");
+    }
 
     /**
      * Description for the configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("InfrastructureConfiguration.description");
+    }
 
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      * 
      */
-    public InfrastructureConfigurationInstanceMetadataOptions instanceMetadataOptions;
+    private @Nullable UndeferrableValue<InfrastructureConfigurationInstanceMetadataOptions> instanceMetadataOptions;
 
-
+    public @Nullable InfrastructureConfigurationInstanceMetadataOptions instanceMetadataOptions() {
+        if (instanceMetadataOptions == null) return null;
+        return instanceMetadataOptions.getValue("InfrastructureConfiguration.instanceMetadataOptions");
+    }
 
     /**
      * Name of IAM Instance Profile.
      * 
      */
-    public String instanceProfileName;
+    private UndeferrableValue<String> instanceProfileName;
 
-
+    public String instanceProfileName() {
+        if (instanceProfileName == null) return null;
+        return instanceProfileName.getValue("InfrastructureConfiguration.instanceProfileName");
+    }
 
     /**
      * Set of EC2 Instance Types.
      * 
      */
-    public List<String> instanceTypes;
+    private @Nullable UndeferrableValue<List<String>> instanceTypes;
 
-
+    public @Nullable List<String> instanceTypes() {
+        if (instanceTypes == null) return null;
+        return instanceTypes.getValue("InfrastructureConfiguration.instanceTypes");
+    }
 
     /**
      * Name of EC2 Key Pair.
      * 
      */
-    public String keyPair;
+    private @Nullable UndeferrableValue<String> keyPair;
 
-
+    public @Nullable String keyPair() {
+        if (keyPair == null) return null;
+        return keyPair.getValue("InfrastructureConfiguration.keyPair");
+    }
 
     /**
      * Configuration block with logging settings. Detailed below.
      * 
      */
-    public InfrastructureConfigurationLogging logging;
+    private @Nullable UndeferrableValue<InfrastructureConfigurationLogging> logging;
 
-
+    public @Nullable InfrastructureConfigurationLogging logging() {
+        if (logging == null) return null;
+        return logging.getValue("InfrastructureConfiguration.logging");
+    }
 
     /**
      * Name for the configuration.
@@ -93,49 +122,67 @@ public final class InfrastructureConfiguration extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InfrastructureConfiguration.name");
+    }
 
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      * 
      */
-    public Map<String,String> resourceTags;
+    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
 
-
+    public @Nullable Map<String,String> resourceTags() {
+        if (resourceTags == null) return null;
+        return resourceTags.getValue("InfrastructureConfiguration.resourceTags");
+    }
 
     /**
      * Set of EC2 Security Group identifiers.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("InfrastructureConfiguration.securityGroupIds");
+    }
 
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      * 
      */
-    public String snsTopicArn;
+    private @Nullable UndeferrableValue<String> snsTopicArn;
 
-
+    public @Nullable String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("InfrastructureConfiguration.snsTopicArn");
+    }
 
     /**
      * EC2 Subnet identifier. Also requires `security_group_ids` argument.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("InfrastructureConfiguration.subnetId");
+    }
 
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("InfrastructureConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -145,16 +192,22 @@ public final class InfrastructureConfiguration extends com.pulumi.resources.Poli
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("InfrastructureConfiguration.tagsAll");
+    }
 
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      * 
      */
-    public Boolean terminateInstanceOnFailure;
+    private @Nullable UndeferrableValue<Boolean> terminateInstanceOnFailure;
 
-
+    public @Nullable Boolean terminateInstanceOnFailure() {
+        if (terminateInstanceOnFailure == null) return null;
+        return terminateInstanceOnFailure.getValue("InfrastructureConfiguration.terminateInstanceOnFailure");
+    }
 
 }

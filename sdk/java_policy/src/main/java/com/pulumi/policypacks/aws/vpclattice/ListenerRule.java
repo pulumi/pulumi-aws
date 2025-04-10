@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ListenerRuleAction;
-import com.pulumi.policypacks.aws.vpclattice.ListenerRuleMatch;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleAction;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleMatch;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/listenerRule:ListenerRule")
-public final class ListenerRule extends com.pulumi.resources.PolicyResource {
+public final class ListenerRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action for the listener rule.
      * 
      */
-    public ListenerRuleAction action;
+    private UndeferrableValue<ListenerRuleAction> action;
 
-
+    public ListenerRuleAction action() {
+        if (action == null) return null;
+        return action.getValue("ListenerRule.action");
+    }
 
     /**
      * The ARN for the listener rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ListenerRule.arn");
+    }
 
     /**
      * The ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
-    public String listenerIdentifier;
+    private UndeferrableValue<String> listenerIdentifier;
 
-
+    public String listenerIdentifier() {
+        if (listenerIdentifier == null) return null;
+        return listenerIdentifier.getValue("ListenerRule.listenerIdentifier");
+    }
 
     /**
      * The rule match.
      * 
      */
-    public ListenerRuleMatch match;
+    private UndeferrableValue<ListenerRuleMatch> match;
 
-
+    public ListenerRuleMatch match() {
+        if (match == null) return null;
+        return match.getValue("ListenerRule.match");
+    }
 
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ListenerRule.name");
+    }
 
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
@@ -60,33 +77,45 @@ public final class ListenerRule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer priority;
+    private UndeferrableValue<Integer> priority;
 
-
+    public Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("ListenerRule.priority");
+    }
 
     /**
      * Unique identifier for the listener rule.
      * 
      */
-    public String ruleId;
+    private UndeferrableValue<String> ruleId;
 
-
+    public String ruleId() {
+        if (ruleId == null) return null;
+        return ruleId.getValue("ListenerRule.ruleId");
+    }
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
-    public String serviceIdentifier;
+    private UndeferrableValue<String> serviceIdentifier;
 
-
+    public String serviceIdentifier() {
+        if (serviceIdentifier == null) return null;
+        return serviceIdentifier.getValue("ListenerRule.serviceIdentifier");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ListenerRule.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,8 +125,11 @@ public final class ListenerRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ListenerRule.tagsAll");
+    }
 
 }

@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/usageLimit:UsageLimit")
-public final class UsageLimit extends com.pulumi.resources.PolicyResource {
+public final class UsageLimit extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
      * 
      */
-    public Integer amount;
+    private UndeferrableValue<Integer> amount;
 
-
+    public Integer amount() {
+        if (amount == null) return null;
+        return amount.getValue("UsageLimit.amount");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UsageLimit.arn");
+    }
 
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      * 
      */
-    public String breachAction;
+    private @Nullable UndeferrableValue<String> breachAction;
 
-
+    public @Nullable String breachAction() {
+        if (breachAction == null) return null;
+        return breachAction.getValue("UsageLimit.breachAction");
+    }
 
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      * 
      */
-    public String period;
+    private @Nullable UndeferrableValue<String> period;
 
-
+    public @Nullable String period() {
+        if (period == null) return null;
+        return period.getValue("UsageLimit.period");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("UsageLimit.resourceArn");
+    }
 
     /**
      * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
      * 
      */
-    public String usageType;
+    private UndeferrableValue<String> usageType;
 
-
+    public String usageType() {
+        if (usageType == null) return null;
+        return usageType.getValue("UsageLimit.usageType");
+    }
 
 }

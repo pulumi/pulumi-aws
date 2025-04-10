@@ -3,94 +3,123 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiAdditionalAuthenticationProvider;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiEnhancedMetricsConfig;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiLambdaAuthorizerConfig;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiLogConfig;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiOpenidConnectConfig;
-import com.pulumi.policypacks.aws.appsync.GraphQLApiUserPoolConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProvider;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiEnhancedMetricsConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiLambdaAuthorizerConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiLogConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiOpenidConnectConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiUserPoolConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
-public final class GraphQLApi extends com.pulumi.resources.PolicyResource {
+public final class GraphQLApi extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
-    public List<GraphQLApiAdditionalAuthenticationProvider> additionalAuthenticationProviders;
+    private @Nullable UndeferrableValue<List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
-
+    public @Nullable List<GraphQLApiAdditionalAuthenticationProvider> additionalAuthenticationProviders() {
+        if (additionalAuthenticationProviders == null) return null;
+        return additionalAuthenticationProviders.getValue("GraphQLApi.additionalAuthenticationProviders");
+    }
 
     /**
      * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
      * 
      */
-    public String apiType;
+    private @Nullable UndeferrableValue<String> apiType;
 
-
+    public @Nullable String apiType() {
+        if (apiType == null) return null;
+        return apiType.getValue("GraphQLApi.apiType");
+    }
 
     /**
      * ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GraphQLApi.arn");
+    }
 
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
-    public String authenticationType;
+    private UndeferrableValue<String> authenticationType;
 
-
+    public String authenticationType() {
+        if (authenticationType == null) return null;
+        return authenticationType.getValue("GraphQLApi.authenticationType");
+    }
 
     /**
      * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
      * 
      */
-    public GraphQLApiEnhancedMetricsConfig enhancedMetricsConfig;
+    private @Nullable UndeferrableValue<GraphQLApiEnhancedMetricsConfig> enhancedMetricsConfig;
 
-
+    public @Nullable GraphQLApiEnhancedMetricsConfig enhancedMetricsConfig() {
+        if (enhancedMetricsConfig == null) return null;
+        return enhancedMetricsConfig.getValue("GraphQLApi.enhancedMetricsConfig");
+    }
 
     /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      * 
      */
-    public String introspectionConfig;
+    private @Nullable UndeferrableValue<String> introspectionConfig;
 
-
+    public @Nullable String introspectionConfig() {
+        if (introspectionConfig == null) return null;
+        return introspectionConfig.getValue("GraphQLApi.introspectionConfig");
+    }
 
     /**
      * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
-    public GraphQLApiLambdaAuthorizerConfig lambdaAuthorizerConfig;
+    private @Nullable UndeferrableValue<GraphQLApiLambdaAuthorizerConfig> lambdaAuthorizerConfig;
 
-
+    public @Nullable GraphQLApiLambdaAuthorizerConfig lambdaAuthorizerConfig() {
+        if (lambdaAuthorizerConfig == null) return null;
+        return lambdaAuthorizerConfig.getValue("GraphQLApi.lambdaAuthorizerConfig");
+    }
 
     /**
      * Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
-    public GraphQLApiLogConfig logConfig;
+    private @Nullable UndeferrableValue<GraphQLApiLogConfig> logConfig;
 
-
+    public @Nullable GraphQLApiLogConfig logConfig() {
+        if (logConfig == null) return null;
+        return logConfig.getValue("GraphQLApi.logConfig");
+    }
 
     /**
      * ARN of the execution role when `api_type` is set to `MERGED`.
      * 
      */
-    public String mergedApiExecutionRoleArn;
+    private @Nullable UndeferrableValue<String> mergedApiExecutionRoleArn;
 
-
+    public @Nullable String mergedApiExecutionRoleArn() {
+        if (mergedApiExecutionRoleArn == null) return null;
+        return mergedApiExecutionRoleArn.getValue("GraphQLApi.mergedApiExecutionRoleArn");
+    }
 
     /**
      * User-supplied name for the GraphQL API.
@@ -98,17 +127,23 @@ public final class GraphQLApi extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GraphQLApi.name");
+    }
 
     /**
      * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
-    public GraphQLApiOpenidConnectConfig openidConnectConfig;
+    private @Nullable UndeferrableValue<GraphQLApiOpenidConnectConfig> openidConnectConfig;
 
-
+    public @Nullable GraphQLApiOpenidConnectConfig openidConnectConfig() {
+        if (openidConnectConfig == null) return null;
+        return openidConnectConfig.getValue("GraphQLApi.openidConnectConfig");
+    }
 
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
@@ -116,33 +151,45 @@ public final class GraphQLApi extends com.pulumi.resources.PolicyResource {
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      * 
      */
-    public Integer queryDepthLimit;
+    private @Nullable UndeferrableValue<Integer> queryDepthLimit;
 
-
+    public @Nullable Integer queryDepthLimit() {
+        if (queryDepthLimit == null) return null;
+        return queryDepthLimit.getValue("GraphQLApi.queryDepthLimit");
+    }
 
     /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      * 
      */
-    public Integer resolverCountLimit;
+    private @Nullable UndeferrableValue<Integer> resolverCountLimit;
 
-
+    public @Nullable Integer resolverCountLimit() {
+        if (resolverCountLimit == null) return null;
+        return resolverCountLimit.getValue("GraphQLApi.resolverCountLimit");
+    }
 
     /**
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
-    public String schema;
+    private @Nullable UndeferrableValue<String> schema;
 
-
+    public @Nullable String schema() {
+        if (schema == null) return null;
+        return schema.getValue("GraphQLApi.schema");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GraphQLApi.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -152,40 +199,55 @@ public final class GraphQLApi extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GraphQLApi.tagsAll");
+    }
 
     /**
      * Map of URIs associated with the API E.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      * 
      */
-    public Map<String,String> uris;
+    private UndeferrableValue<Map<String,String>> uris;
 
-
+    public Map<String,String> uris() {
+        if (uris == null) return null;
+        return uris.getValue("GraphQLApi.uris");
+    }
 
     /**
      * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
-    public GraphQLApiUserPoolConfig userPoolConfig;
+    private @Nullable UndeferrableValue<GraphQLApiUserPoolConfig> userPoolConfig;
 
-
+    public @Nullable GraphQLApiUserPoolConfig userPoolConfig() {
+        if (userPoolConfig == null) return null;
+        return userPoolConfig.getValue("GraphQLApi.userPoolConfig");
+    }
 
     /**
      * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
      * 
      */
-    public String visibility;
+    private @Nullable UndeferrableValue<String> visibility;
 
-
+    public @Nullable String visibility() {
+        if (visibility == null) return null;
+        return visibility.getValue("GraphQLApi.visibility");
+    }
 
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      * 
      */
-    public Boolean xrayEnabled;
+    private @Nullable UndeferrableValue<Boolean> xrayEnabled;
 
-
+    public @Nullable Boolean xrayEnabled() {
+        if (xrayEnabled == null) return null;
+        return xrayEnabled.getValue("GraphQLApi.xrayEnabled");
+    }
 
 }

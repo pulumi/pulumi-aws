@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.TrafficMirrorFilterRuleDestinationPortRange;
-import com.pulumi.policypacks.aws.ec2.TrafficMirrorFilterRuleSourcePortRange;
+import com.pulumi.policypacks.aws.ec2.outputs.TrafficMirrorFilterRuleDestinationPortRange;
+import com.pulumi.policypacks.aws.ec2.outputs.TrafficMirrorFilterRuleSourcePortRange;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")
-public final class TrafficMirrorFilterRule extends com.pulumi.resources.PolicyResource {
+public final class TrafficMirrorFilterRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the traffic mirror filter rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficMirrorFilterRule.arn");
+    }
 
     /**
      * Description of the traffic mirror filter rule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TrafficMirrorFilterRule.description");
+    }
 
     /**
      * Destination CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    public String destinationCidrBlock;
+    private UndeferrableValue<String> destinationCidrBlock;
 
-
+    public String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("TrafficMirrorFilterRule.destinationCidrBlock");
+    }
 
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    public TrafficMirrorFilterRuleDestinationPortRange destinationPortRange;
+    private @Nullable UndeferrableValue<TrafficMirrorFilterRuleDestinationPortRange> destinationPortRange;
 
-
+    public @Nullable TrafficMirrorFilterRuleDestinationPortRange destinationPortRange() {
+        if (destinationPortRange == null) return null;
+        return destinationPortRange.getValue("TrafficMirrorFilterRule.destinationPortRange");
+    }
 
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      * 
      */
-    public Integer protocol;
+    private @Nullable UndeferrableValue<Integer> protocol;
 
-
+    public @Nullable Integer protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("TrafficMirrorFilterRule.protocol");
+    }
 
     /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      * 
      */
-    public String ruleAction;
+    private UndeferrableValue<String> ruleAction;
 
-
+    public String ruleAction() {
+        if (ruleAction == null) return null;
+        return ruleAction.getValue("TrafficMirrorFilterRule.ruleAction");
+    }
 
     /**
      * Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
      * 
      */
-    public Integer ruleNumber;
+    private UndeferrableValue<Integer> ruleNumber;
 
-
+    public Integer ruleNumber() {
+        if (ruleNumber == null) return null;
+        return ruleNumber.getValue("TrafficMirrorFilterRule.ruleNumber");
+    }
 
     /**
      * Source CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    public String sourceCidrBlock;
+    private UndeferrableValue<String> sourceCidrBlock;
 
-
+    public String sourceCidrBlock() {
+        if (sourceCidrBlock == null) return null;
+        return sourceCidrBlock.getValue("TrafficMirrorFilterRule.sourceCidrBlock");
+    }
 
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    public TrafficMirrorFilterRuleSourcePortRange sourcePortRange;
+    private @Nullable UndeferrableValue<TrafficMirrorFilterRuleSourcePortRange> sourcePortRange;
 
-
+    public @Nullable TrafficMirrorFilterRuleSourcePortRange sourcePortRange() {
+        if (sourcePortRange == null) return null;
+        return sourcePortRange.getValue("TrafficMirrorFilterRule.sourcePortRange");
+    }
 
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
@@ -91,16 +120,22 @@ public final class TrafficMirrorFilterRule extends com.pulumi.resources.PolicyRe
      * Traffic mirror port range support following attributes:
      * 
      */
-    public String trafficDirection;
+    private UndeferrableValue<String> trafficDirection;
 
-
+    public String trafficDirection() {
+        if (trafficDirection == null) return null;
+        return trafficDirection.getValue("TrafficMirrorFilterRule.trafficDirection");
+    }
 
     /**
      * ID of the traffic mirror filter to which this rule should be added
      * 
      */
-    public String trafficMirrorFilterId;
+    private UndeferrableValue<String> trafficMirrorFilterId;
 
-
+    public String trafficMirrorFilterId() {
+        if (trafficMirrorFilterId == null) return null;
+        return trafficMirrorFilterId.getValue("TrafficMirrorFilterRule.trafficMirrorFilterId");
+    }
 
 }

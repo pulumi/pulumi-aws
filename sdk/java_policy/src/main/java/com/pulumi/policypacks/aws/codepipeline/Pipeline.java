@@ -3,35 +3,43 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codepipeline.PipelineArtifactStore;
-import com.pulumi.policypacks.aws.codepipeline.PipelineStage;
-import com.pulumi.policypacks.aws.codepipeline.PipelineTrigger;
-import com.pulumi.policypacks.aws.codepipeline.PipelineTriggerAll;
-import com.pulumi.policypacks.aws.codepipeline.PipelineVariable;
+import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineArtifactStore;
+import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineStage;
+import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTrigger;
+import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTriggerAll;
+import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineVariable;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codepipeline/pipeline:Pipeline")
-public final class Pipeline extends com.pulumi.resources.PolicyResource {
+public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Codepipeline ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Pipeline.arn");
+    }
 
     /**
      * One or more artifact_store blocks. Artifact stores are documented below.
      * 
      */
-    public List<PipelineArtifactStore> artifactStores;
+    private UndeferrableValue<List<PipelineArtifactStore>> artifactStores;
 
-
+    public List<PipelineArtifactStore> artifactStores() {
+        if (artifactStores == null) return null;
+        return artifactStores.getValue("Pipeline.artifactStores");
+    }
 
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
@@ -39,49 +47,67 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
-    public String executionMode;
+    private @Nullable UndeferrableValue<String> executionMode;
 
-
+    public @Nullable String executionMode() {
+        if (executionMode == null) return null;
+        return executionMode.getValue("Pipeline.executionMode");
+    }
 
     /**
      * The name of the pipeline.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Pipeline.name");
+    }
 
     /**
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      * 
      */
-    public String pipelineType;
+    private @Nullable UndeferrableValue<String> pipelineType;
 
-
+    public @Nullable String pipelineType() {
+        if (pipelineType == null) return null;
+        return pipelineType.getValue("Pipeline.pipelineType");
+    }
 
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Pipeline.roleArn");
+    }
 
     /**
      * A stage block. Stages are documented below.
      * 
      */
-    public List<PipelineStage> stages;
+    private UndeferrableValue<List<PipelineStage>> stages;
 
-
+    public List<PipelineStage> stages() {
+        if (stages == null) return null;
+        return stages.getValue("Pipeline.stages");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Pipeline.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -91,32 +117,44 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Pipeline.tagsAll");
+    }
 
     /**
      * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
      * 
      */
-    public List<PipelineTriggerAll> triggerAlls;
+    private UndeferrableValue<List<PipelineTriggerAll>> triggerAlls;
 
-
+    public List<PipelineTriggerAll> triggerAlls() {
+        if (triggerAlls == null) return null;
+        return triggerAlls.getValue("Pipeline.triggerAlls");
+    }
 
     /**
      * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
-    public List<PipelineTrigger> triggers;
+    private @Nullable UndeferrableValue<List<PipelineTrigger>> triggers;
 
-
+    public @Nullable List<PipelineTrigger> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Pipeline.triggers");
+    }
 
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
      */
-    public List<PipelineVariable> variables;
+    private @Nullable UndeferrableValue<List<PipelineVariable>> variables;
 
-
+    public @Nullable List<PipelineVariable> variables() {
+        if (variables == null) return null;
+        return variables.getValue("Pipeline.variables");
+    }
 
 }

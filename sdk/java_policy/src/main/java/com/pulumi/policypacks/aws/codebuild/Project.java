@@ -3,68 +3,85 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codebuild.ProjectArtifacts;
-import com.pulumi.policypacks.aws.codebuild.ProjectBuildBatchConfig;
-import com.pulumi.policypacks.aws.codebuild.ProjectCache;
-import com.pulumi.policypacks.aws.codebuild.ProjectEnvironment;
-import com.pulumi.policypacks.aws.codebuild.ProjectFileSystemLocation;
-import com.pulumi.policypacks.aws.codebuild.ProjectLogsConfig;
-import com.pulumi.policypacks.aws.codebuild.ProjectSecondaryArtifact;
-import com.pulumi.policypacks.aws.codebuild.ProjectSecondarySource;
-import com.pulumi.policypacks.aws.codebuild.ProjectSecondarySourceVersion;
-import com.pulumi.policypacks.aws.codebuild.ProjectSource;
-import com.pulumi.policypacks.aws.codebuild.ProjectVpcConfig;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectArtifacts;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectBuildBatchConfig;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectCache;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectEnvironment;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectFileSystemLocation;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectLogsConfig;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondaryArtifact;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondarySource;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondarySourceVersion;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSource;
+import com.pulumi.policypacks.aws.codebuild.outputs.ProjectVpcConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codebuild/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the CodeBuild project.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Project.arn");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public ProjectArtifacts artifacts;
+    private UndeferrableValue<ProjectArtifacts> artifacts;
 
-
+    public ProjectArtifacts artifacts() {
+        if (artifacts == null) return null;
+        return artifacts.getValue("Project.artifacts");
+    }
 
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badge_url` attribute when enabled.
      * 
      */
-    public Boolean badgeEnabled;
+    private @Nullable UndeferrableValue<Boolean> badgeEnabled;
 
-
+    public @Nullable Boolean badgeEnabled() {
+        if (badgeEnabled == null) return null;
+        return badgeEnabled.getValue("Project.badgeEnabled");
+    }
 
     /**
      * URL of the build badge when `badge_enabled` is enabled.
      * 
      */
-    public String badgeUrl;
+    private UndeferrableValue<String> badgeUrl;
 
-
+    public String badgeUrl() {
+        if (badgeUrl == null) return null;
+        return badgeUrl.getValue("Project.badgeUrl");
+    }
 
     /**
      * Defines the batch build options for the project.
      * 
      */
-    public ProjectBuildBatchConfig buildBatchConfig;
+    private @Nullable UndeferrableValue<ProjectBuildBatchConfig> buildBatchConfig;
 
-
+    public @Nullable ProjectBuildBatchConfig buildBatchConfig() {
+        if (buildBatchConfig == null) return null;
+        return buildBatchConfig.getValue("Project.buildBatchConfig");
+    }
 
     /**
      * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
@@ -72,102 +89,138 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * not available on the `Lambda` compute type.
      * 
      */
-    public Integer buildTimeout;
+    private @Nullable UndeferrableValue<Integer> buildTimeout;
 
-
+    public @Nullable Integer buildTimeout() {
+        if (buildTimeout == null) return null;
+        return buildTimeout.getValue("Project.buildTimeout");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public ProjectCache cache;
+    private @Nullable UndeferrableValue<ProjectCache> cache;
 
-
+    public @Nullable ProjectCache cache() {
+        if (cache == null) return null;
+        return cache.getValue("Project.cache");
+    }
 
     /**
      * Specify a maximum number of concurrent builds for the project. The value
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
-    public Integer concurrentBuildLimit;
+    private @Nullable UndeferrableValue<Integer> concurrentBuildLimit;
 
-
+    public @Nullable Integer concurrentBuildLimit() {
+        if (concurrentBuildLimit == null) return null;
+        return concurrentBuildLimit.getValue("Project.concurrentBuildLimit");
+    }
 
     /**
      * Short description of the project.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Project.description");
+    }
 
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
      * the build project&#39;s build output artifacts.
      * 
      */
-    public String encryptionKey;
+    private UndeferrableValue<String> encryptionKey;
 
-
+    public String encryptionKey() {
+        if (encryptionKey == null) return null;
+        return encryptionKey.getValue("Project.encryptionKey");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public ProjectEnvironment environment;
+    private UndeferrableValue<ProjectEnvironment> environment;
 
-
+    public ProjectEnvironment environment() {
+        if (environment == null) return null;
+        return environment.getValue("Project.environment");
+    }
 
     /**
      * A set of file system locations to mount inside the build. File system locations
      * are documented below.
      * 
      */
-    public List<ProjectFileSystemLocation> fileSystemLocations;
+    private @Nullable UndeferrableValue<List<ProjectFileSystemLocation>> fileSystemLocations;
 
-
+    public @Nullable List<ProjectFileSystemLocation> fileSystemLocations() {
+        if (fileSystemLocations == null) return null;
+        return fileSystemLocations.getValue("Project.fileSystemLocations");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public ProjectLogsConfig logsConfig;
+    private @Nullable UndeferrableValue<ProjectLogsConfig> logsConfig;
 
-
+    public @Nullable ProjectLogsConfig logsConfig() {
+        if (logsConfig == null) return null;
+        return logsConfig.getValue("Project.logsConfig");
+    }
 
     /**
      * Project&#39;s name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
      * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
-    public String projectVisibility;
+    private @Nullable UndeferrableValue<String> projectVisibility;
 
-
+    public @Nullable String projectVisibility() {
+        if (projectVisibility == null) return null;
+        return projectVisibility.getValue("Project.projectVisibility");
+    }
 
     /**
      * The project identifier used with the public build APIs.
      * 
      */
-    public String publicProjectAlias;
+    private UndeferrableValue<String> publicProjectAlias;
 
-
+    public String publicProjectAlias() {
+        if (publicProjectAlias == null) return null;
+        return publicProjectAlias.getValue("Project.publicProjectAlias");
+    }
 
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
      * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
-    public Integer queuedTimeout;
+    private @Nullable UndeferrableValue<Integer> queuedTimeout;
 
-
+    public @Nullable Integer queuedTimeout() {
+        if (queuedTimeout == null) return null;
+        return queuedTimeout.getValue("Project.queuedTimeout");
+    }
 
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
@@ -175,42 +228,57 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * `project_visibility` is `PUBLIC_READ`.
      * 
      */
-    public String resourceAccessRole;
+    private @Nullable UndeferrableValue<String> resourceAccessRole;
 
-
-
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
-    public List<ProjectSecondaryArtifact> secondaryArtifacts;
-
-
+    public @Nullable String resourceAccessRole() {
+        if (resourceAccessRole == null) return null;
+        return resourceAccessRole.getValue("Project.resourceAccessRole");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public List<ProjectSecondarySourceVersion> secondarySourceVersions;
+    private @Nullable UndeferrableValue<List<ProjectSecondaryArtifact>> secondaryArtifacts;
 
-
+    public @Nullable List<ProjectSecondaryArtifact> secondaryArtifacts() {
+        if (secondaryArtifacts == null) return null;
+        return secondaryArtifacts.getValue("Project.secondaryArtifacts");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public List<ProjectSecondarySource> secondarySources;
+    private @Nullable UndeferrableValue<List<ProjectSecondarySourceVersion>> secondarySourceVersions;
 
+    public @Nullable List<ProjectSecondarySourceVersion> secondarySourceVersions() {
+        if (secondarySourceVersions == null) return null;
+        return secondarySourceVersions.getValue("Project.secondarySourceVersions");
+    }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
+    private @Nullable UndeferrableValue<List<ProjectSecondarySource>> secondarySources;
+
+    public @Nullable List<ProjectSecondarySource> secondarySources() {
+        if (secondarySources == null) return null;
+        return secondarySources.getValue("Project.secondarySources");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("Project.serviceRole");
+    }
 
     /**
      * Configuration block. Detailed below.
@@ -218,18 +286,24 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ProjectSource source;
+    private UndeferrableValue<ProjectSource> source;
 
-
+    public ProjectSource source() {
+        if (source == null) return null;
+        return source.getValue("Project.source");
+    }
 
     /**
      * Version of the build input to be built for this project. If not specified, the latest
      * version is used.
      * 
      */
-    public String sourceVersion;
+    private @Nullable UndeferrableValue<String> sourceVersion;
 
-
+    public @Nullable String sourceVersion() {
+        if (sourceVersion == null) return null;
+        return sourceVersion.getValue("Project.sourceVersion");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider
@@ -237,9 +311,12 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Project.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider
@@ -250,16 +327,22 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Project.tagsAll");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public ProjectVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<ProjectVpcConfig> vpcConfig;
 
-
+    public @Nullable ProjectVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Project.vpcConfig");
+    }
 
 }

@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")
-public final class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources.PolicyResource {
+public final class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NotebookInstanceLifecycleConfiguration.arn");
+    }
 
     /**
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("NotebookInstanceLifecycleConfiguration.name");
+    }
 
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
-    public String onCreate;
+    private @Nullable UndeferrableValue<String> onCreate;
 
-
+    public @Nullable String onCreate() {
+        if (onCreate == null) return null;
+        return onCreate.getValue("NotebookInstanceLifecycleConfiguration.onCreate");
+    }
 
     /**
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
-    public String onStart;
+    private @Nullable UndeferrableValue<String> onStart;
 
-
+    public @Nullable String onStart() {
+        if (onStart == null) return null;
+        return onStart.getValue("NotebookInstanceLifecycleConfiguration.onStart");
+    }
 
 }

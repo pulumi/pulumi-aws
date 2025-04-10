@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")
-public final class MainRouteTableAssociation extends com.pulumi.resources.PolicyResource {
+public final class MainRouteTableAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Used internally, see **Notes** below
      * 
      */
-    public String originalRouteTableId;
+    private UndeferrableValue<String> originalRouteTableId;
 
-
+    public String originalRouteTableId() {
+        if (originalRouteTableId == null) return null;
+        return originalRouteTableId.getValue("MainRouteTableAssociation.originalRouteTableId");
+    }
 
     /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      * 
      */
-    public String routeTableId;
+    private UndeferrableValue<String> routeTableId;
 
-
+    public String routeTableId() {
+        if (routeTableId == null) return null;
+        return routeTableId.getValue("MainRouteTableAssociation.routeTableId");
+    }
 
     /**
      * The ID of the VPC whose main route table should be set
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("MainRouteTableAssociation.vpcId");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")
-public final class VpcEndpointSubnetAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointSubnetAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("VpcEndpointSubnetAssociation.subnetId");
+    }
 
     /**
      * The ID of the VPC endpoint with which the subnet will be associated.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("VpcEndpointSubnetAssociation.vpcEndpointId");
+    }
 
 }

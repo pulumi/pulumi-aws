@@ -3,117 +3,155 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.DataSetColumnGroup;
-import com.pulumi.policypacks.aws.quicksight.DataSetColumnLevelPermissionRule;
-import com.pulumi.policypacks.aws.quicksight.DataSetDataSetUsageConfiguration;
-import com.pulumi.policypacks.aws.quicksight.DataSetFieldFolder;
-import com.pulumi.policypacks.aws.quicksight.DataSetLogicalTableMap;
-import com.pulumi.policypacks.aws.quicksight.DataSetOutputColumn;
-import com.pulumi.policypacks.aws.quicksight.DataSetPermission;
-import com.pulumi.policypacks.aws.quicksight.DataSetPhysicalTableMap;
-import com.pulumi.policypacks.aws.quicksight.DataSetRefreshProperties;
-import com.pulumi.policypacks.aws.quicksight.DataSetRowLevelPermissionDataSet;
-import com.pulumi.policypacks.aws.quicksight.DataSetRowLevelPermissionTagConfiguration;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetColumnGroup;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetColumnLevelPermissionRule;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetDataSetUsageConfiguration;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetFieldFolder;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMap;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetOutputColumn;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPhysicalTableMap;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetRefreshProperties;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetRowLevelPermissionDataSet;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSetRowLevelPermissionTagConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/dataSet:DataSet")
-public final class DataSet extends com.pulumi.resources.PolicyResource {
+public final class DataSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the data set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataSet.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("DataSet.awsAccountId");
+    }
 
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      * 
      */
-    public List<DataSetColumnGroup> columnGroups;
+    private @Nullable UndeferrableValue<List<DataSetColumnGroup>> columnGroups;
 
-
+    public @Nullable List<DataSetColumnGroup> columnGroups() {
+        if (columnGroups == null) return null;
+        return columnGroups.getValue("DataSet.columnGroups");
+    }
 
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      * 
      */
-    public List<DataSetColumnLevelPermissionRule> columnLevelPermissionRules;
+    private @Nullable UndeferrableValue<List<DataSetColumnLevelPermissionRule>> columnLevelPermissionRules;
 
-
+    public @Nullable List<DataSetColumnLevelPermissionRule> columnLevelPermissionRules() {
+        if (columnLevelPermissionRules == null) return null;
+        return columnLevelPermissionRules.getValue("DataSet.columnLevelPermissionRules");
+    }
 
     /**
      * Identifier for the data set.
      * 
      */
-    public String dataSetId;
+    private UndeferrableValue<String> dataSetId;
 
-
+    public String dataSetId() {
+        if (dataSetId == null) return null;
+        return dataSetId.getValue("DataSet.dataSetId");
+    }
 
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      * 
      */
-    public DataSetDataSetUsageConfiguration dataSetUsageConfiguration;
+    private UndeferrableValue<DataSetDataSetUsageConfiguration> dataSetUsageConfiguration;
 
-
+    public DataSetDataSetUsageConfiguration dataSetUsageConfiguration() {
+        if (dataSetUsageConfiguration == null) return null;
+        return dataSetUsageConfiguration.getValue("DataSet.dataSetUsageConfiguration");
+    }
 
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      * 
      */
-    public List<DataSetFieldFolder> fieldFolders;
+    private @Nullable UndeferrableValue<List<DataSetFieldFolder>> fieldFolders;
 
-
+    public @Nullable List<DataSetFieldFolder> fieldFolders() {
+        if (fieldFolders == null) return null;
+        return fieldFolders.getValue("DataSet.fieldFolders");
+    }
 
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
-    public String importMode;
+    private UndeferrableValue<String> importMode;
 
-
+    public String importMode() {
+        if (importMode == null) return null;
+        return importMode.getValue("DataSet.importMode");
+    }
 
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      * 
      */
-    public List<DataSetLogicalTableMap> logicalTableMaps;
+    private UndeferrableValue<List<DataSetLogicalTableMap>> logicalTableMaps;
 
-
+    public List<DataSetLogicalTableMap> logicalTableMaps() {
+        if (logicalTableMaps == null) return null;
+        return logicalTableMaps.getValue("DataSet.logicalTableMaps");
+    }
 
     /**
      * Display name for the dataset.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataSet.name");
+    }
 
+    private UndeferrableValue<List<DataSetOutputColumn>> outputColumns;
 
-    public List<DataSetOutputColumn> outputColumns;
-
-
+    public List<DataSetOutputColumn> outputColumns() {
+        if (outputColumns == null) return null;
+        return outputColumns.getValue("DataSet.outputColumns");
+    }
 
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      * 
      */
-    public List<DataSetPermission> permissions;
+    private @Nullable UndeferrableValue<List<DataSetPermission>> permissions;
 
-
+    public @Nullable List<DataSetPermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("DataSet.permissions");
+    }
 
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
@@ -121,41 +159,56 @@ public final class DataSet extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<DataSetPhysicalTableMap> physicalTableMaps;
+    private @Nullable UndeferrableValue<List<DataSetPhysicalTableMap>> physicalTableMaps;
 
-
+    public @Nullable List<DataSetPhysicalTableMap> physicalTableMaps() {
+        if (physicalTableMaps == null) return null;
+        return physicalTableMaps.getValue("DataSet.physicalTableMaps");
+    }
 
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
      * 
      */
-    public DataSetRefreshProperties refreshProperties;
+    private @Nullable UndeferrableValue<DataSetRefreshProperties> refreshProperties;
 
-
+    public @Nullable DataSetRefreshProperties refreshProperties() {
+        if (refreshProperties == null) return null;
+        return refreshProperties.getValue("DataSet.refreshProperties");
+    }
 
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      * 
      */
-    public DataSetRowLevelPermissionDataSet rowLevelPermissionDataSet;
+    private @Nullable UndeferrableValue<DataSetRowLevelPermissionDataSet> rowLevelPermissionDataSet;
 
-
+    public @Nullable DataSetRowLevelPermissionDataSet rowLevelPermissionDataSet() {
+        if (rowLevelPermissionDataSet == null) return null;
+        return rowLevelPermissionDataSet.getValue("DataSet.rowLevelPermissionDataSet");
+    }
 
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      * 
      */
-    public DataSetRowLevelPermissionTagConfiguration rowLevelPermissionTagConfiguration;
+    private @Nullable UndeferrableValue<DataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfiguration;
 
-
+    public @Nullable DataSetRowLevelPermissionTagConfiguration rowLevelPermissionTagConfiguration() {
+        if (rowLevelPermissionTagConfiguration == null) return null;
+        return rowLevelPermissionTagConfiguration.getValue("DataSet.rowLevelPermissionTagConfiguration");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -165,8 +218,11 @@ public final class DataSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataSet.tagsAll");
+    }
 
 }

@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/vault:Vault")
-public final class Vault extends com.pulumi.resources.PolicyResource {
+public final class Vault extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the vault.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Vault.arn");
+    }
 
     /**
      * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Vault.forceDestroy");
+    }
 
     /**
      * The server-side encryption key that is used to protect your backups.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Vault.kmsKeyArn");
+    }
 
     /**
      * Name of the backup vault to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Vault.name");
+    }
 
     /**
      * The number of recovery points that are stored in a backup vault.
      * 
      */
-    public Integer recoveryPoints;
+    private UndeferrableValue<Integer> recoveryPoints;
 
-
+    public Integer recoveryPoints() {
+        if (recoveryPoints == null) return null;
+        return recoveryPoints.getValue("Vault.recoveryPoints");
+    }
 
     /**
      * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Vault.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,8 +89,11 @@ public final class Vault extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Vault.tagsAll");
+    }
 
 }

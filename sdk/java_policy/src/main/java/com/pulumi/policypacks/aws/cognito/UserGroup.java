@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/userGroup:UserGroup")
-public final class UserGroup extends com.pulumi.resources.PolicyResource {
+public final class UserGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The description of the user group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("UserGroup.description");
+    }
 
     /**
      * The name of the user group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UserGroup.name");
+    }
 
     /**
      * The precedence of the user group.
      * 
      */
-    public Integer precedence;
+    private @Nullable UndeferrableValue<Integer> precedence;
 
-
+    public @Nullable Integer precedence() {
+        if (precedence == null) return null;
+        return precedence.getValue("UserGroup.precedence");
+    }
 
     /**
      * The ARN of the IAM role to be associated with the user group.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("UserGroup.roleArn");
+    }
 
     /**
      * The user pool ID.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("UserGroup.userPoolId");
+    }
 
 }

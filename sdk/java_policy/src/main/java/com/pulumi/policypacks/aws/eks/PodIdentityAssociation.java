@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/podIdentityAssociation:PodIdentityAssociation")
-public final class PodIdentityAssociation extends com.pulumi.resources.PolicyResource {
+public final class PodIdentityAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the association.
      * 
      */
-    public String associationArn;
+    private UndeferrableValue<String> associationArn;
 
-
+    public String associationArn() {
+        if (associationArn == null) return null;
+        return associationArn.getValue("PodIdentityAssociation.associationArn");
+    }
 
     /**
      * The ID of the association.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("PodIdentityAssociation.associationId");
+    }
 
     /**
      * The name of the cluster to create the association in.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("PodIdentityAssociation.clusterName");
+    }
 
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("PodIdentityAssociation.namespace");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("PodIdentityAssociation.roleArn");
+    }
 
     /**
      * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
@@ -57,17 +74,23 @@ public final class PodIdentityAssociation extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String serviceAccount;
+    private UndeferrableValue<String> serviceAccount;
 
-
+    public String serviceAccount() {
+        if (serviceAccount == null) return null;
+        return serviceAccount.getValue("PodIdentityAssociation.serviceAccount");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PodIdentityAssociation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class PodIdentityAssociation extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PodIdentityAssociation.tagsAll");
+    }
 
 }

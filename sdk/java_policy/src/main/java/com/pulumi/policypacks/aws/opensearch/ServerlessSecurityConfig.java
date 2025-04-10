@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.ServerlessSecurityConfigSamlOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.ServerlessSecurityConfigSamlOptions;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")
-public final class ServerlessSecurityConfig extends com.pulumi.resources.PolicyResource {
+public final class ServerlessSecurityConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Version of the configuration.
      * 
      */
-    public String configVersion;
+    private UndeferrableValue<String> configVersion;
 
-
+    public String configVersion() {
+        if (configVersion == null) return null;
+        return configVersion.getValue("ServerlessSecurityConfig.configVersion");
+    }
 
     /**
      * Description of the security configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ServerlessSecurityConfig.description");
+    }
 
     /**
      * Name of the policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessSecurityConfig.name");
+    }
 
     /**
      * Configuration block for SAML options.
      * 
      */
-    public ServerlessSecurityConfigSamlOptions samlOptions;
+    private @Nullable UndeferrableValue<ServerlessSecurityConfigSamlOptions> samlOptions;
 
-
+    public @Nullable ServerlessSecurityConfigSamlOptions samlOptions() {
+        if (samlOptions == null) return null;
+        return samlOptions.getValue("ServerlessSecurityConfig.samlOptions");
+    }
 
     /**
      * Type of configuration. Must be `saml`.
@@ -49,8 +63,11 @@ public final class ServerlessSecurityConfig extends com.pulumi.resources.PolicyR
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ServerlessSecurityConfig.type");
+    }
 
 }

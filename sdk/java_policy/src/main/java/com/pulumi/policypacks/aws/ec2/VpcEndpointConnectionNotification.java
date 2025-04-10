@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")
-public final class VpcEndpointConnectionNotification extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointConnectionNotification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
@@ -17,48 +19,66 @@ public final class VpcEndpointConnectionNotification extends com.pulumi.resource
      * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
      * 
      */
-    public List<String> connectionEvents;
+    private UndeferrableValue<List<String>> connectionEvents;
 
-
+    public List<String> connectionEvents() {
+        if (connectionEvents == null) return null;
+        return connectionEvents.getValue("VpcEndpointConnectionNotification.connectionEvents");
+    }
 
     /**
      * The ARN of the SNS topic for the notifications.
      * 
      */
-    public String connectionNotificationArn;
+    private UndeferrableValue<String> connectionNotificationArn;
 
-
+    public String connectionNotificationArn() {
+        if (connectionNotificationArn == null) return null;
+        return connectionNotificationArn.getValue("VpcEndpointConnectionNotification.connectionNotificationArn");
+    }
 
     /**
      * The type of notification.
      * 
      */
-    public String notificationType;
+    private UndeferrableValue<String> notificationType;
 
-
+    public String notificationType() {
+        if (notificationType == null) return null;
+        return notificationType.getValue("VpcEndpointConnectionNotification.notificationType");
+    }
 
     /**
      * The state of the notification.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcEndpointConnectionNotification.state");
+    }
 
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      * 
      */
-    public String vpcEndpointId;
+    private @Nullable UndeferrableValue<String> vpcEndpointId;
 
-
+    public @Nullable String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("VpcEndpointConnectionNotification.vpcEndpointId");
+    }
 
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      * 
      */
-    public String vpcEndpointServiceId;
+    private @Nullable UndeferrableValue<String> vpcEndpointServiceId;
 
-
+    public @Nullable String vpcEndpointServiceId() {
+        if (vpcEndpointServiceId == null) return null;
+        return vpcEndpointServiceId.getValue("VpcEndpointConnectionNotification.vpcEndpointServiceId");
+    }
 
 }

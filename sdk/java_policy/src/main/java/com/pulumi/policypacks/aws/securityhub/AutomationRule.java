@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securityhub.AutomationRuleAction;
-import com.pulumi.policypacks.aws.securityhub.AutomationRuleCriteria;
+import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleAction;
+import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleCriteria;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/automationRule:AutomationRule")
-public final class AutomationRule extends com.pulumi.resources.PolicyResource {
+public final class AutomationRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      * 
      */
-    public List<AutomationRuleAction> actions;
+    private @Nullable UndeferrableValue<List<AutomationRuleAction>> actions;
 
-
+    public @Nullable List<AutomationRuleAction> actions() {
+        if (actions == null) return null;
+        return actions.getValue("AutomationRule.actions");
+    }
 
     /**
      * The ARN of the Security Hub automation rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AutomationRule.arn");
+    }
 
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      * 
      */
-    public AutomationRuleCriteria criteria;
+    private @Nullable UndeferrableValue<AutomationRuleCriteria> criteria;
 
-
+    public @Nullable AutomationRuleCriteria criteria() {
+        if (criteria == null) return null;
+        return criteria.getValue("AutomationRule.criteria");
+    }
 
     /**
      * The description of the rule.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("AutomationRule.description");
+    }
 
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      * 
      */
-    public Boolean isTerminal;
+    private UndeferrableValue<Boolean> isTerminal;
 
-
+    public Boolean isTerminal() {
+        if (isTerminal == null) return null;
+        return isTerminal.getValue("AutomationRule.isTerminal");
+    }
 
     /**
      * The name of the rule.
      * 
      */
-    public String ruleName;
+    private UndeferrableValue<String> ruleName;
 
-
+    public String ruleName() {
+        if (ruleName == null) return null;
+        return ruleName.getValue("AutomationRule.ruleName");
+    }
 
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      * 
      */
-    public Integer ruleOrder;
+    private UndeferrableValue<Integer> ruleOrder;
 
-
+    public Integer ruleOrder() {
+        if (ruleOrder == null) return null;
+        return ruleOrder.getValue("AutomationRule.ruleOrder");
+    }
 
     /**
      * Whether the rule is active after it is created.
      * 
      */
-    public String ruleStatus;
+    private UndeferrableValue<String> ruleStatus;
 
+    public String ruleStatus() {
+        if (ruleStatus == null) return null;
+        return ruleStatus.getValue("AutomationRule.ruleStatus");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AutomationRule.tags");
+    }
 
     /**
      * @deprecated
@@ -90,8 +119,11 @@ public final class AutomationRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AutomationRule.tagsAll");
+    }
 
 }

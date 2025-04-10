@@ -3,20 +3,25 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")
-public final class RuntimeManagementConfig extends com.pulumi.resources.PolicyResource {
+public final class RuntimeManagementConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the function.
      * 
      */
-    public String functionArn;
+    private UndeferrableValue<String> functionArn;
 
-
+    public String functionArn() {
+        if (functionArn == null) return null;
+        return functionArn.getValue("RuntimeManagementConfig.functionArn");
+    }
 
     /**
      * Name or ARN of the Lambda function.
@@ -24,32 +29,44 @@ public final class RuntimeManagementConfig extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("RuntimeManagementConfig.functionName");
+    }
 
     /**
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      * 
      */
-    public String qualifier;
+    private @Nullable UndeferrableValue<String> qualifier;
 
-
+    public @Nullable String qualifier() {
+        if (qualifier == null) return null;
+        return qualifier.getValue("RuntimeManagementConfig.qualifier");
+    }
 
     /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
      * 
      */
-    public String runtimeVersionArn;
+    private @Nullable UndeferrableValue<String> runtimeVersionArn;
 
-
+    public @Nullable String runtimeVersionArn() {
+        if (runtimeVersionArn == null) return null;
+        return runtimeVersionArn.getValue("RuntimeManagementConfig.runtimeVersionArn");
+    }
 
     /**
      * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
      * 
      */
-    public String updateRuntimeOn;
+    private @Nullable UndeferrableValue<String> updateRuntimeOn;
 
-
+    public @Nullable String updateRuntimeOn() {
+        if (updateRuntimeOn == null) return null;
+        return updateRuntimeOn.getValue("RuntimeManagementConfig.updateRuntimeOn");
+    }
 
 }

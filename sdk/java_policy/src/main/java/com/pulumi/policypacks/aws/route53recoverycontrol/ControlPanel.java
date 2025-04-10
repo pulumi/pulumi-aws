@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -10,54 +11,72 @@ import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53recoverycontrol/controlPanel:ControlPanel")
-public final class ControlPanel extends com.pulumi.resources.PolicyResource {
+public final class ControlPanel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the control panel.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ControlPanel.arn");
+    }
 
     /**
      * ARN of the cluster in which this control panel will reside.
      * 
      */
-    public String clusterArn;
+    private UndeferrableValue<String> clusterArn;
 
-
+    public String clusterArn() {
+        if (clusterArn == null) return null;
+        return clusterArn.getValue("ControlPanel.clusterArn");
+    }
 
     /**
      * Whether a control panel is default.
      * 
      */
-    public Boolean defaultControlPanel;
+    private UndeferrableValue<Boolean> defaultControlPanel;
 
-
+    public Boolean defaultControlPanel() {
+        if (defaultControlPanel == null) return null;
+        return defaultControlPanel.getValue("ControlPanel.defaultControlPanel");
+    }
 
     /**
      * Name describing the control panel.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ControlPanel.name");
+    }
 
     /**
      * Number routing controls in a control panel.
      * 
      */
-    public Integer routingControlCount;
+    private UndeferrableValue<Integer> routingControlCount;
 
-
+    public Integer routingControlCount() {
+        if (routingControlCount == null) return null;
+        return routingControlCount.getValue("ControlPanel.routingControlCount");
+    }
 
     /**
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ControlPanel.status");
+    }
 
 }

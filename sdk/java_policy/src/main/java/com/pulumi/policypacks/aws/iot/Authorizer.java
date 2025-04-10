@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/authorizer:Authorizer")
-public final class Authorizer extends com.pulumi.resources.PolicyResource {
+public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the authorizer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Authorizer.arn");
+    }
 
     /**
      * The ARN of the authorizer&#39;s Lambda function.
      * 
      */
-    public String authorizerFunctionArn;
+    private UndeferrableValue<String> authorizerFunctionArn;
 
-
+    public String authorizerFunctionArn() {
+        if (authorizerFunctionArn == null) return null;
+        return authorizerFunctionArn.getValue("Authorizer.authorizerFunctionArn");
+    }
 
     /**
      * Specifies whether the HTTP caching is enabled or not. Default: `false`.
      * 
      */
-    public Boolean enableCachingForHttp;
+    private @Nullable UndeferrableValue<Boolean> enableCachingForHttp;
 
-
+    public @Nullable Boolean enableCachingForHttp() {
+        if (enableCachingForHttp == null) return null;
+        return enableCachingForHttp.getValue("Authorizer.enableCachingForHttp");
+    }
 
     /**
      * The name of the authorizer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Authorizer.name");
+    }
 
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      * 
      */
-    public Boolean signingDisabled;
+    private @Nullable UndeferrableValue<Boolean> signingDisabled;
 
-
+    public @Nullable Boolean signingDisabled() {
+        if (signingDisabled == null) return null;
+        return signingDisabled.getValue("Authorizer.signingDisabled");
+    }
 
     /**
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("Authorizer.status");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Authorizer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,24 +99,33 @@ public final class Authorizer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Authorizer.tagsAll");
+    }
 
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      * 
      */
-    public String tokenKeyName;
+    private @Nullable UndeferrableValue<String> tokenKeyName;
 
-
+    public @Nullable String tokenKeyName() {
+        if (tokenKeyName == null) return null;
+        return tokenKeyName.getValue("Authorizer.tokenKeyName");
+    }
 
     /**
      * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
      * 
      */
-    public Map<String,String> tokenSigningPublicKeys;
+    private @Nullable UndeferrableValue<Map<String,String>> tokenSigningPublicKeys;
 
-
+    public @Nullable Map<String,String> tokenSigningPublicKeys() {
+        if (tokenSigningPublicKeys == null) return null;
+        return tokenSigningPublicKeys.getValue("Authorizer.tokenSigningPublicKeys");
+    }
 
 }

@@ -3,20 +3,24 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/organizationsFeatures:OrganizationsFeatures")
-public final class OrganizationsFeatures extends com.pulumi.resources.PolicyResource {
+public final class OrganizationsFeatures extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
      * 
      */
-    public List<String> enabledFeatures;
+    private UndeferrableValue<List<String>> enabledFeatures;
 
-
+    public List<String> enabledFeatures() {
+        if (enabledFeatures == null) return null;
+        return enabledFeatures.getValue("OrganizationsFeatures.enabledFeatures");
+    }
 
 }

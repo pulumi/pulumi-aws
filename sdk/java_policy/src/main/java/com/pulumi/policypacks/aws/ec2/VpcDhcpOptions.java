@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcDhcpOptions:VpcDhcpOptions")
-public final class VpcDhcpOptions extends com.pulumi.resources.PolicyResource {
+public final class VpcDhcpOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the DHCP Options Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcDhcpOptions.arn");
+    }
 
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      * 
      */
-    public String domainName;
+    private @Nullable UndeferrableValue<String> domainName;
 
-
+    public @Nullable String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("VpcDhcpOptions.domainName");
+    }
 
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      * 
      */
-    public List<String> domainNameServers;
+    private @Nullable UndeferrableValue<List<String>> domainNameServers;
 
-
+    public @Nullable List<String> domainNameServers() {
+        if (domainNameServers == null) return null;
+        return domainNameServers.getValue("VpcDhcpOptions.domainNameServers");
+    }
 
     /**
      * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
      * 
      */
-    public String ipv6AddressPreferredLeaseTime;
+    private @Nullable UndeferrableValue<String> ipv6AddressPreferredLeaseTime;
 
-
+    public @Nullable String ipv6AddressPreferredLeaseTime() {
+        if (ipv6AddressPreferredLeaseTime == null) return null;
+        return ipv6AddressPreferredLeaseTime.getValue("VpcDhcpOptions.ipv6AddressPreferredLeaseTime");
+    }
 
     /**
      * List of NETBIOS name servers.
      * 
      */
-    public List<String> netbiosNameServers;
+    private @Nullable UndeferrableValue<List<String>> netbiosNameServers;
 
-
+    public @Nullable List<String> netbiosNameServers() {
+        if (netbiosNameServers == null) return null;
+        return netbiosNameServers.getValue("VpcDhcpOptions.netbiosNameServers");
+    }
 
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    public String netbiosNodeType;
+    private @Nullable UndeferrableValue<String> netbiosNodeType;
 
-
+    public @Nullable String netbiosNodeType() {
+        if (netbiosNodeType == null) return null;
+        return netbiosNodeType.getValue("VpcDhcpOptions.netbiosNodeType");
+    }
 
     /**
      * List of NTP servers to configure.
      * 
      */
-    public List<String> ntpServers;
+    private @Nullable UndeferrableValue<List<String>> ntpServers;
 
-
+    public @Nullable List<String> ntpServers() {
+        if (ntpServers == null) return null;
+        return ntpServers.getValue("VpcDhcpOptions.ntpServers");
+    }
 
     /**
      * The ID of the AWS account that owns the DHCP options set.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("VpcDhcpOptions.ownerId");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcDhcpOptions.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class VpcDhcpOptions extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcDhcpOptions.tagsAll");
+    }
 
 }

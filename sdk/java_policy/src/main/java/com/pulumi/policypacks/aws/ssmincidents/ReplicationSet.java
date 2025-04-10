@@ -3,65 +3,88 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssmincidents.ReplicationSetRegion;
+import com.pulumi.policypacks.aws.ssmincidents.outputs.ReplicationSetRegion;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssmincidents/replicationSet:ReplicationSet")
-public final class ReplicationSet extends com.pulumi.resources.PolicyResource {
+public final class ReplicationSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the replication set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReplicationSet.arn");
+    }
 
     /**
      * The ARN of the user who created the replication set.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("ReplicationSet.createdBy");
+    }
 
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      * 
      */
-    public Boolean deletionProtected;
+    private UndeferrableValue<Boolean> deletionProtected;
 
-
+    public Boolean deletionProtected() {
+        if (deletionProtected == null) return null;
+        return deletionProtected.getValue("ReplicationSet.deletionProtected");
+    }
 
     /**
      * A timestamp showing when the replication set was last modified.
      * 
      */
-    public String lastModifiedBy;
+    private UndeferrableValue<String> lastModifiedBy;
 
+    public String lastModifiedBy() {
+        if (lastModifiedBy == null) return null;
+        return lastModifiedBy.getValue("ReplicationSet.lastModifiedBy");
+    }
 
+    private UndeferrableValue<List<ReplicationSetRegion>> regions;
 
-    public List<ReplicationSetRegion> regions;
-
-
+    public List<ReplicationSetRegion> regions() {
+        if (regions == null) return null;
+        return regions.getValue("ReplicationSet.regions");
+    }
 
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ReplicationSet.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,8 +94,11 @@ public final class ReplicationSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationSet.tagsAll");
+    }
 
 }

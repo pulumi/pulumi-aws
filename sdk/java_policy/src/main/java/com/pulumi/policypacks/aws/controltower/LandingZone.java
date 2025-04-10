@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.controltower;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.controltower.LandingZoneDriftStatus;
+import com.pulumi.policypacks.aws.controltower.outputs.LandingZoneDriftStatus;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:controltower/landingZone:LandingZone")
-public final class LandingZone extends com.pulumi.resources.PolicyResource {
+public final class LandingZone extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the landing zone.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LandingZone.arn");
+    }
 
     /**
      * The drift status summary of the landing zone.
      * 
      */
-    public List<LandingZoneDriftStatus> driftStatuses;
+    private UndeferrableValue<List<LandingZoneDriftStatus>> driftStatuses;
 
-
+    public List<LandingZoneDriftStatus> driftStatuses() {
+        if (driftStatuses == null) return null;
+        return driftStatuses.getValue("LandingZone.driftStatuses");
+    }
 
     /**
      * The latest available version of the landing zone.
      * 
      */
-    public String latestAvailableVersion;
+    private UndeferrableValue<String> latestAvailableVersion;
 
-
+    public String latestAvailableVersion() {
+        if (latestAvailableVersion == null) return null;
+        return latestAvailableVersion.getValue("LandingZone.latestAvailableVersion");
+    }
 
     /**
      * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
      * 
      */
-    public String manifestJson;
+    private UndeferrableValue<String> manifestJson;
 
-
+    public String manifestJson() {
+        if (manifestJson == null) return null;
+        return manifestJson.getValue("LandingZone.manifestJson");
+    }
 
     /**
      * Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LandingZone.tags");
+    }
 
     /**
      * A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
@@ -61,16 +78,22 @@ public final class LandingZone extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LandingZone.tagsAll");
+    }
 
     /**
      * The landing zone version.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("LandingZone.version");
+    }
 
 }

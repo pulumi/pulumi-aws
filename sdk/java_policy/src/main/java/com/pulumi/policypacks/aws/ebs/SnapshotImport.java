@@ -3,125 +3,169 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ebs.SnapshotImportClientData;
-import com.pulumi.policypacks.aws.ebs.SnapshotImportDiskContainer;
+import com.pulumi.policypacks.aws.ebs.outputs.SnapshotImportClientData;
+import com.pulumi.policypacks.aws.ebs.outputs.SnapshotImportDiskContainer;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ebs/snapshotImport:SnapshotImport")
-public final class SnapshotImport extends com.pulumi.resources.PolicyResource {
+public final class SnapshotImport extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SnapshotImport.arn");
+    }
 
     /**
      * The client-specific data. Detailed below.
      * 
      */
-    public SnapshotImportClientData clientData;
+    private @Nullable UndeferrableValue<SnapshotImportClientData> clientData;
 
-
+    public @Nullable SnapshotImportClientData clientData() {
+        if (clientData == null) return null;
+        return clientData.getValue("SnapshotImport.clientData");
+    }
 
     /**
      * The data encryption key identifier for the snapshot.
      * 
      */
-    public String dataEncryptionKeyId;
+    private UndeferrableValue<String> dataEncryptionKeyId;
 
-
+    public String dataEncryptionKeyId() {
+        if (dataEncryptionKeyId == null) return null;
+        return dataEncryptionKeyId.getValue("SnapshotImport.dataEncryptionKeyId");
+    }
 
     /**
      * The description string for the import snapshot task.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("SnapshotImport.description");
+    }
 
     /**
      * Information about the disk container. Detailed below.
      * 
      */
-    public SnapshotImportDiskContainer diskContainer;
+    private UndeferrableValue<SnapshotImportDiskContainer> diskContainer;
 
-
+    public SnapshotImportDiskContainer diskContainer() {
+        if (diskContainer == null) return null;
+        return diskContainer.getValue("SnapshotImport.diskContainer");
+    }
 
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      * 
      */
-    public Boolean encrypted;
+    private @Nullable UndeferrableValue<Boolean> encrypted;
 
-
+    public @Nullable Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("SnapshotImport.encrypted");
+    }
 
     /**
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("SnapshotImport.kmsKeyId");
+    }
 
+    private UndeferrableValue<String> outpostArn;
 
-    public String outpostArn;
-
-
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("SnapshotImport.outpostArn");
+    }
 
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    public String ownerAlias;
+    private UndeferrableValue<String> ownerAlias;
 
-
+    public String ownerAlias() {
+        if (ownerAlias == null) return null;
+        return ownerAlias.getValue("SnapshotImport.ownerAlias");
+    }
 
     /**
      * The AWS account ID of the EBS snapshot owner.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("SnapshotImport.ownerId");
+    }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    public Boolean permanentRestore;
+    private @Nullable UndeferrableValue<Boolean> permanentRestore;
 
-
+    public @Nullable Boolean permanentRestore() {
+        if (permanentRestore == null) return null;
+        return permanentRestore.getValue("SnapshotImport.permanentRestore");
+    }
 
     /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      * 
      */
-    public String roleName;
+    private @Nullable UndeferrableValue<String> roleName;
 
-
+    public @Nullable String roleName() {
+        if (roleName == null) return null;
+        return roleName.getValue("SnapshotImport.roleName");
+    }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    public String storageTier;
+    private UndeferrableValue<String> storageTier;
 
-
+    public String storageTier() {
+        if (storageTier == null) return null;
+        return storageTier.getValue("SnapshotImport.storageTier");
+    }
 
     /**
      * A map of tags to assign to the snapshot.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SnapshotImport.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,28 +175,40 @@ public final class SnapshotImport extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SnapshotImport.tagsAll");
+    }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    public Integer temporaryRestoreDays;
+    private @Nullable UndeferrableValue<Integer> temporaryRestoreDays;
 
+    public @Nullable Integer temporaryRestoreDays() {
+        if (temporaryRestoreDays == null) return null;
+        return temporaryRestoreDays.getValue("SnapshotImport.temporaryRestoreDays");
+    }
 
+    private UndeferrableValue<String> volumeId;
 
-    public String volumeId;
-
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("SnapshotImport.volumeId");
+    }
 
     /**
      * The size of the drive in GiBs.
      * 
      */
-    public Integer volumeSize;
+    private UndeferrableValue<Integer> volumeSize;
 
-
+    public Integer volumeSize() {
+        if (volumeSize == null) return null;
+        return volumeSize.getValue("SnapshotImport.volumeSize");
+    }
 
 }

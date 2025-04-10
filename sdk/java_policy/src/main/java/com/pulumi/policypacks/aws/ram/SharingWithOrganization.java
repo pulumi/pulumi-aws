@@ -7,6 +7,6 @@ import com.pulumi.core.annotations.PolicyResourceType;
 
 
 @PolicyResourceType(type="aws:ram/sharingWithOrganization:SharingWithOrganization")
-public final class SharingWithOrganization extends com.pulumi.resources.PolicyResource {
+public final class SharingWithOrganization extends com.pulumi.resources.PolicyResourceOutput {
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.sns;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sns/dataProtectionPolicy:DataProtectionPolicy")
-public final class DataProtectionPolicy extends com.pulumi.resources.PolicyResource {
+public final class DataProtectionPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the SNS topic
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataProtectionPolicy.arn");
+    }
 
     /**
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("DataProtectionPolicy.policy");
+    }
 
 }

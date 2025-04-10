@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.SiteLocation;
+import com.pulumi.policypacks.aws.networkmanager.outputs.SiteLocation;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/site:Site")
-public final class Site extends com.pulumi.resources.PolicyResource {
+public final class Site extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Site Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Site.arn");
+    }
 
     /**
      * Description of the Site.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Site.description");
+    }
 
     /**
      * The ID of the Global Network to create the site in.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("Site.globalNetworkId");
+    }
 
     /**
      * The site location as documented below.
      * 
      */
-    public SiteLocation location;
+    private @Nullable UndeferrableValue<SiteLocation> location;
 
-
+    public @Nullable SiteLocation location() {
+        if (location == null) return null;
+        return location.getValue("Site.location");
+    }
 
     /**
      * Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Site.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class Site extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Site.tagsAll");
+    }
 
 }

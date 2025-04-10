@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/accessPointPolicy:AccessPointPolicy")
-public final class AccessPointPolicy extends com.pulumi.resources.PolicyResource {
+public final class AccessPointPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the access point that you want to associate with the specified policy.
      * 
      */
-    public String accessPointArn;
+    private UndeferrableValue<String> accessPointArn;
 
-
+    public String accessPointArn() {
+        if (accessPointArn == null) return null;
+        return accessPointArn.getValue("AccessPointPolicy.accessPointArn");
+    }
 
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Boolean hasPublicAccessPolicy;
+    private UndeferrableValue<Boolean> hasPublicAccessPolicy;
 
-
+    public Boolean hasPublicAccessPolicy() {
+        if (hasPublicAccessPolicy == null) return null;
+        return hasPublicAccessPolicy.getValue("AccessPointPolicy.hasPublicAccessPolicy");
+    }
 
     /**
      * The policy that you want to apply to the specified access point.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("AccessPointPolicy.policy");
+    }
 
 }

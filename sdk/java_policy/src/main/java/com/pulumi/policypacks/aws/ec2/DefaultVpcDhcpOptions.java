@@ -3,69 +3,98 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")
-public final class DefaultVpcDhcpOptions extends com.pulumi.resources.PolicyResource {
+public final class DefaultVpcDhcpOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the DHCP Options Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DefaultVpcDhcpOptions.arn");
+    }
 
+    private UndeferrableValue<String> domainName;
 
-    public String domainName;
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DefaultVpcDhcpOptions.domainName");
+    }
 
+    private UndeferrableValue<String> domainNameServers;
 
+    public String domainNameServers() {
+        if (domainNameServers == null) return null;
+        return domainNameServers.getValue("DefaultVpcDhcpOptions.domainNameServers");
+    }
 
-    public String domainNameServers;
+    private UndeferrableValue<String> ipv6AddressPreferredLeaseTime;
 
-
-
-    public String ipv6AddressPreferredLeaseTime;
-
-
+    public String ipv6AddressPreferredLeaseTime() {
+        if (ipv6AddressPreferredLeaseTime == null) return null;
+        return ipv6AddressPreferredLeaseTime.getValue("DefaultVpcDhcpOptions.ipv6AddressPreferredLeaseTime");
+    }
 
     /**
      * List of NETBIOS name servers.
      * 
      */
-    public String netbiosNameServers;
+    private UndeferrableValue<String> netbiosNameServers;
 
-
+    public String netbiosNameServers() {
+        if (netbiosNameServers == null) return null;
+        return netbiosNameServers.getValue("DefaultVpcDhcpOptions.netbiosNameServers");
+    }
 
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    public String netbiosNodeType;
+    private UndeferrableValue<String> netbiosNodeType;
 
+    public String netbiosNodeType() {
+        if (netbiosNodeType == null) return null;
+        return netbiosNodeType.getValue("DefaultVpcDhcpOptions.netbiosNodeType");
+    }
 
+    private UndeferrableValue<String> ntpServers;
 
-    public String ntpServers;
-
-
+    public String ntpServers() {
+        if (ntpServers == null) return null;
+        return ntpServers.getValue("DefaultVpcDhcpOptions.ntpServers");
+    }
 
     /**
      * The ID of the AWS account that owns the DHCP options set.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DefaultVpcDhcpOptions.ownerId");
+    }
 
     /**
      * A map of tags to assign to the resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DefaultVpcDhcpOptions.tags");
+    }
 
     /**
      * @deprecated
@@ -73,8 +102,11 @@ public final class DefaultVpcDhcpOptions extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DefaultVpcDhcpOptions.tagsAll");
+    }
 
 }

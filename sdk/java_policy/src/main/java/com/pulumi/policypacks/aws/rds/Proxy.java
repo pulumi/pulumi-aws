@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ProxyAuth;
+import com.pulumi.policypacks.aws.rds.outputs.ProxyAuth;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/proxy:Proxy")
-public final class Proxy extends com.pulumi.resources.PolicyResource {
+public final class Proxy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Proxy.arn");
+    }
 
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      * 
      */
-    public List<ProxyAuth> auths;
+    private UndeferrableValue<List<ProxyAuth>> auths;
 
-
+    public List<ProxyAuth> auths() {
+        if (auths == null) return null;
+        return auths.getValue("Proxy.auths");
+    }
 
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      * 
      */
-    public Boolean debugLogging;
+    private @Nullable UndeferrableValue<Boolean> debugLogging;
 
-
+    public @Nullable Boolean debugLogging() {
+        if (debugLogging == null) return null;
+        return debugLogging.getValue("Proxy.debugLogging");
+    }
 
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Proxy.endpoint");
+    }
 
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
-    public String engineFamily;
+    private UndeferrableValue<String> engineFamily;
 
-
+    public String engineFamily() {
+        if (engineFamily == null) return null;
+        return engineFamily.getValue("Proxy.engineFamily");
+    }
 
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
-    public Integer idleClientTimeout;
+    private UndeferrableValue<Integer> idleClientTimeout;
 
-
+    public Integer idleClientTimeout() {
+        if (idleClientTimeout == null) return null;
+        return idleClientTimeout.getValue("Proxy.idleClientTimeout");
+    }
 
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Proxy.name");
+    }
 
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
      * 
      */
-    public Boolean requireTls;
+    private @Nullable UndeferrableValue<Boolean> requireTls;
 
-
+    public @Nullable Boolean requireTls() {
+        if (requireTls == null) return null;
+        return requireTls.getValue("Proxy.requireTls");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Proxy.roleArn");
+    }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Proxy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,24 +135,33 @@ public final class Proxy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Proxy.tagsAll");
+    }
 
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Proxy.vpcSecurityGroupIds");
+    }
 
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      * 
      */
-    public List<String> vpcSubnetIds;
+    private UndeferrableValue<List<String>> vpcSubnetIds;
 
-
+    public List<String> vpcSubnetIds() {
+        if (vpcSubnetIds == null) return null;
+        return vpcSubnetIds.getValue("Proxy.vpcSubnetIds");
+    }
 
 }

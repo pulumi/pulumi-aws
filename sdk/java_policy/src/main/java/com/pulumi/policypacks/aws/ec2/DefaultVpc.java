@@ -3,111 +3,176 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/defaultVpc:DefaultVpc")
-public final class DefaultVpc extends com.pulumi.resources.PolicyResource {
+public final class DefaultVpc extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DefaultVpc.arn");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> assignGeneratedIpv6CidrBlock;
 
-    public Boolean assignGeneratedIpv6CidrBlock;
-
-
+    public @Nullable Boolean assignGeneratedIpv6CidrBlock() {
+        if (assignGeneratedIpv6CidrBlock == null) return null;
+        return assignGeneratedIpv6CidrBlock.getValue("DefaultVpc.assignGeneratedIpv6CidrBlock");
+    }
 
     /**
      * The primary IPv4 CIDR block for the VPC
      * 
      */
-    public String cidrBlock;
+    private UndeferrableValue<String> cidrBlock;
 
+    public String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("DefaultVpc.cidrBlock");
+    }
 
+    private UndeferrableValue<String> defaultNetworkAclId;
 
-    public String defaultNetworkAclId;
+    public String defaultNetworkAclId() {
+        if (defaultNetworkAclId == null) return null;
+        return defaultNetworkAclId.getValue("DefaultVpc.defaultNetworkAclId");
+    }
 
+    private UndeferrableValue<String> defaultRouteTableId;
 
+    public String defaultRouteTableId() {
+        if (defaultRouteTableId == null) return null;
+        return defaultRouteTableId.getValue("DefaultVpc.defaultRouteTableId");
+    }
 
-    public String defaultRouteTableId;
+    private UndeferrableValue<String> defaultSecurityGroupId;
 
+    public String defaultSecurityGroupId() {
+        if (defaultSecurityGroupId == null) return null;
+        return defaultSecurityGroupId.getValue("DefaultVpc.defaultSecurityGroupId");
+    }
 
+    private UndeferrableValue<String> dhcpOptionsId;
 
-    public String defaultSecurityGroupId;
+    public String dhcpOptionsId() {
+        if (dhcpOptionsId == null) return null;
+        return dhcpOptionsId.getValue("DefaultVpc.dhcpOptionsId");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> enableDnsHostnames;
 
+    public @Nullable Boolean enableDnsHostnames() {
+        if (enableDnsHostnames == null) return null;
+        return enableDnsHostnames.getValue("DefaultVpc.enableDnsHostnames");
+    }
 
-    public String dhcpOptionsId;
+    private @Nullable UndeferrableValue<Boolean> enableDnsSupport;
 
+    public @Nullable Boolean enableDnsSupport() {
+        if (enableDnsSupport == null) return null;
+        return enableDnsSupport.getValue("DefaultVpc.enableDnsSupport");
+    }
 
+    private UndeferrableValue<Boolean> enableNetworkAddressUsageMetrics;
 
-    public Boolean enableDnsHostnames;
+    public Boolean enableNetworkAddressUsageMetrics() {
+        if (enableNetworkAddressUsageMetrics == null) return null;
+        return enableNetworkAddressUsageMetrics.getValue("DefaultVpc.enableNetworkAddressUsageMetrics");
+    }
 
+    private UndeferrableValue<Boolean> existingDefaultVpc;
 
-
-    public Boolean enableDnsSupport;
-
-
-
-    public Boolean enableNetworkAddressUsageMetrics;
-
-
-
-    public Boolean existingDefaultVpc;
-
-
+    public Boolean existingDefaultVpc() {
+        if (existingDefaultVpc == null) return null;
+        return existingDefaultVpc.getValue("DefaultVpc.existingDefaultVpc");
+    }
 
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("DefaultVpc.forceDestroy");
+    }
 
     /**
      * The allowed tenancy of instances launched into the VPC
      * 
      */
-    public String instanceTenancy;
+    private UndeferrableValue<String> instanceTenancy;
 
+    public String instanceTenancy() {
+        if (instanceTenancy == null) return null;
+        return instanceTenancy.getValue("DefaultVpc.instanceTenancy");
+    }
 
+    private UndeferrableValue<String> ipv6AssociationId;
 
-    public String ipv6AssociationId;
+    public String ipv6AssociationId() {
+        if (ipv6AssociationId == null) return null;
+        return ipv6AssociationId.getValue("DefaultVpc.ipv6AssociationId");
+    }
 
+    private UndeferrableValue<String> ipv6CidrBlock;
 
+    public String ipv6CidrBlock() {
+        if (ipv6CidrBlock == null) return null;
+        return ipv6CidrBlock.getValue("DefaultVpc.ipv6CidrBlock");
+    }
 
-    public String ipv6CidrBlock;
+    private UndeferrableValue<String> ipv6CidrBlockNetworkBorderGroup;
 
+    public String ipv6CidrBlockNetworkBorderGroup() {
+        if (ipv6CidrBlockNetworkBorderGroup == null) return null;
+        return ipv6CidrBlockNetworkBorderGroup.getValue("DefaultVpc.ipv6CidrBlockNetworkBorderGroup");
+    }
 
+    private @Nullable UndeferrableValue<String> ipv6IpamPoolId;
 
-    public String ipv6CidrBlockNetworkBorderGroup;
+    public @Nullable String ipv6IpamPoolId() {
+        if (ipv6IpamPoolId == null) return null;
+        return ipv6IpamPoolId.getValue("DefaultVpc.ipv6IpamPoolId");
+    }
 
+    private @Nullable UndeferrableValue<Integer> ipv6NetmaskLength;
 
+    public @Nullable Integer ipv6NetmaskLength() {
+        if (ipv6NetmaskLength == null) return null;
+        return ipv6NetmaskLength.getValue("DefaultVpc.ipv6NetmaskLength");
+    }
 
-    public String ipv6IpamPoolId;
+    private UndeferrableValue<String> mainRouteTableId;
 
+    public String mainRouteTableId() {
+        if (mainRouteTableId == null) return null;
+        return mainRouteTableId.getValue("DefaultVpc.mainRouteTableId");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public Integer ipv6NetmaskLength;
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DefaultVpc.ownerId");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
-    public String mainRouteTableId;
-
-
-
-    public String ownerId;
-
-
-
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DefaultVpc.tags");
+    }
 
     /**
      * @deprecated
@@ -115,8 +180,11 @@ public final class DefaultVpc extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DefaultVpc.tagsAll");
+    }
 
 }

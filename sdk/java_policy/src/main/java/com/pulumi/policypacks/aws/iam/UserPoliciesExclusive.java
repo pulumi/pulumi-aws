@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/userPoliciesExclusive:UserPoliciesExclusive")
-public final class UserPoliciesExclusive extends com.pulumi.resources.PolicyResource {
+public final class UserPoliciesExclusive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
      * 
      */
-    public List<String> policyNames;
+    private UndeferrableValue<List<String>> policyNames;
 
-
+    public List<String> policyNames() {
+        if (policyNames == null) return null;
+        return policyNames.getValue("UserPoliciesExclusive.policyNames");
+    }
 
     /**
      * IAM user name.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("UserPoliciesExclusive.userName");
+    }
 
 }

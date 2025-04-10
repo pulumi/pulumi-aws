@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/userGroup:UserGroup")
-public final class UserGroup extends com.pulumi.resources.PolicyResource {
+public final class UserGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN that identifies the user group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UserGroup.arn");
+    }
 
     /**
      * The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("UserGroup.engine");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UserGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -44,9 +55,12 @@ public final class UserGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UserGroup.tagsAll");
+    }
 
     /**
      * The ID of the user group.
@@ -54,16 +68,22 @@ public final class UserGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userGroupId;
+    private UndeferrableValue<String> userGroupId;
 
-
+    public String userGroupId() {
+        if (userGroupId == null) return null;
+        return userGroupId.getValue("UserGroup.userGroupId");
+    }
 
     /**
      * The list of user IDs that belong to the user group.
      * 
      */
-    public List<String> userIds;
+    private @Nullable UndeferrableValue<List<String>> userIds;
 
-
+    public @Nullable List<String> userIds() {
+        if (userIds == null) return null;
+        return userIds.getValue("UserGroup.userIds");
+    }
 
 }

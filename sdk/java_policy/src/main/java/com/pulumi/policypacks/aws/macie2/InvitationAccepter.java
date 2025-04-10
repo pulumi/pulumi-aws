@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:macie2/invitationAccepter:InvitationAccepter")
-public final class InvitationAccepter extends com.pulumi.resources.PolicyResource {
+public final class InvitationAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the account that sent the invitation.
      * 
      */
-    public String administratorAccountId;
+    private UndeferrableValue<String> administratorAccountId;
 
-
+    public String administratorAccountId() {
+        if (administratorAccountId == null) return null;
+        return administratorAccountId.getValue("InvitationAccepter.administratorAccountId");
+    }
 
     /**
      * The unique identifier for the invitation.
      * 
      */
-    public String invitationId;
+    private UndeferrableValue<String> invitationId;
 
-
+    public String invitationId() {
+        if (invitationId == null) return null;
+        return invitationId.getValue("InvitationAccepter.invitationId");
+    }
 
 }

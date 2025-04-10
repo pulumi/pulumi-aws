@@ -3,81 +3,110 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.DefaultSecurityGroupEgress;
-import com.pulumi.policypacks.aws.ec2.DefaultSecurityGroupIngress;
+import com.pulumi.policypacks.aws.ec2.outputs.DefaultSecurityGroupEgress;
+import com.pulumi.policypacks.aws.ec2.outputs.DefaultSecurityGroupIngress;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")
-public final class DefaultSecurityGroup extends com.pulumi.resources.PolicyResource {
+public final class DefaultSecurityGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the security group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DefaultSecurityGroup.arn");
+    }
 
     /**
      * Description of the security group.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
-
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
-    public List<DefaultSecurityGroupEgress> egress;
-
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("DefaultSecurityGroup.description");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public List<DefaultSecurityGroupIngress> ingress;
+    private UndeferrableValue<List<DefaultSecurityGroupEgress>> egress;
 
+    public List<DefaultSecurityGroupEgress> egress() {
+        if (egress == null) return null;
+        return egress.getValue("DefaultSecurityGroup.egress");
+    }
 
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
+    private UndeferrableValue<List<DefaultSecurityGroupIngress>> ingress;
+
+    public List<DefaultSecurityGroupIngress> ingress() {
+        if (ingress == null) return null;
+        return ingress.getValue("DefaultSecurityGroup.ingress");
+    }
 
     /**
      * Name of the security group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DefaultSecurityGroup.name");
+    }
 
+    private UndeferrableValue<String> namePrefix;
 
-    public String namePrefix;
-
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("DefaultSecurityGroup.namePrefix");
+    }
 
     /**
      * Owner ID.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DefaultSecurityGroup.ownerId");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> revokeRulesOnDelete;
 
-    public Boolean revokeRulesOnDelete;
-
-
+    public @Nullable Boolean revokeRulesOnDelete() {
+        if (revokeRulesOnDelete == null) return null;
+        return revokeRulesOnDelete.getValue("DefaultSecurityGroup.revokeRulesOnDelete");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DefaultSecurityGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,16 +116,22 @@ public final class DefaultSecurityGroup extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DefaultSecurityGroup.tagsAll");
+    }
 
     /**
      * VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("DefaultSecurityGroup.vpcId");
+    }
 
 }

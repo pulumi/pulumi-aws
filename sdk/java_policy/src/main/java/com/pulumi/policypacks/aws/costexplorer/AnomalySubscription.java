@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.costexplorer.AnomalySubscriptionSubscriber;
-import com.pulumi.policypacks.aws.costexplorer.AnomalySubscriptionThresholdExpression;
+import com.pulumi.policypacks.aws.costexplorer.outputs.AnomalySubscriptionSubscriber;
+import com.pulumi.policypacks.aws.costexplorer.outputs.AnomalySubscriptionThresholdExpression;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:costexplorer/anomalySubscription:AnomalySubscription")
-public final class AnomalySubscription extends com.pulumi.resources.PolicyResource {
+public final class AnomalySubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AnomalySubscription.accountId");
+    }
 
     /**
      * ARN of the anomaly subscription.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AnomalySubscription.arn");
+    }
 
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      * 
      */
-    public String frequency;
+    private UndeferrableValue<String> frequency;
 
-
+    public String frequency() {
+        if (frequency == null) return null;
+        return frequency.getValue("AnomalySubscription.frequency");
+    }
 
     /**
      * A list of cost anomaly monitors.
      * 
      */
-    public List<String> monitorArnLists;
+    private UndeferrableValue<List<String>> monitorArnLists;
 
-
+    public List<String> monitorArnLists() {
+        if (monitorArnLists == null) return null;
+        return monitorArnLists.getValue("AnomalySubscription.monitorArnLists");
+    }
 
     /**
      * The name for the subscription.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AnomalySubscription.name");
+    }
 
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      * 
      */
-    public List<AnomalySubscriptionSubscriber> subscribers;
+    private UndeferrableValue<List<AnomalySubscriptionSubscriber>> subscribers;
 
-
+    public List<AnomalySubscriptionSubscriber> subscribers() {
+        if (subscribers == null) return null;
+        return subscribers.getValue("AnomalySubscription.subscribers");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AnomalySubscription.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,16 +101,22 @@ public final class AnomalySubscription extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AnomalySubscription.tagsAll");
+    }
 
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      * 
      */
-    public AnomalySubscriptionThresholdExpression thresholdExpression;
+    private UndeferrableValue<AnomalySubscriptionThresholdExpression> thresholdExpression;
 
-
+    public AnomalySubscriptionThresholdExpression thresholdExpression() {
+        if (thresholdExpression == null) return null;
+        return thresholdExpression.getValue("AnomalySubscription.thresholdExpression");
+    }
 
 }

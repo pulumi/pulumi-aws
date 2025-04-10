@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ses/mailFrom:MailFrom")
-public final class MailFrom extends com.pulumi.resources.PolicyResource {
+public final class MailFrom extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      * 
      */
-    public String behaviorOnMxFailure;
+    private @Nullable UndeferrableValue<String> behaviorOnMxFailure;
 
-
+    public @Nullable String behaviorOnMxFailure() {
+        if (behaviorOnMxFailure == null) return null;
+        return behaviorOnMxFailure.getValue("MailFrom.behaviorOnMxFailure");
+    }
 
     /**
      * Verified domain name or email identity to generate DKIM tokens for.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("MailFrom.domain");
+    }
 
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
@@ -32,8 +40,11 @@ public final class MailFrom extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String mailFromDomain;
+    private UndeferrableValue<String> mailFromDomain;
 
-
+    public String mailFromDomain() {
+        if (mailFromDomain == null) return null;
+        return mailFromDomain.getValue("MailFrom.mailFromDomain");
+    }
 
 }

@@ -3,99 +3,131 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apprunner.ServiceEncryptionConfiguration;
-import com.pulumi.policypacks.aws.apprunner.ServiceHealthCheckConfiguration;
-import com.pulumi.policypacks.aws.apprunner.ServiceInstanceConfiguration;
-import com.pulumi.policypacks.aws.apprunner.ServiceNetworkConfiguration;
-import com.pulumi.policypacks.aws.apprunner.ServiceObservabilityConfiguration;
-import com.pulumi.policypacks.aws.apprunner.ServiceSourceConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceEncryptionConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceHealthCheckConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceInstanceConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceNetworkConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceObservabilityConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.ServiceSourceConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/service:Service")
-public final class Service extends com.pulumi.resources.PolicyResource {
+public final class Service extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the App Runner service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Service.arn");
+    }
 
     /**
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      * 
      */
-    public String autoScalingConfigurationArn;
+    private UndeferrableValue<String> autoScalingConfigurationArn;
 
-
+    public String autoScalingConfigurationArn() {
+        if (autoScalingConfigurationArn == null) return null;
+        return autoScalingConfigurationArn.getValue("Service.autoScalingConfigurationArn");
+    }
 
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
      * 
      */
-    public ServiceEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<ServiceEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable ServiceEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("Service.encryptionConfiguration");
+    }
 
     /**
      * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      * 
      */
-    public ServiceHealthCheckConfiguration healthCheckConfiguration;
+    private UndeferrableValue<ServiceHealthCheckConfiguration> healthCheckConfiguration;
 
-
+    public ServiceHealthCheckConfiguration healthCheckConfiguration() {
+        if (healthCheckConfiguration == null) return null;
+        return healthCheckConfiguration.getValue("Service.healthCheckConfiguration");
+    }
 
     /**
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      * 
      */
-    public ServiceInstanceConfiguration instanceConfiguration;
+    private UndeferrableValue<ServiceInstanceConfiguration> instanceConfiguration;
 
-
+    public ServiceInstanceConfiguration instanceConfiguration() {
+        if (instanceConfiguration == null) return null;
+        return instanceConfiguration.getValue("Service.instanceConfiguration");
+    }
 
     /**
      * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
-    public ServiceNetworkConfiguration networkConfiguration;
+    private UndeferrableValue<ServiceNetworkConfiguration> networkConfiguration;
 
-
+    public ServiceNetworkConfiguration networkConfiguration() {
+        if (networkConfiguration == null) return null;
+        return networkConfiguration.getValue("Service.networkConfiguration");
+    }
 
     /**
      * The observability configuration of your service. See Observability Configuration below for more details.
      * 
      */
-    public ServiceObservabilityConfiguration observabilityConfiguration;
+    private @Nullable UndeferrableValue<ServiceObservabilityConfiguration> observabilityConfiguration;
 
-
+    public @Nullable ServiceObservabilityConfiguration observabilityConfiguration() {
+        if (observabilityConfiguration == null) return null;
+        return observabilityConfiguration.getValue("Service.observabilityConfiguration");
+    }
 
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
-    public String serviceId;
+    private UndeferrableValue<String> serviceId;
 
-
+    public String serviceId() {
+        if (serviceId == null) return null;
+        return serviceId.getValue("Service.serviceId");
+    }
 
     /**
      * Name of the service.
      * 
      */
-    public String serviceName;
+    private UndeferrableValue<String> serviceName;
 
-
+    public String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("Service.serviceName");
+    }
 
     /**
      * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
-    public String serviceUrl;
+    private UndeferrableValue<String> serviceUrl;
 
-
+    public String serviceUrl() {
+        if (serviceUrl == null) return null;
+        return serviceUrl.getValue("Service.serviceUrl");
+    }
 
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -103,25 +135,34 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ServiceSourceConfiguration sourceConfiguration;
+    private UndeferrableValue<ServiceSourceConfiguration> sourceConfiguration;
 
-
+    public ServiceSourceConfiguration sourceConfiguration() {
+        if (sourceConfiguration == null) return null;
+        return sourceConfiguration.getValue("Service.sourceConfiguration");
+    }
 
     /**
      * Current state of the App Runner service.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Service.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Service.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,8 +172,11 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Service.tagsAll");
+    }
 
 }

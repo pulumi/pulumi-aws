@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/requestValidator:RequestValidator")
-public final class RequestValidator extends com.pulumi.resources.PolicyResource {
+public final class RequestValidator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the request validator
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RequestValidator.name");
+    }
 
     /**
      * ID of the associated Rest API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("RequestValidator.restApi");
+    }
 
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      * 
      */
-    public Boolean validateRequestBody;
+    private @Nullable UndeferrableValue<Boolean> validateRequestBody;
 
-
+    public @Nullable Boolean validateRequestBody() {
+        if (validateRequestBody == null) return null;
+        return validateRequestBody.getValue("RequestValidator.validateRequestBody");
+    }
 
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      * 
      */
-    public Boolean validateRequestParameters;
+    private @Nullable UndeferrableValue<Boolean> validateRequestParameters;
 
-
+    public @Nullable Boolean validateRequestParameters() {
+        if (validateRequestParameters == null) return null;
+        return validateRequestParameters.getValue("RequestValidator.validateRequestParameters");
+    }
 
 }

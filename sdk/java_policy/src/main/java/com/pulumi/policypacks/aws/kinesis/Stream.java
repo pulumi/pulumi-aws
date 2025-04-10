@@ -3,98 +3,130 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kinesis.StreamStreamModeDetails;
+import com.pulumi.policypacks.aws.kinesis.outputs.StreamStreamModeDetails;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kinesis/stream:Stream")
-public final class Stream extends com.pulumi.resources.PolicyResource {
+public final class Stream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stream.arn");
+    }
 
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
-    public String encryptionType;
+    private @Nullable UndeferrableValue<String> encryptionType;
 
-
+    public @Nullable String encryptionType() {
+        if (encryptionType == null) return null;
+        return encryptionType.getValue("Stream.encryptionType");
+    }
 
     /**
      * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
-    public Boolean enforceConsumerDeletion;
+    private @Nullable UndeferrableValue<Boolean> enforceConsumerDeletion;
 
-
+    public @Nullable Boolean enforceConsumerDeletion() {
+        if (enforceConsumerDeletion == null) return null;
+        return enforceConsumerDeletion.getValue("Stream.enforceConsumerDeletion");
+    }
 
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Stream.kmsKeyId");
+    }
 
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Stream.name");
+    }
 
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream&#39;s retention period is 8760 hours. Minimum value is 24. Default is 24.
      * 
      */
-    public Integer retentionPeriod;
+    private @Nullable UndeferrableValue<Integer> retentionPeriod;
 
-
+    public @Nullable Integer retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("Stream.retentionPeriod");
+    }
 
     /**
      * The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
-    public Integer shardCount;
+    private @Nullable UndeferrableValue<Integer> shardCount;
 
-
+    public @Nullable Integer shardCount() {
+        if (shardCount == null) return null;
+        return shardCount.getValue("Stream.shardCount");
+    }
 
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
-    public List<String> shardLevelMetrics;
+    private @Nullable UndeferrableValue<List<String>> shardLevelMetrics;
 
-
+    public @Nullable List<String> shardLevelMetrics() {
+        if (shardLevelMetrics == null) return null;
+        return shardLevelMetrics.getValue("Stream.shardLevelMetrics");
+    }
 
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
-    public StreamStreamModeDetails streamModeDetails;
+    private UndeferrableValue<StreamStreamModeDetails> streamModeDetails;
 
-
+    public StreamStreamModeDetails streamModeDetails() {
+        if (streamModeDetails == null) return null;
+        return streamModeDetails.getValue("Stream.streamModeDetails");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stream.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,8 +136,11 @@ public final class Stream extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stream.tagsAll");
+    }
 
 }

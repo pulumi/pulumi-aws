@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codebuild.ReportGroupExportConfig;
+import com.pulumi.policypacks.aws.codebuild.outputs.ReportGroupExportConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codebuild/reportGroup:ReportGroup")
-public final class ReportGroup extends com.pulumi.resources.PolicyResource {
+public final class ReportGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of Report Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReportGroup.arn");
+    }
 
     /**
      * The date and time this Report Group was created.
      * 
      */
-    public String created;
+    private UndeferrableValue<String> created;
 
-
+    public String created() {
+        if (created == null) return null;
+        return created.getValue("ReportGroup.created");
+    }
 
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      * 
      */
-    public Boolean deleteReports;
+    private @Nullable UndeferrableValue<Boolean> deleteReports;
 
-
+    public @Nullable Boolean deleteReports() {
+        if (deleteReports == null) return null;
+        return deleteReports.getValue("ReportGroup.deleteReports");
+    }
 
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      * 
      */
-    public ReportGroupExportConfig exportConfig;
+    private UndeferrableValue<ReportGroupExportConfig> exportConfig;
 
-
+    public ReportGroupExportConfig exportConfig() {
+        if (exportConfig == null) return null;
+        return exportConfig.getValue("ReportGroup.exportConfig");
+    }
 
     /**
      * The name of a Report Group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ReportGroup.name");
+    }
 
     /**
      * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReportGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,16 +89,22 @@ public final class ReportGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReportGroup.tagsAll");
+    }
 
     /**
      * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ReportGroup.type");
+    }
 
 }

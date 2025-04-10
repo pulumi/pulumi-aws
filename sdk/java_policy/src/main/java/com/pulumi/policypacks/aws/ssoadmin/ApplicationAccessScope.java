@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")
-public final class ApplicationAccessScope extends com.pulumi.resources.PolicyResource {
+public final class ApplicationAccessScope extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the ARN of the application with the access scope with the targets to add or update.
      * 
      */
-    public String applicationArn;
+    private UndeferrableValue<String> applicationArn;
 
-
+    public String applicationArn() {
+        if (applicationArn == null) return null;
+        return applicationArn.getValue("ApplicationAccessScope.applicationArn");
+    }
 
     /**
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      * 
      */
-    public List<String> authorizedTargets;
+    private @Nullable UndeferrableValue<List<String>> authorizedTargets;
 
-
+    public @Nullable List<String> authorizedTargets() {
+        if (authorizedTargets == null) return null;
+        return authorizedTargets.getValue("ApplicationAccessScope.authorizedTargets");
+    }
 
     /**
      * Specifies the name of the access scope to be associated with the specified targets.
@@ -33,8 +41,11 @@ public final class ApplicationAccessScope extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String scope;
+    private UndeferrableValue<String> scope;
 
-
+    public String scope() {
+        if (scope == null) return null;
+        return scope.getValue("ApplicationAccessScope.scope");
+    }
 
 }

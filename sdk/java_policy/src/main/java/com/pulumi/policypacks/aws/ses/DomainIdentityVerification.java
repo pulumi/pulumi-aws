@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/domainIdentityVerification:DomainIdentityVerification")
-public final class DomainIdentityVerification extends com.pulumi.resources.PolicyResource {
+public final class DomainIdentityVerification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the domain identity.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainIdentityVerification.arn");
+    }
 
     /**
      * The domain name of the SES domain identity to verify.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("DomainIdentityVerification.domain");
+    }
 
 }

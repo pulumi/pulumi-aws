@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.ListenerPortRange;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.ListenerPortRange;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/listener:Listener")
-public final class Listener extends com.pulumi.resources.PolicyResource {
+public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      * 
      */
-    public String acceleratorArn;
+    private UndeferrableValue<String> acceleratorArn;
 
-
+    public String acceleratorArn() {
+        if (acceleratorArn == null) return null;
+        return acceleratorArn.getValue("Listener.acceleratorArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the listener.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Listener.arn");
+    }
 
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
      * 
      */
-    public String clientAffinity;
+    private @Nullable UndeferrableValue<String> clientAffinity;
 
-
+    public @Nullable String clientAffinity() {
+        if (clientAffinity == null) return null;
+        return clientAffinity.getValue("Listener.clientAffinity");
+    }
 
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
      */
-    public List<ListenerPortRange> portRanges;
+    private UndeferrableValue<List<ListenerPortRange>> portRanges;
 
-
+    public List<ListenerPortRange> portRanges() {
+        if (portRanges == null) return null;
+        return portRanges.getValue("Listener.portRanges");
+    }
 
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Listener.protocol");
+    }
 
 }

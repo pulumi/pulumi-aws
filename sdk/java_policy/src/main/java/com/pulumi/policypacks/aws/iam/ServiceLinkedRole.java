@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/serviceLinkedRole:ServiceLinkedRole")
-public final class ServiceLinkedRole extends com.pulumi.resources.PolicyResource {
+public final class ServiceLinkedRole extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServiceLinkedRole.arn");
+    }
 
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      * 
      */
-    public String awsServiceName;
+    private UndeferrableValue<String> awsServiceName;
 
-
+    public String awsServiceName() {
+        if (awsServiceName == null) return null;
+        return awsServiceName.getValue("ServiceLinkedRole.awsServiceName");
+    }
 
     /**
      * The creation date of the IAM role.
      * 
      */
-    public String createDate;
+    private UndeferrableValue<String> createDate;
 
-
+    public String createDate() {
+        if (createDate == null) return null;
+        return createDate.getValue("ServiceLinkedRole.createDate");
+    }
 
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      * 
      */
-    public String customSuffix;
+    private @Nullable UndeferrableValue<String> customSuffix;
 
-
+    public @Nullable String customSuffix() {
+        if (customSuffix == null) return null;
+        return customSuffix.getValue("ServiceLinkedRole.customSuffix");
+    }
 
     /**
      * The description of the role.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ServiceLinkedRole.description");
+    }
 
     /**
      * The name of the role.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServiceLinkedRole.name");
+    }
 
     /**
      * The path of the role.
      * 
      */
-    public String path;
+    private UndeferrableValue<String> path;
 
-
+    public String path() {
+        if (path == null) return null;
+        return path.getValue("ServiceLinkedRole.path");
+    }
 
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServiceLinkedRole.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,16 +109,22 @@ public final class ServiceLinkedRole extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServiceLinkedRole.tagsAll");
+    }
 
     /**
      * The stable and unique string identifying the role.
      * 
      */
-    public String uniqueId;
+    private UndeferrableValue<String> uniqueId;
 
-
+    public String uniqueId() {
+        if (uniqueId == null) return null;
+        return uniqueId.getValue("ServiceLinkedRole.uniqueId");
+    }
 
 }

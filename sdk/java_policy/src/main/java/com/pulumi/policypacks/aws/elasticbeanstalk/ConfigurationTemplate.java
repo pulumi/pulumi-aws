@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticbeanstalk.ConfigurationTemplateSetting;
+import com.pulumi.policypacks.aws.elasticbeanstalk.outputs.ConfigurationTemplateSetting;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")
-public final class ConfigurationTemplate extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * name of the application to associate with this configuration template
      * 
      */
-    public String application;
+    private UndeferrableValue<String> application;
 
-
+    public String application() {
+        if (application == null) return null;
+        return application.getValue("ConfigurationTemplate.application");
+    }
 
     /**
      * Short description of the Template
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ConfigurationTemplate.description");
+    }
 
     /**
      * The ID of the environment used with this configuration template
      * 
      */
-    public String environmentId;
+    private @Nullable UndeferrableValue<String> environmentId;
 
-
+    public @Nullable String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("ConfigurationTemplate.environmentId");
+    }
 
     /**
      * A unique name for this Template.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConfigurationTemplate.name");
+    }
 
     /**
      * Option settings to configure the new Environment. These
@@ -50,17 +64,23 @@ public final class ConfigurationTemplate extends com.pulumi.resources.PolicyReso
      * below in Option Settings
      * 
      */
-    public List<ConfigurationTemplateSetting> settings;
+    private UndeferrableValue<List<ConfigurationTemplateSetting>> settings;
 
-
+    public List<ConfigurationTemplateSetting> settings() {
+        if (settings == null) return null;
+        return settings.getValue("ConfigurationTemplate.settings");
+    }
 
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
-    public String solutionStackName;
+    private @Nullable UndeferrableValue<String> solutionStackName;
 
-
+    public @Nullable String solutionStackName() {
+        if (solutionStackName == null) return null;
+        return solutionStackName.getValue("ConfigurationTemplate.solutionStackName");
+    }
 
 }

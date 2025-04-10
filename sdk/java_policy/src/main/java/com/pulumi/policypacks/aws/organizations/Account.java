@@ -3,70 +3,96 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:organizations/account:Account")
-public final class Account extends com.pulumi.resources.PolicyResource {
+public final class Account extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN for this account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Account.arn");
+    }
 
     /**
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      * 
      */
-    public Boolean closeOnDeletion;
+    private @Nullable UndeferrableValue<Boolean> closeOnDeletion;
 
-
+    public @Nullable Boolean closeOnDeletion() {
+        if (closeOnDeletion == null) return null;
+        return closeOnDeletion.getValue("Account.closeOnDeletion");
+    }
 
     /**
      * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
      * 
      */
-    public Boolean createGovcloud;
+    private @Nullable UndeferrableValue<Boolean> createGovcloud;
 
-
+    public @Nullable Boolean createGovcloud() {
+        if (createGovcloud == null) return null;
+        return createGovcloud.getValue("Account.createGovcloud");
+    }
 
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("Account.email");
+    }
 
     /**
      * ID for a GovCloud account created with the account.
      * 
      */
-    public String govcloudId;
+    private UndeferrableValue<String> govcloudId;
 
-
+    public String govcloudId() {
+        if (govcloudId == null) return null;
+        return govcloudId.getValue("Account.govcloudId");
+    }
 
     /**
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      * 
      */
-    public String iamUserAccessToBilling;
+    private @Nullable UndeferrableValue<String> iamUserAccessToBilling;
 
+    public @Nullable String iamUserAccessToBilling() {
+        if (iamUserAccessToBilling == null) return null;
+        return iamUserAccessToBilling.getValue("Account.iamUserAccessToBilling");
+    }
 
+    private UndeferrableValue<String> joinedMethod;
 
-    public String joinedMethod;
+    public String joinedMethod() {
+        if (joinedMethod == null) return null;
+        return joinedMethod.getValue("Account.joinedMethod");
+    }
 
+    private UndeferrableValue<String> joinedTimestamp;
 
-
-    public String joinedTimestamp;
-
-
+    public String joinedTimestamp() {
+        if (joinedTimestamp == null) return null;
+        return joinedTimestamp.getValue("Account.joinedTimestamp");
+    }
 
     /**
      * Friendly name for the member account.
@@ -74,41 +100,56 @@ public final class Account extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Account.name");
+    }
 
     /**
      * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
      * 
      */
-    public String parentId;
+    private UndeferrableValue<String> parentId;
 
-
+    public String parentId() {
+        if (parentId == null) return null;
+        return parentId.getValue("Account.parentId");
+    }
 
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
      * 
      */
-    public String roleName;
+    private @Nullable UndeferrableValue<String> roleName;
 
-
+    public @Nullable String roleName() {
+        if (roleName == null) return null;
+        return roleName.getValue("Account.roleName");
+    }
 
     /**
      * The status of the account in the organization.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Account.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Account.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -118,8 +159,11 @@ public final class Account extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Account.tagsAll");
+    }
 
 }

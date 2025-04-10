@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:memorydb/subnetGroup:SubnetGroup")
-public final class SubnetGroup extends com.pulumi.resources.PolicyResource {
+public final class SubnetGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the subnet group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SubnetGroup.arn");
+    }
 
     /**
      * Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SubnetGroup.description");
+    }
 
     /**
      * Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SubnetGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("SubnetGroup.namePrefix");
+    }
 
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -50,17 +64,23 @@ public final class SubnetGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("SubnetGroup.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SubnetGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,16 +90,22 @@ public final class SubnetGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SubnetGroup.tagsAll");
+    }
 
     /**
      * The VPC in which the subnet group exists.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("SubnetGroup.vpcId");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3tables/tableBucketPolicy:TableBucketPolicy")
-public final class TableBucketPolicy extends com.pulumi.resources.PolicyResource {
+public final class TableBucketPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */
-    public String resourcePolicy;
+    private UndeferrableValue<String> resourcePolicy;
 
-
+    public String resourcePolicy() {
+        if (resourcePolicy == null) return null;
+        return resourcePolicy.getValue("TableBucketPolicy.resourcePolicy");
+    }
 
     /**
      * ARN referencing the Table Bucket that owns this policy.
      * 
      */
-    public String tableBucketArn;
+    private UndeferrableValue<String> tableBucketArn;
 
-
+    public String tableBucketArn() {
+        if (tableBucketArn == null) return null;
+        return tableBucketArn.getValue("TableBucketPolicy.tableBucketArn");
+    }
 
 }

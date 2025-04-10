@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")
-public final class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.PolicyResource {
+public final class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HostedTransitVirtualInterfaceAcceptor.arn");
+    }
 
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    public String dxGatewayId;
+    private UndeferrableValue<String> dxGatewayId;
 
-
+    public String dxGatewayId() {
+        if (dxGatewayId == null) return null;
+        return dxGatewayId.getValue("HostedTransitVirtualInterfaceAcceptor.dxGatewayId");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HostedTransitVirtualInterfaceAcceptor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -43,16 +54,22 @@ public final class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.reso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HostedTransitVirtualInterfaceAcceptor.tagsAll");
+    }
 
     /**
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    public String virtualInterfaceId;
+    private UndeferrableValue<String> virtualInterfaceId;
 
-
+    public String virtualInterfaceId() {
+        if (virtualInterfaceId == null) return null;
+        return virtualInterfaceId.getValue("HostedTransitVirtualInterfaceAcceptor.virtualInterfaceId");
+    }
 
 }

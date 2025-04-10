@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.UserHierarchyStructureHierarchyStructure;
+import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyStructureHierarchyStructure;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:connect/userHierarchyStructure:UserHierarchyStructure")
-public final class UserHierarchyStructure extends com.pulumi.resources.PolicyResource {
+public final class UserHierarchyStructure extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
      */
-    public UserHierarchyStructureHierarchyStructure hierarchyStructure;
+    private UndeferrableValue<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
 
-
+    public UserHierarchyStructureHierarchyStructure hierarchyStructure() {
+        if (hierarchyStructure == null) return null;
+        return hierarchyStructure.getValue("UserHierarchyStructure.hierarchyStructure");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("UserHierarchyStructure.instanceId");
+    }
 
 }

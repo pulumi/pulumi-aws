@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directoryservice/logSubscription:LogSubscription")
-public final class LogSubscription extends com.pulumi.resources.PolicyResource {
+public final class LogSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of directory.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("LogSubscription.directoryId");
+    }
 
     /**
      * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
      * 
      */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("LogSubscription.logGroupName");
+    }
 
 }

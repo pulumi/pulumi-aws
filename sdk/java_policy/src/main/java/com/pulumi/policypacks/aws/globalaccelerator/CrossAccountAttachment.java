@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.CrossAccountAttachmentResource;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CrossAccountAttachmentResource;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")
-public final class CrossAccountAttachment extends com.pulumi.resources.PolicyResource {
+public final class CrossAccountAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Cross Account Attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CrossAccountAttachment.arn");
+    }
 
     /**
      * Creation Time when the Cross Account Attachment.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("CrossAccountAttachment.createdTime");
+    }
 
     /**
      * Last modified time of the Cross Account Attachment.
      * 
      */
-    public String lastModifiedTime;
+    private UndeferrableValue<String> lastModifiedTime;
 
-
+    public String lastModifiedTime() {
+        if (lastModifiedTime == null) return null;
+        return lastModifiedTime.getValue("CrossAccountAttachment.lastModifiedTime");
+    }
 
     /**
      * Name of the Cross Account Attachment.
@@ -43,33 +54,45 @@ public final class CrossAccountAttachment extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CrossAccountAttachment.name");
+    }
 
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      * 
      */
-    public List<String> principals;
+    private @Nullable UndeferrableValue<List<String>> principals;
 
-
+    public @Nullable List<String> principals() {
+        if (principals == null) return null;
+        return principals.getValue("CrossAccountAttachment.principals");
+    }
 
     /**
      * List of resources to be associated with the accelerator.
      * 
      */
-    public List<CrossAccountAttachmentResource> resources;
+    private @Nullable UndeferrableValue<List<CrossAccountAttachmentResource>> resources;
 
-
+    public @Nullable List<CrossAccountAttachmentResource> resources() {
+        if (resources == null) return null;
+        return resources.getValue("CrossAccountAttachment.resources");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CrossAccountAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -79,8 +102,11 @@ public final class CrossAccountAttachment extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CrossAccountAttachment.tagsAll");
+    }
 
 }

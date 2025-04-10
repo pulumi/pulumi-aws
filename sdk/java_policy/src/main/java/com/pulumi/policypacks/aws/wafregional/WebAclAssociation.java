@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:wafregional/webAclAssociation:WebAclAssociation")
-public final class WebAclAssociation extends com.pulumi.resources.PolicyResource {
+public final class WebAclAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("WebAclAssociation.resourceArn");
+    }
 
     /**
      * The ID of the WAF Regional WebACL to create an association.
      * 
      */
-    public String webAclId;
+    private UndeferrableValue<String> webAclId;
 
-
+    public String webAclId() {
+        if (webAclId == null) return null;
+        return webAclId.getValue("WebAclAssociation.webAclId");
+    }
 
 }

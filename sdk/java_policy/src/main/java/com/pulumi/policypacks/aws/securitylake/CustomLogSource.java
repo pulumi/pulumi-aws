@@ -3,48 +3,62 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securitylake.CustomLogSourceAttribute;
-import com.pulumi.policypacks.aws.securitylake.CustomLogSourceConfiguration;
-import com.pulumi.policypacks.aws.securitylake.CustomLogSourceProviderDetail;
+import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceAttribute;
+import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceConfiguration;
+import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceProviderDetail;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securitylake/customLogSource:CustomLogSource")
-public final class CustomLogSource extends com.pulumi.resources.PolicyResource {
+public final class CustomLogSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The attributes of a third-party custom source.
      * 
      */
-    public List<CustomLogSourceAttribute> attributes;
+    private UndeferrableValue<List<CustomLogSourceAttribute>> attributes;
 
-
+    public List<CustomLogSourceAttribute> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("CustomLogSource.attributes");
+    }
 
     /**
      * The configuration for the third-party custom source.
      * 
      */
-    public CustomLogSourceConfiguration configuration;
+    private @Nullable UndeferrableValue<CustomLogSourceConfiguration> configuration;
 
-
+    public @Nullable CustomLogSourceConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("CustomLogSource.configuration");
+    }
 
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      * 
      */
-    public List<String> eventClasses;
+    private @Nullable UndeferrableValue<List<String>> eventClasses;
 
-
+    public @Nullable List<String> eventClasses() {
+        if (eventClasses == null) return null;
+        return eventClasses.getValue("CustomLogSource.eventClasses");
+    }
 
     /**
      * The details of the log provider for a third-party custom source.
      * 
      */
-    public List<CustomLogSourceProviderDetail> providerDetails;
+    private UndeferrableValue<List<CustomLogSourceProviderDetail>> providerDetails;
 
-
+    public List<CustomLogSourceProviderDetail> providerDetails() {
+        if (providerDetails == null) return null;
+        return providerDetails.getValue("CustomLogSource.providerDetails");
+    }
 
     /**
      * Specify the name for a third-party custom source.
@@ -52,16 +66,22 @@ public final class CustomLogSource extends com.pulumi.resources.PolicyResource {
      * Has a maximum length of 20.
      * 
      */
-    public String sourceName;
+    private UndeferrableValue<String> sourceName;
 
-
+    public String sourceName() {
+        if (sourceName == null) return null;
+        return sourceName.getValue("CustomLogSource.sourceName");
+    }
 
     /**
      * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
      * 
      */
-    public String sourceVersion;
+    private UndeferrableValue<String> sourceVersion;
 
-
+    public String sourceVersion() {
+        if (sourceVersion == null) return null;
+        return sourceVersion.getValue("CustomLogSource.sourceVersion");
+    }
 
 }

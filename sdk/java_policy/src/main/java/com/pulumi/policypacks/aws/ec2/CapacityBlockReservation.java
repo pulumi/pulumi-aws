@@ -3,136 +3,183 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.CapacityBlockReservationTimeouts;
+import com.pulumi.policypacks.aws.ec2.outputs.CapacityBlockReservationTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/capacityBlockReservation:CapacityBlockReservation")
-public final class CapacityBlockReservation extends com.pulumi.resources.PolicyResource {
+public final class CapacityBlockReservation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the reservation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CapacityBlockReservation.arn");
+    }
 
     /**
      * The Availability Zone in which to create the Capacity Block Reservation.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("CapacityBlockReservation.availabilityZone");
+    }
 
     /**
      * The Capacity Block Reservation ID.
      * 
      */
-    public String capacityBlockOfferingId;
+    private UndeferrableValue<String> capacityBlockOfferingId;
 
-
+    public String capacityBlockOfferingId() {
+        if (capacityBlockOfferingId == null) return null;
+        return capacityBlockOfferingId.getValue("CapacityBlockReservation.capacityBlockOfferingId");
+    }
 
     /**
      * The date and time at which the Capacity Block Reservation was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("CapacityBlockReservation.createdDate");
+    }
 
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      * 
      */
-    public Boolean ebsOptimized;
+    private UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("CapacityBlockReservation.ebsOptimized");
+    }
 
     /**
      * The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String endDate;
+    private UndeferrableValue<String> endDate;
 
-
+    public String endDate() {
+        if (endDate == null) return null;
+        return endDate.getValue("CapacityBlockReservation.endDate");
+    }
 
     /**
      * Indicates the way in which the Capacity Reservation ends.
      * 
      */
-    public String endDateType;
+    private UndeferrableValue<String> endDateType;
 
-
+    public String endDateType() {
+        if (endDateType == null) return null;
+        return endDateType.getValue("CapacityBlockReservation.endDateType");
+    }
 
     /**
      * The number of instances for which to reserve capacity.
      * 
      */
-    public Integer instanceCount;
+    private UndeferrableValue<Integer> instanceCount;
 
-
+    public Integer instanceCount() {
+        if (instanceCount == null) return null;
+        return instanceCount.getValue("CapacityBlockReservation.instanceCount");
+    }
 
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      * 
      */
-    public String instancePlatform;
+    private UndeferrableValue<String> instancePlatform;
 
-
+    public String instancePlatform() {
+        if (instancePlatform == null) return null;
+        return instancePlatform.getValue("CapacityBlockReservation.instancePlatform");
+    }
 
     /**
      * The instance type for which to reserve capacity.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("CapacityBlockReservation.instanceType");
+    }
 
     /**
      * The ARN of the Outpost on which to create the Capacity Block Reservation.
      * 
      */
-    public String outpostArn;
+    private UndeferrableValue<String> outpostArn;
 
-
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("CapacityBlockReservation.outpostArn");
+    }
 
     /**
      * The ARN of the placement group in which to create the Capacity Block Reservation.
      * 
      */
-    public String placementGroupArn;
+    private UndeferrableValue<String> placementGroupArn;
 
-
+    public String placementGroupArn() {
+        if (placementGroupArn == null) return null;
+        return placementGroupArn.getValue("CapacityBlockReservation.placementGroupArn");
+    }
 
     /**
      * The type of Capacity Reservation.
      * 
      */
-    public String reservationType;
+    private UndeferrableValue<String> reservationType;
 
-
+    public String reservationType() {
+        if (reservationType == null) return null;
+        return reservationType.getValue("CapacityBlockReservation.reservationType");
+    }
 
     /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String startDate;
+    private UndeferrableValue<String> startDate;
 
-
+    public String startDate() {
+        if (startDate == null) return null;
+        return startDate.getValue("CapacityBlockReservation.startDate");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CapacityBlockReservation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
@@ -142,20 +189,29 @@ public final class CapacityBlockReservation extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CapacityBlockReservation.tagsAll");
+    }
 
     /**
      * Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
      * 
      */
-    public String tenancy;
+    private UndeferrableValue<String> tenancy;
 
+    public String tenancy() {
+        if (tenancy == null) return null;
+        return tenancy.getValue("CapacityBlockReservation.tenancy");
+    }
 
+    private @Nullable UndeferrableValue<CapacityBlockReservationTimeouts> timeouts;
 
-    public CapacityBlockReservationTimeouts timeouts;
-
-
+    public @Nullable CapacityBlockReservationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("CapacityBlockReservation.timeouts");
+    }
 
 }

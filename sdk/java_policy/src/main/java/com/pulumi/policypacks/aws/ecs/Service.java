@@ -3,165 +3,218 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.ServiceAlarms;
-import com.pulumi.policypacks.aws.ecs.ServiceCapacityProviderStrategy;
-import com.pulumi.policypacks.aws.ecs.ServiceDeploymentCircuitBreaker;
-import com.pulumi.policypacks.aws.ecs.ServiceDeploymentController;
-import com.pulumi.policypacks.aws.ecs.ServiceLoadBalancer;
-import com.pulumi.policypacks.aws.ecs.ServiceNetworkConfiguration;
-import com.pulumi.policypacks.aws.ecs.ServiceOrderedPlacementStrategy;
-import com.pulumi.policypacks.aws.ecs.ServicePlacementConstraint;
-import com.pulumi.policypacks.aws.ecs.ServiceServiceConnectConfiguration;
-import com.pulumi.policypacks.aws.ecs.ServiceServiceRegistries;
-import com.pulumi.policypacks.aws.ecs.ServiceVolumeConfiguration;
-import com.pulumi.policypacks.aws.ecs.ServiceVpcLatticeConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceAlarms;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceCapacityProviderStrategy;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceDeploymentCircuitBreaker;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceDeploymentController;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceLoadBalancer;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceNetworkConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceOrderedPlacementStrategy;
+import com.pulumi.policypacks.aws.ecs.outputs.ServicePlacementConstraint;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceConnectConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceRegistries;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceVolumeConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.ServiceVpcLatticeConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/service:Service")
-public final class Service extends com.pulumi.resources.PolicyResource {
+public final class Service extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Information about the CloudWatch alarms. See below.
      * 
      */
-    public ServiceAlarms alarms;
+    private @Nullable UndeferrableValue<ServiceAlarms> alarms;
 
-
+    public @Nullable ServiceAlarms alarms() {
+        if (alarms == null) return null;
+        return alarms.getValue("Service.alarms");
+    }
 
     /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    public String availabilityZoneRebalancing;
+    private @Nullable UndeferrableValue<String> availabilityZoneRebalancing;
 
-
+    public @Nullable String availabilityZoneRebalancing() {
+        if (availabilityZoneRebalancing == null) return null;
+        return availabilityZoneRebalancing.getValue("Service.availabilityZoneRebalancing");
+    }
 
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
-    public List<ServiceCapacityProviderStrategy> capacityProviderStrategies;
+    private @Nullable UndeferrableValue<List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
-
+    public @Nullable List<ServiceCapacityProviderStrategy> capacityProviderStrategies() {
+        if (capacityProviderStrategies == null) return null;
+        return capacityProviderStrategies.getValue("Service.capacityProviderStrategies");
+    }
 
     /**
      * ARN of an ECS cluster.
      * 
      */
-    public String cluster;
+    private UndeferrableValue<String> cluster;
 
-
+    public String cluster() {
+        if (cluster == null) return null;
+        return cluster.getValue("Service.cluster");
+    }
 
     /**
      * Configuration block for deployment circuit breaker. See below.
      * 
      */
-    public ServiceDeploymentCircuitBreaker deploymentCircuitBreaker;
+    private @Nullable UndeferrableValue<ServiceDeploymentCircuitBreaker> deploymentCircuitBreaker;
 
-
+    public @Nullable ServiceDeploymentCircuitBreaker deploymentCircuitBreaker() {
+        if (deploymentCircuitBreaker == null) return null;
+        return deploymentCircuitBreaker.getValue("Service.deploymentCircuitBreaker");
+    }
 
     /**
      * Configuration block for deployment controller configuration. See below.
      * 
      */
-    public ServiceDeploymentController deploymentController;
+    private @Nullable UndeferrableValue<ServiceDeploymentController> deploymentController;
 
-
+    public @Nullable ServiceDeploymentController deploymentController() {
+        if (deploymentController == null) return null;
+        return deploymentController.getValue("Service.deploymentController");
+    }
 
     /**
      * Upper limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      * 
      */
-    public Integer deploymentMaximumPercent;
+    private @Nullable UndeferrableValue<Integer> deploymentMaximumPercent;
 
-
+    public @Nullable Integer deploymentMaximumPercent() {
+        if (deploymentMaximumPercent == null) return null;
+        return deploymentMaximumPercent.getValue("Service.deploymentMaximumPercent");
+    }
 
     /**
      * Lower limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      * 
      */
-    public Integer deploymentMinimumHealthyPercent;
+    private @Nullable UndeferrableValue<Integer> deploymentMinimumHealthyPercent;
 
-
+    public @Nullable Integer deploymentMinimumHealthyPercent() {
+        if (deploymentMinimumHealthyPercent == null) return null;
+        return deploymentMinimumHealthyPercent.getValue("Service.deploymentMinimumHealthyPercent");
+    }
 
     /**
      * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      * 
      */
-    public Integer desiredCount;
+    private @Nullable UndeferrableValue<Integer> desiredCount;
 
-
+    public @Nullable Integer desiredCount() {
+        if (desiredCount == null) return null;
+        return desiredCount.getValue("Service.desiredCount");
+    }
 
     /**
      * Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
-    public Boolean enableEcsManagedTags;
+    private @Nullable UndeferrableValue<Boolean> enableEcsManagedTags;
 
-
+    public @Nullable Boolean enableEcsManagedTags() {
+        if (enableEcsManagedTags == null) return null;
+        return enableEcsManagedTags.getValue("Service.enableEcsManagedTags");
+    }
 
     /**
      * Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
-    public Boolean enableExecuteCommand;
+    private @Nullable UndeferrableValue<Boolean> enableExecuteCommand;
 
-
+    public @Nullable Boolean enableExecuteCommand() {
+        if (enableExecuteCommand == null) return null;
+        return enableExecuteCommand.getValue("Service.enableExecuteCommand");
+    }
 
     /**
      * Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("Service.forceDelete");
+    }
 
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
      * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
-    public Boolean forceNewDeployment;
+    private @Nullable UndeferrableValue<Boolean> forceNewDeployment;
 
-
+    public @Nullable Boolean forceNewDeployment() {
+        if (forceNewDeployment == null) return null;
+        return forceNewDeployment.getValue("Service.forceNewDeployment");
+    }
 
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      * 
      */
-    public Integer healthCheckGracePeriodSeconds;
+    private @Nullable UndeferrableValue<Integer> healthCheckGracePeriodSeconds;
 
-
+    public @Nullable Integer healthCheckGracePeriodSeconds() {
+        if (healthCheckGracePeriodSeconds == null) return null;
+        return healthCheckGracePeriodSeconds.getValue("Service.healthCheckGracePeriodSeconds");
+    }
 
     /**
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      * 
      */
-    public String iamRole;
+    private UndeferrableValue<String> iamRole;
 
-
+    public String iamRole() {
+        if (iamRole == null) return null;
+        return iamRole.getValue("Service.iamRole");
+    }
 
     /**
      * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
-    public String launchType;
+    private UndeferrableValue<String> launchType;
 
-
+    public String launchType() {
+        if (launchType == null) return null;
+        return launchType.getValue("Service.launchType");
+    }
 
     /**
      * Configuration block for load balancers. See below.
      * 
      */
-    public List<ServiceLoadBalancer> loadBalancers;
+    private @Nullable UndeferrableValue<List<ServiceLoadBalancer>> loadBalancers;
 
-
+    public @Nullable List<ServiceLoadBalancer> loadBalancers() {
+        if (loadBalancers == null) return null;
+        return loadBalancers.getValue("Service.loadBalancers");
+    }
 
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
@@ -169,81 +222,111 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Service.name");
+    }
 
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      * 
      */
-    public ServiceNetworkConfiguration networkConfiguration;
+    private @Nullable UndeferrableValue<ServiceNetworkConfiguration> networkConfiguration;
 
-
+    public @Nullable ServiceNetworkConfiguration networkConfiguration() {
+        if (networkConfiguration == null) return null;
+        return networkConfiguration.getValue("Service.networkConfiguration");
+    }
 
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
      * 
      */
-    public List<ServiceOrderedPlacementStrategy> orderedPlacementStrategies;
+    private @Nullable UndeferrableValue<List<ServiceOrderedPlacementStrategy>> orderedPlacementStrategies;
 
-
+    public @Nullable List<ServiceOrderedPlacementStrategy> orderedPlacementStrategies() {
+        if (orderedPlacementStrategies == null) return null;
+        return orderedPlacementStrategies.getValue("Service.orderedPlacementStrategies");
+    }
 
     /**
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
      * 
      */
-    public List<ServicePlacementConstraint> placementConstraints;
+    private @Nullable UndeferrableValue<List<ServicePlacementConstraint>> placementConstraints;
 
-
+    public @Nullable List<ServicePlacementConstraint> placementConstraints() {
+        if (placementConstraints == null) return null;
+        return placementConstraints.getValue("Service.placementConstraints");
+    }
 
     /**
      * Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    public String platformVersion;
+    private UndeferrableValue<String> platformVersion;
 
-
+    public String platformVersion() {
+        if (platformVersion == null) return null;
+        return platformVersion.getValue("Service.platformVersion");
+    }
 
     /**
      * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
-    public String propagateTags;
+    private @Nullable UndeferrableValue<String> propagateTags;
 
-
+    public @Nullable String propagateTags() {
+        if (propagateTags == null) return null;
+        return propagateTags.getValue("Service.propagateTags");
+    }
 
     /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don&#39;t support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      * 
      */
-    public String schedulingStrategy;
+    private @Nullable UndeferrableValue<String> schedulingStrategy;
 
-
+    public @Nullable String schedulingStrategy() {
+        if (schedulingStrategy == null) return null;
+        return schedulingStrategy.getValue("Service.schedulingStrategy");
+    }
 
     /**
      * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
-    public ServiceServiceConnectConfiguration serviceConnectConfiguration;
+    private @Nullable UndeferrableValue<ServiceServiceConnectConfiguration> serviceConnectConfiguration;
 
-
+    public @Nullable ServiceServiceConnectConfiguration serviceConnectConfiguration() {
+        if (serviceConnectConfiguration == null) return null;
+        return serviceConnectConfiguration.getValue("Service.serviceConnectConfiguration");
+    }
 
     /**
      * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
      * 
      */
-    public ServiceServiceRegistries serviceRegistries;
+    private @Nullable UndeferrableValue<ServiceServiceRegistries> serviceRegistries;
 
-
+    public @Nullable ServiceServiceRegistries serviceRegistries() {
+        if (serviceRegistries == null) return null;
+        return serviceRegistries.getValue("Service.serviceRegistries");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Service.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -253,48 +336,66 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Service.tagsAll");
+    }
 
     /**
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      * 
      */
-    public String taskDefinition;
+    private @Nullable UndeferrableValue<String> taskDefinition;
 
-
+    public @Nullable String taskDefinition() {
+        if (taskDefinition == null) return null;
+        return taskDefinition.getValue("Service.taskDefinition");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. When using the triggers property you also need to set the forceNewDeployment property to True.
      * 
      */
-    public Map<String,String> triggers;
+    private UndeferrableValue<Map<String,String>> triggers;
 
-
+    public Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Service.triggers");
+    }
 
     /**
      * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
      * 
      */
-    public ServiceVolumeConfiguration volumeConfiguration;
+    private @Nullable UndeferrableValue<ServiceVolumeConfiguration> volumeConfiguration;
 
-
+    public @Nullable ServiceVolumeConfiguration volumeConfiguration() {
+        if (volumeConfiguration == null) return null;
+        return volumeConfiguration.getValue("Service.volumeConfiguration");
+    }
 
     /**
      * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
-    public List<ServiceVpcLatticeConfiguration> vpcLatticeConfigurations;
+    private @Nullable UndeferrableValue<List<ServiceVpcLatticeConfiguration>> vpcLatticeConfigurations;
 
-
+    public @Nullable List<ServiceVpcLatticeConfiguration> vpcLatticeConfigurations() {
+        if (vpcLatticeConfigurations == null) return null;
+        return vpcLatticeConfigurations.getValue("Service.vpcLatticeConfigurations");
+    }
 
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */
-    public Boolean waitForSteadyState;
+    private @Nullable UndeferrableValue<Boolean> waitForSteadyState;
 
-
+    public @Nullable Boolean waitForSteadyState() {
+        if (waitForSteadyState == null) return null;
+        return waitForSteadyState.getValue("Service.waitForSteadyState");
+    }
 
 }

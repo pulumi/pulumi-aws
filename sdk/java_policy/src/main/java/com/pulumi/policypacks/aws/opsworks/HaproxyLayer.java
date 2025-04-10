@@ -3,215 +3,301 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.HaproxyLayerCloudwatchConfiguration;
-import com.pulumi.policypacks.aws.opsworks.HaproxyLayerEbsVolume;
-import com.pulumi.policypacks.aws.opsworks.HaproxyLayerLoadBasedAutoScaling;
+import com.pulumi.policypacks.aws.opsworks.outputs.HaproxyLayerCloudwatchConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.HaproxyLayerEbsVolume;
+import com.pulumi.policypacks.aws.opsworks.outputs.HaproxyLayerLoadBasedAutoScaling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/haproxyLayer:HaproxyLayer")
-public final class HaproxyLayer extends com.pulumi.resources.PolicyResource {
+public final class HaproxyLayer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HaproxyLayer.arn");
+    }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignElasticIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
 
-
+    public @Nullable Boolean autoAssignElasticIps() {
+        if (autoAssignElasticIps == null) return null;
+        return autoAssignElasticIps.getValue("HaproxyLayer.autoAssignElasticIps");
+    }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignPublicIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
 
-
+    public @Nullable Boolean autoAssignPublicIps() {
+        if (autoAssignPublicIps == null) return null;
+        return autoAssignPublicIps.getValue("HaproxyLayer.autoAssignPublicIps");
+    }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    public Boolean autoHealing;
+    private @Nullable UndeferrableValue<Boolean> autoHealing;
 
+    public @Nullable Boolean autoHealing() {
+        if (autoHealing == null) return null;
+        return autoHealing.getValue("HaproxyLayer.autoHealing");
+    }
 
+    private @Nullable UndeferrableValue<HaproxyLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
-    public HaproxyLayerCloudwatchConfiguration cloudwatchConfiguration;
+    public @Nullable HaproxyLayerCloudwatchConfiguration cloudwatchConfiguration() {
+        if (cloudwatchConfiguration == null) return null;
+        return cloudwatchConfiguration.getValue("HaproxyLayer.cloudwatchConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
 
+    public @Nullable List<String> customConfigureRecipes() {
+        if (customConfigureRecipes == null) return null;
+        return customConfigureRecipes.getValue("HaproxyLayer.customConfigureRecipes");
+    }
 
-    public List<String> customConfigureRecipes;
+    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
 
-
-
-    public List<String> customDeployRecipes;
-
-
+    public @Nullable List<String> customDeployRecipes() {
+        if (customDeployRecipes == null) return null;
+        return customDeployRecipes.getValue("HaproxyLayer.customDeployRecipes");
+    }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    public String customInstanceProfileArn;
+    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
 
-
+    public @Nullable String customInstanceProfileArn() {
+        if (customInstanceProfileArn == null) return null;
+        return customInstanceProfileArn.getValue("HaproxyLayer.customInstanceProfileArn");
+    }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    public String customJson;
+    private @Nullable UndeferrableValue<String> customJson;
 
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("HaproxyLayer.customJson");
+    }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    public List<String> customSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
 
+    public @Nullable List<String> customSecurityGroupIds() {
+        if (customSecurityGroupIds == null) return null;
+        return customSecurityGroupIds.getValue("HaproxyLayer.customSecurityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
 
-    public List<String> customSetupRecipes;
+    public @Nullable List<String> customSetupRecipes() {
+        if (customSetupRecipes == null) return null;
+        return customSetupRecipes.getValue("HaproxyLayer.customSetupRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
 
+    public @Nullable List<String> customShutdownRecipes() {
+        if (customShutdownRecipes == null) return null;
+        return customShutdownRecipes.getValue("HaproxyLayer.customShutdownRecipes");
+    }
 
-    public List<String> customShutdownRecipes;
+    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
 
-
-
-    public List<String> customUndeployRecipes;
-
-
+    public @Nullable List<String> customUndeployRecipes() {
+        if (customUndeployRecipes == null) return null;
+        return customUndeployRecipes.getValue("HaproxyLayer.customUndeployRecipes");
+    }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    public Boolean drainElbOnShutdown;
+    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
 
-
+    public @Nullable Boolean drainElbOnShutdown() {
+        if (drainElbOnShutdown == null) return null;
+        return drainElbOnShutdown.getValue("HaproxyLayer.drainElbOnShutdown");
+    }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public List<HaproxyLayerEbsVolume> ebsVolumes;
+    private UndeferrableValue<List<HaproxyLayerEbsVolume>> ebsVolumes;
 
-
+    public List<HaproxyLayerEbsVolume> ebsVolumes() {
+        if (ebsVolumes == null) return null;
+        return ebsVolumes.getValue("HaproxyLayer.ebsVolumes");
+    }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    public String elasticLoadBalancer;
+    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
 
-
+    public @Nullable String elasticLoadBalancer() {
+        if (elasticLoadBalancer == null) return null;
+        return elasticLoadBalancer.getValue("HaproxyLayer.elasticLoadBalancer");
+    }
 
     /**
      * HTTP method to use for instance healthchecks. Defaults to &#34;OPTIONS&#34;.
      * 
      */
-    public String healthcheckMethod;
+    private @Nullable UndeferrableValue<String> healthcheckMethod;
 
-
+    public @Nullable String healthcheckMethod() {
+        if (healthcheckMethod == null) return null;
+        return healthcheckMethod.getValue("HaproxyLayer.healthcheckMethod");
+    }
 
     /**
      * URL path to use for instance healthchecks. Defaults to &#34;/&#34;.
      * 
      */
-    public String healthcheckUrl;
+    private @Nullable UndeferrableValue<String> healthcheckUrl;
 
-
+    public @Nullable String healthcheckUrl() {
+        if (healthcheckUrl == null) return null;
+        return healthcheckUrl.getValue("HaproxyLayer.healthcheckUrl");
+    }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("HaproxyLayer.installUpdatesOnBoot");
+    }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    public Integer instanceShutdownTimeout;
+    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
 
+    public @Nullable Integer instanceShutdownTimeout() {
+        if (instanceShutdownTimeout == null) return null;
+        return instanceShutdownTimeout.getValue("HaproxyLayer.instanceShutdownTimeout");
+    }
 
+    private UndeferrableValue<HaproxyLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-    public HaproxyLayerLoadBasedAutoScaling loadBasedAutoScaling;
-
-
+    public HaproxyLayerLoadBasedAutoScaling loadBasedAutoScaling() {
+        if (loadBasedAutoScaling == null) return null;
+        return loadBasedAutoScaling.getValue("HaproxyLayer.loadBasedAutoScaling");
+    }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("HaproxyLayer.name");
+    }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("HaproxyLayer.stackId");
+    }
 
     /**
      * Whether to enable HAProxy stats.
      * 
      */
-    public Boolean statsEnabled;
+    private @Nullable UndeferrableValue<Boolean> statsEnabled;
 
-
+    public @Nullable Boolean statsEnabled() {
+        if (statsEnabled == null) return null;
+        return statsEnabled.getValue("HaproxyLayer.statsEnabled");
+    }
 
     /**
      * The password to use for HAProxy stats.
      * 
      */
-    public String statsPassword;
+    private UndeferrableValue<String> statsPassword;
 
-
+    public String statsPassword() {
+        if (statsPassword == null) return null;
+        return statsPassword.getValue("HaproxyLayer.statsPassword");
+    }
 
     /**
      * The HAProxy stats URL. Defaults to &#34;/haproxy?stats&#34;.
      * 
      */
-    public String statsUrl;
+    private @Nullable UndeferrableValue<String> statsUrl;
 
-
+    public @Nullable String statsUrl() {
+        if (statsUrl == null) return null;
+        return statsUrl.getValue("HaproxyLayer.statsUrl");
+    }
 
     /**
      * The username for HAProxy stats. Defaults to &#34;opsworks&#34;.
      * 
      */
-    public String statsUser;
+    private @Nullable UndeferrableValue<String> statsUser;
 
-
+    public @Nullable String statsUser() {
+        if (statsUser == null) return null;
+        return statsUser.getValue("HaproxyLayer.statsUser");
+    }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    public List<String> systemPackages;
+    private @Nullable UndeferrableValue<List<String>> systemPackages;
 
-
+    public @Nullable List<String> systemPackages() {
+        if (systemPackages == null) return null;
+        return systemPackages.getValue("HaproxyLayer.systemPackages");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,9 +307,12 @@ public final class HaproxyLayer extends com.pulumi.resources.PolicyResource {
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HaproxyLayer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -233,16 +322,22 @@ public final class HaproxyLayer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HaproxyLayer.tagsAll");
+    }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    public Boolean useEbsOptimizedInstances;
+    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
 
-
+    public @Nullable Boolean useEbsOptimizedInstances() {
+        if (useEbsOptimizedInstances == null) return null;
+        return useEbsOptimizedInstances.getValue("HaproxyLayer.useEbsOptimizedInstances");
+    }
 
 }

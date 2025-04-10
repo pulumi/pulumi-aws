@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/bucketPolicy:BucketPolicy")
-public final class BucketPolicy extends com.pulumi.resources.PolicyResource {
+public final class BucketPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketPolicy.bucket");
+    }
 
     /**
      * JSON string of the resource policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("BucketPolicy.policy");
+    }
 
 }

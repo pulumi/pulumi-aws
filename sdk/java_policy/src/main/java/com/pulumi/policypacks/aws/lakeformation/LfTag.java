@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:lakeformation/lfTag:LfTag")
-public final class LfTag extends com.pulumi.resources.PolicyResource {
+public final class LfTag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("LfTag.catalogId");
+    }
 
     /**
      * Key-name for the tag.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("LfTag.key");
+    }
 
     /**
      * List of possible values an attribute can take.
      * 
      */
-    public List<String> values;
+    private UndeferrableValue<List<String>> values;
 
-
+    public List<String> values() {
+        if (values == null) return null;
+        return values.getValue("LfTag.values");
+    }
 
 }

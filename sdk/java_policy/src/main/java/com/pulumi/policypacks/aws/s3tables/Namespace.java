@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3tables/namespace:Namespace")
-public final class Namespace extends com.pulumi.resources.PolicyResource {
+public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Date and time when the namespace was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Namespace.createdAt");
+    }
 
     /**
      * Account ID of the account that created the namespace.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("Namespace.createdBy");
+    }
 
     /**
      * Name of the namespace.
@@ -32,24 +39,33 @@ public final class Namespace extends com.pulumi.resources.PolicyResource {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("Namespace.namespace");
+    }
 
     /**
      * Account ID of the account that owns the namespace.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("Namespace.ownerAccountId");
+    }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      */
-    public String tableBucketArn;
+    private UndeferrableValue<String> tableBucketArn;
 
-
+    public String tableBucketArn() {
+        if (tableBucketArn == null) return null;
+        return tableBucketArn.getValue("Namespace.tableBucketArn");
+    }
 
 }

@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.DeliveryChannelSnapshotDeliveryProperties;
+import com.pulumi.policypacks.aws.cfg.outputs.DeliveryChannelSnapshotDeliveryProperties;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/deliveryChannel:DeliveryChannel")
-public final class DeliveryChannel extends com.pulumi.resources.PolicyResource {
+public final class DeliveryChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DeliveryChannel.name");
+    }
 
     /**
      * The name of the S3 bucket used to store the configuration history.
      * 
      */
-    public String s3BucketName;
+    private UndeferrableValue<String> s3BucketName;
 
-
+    public String s3BucketName() {
+        if (s3BucketName == null) return null;
+        return s3BucketName.getValue("DeliveryChannel.s3BucketName");
+    }
 
     /**
      * The prefix for the specified S3 bucket.
      * 
      */
-    public String s3KeyPrefix;
+    private @Nullable UndeferrableValue<String> s3KeyPrefix;
 
-
+    public @Nullable String s3KeyPrefix() {
+        if (s3KeyPrefix == null) return null;
+        return s3KeyPrefix.getValue("DeliveryChannel.s3KeyPrefix");
+    }
 
     /**
      * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      * 
      */
-    public String s3KmsKeyArn;
+    private @Nullable UndeferrableValue<String> s3KmsKeyArn;
 
-
+    public @Nullable String s3KmsKeyArn() {
+        if (s3KmsKeyArn == null) return null;
+        return s3KmsKeyArn.getValue("DeliveryChannel.s3KmsKeyArn");
+    }
 
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      * 
      */
-    public DeliveryChannelSnapshotDeliveryProperties snapshotDeliveryProperties;
+    private @Nullable UndeferrableValue<DeliveryChannelSnapshotDeliveryProperties> snapshotDeliveryProperties;
 
-
+    public @Nullable DeliveryChannelSnapshotDeliveryProperties snapshotDeliveryProperties() {
+        if (snapshotDeliveryProperties == null) return null;
+        return snapshotDeliveryProperties.getValue("DeliveryChannel.snapshotDeliveryProperties");
+    }
 
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      * 
      */
-    public String snsTopicArn;
+    private @Nullable UndeferrableValue<String> snsTopicArn;
 
-
+    public @Nullable String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("DeliveryChannel.snsTopicArn");
+    }
 
 }

@@ -3,119 +3,160 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/component:Component")
-public final class Component extends com.pulumi.resources.PolicyResource {
+public final class Component extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (Required) Amazon Resource Name (ARN) of the component.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Component.arn");
+    }
 
     /**
      * Change description of the component.
      * 
      */
-    public String changeDescription;
+    private @Nullable UndeferrableValue<String> changeDescription;
 
-
+    public @Nullable String changeDescription() {
+        if (changeDescription == null) return null;
+        return changeDescription.getValue("Component.changeDescription");
+    }
 
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public String data;
+    private UndeferrableValue<String> data;
 
-
+    public String data() {
+        if (data == null) return null;
+        return data.getValue("Component.data");
+    }
 
     /**
      * Date the component was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("Component.dateCreated");
+    }
 
     /**
      * Description of the component.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Component.description");
+    }
 
     /**
      * Encryption status of the component.
      * 
      */
-    public Boolean encrypted;
+    private UndeferrableValue<Boolean> encrypted;
 
-
+    public Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("Component.encrypted");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Component.kmsKeyId");
+    }
 
     /**
      * Name of the component.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Component.name");
+    }
 
     /**
      * Owner of the component.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Component.owner");
+    }
 
     /**
      * Platform of the component.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("Component.platform");
+    }
 
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("Component.skipDestroy");
+    }
 
     /**
      * Set of Operating Systems (OS) supported by the component.
      * 
      */
-    public List<String> supportedOsVersions;
+    private @Nullable UndeferrableValue<List<String>> supportedOsVersions;
 
-
+    public @Nullable List<String> supportedOsVersions() {
+        if (supportedOsVersions == null) return null;
+        return supportedOsVersions.getValue("Component.supportedOsVersions");
+    }
 
     /**
      * Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Component.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -125,17 +166,23 @@ public final class Component extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Component.tagsAll");
+    }
 
     /**
      * Type of the component.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Component.type");
+    }
 
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -143,9 +190,12 @@ public final class Component extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
      * 
      */
-    public String uri;
+    private @Nullable UndeferrableValue<String> uri;
 
-
+    public @Nullable String uri() {
+        if (uri == null) return null;
+        return uri.getValue("Component.uri");
+    }
 
     /**
      * Version of the component.
@@ -153,8 +203,11 @@ public final class Component extends com.pulumi.resources.PolicyResource {
      * The following attributes are optional:
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Component.version");
+    }
 
 }

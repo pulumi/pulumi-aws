@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:secretsmanager/secretPolicy:SecretPolicy")
-public final class SecretPolicy extends com.pulumi.resources.PolicyResource {
+public final class SecretPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      * 
      */
-    public Boolean blockPublicPolicy;
+    private @Nullable UndeferrableValue<Boolean> blockPublicPolicy;
 
-
+    public @Nullable Boolean blockPublicPolicy() {
+        if (blockPublicPolicy == null) return null;
+        return blockPublicPolicy.getValue("SecretPolicy.blockPublicPolicy");
+    }
 
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `&#34;{}&#34;` to delete the policy, `&#34;{}&#34;` is not a valid policy since `policy` is required.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("SecretPolicy.policy");
+    }
 
     /**
      * Secret ARN.
@@ -33,8 +41,11 @@ public final class SecretPolicy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String secretArn;
+    private UndeferrableValue<String> secretArn;
 
-
+    public String secretArn() {
+        if (secretArn == null) return null;
+        return secretArn.getValue("SecretPolicy.secretArn");
+    }
 
 }

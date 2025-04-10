@@ -3,20 +3,25 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codebuild/sourceCredential:SourceCredential")
-public final class SourceCredential extends com.pulumi.resources.PolicyResource {
+public final class SourceCredential extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of Source Credential.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SourceCredential.arn");
+    }
 
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
@@ -24,17 +29,23 @@ public final class SourceCredential extends com.pulumi.resources.PolicyResource 
      * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
-    public String authType;
+    private UndeferrableValue<String> authType;
 
-
+    public String authType() {
+        if (authType == null) return null;
+        return authType.getValue("SourceCredential.authType");
+    }
 
     /**
      * The source provider used for this project.
      * 
      */
-    public String serverType;
+    private UndeferrableValue<String> serverType;
 
-
+    public String serverType() {
+        if (serverType == null) return null;
+        return serverType.getValue("SourceCredential.serverType");
+    }
 
     /**
      * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -42,17 +53,23 @@ public final class SourceCredential extends com.pulumi.resources.PolicyResource 
      * Connection ARN.
      * 
      */
-    public String token;
+    private UndeferrableValue<String> token;
 
-
+    public String token() {
+        if (token == null) return null;
+        return token.getValue("SourceCredential.token");
+    }
 
     /**
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
      * other types of source providers or connections.
      * 
      */
-    public String userName;
+    private @Nullable UndeferrableValue<String> userName;
 
-
+    public @Nullable String userName() {
+        if (userName == null) return null;
+        return userName.getValue("SourceCredential.userName");
+    }
 
 }

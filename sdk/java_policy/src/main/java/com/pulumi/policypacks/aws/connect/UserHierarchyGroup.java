@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.UserHierarchyGroupHierarchyPath;
+import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyGroupHierarchyPath;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/userHierarchyGroup:UserHierarchyGroup")
-public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResource {
+public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UserHierarchyGroup.arn");
+    }
 
     /**
      * The identifier for the hierarchy group.
      * 
      */
-    public String hierarchyGroupId;
+    private UndeferrableValue<String> hierarchyGroupId;
 
-
+    public String hierarchyGroupId() {
+        if (hierarchyGroupId == null) return null;
+        return hierarchyGroupId.getValue("UserHierarchyGroup.hierarchyGroupId");
+    }
 
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    public List<UserHierarchyGroupHierarchyPath> hierarchyPaths;
+    private UndeferrableValue<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
 
-
+    public List<UserHierarchyGroupHierarchyPath> hierarchyPaths() {
+        if (hierarchyPaths == null) return null;
+        return hierarchyPaths.getValue("UserHierarchyGroup.hierarchyPaths");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("UserHierarchyGroup.instanceId");
+    }
 
     /**
      * The identifier of the level in the hierarchy group.
      * 
      */
-    public String levelId;
+    private UndeferrableValue<String> levelId;
 
-
+    public String levelId() {
+        if (levelId == null) return null;
+        return levelId.getValue("UserHierarchyGroup.levelId");
+    }
 
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UserHierarchyGroup.name");
+    }
 
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      * 
      */
-    public String parentGroupId;
+    private @Nullable UndeferrableValue<String> parentGroupId;
 
-
+    public @Nullable String parentGroupId() {
+        if (parentGroupId == null) return null;
+        return parentGroupId.getValue("UserHierarchyGroup.parentGroupId");
+    }
 
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UserHierarchyGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -86,8 +112,11 @@ public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UserHierarchyGroup.tagsAll");
+    }
 
 }

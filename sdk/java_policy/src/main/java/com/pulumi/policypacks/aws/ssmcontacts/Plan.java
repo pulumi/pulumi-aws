@@ -3,29 +3,36 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssmcontacts.PlanStage;
+import com.pulumi.policypacks.aws.ssmcontacts.outputs.PlanStage;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:ssmcontacts/plan:Plan")
-public final class Plan extends com.pulumi.resources.PolicyResource {
+public final class Plan extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      * 
      */
-    public String contactId;
+    private UndeferrableValue<String> contactId;
 
-
+    public String contactId() {
+        if (contactId == null) return null;
+        return contactId.getValue("Plan.contactId");
+    }
 
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
-    public List<PlanStage> stages;
+    private UndeferrableValue<List<PlanStage>> stages;
 
-
+    public List<PlanStage> stages() {
+        if (stages == null) return null;
+        return stages.getValue("Plan.stages");
+    }
 
 }

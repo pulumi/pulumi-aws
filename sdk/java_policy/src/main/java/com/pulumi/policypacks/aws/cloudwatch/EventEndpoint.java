@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.EventEndpointEventBus;
-import com.pulumi.policypacks.aws.cloudwatch.EventEndpointReplicationConfig;
-import com.pulumi.policypacks.aws.cloudwatch.EventEndpointRoutingConfig;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointEventBus;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointReplicationConfig;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointRoutingConfig;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventEndpoint:EventEndpoint")
-public final class EventEndpoint extends com.pulumi.resources.PolicyResource {
+public final class EventEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the endpoint that was created.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventEndpoint.arn");
+    }
 
     /**
      * A description of the global endpoint.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EventEndpoint.description");
+    }
 
     /**
      * The URL of the endpoint that was created.
      * 
      */
-    public String endpointUrl;
+    private UndeferrableValue<String> endpointUrl;
 
-
+    public String endpointUrl() {
+        if (endpointUrl == null) return null;
+        return endpointUrl.getValue("EventEndpoint.endpointUrl");
+    }
 
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      * 
      */
-    public List<EventEndpointEventBus> eventBuses;
+    private UndeferrableValue<List<EventEndpointEventBus>> eventBuses;
 
-
+    public List<EventEndpointEventBus> eventBuses() {
+        if (eventBuses == null) return null;
+        return eventBuses.getValue("EventEndpoint.eventBuses");
+    }
 
     /**
      * The name of the global endpoint.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventEndpoint.name");
+    }
 
     /**
      * Parameters used for replication. Documented below.
      * 
      */
-    public EventEndpointReplicationConfig replicationConfig;
+    private @Nullable UndeferrableValue<EventEndpointReplicationConfig> replicationConfig;
 
-
+    public @Nullable EventEndpointReplicationConfig replicationConfig() {
+        if (replicationConfig == null) return null;
+        return replicationConfig.getValue("EventEndpoint.replicationConfig");
+    }
 
     /**
      * The ARN of the IAM role used for replication between event buses.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("EventEndpoint.roleArn");
+    }
 
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      * 
      */
-    public EventEndpointRoutingConfig routingConfig;
+    private UndeferrableValue<EventEndpointRoutingConfig> routingConfig;
 
-
+    public EventEndpointRoutingConfig routingConfig() {
+        if (routingConfig == null) return null;
+        return routingConfig.getValue("EventEndpoint.routingConfig");
+    }
 
 }

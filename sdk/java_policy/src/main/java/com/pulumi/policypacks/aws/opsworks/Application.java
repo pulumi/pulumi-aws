@@ -3,152 +3,205 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.ApplicationAppSource;
-import com.pulumi.policypacks.aws.opsworks.ApplicationEnvironment;
-import com.pulumi.policypacks.aws.opsworks.ApplicationSslConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.ApplicationAppSource;
+import com.pulumi.policypacks.aws.opsworks.outputs.ApplicationEnvironment;
+import com.pulumi.policypacks.aws.opsworks.outputs.ApplicationSslConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * SCM configuration of the app as described below.
      * 
      */
-    public List<ApplicationAppSource> appSources;
+    private UndeferrableValue<List<ApplicationAppSource>> appSources;
 
-
+    public List<ApplicationAppSource> appSources() {
+        if (appSources == null) return null;
+        return appSources.getValue("Application.appSources");
+    }
 
     /**
      * Run bundle install when deploying for application of type `rails`.
      * 
      */
-    public String autoBundleOnDeploy;
+    private @Nullable UndeferrableValue<String> autoBundleOnDeploy;
 
-
+    public @Nullable String autoBundleOnDeploy() {
+        if (autoBundleOnDeploy == null) return null;
+        return autoBundleOnDeploy.getValue("Application.autoBundleOnDeploy");
+    }
 
     /**
      * Specify activity and workflow workers for your app using the aws-flow gem.
      * 
      */
-    public String awsFlowRubySettings;
+    private @Nullable UndeferrableValue<String> awsFlowRubySettings;
 
-
+    public @Nullable String awsFlowRubySettings() {
+        if (awsFlowRubySettings == null) return null;
+        return awsFlowRubySettings.getValue("Application.awsFlowRubySettings");
+    }
 
     /**
      * The data source&#39;s ARN.
      * 
      */
-    public String dataSourceArn;
+    private @Nullable UndeferrableValue<String> dataSourceArn;
 
-
+    public @Nullable String dataSourceArn() {
+        if (dataSourceArn == null) return null;
+        return dataSourceArn.getValue("Application.dataSourceArn");
+    }
 
     /**
      * The database name.
      * 
      */
-    public String dataSourceDatabaseName;
+    private @Nullable UndeferrableValue<String> dataSourceDatabaseName;
 
-
+    public @Nullable String dataSourceDatabaseName() {
+        if (dataSourceDatabaseName == null) return null;
+        return dataSourceDatabaseName.getValue("Application.dataSourceDatabaseName");
+    }
 
     /**
      * The data source&#39;s type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
      * 
      */
-    public String dataSourceType;
+    private @Nullable UndeferrableValue<String> dataSourceType;
 
-
+    public @Nullable String dataSourceType() {
+        if (dataSourceType == null) return null;
+        return dataSourceType.getValue("Application.dataSourceType");
+    }
 
     /**
      * A description of the app.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * Subfolder for the document root for application of type `rails`.
      * 
      */
-    public String documentRoot;
+    private @Nullable UndeferrableValue<String> documentRoot;
 
-
+    public @Nullable String documentRoot() {
+        if (documentRoot == null) return null;
+        return documentRoot.getValue("Application.documentRoot");
+    }
 
     /**
      * A list of virtual host alias.
      * 
      */
-    public List<String> domains;
+    private @Nullable UndeferrableValue<List<String>> domains;
 
-
+    public @Nullable List<String> domains() {
+        if (domains == null) return null;
+        return domains.getValue("Application.domains");
+    }
 
     /**
      * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
      * 
      */
-    public Boolean enableSsl;
+    private @Nullable UndeferrableValue<Boolean> enableSsl;
 
-
+    public @Nullable Boolean enableSsl() {
+        if (enableSsl == null) return null;
+        return enableSsl.getValue("Application.enableSsl");
+    }
 
     /**
      * Object to define environment variables.  Object is described below.
      * 
      */
-    public List<ApplicationEnvironment> environments;
+    private @Nullable UndeferrableValue<List<ApplicationEnvironment>> environments;
 
-
+    public @Nullable List<ApplicationEnvironment> environments() {
+        if (environments == null) return null;
+        return environments.getValue("Application.environments");
+    }
 
     /**
      * A human-readable name for the application.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * The name of the Rails environment for application of type `rails`.
      * 
      */
-    public String railsEnv;
+    private @Nullable UndeferrableValue<String> railsEnv;
 
-
+    public @Nullable String railsEnv() {
+        if (railsEnv == null) return null;
+        return railsEnv.getValue("Application.railsEnv");
+    }
 
     /**
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      * 
      */
-    public String shortName;
+    private UndeferrableValue<String> shortName;
 
-
+    public String shortName() {
+        if (shortName == null) return null;
+        return shortName.getValue("Application.shortName");
+    }
 
     /**
      * The SSL configuration of the app. Object is described below.
      * 
      */
-    public List<ApplicationSslConfiguration> sslConfigurations;
+    private @Nullable UndeferrableValue<List<ApplicationSslConfiguration>> sslConfigurations;
 
-
+    public @Nullable List<ApplicationSslConfiguration> sslConfigurations() {
+        if (sslConfigurations == null) return null;
+        return sslConfigurations.getValue("Application.sslConfigurations");
+    }
 
     /**
      * ID of the stack the application will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("Application.stackId");
+    }
 
     /**
      * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Application.type");
+    }
 
 }

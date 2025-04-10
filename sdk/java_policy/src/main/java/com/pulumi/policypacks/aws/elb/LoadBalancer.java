@@ -3,149 +3,199 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elb.LoadBalancerAccessLogs;
-import com.pulumi.policypacks.aws.elb.LoadBalancerHealthCheck;
-import com.pulumi.policypacks.aws.elb.LoadBalancerListener;
+import com.pulumi.policypacks.aws.elb.outputs.LoadBalancerAccessLogs;
+import com.pulumi.policypacks.aws.elb.outputs.LoadBalancerHealthCheck;
+import com.pulumi.policypacks.aws.elb.outputs.LoadBalancerListener;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elb/loadBalancer:LoadBalancer")
-public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
+public final class LoadBalancer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An Access Logs block. Access Logs documented below.
      * 
      */
-    public LoadBalancerAccessLogs accessLogs;
+    private @Nullable UndeferrableValue<LoadBalancerAccessLogs> accessLogs;
 
-
+    public @Nullable LoadBalancerAccessLogs accessLogs() {
+        if (accessLogs == null) return null;
+        return accessLogs.getValue("LoadBalancer.accessLogs");
+    }
 
     /**
      * The ARN of the ELB
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LoadBalancer.arn");
+    }
 
     /**
      * The AZ&#39;s to serve traffic in.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("LoadBalancer.availabilityZones");
+    }
 
     /**
      * Boolean to enable connection draining. Default: `false`
      * 
      */
-    public Boolean connectionDraining;
+    private @Nullable UndeferrableValue<Boolean> connectionDraining;
 
-
+    public @Nullable Boolean connectionDraining() {
+        if (connectionDraining == null) return null;
+        return connectionDraining.getValue("LoadBalancer.connectionDraining");
+    }
 
     /**
      * The time in seconds to allow for connections to drain. Default: `300`
      * 
      */
-    public Integer connectionDrainingTimeout;
+    private @Nullable UndeferrableValue<Integer> connectionDrainingTimeout;
 
-
+    public @Nullable Integer connectionDrainingTimeout() {
+        if (connectionDrainingTimeout == null) return null;
+        return connectionDrainingTimeout.getValue("LoadBalancer.connectionDrainingTimeout");
+    }
 
     /**
      * Enable cross-zone load balancing. Default: `true`
      * 
      */
-    public Boolean crossZoneLoadBalancing;
+    private @Nullable UndeferrableValue<Boolean> crossZoneLoadBalancing;
 
-
+    public @Nullable Boolean crossZoneLoadBalancing() {
+        if (crossZoneLoadBalancing == null) return null;
+        return crossZoneLoadBalancing.getValue("LoadBalancer.crossZoneLoadBalancing");
+    }
 
     /**
      * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
-    public String desyncMitigationMode;
+    private @Nullable UndeferrableValue<String> desyncMitigationMode;
 
-
+    public @Nullable String desyncMitigationMode() {
+        if (desyncMitigationMode == null) return null;
+        return desyncMitigationMode.getValue("LoadBalancer.desyncMitigationMode");
+    }
 
     /**
      * The DNS name of the ELB
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("LoadBalancer.dnsName");
+    }
 
     /**
      * A health_check block. Health Check documented below.
      * 
      */
-    public LoadBalancerHealthCheck healthCheck;
+    private UndeferrableValue<LoadBalancerHealthCheck> healthCheck;
 
-
+    public LoadBalancerHealthCheck healthCheck() {
+        if (healthCheck == null) return null;
+        return healthCheck.getValue("LoadBalancer.healthCheck");
+    }
 
     /**
      * The time in seconds that the connection is allowed to be idle. Default: `60`
      * 
      */
-    public Integer idleTimeout;
+    private @Nullable UndeferrableValue<Integer> idleTimeout;
 
-
+    public @Nullable Integer idleTimeout() {
+        if (idleTimeout == null) return null;
+        return idleTimeout.getValue("LoadBalancer.idleTimeout");
+    }
 
     /**
      * A list of instance ids to place in the ELB pool.
      * 
      */
-    public List<String> instances;
+    private UndeferrableValue<List<String>> instances;
 
-
+    public List<String> instances() {
+        if (instances == null) return null;
+        return instances.getValue("LoadBalancer.instances");
+    }
 
     /**
      * If true, ELB will be an internal ELB.
      * 
      */
-    public Boolean internal;
+    private UndeferrableValue<Boolean> internal;
 
-
+    public Boolean internal() {
+        if (internal == null) return null;
+        return internal.getValue("LoadBalancer.internal");
+    }
 
     /**
      * A list of listener blocks. Listeners documented below.
      * 
      */
-    public List<LoadBalancerListener> listeners;
+    private UndeferrableValue<List<LoadBalancerListener>> listeners;
 
-
+    public List<LoadBalancerListener> listeners() {
+        if (listeners == null) return null;
+        return listeners.getValue("LoadBalancer.listeners");
+    }
 
     /**
      * The name of the ELB. By default generated by this provider.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LoadBalancer.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("LoadBalancer.namePrefix");
+    }
 
     /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("LoadBalancer.securityGroups");
+    }
 
     /**
      * The name of the security group that you can use as
@@ -153,9 +203,12 @@ public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
      * instances. Use this for Classic or Default VPC only.
      * 
      */
-    public String sourceSecurityGroup;
+    private UndeferrableValue<String> sourceSecurityGroup;
 
-
+    public String sourceSecurityGroup() {
+        if (sourceSecurityGroup == null) return null;
+        return sourceSecurityGroup.getValue("LoadBalancer.sourceSecurityGroup");
+    }
 
     /**
      * The ID of the security group that you can use as
@@ -163,17 +216,23 @@ public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
      * instances. Only available on ELBs launched in a VPC.
      * 
      */
-    public String sourceSecurityGroupId;
+    private UndeferrableValue<String> sourceSecurityGroupId;
 
-
+    public String sourceSecurityGroupId() {
+        if (sourceSecurityGroupId == null) return null;
+        return sourceSecurityGroupId.getValue("LoadBalancer.sourceSecurityGroupId");
+    }
 
     /**
      * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
-    public List<String> subnets;
+    private UndeferrableValue<List<String>> subnets;
 
-
+    public List<String> subnets() {
+        if (subnets == null) return null;
+        return subnets.getValue("LoadBalancer.subnets");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -182,9 +241,12 @@ public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
      * determines if the ELB exists in a VPC or in EC2-classic.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LoadBalancer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -194,16 +256,22 @@ public final class LoadBalancer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LoadBalancer.tagsAll");
+    }
 
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("LoadBalancer.zoneId");
+    }
 
 }

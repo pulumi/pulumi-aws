@@ -3,166 +3,225 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.FleetCertificateConfiguration;
-import com.pulumi.policypacks.aws.gamelift.FleetEc2InboundPermission;
-import com.pulumi.policypacks.aws.gamelift.FleetResourceCreationLimitPolicy;
-import com.pulumi.policypacks.aws.gamelift.FleetRuntimeConfiguration;
+import com.pulumi.policypacks.aws.gamelift.outputs.FleetCertificateConfiguration;
+import com.pulumi.policypacks.aws.gamelift.outputs.FleetEc2InboundPermission;
+import com.pulumi.policypacks.aws.gamelift.outputs.FleetResourceCreationLimitPolicy;
+import com.pulumi.policypacks.aws.gamelift.outputs.FleetRuntimeConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/fleet:Fleet")
-public final class Fleet extends com.pulumi.resources.PolicyResource {
+public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Fleet ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Fleet.arn");
+    }
 
     /**
      * Build ARN.
      * 
      */
-    public String buildArn;
+    private UndeferrableValue<String> buildArn;
 
-
+    public String buildArn() {
+        if (buildArn == null) return null;
+        return buildArn.getValue("Fleet.buildArn");
+    }
 
     /**
      * ID of the GameLift Build to be deployed on the fleet.
      * 
      */
-    public String buildId;
+    private @Nullable UndeferrableValue<String> buildId;
 
-
+    public @Nullable String buildId() {
+        if (buildId == null) return null;
+        return buildId.getValue("Fleet.buildId");
+    }
 
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      * 
      */
-    public FleetCertificateConfiguration certificateConfiguration;
+    private UndeferrableValue<FleetCertificateConfiguration> certificateConfiguration;
 
-
+    public FleetCertificateConfiguration certificateConfiguration() {
+        if (certificateConfiguration == null) return null;
+        return certificateConfiguration.getValue("Fleet.certificateConfiguration");
+    }
 
     /**
      * Human-readable description of the fleet.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Fleet.description");
+    }
 
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      * 
      */
-    public List<FleetEc2InboundPermission> ec2InboundPermissions;
+    private UndeferrableValue<List<FleetEc2InboundPermission>> ec2InboundPermissions;
 
-
+    public List<FleetEc2InboundPermission> ec2InboundPermissions() {
+        if (ec2InboundPermissions == null) return null;
+        return ec2InboundPermissions.getValue("Fleet.ec2InboundPermissions");
+    }
 
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      * 
      */
-    public String ec2InstanceType;
+    private UndeferrableValue<String> ec2InstanceType;
 
-
+    public String ec2InstanceType() {
+        if (ec2InstanceType == null) return null;
+        return ec2InstanceType.getValue("Fleet.ec2InstanceType");
+    }
 
     /**
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      * 
      */
-    public String fleetType;
+    private @Nullable UndeferrableValue<String> fleetType;
 
-
+    public @Nullable String fleetType() {
+        if (fleetType == null) return null;
+        return fleetType.getValue("Fleet.fleetType");
+    }
 
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      * 
      */
-    public String instanceRoleArn;
+    private @Nullable UndeferrableValue<String> instanceRoleArn;
 
+    public @Nullable String instanceRoleArn() {
+        if (instanceRoleArn == null) return null;
+        return instanceRoleArn.getValue("Fleet.instanceRoleArn");
+    }
 
+    private UndeferrableValue<List<String>> logPaths;
 
-    public List<String> logPaths;
-
-
+    public List<String> logPaths() {
+        if (logPaths == null) return null;
+        return logPaths.getValue("Fleet.logPaths");
+    }
 
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      * 
      */
-    public List<String> metricGroups;
+    private UndeferrableValue<List<String>> metricGroups;
 
-
+    public List<String> metricGroups() {
+        if (metricGroups == null) return null;
+        return metricGroups.getValue("Fleet.metricGroups");
+    }
 
     /**
      * The name of the fleet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Fleet.name");
+    }
 
     /**
      * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      * 
      */
-    public String newGameSessionProtectionPolicy;
+    private @Nullable UndeferrableValue<String> newGameSessionProtectionPolicy;
 
-
+    public @Nullable String newGameSessionProtectionPolicy() {
+        if (newGameSessionProtectionPolicy == null) return null;
+        return newGameSessionProtectionPolicy.getValue("Fleet.newGameSessionProtectionPolicy");
+    }
 
     /**
      * Operating system of the fleet&#39;s computing resources.
      * 
      */
-    public String operatingSystem;
+    private UndeferrableValue<String> operatingSystem;
 
-
+    public String operatingSystem() {
+        if (operatingSystem == null) return null;
+        return operatingSystem.getValue("Fleet.operatingSystem");
+    }
 
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      * 
      */
-    public FleetResourceCreationLimitPolicy resourceCreationLimitPolicy;
+    private @Nullable UndeferrableValue<FleetResourceCreationLimitPolicy> resourceCreationLimitPolicy;
 
-
+    public @Nullable FleetResourceCreationLimitPolicy resourceCreationLimitPolicy() {
+        if (resourceCreationLimitPolicy == null) return null;
+        return resourceCreationLimitPolicy.getValue("Fleet.resourceCreationLimitPolicy");
+    }
 
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      * 
      */
-    public FleetRuntimeConfiguration runtimeConfiguration;
+    private @Nullable UndeferrableValue<FleetRuntimeConfiguration> runtimeConfiguration;
 
-
+    public @Nullable FleetRuntimeConfiguration runtimeConfiguration() {
+        if (runtimeConfiguration == null) return null;
+        return runtimeConfiguration.getValue("Fleet.runtimeConfiguration");
+    }
 
     /**
      * Script ARN.
      * 
      */
-    public String scriptArn;
+    private UndeferrableValue<String> scriptArn;
 
-
+    public String scriptArn() {
+        if (scriptArn == null) return null;
+        return scriptArn.getValue("Fleet.scriptArn");
+    }
 
     /**
      * ID of the GameLift Script to be deployed on the fleet.
      * 
      */
-    public String scriptId;
+    private @Nullable UndeferrableValue<String> scriptId;
 
-
+    public @Nullable String scriptId() {
+        if (scriptId == null) return null;
+        return scriptId.getValue("Fleet.scriptId");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Fleet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -172,8 +231,11 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Fleet.tagsAll");
+    }
 
 }

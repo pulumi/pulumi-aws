@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.IdentityPoolRoleAttachmentRoleMapping;
+import com.pulumi.policypacks.aws.cognito.outputs.IdentityPoolRoleAttachmentRoleMapping;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")
-public final class IdentityPoolRoleAttachment extends com.pulumi.resources.PolicyResource {
+public final class IdentityPoolRoleAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An identity pool ID in the format `REGION_GUID`.
      * 
      */
-    public String identityPoolId;
+    private UndeferrableValue<String> identityPoolId;
 
-
+    public String identityPoolId() {
+        if (identityPoolId == null) return null;
+        return identityPoolId.getValue("IdentityPoolRoleAttachment.identityPoolId");
+    }
 
     /**
      * A List of Role Mapping.
      * 
      */
-    public List<IdentityPoolRoleAttachmentRoleMapping> roleMappings;
+    private @Nullable UndeferrableValue<List<IdentityPoolRoleAttachmentRoleMapping>> roleMappings;
 
-
+    public @Nullable List<IdentityPoolRoleAttachmentRoleMapping> roleMappings() {
+        if (roleMappings == null) return null;
+        return roleMappings.getValue("IdentityPoolRoleAttachment.roleMappings");
+    }
 
     /**
      * The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
      * 
      */
-    public Map<String,String> roles;
+    private UndeferrableValue<Map<String,String>> roles;
 
-
+    public Map<String,String> roles() {
+        if (roles == null) return null;
+        return roles.getValue("IdentityPoolRoleAttachment.roles");
+    }
 
 }

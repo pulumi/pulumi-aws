@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.medialive.MultiplexMultiplexSettings;
+import com.pulumi.policypacks.aws.medialive.outputs.MultiplexMultiplexSettings;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:medialive/multiplex:Multiplex")
-public final class Multiplex extends com.pulumi.resources.PolicyResource {
+public final class Multiplex extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Multiplex.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Multiplex.arn");
+    }
 
     /**
      * A list of availability zones. You must specify exactly two.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Multiplex.availabilityZones");
+    }
 
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      * 
      */
-    public MultiplexMultiplexSettings multiplexSettings;
+    private @Nullable UndeferrableValue<MultiplexMultiplexSettings> multiplexSettings;
 
-
+    public @Nullable MultiplexMultiplexSettings multiplexSettings() {
+        if (multiplexSettings == null) return null;
+        return multiplexSettings.getValue("Multiplex.multiplexSettings");
+    }
 
     /**
      * name of Multiplex.
@@ -44,25 +55,34 @@ public final class Multiplex extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Multiplex.name");
+    }
 
     /**
      * Whether to start the Multiplex. Defaults to `false`.
      * 
      */
-    public Boolean startMultiplex;
+    private @Nullable UndeferrableValue<Boolean> startMultiplex;
 
-
+    public @Nullable Boolean startMultiplex() {
+        if (startMultiplex == null) return null;
+        return startMultiplex.getValue("Multiplex.startMultiplex");
+    }
 
     /**
      * A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Multiplex.tags");
+    }
 
     /**
      * @deprecated
@@ -70,8 +90,11 @@ public final class Multiplex extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Multiplex.tagsAll");
+    }
 
 }

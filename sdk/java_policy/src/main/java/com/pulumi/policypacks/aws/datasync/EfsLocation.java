@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.EfsLocationEc2Config;
+import com.pulumi.policypacks.aws.datasync.outputs.EfsLocationEc2Config;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/efsLocation:EfsLocation")
-public final class EfsLocation extends com.pulumi.resources.PolicyResource {
+public final class EfsLocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
-    public String accessPointArn;
+    private @Nullable UndeferrableValue<String> accessPointArn;
 
-
+    public @Nullable String accessPointArn() {
+        if (accessPointArn == null) return null;
+        return accessPointArn.getValue("EfsLocation.accessPointArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EfsLocation.arn");
+    }
 
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      * 
      */
-    public EfsLocationEc2Config ec2Config;
+    private UndeferrableValue<EfsLocationEc2Config> ec2Config;
 
-
+    public EfsLocationEc2Config ec2Config() {
+        if (ec2Config == null) return null;
+        return ec2Config.getValue("EfsLocation.ec2Config");
+    }
 
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    public String efsFileSystemArn;
+    private UndeferrableValue<String> efsFileSystemArn;
 
-
+    public String efsFileSystemArn() {
+        if (efsFileSystemArn == null) return null;
+        return efsFileSystemArn.getValue("EfsLocation.efsFileSystemArn");
+    }
 
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      * 
      */
-    public String fileSystemAccessRoleArn;
+    private @Nullable UndeferrableValue<String> fileSystemAccessRoleArn;
 
-
+    public @Nullable String fileSystemAccessRoleArn() {
+        if (fileSystemAccessRoleArn == null) return null;
+        return fileSystemAccessRoleArn.getValue("EfsLocation.fileSystemAccessRoleArn");
+    }
 
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      * 
      */
-    public String inTransitEncryption;
+    private @Nullable UndeferrableValue<String> inTransitEncryption;
 
-
+    public @Nullable String inTransitEncryption() {
+        if (inTransitEncryption == null) return null;
+        return inTransitEncryption.getValue("EfsLocation.inTransitEncryption");
+    }
 
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      * 
      */
-    public String subdirectory;
+    private @Nullable UndeferrableValue<String> subdirectory;
 
-
+    public @Nullable String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("EfsLocation.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EfsLocation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,12 +110,18 @@ public final class EfsLocation extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EfsLocation.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("EfsLocation.uri");
+    }
 
 }

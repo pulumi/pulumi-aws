@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.mskconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mskconnect/workerConfiguration:WorkerConfiguration")
-public final class WorkerConfiguration extends com.pulumi.resources.PolicyResource {
+public final class WorkerConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * the Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("WorkerConfiguration.arn");
+    }
 
     /**
      * A summary description of the worker configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("WorkerConfiguration.description");
+    }
 
     /**
      * an ID of the latest successfully created revision of the worker configuration.
      * 
      */
-    public Integer latestRevision;
+    private UndeferrableValue<Integer> latestRevision;
 
-
+    public Integer latestRevision() {
+        if (latestRevision == null) return null;
+        return latestRevision.getValue("WorkerConfiguration.latestRevision");
+    }
 
     /**
      * The name of the worker configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("WorkerConfiguration.name");
+    }
 
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
@@ -50,17 +64,23 @@ public final class WorkerConfiguration extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String propertiesFileContent;
+    private UndeferrableValue<String> propertiesFileContent;
 
-
+    public String propertiesFileContent() {
+        if (propertiesFileContent == null) return null;
+        return propertiesFileContent.getValue("WorkerConfiguration.propertiesFileContent");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("WorkerConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,8 +90,11 @@ public final class WorkerConfiguration extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("WorkerConfiguration.tagsAll");
+    }
 
 }

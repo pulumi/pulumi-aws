@@ -3,166 +3,246 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.DistributionCustomErrorResponse;
-import com.pulumi.policypacks.aws.cloudfront.DistributionDefaultCacheBehavior;
-import com.pulumi.policypacks.aws.cloudfront.DistributionLoggingConfig;
-import com.pulumi.policypacks.aws.cloudfront.DistributionOrderedCacheBehavior;
-import com.pulumi.policypacks.aws.cloudfront.DistributionOrigin;
-import com.pulumi.policypacks.aws.cloudfront.DistributionOriginGroup;
-import com.pulumi.policypacks.aws.cloudfront.DistributionRestrictions;
-import com.pulumi.policypacks.aws.cloudfront.DistributionTrustedKeyGroup;
-import com.pulumi.policypacks.aws.cloudfront.DistributionTrustedSigner;
-import com.pulumi.policypacks.aws.cloudfront.DistributionViewerCertificate;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionCustomErrorResponse;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionDefaultCacheBehavior;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionLoggingConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOrderedCacheBehavior;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOrigin;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOriginGroup;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionRestrictions;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionTrustedKeyGroup;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionTrustedSigner;
+import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionViewerCertificate;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/distribution:Distribution")
-public final class Distribution extends com.pulumi.resources.PolicyResource {
+public final class Distribution extends com.pulumi.resources.PolicyResourceOutput {
 
-    public List<String> aliases;
+    private @Nullable UndeferrableValue<List<String>> aliases;
 
-
+    public @Nullable List<String> aliases() {
+        if (aliases == null) return null;
+        return aliases.getValue("Distribution.aliases");
+    }
 
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Distribution.arn");
+    }
 
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
-    public String callerReference;
+    private UndeferrableValue<String> callerReference;
 
+    public String callerReference() {
+        if (callerReference == null) return null;
+        return callerReference.getValue("Distribution.callerReference");
+    }
 
+    private @Nullable UndeferrableValue<String> comment;
 
-    public String comment;
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("Distribution.comment");
+    }
 
+    private UndeferrableValue<String> continuousDeploymentPolicyId;
 
+    public String continuousDeploymentPolicyId() {
+        if (continuousDeploymentPolicyId == null) return null;
+        return continuousDeploymentPolicyId.getValue("Distribution.continuousDeploymentPolicyId");
+    }
 
-    public String continuousDeploymentPolicyId;
+    private @Nullable UndeferrableValue<List<DistributionCustomErrorResponse>> customErrorResponses;
 
+    public @Nullable List<DistributionCustomErrorResponse> customErrorResponses() {
+        if (customErrorResponses == null) return null;
+        return customErrorResponses.getValue("Distribution.customErrorResponses");
+    }
 
+    private UndeferrableValue<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
-    public List<DistributionCustomErrorResponse> customErrorResponses;
+    public DistributionDefaultCacheBehavior defaultCacheBehavior() {
+        if (defaultCacheBehavior == null) return null;
+        return defaultCacheBehavior.getValue("Distribution.defaultCacheBehavior");
+    }
 
+    private @Nullable UndeferrableValue<String> defaultRootObject;
 
-
-    public DistributionDefaultCacheBehavior defaultCacheBehavior;
-
-
-
-    public String defaultRootObject;
-
-
+    public @Nullable String defaultRootObject() {
+        if (defaultRootObject == null) return null;
+        return defaultRootObject.getValue("Distribution.defaultRootObject");
+    }
 
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Distribution.domainName");
+    }
 
     /**
      * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Distribution.enabled");
+    }
 
     /**
      * Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("Distribution.etag");
+    }
 
     /**
      * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Distribution.hostedZoneId");
+    }
 
+    private @Nullable UndeferrableValue<String> httpVersion;
 
-    public String httpVersion;
-
-
+    public @Nullable String httpVersion() {
+        if (httpVersion == null) return null;
+        return httpVersion.getValue("Distribution.httpVersion");
+    }
 
     /**
      * Number of invalidation batches currently in progress.
      * 
      */
-    public Integer inProgressValidationBatches;
+    private UndeferrableValue<Integer> inProgressValidationBatches;
 
+    public Integer inProgressValidationBatches() {
+        if (inProgressValidationBatches == null) return null;
+        return inProgressValidationBatches.getValue("Distribution.inProgressValidationBatches");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> isIpv6Enabled;
 
-    public Boolean isIpv6Enabled;
-
-
+    public @Nullable Boolean isIpv6Enabled() {
+        if (isIpv6Enabled == null) return null;
+        return isIpv6Enabled.getValue("Distribution.isIpv6Enabled");
+    }
 
     /**
      * Date and time the distribution was last modified.
      * 
      */
-    public String lastModifiedTime;
+    private UndeferrableValue<String> lastModifiedTime;
 
+    public String lastModifiedTime() {
+        if (lastModifiedTime == null) return null;
+        return lastModifiedTime.getValue("Distribution.lastModifiedTime");
+    }
 
+    private @Nullable UndeferrableValue<DistributionLoggingConfig> loggingConfig;
 
-    public DistributionLoggingConfig loggingConfig;
+    public @Nullable DistributionLoggingConfig loggingConfig() {
+        if (loggingConfig == null) return null;
+        return loggingConfig.getValue("Distribution.loggingConfig");
+    }
 
+    private @Nullable UndeferrableValue<List<DistributionOrderedCacheBehavior>> orderedCacheBehaviors;
 
+    public @Nullable List<DistributionOrderedCacheBehavior> orderedCacheBehaviors() {
+        if (orderedCacheBehaviors == null) return null;
+        return orderedCacheBehaviors.getValue("Distribution.orderedCacheBehaviors");
+    }
 
-    public List<DistributionOrderedCacheBehavior> orderedCacheBehaviors;
+    private @Nullable UndeferrableValue<List<DistributionOriginGroup>> originGroups;
 
+    public @Nullable List<DistributionOriginGroup> originGroups() {
+        if (originGroups == null) return null;
+        return originGroups.getValue("Distribution.originGroups");
+    }
 
+    private UndeferrableValue<List<DistributionOrigin>> origins;
 
-    public List<DistributionOriginGroup> originGroups;
+    public List<DistributionOrigin> origins() {
+        if (origins == null) return null;
+        return origins.getValue("Distribution.origins");
+    }
 
+    private @Nullable UndeferrableValue<String> priceClass;
 
+    public @Nullable String priceClass() {
+        if (priceClass == null) return null;
+        return priceClass.getValue("Distribution.priceClass");
+    }
 
-    public List<DistributionOrigin> origins;
+    private UndeferrableValue<DistributionRestrictions> restrictions;
 
+    public DistributionRestrictions restrictions() {
+        if (restrictions == null) return null;
+        return restrictions.getValue("Distribution.restrictions");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> retainOnDelete;
 
-    public String priceClass;
+    public @Nullable Boolean retainOnDelete() {
+        if (retainOnDelete == null) return null;
+        return retainOnDelete.getValue("Distribution.retainOnDelete");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> staging;
 
-
-    public DistributionRestrictions restrictions;
-
-
-
-    public Boolean retainOnDelete;
-
-
-
-    public Boolean staging;
-
-
+    public @Nullable Boolean staging() {
+        if (staging == null) return null;
+        return staging.getValue("Distribution.staging");
+    }
 
     /**
      * Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Distribution.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Distribution.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -172,36 +252,54 @@ public final class Distribution extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Distribution.tagsAll");
+    }
 
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    public List<DistributionTrustedKeyGroup> trustedKeyGroups;
+    private UndeferrableValue<List<DistributionTrustedKeyGroup>> trustedKeyGroups;
 
-
+    public List<DistributionTrustedKeyGroup> trustedKeyGroups() {
+        if (trustedKeyGroups == null) return null;
+        return trustedKeyGroups.getValue("Distribution.trustedKeyGroups");
+    }
 
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    public List<DistributionTrustedSigner> trustedSigners;
+    private UndeferrableValue<List<DistributionTrustedSigner>> trustedSigners;
 
+    public List<DistributionTrustedSigner> trustedSigners() {
+        if (trustedSigners == null) return null;
+        return trustedSigners.getValue("Distribution.trustedSigners");
+    }
 
+    private UndeferrableValue<DistributionViewerCertificate> viewerCertificate;
 
-    public DistributionViewerCertificate viewerCertificate;
+    public DistributionViewerCertificate viewerCertificate() {
+        if (viewerCertificate == null) return null;
+        return viewerCertificate.getValue("Distribution.viewerCertificate");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> waitForDeployment;
 
+    public @Nullable Boolean waitForDeployment() {
+        if (waitForDeployment == null) return null;
+        return waitForDeployment.getValue("Distribution.waitForDeployment");
+    }
 
-    public Boolean waitForDeployment;
+    private @Nullable UndeferrableValue<String> webAclId;
 
-
-
-    public String webAclId;
-
-
+    public @Nullable String webAclId() {
+        if (webAclId == null) return null;
+        return webAclId.getValue("Distribution.webAclId");
+    }
 
 }

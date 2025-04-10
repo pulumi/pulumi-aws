@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.CertificateDomainValidationOption;
+import com.pulumi.policypacks.aws.lightsail.outputs.CertificateDomainValidationOption;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the lightsail certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Certificate.arn");
+    }
 
     /**
      * The timestamp when the instance was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Certificate.createdAt");
+    }
 
     /**
      * A domain name for which the certificate should be issued.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Certificate.domainName");
+    }
 
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      * 
      */
-    public List<CertificateDomainValidationOption> domainValidationOptions;
+    private UndeferrableValue<List<CertificateDomainValidationOption>> domainValidationOptions;
 
-
+    public List<CertificateDomainValidationOption> domainValidationOptions() {
+        if (domainValidationOptions == null) return null;
+        return domainValidationOptions.getValue("Certificate.domainValidationOptions");
+    }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Certificate.name");
+    }
 
     /**
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    public List<String> subjectAlternativeNames;
+    private UndeferrableValue<List<String>> subjectAlternativeNames;
 
-
+    public List<String> subjectAlternativeNames() {
+        if (subjectAlternativeNames == null) return null;
+        return subjectAlternativeNames.getValue("Certificate.subjectAlternativeNames");
+    }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Certificate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Certificate.tagsAll");
+    }
 
 }

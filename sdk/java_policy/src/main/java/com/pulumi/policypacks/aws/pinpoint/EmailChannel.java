@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/emailChannel:EmailChannel")
-public final class EmailChannel extends com.pulumi.resources.PolicyResource {
+public final class EmailChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("EmailChannel.applicationId");
+    }
 
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
      */
-    public String configurationSet;
+    private @Nullable UndeferrableValue<String> configurationSet;
 
-
+    public @Nullable String configurationSet() {
+        if (configurationSet == null) return null;
+        return configurationSet.getValue("EmailChannel.configurationSet");
+    }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EmailChannel.enabled");
+    }
 
     /**
      * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
-    public String fromAddress;
+    private UndeferrableValue<String> fromAddress;
 
-
+    public String fromAddress() {
+        if (fromAddress == null) return null;
+        return fromAddress.getValue("EmailChannel.fromAddress");
+    }
 
     /**
      * The ARN of an identity verified with SES.
      * 
      */
-    public String identity;
+    private UndeferrableValue<String> identity;
 
-
+    public String identity() {
+        if (identity == null) return null;
+        return identity.getValue("EmailChannel.identity");
+    }
 
     /**
      * Messages per second that can be sent.
      * 
      */
-    public Integer messagesPerSecond;
+    private UndeferrableValue<Integer> messagesPerSecond;
 
-
+    public Integer messagesPerSecond() {
+        if (messagesPerSecond == null) return null;
+        return messagesPerSecond.getValue("EmailChannel.messagesPerSecond");
+    }
 
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      * 
      */
-    public String orchestrationSendingRoleArn;
+    private @Nullable UndeferrableValue<String> orchestrationSendingRoleArn;
 
-
+    public @Nullable String orchestrationSendingRoleArn() {
+        if (orchestrationSendingRoleArn == null) return null;
+        return orchestrationSendingRoleArn.getValue("EmailChannel.orchestrationSendingRoleArn");
+    }
 
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("EmailChannel.roleArn");
+    }
 
 }

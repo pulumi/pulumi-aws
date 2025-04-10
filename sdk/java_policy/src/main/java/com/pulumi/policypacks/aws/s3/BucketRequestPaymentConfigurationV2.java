@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
-public final class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketRequestPaymentConfigurationV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketRequestPaymentConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
-    public String payer;
+    private UndeferrableValue<String> payer;
 
-
+    public String payer() {
+        if (payer == null) return null;
+        return payer.getValue("BucketRequestPaymentConfigurationV2.payer");
+    }
 
 }

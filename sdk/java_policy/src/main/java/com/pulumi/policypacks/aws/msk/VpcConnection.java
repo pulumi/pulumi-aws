@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:msk/vpcConnection:VpcConnection")
-public final class VpcConnection extends com.pulumi.resources.PolicyResource {
+public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the VPC connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcConnection.arn");
+    }
 
     /**
      * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
-    public String authentication;
+    private UndeferrableValue<String> authentication;
 
-
+    public String authentication() {
+        if (authentication == null) return null;
+        return authentication.getValue("VpcConnection.authentication");
+    }
 
     /**
      * The list of subnets in the client VPC to connect to.
      * 
      */
-    public List<String> clientSubnets;
+    private UndeferrableValue<List<String>> clientSubnets;
 
-
+    public List<String> clientSubnets() {
+        if (clientSubnets == null) return null;
+        return clientSubnets.getValue("VpcConnection.clientSubnets");
+    }
 
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("VpcConnection.securityGroups");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcConnection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,24 +77,33 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcConnection.tagsAll");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    public String targetClusterArn;
+    private UndeferrableValue<String> targetClusterArn;
 
-
+    public String targetClusterArn() {
+        if (targetClusterArn == null) return null;
+        return targetClusterArn.getValue("VpcConnection.targetClusterArn");
+    }
 
     /**
      * The VPC ID of the remote client.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcConnection.vpcId");
+    }
 
 }

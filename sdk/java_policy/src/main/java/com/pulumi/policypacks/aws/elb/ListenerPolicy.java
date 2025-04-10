@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elb/listenerPolicy:ListenerPolicy")
-public final class ListenerPolicy extends com.pulumi.resources.PolicyResource {
+public final class ListenerPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The load balancer to attach the policy to.
      * 
      */
-    public String loadBalancerName;
+    private UndeferrableValue<String> loadBalancerName;
 
-
+    public String loadBalancerName() {
+        if (loadBalancerName == null) return null;
+        return loadBalancerName.getValue("ListenerPolicy.loadBalancerName");
+    }
 
     /**
      * The load balancer listener port to apply the policy to.
      * 
      */
-    public Integer loadBalancerPort;
+    private UndeferrableValue<Integer> loadBalancerPort;
 
-
+    public Integer loadBalancerPort() {
+        if (loadBalancerPort == null) return null;
+        return loadBalancerPort.getValue("ListenerPolicy.loadBalancerPort");
+    }
 
     /**
      * List of Policy Names to apply to the backend server.
      * 
      */
-    public List<String> policyNames;
+    private @Nullable UndeferrableValue<List<String>> policyNames;
 
-
+    public @Nullable List<String> policyNames() {
+        if (policyNames == null) return null;
+        return policyNames.getValue("ListenerPolicy.policyNames");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("ListenerPolicy.triggers");
+    }
 
 }

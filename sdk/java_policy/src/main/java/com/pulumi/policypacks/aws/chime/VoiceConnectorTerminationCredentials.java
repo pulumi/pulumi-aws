@@ -3,29 +3,36 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.VoiceConnectorTerminationCredentialsCredential;
+import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorTerminationCredentialsCredential;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")
-public final class VoiceConnectorTerminationCredentials extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorTerminationCredentials extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of termination SIP credentials.
      * 
      */
-    public List<VoiceConnectorTerminationCredentialsCredential> credentials;
+    private UndeferrableValue<List<VoiceConnectorTerminationCredentialsCredential>> credentials;
 
-
+    public List<VoiceConnectorTerminationCredentialsCredential> credentials() {
+        if (credentials == null) return null;
+        return credentials.getValue("VoiceConnectorTerminationCredentials.credentials");
+    }
 
     /**
      * Amazon Chime Voice Connector ID.
      * 
      */
-    public String voiceConnectorId;
+    private UndeferrableValue<String> voiceConnectorId;
 
-
+    public String voiceConnectorId() {
+        if (voiceConnectorId == null) return null;
+        return voiceConnectorId.getValue("VoiceConnectorTerminationCredentials.voiceConnectorId");
+    }
 
 }

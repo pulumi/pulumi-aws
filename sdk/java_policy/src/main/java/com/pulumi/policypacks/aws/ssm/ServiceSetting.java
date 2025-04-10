@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssm/serviceSetting:ServiceSetting")
-public final class ServiceSetting extends com.pulumi.resources.PolicyResource {
+public final class ServiceSetting extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the service setting.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServiceSetting.arn");
+    }
 
     /**
      * ID of the service setting.
      * 
      */
-    public String settingId;
+    private UndeferrableValue<String> settingId;
 
-
+    public String settingId() {
+        if (settingId == null) return null;
+        return settingId.getValue("ServiceSetting.settingId");
+    }
 
     /**
      * Value of the service setting.
      * 
      */
-    public String settingValue;
+    private UndeferrableValue<String> settingValue;
 
-
+    public String settingValue() {
+        if (settingValue == null) return null;
+        return settingValue.getValue("ServiceSetting.settingValue");
+    }
 
     /**
      * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ServiceSetting.status");
+    }
 
 }

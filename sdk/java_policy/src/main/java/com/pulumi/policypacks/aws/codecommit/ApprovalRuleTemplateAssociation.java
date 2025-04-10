@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")
-public final class ApprovalRuleTemplateAssociation extends com.pulumi.resources.PolicyResource {
+public final class ApprovalRuleTemplateAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name for the approval rule template.
      * 
      */
-    public String approvalRuleTemplateName;
+    private UndeferrableValue<String> approvalRuleTemplateName;
 
-
+    public String approvalRuleTemplateName() {
+        if (approvalRuleTemplateName == null) return null;
+        return approvalRuleTemplateName.getValue("ApprovalRuleTemplateAssociation.approvalRuleTemplateName");
+    }
 
     /**
      * The name of the repository that you want to associate with the template.
      * 
      */
-    public String repositoryName;
+    private UndeferrableValue<String> repositoryName;
 
-
+    public String repositoryName() {
+        if (repositoryName == null) return null;
+        return repositoryName.getValue("ApprovalRuleTemplateAssociation.repositoryName");
+    }
 
 }

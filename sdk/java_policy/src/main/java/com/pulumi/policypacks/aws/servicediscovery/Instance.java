@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
 
 
 @PolicyResourceType(type="aws:servicediscovery/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
      * 
      */
-    public Map<String,String> attributes;
+    private UndeferrableValue<Map<String,String>> attributes;
 
-
+    public Map<String,String> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("Instance.attributes");
+    }
 
     /**
      * The ID of the service instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("Instance.instanceId");
+    }
 
     /**
      * The ID of the service that you want to use to create the instance.
      * 
      */
-    public String serviceId;
+    private UndeferrableValue<String> serviceId;
 
-
+    public String serviceId() {
+        if (serviceId == null) return null;
+        return serviceId.getValue("Instance.serviceId");
+    }
 
 }

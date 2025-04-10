@@ -3,146 +3,196 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.ContainerRecipeComponent;
-import com.pulumi.policypacks.aws.imagebuilder.ContainerRecipeInstanceConfiguration;
-import com.pulumi.policypacks.aws.imagebuilder.ContainerRecipeTargetRepository;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ContainerRecipeComponent;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ContainerRecipeInstanceConfiguration;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ContainerRecipeTargetRepository;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/containerRecipe:ContainerRecipe")
-public final class ContainerRecipe extends com.pulumi.resources.PolicyResource {
+public final class ContainerRecipe extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (Required) Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContainerRecipe.arn");
+    }
 
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      * 
      */
-    public List<ContainerRecipeComponent> components;
+    private UndeferrableValue<List<ContainerRecipeComponent>> components;
 
-
+    public List<ContainerRecipeComponent> components() {
+        if (components == null) return null;
+        return components.getValue("ContainerRecipe.components");
+    }
 
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      * 
      */
-    public String containerType;
+    private UndeferrableValue<String> containerType;
 
-
+    public String containerType() {
+        if (containerType == null) return null;
+        return containerType.getValue("ContainerRecipe.containerType");
+    }
 
     /**
      * Date the container recipe was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("ContainerRecipe.dateCreated");
+    }
 
     /**
      * The description of the container recipe.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ContainerRecipe.description");
+    }
 
     /**
      * The Dockerfile template used to build the image as an inline data blob.
      * 
      */
-    public String dockerfileTemplateData;
+    private UndeferrableValue<String> dockerfileTemplateData;
 
-
+    public String dockerfileTemplateData() {
+        if (dockerfileTemplateData == null) return null;
+        return dockerfileTemplateData.getValue("ContainerRecipe.dockerfileTemplateData");
+    }
 
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      * 
      */
-    public String dockerfileTemplateUri;
+    private @Nullable UndeferrableValue<String> dockerfileTemplateUri;
 
-
+    public @Nullable String dockerfileTemplateUri() {
+        if (dockerfileTemplateUri == null) return null;
+        return dockerfileTemplateUri.getValue("ContainerRecipe.dockerfileTemplateUri");
+    }
 
     /**
      * A flag that indicates if the target container is encrypted.
      * 
      */
-    public Boolean encrypted;
+    private UndeferrableValue<Boolean> encrypted;
 
-
+    public Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("ContainerRecipe.encrypted");
+    }
 
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      * 
      */
-    public ContainerRecipeInstanceConfiguration instanceConfiguration;
+    private @Nullable UndeferrableValue<ContainerRecipeInstanceConfiguration> instanceConfiguration;
 
-
+    public @Nullable ContainerRecipeInstanceConfiguration instanceConfiguration() {
+        if (instanceConfiguration == null) return null;
+        return instanceConfiguration.getValue("ContainerRecipe.instanceConfiguration");
+    }
 
     /**
      * The KMS key used to encrypt the container image.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ContainerRecipe.kmsKeyId");
+    }
 
     /**
      * The name of the container recipe.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ContainerRecipe.name");
+    }
 
     /**
      * Owner of the container recipe.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("ContainerRecipe.owner");
+    }
 
     /**
      * The base image for the container recipe.
      * 
      */
-    public String parentImage;
+    private UndeferrableValue<String> parentImage;
 
-
+    public String parentImage() {
+        if (parentImage == null) return null;
+        return parentImage.getValue("ContainerRecipe.parentImage");
+    }
 
     /**
      * Platform of the container recipe.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("ContainerRecipe.platform");
+    }
 
     /**
      * Specifies the operating system platform when you use a custom base image.
      * 
      */
-    public String platformOverride;
+    private @Nullable UndeferrableValue<String> platformOverride;
 
-
+    public @Nullable String platformOverride() {
+        if (platformOverride == null) return null;
+        return platformOverride.getValue("ContainerRecipe.platformOverride");
+    }
 
     /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContainerRecipe.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -152,17 +202,23 @@ public final class ContainerRecipe extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContainerRecipe.tagsAll");
+    }
 
     /**
      * The destination repository for the container image. Detailed below.
      * 
      */
-    public ContainerRecipeTargetRepository targetRepository;
+    private UndeferrableValue<ContainerRecipeTargetRepository> targetRepository;
 
-
+    public ContainerRecipeTargetRepository targetRepository() {
+        if (targetRepository == null) return null;
+        return targetRepository.getValue("ContainerRecipe.targetRepository");
+    }
 
     /**
      * Version of the container recipe.
@@ -170,16 +226,22 @@ public final class ContainerRecipe extends com.pulumi.resources.PolicyResource {
      * The following attributes are optional:
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("ContainerRecipe.version");
+    }
 
     /**
      * The working directory to be used during build and test workflows.
      * 
      */
-    public String workingDirectory;
+    private @Nullable UndeferrableValue<String> workingDirectory;
 
-
+    public @Nullable String workingDirectory() {
+        if (workingDirectory == null) return null;
+        return workingDirectory.getValue("ContainerRecipe.workingDirectory");
+    }
 
 }

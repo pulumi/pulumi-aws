@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/dataCatalog:DataCatalog")
-public final class DataCatalog extends com.pulumi.resources.PolicyResource {
+public final class DataCatalog extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the data catalog.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataCatalog.arn");
+    }
 
     /**
      * Description of the data catalog.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("DataCatalog.description");
+    }
 
     /**
      * Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataCatalog.name");
+    }
 
     /**
      * Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
      * 
      */
-    public Map<String,String> parameters;
+    private UndeferrableValue<Map<String,String>> parameters;
 
-
+    public Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("DataCatalog.parameters");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataCatalog.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,16 +76,22 @@ public final class DataCatalog extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataCatalog.tagsAll");
+    }
 
     /**
      * Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DataCatalog.type");
+    }
 
 }

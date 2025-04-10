@@ -3,122 +3,163 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appsync.DataSourceDynamodbConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceElasticsearchConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceEventBridgeConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceHttpConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceLambdaConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceOpensearchserviceConfig;
-import com.pulumi.policypacks.aws.appsync.DataSourceRelationalDatabaseConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceDynamodbConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceElasticsearchConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceEventBridgeConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceHttpConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceLambdaConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceOpensearchserviceConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.DataSourceRelationalDatabaseConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/dataSource:DataSource")
-public final class DataSource extends com.pulumi.resources.PolicyResource {
+public final class DataSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API ID for the GraphQL API for the data source.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("DataSource.apiId");
+    }
 
     /**
      * ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataSource.arn");
+    }
 
     /**
      * Description of the data source.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DataSource.description");
+    }
 
     /**
      * DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
-    public DataSourceDynamodbConfig dynamodbConfig;
+    private @Nullable UndeferrableValue<DataSourceDynamodbConfig> dynamodbConfig;
 
-
+    public @Nullable DataSourceDynamodbConfig dynamodbConfig() {
+        if (dynamodbConfig == null) return null;
+        return dynamodbConfig.getValue("DataSource.dynamodbConfig");
+    }
 
     /**
      * Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
-    public DataSourceElasticsearchConfig elasticsearchConfig;
+    private @Nullable UndeferrableValue<DataSourceElasticsearchConfig> elasticsearchConfig;
 
-
+    public @Nullable DataSourceElasticsearchConfig elasticsearchConfig() {
+        if (elasticsearchConfig == null) return null;
+        return elasticsearchConfig.getValue("DataSource.elasticsearchConfig");
+    }
 
     /**
      * AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
-    public DataSourceEventBridgeConfig eventBridgeConfig;
+    private @Nullable UndeferrableValue<DataSourceEventBridgeConfig> eventBridgeConfig;
 
-
+    public @Nullable DataSourceEventBridgeConfig eventBridgeConfig() {
+        if (eventBridgeConfig == null) return null;
+        return eventBridgeConfig.getValue("DataSource.eventBridgeConfig");
+    }
 
     /**
      * HTTP settings. See `http_config` Block for details.
      * 
      */
-    public DataSourceHttpConfig httpConfig;
+    private @Nullable UndeferrableValue<DataSourceHttpConfig> httpConfig;
 
-
+    public @Nullable DataSourceHttpConfig httpConfig() {
+        if (httpConfig == null) return null;
+        return httpConfig.getValue("DataSource.httpConfig");
+    }
 
     /**
      * AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
-    public DataSourceLambdaConfig lambdaConfig;
+    private @Nullable UndeferrableValue<DataSourceLambdaConfig> lambdaConfig;
 
-
+    public @Nullable DataSourceLambdaConfig lambdaConfig() {
+        if (lambdaConfig == null) return null;
+        return lambdaConfig.getValue("DataSource.lambdaConfig");
+    }
 
     /**
      * User-supplied name for the data source.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataSource.name");
+    }
 
     /**
      * Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
-    public DataSourceOpensearchserviceConfig opensearchserviceConfig;
+    private @Nullable UndeferrableValue<DataSourceOpensearchserviceConfig> opensearchserviceConfig;
 
-
+    public @Nullable DataSourceOpensearchserviceConfig opensearchserviceConfig() {
+        if (opensearchserviceConfig == null) return null;
+        return opensearchserviceConfig.getValue("DataSource.opensearchserviceConfig");
+    }
 
     /**
      * AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
-    public DataSourceRelationalDatabaseConfig relationalDatabaseConfig;
+    private @Nullable UndeferrableValue<DataSourceRelationalDatabaseConfig> relationalDatabaseConfig;
 
-
+    public @Nullable DataSourceRelationalDatabaseConfig relationalDatabaseConfig() {
+        if (relationalDatabaseConfig == null) return null;
+        return relationalDatabaseConfig.getValue("DataSource.relationalDatabaseConfig");
+    }
 
     /**
      * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
-    public String serviceRoleArn;
+    private @Nullable UndeferrableValue<String> serviceRoleArn;
 
-
+    public @Nullable String serviceRoleArn() {
+        if (serviceRoleArn == null) return null;
+        return serviceRoleArn.getValue("DataSource.serviceRoleArn");
+    }
 
     /**
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DataSource.type");
+    }
 
 }

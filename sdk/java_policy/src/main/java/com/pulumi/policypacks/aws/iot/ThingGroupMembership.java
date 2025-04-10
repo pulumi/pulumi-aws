@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/thingGroupMembership:ThingGroupMembership")
-public final class ThingGroupMembership extends com.pulumi.resources.PolicyResource {
+public final class ThingGroupMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
      * 
      */
-    public Boolean overrideDynamicGroup;
+    private @Nullable UndeferrableValue<Boolean> overrideDynamicGroup;
 
-
+    public @Nullable Boolean overrideDynamicGroup() {
+        if (overrideDynamicGroup == null) return null;
+        return overrideDynamicGroup.getValue("ThingGroupMembership.overrideDynamicGroup");
+    }
 
     /**
      * The name of the group to which you are adding a thing.
      * 
      */
-    public String thingGroupName;
+    private UndeferrableValue<String> thingGroupName;
 
-
+    public String thingGroupName() {
+        if (thingGroupName == null) return null;
+        return thingGroupName.getValue("ThingGroupMembership.thingGroupName");
+    }
 
     /**
      * The name of the thing to add to a group.
      * 
      */
-    public String thingName;
+    private UndeferrableValue<String> thingName;
 
-
+    public String thingName() {
+        if (thingName == null) return null;
+        return thingName.getValue("ThingGroupMembership.thingName");
+    }
 
 }

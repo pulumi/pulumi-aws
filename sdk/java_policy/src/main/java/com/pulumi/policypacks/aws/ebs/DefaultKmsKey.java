@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ebs/defaultKmsKey:DefaultKmsKey")
-public final class DefaultKmsKey extends com.pulumi.resources.PolicyResource {
+public final class DefaultKmsKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      * 
      */
-    public String keyArn;
+    private UndeferrableValue<String> keyArn;
 
-
+    public String keyArn() {
+        if (keyArn == null) return null;
+        return keyArn.getValue("DefaultKmsKey.keyArn");
+    }
 
 }

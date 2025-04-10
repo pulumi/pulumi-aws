@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketWebsiteConfigurationV2ErrorDocument;
-import com.pulumi.policypacks.aws.s3.BucketWebsiteConfigurationV2IndexDocument;
-import com.pulumi.policypacks.aws.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo;
-import com.pulumi.policypacks.aws.s3.BucketWebsiteConfigurationV2RoutingRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2ErrorDocument;
+import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2IndexDocument;
+import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo;
+import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRule;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")
-public final class BucketWebsiteConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketWebsiteConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketWebsiteConfigurationV2.bucket");
+    }
 
     /**
      * Name of the error document for the website. See below.
      * 
      */
-    public BucketWebsiteConfigurationV2ErrorDocument errorDocument;
+    private @Nullable UndeferrableValue<BucketWebsiteConfigurationV2ErrorDocument> errorDocument;
 
-
+    public @Nullable BucketWebsiteConfigurationV2ErrorDocument errorDocument() {
+        if (errorDocument == null) return null;
+        return errorDocument.getValue("BucketWebsiteConfigurationV2.errorDocument");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketWebsiteConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * Name of the index document for the website. See below.
      * 
      */
-    public BucketWebsiteConfigurationV2IndexDocument indexDocument;
+    private @Nullable UndeferrableValue<BucketWebsiteConfigurationV2IndexDocument> indexDocument;
 
-
+    public @Nullable BucketWebsiteConfigurationV2IndexDocument indexDocument() {
+        if (indexDocument == null) return null;
+        return indexDocument.getValue("BucketWebsiteConfigurationV2.indexDocument");
+    }
 
     /**
      * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
      * 
      */
-    public BucketWebsiteConfigurationV2RedirectAllRequestsTo redirectAllRequestsTo;
+    private @Nullable UndeferrableValue<BucketWebsiteConfigurationV2RedirectAllRequestsTo> redirectAllRequestsTo;
 
-
+    public @Nullable BucketWebsiteConfigurationV2RedirectAllRequestsTo redirectAllRequestsTo() {
+        if (redirectAllRequestsTo == null) return null;
+        return redirectAllRequestsTo.getValue("BucketWebsiteConfigurationV2.redirectAllRequestsTo");
+    }
 
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
-    public String routingRuleDetails;
+    private UndeferrableValue<String> routingRuleDetails;
 
-
+    public String routingRuleDetails() {
+        if (routingRuleDetails == null) return null;
+        return routingRuleDetails.getValue("BucketWebsiteConfigurationV2.routingRuleDetails");
+    }
 
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
-    public List<BucketWebsiteConfigurationV2RoutingRule> routingRules;
+    private UndeferrableValue<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
 
-
+    public List<BucketWebsiteConfigurationV2RoutingRule> routingRules() {
+        if (routingRules == null) return null;
+        return routingRules.getValue("BucketWebsiteConfigurationV2.routingRules");
+    }
 
     /**
      * Domain of the website endpoint. This is used to create Route 53 alias records.
      * 
      */
-    public String websiteDomain;
+    private UndeferrableValue<String> websiteDomain;
 
-
+    public String websiteDomain() {
+        if (websiteDomain == null) return null;
+        return websiteDomain.getValue("BucketWebsiteConfigurationV2.websiteDomain");
+    }
 
     /**
      * Website endpoint.
      * 
      */
-    public String websiteEndpoint;
+    private UndeferrableValue<String> websiteEndpoint;
 
-
+    public String websiteEndpoint() {
+        if (websiteEndpoint == null) return null;
+        return websiteEndpoint.getValue("BucketWebsiteConfigurationV2.websiteEndpoint");
+    }
 
 }

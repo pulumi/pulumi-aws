@@ -3,59 +3,76 @@
 
 package com.pulumi.policypacks.aws.fis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fis.ExperimentTemplateAction;
-import com.pulumi.policypacks.aws.fis.ExperimentTemplateExperimentOptions;
-import com.pulumi.policypacks.aws.fis.ExperimentTemplateLogConfiguration;
-import com.pulumi.policypacks.aws.fis.ExperimentTemplateStopCondition;
-import com.pulumi.policypacks.aws.fis.ExperimentTemplateTarget;
+import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateAction;
+import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateExperimentOptions;
+import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateLogConfiguration;
+import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateStopCondition;
+import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateTarget;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fis/experimentTemplate:ExperimentTemplate")
-public final class ExperimentTemplate extends com.pulumi.resources.PolicyResource {
+public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Action to be performed during an experiment. See below.
      * 
      */
-    public List<ExperimentTemplateAction> actions;
+    private UndeferrableValue<List<ExperimentTemplateAction>> actions;
 
-
+    public List<ExperimentTemplateAction> actions() {
+        if (actions == null) return null;
+        return actions.getValue("ExperimentTemplate.actions");
+    }
 
     /**
      * Description for the experiment template.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ExperimentTemplate.description");
+    }
 
     /**
      * The experiment options for the experiment template. See experiment_options below for more details!
      * 
      */
-    public ExperimentTemplateExperimentOptions experimentOptions;
+    private UndeferrableValue<ExperimentTemplateExperimentOptions> experimentOptions;
 
-
+    public ExperimentTemplateExperimentOptions experimentOptions() {
+        if (experimentOptions == null) return null;
+        return experimentOptions.getValue("ExperimentTemplate.experimentOptions");
+    }
 
     /**
      * The configuration for experiment logging. See below.
      * 
      */
-    public ExperimentTemplateLogConfiguration logConfiguration;
+    private @Nullable UndeferrableValue<ExperimentTemplateLogConfiguration> logConfiguration;
 
-
+    public @Nullable ExperimentTemplateLogConfiguration logConfiguration() {
+        if (logConfiguration == null) return null;
+        return logConfiguration.getValue("ExperimentTemplate.logConfiguration");
+    }
 
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("ExperimentTemplate.roleArn");
+    }
 
     /**
      * When an ongoing experiment should be stopped. See below.
@@ -63,17 +80,23 @@ public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public List<ExperimentTemplateStopCondition> stopConditions;
+    private UndeferrableValue<List<ExperimentTemplateStopCondition>> stopConditions;
 
-
+    public List<ExperimentTemplateStopCondition> stopConditions() {
+        if (stopConditions == null) return null;
+        return stopConditions.getValue("ExperimentTemplate.stopConditions");
+    }
 
     /**
      * Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ExperimentTemplate.tags");
+    }
 
     /**
      * @deprecated
@@ -81,16 +104,22 @@ public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ExperimentTemplate.tagsAll");
+    }
 
     /**
      * Target of an action. See below.
      * 
      */
-    public List<ExperimentTemplateTarget> targets;
+    private @Nullable UndeferrableValue<List<ExperimentTemplateTarget>> targets;
 
-
+    public @Nullable List<ExperimentTemplateTarget> targets() {
+        if (targets == null) return null;
+        return targets.getValue("ExperimentTemplate.targets");
+    }
 
 }

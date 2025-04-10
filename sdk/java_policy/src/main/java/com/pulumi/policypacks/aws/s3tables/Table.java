@@ -3,79 +3,104 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3tables.TableMaintenanceConfiguration;
+import com.pulumi.policypacks.aws.s3tables.outputs.TableMaintenanceConfiguration;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3tables/table:Table")
-public final class Table extends com.pulumi.resources.PolicyResource {
+public final class Table extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Table.arn");
+    }
 
     /**
      * Date and time when the namespace was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Table.createdAt");
+    }
 
     /**
      * Account ID of the account that created the namespace.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("Table.createdBy");
+    }
 
     /**
      * Format of the table.
      * Must be `ICEBERG`.
      * 
      */
-    public String format;
+    private UndeferrableValue<String> format;
 
-
+    public String format() {
+        if (format == null) return null;
+        return format.getValue("Table.format");
+    }
 
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
-    public TableMaintenanceConfiguration maintenanceConfiguration;
+    private UndeferrableValue<TableMaintenanceConfiguration> maintenanceConfiguration;
 
-
+    public TableMaintenanceConfiguration maintenanceConfiguration() {
+        if (maintenanceConfiguration == null) return null;
+        return maintenanceConfiguration.getValue("Table.maintenanceConfiguration");
+    }
 
     /**
      * Location of table metadata.
      * 
      */
-    public String metadataLocation;
+    private UndeferrableValue<String> metadataLocation;
 
-
+    public String metadataLocation() {
+        if (metadataLocation == null) return null;
+        return metadataLocation.getValue("Table.metadataLocation");
+    }
 
     /**
      * Date and time when the namespace was last modified.
      * 
      */
-    public String modifiedAt;
+    private UndeferrableValue<String> modifiedAt;
 
-
+    public String modifiedAt() {
+        if (modifiedAt == null) return null;
+        return modifiedAt.getValue("Table.modifiedAt");
+    }
 
     /**
      * Account ID of the account that last modified the namespace.
      * 
      */
-    public String modifiedBy;
+    private UndeferrableValue<String> modifiedBy;
 
-
+    public String modifiedBy() {
+        if (modifiedBy == null) return null;
+        return modifiedBy.getValue("Table.modifiedBy");
+    }
 
     /**
      * Name of the table.
@@ -84,9 +109,12 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Table.name");
+    }
 
     /**
      * Name of the namespace for this table.
@@ -94,17 +122,23 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("Table.namespace");
+    }
 
     /**
      * Account ID of the account that owns the namespace.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("Table.ownerAccountId");
+    }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
@@ -112,33 +146,45 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * The following argument is optional:
      * 
      */
-    public String tableBucketArn;
+    private UndeferrableValue<String> tableBucketArn;
 
-
+    public String tableBucketArn() {
+        if (tableBucketArn == null) return null;
+        return tableBucketArn.getValue("Table.tableBucketArn");
+    }
 
     /**
      * Type of the table.
      * One of `customer` or `aws`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Table.type");
+    }
 
     /**
      * Identifier for the current version of table data.
      * 
      */
-    public String versionToken;
+    private UndeferrableValue<String> versionToken;
 
-
+    public String versionToken() {
+        if (versionToken == null) return null;
+        return versionToken.getValue("Table.versionToken");
+    }
 
     /**
      * S3 URI pointing to the S3 Bucket that contains the table data.
      * 
      */
-    public String warehouseLocation;
+    private UndeferrableValue<String> warehouseLocation;
 
-
+    public String warehouseLocation() {
+        if (warehouseLocation == null) return null;
+        return warehouseLocation.getValue("Table.warehouseLocation");
+    }
 
 }

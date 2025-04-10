@@ -3,110 +3,148 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/schema:Schema")
-public final class Schema extends com.pulumi.resources.PolicyResource {
+public final class Schema extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the schema.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Schema.arn");
+    }
 
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
-    public String compatibility;
+    private UndeferrableValue<String> compatibility;
 
-
+    public String compatibility() {
+        if (compatibility == null) return null;
+        return compatibility.getValue("Schema.compatibility");
+    }
 
     /**
      * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
-    public String dataFormat;
+    private UndeferrableValue<String> dataFormat;
 
-
+    public String dataFormat() {
+        if (dataFormat == null) return null;
+        return dataFormat.getValue("Schema.dataFormat");
+    }
 
     /**
      * A description of the schema.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Schema.description");
+    }
 
     /**
      * The latest version of the schema associated with the returned schema definition.
      * 
      */
-    public Integer latestSchemaVersion;
+    private UndeferrableValue<Integer> latestSchemaVersion;
 
-
+    public Integer latestSchemaVersion() {
+        if (latestSchemaVersion == null) return null;
+        return latestSchemaVersion.getValue("Schema.latestSchemaVersion");
+    }
 
     /**
      * The next version of the schema associated with the returned schema definition.
      * 
      */
-    public Integer nextSchemaVersion;
+    private UndeferrableValue<Integer> nextSchemaVersion;
 
-
+    public Integer nextSchemaVersion() {
+        if (nextSchemaVersion == null) return null;
+        return nextSchemaVersion.getValue("Schema.nextSchemaVersion");
+    }
 
     /**
      * The ARN of the Glue Registry to create the schema in.
      * 
      */
-    public String registryArn;
+    private UndeferrableValue<String> registryArn;
 
-
+    public String registryArn() {
+        if (registryArn == null) return null;
+        return registryArn.getValue("Schema.registryArn");
+    }
 
     /**
      * The name of the Glue Registry.
      * 
      */
-    public String registryName;
+    private UndeferrableValue<String> registryName;
 
-
+    public String registryName() {
+        if (registryName == null) return null;
+        return registryName.getValue("Schema.registryName");
+    }
 
     /**
      * The version number of the checkpoint (the last time the compatibility mode was changed).
      * 
      */
-    public Integer schemaCheckpoint;
+    private UndeferrableValue<Integer> schemaCheckpoint;
 
-
+    public Integer schemaCheckpoint() {
+        if (schemaCheckpoint == null) return null;
+        return schemaCheckpoint.getValue("Schema.schemaCheckpoint");
+    }
 
     /**
      * The schema definition using the `data_format` setting for `schema_name`.
      * 
      */
-    public String schemaDefinition;
+    private UndeferrableValue<String> schemaDefinition;
 
-
+    public String schemaDefinition() {
+        if (schemaDefinition == null) return null;
+        return schemaDefinition.getValue("Schema.schemaDefinition");
+    }
 
     /**
      * The Name of the schema.
      * 
      */
-    public String schemaName;
+    private UndeferrableValue<String> schemaName;
 
-
+    public String schemaName() {
+        if (schemaName == null) return null;
+        return schemaName.getValue("Schema.schemaName");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Schema.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -116,8 +154,11 @@ public final class Schema extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Schema.tagsAll");
+    }
 
 }

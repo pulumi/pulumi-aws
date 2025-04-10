@@ -3,175 +3,246 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.EcsClusterLayerCloudwatchConfiguration;
-import com.pulumi.policypacks.aws.opsworks.EcsClusterLayerEbsVolume;
-import com.pulumi.policypacks.aws.opsworks.EcsClusterLayerLoadBasedAutoScaling;
+import com.pulumi.policypacks.aws.opsworks.outputs.EcsClusterLayerCloudwatchConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.EcsClusterLayerEbsVolume;
+import com.pulumi.policypacks.aws.opsworks.outputs.EcsClusterLayerLoadBasedAutoScaling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/ecsClusterLayer:EcsClusterLayer")
-public final class EcsClusterLayer extends com.pulumi.resources.PolicyResource {
+public final class EcsClusterLayer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EcsClusterLayer.arn");
+    }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignElasticIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
 
-
+    public @Nullable Boolean autoAssignElasticIps() {
+        if (autoAssignElasticIps == null) return null;
+        return autoAssignElasticIps.getValue("EcsClusterLayer.autoAssignElasticIps");
+    }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignPublicIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
 
-
+    public @Nullable Boolean autoAssignPublicIps() {
+        if (autoAssignPublicIps == null) return null;
+        return autoAssignPublicIps.getValue("EcsClusterLayer.autoAssignPublicIps");
+    }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    public Boolean autoHealing;
+    private @Nullable UndeferrableValue<Boolean> autoHealing;
 
+    public @Nullable Boolean autoHealing() {
+        if (autoHealing == null) return null;
+        return autoHealing.getValue("EcsClusterLayer.autoHealing");
+    }
 
+    private @Nullable UndeferrableValue<EcsClusterLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
-    public EcsClusterLayerCloudwatchConfiguration cloudwatchConfiguration;
+    public @Nullable EcsClusterLayerCloudwatchConfiguration cloudwatchConfiguration() {
+        if (cloudwatchConfiguration == null) return null;
+        return cloudwatchConfiguration.getValue("EcsClusterLayer.cloudwatchConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
 
+    public @Nullable List<String> customConfigureRecipes() {
+        if (customConfigureRecipes == null) return null;
+        return customConfigureRecipes.getValue("EcsClusterLayer.customConfigureRecipes");
+    }
 
-    public List<String> customConfigureRecipes;
+    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
 
-
-
-    public List<String> customDeployRecipes;
-
-
+    public @Nullable List<String> customDeployRecipes() {
+        if (customDeployRecipes == null) return null;
+        return customDeployRecipes.getValue("EcsClusterLayer.customDeployRecipes");
+    }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    public String customInstanceProfileArn;
+    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
 
-
+    public @Nullable String customInstanceProfileArn() {
+        if (customInstanceProfileArn == null) return null;
+        return customInstanceProfileArn.getValue("EcsClusterLayer.customInstanceProfileArn");
+    }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    public String customJson;
+    private @Nullable UndeferrableValue<String> customJson;
 
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("EcsClusterLayer.customJson");
+    }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    public List<String> customSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
 
+    public @Nullable List<String> customSecurityGroupIds() {
+        if (customSecurityGroupIds == null) return null;
+        return customSecurityGroupIds.getValue("EcsClusterLayer.customSecurityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
 
-    public List<String> customSetupRecipes;
+    public @Nullable List<String> customSetupRecipes() {
+        if (customSetupRecipes == null) return null;
+        return customSetupRecipes.getValue("EcsClusterLayer.customSetupRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
 
+    public @Nullable List<String> customShutdownRecipes() {
+        if (customShutdownRecipes == null) return null;
+        return customShutdownRecipes.getValue("EcsClusterLayer.customShutdownRecipes");
+    }
 
-    public List<String> customShutdownRecipes;
+    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
 
-
-
-    public List<String> customUndeployRecipes;
-
-
+    public @Nullable List<String> customUndeployRecipes() {
+        if (customUndeployRecipes == null) return null;
+        return customUndeployRecipes.getValue("EcsClusterLayer.customUndeployRecipes");
+    }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    public Boolean drainElbOnShutdown;
+    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
 
-
+    public @Nullable Boolean drainElbOnShutdown() {
+        if (drainElbOnShutdown == null) return null;
+        return drainElbOnShutdown.getValue("EcsClusterLayer.drainElbOnShutdown");
+    }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public List<EcsClusterLayerEbsVolume> ebsVolumes;
+    private UndeferrableValue<List<EcsClusterLayerEbsVolume>> ebsVolumes;
 
-
+    public List<EcsClusterLayerEbsVolume> ebsVolumes() {
+        if (ebsVolumes == null) return null;
+        return ebsVolumes.getValue("EcsClusterLayer.ebsVolumes");
+    }
 
     /**
      * The ECS Cluster ARN of the layer.
      * 
      */
-    public String ecsClusterArn;
+    private UndeferrableValue<String> ecsClusterArn;
 
-
+    public String ecsClusterArn() {
+        if (ecsClusterArn == null) return null;
+        return ecsClusterArn.getValue("EcsClusterLayer.ecsClusterArn");
+    }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    public String elasticLoadBalancer;
+    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
 
-
+    public @Nullable String elasticLoadBalancer() {
+        if (elasticLoadBalancer == null) return null;
+        return elasticLoadBalancer.getValue("EcsClusterLayer.elasticLoadBalancer");
+    }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("EcsClusterLayer.installUpdatesOnBoot");
+    }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    public Integer instanceShutdownTimeout;
+    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
 
+    public @Nullable Integer instanceShutdownTimeout() {
+        if (instanceShutdownTimeout == null) return null;
+        return instanceShutdownTimeout.getValue("EcsClusterLayer.instanceShutdownTimeout");
+    }
 
+    private UndeferrableValue<EcsClusterLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-    public EcsClusterLayerLoadBasedAutoScaling loadBasedAutoScaling;
-
-
+    public EcsClusterLayerLoadBasedAutoScaling loadBasedAutoScaling() {
+        if (loadBasedAutoScaling == null) return null;
+        return loadBasedAutoScaling.getValue("EcsClusterLayer.loadBasedAutoScaling");
+    }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EcsClusterLayer.name");
+    }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("EcsClusterLayer.stackId");
+    }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    public List<String> systemPackages;
+    private @Nullable UndeferrableValue<List<String>> systemPackages;
 
-
+    public @Nullable List<String> systemPackages() {
+        if (systemPackages == null) return null;
+        return systemPackages.getValue("EcsClusterLayer.systemPackages");
+    }
 
     /**
      * A mapping of tags to assign to the resource.
@@ -181,9 +252,12 @@ public final class EcsClusterLayer extends com.pulumi.resources.PolicyResource {
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EcsClusterLayer.tags");
+    }
 
     /**
      * @deprecated
@@ -191,16 +265,22 @@ public final class EcsClusterLayer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EcsClusterLayer.tagsAll");
+    }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    public Boolean useEbsOptimizedInstances;
+    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
 
-
+    public @Nullable Boolean useEbsOptimizedInstances() {
+        if (useEbsOptimizedInstances == null) return null;
+        return useEbsOptimizedInstances.getValue("EcsClusterLayer.useEbsOptimizedInstances");
+    }
 
 }

@@ -3,64 +3,87 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/constraint:Constraint")
-public final class Constraint extends com.pulumi.resources.PolicyResource {
+public final class Constraint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("Constraint.acceptLanguage");
+    }
 
     /**
      * Description of the constraint.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Constraint.description");
+    }
 
     /**
      * Owner of the constraint.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Constraint.owner");
+    }
 
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      * 
      */
-    public String parameters;
+    private UndeferrableValue<String> parameters;
 
-
+    public String parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Constraint.parameters");
+    }
 
     /**
      * Portfolio identifier.
      * 
      */
-    public String portfolioId;
+    private UndeferrableValue<String> portfolioId;
 
-
+    public String portfolioId() {
+        if (portfolioId == null) return null;
+        return portfolioId.getValue("Constraint.portfolioId");
+    }
 
     /**
      * Product identifier.
      * 
      */
-    public String productId;
+    private UndeferrableValue<String> productId;
 
+    public String productId() {
+        if (productId == null) return null;
+        return productId.getValue("Constraint.productId");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Constraint.status");
+    }
 
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
@@ -68,8 +91,11 @@ public final class Constraint extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Constraint.type");
+    }
 
 }

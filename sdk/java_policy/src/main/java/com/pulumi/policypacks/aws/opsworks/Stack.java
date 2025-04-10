@@ -3,179 +3,244 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.StackCustomCookbooksSource;
+import com.pulumi.policypacks.aws.opsworks.outputs.StackCustomCookbooksSource;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/stack:Stack")
-public final class Stack extends com.pulumi.resources.PolicyResource {
+public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * If set to `&#34;LATEST&#34;`, OpsWorks will automatically install the latest version.
      * 
      */
-    public String agentVersion;
+    private UndeferrableValue<String> agentVersion;
 
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("Stack.agentVersion");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stack.arn");
+    }
 
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
      * 
      */
-    public String berkshelfVersion;
+    private @Nullable UndeferrableValue<String> berkshelfVersion;
 
-
+    public @Nullable String berkshelfVersion() {
+        if (berkshelfVersion == null) return null;
+        return berkshelfVersion.getValue("Stack.berkshelfVersion");
+    }
 
     /**
      * Color to paint next to the stack&#39;s resources in the OpsWorks console.
      * 
      */
-    public String color;
+    private @Nullable UndeferrableValue<String> color;
 
-
+    public @Nullable String color() {
+        if (color == null) return null;
+        return color.getValue("Stack.color");
+    }
 
     /**
      * Name of the configuration manager to use. Defaults to &#34;Chef&#34;.
      * 
      */
-    public String configurationManagerName;
+    private @Nullable UndeferrableValue<String> configurationManagerName;
 
-
+    public @Nullable String configurationManagerName() {
+        if (configurationManagerName == null) return null;
+        return configurationManagerName.getValue("Stack.configurationManagerName");
+    }
 
     /**
      * Version of the configuration manager to use. Defaults to &#34;11.4&#34;.
      * 
      */
-    public String configurationManagerVersion;
+    private @Nullable UndeferrableValue<String> configurationManagerVersion;
 
-
+    public @Nullable String configurationManagerVersion() {
+        if (configurationManagerVersion == null) return null;
+        return configurationManagerVersion.getValue("Stack.configurationManagerVersion");
+    }
 
     /**
      * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    public List<StackCustomCookbooksSource> customCookbooksSources;
+    private UndeferrableValue<List<StackCustomCookbooksSource>> customCookbooksSources;
 
-
+    public List<StackCustomCookbooksSource> customCookbooksSources() {
+        if (customCookbooksSources == null) return null;
+        return customCookbooksSources.getValue("Stack.customCookbooksSources");
+    }
 
     /**
      * Custom JSON attributes to apply to the entire stack.
      * 
      */
-    public String customJson;
+    private @Nullable UndeferrableValue<String> customJson;
 
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("Stack.customJson");
+    }
 
     /**
      * Name of the availability zone where instances will be created by default.
      * Cannot be set when `vpc_id` is set.
      * 
      */
-    public String defaultAvailabilityZone;
+    private UndeferrableValue<String> defaultAvailabilityZone;
 
-
+    public String defaultAvailabilityZone() {
+        if (defaultAvailabilityZone == null) return null;
+        return defaultAvailabilityZone.getValue("Stack.defaultAvailabilityZone");
+    }
 
     /**
      * The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
-    public String defaultInstanceProfileArn;
+    private UndeferrableValue<String> defaultInstanceProfileArn;
 
-
+    public String defaultInstanceProfileArn() {
+        if (defaultInstanceProfileArn == null) return null;
+        return defaultInstanceProfileArn.getValue("Stack.defaultInstanceProfileArn");
+    }
 
     /**
      * Name of OS that will be installed on instances by default.
      * 
      */
-    public String defaultOs;
+    private @Nullable UndeferrableValue<String> defaultOs;
 
-
+    public @Nullable String defaultOs() {
+        if (defaultOs == null) return null;
+        return defaultOs.getValue("Stack.defaultOs");
+    }
 
     /**
      * Name of the type of root device instances will have by default.
      * 
      */
-    public String defaultRootDeviceType;
+    private @Nullable UndeferrableValue<String> defaultRootDeviceType;
 
-
+    public @Nullable String defaultRootDeviceType() {
+        if (defaultRootDeviceType == null) return null;
+        return defaultRootDeviceType.getValue("Stack.defaultRootDeviceType");
+    }
 
     /**
      * Name of the SSH keypair that instances will have by default.
      * 
      */
-    public String defaultSshKeyName;
+    private @Nullable UndeferrableValue<String> defaultSshKeyName;
 
-
+    public @Nullable String defaultSshKeyName() {
+        if (defaultSshKeyName == null) return null;
+        return defaultSshKeyName.getValue("Stack.defaultSshKeyName");
+    }
 
     /**
      * ID of the subnet in which instances will be created by default.
      * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
-    public String defaultSubnetId;
+    private UndeferrableValue<String> defaultSubnetId;
 
-
+    public String defaultSubnetId() {
+        if (defaultSubnetId == null) return null;
+        return defaultSubnetId.getValue("Stack.defaultSubnetId");
+    }
 
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
-    public String hostnameTheme;
+    private @Nullable UndeferrableValue<String> hostnameTheme;
 
-
+    public @Nullable String hostnameTheme() {
+        if (hostnameTheme == null) return null;
+        return hostnameTheme.getValue("Stack.hostnameTheme");
+    }
 
     /**
      * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
      * 
      */
-    public Boolean manageBerkshelf;
+    private @Nullable UndeferrableValue<Boolean> manageBerkshelf;
 
-
+    public @Nullable Boolean manageBerkshelf() {
+        if (manageBerkshelf == null) return null;
+        return manageBerkshelf.getValue("Stack.manageBerkshelf");
+    }
 
     /**
      * The name of the stack.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Stack.name");
+    }
 
     /**
      * The name of the region where the stack will exist.
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("Stack.region");
+    }
 
     /**
      * The ARN of an IAM role that the OpsWorks service will act as.
      * 
      */
-    public String serviceRoleArn;
+    private UndeferrableValue<String> serviceRoleArn;
 
+    public String serviceRoleArn() {
+        if (serviceRoleArn == null) return null;
+        return serviceRoleArn.getValue("Stack.serviceRoleArn");
+    }
 
+    private UndeferrableValue<String> stackEndpoint;
 
-    public String stackEndpoint;
-
-
+    public String stackEndpoint() {
+        if (stackEndpoint == null) return null;
+        return stackEndpoint.getValue("Stack.stackEndpoint");
+    }
 
     /**
      * A map of tags to assign to the resource.
      * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stack.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -185,33 +250,45 @@ public final class Stack extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stack.tagsAll");
+    }
 
     /**
      * Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
-    public Boolean useCustomCookbooks;
+    private @Nullable UndeferrableValue<Boolean> useCustomCookbooks;
 
-
+    public @Nullable Boolean useCustomCookbooks() {
+        if (useCustomCookbooks == null) return null;
+        return useCustomCookbooks.getValue("Stack.useCustomCookbooks");
+    }
 
     /**
      * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
-    public Boolean useOpsworksSecurityGroups;
+    private @Nullable UndeferrableValue<Boolean> useOpsworksSecurityGroups;
 
-
+    public @Nullable Boolean useOpsworksSecurityGroups() {
+        if (useOpsworksSecurityGroups == null) return null;
+        return useOpsworksSecurityGroups.getValue("Stack.useOpsworksSecurityGroups");
+    }
 
     /**
      * ID of the VPC that this stack belongs to.
      * Defaults to the region&#39;s default VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Stack.vpcId");
+    }
 
 }

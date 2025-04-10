@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")
-public final class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.PolicyResource {
+public final class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("ObjectLambdaAccessPointPolicy.accountId");
+    }
 
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Boolean hasPublicAccessPolicy;
+    private UndeferrableValue<Boolean> hasPublicAccessPolicy;
 
-
+    public Boolean hasPublicAccessPolicy() {
+        if (hasPublicAccessPolicy == null) return null;
+        return hasPublicAccessPolicy.getValue("ObjectLambdaAccessPointPolicy.hasPublicAccessPolicy");
+    }
 
     /**
      * The name of the Object Lambda Access Point.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ObjectLambdaAccessPointPolicy.name");
+    }
 
     /**
      * The Object Lambda Access Point resource policy document.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ObjectLambdaAccessPointPolicy.policy");
+    }
 
 }

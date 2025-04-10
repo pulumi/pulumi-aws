@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dynamodb/tableItem:TableItem")
-public final class TableItem extends com.pulumi.resources.PolicyResource {
+public final class TableItem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Hash key to use for lookups and identification of the item
      * 
      */
-    public String hashKey;
+    private UndeferrableValue<String> hashKey;
 
-
+    public String hashKey() {
+        if (hashKey == null) return null;
+        return hashKey.getValue("TableItem.hashKey");
+    }
 
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      * 
      */
-    public String item;
+    private UndeferrableValue<String> item;
 
-
+    public String item() {
+        if (item == null) return null;
+        return item.getValue("TableItem.item");
+    }
 
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      * 
      */
-    public String rangeKey;
+    private @Nullable UndeferrableValue<String> rangeKey;
 
-
+    public @Nullable String rangeKey() {
+        if (rangeKey == null) return null;
+        return rangeKey.getValue("TableItem.rangeKey");
+    }
 
     /**
      * Name of the table to contain the item.
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("TableItem.tableName");
+    }
 
 }

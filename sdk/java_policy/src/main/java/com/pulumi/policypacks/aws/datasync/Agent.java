@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/agent:Agent")
-public final class Agent extends com.pulumi.resources.PolicyResource {
+public final class Agent extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
      * 
      */
-    public String activationKey;
+    private UndeferrableValue<String> activationKey;
 
-
+    public String activationKey() {
+        if (activationKey == null) return null;
+        return activationKey.getValue("Agent.activationKey");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Agent.arn");
+    }
 
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("Agent.ipAddress");
+    }
 
     /**
      * Name of the DataSync Agent.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Agent.name");
+    }
 
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
      * 
      */
-    public String privateLinkEndpoint;
+    private UndeferrableValue<String> privateLinkEndpoint;
 
-
+    public String privateLinkEndpoint() {
+        if (privateLinkEndpoint == null) return null;
+        return privateLinkEndpoint.getValue("Agent.privateLinkEndpoint");
+    }
 
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      * 
      */
-    public List<String> securityGroupArns;
+    private @Nullable UndeferrableValue<List<String>> securityGroupArns;
 
-
+    public @Nullable List<String> securityGroupArns() {
+        if (securityGroupArns == null) return null;
+        return securityGroupArns.getValue("Agent.securityGroupArns");
+    }
 
     /**
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
-    public List<String> subnetArns;
+    private @Nullable UndeferrableValue<List<String>> subnetArns;
 
-
+    public @Nullable List<String> subnetArns() {
+        if (subnetArns == null) return null;
+        return subnetArns.getValue("Agent.subnetArns");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Agent.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,16 +110,22 @@ public final class Agent extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Agent.tagsAll");
+    }
 
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      * 
      */
-    public String vpcEndpointId;
+    private @Nullable UndeferrableValue<String> vpcEndpointId;
 
-
+    public @Nullable String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("Agent.vpcEndpointId");
+    }
 
 }

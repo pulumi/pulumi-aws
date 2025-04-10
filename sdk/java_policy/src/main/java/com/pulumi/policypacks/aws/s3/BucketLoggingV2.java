@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketLoggingV2TargetGrant;
-import com.pulumi.policypacks.aws.s3.BucketLoggingV2TargetObjectKeyFormat;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLoggingV2TargetGrant;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLoggingV2TargetObjectKeyFormat;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketLoggingV2:BucketLoggingV2")
-public final class BucketLoggingV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketLoggingV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketLoggingV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketLoggingV2.expectedBucketOwner");
+    }
 
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
-    public String targetBucket;
+    private UndeferrableValue<String> targetBucket;
 
-
+    public String targetBucket() {
+        if (targetBucket == null) return null;
+        return targetBucket.getValue("BucketLoggingV2.targetBucket");
+    }
 
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      * 
      */
-    public List<BucketLoggingV2TargetGrant> targetGrants;
+    private @Nullable UndeferrableValue<List<BucketLoggingV2TargetGrant>> targetGrants;
 
-
+    public @Nullable List<BucketLoggingV2TargetGrant> targetGrants() {
+        if (targetGrants == null) return null;
+        return targetGrants.getValue("BucketLoggingV2.targetGrants");
+    }
 
     /**
      * Amazon S3 key format for log objects. See below.
      * 
      */
-    public BucketLoggingV2TargetObjectKeyFormat targetObjectKeyFormat;
+    private @Nullable UndeferrableValue<BucketLoggingV2TargetObjectKeyFormat> targetObjectKeyFormat;
 
-
+    public @Nullable BucketLoggingV2TargetObjectKeyFormat targetObjectKeyFormat() {
+        if (targetObjectKeyFormat == null) return null;
+        return targetObjectKeyFormat.getValue("BucketLoggingV2.targetObjectKeyFormat");
+    }
 
     /**
      * Prefix for all log object keys.
      * 
      */
-    public String targetPrefix;
+    private UndeferrableValue<String> targetPrefix;
 
-
+    public String targetPrefix() {
+        if (targetPrefix == null) return null;
+        return targetPrefix.getValue("BucketLoggingV2.targetPrefix");
+    }
 
 }

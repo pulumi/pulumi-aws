@@ -3,102 +3,134 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.medialive.ChannelCdiInputSpecification;
-import com.pulumi.policypacks.aws.medialive.ChannelDestination;
-import com.pulumi.policypacks.aws.medialive.ChannelEncoderSettings;
-import com.pulumi.policypacks.aws.medialive.ChannelInputAttachment;
-import com.pulumi.policypacks.aws.medialive.ChannelInputSpecification;
-import com.pulumi.policypacks.aws.medialive.ChannelMaintenance;
-import com.pulumi.policypacks.aws.medialive.ChannelVpc;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelCdiInputSpecification;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelDestination;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettings;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachment;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputSpecification;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelMaintenance;
+import com.pulumi.policypacks.aws.medialive.outputs.ChannelVpc;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:medialive/channel:Channel")
-public final class Channel extends com.pulumi.resources.PolicyResource {
+public final class Channel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Channel.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Channel.arn");
+    }
 
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      * 
      */
-    public ChannelCdiInputSpecification cdiInputSpecification;
+    private @Nullable UndeferrableValue<ChannelCdiInputSpecification> cdiInputSpecification;
 
-
+    public @Nullable ChannelCdiInputSpecification cdiInputSpecification() {
+        if (cdiInputSpecification == null) return null;
+        return cdiInputSpecification.getValue("Channel.cdiInputSpecification");
+    }
 
     /**
      * Concise argument description.
      * 
      */
-    public String channelClass;
+    private UndeferrableValue<String> channelClass;
 
-
+    public String channelClass() {
+        if (channelClass == null) return null;
+        return channelClass.getValue("Channel.channelClass");
+    }
 
     /**
      * ID of the Channel.
      * 
      */
-    public String channelId;
+    private UndeferrableValue<String> channelId;
 
-
+    public String channelId() {
+        if (channelId == null) return null;
+        return channelId.getValue("Channel.channelId");
+    }
 
     /**
      * Destinations for channel. See Destinations for more details.
      * 
      */
-    public List<ChannelDestination> destinations;
+    private UndeferrableValue<List<ChannelDestination>> destinations;
 
-
+    public List<ChannelDestination> destinations() {
+        if (destinations == null) return null;
+        return destinations.getValue("Channel.destinations");
+    }
 
     /**
      * Encoder settings. See Encoder Settings for more details.
      * 
      */
-    public ChannelEncoderSettings encoderSettings;
+    private UndeferrableValue<ChannelEncoderSettings> encoderSettings;
 
-
+    public ChannelEncoderSettings encoderSettings() {
+        if (encoderSettings == null) return null;
+        return encoderSettings.getValue("Channel.encoderSettings");
+    }
 
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      * 
      */
-    public List<ChannelInputAttachment> inputAttachments;
+    private UndeferrableValue<List<ChannelInputAttachment>> inputAttachments;
 
-
+    public List<ChannelInputAttachment> inputAttachments() {
+        if (inputAttachments == null) return null;
+        return inputAttachments.getValue("Channel.inputAttachments");
+    }
 
     /**
      * Specification of network and file inputs for the channel.
      * 
      */
-    public ChannelInputSpecification inputSpecification;
+    private UndeferrableValue<ChannelInputSpecification> inputSpecification;
 
-
+    public ChannelInputSpecification inputSpecification() {
+        if (inputSpecification == null) return null;
+        return inputSpecification.getValue("Channel.inputSpecification");
+    }
 
     /**
      * The log level to write to Cloudwatch logs.
      * 
      */
-    public String logLevel;
+    private UndeferrableValue<String> logLevel;
 
-
+    public String logLevel() {
+        if (logLevel == null) return null;
+        return logLevel.getValue("Channel.logLevel");
+    }
 
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      * 
      */
-    public ChannelMaintenance maintenance;
+    private UndeferrableValue<ChannelMaintenance> maintenance;
 
-
+    public ChannelMaintenance maintenance() {
+        if (maintenance == null) return null;
+        return maintenance.getValue("Channel.maintenance");
+    }
 
     /**
      * Name of the Channel.
@@ -106,33 +138,45 @@ public final class Channel extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Channel.name");
+    }
 
     /**
      * Concise argument description.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Channel.roleArn");
+    }
 
     /**
      * Whether to start/stop channel. Default: `false`
      * 
      */
-    public Boolean startChannel;
+    private @Nullable UndeferrableValue<Boolean> startChannel;
 
-
+    public @Nullable Boolean startChannel() {
+        if (startChannel == null) return null;
+        return startChannel.getValue("Channel.startChannel");
+    }
 
     /**
      * A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Channel.tags");
+    }
 
     /**
      * @deprecated
@@ -140,16 +184,22 @@ public final class Channel extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Channel.tagsAll");
+    }
 
     /**
      * Settings for the VPC outputs. See VPC for more details.
      * 
      */
-    public ChannelVpc vpc;
+    private @Nullable UndeferrableValue<ChannelVpc> vpc;
 
-
+    public @Nullable ChannelVpc vpc() {
+        if (vpc == null) return null;
+        return vpc.getValue("Channel.vpc");
+    }
 
 }

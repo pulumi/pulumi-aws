@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.VpcEndpointVpcOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.VpcEndpointVpcOptions;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opensearch/vpcEndpoint:VpcEndpoint")
-public final class VpcEndpoint extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
      * 
      */
-    public String domainArn;
+    private UndeferrableValue<String> domainArn;
 
-
+    public String domainArn() {
+        if (domainArn == null) return null;
+        return domainArn.getValue("VpcEndpoint.domainArn");
+    }
 
     /**
      * The connection endpoint ID for connecting to the domain.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("VpcEndpoint.endpoint");
+    }
 
     /**
      * Options to specify the subnets and security groups for the endpoint.
      * 
      */
-    public VpcEndpointVpcOptions vpcOptions;
+    private UndeferrableValue<VpcEndpointVpcOptions> vpcOptions;
 
-
+    public VpcEndpointVpcOptions vpcOptions() {
+        if (vpcOptions == null) return null;
+        return vpcOptions.getValue("VpcEndpoint.vpcOptions");
+    }
 
 }

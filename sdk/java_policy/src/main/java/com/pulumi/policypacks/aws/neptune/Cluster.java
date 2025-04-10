@@ -3,297 +3,404 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.neptune.ClusterServerlessV2ScalingConfiguration;
+import com.pulumi.policypacks.aws.neptune.outputs.ClusterServerlessV2ScalingConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:neptune/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
      * 
      */
-    public Boolean allowMajorVersionUpgrade;
+    private UndeferrableValue<Boolean> allowMajorVersionUpgrade;
 
-
+    public Boolean allowMajorVersionUpgrade() {
+        if (allowMajorVersionUpgrade == null) return null;
+        return allowMajorVersionUpgrade.getValue("Cluster.allowMajorVersionUpgrade");
+    }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Cluster.applyImmediately");
+    }
 
     /**
      * The Neptune Cluster Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Cluster.availabilityZones");
+    }
 
     /**
      * The days to retain backups for. Default `1`
      * 
      */
-    public Integer backupRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> backupRetentionPeriod;
 
-
+    public @Nullable Integer backupRetentionPeriod() {
+        if (backupRetentionPeriod == null) return null;
+        return backupRetentionPeriod.getValue("Cluster.backupRetentionPeriod");
+    }
 
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+    }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public String clusterIdentifierPrefix;
+    private UndeferrableValue<String> clusterIdentifierPrefix;
 
-
+    public String clusterIdentifierPrefix() {
+        if (clusterIdentifierPrefix == null) return null;
+        return clusterIdentifierPrefix.getValue("Cluster.clusterIdentifierPrefix");
+    }
 
     /**
      * List of Neptune Instances that are a part of this cluster
      * 
      */
-    public List<String> clusterMembers;
+    private UndeferrableValue<List<String>> clusterMembers;
 
-
+    public List<String> clusterMembers() {
+        if (clusterMembers == null) return null;
+        return clusterMembers.getValue("Cluster.clusterMembers");
+    }
 
     /**
      * The Neptune Cluster Resource ID
      * 
      */
-    public String clusterResourceId;
+    private UndeferrableValue<String> clusterResourceId;
 
-
+    public String clusterResourceId() {
+        if (clusterResourceId == null) return null;
+        return clusterResourceId.getValue("Cluster.clusterResourceId");
+    }
 
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      * 
      */
-    public Boolean copyTagsToSnapshot;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
 
-
+    public @Nullable Boolean copyTagsToSnapshot() {
+        if (copyTagsToSnapshot == null) return null;
+        return copyTagsToSnapshot.getValue("Cluster.copyTagsToSnapshot");
+    }
 
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("Cluster.deletionProtection");
+    }
 
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
-    public List<String> enableCloudwatchLogsExports;
+    private @Nullable UndeferrableValue<List<String>> enableCloudwatchLogsExports;
 
-
+    public @Nullable List<String> enableCloudwatchLogsExports() {
+        if (enableCloudwatchLogsExports == null) return null;
+        return enableCloudwatchLogsExports.getValue("Cluster.enableCloudwatchLogsExports");
+    }
 
     /**
      * The DNS address of the Neptune instance
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Cluster.endpoint");
+    }
 
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      * 
      */
-    public String engine;
+    private @Nullable UndeferrableValue<String> engine;
 
-
+    public @Nullable String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Cluster.engine");
+    }
 
     /**
      * The database engine version.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Cluster.engineVersion");
+    }
 
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+    }
 
     /**
      * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
      * 
      */
-    public String globalClusterIdentifier;
+    private @Nullable UndeferrableValue<String> globalClusterIdentifier;
 
-
+    public @Nullable String globalClusterIdentifier() {
+        if (globalClusterIdentifier == null) return null;
+        return globalClusterIdentifier.getValue("Cluster.globalClusterIdentifier");
+    }
 
     /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Cluster.hostedZoneId");
+    }
 
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      * 
      */
-    public Boolean iamDatabaseAuthenticationEnabled;
+    private @Nullable UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
 
-
+    public @Nullable Boolean iamDatabaseAuthenticationEnabled() {
+        if (iamDatabaseAuthenticationEnabled == null) return null;
+        return iamDatabaseAuthenticationEnabled.getValue("Cluster.iamDatabaseAuthenticationEnabled");
+    }
 
     /**
      * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
      * 
      */
-    public List<String> iamRoles;
+    private @Nullable UndeferrableValue<List<String>> iamRoles;
 
-
+    public @Nullable List<String> iamRoles() {
+        if (iamRoles == null) return null;
+        return iamRoles.getValue("Cluster.iamRoles");
+    }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Cluster.kmsKeyArn");
+    }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    public String neptuneClusterParameterGroupName;
+    private UndeferrableValue<String> neptuneClusterParameterGroupName;
 
-
+    public String neptuneClusterParameterGroupName() {
+        if (neptuneClusterParameterGroupName == null) return null;
+        return neptuneClusterParameterGroupName.getValue("Cluster.neptuneClusterParameterGroupName");
+    }
 
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster.
      * 
      */
-    public String neptuneInstanceParameterGroupName;
+    private @Nullable UndeferrableValue<String> neptuneInstanceParameterGroupName;
 
-
+    public @Nullable String neptuneInstanceParameterGroupName() {
+        if (neptuneInstanceParameterGroupName == null) return null;
+        return neptuneInstanceParameterGroupName.getValue("Cluster.neptuneInstanceParameterGroupName");
+    }
 
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      * 
      */
-    public String neptuneSubnetGroupName;
+    private UndeferrableValue<String> neptuneSubnetGroupName;
 
-
+    public String neptuneSubnetGroupName() {
+        if (neptuneSubnetGroupName == null) return null;
+        return neptuneSubnetGroupName.getValue("Cluster.neptuneSubnetGroupName");
+    }
 
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("Cluster.preferredBackupWindow");
+    }
 
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+    }
 
     /**
      * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
-    public String readerEndpoint;
+    private UndeferrableValue<String> readerEndpoint;
 
-
+    public String readerEndpoint() {
+        if (readerEndpoint == null) return null;
+        return readerEndpoint.getValue("Cluster.readerEndpoint");
+    }
 
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      * 
      */
-    public String replicationSourceIdentifier;
+    private @Nullable UndeferrableValue<String> replicationSourceIdentifier;
 
-
+    public @Nullable String replicationSourceIdentifier() {
+        if (replicationSourceIdentifier == null) return null;
+        return replicationSourceIdentifier.getValue("Cluster.replicationSourceIdentifier");
+    }
 
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      * 
      */
-    public ClusterServerlessV2ScalingConfiguration serverlessV2ScalingConfiguration;
+    private @Nullable UndeferrableValue<ClusterServerlessV2ScalingConfiguration> serverlessV2ScalingConfiguration;
 
-
+    public @Nullable ClusterServerlessV2ScalingConfiguration serverlessV2ScalingConfiguration() {
+        if (serverlessV2ScalingConfiguration == null) return null;
+        return serverlessV2ScalingConfiguration.getValue("Cluster.serverlessV2ScalingConfiguration");
+    }
 
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+    }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
-    public String snapshotIdentifier;
+    private @Nullable UndeferrableValue<String> snapshotIdentifier;
 
-
+    public @Nullable String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+    }
 
     /**
      * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
      * 
      */
-    public Boolean storageEncrypted;
+    private @Nullable UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public @Nullable Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("Cluster.storageEncrypted");
+    }
 
     /**
      * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Cluster.storageType");
+    }
 
     /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -303,16 +410,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * List of VPC security groups to associate with the Cluster
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+    }
 
 }

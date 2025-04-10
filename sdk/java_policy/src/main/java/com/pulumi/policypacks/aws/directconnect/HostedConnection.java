@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -10,126 +11,171 @@ import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directconnect/hostedConnection:HostedConnection")
-public final class HostedConnection extends com.pulumi.resources.PolicyResource {
+public final class HostedConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    public String awsDevice;
+    private UndeferrableValue<String> awsDevice;
 
-
+    public String awsDevice() {
+        if (awsDevice == null) return null;
+        return awsDevice.getValue("HostedConnection.awsDevice");
+    }
 
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      * 
      */
-    public String bandwidth;
+    private UndeferrableValue<String> bandwidth;
 
-
+    public String bandwidth() {
+        if (bandwidth == null) return null;
+        return bandwidth.getValue("HostedConnection.bandwidth");
+    }
 
     /**
      * The ID of the interconnect or LAG.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("HostedConnection.connectionId");
+    }
 
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public String hasLogicalRedundancy;
+    private UndeferrableValue<String> hasLogicalRedundancy;
 
-
+    public String hasLogicalRedundancy() {
+        if (hasLogicalRedundancy == null) return null;
+        return hasLogicalRedundancy.getValue("HostedConnection.hasLogicalRedundancy");
+    }
 
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    public Boolean jumboFrameCapable;
+    private UndeferrableValue<Boolean> jumboFrameCapable;
 
-
+    public Boolean jumboFrameCapable() {
+        if (jumboFrameCapable == null) return null;
+        return jumboFrameCapable.getValue("HostedConnection.jumboFrameCapable");
+    }
 
     /**
      * The ID of the LAG.
      * 
      */
-    public String lagId;
+    private UndeferrableValue<String> lagId;
 
-
+    public String lagId() {
+        if (lagId == null) return null;
+        return lagId.getValue("HostedConnection.lagId");
+    }
 
     /**
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      * 
      */
-    public String loaIssueTime;
+    private UndeferrableValue<String> loaIssueTime;
 
-
+    public String loaIssueTime() {
+        if (loaIssueTime == null) return null;
+        return loaIssueTime.getValue("HostedConnection.loaIssueTime");
+    }
 
     /**
      * The location of the connection.
      * 
      */
-    public String location;
+    private UndeferrableValue<String> location;
 
-
+    public String location() {
+        if (location == null) return null;
+        return location.getValue("HostedConnection.location");
+    }
 
     /**
      * The name of the connection.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("HostedConnection.name");
+    }
 
     /**
      * The ID of the AWS account of the customer for the connection.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("HostedConnection.ownerAccountId");
+    }
 
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    public String partnerName;
+    private UndeferrableValue<String> partnerName;
 
-
+    public String partnerName() {
+        if (partnerName == null) return null;
+        return partnerName.getValue("HostedConnection.partnerName");
+    }
 
     /**
      * The name of the service provider associated with the connection.
      * 
      */
-    public String providerName;
+    private UndeferrableValue<String> providerName;
 
-
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("HostedConnection.providerName");
+    }
 
     /**
      * The AWS Region where the connection is located.
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("HostedConnection.region");
+    }
 
     /**
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("HostedConnection.state");
+    }
 
     /**
      * The dedicated VLAN provisioned to the hosted connection.
      * 
      */
-    public Integer vlan;
+    private UndeferrableValue<Integer> vlan;
 
-
+    public Integer vlan() {
+        if (vlan == null) return null;
+        return vlan.getValue("HostedConnection.vlan");
+    }
 
 }

@@ -3,33 +3,41 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.CoreNetworkEdge;
-import com.pulumi.policypacks.aws.networkmanager.CoreNetworkSegment;
+import com.pulumi.policypacks.aws.networkmanager.outputs.CoreNetworkEdge;
+import com.pulumi.policypacks.aws.networkmanager.outputs.CoreNetworkSegment;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/coreNetwork:CoreNetwork")
-public final class CoreNetwork extends com.pulumi.resources.PolicyResource {
+public final class CoreNetwork extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Core Network Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CoreNetwork.arn");
+    }
 
     /**
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      * 
      */
-    public String basePolicyDocument;
+    private @Nullable UndeferrableValue<String> basePolicyDocument;
 
-
+    public @Nullable String basePolicyDocument() {
+        if (basePolicyDocument == null) return null;
+        return basePolicyDocument.getValue("CoreNetwork.basePolicyDocument");
+    }
 
     /**
      * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
@@ -39,81 +47,111 @@ public final class CoreNetwork extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-    public String basePolicyRegion;
+    private @Nullable UndeferrableValue<String> basePolicyRegion;
 
-
+    public @Nullable String basePolicyRegion() {
+        if (basePolicyRegion == null) return null;
+        return basePolicyRegion.getValue("CoreNetwork.basePolicyRegion");
+    }
 
     /**
      * A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
-    public List<String> basePolicyRegions;
+    private @Nullable UndeferrableValue<List<String>> basePolicyRegions;
 
-
+    public @Nullable List<String> basePolicyRegions() {
+        if (basePolicyRegions == null) return null;
+        return basePolicyRegions.getValue("CoreNetwork.basePolicyRegions");
+    }
 
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
-    public Boolean createBasePolicy;
+    private @Nullable UndeferrableValue<Boolean> createBasePolicy;
 
-
+    public @Nullable Boolean createBasePolicy() {
+        if (createBasePolicy == null) return null;
+        return createBasePolicy.getValue("CoreNetwork.createBasePolicy");
+    }
 
     /**
      * Timestamp when a core network was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("CoreNetwork.createdAt");
+    }
 
     /**
      * Description of the Core Network.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CoreNetwork.description");
+    }
 
     /**
      * One or more blocks detailing the edges within a core network. Detailed below.
      * 
      */
-    public List<CoreNetworkEdge> edges;
+    private UndeferrableValue<List<CoreNetworkEdge>> edges;
 
-
+    public List<CoreNetworkEdge> edges() {
+        if (edges == null) return null;
+        return edges.getValue("CoreNetwork.edges");
+    }
 
     /**
      * The ID of the global network that a core network will be a part of.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("CoreNetwork.globalNetworkId");
+    }
 
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      * 
      */
-    public List<CoreNetworkSegment> segments;
+    private UndeferrableValue<List<CoreNetworkSegment>> segments;
 
-
+    public List<CoreNetworkSegment> segments() {
+        if (segments == null) return null;
+        return segments.getValue("CoreNetwork.segments");
+    }
 
     /**
      * Current state of a core network.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("CoreNetwork.state");
+    }
 
     /**
      * Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CoreNetwork.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,8 +161,11 @@ public final class CoreNetwork extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CoreNetwork.tagsAll");
+    }
 
 }

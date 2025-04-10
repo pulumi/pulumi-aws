@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")
-public final class EmailIdentityFeedbackAttributes extends com.pulumi.resources.PolicyResource {
+public final class EmailIdentityFeedbackAttributes extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Sets the feedback forwarding configuration for the identity.
      * 
      */
-    public Boolean emailForwardingEnabled;
+    private @Nullable UndeferrableValue<Boolean> emailForwardingEnabled;
 
-
+    public @Nullable Boolean emailForwardingEnabled() {
+        if (emailForwardingEnabled == null) return null;
+        return emailForwardingEnabled.getValue("EmailIdentityFeedbackAttributes.emailForwardingEnabled");
+    }
 
     /**
      * The email identity.
      * 
      */
-    public String emailIdentity;
+    private UndeferrableValue<String> emailIdentity;
 
-
+    public String emailIdentity() {
+        if (emailIdentity == null) return null;
+        return emailIdentity.getValue("EmailIdentityFeedbackAttributes.emailIdentity");
+    }
 
 }

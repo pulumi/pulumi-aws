@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cfg/retentionConfiguration:RetentionConfiguration")
-public final class RetentionConfiguration extends com.pulumi.resources.PolicyResource {
+public final class RetentionConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the retention configuration object. The object is always named **default**.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RetentionConfiguration.name");
+    }
 
     /**
      * The number of days AWS Config stores historical information.
      * 
      */
-    public Integer retentionPeriodInDays;
+    private UndeferrableValue<Integer> retentionPeriodInDays;
 
-
+    public Integer retentionPeriodInDays() {
+        if (retentionPeriodInDays == null) return null;
+        return retentionPeriodInDays.getValue("RetentionConfiguration.retentionPeriodInDays");
+    }
 
 }

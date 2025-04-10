@@ -3,81 +3,107 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ResolverRuleTargetIp;
+import com.pulumi.policypacks.aws.route53.outputs.ResolverRuleTargetIp;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverRule:ResolverRule")
-public final class ResolverRule extends com.pulumi.resources.PolicyResource {
+public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverRule.arn");
+    }
 
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("ResolverRule.domainName");
+    }
 
     /**
      * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverRule.name");
+    }
 
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ResolverRule.ownerId");
+    }
 
     /**
      * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    public String resolverEndpointId;
+    private @Nullable UndeferrableValue<String> resolverEndpointId;
 
-
+    public @Nullable String resolverEndpointId() {
+        if (resolverEndpointId == null) return null;
+        return resolverEndpointId.getValue("ResolverRule.resolverEndpointId");
+    }
 
     /**
      * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
-    public String ruleType;
+    private UndeferrableValue<String> ruleType;
 
-
+    public String ruleType() {
+        if (ruleType == null) return null;
+        return ruleType.getValue("ResolverRule.ruleType");
+    }
 
     /**
      * Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    public String shareStatus;
+    private UndeferrableValue<String> shareStatus;
 
-
+    public String shareStatus() {
+        if (shareStatus == null) return null;
+        return shareStatus.getValue("ResolverRule.shareStatus");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResolverRule.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,17 +113,23 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResolverRule.tagsAll");
+    }
 
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    public List<ResolverRuleTargetIp> targetIps;
+    private @Nullable UndeferrableValue<List<ResolverRuleTargetIp>> targetIps;
 
-
+    public @Nullable List<ResolverRuleTargetIp> targetIps() {
+        if (targetIps == null) return null;
+        return targetIps.getValue("ResolverRule.targetIps");
+    }
 
 }

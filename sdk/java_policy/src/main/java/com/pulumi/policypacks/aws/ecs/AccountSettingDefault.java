@@ -3,31 +3,41 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecs/accountSettingDefault:AccountSettingDefault")
-public final class AccountSettingDefault extends com.pulumi.resources.PolicyResource {
+public final class AccountSettingDefault extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the account setting to set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AccountSettingDefault.name");
+    }
 
+    private UndeferrableValue<String> principalArn;
 
-    public String principalArn;
-
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("AccountSettingDefault.principalArn");
+    }
 
     /**
      * State of the setting.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("AccountSettingDefault.value");
+    }
 
 }

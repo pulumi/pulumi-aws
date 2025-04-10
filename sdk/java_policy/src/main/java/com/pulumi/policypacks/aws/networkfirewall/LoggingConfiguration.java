@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkfirewall.LoggingConfigurationLoggingConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.LoggingConfigurationLoggingConfiguration;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:networkfirewall/loggingConfiguration:LoggingConfiguration")
-public final class LoggingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class LoggingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      * 
      */
-    public String firewallArn;
+    private UndeferrableValue<String> firewallArn;
 
-
+    public String firewallArn() {
+        if (firewallArn == null) return null;
+        return firewallArn.getValue("LoggingConfiguration.firewallArn");
+    }
 
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      * 
      */
-    public LoggingConfigurationLoggingConfiguration loggingConfiguration;
+    private UndeferrableValue<LoggingConfigurationLoggingConfiguration> loggingConfiguration;
 
-
+    public LoggingConfigurationLoggingConfiguration loggingConfiguration() {
+        if (loggingConfiguration == null) return null;
+        return loggingConfiguration.getValue("LoggingConfiguration.loggingConfiguration");
+    }
 
 }

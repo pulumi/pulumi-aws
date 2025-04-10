@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")
-public final class VpcAssociationAuthorization extends com.pulumi.resources.PolicyResource {
+public final class VpcAssociationAuthorization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The VPC to authorize for association with the private hosted zone.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcAssociationAuthorization.vpcId");
+    }
 
     /**
      * The VPC&#39;s region. Defaults to the region of the AWS provider.
      * 
      */
-    public String vpcRegion;
+    private UndeferrableValue<String> vpcRegion;
 
-
+    public String vpcRegion() {
+        if (vpcRegion == null) return null;
+        return vpcRegion.getValue("VpcAssociationAuthorization.vpcRegion");
+    }
 
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("VpcAssociationAuthorization.zoneId");
+    }
 
 }

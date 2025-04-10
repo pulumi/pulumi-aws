@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:licensemanager/association:Association")
-public final class Association extends com.pulumi.resources.PolicyResource {
+public final class Association extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the license configuration.
      * 
      */
-    public String licenseConfigurationArn;
+    private UndeferrableValue<String> licenseConfigurationArn;
 
-
+    public String licenseConfigurationArn() {
+        if (licenseConfigurationArn == null) return null;
+        return licenseConfigurationArn.getValue("Association.licenseConfigurationArn");
+    }
 
     /**
      * ARN of the resource associated with the license configuration.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("Association.resourceArn");
+    }
 
 }

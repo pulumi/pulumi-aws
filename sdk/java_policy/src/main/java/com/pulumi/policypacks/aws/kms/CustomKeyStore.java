@@ -3,17 +3,22 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kms.CustomKeyStoreXksProxyAuthenticationCredential;
+import com.pulumi.policypacks.aws.kms.outputs.CustomKeyStoreXksProxyAuthenticationCredential;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
-public final class CustomKeyStore extends com.pulumi.resources.PolicyResource {
+public final class CustomKeyStore extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String cloudHsmClusterId;
+    private @Nullable UndeferrableValue<String> cloudHsmClusterId;
 
-
+    public @Nullable String cloudHsmClusterId() {
+        if (cloudHsmClusterId == null) return null;
+        return cloudHsmClusterId.getValue("CustomKeyStore.cloudHsmClusterId");
+    }
 
     /**
      * Unique name for Custom Key Store.
@@ -21,44 +26,71 @@ public final class CustomKeyStore extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String customKeyStoreName;
+    private UndeferrableValue<String> customKeyStoreName;
 
-
+    public String customKeyStoreName() {
+        if (customKeyStoreName == null) return null;
+        return customKeyStoreName.getValue("CustomKeyStore.customKeyStoreName");
+    }
 
     /**
      * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    public String customKeyStoreType;
+    private UndeferrableValue<String> customKeyStoreType;
 
+    public String customKeyStoreType() {
+        if (customKeyStoreType == null) return null;
+        return customKeyStoreType.getValue("CustomKeyStore.customKeyStoreType");
+    }
 
+    private @Nullable UndeferrableValue<String> keyStorePassword;
 
-    public String keyStorePassword;
+    public @Nullable String keyStorePassword() {
+        if (keyStorePassword == null) return null;
+        return keyStorePassword.getValue("CustomKeyStore.keyStorePassword");
+    }
 
+    private @Nullable UndeferrableValue<String> trustAnchorCertificate;
 
+    public @Nullable String trustAnchorCertificate() {
+        if (trustAnchorCertificate == null) return null;
+        return trustAnchorCertificate.getValue("CustomKeyStore.trustAnchorCertificate");
+    }
 
-    public String trustAnchorCertificate;
+    private @Nullable UndeferrableValue<CustomKeyStoreXksProxyAuthenticationCredential> xksProxyAuthenticationCredential;
 
+    public @Nullable CustomKeyStoreXksProxyAuthenticationCredential xksProxyAuthenticationCredential() {
+        if (xksProxyAuthenticationCredential == null) return null;
+        return xksProxyAuthenticationCredential.getValue("CustomKeyStore.xksProxyAuthenticationCredential");
+    }
 
+    private @Nullable UndeferrableValue<String> xksProxyConnectivity;
 
-    public CustomKeyStoreXksProxyAuthenticationCredential xksProxyAuthenticationCredential;
+    public @Nullable String xksProxyConnectivity() {
+        if (xksProxyConnectivity == null) return null;
+        return xksProxyConnectivity.getValue("CustomKeyStore.xksProxyConnectivity");
+    }
 
+    private @Nullable UndeferrableValue<String> xksProxyUriEndpoint;
 
+    public @Nullable String xksProxyUriEndpoint() {
+        if (xksProxyUriEndpoint == null) return null;
+        return xksProxyUriEndpoint.getValue("CustomKeyStore.xksProxyUriEndpoint");
+    }
 
-    public String xksProxyConnectivity;
+    private @Nullable UndeferrableValue<String> xksProxyUriPath;
 
+    public @Nullable String xksProxyUriPath() {
+        if (xksProxyUriPath == null) return null;
+        return xksProxyUriPath.getValue("CustomKeyStore.xksProxyUriPath");
+    }
 
+    private @Nullable UndeferrableValue<String> xksProxyVpcEndpointServiceName;
 
-    public String xksProxyUriEndpoint;
-
-
-
-    public String xksProxyUriPath;
-
-
-
-    public String xksProxyVpcEndpointServiceName;
-
-
+    public @Nullable String xksProxyVpcEndpointServiceName() {
+        if (xksProxyVpcEndpointServiceName == null) return null;
+        return xksProxyVpcEndpointServiceName.getValue("CustomKeyStore.xksProxyVpcEndpointServiceName");
+    }
 
 }

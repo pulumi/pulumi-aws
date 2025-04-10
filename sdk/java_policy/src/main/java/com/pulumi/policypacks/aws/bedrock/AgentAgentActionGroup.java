@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentActionGroupActionGroupExecutor;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentActionGroupApiSchema;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentActionGroupFunctionSchema;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentActionGroupTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentActionGroupActionGroupExecutor;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentActionGroupApiSchema;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentActionGroupFunctionSchema;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentActionGroupTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")
-public final class AgentAgentActionGroup extends com.pulumi.resources.PolicyResource {
+public final class AgentAgentActionGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
@@ -21,65 +23,89 @@ public final class AgentAgentActionGroup extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public AgentAgentActionGroupActionGroupExecutor actionGroupExecutor;
+    private @Nullable UndeferrableValue<AgentAgentActionGroupActionGroupExecutor> actionGroupExecutor;
 
-
+    public @Nullable AgentAgentActionGroupActionGroupExecutor actionGroupExecutor() {
+        if (actionGroupExecutor == null) return null;
+        return actionGroupExecutor.getValue("AgentAgentActionGroup.actionGroupExecutor");
+    }
 
     /**
      * Unique identifier of the action group.
      * 
      */
-    public String actionGroupId;
+    private UndeferrableValue<String> actionGroupId;
 
-
+    public String actionGroupId() {
+        if (actionGroupId == null) return null;
+        return actionGroupId.getValue("AgentAgentActionGroup.actionGroupId");
+    }
 
     /**
      * Name of the action group.
      * 
      */
-    public String actionGroupName;
+    private UndeferrableValue<String> actionGroupName;
 
-
+    public String actionGroupName() {
+        if (actionGroupName == null) return null;
+        return actionGroupName.getValue("AgentAgentActionGroup.actionGroupName");
+    }
 
     /**
      * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public String actionGroupState;
+    private UndeferrableValue<String> actionGroupState;
 
-
+    public String actionGroupState() {
+        if (actionGroupState == null) return null;
+        return actionGroupState.getValue("AgentAgentActionGroup.actionGroupState");
+    }
 
     /**
      * The unique identifier of the agent for which to create the action group.
      * 
      */
-    public String agentId;
+    private UndeferrableValue<String> agentId;
 
-
+    public String agentId() {
+        if (agentId == null) return null;
+        return agentId.getValue("AgentAgentActionGroup.agentId");
+    }
 
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
-    public String agentVersion;
+    private UndeferrableValue<String> agentVersion;
 
-
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("AgentAgentActionGroup.agentVersion");
+    }
 
     /**
      * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
-    public AgentAgentActionGroupApiSchema apiSchema;
+    private @Nullable UndeferrableValue<AgentAgentActionGroupApiSchema> apiSchema;
 
-
+    public @Nullable AgentAgentActionGroupApiSchema apiSchema() {
+        if (apiSchema == null) return null;
+        return apiSchema.getValue("AgentAgentActionGroup.apiSchema");
+    }
 
     /**
      * Description of the action group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AgentAgentActionGroup.description");
+    }
 
     /**
      * Describes the function schema for the action group.
@@ -87,36 +113,51 @@ public final class AgentAgentActionGroup extends com.pulumi.resources.PolicyReso
      * See `function_schema` Block for details.
      * 
      */
-    public AgentAgentActionGroupFunctionSchema functionSchema;
+    private @Nullable UndeferrableValue<AgentAgentActionGroupFunctionSchema> functionSchema;
 
-
+    public @Nullable AgentAgentActionGroupFunctionSchema functionSchema() {
+        if (functionSchema == null) return null;
+        return functionSchema.getValue("AgentAgentActionGroup.functionSchema");
+    }
 
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
-    public String parentActionGroupSignature;
+    private @Nullable UndeferrableValue<String> parentActionGroupSignature;
 
-
+    public @Nullable String parentActionGroupSignature() {
+        if (parentActionGroupSignature == null) return null;
+        return parentActionGroupSignature.getValue("AgentAgentActionGroup.parentActionGroupSignature");
+    }
 
     /**
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    public Boolean prepareAgent;
+    private UndeferrableValue<Boolean> prepareAgent;
 
-
+    public Boolean prepareAgent() {
+        if (prepareAgent == null) return null;
+        return prepareAgent.getValue("AgentAgentActionGroup.prepareAgent");
+    }
 
     /**
      * Whether the in-use check is skipped when deleting the action group.
      * 
      */
-    public Boolean skipResourceInUseCheck;
+    private UndeferrableValue<Boolean> skipResourceInUseCheck;
 
+    public Boolean skipResourceInUseCheck() {
+        if (skipResourceInUseCheck == null) return null;
+        return skipResourceInUseCheck.getValue("AgentAgentActionGroup.skipResourceInUseCheck");
+    }
 
+    private @Nullable UndeferrableValue<AgentAgentActionGroupTimeouts> timeouts;
 
-    public AgentAgentActionGroupTimeouts timeouts;
-
-
+    public @Nullable AgentAgentActionGroupTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentAgentActionGroup.timeouts");
+    }
 
 }

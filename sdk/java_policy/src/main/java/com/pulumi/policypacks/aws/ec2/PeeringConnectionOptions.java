@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.PeeringConnectionOptionsAccepter;
-import com.pulumi.policypacks.aws.ec2.PeeringConnectionOptionsRequester;
+import com.pulumi.policypacks.aws.ec2.outputs.PeeringConnectionOptionsAccepter;
+import com.pulumi.policypacks.aws.ec2.outputs.PeeringConnectionOptionsRequester;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")
-public final class PeeringConnectionOptions extends com.pulumi.resources.PolicyResource {
+public final class PeeringConnectionOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      * 
      */
-    public PeeringConnectionOptionsAccepter accepter;
+    private UndeferrableValue<PeeringConnectionOptionsAccepter> accepter;
 
-
+    public PeeringConnectionOptionsAccepter accepter() {
+        if (accepter == null) return null;
+        return accepter.getValue("PeeringConnectionOptions.accepter");
+    }
 
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      * 
      */
-    public PeeringConnectionOptionsRequester requester;
+    private UndeferrableValue<PeeringConnectionOptionsRequester> requester;
 
-
+    public PeeringConnectionOptionsRequester requester() {
+        if (requester == null) return null;
+        return requester.getValue("PeeringConnectionOptions.requester");
+    }
 
     /**
      * The ID of the requester VPC peering connection.
      * 
      */
-    public String vpcPeeringConnectionId;
+    private UndeferrableValue<String> vpcPeeringConnectionId;
 
-
+    public String vpcPeeringConnectionId() {
+        if (vpcPeeringConnectionId == null) return null;
+        return vpcPeeringConnectionId.getValue("PeeringConnectionOptions.vpcPeeringConnectionId");
+    }
 
 }

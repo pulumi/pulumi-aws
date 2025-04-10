@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.InstanceStorageConfigStorageConfig;
+import com.pulumi.policypacks.aws.connect.outputs.InstanceStorageConfigStorageConfig;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:connect/instanceStorageConfig:InstanceStorageConfig")
-public final class InstanceStorageConfig extends com.pulumi.resources.PolicyResource {
+public final class InstanceStorageConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("InstanceStorageConfig.associationId");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("InstanceStorageConfig.instanceId");
+    }
 
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("InstanceStorageConfig.resourceType");
+    }
 
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      * 
      */
-    public InstanceStorageConfigStorageConfig storageConfig;
+    private UndeferrableValue<InstanceStorageConfigStorageConfig> storageConfig;
 
-
+    public InstanceStorageConfigStorageConfig storageConfig() {
+        if (storageConfig == null) return null;
+        return storageConfig.getValue("InstanceStorageConfig.storageConfig");
+    }
 
 }

@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")
-public final class LoadBalancerBackendServerPolicy extends com.pulumi.resources.PolicyResource {
+public final class LoadBalancerBackendServerPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The instance port to apply the policy to.
      * 
      */
-    public Integer instancePort;
+    private UndeferrableValue<Integer> instancePort;
 
-
+    public Integer instancePort() {
+        if (instancePort == null) return null;
+        return instancePort.getValue("LoadBalancerBackendServerPolicy.instancePort");
+    }
 
     /**
      * The load balancer to attach the policy to.
      * 
      */
-    public String loadBalancerName;
+    private UndeferrableValue<String> loadBalancerName;
 
-
+    public String loadBalancerName() {
+        if (loadBalancerName == null) return null;
+        return loadBalancerName.getValue("LoadBalancerBackendServerPolicy.loadBalancerName");
+    }
 
     /**
      * List of Policy Names to apply to the backend server.
      * 
      */
-    public List<String> policyNames;
+    private @Nullable UndeferrableValue<List<String>> policyNames;
 
-
+    public @Nullable List<String> policyNames() {
+        if (policyNames == null) return null;
+        return policyNames.getValue("LoadBalancerBackendServerPolicy.policyNames");
+    }
 
 }

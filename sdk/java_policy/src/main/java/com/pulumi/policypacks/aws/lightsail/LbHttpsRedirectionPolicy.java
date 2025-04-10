@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")
-public final class LbHttpsRedirectionPolicy extends com.pulumi.resources.PolicyResource {
+public final class LbHttpsRedirectionPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("LbHttpsRedirectionPolicy.enabled");
+    }
 
     /**
      * The name of the load balancer to which you want to enable http to https redirection.
      * 
      */
-    public String lbName;
+    private UndeferrableValue<String> lbName;
 
-
+    public String lbName() {
+        if (lbName == null) return null;
+        return lbName.getValue("LbHttpsRedirectionPolicy.lbName");
+    }
 
 }

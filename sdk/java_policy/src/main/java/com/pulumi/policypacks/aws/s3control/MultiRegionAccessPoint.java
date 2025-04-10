@@ -3,60 +3,79 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3control.MultiRegionAccessPointDetails;
+import com.pulumi.policypacks.aws.s3control.outputs.MultiRegionAccessPointDetails;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint")
-public final class MultiRegionAccessPoint extends com.pulumi.resources.PolicyResource {
+public final class MultiRegionAccessPoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("MultiRegionAccessPoint.accountId");
+    }
 
     /**
      * The alias for the Multi-Region Access Point.
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("MultiRegionAccessPoint.alias");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MultiRegionAccessPoint.arn");
+    }
 
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    public MultiRegionAccessPointDetails details;
+    private UndeferrableValue<MultiRegionAccessPointDetails> details;
 
-
+    public MultiRegionAccessPointDetails details() {
+        if (details == null) return null;
+        return details.getValue("MultiRegionAccessPoint.details");
+    }
 
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("MultiRegionAccessPoint.domainName");
+    }
 
     /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("MultiRegionAccessPoint.status");
+    }
 
 }

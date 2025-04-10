@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codepipeline.WebhookAuthenticationConfiguration;
-import com.pulumi.policypacks.aws.codepipeline.WebhookFilter;
+import com.pulumi.policypacks.aws.codepipeline.outputs.WebhookAuthenticationConfiguration;
+import com.pulumi.policypacks.aws.codepipeline.outputs.WebhookFilter;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codepipeline/webhook:Webhook")
-public final class Webhook extends com.pulumi.resources.PolicyResource {
+public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CodePipeline webhook&#39;s ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Webhook.arn");
+    }
 
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      * 
      */
-    public String authentication;
+    private UndeferrableValue<String> authentication;
 
-
+    public String authentication() {
+        if (authentication == null) return null;
+        return authentication.getValue("Webhook.authentication");
+    }
 
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      * 
      */
-    public WebhookAuthenticationConfiguration authenticationConfiguration;
+    private @Nullable UndeferrableValue<WebhookAuthenticationConfiguration> authenticationConfiguration;
 
-
+    public @Nullable WebhookAuthenticationConfiguration authenticationConfiguration() {
+        if (authenticationConfiguration == null) return null;
+        return authenticationConfiguration.getValue("Webhook.authenticationConfiguration");
+    }
 
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      * 
      */
-    public List<WebhookFilter> filters;
+    private UndeferrableValue<List<WebhookFilter>> filters;
 
-
+    public List<WebhookFilter> filters() {
+        if (filters == null) return null;
+        return filters.getValue("Webhook.filters");
+    }
 
     /**
      * The name of the webhook.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Webhook.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Webhook.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,32 +90,44 @@ public final class Webhook extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Webhook.tagsAll");
+    }
 
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      * 
      */
-    public String targetAction;
+    private UndeferrableValue<String> targetAction;
 
-
+    public String targetAction() {
+        if (targetAction == null) return null;
+        return targetAction.getValue("Webhook.targetAction");
+    }
 
     /**
      * The name of the pipeline.
      * 
      */
-    public String targetPipeline;
+    private UndeferrableValue<String> targetPipeline;
 
-
+    public String targetPipeline() {
+        if (targetPipeline == null) return null;
+        return targetPipeline.getValue("Webhook.targetPipeline");
+    }
 
     /**
      * The CodePipeline webhook&#39;s URL. POST events to this endpoint to trigger the target.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Webhook.url");
+    }
 
 }

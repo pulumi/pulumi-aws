@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/model:Model")
-public final class Model extends com.pulumi.resources.PolicyResource {
+public final class Model extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Model.apiId");
+    }
 
     /**
      * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("Model.contentType");
+    }
 
     /**
      * Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Model.description");
+    }
 
     /**
      * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Model.name");
+    }
 
     /**
      * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
-    public String schema;
+    private UndeferrableValue<String> schema;
 
-
+    public String schema() {
+        if (schema == null) return null;
+        return schema.getValue("Model.schema");
+    }
 
 }

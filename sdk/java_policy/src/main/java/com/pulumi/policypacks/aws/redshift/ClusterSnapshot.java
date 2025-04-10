@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/clusterSnapshot:ClusterSnapshot")
-public final class ClusterSnapshot extends com.pulumi.resources.PolicyResource {
+public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ClusterSnapshot.arn");
+    }
 
     /**
      * The cluster identifier for which you want a snapshot.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterSnapshot.clusterIdentifier");
+    }
 
     /**
      * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterSnapshot.kmsKeyId");
+    }
 
     /**
      * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
      * 
      */
-    public Integer manualSnapshotRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
 
-
+    public @Nullable Integer manualSnapshotRetentionPeriod() {
+        if (manualSnapshotRetentionPeriod == null) return null;
+        return manualSnapshotRetentionPeriod.getValue("ClusterSnapshot.manualSnapshotRetentionPeriod");
+    }
 
     /**
      * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
      * 
      */
-    public String ownerAccount;
+    private UndeferrableValue<String> ownerAccount;
 
-
+    public String ownerAccount() {
+        if (ownerAccount == null) return null;
+        return ownerAccount.getValue("ClusterSnapshot.ownerAccount");
+    }
 
     /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      * 
      */
-    public String snapshotIdentifier;
+    private UndeferrableValue<String> snapshotIdentifier;
 
-
+    public String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("ClusterSnapshot.snapshotIdentifier");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterSnapshot.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterSnapshot.tagsAll");
+    }
 
 }

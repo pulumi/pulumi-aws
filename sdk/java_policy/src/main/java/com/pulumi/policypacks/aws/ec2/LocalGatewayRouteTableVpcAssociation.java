@@ -3,33 +3,44 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")
-public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.PolicyResource {
+public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String localGatewayId;
+    private UndeferrableValue<String> localGatewayId;
 
-
+    public String localGatewayId() {
+        if (localGatewayId == null) return null;
+        return localGatewayId.getValue("LocalGatewayRouteTableVpcAssociation.localGatewayId");
+    }
 
     /**
      * Identifier of EC2 Local Gateway Route Table.
      * 
      */
-    public String localGatewayRouteTableId;
+    private UndeferrableValue<String> localGatewayRouteTableId;
 
-
+    public String localGatewayRouteTableId() {
+        if (localGatewayRouteTableId == null) return null;
+        return localGatewayRouteTableId.getValue("LocalGatewayRouteTableVpcAssociation.localGatewayRouteTableId");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocalGatewayRouteTableVpcAssociation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -39,9 +50,12 @@ public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocalGatewayRouteTableVpcAssociation.tagsAll");
+    }
 
     /**
      * Identifier of EC2 VPC.
@@ -49,8 +63,11 @@ public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resou
      * The following arguments are optional:
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("LocalGatewayRouteTableVpcAssociation.vpcId");
+    }
 
 }

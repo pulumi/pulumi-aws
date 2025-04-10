@@ -3,33 +3,41 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.ReplicationGroupLogDeliveryConfiguration;
+import com.pulumi.policypacks.aws.elasticache.outputs.ReplicationGroupLogDeliveryConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/replicationGroup:ReplicationGroup")
-public final class ReplicationGroup extends com.pulumi.resources.PolicyResource {
+public final class ReplicationGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("ReplicationGroup.applyImmediately");
+    }
 
     /**
      * ARN of the created ElastiCache Replication Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReplicationGroup.arn");
+    }
 
     /**
      * Whether to enable encryption at rest.
@@ -37,25 +45,34 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * When `engine` is `valkey`, default is `true`.
      * 
      */
-    public Boolean atRestEncryptionEnabled;
+    private UndeferrableValue<Boolean> atRestEncryptionEnabled;
 
-
+    public Boolean atRestEncryptionEnabled() {
+        if (atRestEncryptionEnabled == null) return null;
+        return atRestEncryptionEnabled.getValue("ReplicationGroup.atRestEncryptionEnabled");
+    }
 
     /**
      * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
      * 
      */
-    public String authToken;
+    private @Nullable UndeferrableValue<String> authToken;
 
-
+    public @Nullable String authToken() {
+        if (authToken == null) return null;
+        return authToken.getValue("ReplicationGroup.authToken");
+    }
 
     /**
      * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      * 
      */
-    public String authTokenUpdateStrategy;
+    private @Nullable UndeferrableValue<String> authTokenUpdateStrategy;
 
-
+    public @Nullable String authTokenUpdateStrategy() {
+        if (authTokenUpdateStrategy == null) return null;
+        return authTokenUpdateStrategy.getValue("ReplicationGroup.authTokenUpdateStrategy");
+    }
 
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -63,57 +80,78 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Defaults to `true`.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("ReplicationGroup.autoMinorVersionUpgrade");
+    }
 
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
-    public Boolean automaticFailoverEnabled;
+    private @Nullable UndeferrableValue<Boolean> automaticFailoverEnabled;
 
-
+    public @Nullable Boolean automaticFailoverEnabled() {
+        if (automaticFailoverEnabled == null) return null;
+        return automaticFailoverEnabled.getValue("ReplicationGroup.automaticFailoverEnabled");
+    }
 
     /**
      * Indicates if cluster mode is enabled.
      * 
      */
-    public Boolean clusterEnabled;
+    private UndeferrableValue<Boolean> clusterEnabled;
 
-
+    public Boolean clusterEnabled() {
+        if (clusterEnabled == null) return null;
+        return clusterEnabled.getValue("ReplicationGroup.clusterEnabled");
+    }
 
     /**
      * Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
      * 
      */
-    public String clusterMode;
+    private UndeferrableValue<String> clusterMode;
 
-
+    public String clusterMode() {
+        if (clusterMode == null) return null;
+        return clusterMode.getValue("ReplicationGroup.clusterMode");
+    }
 
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      * 
      */
-    public String configurationEndpointAddress;
+    private UndeferrableValue<String> configurationEndpointAddress;
 
-
+    public String configurationEndpointAddress() {
+        if (configurationEndpointAddress == null) return null;
+        return configurationEndpointAddress.getValue("ReplicationGroup.configurationEndpointAddress");
+    }
 
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      * 
      */
-    public Boolean dataTieringEnabled;
+    private UndeferrableValue<Boolean> dataTieringEnabled;
 
-
+    public Boolean dataTieringEnabled() {
+        if (dataTieringEnabled == null) return null;
+        return dataTieringEnabled.getValue("ReplicationGroup.dataTieringEnabled");
+    }
 
     /**
      * User-created description for the replication group. Must not be empty.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ReplicationGroup.description");
+    }
 
     /**
      * Name of the cache engine to be used for the clusters in this replication group.
@@ -121,9 +159,12 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Default is `redis`.
      * 
      */
-    public String engine;
+    private @Nullable UndeferrableValue<String> engine;
 
-
+    public @Nullable String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ReplicationGroup.engine");
+    }
 
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -134,73 +175,100 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ReplicationGroup.engineVersion");
+    }
 
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("ReplicationGroup.engineVersionActual");
+    }
 
     /**
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("ReplicationGroup.finalSnapshotIdentifier");
+    }
 
     /**
      * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
-    public String globalReplicationGroupId;
+    private UndeferrableValue<String> globalReplicationGroupId;
 
-
+    public String globalReplicationGroupId() {
+        if (globalReplicationGroupId == null) return null;
+        return globalReplicationGroupId.getValue("ReplicationGroup.globalReplicationGroupId");
+    }
 
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    public String ipDiscovery;
+    private UndeferrableValue<String> ipDiscovery;
 
-
+    public String ipDiscovery() {
+        if (ipDiscovery == null) return null;
+        return ipDiscovery.getValue("ReplicationGroup.ipDiscovery");
+    }
 
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ReplicationGroup.kmsKeyId");
+    }
 
     /**
      * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      * 
      */
-    public List<ReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
+    private @Nullable UndeferrableValue<List<ReplicationGroupLogDeliveryConfiguration>> logDeliveryConfigurations;
 
-
+    public @Nullable List<ReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations() {
+        if (logDeliveryConfigurations == null) return null;
+        return logDeliveryConfigurations.getValue("ReplicationGroup.logDeliveryConfigurations");
+    }
 
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      * 
      */
-    public String maintenanceWindow;
+    private UndeferrableValue<String> maintenanceWindow;
 
-
+    public String maintenanceWindow() {
+        if (maintenanceWindow == null) return null;
+        return maintenanceWindow.getValue("ReplicationGroup.maintenanceWindow");
+    }
 
     /**
      * Identifiers of all the nodes that are part of this replication group.
      * 
      */
-    public List<String> memberClusters;
+    private UndeferrableValue<List<String>> memberClusters;
 
-
+    public List<String> memberClusters() {
+        if (memberClusters == null) return null;
+        return memberClusters.getValue("ReplicationGroup.memberClusters");
+    }
 
     /**
      * Specifies whether to enable Multi-AZ Support for the replication group.
@@ -208,17 +276,23 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Defaults to `false`.
      * 
      */
-    public Boolean multiAzEnabled;
+    private @Nullable UndeferrableValue<Boolean> multiAzEnabled;
 
-
+    public @Nullable Boolean multiAzEnabled() {
+        if (multiAzEnabled == null) return null;
+        return multiAzEnabled.getValue("ReplicationGroup.multiAzEnabled");
+    }
 
     /**
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("ReplicationGroup.networkType");
+    }
 
     /**
      * Instance class to be used.
@@ -227,17 +301,23 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Cannot be set if `global_replication_group_id` is set.
      * 
      */
-    public String nodeType;
+    private UndeferrableValue<String> nodeType;
 
-
+    public String nodeType() {
+        if (nodeType == null) return null;
+        return nodeType.getValue("ReplicationGroup.nodeType");
+    }
 
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
      */
-    public String notificationTopicArn;
+    private @Nullable UndeferrableValue<String> notificationTopicArn;
 
-
+    public @Nullable String notificationTopicArn() {
+        if (notificationTopicArn == null) return null;
+        return notificationTopicArn.getValue("ReplicationGroup.notificationTopicArn");
+    }
 
     /**
      * Number of cache clusters (primary and replicas) this replication group will have.
@@ -247,9 +327,12 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Defaults to `1`.
      * 
      */
-    public Integer numCacheClusters;
+    private UndeferrableValue<Integer> numCacheClusters;
 
-
+    public Integer numCacheClusters() {
+        if (numCacheClusters == null) return null;
+        return numCacheClusters.getValue("ReplicationGroup.numCacheClusters");
+    }
 
     /**
      * Number of node groups (shards) for this Redis replication group.
@@ -257,49 +340,67 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Conflicts with `num_cache_clusters`.
      * 
      */
-    public Integer numNodeGroups;
+    private UndeferrableValue<Integer> numNodeGroups;
 
-
+    public Integer numNodeGroups() {
+        if (numNodeGroups == null) return null;
+        return numNodeGroups.getValue("ReplicationGroup.numNodeGroups");
+    }
 
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      * 
      */
-    public String parameterGroupName;
+    private UndeferrableValue<String> parameterGroupName;
 
-
+    public String parameterGroupName() {
+        if (parameterGroupName == null) return null;
+        return parameterGroupName.getValue("ReplicationGroup.parameterGroupName");
+    }
 
     /**
      * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("ReplicationGroup.port");
+    }
 
     /**
      * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
      * 
      */
-    public List<String> preferredCacheClusterAzs;
+    private @Nullable UndeferrableValue<List<String>> preferredCacheClusterAzs;
 
-
+    public @Nullable List<String> preferredCacheClusterAzs() {
+        if (preferredCacheClusterAzs == null) return null;
+        return preferredCacheClusterAzs.getValue("ReplicationGroup.preferredCacheClusterAzs");
+    }
 
     /**
      * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
      * 
      */
-    public String primaryEndpointAddress;
+    private UndeferrableValue<String> primaryEndpointAddress;
 
-
+    public String primaryEndpointAddress() {
+        if (primaryEndpointAddress == null) return null;
+        return primaryEndpointAddress.getValue("ReplicationGroup.primaryEndpointAddress");
+    }
 
     /**
      * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
      * 
      */
-    public String readerEndpointAddress;
+    private UndeferrableValue<String> readerEndpointAddress;
 
-
+    public String readerEndpointAddress() {
+        if (readerEndpointAddress == null) return null;
+        return readerEndpointAddress.getValue("ReplicationGroup.readerEndpointAddress");
+    }
 
     /**
      * Number of replica nodes in each node group.
@@ -309,9 +410,12 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Can only be set if `num_node_groups` is set.
      * 
      */
-    public Integer replicasPerNodeGroup;
+    private UndeferrableValue<Integer> replicasPerNodeGroup;
 
-
+    public Integer replicasPerNodeGroup() {
+        if (replicasPerNodeGroup == null) return null;
+        return replicasPerNodeGroup.getValue("ReplicationGroup.replicasPerNodeGroup");
+    }
 
     /**
      * Replication group identifier. This parameter is stored as a lowercase string.
@@ -319,73 +423,100 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String replicationGroupId;
+    private UndeferrableValue<String> replicationGroupId;
 
-
+    public String replicationGroupId() {
+        if (replicationGroupId == null) return null;
+        return replicationGroupId.getValue("ReplicationGroup.replicationGroupId");
+    }
 
     /**
      * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ReplicationGroup.securityGroupIds");
+    }
 
     /**
      * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    public List<String> securityGroupNames;
+    private UndeferrableValue<List<String>> securityGroupNames;
 
-
+    public List<String> securityGroupNames() {
+        if (securityGroupNames == null) return null;
+        return securityGroupNames.getValue("ReplicationGroup.securityGroupNames");
+    }
 
     /**
      * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      * 
      */
-    public List<String> snapshotArns;
+    private @Nullable UndeferrableValue<List<String>> snapshotArns;
 
-
+    public @Nullable List<String> snapshotArns() {
+        if (snapshotArns == null) return null;
+        return snapshotArns.getValue("ReplicationGroup.snapshotArns");
+    }
 
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
      * 
      */
-    public String snapshotName;
+    private @Nullable UndeferrableValue<String> snapshotName;
 
-
+    public @Nullable String snapshotName() {
+        if (snapshotName == null) return null;
+        return snapshotName.getValue("ReplicationGroup.snapshotName");
+    }
 
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
      * 
      */
-    public Integer snapshotRetentionLimit;
+    private @Nullable UndeferrableValue<Integer> snapshotRetentionLimit;
 
-
+    public @Nullable Integer snapshotRetentionLimit() {
+        if (snapshotRetentionLimit == null) return null;
+        return snapshotRetentionLimit.getValue("ReplicationGroup.snapshotRetentionLimit");
+    }
 
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
      * 
      */
-    public String snapshotWindow;
+    private UndeferrableValue<String> snapshotWindow;
 
-
+    public String snapshotWindow() {
+        if (snapshotWindow == null) return null;
+        return snapshotWindow.getValue("ReplicationGroup.snapshotWindow");
+    }
 
     /**
      * Name of the cache subnet group to be used for the replication group.
      * 
      */
-    public String subnetGroupName;
+    private UndeferrableValue<String> subnetGroupName;
 
-
+    public String subnetGroupName() {
+        if (subnetGroupName == null) return null;
+        return subnetGroupName.getValue("ReplicationGroup.subnetGroupName");
+    }
 
     /**
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationGroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -395,9 +526,12 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationGroup.tagsAll");
+    }
 
     /**
      * Whether to enable encryption in transit.
@@ -405,9 +539,12 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
-    public Boolean transitEncryptionEnabled;
+    private UndeferrableValue<Boolean> transitEncryptionEnabled;
 
-
+    public Boolean transitEncryptionEnabled() {
+        if (transitEncryptionEnabled == null) return null;
+        return transitEncryptionEnabled.getValue("ReplicationGroup.transitEncryptionEnabled");
+    }
 
     /**
      * A setting that enables clients to migrate to in-transit encryption with no downtime.
@@ -416,16 +553,22 @@ public final class ReplicationGroup extends com.pulumi.resources.PolicyResource 
      * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
      * 
      */
-    public String transitEncryptionMode;
+    private UndeferrableValue<String> transitEncryptionMode;
 
-
+    public String transitEncryptionMode() {
+        if (transitEncryptionMode == null) return null;
+        return transitEncryptionMode.getValue("ReplicationGroup.transitEncryptionMode");
+    }
 
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      * 
      */
-    public List<String> userGroupIds;
+    private @Nullable UndeferrableValue<List<String>> userGroupIds;
 
-
+    public @Nullable List<String> userGroupIds() {
+        if (userGroupIds == null) return null;
+        return userGroupIds.getValue("ReplicationGroup.userGroupIds");
+    }
 
 }

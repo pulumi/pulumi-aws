@@ -68,7 +68,7 @@ def genPulumiResources = tasks.register('genPulumiResources') {
         def builder = new groovy.json.JsonBuilder()
         builder {
             resource true
-            name "aws-policypacks"
+            name "aws-policypack"
             version resolvedVersion
         }
         def infoJson = builder.toPrettyString()
@@ -84,7 +84,7 @@ publishing {
     publications {
         mainPublication(MavenPublication) {
             groupId = "com.pulumi"
-            artifactId = "aws-policypacks"
+            artifactId = "aws-policypack"
             version = resolvedVersion
             from components.java
             artifact sourcesJar
@@ -92,7 +92,7 @@ publishing {
 
             pom {
                 inceptionYear = "2022"
-                name = "pulumi-aws-policypacks"
+                name = "pulumi-aws-policypack"
                 packaging = "jar"
                 description = "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources."
 

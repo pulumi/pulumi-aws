@@ -3,16 +3,18 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticbeanstalk.EnvironmentAllSetting;
-import com.pulumi.policypacks.aws.elasticbeanstalk.EnvironmentSetting;
+import com.pulumi.policypacks.aws.elasticbeanstalk.outputs.EnvironmentAllSetting;
+import com.pulumi.policypacks.aws.elasticbeanstalk.outputs.EnvironmentSetting;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticbeanstalk/environment:Environment")
-public final class Environment extends com.pulumi.resources.PolicyResource {
+public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of all option settings configured in this Environment. These
@@ -20,105 +22,144 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * the configuration.
      * 
      */
-    public List<EnvironmentAllSetting> allSettings;
+    private UndeferrableValue<List<EnvironmentAllSetting>> allSettings;
 
-
+    public List<EnvironmentAllSetting> allSettings() {
+        if (allSettings == null) return null;
+        return allSettings.getValue("Environment.allSettings");
+    }
 
     /**
      * Name of the application that contains the version
      * to be deployed
      * 
      */
-    public String application;
+    private UndeferrableValue<String> application;
 
+    public String application() {
+        if (application == null) return null;
+        return application.getValue("Environment.application");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Environment.arn");
+    }
 
     /**
      * The autoscaling groups used by this Environment.
      * 
      */
-    public List<String> autoscalingGroups;
+    private UndeferrableValue<List<String>> autoscalingGroups;
 
-
+    public List<String> autoscalingGroups() {
+        if (autoscalingGroups == null) return null;
+        return autoscalingGroups.getValue("Environment.autoscalingGroups");
+    }
 
     /**
      * Fully qualified DNS name for this Environment.
      * 
      */
-    public String cname;
+    private UndeferrableValue<String> cname;
 
-
+    public String cname() {
+        if (cname == null) return null;
+        return cname.getValue("Environment.cname");
+    }
 
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      * 
      */
-    public String cnamePrefix;
+    private UndeferrableValue<String> cnamePrefix;
 
-
+    public String cnamePrefix() {
+        if (cnamePrefix == null) return null;
+        return cnamePrefix.getValue("Environment.cnamePrefix");
+    }
 
     /**
      * Short description of the Environment
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Environment.description");
+    }
 
     /**
      * The URL to the Load Balancer for this Environment
      * 
      */
-    public String endpointUrl;
+    private UndeferrableValue<String> endpointUrl;
 
-
+    public String endpointUrl() {
+        if (endpointUrl == null) return null;
+        return endpointUrl.getValue("Environment.endpointUrl");
+    }
 
     /**
      * Instances used by this Environment.
      * 
      */
-    public List<String> instances;
+    private UndeferrableValue<List<String>> instances;
 
-
+    public List<String> instances() {
+        if (instances == null) return null;
+        return instances.getValue("Environment.instances");
+    }
 
     /**
      * Launch configurations in use by this Environment.
      * 
      */
-    public List<String> launchConfigurations;
+    private UndeferrableValue<List<String>> launchConfigurations;
 
-
+    public List<String> launchConfigurations() {
+        if (launchConfigurations == null) return null;
+        return launchConfigurations.getValue("Environment.launchConfigurations");
+    }
 
     /**
      * Elastic load balancers in use by this Environment.
      * 
      */
-    public List<String> loadBalancers;
+    private UndeferrableValue<List<String>> loadBalancers;
 
-
+    public List<String> loadBalancers() {
+        if (loadBalancers == null) return null;
+        return loadBalancers.getValue("Environment.loadBalancers");
+    }
 
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Environment.name");
+    }
 
     /**
      * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      * 
      */
-    public String platformArn;
+    private UndeferrableValue<String> platformArn;
 
-
+    public String platformArn() {
+        if (platformArn == null) return null;
+        return platformArn.getValue("Environment.platformArn");
+    }
 
     /**
      * The time between polling the AWS API to
@@ -127,17 +168,23 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * use the default behavior, which is an exponential backoff
      * 
      */
-    public String pollInterval;
+    private @Nullable UndeferrableValue<String> pollInterval;
 
-
+    public @Nullable String pollInterval() {
+        if (pollInterval == null) return null;
+        return pollInterval.getValue("Environment.pollInterval");
+    }
 
     /**
      * SQS queues in use by this Environment.
      * 
      */
-    public List<String> queues;
+    private UndeferrableValue<List<String>> queues;
 
-
+    public List<String> queues() {
+        if (queues == null) return null;
+        return queues.getValue("Environment.queues");
+    }
 
     /**
      * Option settings to configure the new Environment. These
@@ -145,26 +192,35 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * below in Option Settings
      * 
      */
-    public List<EnvironmentSetting> settings;
+    private @Nullable UndeferrableValue<List<EnvironmentSetting>> settings;
 
-
+    public @Nullable List<EnvironmentSetting> settings() {
+        if (settings == null) return null;
+        return settings.getValue("Environment.settings");
+    }
 
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
-    public String solutionStackName;
+    private UndeferrableValue<String> solutionStackName;
 
-
+    public String solutionStackName() {
+        if (solutionStackName == null) return null;
+        return solutionStackName.getValue("Environment.solutionStackName");
+    }
 
     /**
      * A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Environment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -174,44 +230,59 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Environment.tagsAll");
+    }
 
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      * 
      */
-    public String templateName;
+    private @Nullable UndeferrableValue<String> templateName;
 
-
+    public @Nullable String templateName() {
+        if (templateName == null) return null;
+        return templateName.getValue("Environment.templateName");
+    }
 
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      * 
      */
-    public String tier;
+    private @Nullable UndeferrableValue<String> tier;
 
-
+    public @Nullable String tier() {
+        if (tier == null) return null;
+        return tier.getValue("Environment.tier");
+    }
 
     /**
      * Autoscaling triggers in use by this Environment.
      * 
      */
-    public List<String> triggers;
+    private UndeferrableValue<List<String>> triggers;
 
-
+    public List<String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Environment.triggers");
+    }
 
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Environment.version");
+    }
 
     /**
      * The maximum
@@ -220,8 +291,11 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * out.
      * 
      */
-    public String waitForReadyTimeout;
+    private @Nullable UndeferrableValue<String> waitForReadyTimeout;
 
-
+    public @Nullable String waitForReadyTimeout() {
+        if (waitForReadyTimeout == null) return null;
+        return waitForReadyTimeout.getValue("Environment.waitForReadyTimeout");
+    }
 
 }

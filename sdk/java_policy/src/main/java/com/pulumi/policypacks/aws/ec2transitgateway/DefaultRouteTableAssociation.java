@@ -3,36 +3,50 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2transitgateway.DefaultRouteTableAssociationTimeouts;
+import com.pulumi.policypacks.aws.ec2transitgateway.outputs.DefaultRouteTableAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation")
-public final class DefaultRouteTableAssociation extends com.pulumi.resources.PolicyResource {
+public final class DefaultRouteTableAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String originalDefaultRouteTableId;
+    private UndeferrableValue<String> originalDefaultRouteTableId;
 
+    public String originalDefaultRouteTableId() {
+        if (originalDefaultRouteTableId == null) return null;
+        return originalDefaultRouteTableId.getValue("DefaultRouteTableAssociation.originalDefaultRouteTableId");
+    }
 
+    private @Nullable UndeferrableValue<DefaultRouteTableAssociationTimeouts> timeouts;
 
-    public DefaultRouteTableAssociationTimeouts timeouts;
-
-
+    public @Nullable DefaultRouteTableAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DefaultRouteTableAssociation.timeouts");
+    }
 
     /**
      * ID of the Transit Gateway to change the default association route table on.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("DefaultRouteTableAssociation.transitGatewayId");
+    }
 
     /**
      * ID of the Transit Gateway Route Table to be made the default association route table.
      * 
      */
-    public String transitGatewayRouteTableId;
+    private UndeferrableValue<String> transitGatewayRouteTableId;
 
-
+    public String transitGatewayRouteTableId() {
+        if (transitGatewayRouteTableId == null) return null;
+        return transitGatewayRouteTableId.getValue("DefaultRouteTableAssociation.transitGatewayRouteTableId");
+    }
 
 }

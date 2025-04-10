@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/applicationAssignment:ApplicationAssignment")
-public final class ApplicationAssignment extends com.pulumi.resources.PolicyResource {
+public final class ApplicationAssignment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the application.
      * 
      */
-    public String applicationArn;
+    private UndeferrableValue<String> applicationArn;
 
-
+    public String applicationArn() {
+        if (applicationArn == null) return null;
+        return applicationArn.getValue("ApplicationAssignment.applicationArn");
+    }
 
     /**
      * An identifier for an object in IAM Identity Center, such as a user or group.
      * 
      */
-    public String principalId;
+    private UndeferrableValue<String> principalId;
 
-
+    public String principalId() {
+        if (principalId == null) return null;
+        return principalId.getValue("ApplicationAssignment.principalId");
+    }
 
     /**
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      * 
      */
-    public String principalType;
+    private UndeferrableValue<String> principalType;
 
-
+    public String principalType() {
+        if (principalType == null) return null;
+        return principalType.getValue("ApplicationAssignment.principalType");
+    }
 
 }

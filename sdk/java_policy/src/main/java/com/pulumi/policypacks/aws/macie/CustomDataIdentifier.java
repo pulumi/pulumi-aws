@@ -3,95 +3,127 @@
 
 package com.pulumi.policypacks.aws.macie;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:macie/customDataIdentifier:CustomDataIdentifier")
-public final class CustomDataIdentifier extends com.pulumi.resources.PolicyResource {
+public final class CustomDataIdentifier extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the custom data identifier.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomDataIdentifier.arn");
+    }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("CustomDataIdentifier.createdAt");
+    }
 
     /**
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CustomDataIdentifier.description");
+    }
 
     /**
      * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
      * 
      */
-    public List<String> ignoreWords;
+    private @Nullable UndeferrableValue<List<String>> ignoreWords;
 
-
+    public @Nullable List<String> ignoreWords() {
+        if (ignoreWords == null) return null;
+        return ignoreWords.getValue("CustomDataIdentifier.ignoreWords");
+    }
 
     /**
      * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren&#39;t case sensitive.
      * 
      */
-    public List<String> keywords;
+    private @Nullable UndeferrableValue<List<String>> keywords;
 
-
+    public @Nullable List<String> keywords() {
+        if (keywords == null) return null;
+        return keywords.getValue("CustomDataIdentifier.keywords");
+    }
 
     /**
      * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      * 
      */
-    public Integer maximumMatchDistance;
+    private UndeferrableValue<Integer> maximumMatchDistance;
 
-
+    public Integer maximumMatchDistance() {
+        if (maximumMatchDistance == null) return null;
+        return maximumMatchDistance.getValue("CustomDataIdentifier.maximumMatchDistance");
+    }
 
     /**
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CustomDataIdentifier.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("CustomDataIdentifier.namePrefix");
+    }
 
     /**
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
      * 
      */
-    public String regex;
+    private @Nullable UndeferrableValue<String> regex;
 
-
+    public @Nullable String regex() {
+        if (regex == null) return null;
+        return regex.getValue("CustomDataIdentifier.regex");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomDataIdentifier.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -101,8 +133,11 @@ public final class CustomDataIdentifier extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomDataIdentifier.tagsAll");
+    }
 
 }

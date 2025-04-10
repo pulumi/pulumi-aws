@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration;
+import com.pulumi.policypacks.aws.ssoadmin.outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")
-public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResource {
+public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the trusted token issuer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrustedTokenIssuer.arn");
+    }
 
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      * 
      */
-    public String clientToken;
+    private @Nullable UndeferrableValue<String> clientToken;
 
-
+    public @Nullable String clientToken() {
+        if (clientToken == null) return null;
+        return clientToken.getValue("TrustedTokenIssuer.clientToken");
+    }
 
     /**
      * ARN of the instance of IAM Identity Center.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("TrustedTokenIssuer.instanceArn");
+    }
 
     /**
      * Name of the trusted token issuer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TrustedTokenIssuer.name");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrustedTokenIssuer.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,17 +77,23 @@ public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrustedTokenIssuer.tagsAll");
+    }
 
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
      * 
      */
-    public TrustedTokenIssuerTrustedTokenIssuerConfiguration trustedTokenIssuerConfiguration;
+    private @Nullable UndeferrableValue<TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration;
 
-
+    public @Nullable TrustedTokenIssuerTrustedTokenIssuerConfiguration trustedTokenIssuerConfiguration() {
+        if (trustedTokenIssuerConfiguration == null) return null;
+        return trustedTokenIssuerConfiguration.getValue("TrustedTokenIssuer.trustedTokenIssuerConfiguration");
+    }
 
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
@@ -78,8 +101,11 @@ public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String trustedTokenIssuerType;
+    private UndeferrableValue<String> trustedTokenIssuerType;
 
-
+    public String trustedTokenIssuerType() {
+        if (trustedTokenIssuerType == null) return null;
+        return trustedTokenIssuerType.getValue("TrustedTokenIssuer.trustedTokenIssuerType");
+    }
 
 }

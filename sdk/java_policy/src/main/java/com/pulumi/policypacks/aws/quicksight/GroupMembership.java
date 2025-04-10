@@ -3,47 +3,64 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/groupMembership:GroupMembership")
-public final class GroupMembership extends com.pulumi.resources.PolicyResource {
+public final class GroupMembership extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GroupMembership.arn");
+    }
 
     /**
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("GroupMembership.awsAccountId");
+    }
 
     /**
      * The name of the group in which the member will be added.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("GroupMembership.groupName");
+    }
 
     /**
      * The name of the member to add to the group.
      * 
      */
-    public String memberName;
+    private UndeferrableValue<String> memberName;
 
-
+    public String memberName() {
+        if (memberName == null) return null;
+        return memberName.getValue("GroupMembership.memberName");
+    }
 
     /**
      * The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
-    public String namespace;
+    private @Nullable UndeferrableValue<String> namespace;
 
-
+    public @Nullable String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("GroupMembership.namespace");
+    }
 
 }

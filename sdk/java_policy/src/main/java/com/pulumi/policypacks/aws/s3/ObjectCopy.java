@@ -3,345 +3,473 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.ObjectCopyGrant;
-import com.pulumi.policypacks.aws.s3.ObjectCopyOverrideProvider;
+import com.pulumi.policypacks.aws.s3.outputs.ObjectCopyGrant;
+import com.pulumi.policypacks.aws.s3.outputs.ObjectCopyOverrideProvider;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/objectCopy:ObjectCopy")
-public final class ObjectCopy extends com.pulumi.resources.PolicyResource {
+public final class ObjectCopy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      * 
      */
-    public String acl;
+    private UndeferrableValue<String> acl;
 
-
+    public String acl() {
+        if (acl == null) return null;
+        return acl.getValue("ObjectCopy.acl");
+    }
 
     /**
      * ARN of the object.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ObjectCopy.arn");
+    }
 
     /**
      * Name of the bucket to put the file in.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("ObjectCopy.bucket");
+    }
 
+    private UndeferrableValue<Boolean> bucketKeyEnabled;
 
-    public Boolean bucketKeyEnabled;
-
-
+    public Boolean bucketKeyEnabled() {
+        if (bucketKeyEnabled == null) return null;
+        return bucketKeyEnabled.getValue("ObjectCopy.bucketKeyEnabled");
+    }
 
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
-    public String cacheControl;
+    private UndeferrableValue<String> cacheControl;
 
-
+    public String cacheControl() {
+        if (cacheControl == null) return null;
+        return cacheControl.getValue("ObjectCopy.cacheControl");
+    }
 
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
-    public String checksumAlgorithm;
+    private @Nullable UndeferrableValue<String> checksumAlgorithm;
 
-
+    public @Nullable String checksumAlgorithm() {
+        if (checksumAlgorithm == null) return null;
+        return checksumAlgorithm.getValue("ObjectCopy.checksumAlgorithm");
+    }
 
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    public String checksumCrc32;
+    private UndeferrableValue<String> checksumCrc32;
 
-
+    public String checksumCrc32() {
+        if (checksumCrc32 == null) return null;
+        return checksumCrc32.getValue("ObjectCopy.checksumCrc32");
+    }
 
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    public String checksumCrc32c;
+    private UndeferrableValue<String> checksumCrc32c;
 
-
+    public String checksumCrc32c() {
+        if (checksumCrc32c == null) return null;
+        return checksumCrc32c.getValue("ObjectCopy.checksumCrc32c");
+    }
 
     /**
      * The base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
-    public String checksumCrc64nvme;
+    private UndeferrableValue<String> checksumCrc64nvme;
 
-
+    public String checksumCrc64nvme() {
+        if (checksumCrc64nvme == null) return null;
+        return checksumCrc64nvme.getValue("ObjectCopy.checksumCrc64nvme");
+    }
 
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    public String checksumSha1;
+    private UndeferrableValue<String> checksumSha1;
 
-
+    public String checksumSha1() {
+        if (checksumSha1 == null) return null;
+        return checksumSha1.getValue("ObjectCopy.checksumSha1");
+    }
 
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    public String checksumSha256;
+    private UndeferrableValue<String> checksumSha256;
 
-
+    public String checksumSha256() {
+        if (checksumSha256 == null) return null;
+        return checksumSha256.getValue("ObjectCopy.checksumSha256");
+    }
 
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
-    public String contentDisposition;
+    private UndeferrableValue<String> contentDisposition;
 
-
+    public String contentDisposition() {
+        if (contentDisposition == null) return null;
+        return contentDisposition.getValue("ObjectCopy.contentDisposition");
+    }
 
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
-    public String contentEncoding;
+    private UndeferrableValue<String> contentEncoding;
 
-
+    public String contentEncoding() {
+        if (contentEncoding == null) return null;
+        return contentEncoding.getValue("ObjectCopy.contentEncoding");
+    }
 
     /**
      * Language the content is in e.g., en-US or en-GB.
      * 
      */
-    public String contentLanguage;
+    private UndeferrableValue<String> contentLanguage;
 
-
+    public String contentLanguage() {
+        if (contentLanguage == null) return null;
+        return contentLanguage.getValue("ObjectCopy.contentLanguage");
+    }
 
     /**
      * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("ObjectCopy.contentType");
+    }
 
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
      * 
      */
-    public String copyIfMatch;
+    private @Nullable UndeferrableValue<String> copyIfMatch;
 
-
+    public @Nullable String copyIfMatch() {
+        if (copyIfMatch == null) return null;
+        return copyIfMatch.getValue("ObjectCopy.copyIfMatch");
+    }
 
     /**
      * Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String copyIfModifiedSince;
+    private @Nullable UndeferrableValue<String> copyIfModifiedSince;
 
-
+    public @Nullable String copyIfModifiedSince() {
+        if (copyIfModifiedSince == null) return null;
+        return copyIfModifiedSince.getValue("ObjectCopy.copyIfModifiedSince");
+    }
 
     /**
      * Copies the object if its entity tag (ETag) is different than the specified ETag.
      * 
      */
-    public String copyIfNoneMatch;
+    private @Nullable UndeferrableValue<String> copyIfNoneMatch;
 
-
+    public @Nullable String copyIfNoneMatch() {
+        if (copyIfNoneMatch == null) return null;
+        return copyIfNoneMatch.getValue("ObjectCopy.copyIfNoneMatch");
+    }
 
     /**
      * Copies the object if it hasn&#39;t been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String copyIfUnmodifiedSince;
+    private @Nullable UndeferrableValue<String> copyIfUnmodifiedSince;
 
-
+    public @Nullable String copyIfUnmodifiedSince() {
+        if (copyIfUnmodifiedSince == null) return null;
+        return copyIfUnmodifiedSince.getValue("ObjectCopy.copyIfUnmodifiedSince");
+    }
 
     /**
      * Specifies the algorithm to use to when encrypting the object (for example, AES256).
      * 
      */
-    public String customerAlgorithm;
+    private UndeferrableValue<String> customerAlgorithm;
 
-
+    public String customerAlgorithm() {
+        if (customerAlgorithm == null) return null;
+        return customerAlgorithm.getValue("ObjectCopy.customerAlgorithm");
+    }
 
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      * 
      */
-    public String customerKey;
+    private @Nullable UndeferrableValue<String> customerKey;
 
-
+    public @Nullable String customerKey() {
+        if (customerKey == null) return null;
+        return customerKey.getValue("ObjectCopy.customerKey");
+    }
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
-    public String customerKeyMd5;
+    private UndeferrableValue<String> customerKeyMd5;
 
-
+    public String customerKeyMd5() {
+        if (customerKeyMd5 == null) return null;
+        return customerKeyMd5.getValue("ObjectCopy.customerKeyMd5");
+    }
 
     /**
      * ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("ObjectCopy.etag");
+    }
 
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("ObjectCopy.expectedBucketOwner");
+    }
 
     /**
      * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    public String expectedSourceBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedSourceBucketOwner;
 
-
+    public @Nullable String expectedSourceBucketOwner() {
+        if (expectedSourceBucketOwner == null) return null;
+        return expectedSourceBucketOwner.getValue("ObjectCopy.expectedSourceBucketOwner");
+    }
 
     /**
      * If the object expiration is configured, this attribute will be set.
      * 
      */
-    public String expiration;
+    private UndeferrableValue<String> expiration;
 
-
+    public String expiration() {
+        if (expiration == null) return null;
+        return expiration.getValue("ObjectCopy.expiration");
+    }
 
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String expires;
+    private @Nullable UndeferrableValue<String> expires;
 
-
+    public @Nullable String expires() {
+        if (expires == null) return null;
+        return expires.getValue("ObjectCopy.expires");
+    }
 
     /**
      * Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("ObjectCopy.forceDestroy");
+    }
 
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      * 
      */
-    public List<ObjectCopyGrant> grants;
+    private @Nullable UndeferrableValue<List<ObjectCopyGrant>> grants;
 
-
+    public @Nullable List<ObjectCopyGrant> grants() {
+        if (grants == null) return null;
+        return grants.getValue("ObjectCopy.grants");
+    }
 
     /**
      * Name of the object once it is in the bucket.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("ObjectCopy.key");
+    }
 
     /**
      * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      * 
      */
-    public String kmsEncryptionContext;
+    private UndeferrableValue<String> kmsEncryptionContext;
 
-
+    public String kmsEncryptionContext() {
+        if (kmsEncryptionContext == null) return null;
+        return kmsEncryptionContext.getValue("ObjectCopy.kmsEncryptionContext");
+    }
 
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ObjectCopy.kmsKeyId");
+    }
 
     /**
      * Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("ObjectCopy.lastModified");
+    }
 
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
-    public Map<String,String> metadata;
+    private UndeferrableValue<Map<String,String>> metadata;
 
-
+    public Map<String,String> metadata() {
+        if (metadata == null) return null;
+        return metadata.getValue("ObjectCopy.metadata");
+    }
 
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
-    public String metadataDirective;
+    private @Nullable UndeferrableValue<String> metadataDirective;
 
-
+    public @Nullable String metadataDirective() {
+        if (metadataDirective == null) return null;
+        return metadataDirective.getValue("ObjectCopy.metadataDirective");
+    }
 
     /**
      * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
-    public String objectLockLegalHoldStatus;
+    private UndeferrableValue<String> objectLockLegalHoldStatus;
 
-
+    public String objectLockLegalHoldStatus() {
+        if (objectLockLegalHoldStatus == null) return null;
+        return objectLockLegalHoldStatus.getValue("ObjectCopy.objectLockLegalHoldStatus");
+    }
 
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    public String objectLockMode;
+    private UndeferrableValue<String> objectLockMode;
 
-
+    public String objectLockMode() {
+        if (objectLockMode == null) return null;
+        return objectLockMode.getValue("ObjectCopy.objectLockMode");
+    }
 
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
-    public String objectLockRetainUntilDate;
+    private UndeferrableValue<String> objectLockRetainUntilDate;
 
+    public String objectLockRetainUntilDate() {
+        if (objectLockRetainUntilDate == null) return null;
+        return objectLockRetainUntilDate.getValue("ObjectCopy.objectLockRetainUntilDate");
+    }
 
+    private @Nullable UndeferrableValue<ObjectCopyOverrideProvider> overrideProvider;
 
-    public ObjectCopyOverrideProvider overrideProvider;
-
-
+    public @Nullable ObjectCopyOverrideProvider overrideProvider() {
+        if (overrideProvider == null) return null;
+        return overrideProvider.getValue("ObjectCopy.overrideProvider");
+    }
 
     /**
      * If present, indicates that the requester was successfully charged for the request.
      * 
      */
-    public Boolean requestCharged;
+    private UndeferrableValue<Boolean> requestCharged;
 
-
+    public Boolean requestCharged() {
+        if (requestCharged == null) return null;
+        return requestCharged.getValue("ObjectCopy.requestCharged");
+    }
 
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      * 
      */
-    public String requestPayer;
+    private @Nullable UndeferrableValue<String> requestPayer;
 
-
+    public @Nullable String requestPayer() {
+        if (requestPayer == null) return null;
+        return requestPayer.getValue("ObjectCopy.requestPayer");
+    }
 
     /**
      * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      * 
      */
-    public String serverSideEncryption;
+    private UndeferrableValue<String> serverSideEncryption;
 
-
+    public String serverSideEncryption() {
+        if (serverSideEncryption == null) return null;
+        return serverSideEncryption.getValue("ObjectCopy.serverSideEncryption");
+    }
 
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
@@ -349,65 +477,89 @@ public final class ObjectCopy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String source;
+    private UndeferrableValue<String> source;
 
-
+    public String source() {
+        if (source == null) return null;
+        return source.getValue("ObjectCopy.source");
+    }
 
     /**
      * Specifies the algorithm to use when decrypting the source object (for example, AES256).
      * 
      */
-    public String sourceCustomerAlgorithm;
+    private @Nullable UndeferrableValue<String> sourceCustomerAlgorithm;
 
-
+    public @Nullable String sourceCustomerAlgorithm() {
+        if (sourceCustomerAlgorithm == null) return null;
+        return sourceCustomerAlgorithm.getValue("ObjectCopy.sourceCustomerAlgorithm");
+    }
 
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      * 
      */
-    public String sourceCustomerKey;
+    private @Nullable UndeferrableValue<String> sourceCustomerKey;
 
-
+    public @Nullable String sourceCustomerKey() {
+        if (sourceCustomerKey == null) return null;
+        return sourceCustomerKey.getValue("ObjectCopy.sourceCustomerKey");
+    }
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
-    public String sourceCustomerKeyMd5;
+    private @Nullable UndeferrableValue<String> sourceCustomerKeyMd5;
 
-
+    public @Nullable String sourceCustomerKeyMd5() {
+        if (sourceCustomerKeyMd5 == null) return null;
+        return sourceCustomerKeyMd5.getValue("ObjectCopy.sourceCustomerKeyMd5");
+    }
 
     /**
      * Version of the copied object in the source bucket.
      * 
      */
-    public String sourceVersionId;
+    private UndeferrableValue<String> sourceVersionId;
 
-
+    public String sourceVersionId() {
+        if (sourceVersionId == null) return null;
+        return sourceVersionId.getValue("ObjectCopy.sourceVersionId");
+    }
 
     /**
      * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
-    public String storageClass;
+    private UndeferrableValue<String> storageClass;
 
-
+    public String storageClass() {
+        if (storageClass == null) return null;
+        return storageClass.getValue("ObjectCopy.storageClass");
+    }
 
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
-    public String taggingDirective;
+    private @Nullable UndeferrableValue<String> taggingDirective;
 
-
+    public @Nullable String taggingDirective() {
+        if (taggingDirective == null) return null;
+        return taggingDirective.getValue("ObjectCopy.taggingDirective");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ObjectCopy.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -417,24 +569,33 @@ public final class ObjectCopy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ObjectCopy.tagsAll");
+    }
 
     /**
      * Version ID of the newly created copy.
      * 
      */
-    public String versionId;
+    private UndeferrableValue<String> versionId;
 
-
+    public String versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("ObjectCopy.versionId");
+    }
 
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
-    public String websiteRedirect;
+    private UndeferrableValue<String> websiteRedirect;
 
-
+    public String websiteRedirect() {
+        if (websiteRedirect == null) return null;
+        return websiteRedirect.getValue("ObjectCopy.websiteRedirect");
+    }
 
 }

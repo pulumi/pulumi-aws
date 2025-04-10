@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.scheduler;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:scheduler/scheduleGroup:ScheduleGroup")
-public final class ScheduleGroup extends com.pulumi.resources.PolicyResource {
+public final class ScheduleGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the schedule group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ScheduleGroup.arn");
+    }
 
     /**
      * Time at which the schedule group was created.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("ScheduleGroup.creationDate");
+    }
 
     /**
      * Time at which the schedule group was last modified.
      * 
      */
-    public String lastModificationDate;
+    private UndeferrableValue<String> lastModificationDate;
 
-
+    public String lastModificationDate() {
+        if (lastModificationDate == null) return null;
+        return lastModificationDate.getValue("ScheduleGroup.lastModificationDate");
+    }
 
     /**
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ScheduleGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("ScheduleGroup.namePrefix");
+    }
 
     /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ScheduleGroup.state");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ScheduleGroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -75,8 +98,11 @@ public final class ScheduleGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ScheduleGroup.tagsAll");
+    }
 
 }

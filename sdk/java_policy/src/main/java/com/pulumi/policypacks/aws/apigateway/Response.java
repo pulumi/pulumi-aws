@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/response:Response")
-public final class Response extends com.pulumi.resources.PolicyResource {
+public final class Response extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
-    public Map<String,String> responseParameters;
+    private @Nullable UndeferrableValue<Map<String,String>> responseParameters;
 
-
+    public @Nullable Map<String,String> responseParameters() {
+        if (responseParameters == null) return null;
+        return responseParameters.getValue("Response.responseParameters");
+    }
 
     /**
      * Map of templates used to transform the response body.
      * 
      */
-    public Map<String,String> responseTemplates;
+    private @Nullable UndeferrableValue<Map<String,String>> responseTemplates;
 
-
+    public @Nullable Map<String,String> responseTemplates() {
+        if (responseTemplates == null) return null;
+        return responseTemplates.getValue("Response.responseTemplates");
+    }
 
     /**
      * Response type of the associated GatewayResponse.
      * 
      */
-    public String responseType;
+    private UndeferrableValue<String> responseType;
 
-
+    public String responseType() {
+        if (responseType == null) return null;
+        return responseType.getValue("Response.responseType");
+    }
 
     /**
      * String identifier of the associated REST API.
      * 
      */
-    public String restApiId;
+    private UndeferrableValue<String> restApiId;
 
-
+    public String restApiId() {
+        if (restApiId == null) return null;
+        return restApiId.getValue("Response.restApiId");
+    }
 
     /**
      * HTTP status code of the Gateway Response.
      * 
      */
-    public String statusCode;
+    private @Nullable UndeferrableValue<String> statusCode;
 
-
+    public @Nullable String statusCode() {
+        if (statusCode == null) return null;
+        return statusCode.getValue("Response.statusCode");
+    }
 
 }

@@ -3,91 +3,120 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.ImageImageScanningConfiguration;
-import com.pulumi.policypacks.aws.imagebuilder.ImageImageTestsConfiguration;
-import com.pulumi.policypacks.aws.imagebuilder.ImageOutputResource;
-import com.pulumi.policypacks.aws.imagebuilder.ImageWorkflow;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageImageScanningConfiguration;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageImageTestsConfiguration;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageOutputResource;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageWorkflow;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/image:Image")
-public final class Image extends com.pulumi.resources.PolicyResource {
+public final class Image extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the image.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Image.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    public String containerRecipeArn;
+    private @Nullable UndeferrableValue<String> containerRecipeArn;
 
-
+    public @Nullable String containerRecipeArn() {
+        if (containerRecipeArn == null) return null;
+        return containerRecipeArn.getValue("Image.containerRecipeArn");
+    }
 
     /**
      * Date the image was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("Image.dateCreated");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    public String distributionConfigurationArn;
+    private @Nullable UndeferrableValue<String> distributionConfigurationArn;
 
-
+    public @Nullable String distributionConfigurationArn() {
+        if (distributionConfigurationArn == null) return null;
+        return distributionConfigurationArn.getValue("Image.distributionConfigurationArn");
+    }
 
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      * 
      */
-    public Boolean enhancedImageMetadataEnabled;
+    private @Nullable UndeferrableValue<Boolean> enhancedImageMetadataEnabled;
 
-
+    public @Nullable Boolean enhancedImageMetadataEnabled() {
+        if (enhancedImageMetadataEnabled == null) return null;
+        return enhancedImageMetadataEnabled.getValue("Image.enhancedImageMetadataEnabled");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
-    public String executionRole;
+    private UndeferrableValue<String> executionRole;
 
-
+    public String executionRole() {
+        if (executionRole == null) return null;
+        return executionRole.getValue("Image.executionRole");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    public String imageRecipeArn;
+    private @Nullable UndeferrableValue<String> imageRecipeArn;
 
-
+    public @Nullable String imageRecipeArn() {
+        if (imageRecipeArn == null) return null;
+        return imageRecipeArn.getValue("Image.imageRecipeArn");
+    }
 
     /**
      * Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    public ImageImageScanningConfiguration imageScanningConfiguration;
+    private UndeferrableValue<ImageImageScanningConfiguration> imageScanningConfiguration;
 
-
+    public ImageImageScanningConfiguration imageScanningConfiguration() {
+        if (imageScanningConfiguration == null) return null;
+        return imageScanningConfiguration.getValue("Image.imageScanningConfiguration");
+    }
 
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
-    public ImageImageTestsConfiguration imageTestsConfiguration;
+    private UndeferrableValue<ImageImageTestsConfiguration> imageTestsConfiguration;
 
-
+    public ImageImageTestsConfiguration imageTestsConfiguration() {
+        if (imageTestsConfiguration == null) return null;
+        return imageTestsConfiguration.getValue("Image.imageTestsConfiguration");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -95,49 +124,67 @@ public final class Image extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String infrastructureConfigurationArn;
+    private UndeferrableValue<String> infrastructureConfigurationArn;
 
-
+    public String infrastructureConfigurationArn() {
+        if (infrastructureConfigurationArn == null) return null;
+        return infrastructureConfigurationArn.getValue("Image.infrastructureConfigurationArn");
+    }
 
     /**
      * Name of the AMI.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Image.name");
+    }
 
     /**
      * Operating System version of the image.
      * 
      */
-    public String osVersion;
+    private UndeferrableValue<String> osVersion;
 
-
+    public String osVersion() {
+        if (osVersion == null) return null;
+        return osVersion.getValue("Image.osVersion");
+    }
 
     /**
      * List of objects with resources created by the image.
      * 
      */
-    public List<ImageOutputResource> outputResources;
+    private UndeferrableValue<List<ImageOutputResource>> outputResources;
 
-
+    public List<ImageOutputResource> outputResources() {
+        if (outputResources == null) return null;
+        return outputResources.getValue("Image.outputResources");
+    }
 
     /**
      * Platform of the image.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("Image.platform");
+    }
 
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Image.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -147,24 +194,33 @@ public final class Image extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Image.tagsAll");
+    }
 
     /**
      * Version of the image.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Image.version");
+    }
 
     /**
      * Configuration block with the workflow configuration. Detailed below.
      * 
      */
-    public List<ImageWorkflow> workflows;
+    private UndeferrableValue<List<ImageWorkflow>> workflows;
 
-
+    public List<ImageWorkflow> workflows() {
+        if (workflows == null) return null;
+        return workflows.getValue("Image.workflows");
+    }
 
 }

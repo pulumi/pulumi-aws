@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.acm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:acm/certificateValidation:CertificateValidation")
-public final class CertificateValidation extends com.pulumi.resources.PolicyResource {
+public final class CertificateValidation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the certificate that is being validated.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("CertificateValidation.certificateArn");
+    }
 
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      * 
      */
-    public List<String> validationRecordFqdns;
+    private @Nullable UndeferrableValue<List<String>> validationRecordFqdns;
 
-
+    public @Nullable List<String> validationRecordFqdns() {
+        if (validationRecordFqdns == null) return null;
+        return validationRecordFqdns.getValue("CertificateValidation.validationRecordFqdns");
+    }
 
 }

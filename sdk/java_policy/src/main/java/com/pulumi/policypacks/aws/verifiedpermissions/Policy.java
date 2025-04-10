@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedpermissions.PolicyDefinition;
+import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyDefinition;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedpermissions/policy:Policy")
-public final class Policy extends com.pulumi.resources.PolicyResource {
+public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The date the policy was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Policy.createdDate");
+    }
 
     /**
      * The definition of the policy. See Definition below.
      * 
      */
-    public PolicyDefinition definition;
+    private @Nullable UndeferrableValue<PolicyDefinition> definition;
 
-
+    public @Nullable PolicyDefinition definition() {
+        if (definition == null) return null;
+        return definition.getValue("Policy.definition");
+    }
 
     /**
      * The Policy ID of the policy.
      * 
      */
-    public String policyId;
+    private UndeferrableValue<String> policyId;
 
-
+    public String policyId() {
+        if (policyId == null) return null;
+        return policyId.getValue("Policy.policyId");
+    }
 
     /**
      * The Policy Store ID of the policy store.
      * 
      */
-    public String policyStoreId;
+    private UndeferrableValue<String> policyStoreId;
 
-
+    public String policyStoreId() {
+        if (policyStoreId == null) return null;
+        return policyStoreId.getValue("Policy.policyStoreId");
+    }
 
 }

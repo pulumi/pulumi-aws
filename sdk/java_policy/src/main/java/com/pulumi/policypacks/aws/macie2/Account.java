@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:macie2/account:Account")
-public final class Account extends com.pulumi.resources.PolicyResource {
+public final class Account extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Account.createdAt");
+    }
 
     /**
      * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
-    public String findingPublishingFrequency;
+    private UndeferrableValue<String> findingPublishingFrequency;
 
-
+    public String findingPublishingFrequency() {
+        if (findingPublishingFrequency == null) return null;
+        return findingPublishingFrequency.getValue("Account.findingPublishingFrequency");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("Account.serviceRole");
+    }
 
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Account.status");
+    }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("Account.updatedAt");
+    }
 
 }

@@ -3,140 +3,187 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleAddHeaderAction;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleBounceAction;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleLambdaAction;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleS3Action;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleSnsAction;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleStopAction;
-import com.pulumi.policypacks.aws.ses.ReceiptRuleWorkmailAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleAddHeaderAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleBounceAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleLambdaAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleS3Action;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleSnsAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleStopAction;
+import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleWorkmailAction;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ses/receiptRule:ReceiptRule")
-public final class ReceiptRule extends com.pulumi.resources.PolicyResource {
+public final class ReceiptRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of Add Header Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleAddHeaderAction> addHeaderActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleAddHeaderAction>> addHeaderActions;
 
-
+    public @Nullable List<ReceiptRuleAddHeaderAction> addHeaderActions() {
+        if (addHeaderActions == null) return null;
+        return addHeaderActions.getValue("ReceiptRule.addHeaderActions");
+    }
 
     /**
      * The name of the rule to place this rule after
      * 
      */
-    public String after;
+    private @Nullable UndeferrableValue<String> after;
 
-
+    public @Nullable String after() {
+        if (after == null) return null;
+        return after.getValue("ReceiptRule.after");
+    }
 
     /**
      * The SES receipt rule ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReceiptRule.arn");
+    }
 
     /**
      * A list of Bounce Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleBounceAction> bounceActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleBounceAction>> bounceActions;
 
-
+    public @Nullable List<ReceiptRuleBounceAction> bounceActions() {
+        if (bounceActions == null) return null;
+        return bounceActions.getValue("ReceiptRule.bounceActions");
+    }
 
     /**
      * If true, the rule will be enabled
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ReceiptRule.enabled");
+    }
 
     /**
      * A list of Lambda Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleLambdaAction> lambdaActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleLambdaAction>> lambdaActions;
 
-
+    public @Nullable List<ReceiptRuleLambdaAction> lambdaActions() {
+        if (lambdaActions == null) return null;
+        return lambdaActions.getValue("ReceiptRule.lambdaActions");
+    }
 
     /**
      * The name of the rule
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ReceiptRule.name");
+    }
 
     /**
      * A list of email addresses
      * 
      */
-    public List<String> recipients;
+    private @Nullable UndeferrableValue<List<String>> recipients;
 
-
+    public @Nullable List<String> recipients() {
+        if (recipients == null) return null;
+        return recipients.getValue("ReceiptRule.recipients");
+    }
 
     /**
      * The name of the rule set
      * 
      */
-    public String ruleSetName;
+    private UndeferrableValue<String> ruleSetName;
 
-
+    public String ruleSetName() {
+        if (ruleSetName == null) return null;
+        return ruleSetName.getValue("ReceiptRule.ruleSetName");
+    }
 
     /**
      * A list of S3 Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleS3Action> s3Actions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleS3Action>> s3Actions;
 
-
+    public @Nullable List<ReceiptRuleS3Action> s3Actions() {
+        if (s3Actions == null) return null;
+        return s3Actions.getValue("ReceiptRule.s3Actions");
+    }
 
     /**
      * If true, incoming emails will be scanned for spam and viruses
      * 
      */
-    public Boolean scanEnabled;
+    private @Nullable UndeferrableValue<Boolean> scanEnabled;
 
-
+    public @Nullable Boolean scanEnabled() {
+        if (scanEnabled == null) return null;
+        return scanEnabled.getValue("ReceiptRule.scanEnabled");
+    }
 
     /**
      * A list of SNS Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleSnsAction> snsActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleSnsAction>> snsActions;
 
-
+    public @Nullable List<ReceiptRuleSnsAction> snsActions() {
+        if (snsActions == null) return null;
+        return snsActions.getValue("ReceiptRule.snsActions");
+    }
 
     /**
      * A list of Stop Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleStopAction> stopActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleStopAction>> stopActions;
 
-
+    public @Nullable List<ReceiptRuleStopAction> stopActions() {
+        if (stopActions == null) return null;
+        return stopActions.getValue("ReceiptRule.stopActions");
+    }
 
     /**
      * `Require` or `Optional`
      * 
      */
-    public String tlsPolicy;
+    private UndeferrableValue<String> tlsPolicy;
 
-
+    public String tlsPolicy() {
+        if (tlsPolicy == null) return null;
+        return tlsPolicy.getValue("ReceiptRule.tlsPolicy");
+    }
 
     /**
      * A list of WorkMail Action blocks. Documented below.
      * 
      */
-    public List<ReceiptRuleWorkmailAction> workmailActions;
+    private @Nullable UndeferrableValue<List<ReceiptRuleWorkmailAction>> workmailActions;
 
-
+    public @Nullable List<ReceiptRuleWorkmailAction> workmailActions() {
+        if (workmailActions == null) return null;
+        return workmailActions.getValue("ReceiptRule.workmailActions");
+    }
 
 }

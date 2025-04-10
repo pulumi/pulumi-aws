@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
-public final class VirtualMfaDevice extends com.pulumi.resources.PolicyResource {
+public final class VirtualMfaDevice extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the virtual mfa device.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VirtualMfaDevice.arn");
+    }
 
     /**
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
      * 
      */
-    public String base32StringSeed;
+    private UndeferrableValue<String> base32StringSeed;
 
-
+    public String base32StringSeed() {
+        if (base32StringSeed == null) return null;
+        return base32StringSeed.getValue("VirtualMfaDevice.base32StringSeed");
+    }
 
     /**
      * The date and time when the virtual MFA device was enabled.
      * 
      */
-    public String enableDate;
+    private UndeferrableValue<String> enableDate;
 
-
+    public String enableDate() {
+        if (enableDate == null) return null;
+        return enableDate.getValue("VirtualMfaDevice.enableDate");
+    }
 
     /**
      * The path for the virtual MFA device.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("VirtualMfaDevice.path");
+    }
 
     /**
      * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
-    public String qrCodePng;
+    private UndeferrableValue<String> qrCodePng;
 
-
+    public String qrCodePng() {
+        if (qrCodePng == null) return null;
+        return qrCodePng.getValue("VirtualMfaDevice.qrCodePng");
+    }
 
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VirtualMfaDevice.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,24 +87,33 @@ public final class VirtualMfaDevice extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VirtualMfaDevice.tagsAll");
+    }
 
     /**
      * The associated IAM User name if the virtual MFA device is enabled.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("VirtualMfaDevice.userName");
+    }
 
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
-    public String virtualMfaDeviceName;
+    private UndeferrableValue<String> virtualMfaDeviceName;
 
-
+    public String virtualMfaDeviceName() {
+        if (virtualMfaDeviceName == null) return null;
+        return virtualMfaDeviceName.getValue("VirtualMfaDevice.virtualMfaDeviceName");
+    }
 
 }

@@ -3,116 +3,157 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotMultipleValuesSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotObfuscationSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotSubSlotSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTimeouts;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotValueElicitationSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotMultipleValuesSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotObfuscationSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSetting;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsSlot:V2modelsSlot")
-public final class V2modelsSlot extends com.pulumi.resources.PolicyResource {
+public final class V2modelsSlot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the bot associated with the slot.
      * 
      */
-    public String botId;
+    private UndeferrableValue<String> botId;
 
-
+    public String botId() {
+        if (botId == null) return null;
+        return botId.getValue("V2modelsSlot.botId");
+    }
 
     /**
      * Version of the bot associated with the slot.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("V2modelsSlot.botVersion");
+    }
 
     /**
      * Description of the slot.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsSlot.description");
+    }
 
     /**
      * Identifier of the intent that contains the slot.
      * 
      */
-    public String intentId;
+    private UndeferrableValue<String> intentId;
 
-
+    public String intentId() {
+        if (intentId == null) return null;
+        return intentId.getValue("V2modelsSlot.intentId");
+    }
 
     /**
      * Identifier of the language and locale that the slot will be used in.
      * 
      */
-    public String localeId;
+    private UndeferrableValue<String> localeId;
 
-
+    public String localeId() {
+        if (localeId == null) return null;
+        return localeId.getValue("V2modelsSlot.localeId");
+    }
 
     /**
      * Whether the slot returns multiple values in one response.
      * See the `multiple_values_setting` argument reference below.
      * 
      */
-    public List<V2modelsSlotMultipleValuesSetting> multipleValuesSettings;
+    private @Nullable UndeferrableValue<List<V2modelsSlotMultipleValuesSetting>> multipleValuesSettings;
 
-
+    public @Nullable List<V2modelsSlotMultipleValuesSetting> multipleValuesSettings() {
+        if (multipleValuesSettings == null) return null;
+        return multipleValuesSettings.getValue("V2modelsSlot.multipleValuesSettings");
+    }
 
     /**
      * Name of the slot.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("V2modelsSlot.name");
+    }
 
     /**
      * Determines how slot values are used in Amazon CloudWatch logs.
      * See the `obfuscation_setting` argument reference below.
      * 
      */
-    public List<V2modelsSlotObfuscationSetting> obfuscationSettings;
+    private @Nullable UndeferrableValue<List<V2modelsSlotObfuscationSetting>> obfuscationSettings;
 
-
+    public @Nullable List<V2modelsSlotObfuscationSetting> obfuscationSettings() {
+        if (obfuscationSettings == null) return null;
+        return obfuscationSettings.getValue("V2modelsSlot.obfuscationSettings");
+    }
 
     /**
      * Unique identifier associated with the slot.
      * 
      */
-    public String slotId;
+    private UndeferrableValue<String> slotId;
 
-
+    public String slotId() {
+        if (slotId == null) return null;
+        return slotId.getValue("V2modelsSlot.slotId");
+    }
 
     /**
      * Unique identifier for the slot type associated with this slot.
      * 
      */
-    public String slotTypeId;
+    private UndeferrableValue<String> slotTypeId;
 
-
+    public String slotTypeId() {
+        if (slotTypeId == null) return null;
+        return slotTypeId.getValue("V2modelsSlot.slotTypeId");
+    }
 
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
      * See the `sub_slot_setting` argument reference below.
      * 
      */
-    public List<V2modelsSlotSubSlotSetting> subSlotSettings;
+    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSetting>> subSlotSettings;
 
+    public @Nullable List<V2modelsSlotSubSlotSetting> subSlotSettings() {
+        if (subSlotSettings == null) return null;
+        return subSlotSettings.getValue("V2modelsSlot.subSlotSettings");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsSlotTimeouts> timeouts;
 
-    public V2modelsSlotTimeouts timeouts;
+    public @Nullable V2modelsSlotTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsSlot.timeouts");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSetting> valueElicitationSetting;
 
-
-    public V2modelsSlotValueElicitationSetting valueElicitationSetting;
-
-
+    public @Nullable V2modelsSlotValueElicitationSetting valueElicitationSetting() {
+        if (valueElicitationSetting == null) return null;
+        return valueElicitationSetting.getValue("V2modelsSlot.valueElicitationSetting");
+    }
 
 }

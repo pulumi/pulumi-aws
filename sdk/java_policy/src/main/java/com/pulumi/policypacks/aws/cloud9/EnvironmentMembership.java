@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.cloud9;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloud9/environmentMembership:EnvironmentMembership")
-public final class EnvironmentMembership extends com.pulumi.resources.PolicyResource {
+public final class EnvironmentMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the environment that contains the environment member you want to add.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("EnvironmentMembership.environmentId");
+    }
 
     /**
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      * 
      */
-    public String permissions;
+    private UndeferrableValue<String> permissions;
 
-
+    public String permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("EnvironmentMembership.permissions");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      * 
      */
-    public String userArn;
+    private UndeferrableValue<String> userArn;
 
-
+    public String userArn() {
+        if (userArn == null) return null;
+        return userArn.getValue("EnvironmentMembership.userArn");
+    }
 
     /**
      * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
-    public String userId;
+    private UndeferrableValue<String> userId;
 
-
+    public String userId() {
+        if (userId == null) return null;
+        return userId.getValue("EnvironmentMembership.userId");
+    }
 
 }

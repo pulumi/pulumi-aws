@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apprunner.CustomDomainAssociationCertificateValidationRecord;
+import com.pulumi.policypacks.aws.apprunner.outputs.CustomDomainAssociationCertificateValidationRecord;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/customDomainAssociation:CustomDomainAssociation")
-public final class CustomDomainAssociation extends com.pulumi.resources.PolicyResource {
+public final class CustomDomainAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
-    public List<CustomDomainAssociationCertificateValidationRecord> certificateValidationRecords;
+    private UndeferrableValue<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
 
-
+    public List<CustomDomainAssociationCertificateValidationRecord> certificateValidationRecords() {
+        if (certificateValidationRecords == null) return null;
+        return certificateValidationRecords.getValue("CustomDomainAssociation.certificateValidationRecords");
+    }
 
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
-    public String dnsTarget;
+    private UndeferrableValue<String> dnsTarget;
 
-
+    public String dnsTarget() {
+        if (dnsTarget == null) return null;
+        return dnsTarget.getValue("CustomDomainAssociation.dnsTarget");
+    }
 
     /**
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("CustomDomainAssociation.domainName");
+    }
 
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      * 
      */
-    public Boolean enableWwwSubdomain;
+    private @Nullable UndeferrableValue<Boolean> enableWwwSubdomain;
 
-
+    public @Nullable Boolean enableWwwSubdomain() {
+        if (enableWwwSubdomain == null) return null;
+        return enableWwwSubdomain.getValue("CustomDomainAssociation.enableWwwSubdomain");
+    }
 
     /**
      * ARN of the App Runner service.
      * 
      */
-    public String serviceArn;
+    private UndeferrableValue<String> serviceArn;
 
-
+    public String serviceArn() {
+        if (serviceArn == null) return null;
+        return serviceArn.getValue("CustomDomainAssociation.serviceArn");
+    }
 
     /**
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("CustomDomainAssociation.status");
+    }
 
 }

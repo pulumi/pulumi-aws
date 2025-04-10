@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/dedicatedIpPool:DedicatedIpPool")
-public final class DedicatedIpPool extends com.pulumi.resources.PolicyResource {
+public final class DedicatedIpPool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Dedicated IP Pool.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DedicatedIpPool.arn");
+    }
 
     /**
      * Name of the dedicated IP pool.
@@ -25,25 +30,34 @@ public final class DedicatedIpPool extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String poolName;
+    private UndeferrableValue<String> poolName;
 
-
+    public String poolName() {
+        if (poolName == null) return null;
+        return poolName.getValue("DedicatedIpPool.poolName");
+    }
 
     /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      * 
      */
-    public String scalingMode;
+    private UndeferrableValue<String> scalingMode;
 
-
+    public String scalingMode() {
+        if (scalingMode == null) return null;
+        return scalingMode.getValue("DedicatedIpPool.scalingMode");
+    }
 
     /**
      * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DedicatedIpPool.tags");
+    }
 
     /**
      * @deprecated
@@ -51,8 +65,11 @@ public final class DedicatedIpPool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DedicatedIpPool.tagsAll");
+    }
 
 }

@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amplify/webhook:Webhook")
-public final class Webhook extends com.pulumi.resources.PolicyResource {
+public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique ID for an Amplify app.
      * 
      */
-    public String appId;
+    private UndeferrableValue<String> appId;
 
-
+    public String appId() {
+        if (appId == null) return null;
+        return appId.getValue("Webhook.appId");
+    }
 
     /**
      * ARN for the webhook.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Webhook.arn");
+    }
 
     /**
      * Name for a branch that is part of the Amplify app.
      * 
      */
-    public String branchName;
+    private UndeferrableValue<String> branchName;
 
-
+    public String branchName() {
+        if (branchName == null) return null;
+        return branchName.getValue("Webhook.branchName");
+    }
 
     /**
      * Description for a webhook.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Webhook.description");
+    }
 
     /**
      * URL of the webhook.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Webhook.url");
+    }
 
 }

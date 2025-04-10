@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpnConnectionRoute:VpnConnectionRoute")
-public final class VpnConnectionRoute extends com.pulumi.resources.PolicyResource {
+public final class VpnConnectionRoute extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CIDR block associated with the local subnet of the customer network.
      * 
      */
-    public String destinationCidrBlock;
+    private UndeferrableValue<String> destinationCidrBlock;
 
-
+    public String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("VpnConnectionRoute.destinationCidrBlock");
+    }
 
     /**
      * The ID of the VPN connection.
      * 
      */
-    public String vpnConnectionId;
+    private UndeferrableValue<String> vpnConnectionId;
 
-
+    public String vpnConnectionId() {
+        if (vpnConnectionId == null) return null;
+        return vpnConnectionId.getValue("VpnConnectionRoute.vpnConnectionId");
+    }
 
 }

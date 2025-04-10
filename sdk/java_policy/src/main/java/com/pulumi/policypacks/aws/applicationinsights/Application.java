@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.applicationinsights;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:applicationinsights/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      * 
      */
-    public Boolean autoConfigEnabled;
+    private @Nullable UndeferrableValue<Boolean> autoConfigEnabled;
 
-
+    public @Nullable Boolean autoConfigEnabled() {
+        if (autoConfigEnabled == null) return null;
+        return autoConfigEnabled.getValue("Application.autoConfigEnabled");
+    }
 
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      * 
      */
-    public Boolean autoCreate;
+    private @Nullable UndeferrableValue<Boolean> autoCreate;
 
-
+    public @Nullable Boolean autoCreate() {
+        if (autoCreate == null) return null;
+        return autoCreate.getValue("Application.autoCreate");
+    }
 
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
-    public Boolean cweMonitorEnabled;
+    private @Nullable UndeferrableValue<Boolean> cweMonitorEnabled;
 
-
+    public @Nullable Boolean cweMonitorEnabled() {
+        if (cweMonitorEnabled == null) return null;
+        return cweMonitorEnabled.getValue("Application.cweMonitorEnabled");
+    }
 
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      * 
      */
-    public String groupingType;
+    private @Nullable UndeferrableValue<String> groupingType;
 
-
+    public @Nullable String groupingType() {
+        if (groupingType == null) return null;
+        return groupingType.getValue("Application.groupingType");
+    }
 
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      * 
      */
-    public Boolean opsCenterEnabled;
+    private @Nullable UndeferrableValue<Boolean> opsCenterEnabled;
 
-
+    public @Nullable Boolean opsCenterEnabled() {
+        if (opsCenterEnabled == null) return null;
+        return opsCenterEnabled.getValue("Application.opsCenterEnabled");
+    }
 
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
-    public String opsItemSnsTopicArn;
+    private @Nullable UndeferrableValue<String> opsItemSnsTopicArn;
 
-
+    public @Nullable String opsItemSnsTopicArn() {
+        if (opsItemSnsTopicArn == null) return null;
+        return opsItemSnsTopicArn.getValue("Application.opsItemSnsTopicArn");
+    }
 
     /**
      * Name of the resource group.
@@ -74,17 +97,23 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String resourceGroupName;
+    private UndeferrableValue<String> resourceGroupName;
 
-
+    public String resourceGroupName() {
+        if (resourceGroupName == null) return null;
+        return resourceGroupName.getValue("Application.resourceGroupName");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
 }

@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/admChannel:AdmChannel")
-public final class AdmChannel extends com.pulumi.resources.PolicyResource {
+public final class AdmChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("AdmChannel.applicationId");
+    }
 
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      * 
      */
-    public String clientId;
+    private UndeferrableValue<String> clientId;
 
-
+    public String clientId() {
+        if (clientId == null) return null;
+        return clientId.getValue("AdmChannel.clientId");
+    }
 
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      * 
      */
-    public String clientSecret;
+    private UndeferrableValue<String> clientSecret;
 
-
+    public String clientSecret() {
+        if (clientSecret == null) return null;
+        return clientSecret.getValue("AdmChannel.clientSecret");
+    }
 
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("AdmChannel.enabled");
+    }
 
 }

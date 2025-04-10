@@ -3,129 +3,173 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kinesisanalyticsv2.ApplicationApplicationConfiguration;
-import com.pulumi.policypacks.aws.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions;
+import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfiguration;
+import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationCloudwatchLoggingOptions;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kinesisanalyticsv2/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application&#39;s configuration
      * 
      */
-    public ApplicationApplicationConfiguration applicationConfiguration;
+    private UndeferrableValue<ApplicationApplicationConfiguration> applicationConfiguration;
 
-
+    public ApplicationApplicationConfiguration applicationConfiguration() {
+        if (applicationConfiguration == null) return null;
+        return applicationConfiguration.getValue("Application.applicationConfiguration");
+    }
 
     /**
      * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
-    public String applicationMode;
+    private UndeferrableValue<String> applicationMode;
 
-
+    public String applicationMode() {
+        if (applicationMode == null) return null;
+        return applicationMode.getValue("Application.applicationMode");
+    }
 
     /**
      * The ARN of the application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      * 
      */
-    public ApplicationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    private @Nullable UndeferrableValue<ApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
-
+    public @Nullable ApplicationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
+        if (cloudwatchLoggingOptions == null) return null;
+        return cloudwatchLoggingOptions.getValue("Application.cloudwatchLoggingOptions");
+    }
 
     /**
      * The current timestamp when the application was created.
      * 
      */
-    public String createTimestamp;
+    private UndeferrableValue<String> createTimestamp;
 
-
+    public String createTimestamp() {
+        if (createTimestamp == null) return null;
+        return createTimestamp.getValue("Application.createTimestamp");
+    }
 
     /**
      * A summary description of the application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * Whether to force stop an unresponsive Flink-based application.
      * 
      */
-    public Boolean forceStop;
+    private @Nullable UndeferrableValue<Boolean> forceStop;
 
-
+    public @Nullable Boolean forceStop() {
+        if (forceStop == null) return null;
+        return forceStop.getValue("Application.forceStop");
+    }
 
     /**
      * The current timestamp when the application was last updated.
      * 
      */
-    public String lastUpdateTimestamp;
+    private UndeferrableValue<String> lastUpdateTimestamp;
 
-
+    public String lastUpdateTimestamp() {
+        if (lastUpdateTimestamp == null) return null;
+        return lastUpdateTimestamp.getValue("Application.lastUpdateTimestamp");
+    }
 
     /**
      * The name of the application.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      * 
      */
-    public String runtimeEnvironment;
+    private UndeferrableValue<String> runtimeEnvironment;
 
-
+    public String runtimeEnvironment() {
+        if (runtimeEnvironment == null) return null;
+        return runtimeEnvironment.getValue("Application.runtimeEnvironment");
+    }
 
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      * 
      */
-    public String serviceExecutionRole;
+    private UndeferrableValue<String> serviceExecutionRole;
 
-
+    public String serviceExecutionRole() {
+        if (serviceExecutionRole == null) return null;
+        return serviceExecutionRole.getValue("Application.serviceExecutionRole");
+    }
 
     /**
      * Whether to start or stop the application.
      * 
      */
-    public Boolean startApplication;
+    private @Nullable UndeferrableValue<Boolean> startApplication;
 
-
+    public @Nullable Boolean startApplication() {
+        if (startApplication == null) return null;
+        return startApplication.getValue("Application.startApplication");
+    }
 
     /**
      * The status of the application.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Application.status");
+    }
 
     /**
      * A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -135,16 +179,22 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
     /**
      * The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
      * 
      */
-    public Integer versionId;
+    private UndeferrableValue<Integer> versionId;
 
-
+    public Integer versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("Application.versionId");
+    }
 
 }

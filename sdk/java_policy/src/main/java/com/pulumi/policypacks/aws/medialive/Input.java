@@ -3,123 +3,164 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.medialive.InputDestination;
-import com.pulumi.policypacks.aws.medialive.InputInputDevice;
-import com.pulumi.policypacks.aws.medialive.InputMediaConnectFlow;
-import com.pulumi.policypacks.aws.medialive.InputSource;
-import com.pulumi.policypacks.aws.medialive.InputVpc;
+import com.pulumi.policypacks.aws.medialive.outputs.InputDestination;
+import com.pulumi.policypacks.aws.medialive.outputs.InputInputDevice;
+import com.pulumi.policypacks.aws.medialive.outputs.InputMediaConnectFlow;
+import com.pulumi.policypacks.aws.medialive.outputs.InputSource;
+import com.pulumi.policypacks.aws.medialive.outputs.InputVpc;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:medialive/input:Input")
-public final class Input extends com.pulumi.resources.PolicyResource {
+public final class Input extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Input.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Input.arn");
+    }
 
     /**
      * Channels attached to Input.
      * 
      */
-    public List<String> attachedChannels;
+    private UndeferrableValue<List<String>> attachedChannels;
 
-
+    public List<String> attachedChannels() {
+        if (attachedChannels == null) return null;
+        return attachedChannels.getValue("Input.attachedChannels");
+    }
 
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
      * 
      */
-    public List<InputDestination> destinations;
+    private @Nullable UndeferrableValue<List<InputDestination>> destinations;
 
-
+    public @Nullable List<InputDestination> destinations() {
+        if (destinations == null) return null;
+        return destinations.getValue("Input.destinations");
+    }
 
     /**
      * The input class.
      * 
      */
-    public String inputClass;
+    private UndeferrableValue<String> inputClass;
 
-
+    public String inputClass() {
+        if (inputClass == null) return null;
+        return inputClass.getValue("Input.inputClass");
+    }
 
     /**
      * Settings for the devices. See Input Devices for more details.
      * 
      */
-    public List<InputInputDevice> inputDevices;
+    private UndeferrableValue<List<InputInputDevice>> inputDevices;
 
-
+    public List<InputInputDevice> inputDevices() {
+        if (inputDevices == null) return null;
+        return inputDevices.getValue("Input.inputDevices");
+    }
 
     /**
      * A list of IDs for all Inputs which are partners of this one.
      * 
      */
-    public List<String> inputPartnerIds;
+    private UndeferrableValue<List<String>> inputPartnerIds;
 
-
+    public List<String> inputPartnerIds() {
+        if (inputPartnerIds == null) return null;
+        return inputPartnerIds.getValue("Input.inputPartnerIds");
+    }
 
     /**
      * List of input security groups.
      * 
      */
-    public List<String> inputSecurityGroups;
+    private @Nullable UndeferrableValue<List<String>> inputSecurityGroups;
 
-
+    public @Nullable List<String> inputSecurityGroups() {
+        if (inputSecurityGroups == null) return null;
+        return inputSecurityGroups.getValue("Input.inputSecurityGroups");
+    }
 
     /**
      * Source type of the input.
      * 
      */
-    public String inputSourceType;
+    private UndeferrableValue<String> inputSourceType;
 
-
+    public String inputSourceType() {
+        if (inputSourceType == null) return null;
+        return inputSourceType.getValue("Input.inputSourceType");
+    }
 
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      * 
      */
-    public List<InputMediaConnectFlow> mediaConnectFlows;
+    private UndeferrableValue<List<InputMediaConnectFlow>> mediaConnectFlows;
 
-
+    public List<InputMediaConnectFlow> mediaConnectFlows() {
+        if (mediaConnectFlows == null) return null;
+        return mediaConnectFlows.getValue("Input.mediaConnectFlows");
+    }
 
     /**
      * Name of the input.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Input.name");
+    }
 
     /**
      * The ARN of the role this input assumes during and after creation.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Input.roleArn");
+    }
 
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      * 
      */
-    public List<InputSource> sources;
+    private UndeferrableValue<List<InputSource>> sources;
 
-
+    public List<InputSource> sources() {
+        if (sources == null) return null;
+        return sources.getValue("Input.sources");
+    }
 
     /**
      * A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Input.tags");
+    }
 
     /**
      * @deprecated
@@ -127,9 +168,12 @@ public final class Input extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Input.tagsAll");
+    }
 
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
@@ -137,16 +181,22 @@ public final class Input extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Input.type");
+    }
 
     /**
      * Settings for a private VPC Input. See VPC for more details.
      * 
      */
-    public InputVpc vpc;
+    private @Nullable UndeferrableValue<InputVpc> vpc;
 
-
+    public @Nullable InputVpc vpc() {
+        if (vpc == null) return null;
+        return vpc.getValue("Input.vpc");
+    }
 
 }

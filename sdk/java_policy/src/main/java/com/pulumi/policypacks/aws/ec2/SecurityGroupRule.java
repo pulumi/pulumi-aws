@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/securityGroupRule:SecurityGroupRule")
-public final class SecurityGroupRule extends com.pulumi.resources.PolicyResource {
+public final class SecurityGroupRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    public List<String> cidrBlocks;
+    private @Nullable UndeferrableValue<List<String>> cidrBlocks;
 
-
+    public @Nullable List<String> cidrBlocks() {
+        if (cidrBlocks == null) return null;
+        return cidrBlocks.getValue("SecurityGroupRule.cidrBlocks");
+    }
 
     /**
      * Description of the rule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SecurityGroupRule.description");
+    }
 
     /**
      * Start port (or ICMP type number if protocol is &#34;icmp&#34; or &#34;icmpv6&#34;).
      * 
      */
-    public Integer fromPort;
+    private UndeferrableValue<Integer> fromPort;
 
-
+    public Integer fromPort() {
+        if (fromPort == null) return null;
+        return fromPort.getValue("SecurityGroupRule.fromPort");
+    }
 
     /**
      * List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    public List<String> ipv6CidrBlocks;
+    private @Nullable UndeferrableValue<List<String>> ipv6CidrBlocks;
 
-
+    public @Nullable List<String> ipv6CidrBlocks() {
+        if (ipv6CidrBlocks == null) return null;
+        return ipv6CidrBlocks.getValue("SecurityGroupRule.ipv6CidrBlocks");
+    }
 
     /**
      * List of Prefix List IDs.
      * 
      */
-    public List<String> prefixListIds;
+    private @Nullable UndeferrableValue<List<String>> prefixListIds;
 
-
+    public @Nullable List<String> prefixListIds() {
+        if (prefixListIds == null) return null;
+        return prefixListIds.getValue("SecurityGroupRule.prefixListIds");
+    }
 
     /**
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("SecurityGroupRule.protocol");
+    }
 
     /**
      * Security group to apply this rule to.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("SecurityGroupRule.securityGroupId");
+    }
 
     /**
      * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      * 
      */
-    public String securityGroupRuleId;
+    private UndeferrableValue<String> securityGroupRuleId;
 
-
+    public String securityGroupRuleId() {
+        if (securityGroupRuleId == null) return null;
+        return securityGroupRuleId.getValue("SecurityGroupRule.securityGroupRuleId");
+    }
 
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
      * 
      */
-    public Boolean self;
+    private @Nullable UndeferrableValue<Boolean> self;
 
-
+    public @Nullable Boolean self() {
+        if (self == null) return null;
+        return self.getValue("SecurityGroupRule.self");
+    }
 
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
      * 
      */
-    public String sourceSecurityGroupId;
+    private UndeferrableValue<String> sourceSecurityGroupId;
 
-
+    public String sourceSecurityGroupId() {
+        if (sourceSecurityGroupId == null) return null;
+        return sourceSecurityGroupId.getValue("SecurityGroupRule.sourceSecurityGroupId");
+    }
 
     /**
      * End port (or ICMP code if protocol is &#34;icmp&#34;).
      * 
      */
-    public Integer toPort;
+    private UndeferrableValue<Integer> toPort;
 
-
+    public Integer toPort() {
+        if (toPort == null) return null;
+        return toPort.getValue("SecurityGroupRule.toPort");
+    }
 
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
@@ -110,8 +145,11 @@ public final class SecurityGroupRule extends com.pulumi.resources.PolicyResource
      * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("SecurityGroupRule.type");
+    }
 
 }

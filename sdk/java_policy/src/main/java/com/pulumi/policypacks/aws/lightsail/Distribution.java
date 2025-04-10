@@ -3,44 +3,55 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.DistributionCacheBehavior;
-import com.pulumi.policypacks.aws.lightsail.DistributionCacheBehaviorSettings;
-import com.pulumi.policypacks.aws.lightsail.DistributionDefaultCacheBehavior;
-import com.pulumi.policypacks.aws.lightsail.DistributionLocation;
-import com.pulumi.policypacks.aws.lightsail.DistributionOrigin;
+import com.pulumi.policypacks.aws.lightsail.outputs.DistributionCacheBehavior;
+import com.pulumi.policypacks.aws.lightsail.outputs.DistributionCacheBehaviorSettings;
+import com.pulumi.policypacks.aws.lightsail.outputs.DistributionDefaultCacheBehavior;
+import com.pulumi.policypacks.aws.lightsail.outputs.DistributionLocation;
+import com.pulumi.policypacks.aws.lightsail.outputs.DistributionOrigin;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/distribution:Distribution")
-public final class Distribution extends com.pulumi.resources.PolicyResource {
+public final class Distribution extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The alternate domain names of the distribution.
      * 
      */
-    public List<String> alternativeDomainNames;
+    private UndeferrableValue<List<String>> alternativeDomainNames;
 
-
+    public List<String> alternativeDomainNames() {
+        if (alternativeDomainNames == null) return null;
+        return alternativeDomainNames.getValue("Distribution.alternativeDomainNames");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the distribution.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Distribution.arn");
+    }
 
     /**
      * Bundle ID to use for the distribution.
      * 
      */
-    public String bundleId;
+    private UndeferrableValue<String> bundleId;
 
-
+    public String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("Distribution.bundleId");
+    }
 
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
@@ -48,129 +59,177 @@ public final class Distribution extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public DistributionCacheBehaviorSettings cacheBehaviorSettings;
+    private @Nullable UndeferrableValue<DistributionCacheBehaviorSettings> cacheBehaviorSettings;
 
-
+    public @Nullable DistributionCacheBehaviorSettings cacheBehaviorSettings() {
+        if (cacheBehaviorSettings == null) return null;
+        return cacheBehaviorSettings.getValue("Distribution.cacheBehaviorSettings");
+    }
 
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      * 
      */
-    public List<DistributionCacheBehavior> cacheBehaviors;
+    private @Nullable UndeferrableValue<List<DistributionCacheBehavior>> cacheBehaviors;
 
-
+    public @Nullable List<DistributionCacheBehavior> cacheBehaviors() {
+        if (cacheBehaviors == null) return null;
+        return cacheBehaviors.getValue("Distribution.cacheBehaviors");
+    }
 
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
-    public String certificateName;
+    private @Nullable UndeferrableValue<String> certificateName;
 
-
+    public @Nullable String certificateName() {
+        if (certificateName == null) return null;
+        return certificateName.getValue("Distribution.certificateName");
+    }
 
     /**
      * The timestamp when the distribution was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Distribution.createdAt");
+    }
 
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      * 
      */
-    public DistributionDefaultCacheBehavior defaultCacheBehavior;
+    private UndeferrableValue<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
-
+    public DistributionDefaultCacheBehavior defaultCacheBehavior() {
+        if (defaultCacheBehavior == null) return null;
+        return defaultCacheBehavior.getValue("Distribution.defaultCacheBehavior");
+    }
 
     /**
      * The domain name of the distribution.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Distribution.domainName");
+    }
 
     /**
      * The IP address type of the distribution. Default: `dualstack`.
      * 
      */
-    public String ipAddressType;
+    private @Nullable UndeferrableValue<String> ipAddressType;
 
-
+    public @Nullable String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("Distribution.ipAddressType");
+    }
 
     /**
      * Indicates whether the distribution is enabled. Default: `true`.
      * 
      */
-    public Boolean isEnabled;
+    private @Nullable UndeferrableValue<Boolean> isEnabled;
 
-
+    public @Nullable Boolean isEnabled() {
+        if (isEnabled == null) return null;
+        return isEnabled.getValue("Distribution.isEnabled");
+    }
 
     /**
      * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      * 
      */
-    public List<DistributionLocation> locations;
+    private UndeferrableValue<List<DistributionLocation>> locations;
 
-
+    public List<DistributionLocation> locations() {
+        if (locations == null) return null;
+        return locations.getValue("Distribution.locations");
+    }
 
     /**
      * Name of the distribution.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Distribution.name");
+    }
 
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      * 
      */
-    public DistributionOrigin origin;
+    private UndeferrableValue<DistributionOrigin> origin;
 
-
+    public DistributionOrigin origin() {
+        if (origin == null) return null;
+        return origin.getValue("Distribution.origin");
+    }
 
     /**
      * The public DNS of the origin.
      * 
      */
-    public String originPublicDns;
+    private UndeferrableValue<String> originPublicDns;
 
-
+    public String originPublicDns() {
+        if (originPublicDns == null) return null;
+        return originPublicDns.getValue("Distribution.originPublicDns");
+    }
 
     /**
      * The Lightsail resource type (e.g., Distribution).
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("Distribution.resourceType");
+    }
 
     /**
      * The status of the distribution.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Distribution.status");
+    }
 
     /**
      * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public String supportCode;
+    private UndeferrableValue<String> supportCode;
 
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("Distribution.supportCode");
+    }
 
     /**
      * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Distribution.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -180,8 +239,11 @@ public final class Distribution extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Distribution.tagsAll");
+    }
 
 }

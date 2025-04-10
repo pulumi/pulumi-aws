@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/connection:Connection")
-public final class Connection extends com.pulumi.resources.PolicyResource {
+public final class Connection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Connection.arn");
+    }
 
     /**
      * The ID of the second device in the connection.
      * 
      */
-    public String connectedDeviceId;
+    private UndeferrableValue<String> connectedDeviceId;
 
-
+    public String connectedDeviceId() {
+        if (connectedDeviceId == null) return null;
+        return connectedDeviceId.getValue("Connection.connectedDeviceId");
+    }
 
     /**
      * The ID of the link for the second device.
      * 
      */
-    public String connectedLinkId;
+    private @Nullable UndeferrableValue<String> connectedLinkId;
 
-
+    public @Nullable String connectedLinkId() {
+        if (connectedLinkId == null) return null;
+        return connectedLinkId.getValue("Connection.connectedLinkId");
+    }
 
     /**
      * A description of the connection.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Connection.description");
+    }
 
     /**
      * The ID of the first device in the connection.
      * 
      */
-    public String deviceId;
+    private UndeferrableValue<String> deviceId;
 
-
+    public String deviceId() {
+        if (deviceId == null) return null;
+        return deviceId.getValue("Connection.deviceId");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("Connection.globalNetworkId");
+    }
 
     /**
      * The ID of the link for the first device.
      * 
      */
-    public String linkId;
+    private @Nullable UndeferrableValue<String> linkId;
 
-
+    public @Nullable String linkId() {
+        if (linkId == null) return null;
+        return linkId.getValue("Connection.linkId");
+    }
 
     /**
      * Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,8 +109,11 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connection.tagsAll");
+    }
 
 }

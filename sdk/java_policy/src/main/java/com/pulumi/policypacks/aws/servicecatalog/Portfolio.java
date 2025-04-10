@@ -3,53 +3,73 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/portfolio:Portfolio")
-public final class Portfolio extends com.pulumi.resources.PolicyResource {
+public final class Portfolio extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Portfolio.arn");
+    }
 
+    private UndeferrableValue<String> createdTime;
 
-    public String createdTime;
-
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Portfolio.createdTime");
+    }
 
     /**
      * Description of the portfolio
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Portfolio.description");
+    }
 
     /**
      * The name of the portfolio.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Portfolio.name");
+    }
 
     /**
      * Name of the person or organization who owns the portfolio.
      * 
      */
-    public String providerName;
+    private UndeferrableValue<String> providerName;
 
-
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("Portfolio.providerName");
+    }
 
     /**
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Portfolio.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +79,11 @@ public final class Portfolio extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Portfolio.tagsAll");
+    }
 
 }

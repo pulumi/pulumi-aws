@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.paymentcryptography.KeyKeyAttributes;
-import com.pulumi.policypacks.aws.paymentcryptography.KeyTimeouts;
+import com.pulumi.policypacks.aws.paymentcryptography.outputs.KeyKeyAttributes;
+import com.pulumi.policypacks.aws.paymentcryptography.outputs.KeyTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:paymentcryptography/key:Key")
-public final class Key extends com.pulumi.resources.PolicyResource {
+public final class Key extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the key.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Key.arn");
+    }
 
+    private UndeferrableValue<Integer> deletionWindowInDays;
 
-    public Integer deletionWindowInDays;
-
-
+    public Integer deletionWindowInDays() {
+        if (deletionWindowInDays == null) return null;
+        return deletionWindowInDays.getValue("Key.deletionWindowInDays");
+    }
 
     /**
      * Whether to enable the key.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Key.enabled");
+    }
 
     /**
      * Whether the key is exportable from the service.
      * 
      */
-    public Boolean exportable;
+    private UndeferrableValue<Boolean> exportable;
 
-
+    public Boolean exportable() {
+        if (exportable == null) return null;
+        return exportable.getValue("Key.exportable");
+    }
 
     /**
      * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -49,49 +63,67 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public KeyKeyAttributes keyAttributes;
+    private @Nullable UndeferrableValue<KeyKeyAttributes> keyAttributes;
 
-
+    public @Nullable KeyKeyAttributes keyAttributes() {
+        if (keyAttributes == null) return null;
+        return keyAttributes.getValue("Key.keyAttributes");
+    }
 
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      * 
      */
-    public String keyCheckValue;
+    private UndeferrableValue<String> keyCheckValue;
 
-
+    public String keyCheckValue() {
+        if (keyCheckValue == null) return null;
+        return keyCheckValue.getValue("Key.keyCheckValue");
+    }
 
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      * 
      */
-    public String keyCheckValueAlgorithm;
+    private UndeferrableValue<String> keyCheckValueAlgorithm;
 
-
+    public String keyCheckValueAlgorithm() {
+        if (keyCheckValueAlgorithm == null) return null;
+        return keyCheckValueAlgorithm.getValue("Key.keyCheckValueAlgorithm");
+    }
 
     /**
      * Source of the key material.
      * 
      */
-    public String keyOrigin;
+    private UndeferrableValue<String> keyOrigin;
 
-
+    public String keyOrigin() {
+        if (keyOrigin == null) return null;
+        return keyOrigin.getValue("Key.keyOrigin");
+    }
 
     /**
      * State of key that is being created or deleted.
      * 
      */
-    public String keyState;
+    private UndeferrableValue<String> keyState;
 
-
+    public String keyState() {
+        if (keyState == null) return null;
+        return keyState.getValue("Key.keyState");
+    }
 
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Key.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -101,12 +133,18 @@ public final class Key extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Key.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<KeyTimeouts> timeouts;
 
-    public KeyTimeouts timeouts;
-
-
+    public @Nullable KeyTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Key.timeouts");
+    }
 
 }

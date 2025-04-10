@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.ManagedPrefixListEntry;
+import com.pulumi.policypacks.aws.ec2.outputs.ManagedPrefixListEntry;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/managedPrefixList:ManagedPrefixList")
-public final class ManagedPrefixList extends com.pulumi.resources.PolicyResource {
+public final class ManagedPrefixList extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      * 
      */
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("ManagedPrefixList.addressFamily");
+    }
 
     /**
      * ARN of the prefix list.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ManagedPrefixList.arn");
+    }
 
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      * 
      */
-    public List<ManagedPrefixListEntry> entries;
+    private UndeferrableValue<List<ManagedPrefixListEntry>> entries;
 
-
+    public List<ManagedPrefixListEntry> entries() {
+        if (entries == null) return null;
+        return entries.getValue("ManagedPrefixList.entries");
+    }
 
     /**
      * Maximum number of entries that this prefix list can contain.
      * 
      */
-    public Integer maxEntries;
+    private UndeferrableValue<Integer> maxEntries;
 
-
+    public Integer maxEntries() {
+        if (maxEntries == null) return null;
+        return maxEntries.getValue("ManagedPrefixList.maxEntries");
+    }
 
     /**
      * Name of this resource. The name must not start with `com.amazonaws`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ManagedPrefixList.name");
+    }
 
     /**
      * ID of the AWS account that owns this prefix list.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ManagedPrefixList.ownerId");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ManagedPrefixList.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,16 +101,22 @@ public final class ManagedPrefixList extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ManagedPrefixList.tagsAll");
+    }
 
     /**
      * Latest version of this prefix list.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("ManagedPrefixList.version");
+    }
 
 }

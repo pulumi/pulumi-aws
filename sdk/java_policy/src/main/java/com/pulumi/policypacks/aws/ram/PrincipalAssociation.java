@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ram;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ram/principalAssociation:PrincipalAssociation")
-public final class PrincipalAssociation extends com.pulumi.resources.PolicyResource {
+public final class PrincipalAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("PrincipalAssociation.principal");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    public String resourceShareArn;
+    private UndeferrableValue<String> resourceShareArn;
 
-
+    public String resourceShareArn() {
+        if (resourceShareArn == null) return null;
+        return resourceShareArn.getValue("PrincipalAssociation.resourceShareArn");
+    }
 
 }

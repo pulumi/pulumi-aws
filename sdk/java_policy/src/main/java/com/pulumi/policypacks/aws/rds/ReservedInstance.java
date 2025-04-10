@@ -3,82 +3,108 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ReservedInstanceRecurringCharge;
+import com.pulumi.policypacks.aws.rds.outputs.ReservedInstanceRecurringCharge;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/reservedInstance:ReservedInstance")
-public final class ReservedInstance extends com.pulumi.resources.PolicyResource {
+public final class ReservedInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN for the reserved DB instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReservedInstance.arn");
+    }
 
     /**
      * Currency code for the reserved DB instance.
      * 
      */
-    public String currencyCode;
+    private UndeferrableValue<String> currencyCode;
 
-
+    public String currencyCode() {
+        if (currencyCode == null) return null;
+        return currencyCode.getValue("ReservedInstance.currencyCode");
+    }
 
     /**
      * DB instance class for the reserved DB instance.
      * 
      */
-    public String dbInstanceClass;
+    private UndeferrableValue<String> dbInstanceClass;
 
-
+    public String dbInstanceClass() {
+        if (dbInstanceClass == null) return null;
+        return dbInstanceClass.getValue("ReservedInstance.dbInstanceClass");
+    }
 
     /**
      * Duration of the reservation in seconds.
      * 
      */
-    public Integer duration;
+    private UndeferrableValue<Integer> duration;
 
-
+    public Integer duration() {
+        if (duration == null) return null;
+        return duration.getValue("ReservedInstance.duration");
+    }
 
     /**
      * Fixed price charged for this reserved DB instance.
      * 
      */
-    public Double fixedPrice;
+    private UndeferrableValue<Double> fixedPrice;
 
-
+    public Double fixedPrice() {
+        if (fixedPrice == null) return null;
+        return fixedPrice.getValue("ReservedInstance.fixedPrice");
+    }
 
     /**
      * Number of instances to reserve. Default value is `1`.
      * 
      */
-    public Integer instanceCount;
+    private @Nullable UndeferrableValue<Integer> instanceCount;
 
-
+    public @Nullable Integer instanceCount() {
+        if (instanceCount == null) return null;
+        return instanceCount.getValue("ReservedInstance.instanceCount");
+    }
 
     /**
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      * 
      */
-    public String leaseId;
+    private UndeferrableValue<String> leaseId;
 
-
+    public String leaseId() {
+        if (leaseId == null) return null;
+        return leaseId.getValue("ReservedInstance.leaseId");
+    }
 
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      * 
      */
-    public Boolean multiAz;
+    private UndeferrableValue<Boolean> multiAz;
 
-
+    public Boolean multiAz() {
+        if (multiAz == null) return null;
+        return multiAz.getValue("ReservedInstance.multiAz");
+    }
 
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
@@ -86,65 +112,89 @@ public final class ReservedInstance extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String offeringId;
+    private UndeferrableValue<String> offeringId;
 
-
+    public String offeringId() {
+        if (offeringId == null) return null;
+        return offeringId.getValue("ReservedInstance.offeringId");
+    }
 
     /**
      * Offering type of this reserved DB instance.
      * 
      */
-    public String offeringType;
+    private UndeferrableValue<String> offeringType;
 
-
+    public String offeringType() {
+        if (offeringType == null) return null;
+        return offeringType.getValue("ReservedInstance.offeringType");
+    }
 
     /**
      * Description of the reserved DB instance.
      * 
      */
-    public String productDescription;
+    private UndeferrableValue<String> productDescription;
 
-
+    public String productDescription() {
+        if (productDescription == null) return null;
+        return productDescription.getValue("ReservedInstance.productDescription");
+    }
 
     /**
      * Recurring price charged to run this reserved DB instance.
      * 
      */
-    public List<ReservedInstanceRecurringCharge> recurringCharges;
+    private UndeferrableValue<List<ReservedInstanceRecurringCharge>> recurringCharges;
 
-
+    public List<ReservedInstanceRecurringCharge> recurringCharges() {
+        if (recurringCharges == null) return null;
+        return recurringCharges.getValue("ReservedInstance.recurringCharges");
+    }
 
     /**
      * Customer-specified identifier to track this reservation.
      * 
      */
-    public String reservationId;
+    private @Nullable UndeferrableValue<String> reservationId;
 
-
+    public @Nullable String reservationId() {
+        if (reservationId == null) return null;
+        return reservationId.getValue("ReservedInstance.reservationId");
+    }
 
     /**
      * Time the reservation started.
      * 
      */
-    public String startTime;
+    private UndeferrableValue<String> startTime;
 
-
+    public String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("ReservedInstance.startTime");
+    }
 
     /**
      * State of the reserved DB instance.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ReservedInstance.state");
+    }
 
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReservedInstance.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -154,16 +204,22 @@ public final class ReservedInstance extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReservedInstance.tagsAll");
+    }
 
     /**
      * Hourly price charged for this reserved DB instance.
      * 
      */
-    public Double usagePrice;
+    private UndeferrableValue<Double> usagePrice;
 
-
+    public Double usagePrice() {
+        if (usagePrice == null) return null;
+        return usagePrice.getValue("ReservedInstance.usagePrice");
+    }
 
 }

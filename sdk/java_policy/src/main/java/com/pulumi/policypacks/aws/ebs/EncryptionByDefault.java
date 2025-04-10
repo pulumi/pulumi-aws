@@ -3,19 +3,24 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ebs/encryptionByDefault:EncryptionByDefault")
-public final class EncryptionByDefault extends com.pulumi.resources.PolicyResource {
+public final class EncryptionByDefault extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EncryptionByDefault.enabled");
+    }
 
 }

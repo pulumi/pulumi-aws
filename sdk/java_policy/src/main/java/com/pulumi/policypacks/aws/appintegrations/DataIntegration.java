@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.appintegrations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appintegrations.DataIntegrationScheduleConfig;
+import com.pulumi.policypacks.aws.appintegrations.outputs.DataIntegrationScheduleConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appintegrations/dataIntegration:DataIntegration")
-public final class DataIntegration extends com.pulumi.resources.PolicyResource {
+public final class DataIntegration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Data Integration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataIntegration.arn");
+    }
 
     /**
      * Specifies the description of the Data Integration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DataIntegration.description");
+    }
 
     /**
      * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
      * 
      */
-    public String kmsKey;
+    private UndeferrableValue<String> kmsKey;
 
-
+    public String kmsKey() {
+        if (kmsKey == null) return null;
+        return kmsKey.getValue("DataIntegration.kmsKey");
+    }
 
     /**
      * Specifies the name of the Data Integration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataIntegration.name");
+    }
 
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      * 
      */
-    public DataIntegrationScheduleConfig scheduleConfig;
+    private UndeferrableValue<DataIntegrationScheduleConfig> scheduleConfig;
 
-
+    public DataIntegrationScheduleConfig scheduleConfig() {
+        if (scheduleConfig == null) return null;
+        return scheduleConfig.getValue("DataIntegration.scheduleConfig");
+    }
 
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      * 
      */
-    public String sourceUri;
+    private UndeferrableValue<String> sourceUri;
 
-
+    public String sourceUri() {
+        if (sourceUri == null) return null;
+        return sourceUri.getValue("DataIntegration.sourceUri");
+    }
 
     /**
      * Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataIntegration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class DataIntegration extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataIntegration.tagsAll");
+    }
 
 }

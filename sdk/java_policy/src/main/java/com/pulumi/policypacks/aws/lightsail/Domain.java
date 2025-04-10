@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Lightsail domain
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * The name of the Lightsail domain to manage
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
 }

@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:costexplorer/costAllocationTag:CostAllocationTag")
-public final class CostAllocationTag extends com.pulumi.resources.PolicyResource {
+public final class CostAllocationTag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("CostAllocationTag.status");
+    }
 
     /**
      * The key for the cost allocation tag.
      * 
      */
-    public String tagKey;
+    private UndeferrableValue<String> tagKey;
 
-
+    public String tagKey() {
+        if (tagKey == null) return null;
+        return tagKey.getValue("CostAllocationTag.tagKey");
+    }
 
     /**
      * The type of cost allocation tag.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("CostAllocationTag.type");
+    }
 
 }

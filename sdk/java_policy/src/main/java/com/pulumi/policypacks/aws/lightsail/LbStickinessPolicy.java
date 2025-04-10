@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -10,30 +11,39 @@ import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")
-public final class LbStickinessPolicy extends com.pulumi.resources.PolicyResource {
+public final class LbStickinessPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
-    public Integer cookieDuration;
+    private UndeferrableValue<Integer> cookieDuration;
 
-
+    public Integer cookieDuration() {
+        if (cookieDuration == null) return null;
+        return cookieDuration.getValue("LbStickinessPolicy.cookieDuration");
+    }
 
     /**
      * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("LbStickinessPolicy.enabled");
+    }
 
     /**
      * The name of the load balancer to which you want to enable session stickiness.
      * 
      */
-    public String lbName;
+    private UndeferrableValue<String> lbName;
 
-
+    public String lbName() {
+        if (lbName == null) return null;
+        return lbName.getValue("LbStickinessPolicy.lbName");
+    }
 
 }

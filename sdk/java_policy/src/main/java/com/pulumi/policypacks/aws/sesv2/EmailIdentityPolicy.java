@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy")
-public final class EmailIdentityPolicy extends com.pulumi.resources.PolicyResource {
+public final class EmailIdentityPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The email identity.
      * 
      */
-    public String emailIdentity;
+    private UndeferrableValue<String> emailIdentity;
 
-
+    public String emailIdentity() {
+        if (emailIdentity == null) return null;
+        return emailIdentity.getValue("EmailIdentityPolicy.emailIdentity");
+    }
 
     /**
      * The text of the policy in JSON format.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("EmailIdentityPolicy.policy");
+    }
 
     /**
      * The name of the policy.
      * 
      */
-    public String policyName;
+    private UndeferrableValue<String> policyName;
 
-
+    public String policyName() {
+        if (policyName == null) return null;
+        return policyName.getValue("EmailIdentityPolicy.policyName");
+    }
 
 }

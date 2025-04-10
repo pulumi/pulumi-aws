@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directconnect/gateway:Gateway")
-public final class Gateway extends com.pulumi.resources.PolicyResource {
+public final class Gateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      * 
      */
-    public String amazonSideAsn;
+    private UndeferrableValue<String> amazonSideAsn;
 
-
+    public String amazonSideAsn() {
+        if (amazonSideAsn == null) return null;
+        return amazonSideAsn.getValue("Gateway.amazonSideAsn");
+    }
 
     /**
      * The ARN of the gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Gateway.arn");
+    }
 
     /**
      * The name of the connection.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Gateway.name");
+    }
 
     /**
      * AWS Account ID of the gateway.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("Gateway.ownerAccountId");
+    }
 
 }

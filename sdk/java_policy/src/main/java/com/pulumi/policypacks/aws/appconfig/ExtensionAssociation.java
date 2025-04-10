@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/extensionAssociation:ExtensionAssociation")
-public final class ExtensionAssociation extends com.pulumi.resources.PolicyResource {
+public final class ExtensionAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the AppConfig Extension Association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ExtensionAssociation.arn");
+    }
 
     /**
      * The ARN of the extension defined in the association.
      * 
      */
-    public String extensionArn;
+    private UndeferrableValue<String> extensionArn;
 
-
+    public String extensionArn() {
+        if (extensionArn == null) return null;
+        return extensionArn.getValue("ExtensionAssociation.extensionArn");
+    }
 
     /**
      * The version number for the extension defined in the association.
      * 
      */
-    public Integer extensionVersion;
+    private UndeferrableValue<Integer> extensionVersion;
 
-
+    public Integer extensionVersion() {
+        if (extensionVersion == null) return null;
+        return extensionVersion.getValue("ExtensionAssociation.extensionVersion");
+    }
 
     /**
      * The parameter names and values defined for the association.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("ExtensionAssociation.parameters");
+    }
 
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ExtensionAssociation.resourceArn");
+    }
 
 }

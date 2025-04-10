@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/policy:Policy")
-public final class Policy extends com.pulumi.resources.PolicyResource {
+public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN assigned by AWS to this policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Policy.arn");
+    }
 
     /**
      * Number of entities (users, groups, and roles) that the policy is attached to.
      * 
      */
-    public Integer attachmentCount;
+    private UndeferrableValue<Integer> attachmentCount;
 
-
+    public Integer attachmentCount() {
+        if (attachmentCount == null) return null;
+        return attachmentCount.getValue("Policy.attachmentCount");
+    }
 
     /**
      * Description of the IAM policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Policy.description");
+    }
 
     /**
      * Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Policy.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Policy.namePrefix");
+    }
 
     /**
      * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("Policy.path");
+    }
 
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Policy.policy");
+    }
 
     /**
      * Policy&#39;s ID.
      * 
      */
-    public String policyId;
+    private UndeferrableValue<String> policyId;
 
-
+    public String policyId() {
+        if (policyId == null) return null;
+        return policyId.getValue("Policy.policyId");
+    }
 
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Policy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Policy.tagsAll");
+    }
 
 }

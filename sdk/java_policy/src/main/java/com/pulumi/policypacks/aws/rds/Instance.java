@@ -3,37 +3,45 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.InstanceBlueGreenUpdate;
-import com.pulumi.policypacks.aws.rds.InstanceListenerEndpoint;
-import com.pulumi.policypacks.aws.rds.InstanceMasterUserSecret;
-import com.pulumi.policypacks.aws.rds.InstanceRestoreToPointInTime;
-import com.pulumi.policypacks.aws.rds.InstanceS3Import;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceBlueGreenUpdate;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceListenerEndpoint;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceMasterUserSecret;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceRestoreToPointInTime;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceS3Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the DNS address of the DB instance.
      * 
      */
-    public String address;
+    private UndeferrableValue<String> address;
 
-
+    public String address() {
+        if (address == null) return null;
+        return address.getValue("Instance.address");
+    }
 
     /**
      * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("Instance.allocatedStorage");
+    }
 
     /**
      * Indicates that major version
@@ -41,9 +49,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * the change is asynchronously applied as soon as possible.
      * 
      */
-    public Boolean allowMajorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
 
-
+    public @Nullable Boolean allowMajorVersionUpgrade() {
+        if (allowMajorVersionUpgrade == null) return null;
+        return allowMajorVersionUpgrade.getValue("Instance.allowMajorVersionUpgrade");
+    }
 
     /**
      * Specifies whether any database modifications
@@ -52,17 +63,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Instance.applyImmediately");
+    }
 
     /**
      * The ARN of the RDS instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Instance.arn");
+    }
 
     /**
      * Indicates that minor engine upgrades
@@ -70,17 +87,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * Defaults to true.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public @Nullable Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("Instance.autoMinorVersionUpgrade");
+    }
 
     /**
      * The AZ for the RDS instance.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Instance.availabilityZone");
+    }
 
     /**
      * The days to retain backups for.
@@ -91,43 +114,58 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * or will use [RDS Blue/Green deployments][blue-green].
      * 
      */
-    public Integer backupRetentionPeriod;
+    private UndeferrableValue<Integer> backupRetentionPeriod;
 
-
+    public Integer backupRetentionPeriod() {
+        if (backupRetentionPeriod == null) return null;
+        return backupRetentionPeriod.getValue("Instance.backupRetentionPeriod");
+    }
 
     /**
      * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
      * 
      */
-    public String backupTarget;
+    private UndeferrableValue<String> backupTarget;
 
-
+    public String backupTarget() {
+        if (backupTarget == null) return null;
+        return backupTarget.getValue("Instance.backupTarget");
+    }
 
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
      */
-    public String backupWindow;
+    private UndeferrableValue<String> backupWindow;
 
-
+    public String backupWindow() {
+        if (backupWindow == null) return null;
+        return backupWindow.getValue("Instance.backupWindow");
+    }
 
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See `blue_green_update` below.
      * 
      */
-    public InstanceBlueGreenUpdate blueGreenUpdate;
+    private @Nullable UndeferrableValue<InstanceBlueGreenUpdate> blueGreenUpdate;
 
-
+    public @Nullable InstanceBlueGreenUpdate blueGreenUpdate() {
+        if (blueGreenUpdate == null) return null;
+        return blueGreenUpdate.getValue("Instance.blueGreenUpdate");
+    }
 
     /**
      * The identifier of the CA certificate for the DB instance.
      * 
      */
-    public String caCertIdentifier;
+    private UndeferrableValue<String> caCertIdentifier;
 
-
+    public String caCertIdentifier() {
+        if (caCertIdentifier == null) return null;
+        return caCertIdentifier.getValue("Instance.caCertIdentifier");
+    }
 
     /**
      * The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
@@ -137,25 +175,34 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
      * 
      */
-    public String characterSetName;
+    private UndeferrableValue<String> characterSetName;
 
-
+    public String characterSetName() {
+        if (characterSetName == null) return null;
+        return characterSetName.getValue("Instance.characterSetName");
+    }
 
     /**
      * Copy all Instance `tags` to snapshots. Default is `false`.
      * 
      */
-    public Boolean copyTagsToSnapshot;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
 
-
+    public @Nullable Boolean copyTagsToSnapshot() {
+        if (copyTagsToSnapshot == null) return null;
+        return copyTagsToSnapshot.getValue("Instance.copyTagsToSnapshot");
+    }
 
     /**
      * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
      * 
      */
-    public String customIamInstanceProfile;
+    private @Nullable UndeferrableValue<String> customIamInstanceProfile;
 
-
+    public @Nullable String customIamInstanceProfile() {
+        if (customIamInstanceProfile == null) return null;
+        return customIamInstanceProfile.getValue("Instance.customIamInstanceProfile");
+    }
 
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -165,25 +212,34 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * standalone database.
      * 
      */
-    public Boolean customerOwnedIpEnabled;
+    private @Nullable UndeferrableValue<Boolean> customerOwnedIpEnabled;
 
-
+    public @Nullable Boolean customerOwnedIpEnabled() {
+        if (customerOwnedIpEnabled == null) return null;
+        return customerOwnedIpEnabled.getValue("Instance.customerOwnedIpEnabled");
+    }
 
     /**
      * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
      * 
      */
-    public String databaseInsightsMode;
+    private UndeferrableValue<String> databaseInsightsMode;
 
-
+    public String databaseInsightsMode() {
+        if (databaseInsightsMode == null) return null;
+        return databaseInsightsMode.getValue("Instance.databaseInsightsMode");
+    }
 
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
      */
-    public String dbName;
+    private UndeferrableValue<String> dbName;
 
-
+    public String dbName() {
+        if (dbName == null) return null;
+        return dbName.getValue("Instance.dbName");
+    }
 
     /**
      * Name of DB subnet group.
@@ -194,129 +250,177 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
      * 
      */
-    public String dbSubnetGroupName;
+    private UndeferrableValue<String> dbSubnetGroupName;
 
-
+    public String dbSubnetGroupName() {
+        if (dbSubnetGroupName == null) return null;
+        return dbSubnetGroupName.getValue("Instance.dbSubnetGroupName");
+    }
 
     /**
      * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
      * 
      */
-    public Boolean dedicatedLogVolume;
+    private @Nullable UndeferrableValue<Boolean> dedicatedLogVolume;
 
-
+    public @Nullable Boolean dedicatedLogVolume() {
+        if (dedicatedLogVolume == null) return null;
+        return dedicatedLogVolume.getValue("Instance.dedicatedLogVolume");
+    }
 
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      * 
      */
-    public Boolean deleteAutomatedBackups;
+    private @Nullable UndeferrableValue<Boolean> deleteAutomatedBackups;
 
-
+    public @Nullable Boolean deleteAutomatedBackups() {
+        if (deleteAutomatedBackups == null) return null;
+        return deleteAutomatedBackups.getValue("Instance.deleteAutomatedBackups");
+    }
 
     /**
      * If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("Instance.deletionProtection");
+    }
 
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
-    public String domain;
+    private @Nullable UndeferrableValue<String> domain;
 
-
+    public @Nullable String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Instance.domain");
+    }
 
     /**
      * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    public String domainAuthSecretArn;
+    private @Nullable UndeferrableValue<String> domainAuthSecretArn;
 
-
+    public @Nullable String domainAuthSecretArn() {
+        if (domainAuthSecretArn == null) return null;
+        return domainAuthSecretArn.getValue("Instance.domainAuthSecretArn");
+    }
 
     /**
      * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    public List<String> domainDnsIps;
+    private @Nullable UndeferrableValue<List<String>> domainDnsIps;
 
-
+    public @Nullable List<String> domainDnsIps() {
+        if (domainDnsIps == null) return null;
+        return domainDnsIps.getValue("Instance.domainDnsIps");
+    }
 
     /**
      * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    public String domainFqdn;
+    private UndeferrableValue<String> domainFqdn;
 
-
+    public String domainFqdn() {
+        if (domainFqdn == null) return null;
+        return domainFqdn.getValue("Instance.domainFqdn");
+    }
 
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
-    public String domainIamRoleName;
+    private @Nullable UndeferrableValue<String> domainIamRoleName;
 
-
+    public @Nullable String domainIamRoleName() {
+        if (domainIamRoleName == null) return null;
+        return domainIamRoleName.getValue("Instance.domainIamRoleName");
+    }
 
     /**
      * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    public String domainOu;
+    private @Nullable UndeferrableValue<String> domainOu;
 
-
+    public @Nullable String domainOu() {
+        if (domainOu == null) return null;
+        return domainOu.getValue("Instance.domainOu");
+    }
 
     /**
      * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
-    public List<String> enabledCloudwatchLogsExports;
+    private @Nullable UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
 
-
+    public @Nullable List<String> enabledCloudwatchLogsExports() {
+        if (enabledCloudwatchLogsExports == null) return null;
+        return enabledCloudwatchLogsExports.getValue("Instance.enabledCloudwatchLogsExports");
+    }
 
     /**
      * The connection endpoint in `address:port` format.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Instance.endpoint");
+    }
 
     /**
      * The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Instance.engine");
+    }
 
     /**
      * The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    public String engineLifecycleSupport;
+    private UndeferrableValue<String> engineLifecycleSupport;
 
-
+    public String engineLifecycleSupport() {
+        if (engineLifecycleSupport == null) return null;
+        return engineLifecycleSupport.getValue("Instance.engineLifecycleSupport");
+    }
 
     /**
      * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Instance.engineVersion");
+    }
 
     /**
      * The running version of the database.
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("Instance.engineVersionActual");
+    }
 
     /**
      * The name of your final DB snapshot
@@ -324,50 +428,68 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Instance.finalSnapshotIdentifier");
+    }
 
     /**
      * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Instance.hostedZoneId");
+    }
 
     /**
      * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      * 
      */
-    public Boolean iamDatabaseAuthenticationEnabled;
+    private @Nullable UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
 
-
+    public @Nullable Boolean iamDatabaseAuthenticationEnabled() {
+        if (iamDatabaseAuthenticationEnabled == null) return null;
+        return iamDatabaseAuthenticationEnabled.getValue("Instance.iamDatabaseAuthenticationEnabled");
+    }
 
     /**
      * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("Instance.identifier");
+    }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public String identifierPrefix;
+    private UndeferrableValue<String> identifierPrefix;
 
-
+    public String identifierPrefix() {
+        if (identifierPrefix == null) return null;
+        return identifierPrefix.getValue("Instance.identifierPrefix");
+    }
 
     /**
      * The instance type of the RDS instance.
      * 
      */
-    public String instanceClass;
+    private UndeferrableValue<String> instanceClass;
 
-
+    public String instanceClass() {
+        if (instanceClass == null) return null;
+        return instanceClass.getValue("Instance.instanceClass");
+    }
 
     /**
      * The amount of provisioned IOPS. Setting this implies a
@@ -376,26 +498,35 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    public Integer iops;
+    private UndeferrableValue<Integer> iops;
 
-
+    public Integer iops() {
+        if (iops == null) return null;
+        return iops.getValue("Instance.iops");
+    }
 
     /**
      * The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Instance.kmsKeyId");
+    }
 
     /**
      * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
      * 
      */
-    public String latestRestorableTime;
+    private UndeferrableValue<String> latestRestorableTime;
 
-
+    public String latestRestorableTime() {
+        if (latestRestorableTime == null) return null;
+        return latestRestorableTime.getValue("Instance.latestRestorableTime");
+    }
 
     /**
      * License model information for this DB instance. Valid values for this field are as follows:
@@ -406,17 +537,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
-    public String licenseModel;
+    private UndeferrableValue<String> licenseModel;
 
-
+    public String licenseModel() {
+        if (licenseModel == null) return null;
+        return licenseModel.getValue("Instance.licenseModel");
+    }
 
     /**
      * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
      * 
      */
-    public List<InstanceListenerEndpoint> listenerEndpoints;
+    private UndeferrableValue<List<InstanceListenerEndpoint>> listenerEndpoints;
 
-
+    public List<InstanceListenerEndpoint> listenerEndpoints() {
+        if (listenerEndpoints == null) return null;
+        return listenerEndpoints.getValue("Instance.listenerEndpoints");
+    }
 
     /**
      * The window to perform maintenance in.
@@ -426,41 +563,56 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * for more information.
      * 
      */
-    public String maintenanceWindow;
+    private UndeferrableValue<String> maintenanceWindow;
 
-
+    public String maintenanceWindow() {
+        if (maintenanceWindow == null) return null;
+        return maintenanceWindow.getValue("Instance.maintenanceWindow");
+    }
 
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
      * 
      */
-    public Boolean manageMasterUserPassword;
+    private @Nullable UndeferrableValue<Boolean> manageMasterUserPassword;
 
-
+    public @Nullable Boolean manageMasterUserPassword() {
+        if (manageMasterUserPassword == null) return null;
+        return manageMasterUserPassword.getValue("Instance.manageMasterUserPassword");
+    }
 
     /**
      * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    public String masterUserSecretKmsKeyId;
+    private UndeferrableValue<String> masterUserSecretKmsKeyId;
 
-
+    public String masterUserSecretKmsKeyId() {
+        if (masterUserSecretKmsKeyId == null) return null;
+        return masterUserSecretKmsKeyId.getValue("Instance.masterUserSecretKmsKeyId");
+    }
 
     /**
      * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
-    public List<InstanceMasterUserSecret> masterUserSecrets;
+    private UndeferrableValue<List<InstanceMasterUserSecret>> masterUserSecrets;
 
-
+    public List<InstanceMasterUserSecret> masterUserSecrets() {
+        if (masterUserSecrets == null) return null;
+        return masterUserSecrets.getValue("Instance.masterUserSecrets");
+    }
 
     /**
      * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
-    public Integer maxAllocatedStorage;
+    private @Nullable UndeferrableValue<Integer> maxAllocatedStorage;
 
-
+    public @Nullable Integer maxAllocatedStorage() {
+        if (maxAllocatedStorage == null) return null;
+        return maxAllocatedStorage.getValue("Instance.maxAllocatedStorage");
+    }
 
     /**
      * The interval, in seconds, between points
@@ -469,9 +621,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
-    public Integer monitoringInterval;
+    private @Nullable UndeferrableValue<Integer> monitoringInterval;
 
-
+    public @Nullable Integer monitoringInterval() {
+        if (monitoringInterval == null) return null;
+        return monitoringInterval.getValue("Instance.monitoringInterval");
+    }
 
     /**
      * The ARN for the IAM role that permits RDS
@@ -481,17 +636,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
-    public String monitoringRoleArn;
+    private UndeferrableValue<String> monitoringRoleArn;
 
-
+    public String monitoringRoleArn() {
+        if (monitoringRoleArn == null) return null;
+        return monitoringRoleArn.getValue("Instance.monitoringRoleArn");
+    }
 
     /**
      * Specifies if the RDS instance is multi-AZ
      * 
      */
-    public Boolean multiAz;
+    private UndeferrableValue<Boolean> multiAz;
 
-
+    public Boolean multiAz() {
+        if (multiAz == null) return null;
+        return multiAz.getValue("Instance.multiAz");
+    }
 
     /**
      * @deprecated
@@ -499,104 +660,143 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    public String name;
+    private @Nullable UndeferrableValue<String> name;
 
-
+    public @Nullable String name() {
+        if (name == null) return null;
+        return name.getValue("Instance.name");
+    }
 
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
      */
-    public String ncharCharacterSetName;
+    private UndeferrableValue<String> ncharCharacterSetName;
 
-
+    public String ncharCharacterSetName() {
+        if (ncharCharacterSetName == null) return null;
+        return ncharCharacterSetName.getValue("Instance.ncharCharacterSetName");
+    }
 
     /**
      * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("Instance.networkType");
+    }
 
     /**
      * Name of the DB option group to associate.
      * 
      */
-    public String optionGroupName;
+    private UndeferrableValue<String> optionGroupName;
 
-
+    public String optionGroupName() {
+        if (optionGroupName == null) return null;
+        return optionGroupName.getValue("Instance.optionGroupName");
+    }
 
     /**
      * Name of the DB parameter group to associate.
      * 
      */
-    public String parameterGroupName;
+    private UndeferrableValue<String> parameterGroupName;
 
-
+    public String parameterGroupName() {
+        if (parameterGroupName == null) return null;
+        return parameterGroupName.getValue("Instance.parameterGroupName");
+    }
 
     /**
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
-    public String password;
+    private @Nullable UndeferrableValue<String> password;
 
-
+    public @Nullable String password() {
+        if (password == null) return null;
+        return password.getValue("Instance.password");
+    }
 
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      * 
      */
-    public Boolean performanceInsightsEnabled;
+    private @Nullable UndeferrableValue<Boolean> performanceInsightsEnabled;
 
-
+    public @Nullable Boolean performanceInsightsEnabled() {
+        if (performanceInsightsEnabled == null) return null;
+        return performanceInsightsEnabled.getValue("Instance.performanceInsightsEnabled");
+    }
 
     /**
      * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
-    public String performanceInsightsKmsKeyId;
+    private UndeferrableValue<String> performanceInsightsKmsKeyId;
 
-
+    public String performanceInsightsKmsKeyId() {
+        if (performanceInsightsKmsKeyId == null) return null;
+        return performanceInsightsKmsKeyId.getValue("Instance.performanceInsightsKmsKeyId");
+    }
 
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
-    public Integer performanceInsightsRetentionPeriod;
+    private UndeferrableValue<Integer> performanceInsightsRetentionPeriod;
 
-
+    public Integer performanceInsightsRetentionPeriod() {
+        if (performanceInsightsRetentionPeriod == null) return null;
+        return performanceInsightsRetentionPeriod.getValue("Instance.performanceInsightsRetentionPeriod");
+    }
 
     /**
      * The port on which the DB accepts connections.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Instance.port");
+    }
 
     /**
      * Bool to control if instance is publicly
      * accessible. Default is `false`.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Instance.publiclyAccessible");
+    }
 
     /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
      * 
      */
-    public String replicaMode;
+    private UndeferrableValue<String> replicaMode;
 
+    public String replicaMode() {
+        if (replicaMode == null) return null;
+        return replicaMode.getValue("Instance.replicaMode");
+    }
 
+    private UndeferrableValue<List<String>> replicas;
 
-    public List<String> replicas;
-
-
+    public List<String> replicas() {
+        if (replicas == null) return null;
+        return replicas.getValue("Instance.replicas");
+    }
 
     /**
      * Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -607,17 +807,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
-    public String replicateSourceDb;
+    private @Nullable UndeferrableValue<String> replicateSourceDb;
 
-
+    public @Nullable String replicateSourceDb() {
+        if (replicateSourceDb == null) return null;
+        return replicateSourceDb.getValue("Instance.replicateSourceDb");
+    }
 
     /**
      * The RDS Resource ID of this instance.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("Instance.resourceId");
+    }
 
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time.
@@ -625,17 +831,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * See Restore To Point In Time below for details.
      * 
      */
-    public InstanceRestoreToPointInTime restoreToPointInTime;
+    private @Nullable UndeferrableValue<InstanceRestoreToPointInTime> restoreToPointInTime;
 
-
+    public @Nullable InstanceRestoreToPointInTime restoreToPointInTime() {
+        if (restoreToPointInTime == null) return null;
+        return restoreToPointInTime.getValue("Instance.restoreToPointInTime");
+    }
 
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      * 
      */
-    public InstanceS3Import s3Import;
+    private @Nullable UndeferrableValue<InstanceS3Import> s3Import;
 
-
+    public @Nullable InstanceS3Import s3Import() {
+        if (s3Import == null) return null;
+        return s3Import.getValue("Instance.s3Import");
+    }
 
     /**
      * Determines whether a final DB snapshot is
@@ -645,26 +857,35 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * is `false`.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Instance.skipFinalSnapshot");
+    }
 
     /**
      * Specifies whether or not to create this database from a snapshot.
      * This corresponds to the snapshot ID you&#39;d find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      * 
      */
-    public String snapshotIdentifier;
+    private UndeferrableValue<String> snapshotIdentifier;
 
-
+    public String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("Instance.snapshotIdentifier");
+    }
 
     /**
      * The RDS instance status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Instance.status");
+    }
 
     /**
      * Specifies whether the DB instance is
@@ -673,17 +894,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * default is `false` if not specified.
      * 
      */
-    public Boolean storageEncrypted;
+    private @Nullable UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public @Nullable Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("Instance.storageEncrypted");
+    }
 
     /**
      * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    public Integer storageThroughput;
+    private UndeferrableValue<Integer> storageThroughput;
 
-
+    public Integer storageThroughput() {
+        if (storageThroughput == null) return null;
+        return storageThroughput.getValue("Instance.storageThroughput");
+    }
 
     /**
      * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
@@ -692,17 +919,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * SSD). The default is &#34;io1&#34; if `iops` is specified, &#34;gp2&#34; if not.
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Instance.storageType");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Instance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -712,9 +945,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Instance.tagsAll");
+    }
 
     /**
      * Time zone of the DB instance. `timezone` is currently
@@ -724,35 +960,47 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * for more information.
      * 
      */
-    public String timezone;
+    private UndeferrableValue<String> timezone;
 
-
+    public String timezone() {
+        if (timezone == null) return null;
+        return timezone.getValue("Instance.timezone");
+    }
 
     /**
      * Whether to upgrade the storage file system configuration on the read replica.
      * Can only be set with `replicate_source_db`.
      * 
      */
-    public Boolean upgradeStorageConfig;
+    private @Nullable UndeferrableValue<Boolean> upgradeStorageConfig;
 
-
+    public @Nullable Boolean upgradeStorageConfig() {
+        if (upgradeStorageConfig == null) return null;
+        return upgradeStorageConfig.getValue("Instance.upgradeStorageConfig");
+    }
 
     /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
-    public String username;
+    private UndeferrableValue<String> username;
 
-
+    public String username() {
+        if (username == null) return null;
+        return username.getValue("Instance.username");
+    }
 
     /**
      * List of VPC security groups to
      * associate.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Instance.vpcSecurityGroupIds");
+    }
 
 }

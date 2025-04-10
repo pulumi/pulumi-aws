@@ -3,183 +3,242 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.UserPoolAccountRecoverySetting;
-import com.pulumi.policypacks.aws.cognito.UserPoolAdminCreateUserConfig;
-import com.pulumi.policypacks.aws.cognito.UserPoolDeviceConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolEmailConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolEmailMfaConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolLambdaConfig;
-import com.pulumi.policypacks.aws.cognito.UserPoolPasswordPolicy;
-import com.pulumi.policypacks.aws.cognito.UserPoolSchema;
-import com.pulumi.policypacks.aws.cognito.UserPoolSignInPolicy;
-import com.pulumi.policypacks.aws.cognito.UserPoolSmsConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolSoftwareTokenMfaConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolUserAttributeUpdateSettings;
-import com.pulumi.policypacks.aws.cognito.UserPoolUserPoolAddOns;
-import com.pulumi.policypacks.aws.cognito.UserPoolUsernameConfiguration;
-import com.pulumi.policypacks.aws.cognito.UserPoolVerificationMessageTemplate;
-import com.pulumi.policypacks.aws.cognito.UserPoolWebAuthnConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolAccountRecoverySetting;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolAdminCreateUserConfig;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolDeviceConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolEmailConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolEmailMfaConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolLambdaConfig;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolPasswordPolicy;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolSchema;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolSignInPolicy;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolSmsConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolSoftwareTokenMfaConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolUserAttributeUpdateSettings;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolUserPoolAddOns;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolUsernameConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolVerificationMessageTemplate;
+import com.pulumi.policypacks.aws.cognito.outputs.UserPoolWebAuthnConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/userPool:UserPool")
-public final class UserPool extends com.pulumi.resources.PolicyResource {
+public final class UserPool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
      * 
      */
-    public UserPoolAccountRecoverySetting accountRecoverySetting;
+    private @Nullable UndeferrableValue<UserPoolAccountRecoverySetting> accountRecoverySetting;
 
-
+    public @Nullable UserPoolAccountRecoverySetting accountRecoverySetting() {
+        if (accountRecoverySetting == null) return null;
+        return accountRecoverySetting.getValue("UserPool.accountRecoverySetting");
+    }
 
     /**
      * Configuration block for creating a new user profile. Detailed below.
      * 
      */
-    public UserPoolAdminCreateUserConfig adminCreateUserConfig;
+    private UndeferrableValue<UserPoolAdminCreateUserConfig> adminCreateUserConfig;
 
-
+    public UserPoolAdminCreateUserConfig adminCreateUserConfig() {
+        if (adminCreateUserConfig == null) return null;
+        return adminCreateUserConfig.getValue("UserPool.adminCreateUserConfig");
+    }
 
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
      * 
      */
-    public List<String> aliasAttributes;
+    private @Nullable UndeferrableValue<List<String>> aliasAttributes;
 
-
+    public @Nullable List<String> aliasAttributes() {
+        if (aliasAttributes == null) return null;
+        return aliasAttributes.getValue("UserPool.aliasAttributes");
+    }
 
     /**
      * ARN of the user pool.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UserPool.arn");
+    }
 
     /**
      * Attributes to be auto-verified. Valid values: `email`, `phone_number`.
      * 
      */
-    public List<String> autoVerifiedAttributes;
+    private @Nullable UndeferrableValue<List<String>> autoVerifiedAttributes;
 
-
+    public @Nullable List<String> autoVerifiedAttributes() {
+        if (autoVerifiedAttributes == null) return null;
+        return autoVerifiedAttributes.getValue("UserPool.autoVerifiedAttributes");
+    }
 
     /**
      * Date the user pool was created.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("UserPool.creationDate");
+    }
 
     /**
      * A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
      * 
      */
-    public String customDomain;
+    private UndeferrableValue<String> customDomain;
 
-
+    public String customDomain() {
+        if (customDomain == null) return null;
+        return customDomain.getValue("UserPool.customDomain");
+    }
 
     /**
      * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
      * 
      */
-    public String deletionProtection;
+    private @Nullable UndeferrableValue<String> deletionProtection;
 
-
+    public @Nullable String deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("UserPool.deletionProtection");
+    }
 
     /**
      * Configuration block for the user pool&#39;s device tracking. Detailed below.
      * 
      */
-    public UserPoolDeviceConfiguration deviceConfiguration;
+    private @Nullable UndeferrableValue<UserPoolDeviceConfiguration> deviceConfiguration;
 
-
+    public @Nullable UserPoolDeviceConfiguration deviceConfiguration() {
+        if (deviceConfiguration == null) return null;
+        return deviceConfiguration.getValue("UserPool.deviceConfiguration");
+    }
 
     /**
      * Holds the domain prefix if the user pool has a domain associated with it.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("UserPool.domain");
+    }
 
     /**
      * Configuration block for configuring email. Detailed below.
      * 
      */
-    public UserPoolEmailConfiguration emailConfiguration;
+    private @Nullable UndeferrableValue<UserPoolEmailConfiguration> emailConfiguration;
 
-
+    public @Nullable UserPoolEmailConfiguration emailConfiguration() {
+        if (emailConfiguration == null) return null;
+        return emailConfiguration.getValue("UserPool.emailConfiguration");
+    }
 
     /**
      * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
      * 
      */
-    public UserPoolEmailMfaConfiguration emailMfaConfiguration;
+    private @Nullable UndeferrableValue<UserPoolEmailMfaConfiguration> emailMfaConfiguration;
 
-
+    public @Nullable UserPoolEmailMfaConfiguration emailMfaConfiguration() {
+        if (emailMfaConfiguration == null) return null;
+        return emailMfaConfiguration.getValue("UserPool.emailMfaConfiguration");
+    }
 
     /**
      * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      * 
      */
-    public String emailVerificationMessage;
+    private UndeferrableValue<String> emailVerificationMessage;
 
-
+    public String emailVerificationMessage() {
+        if (emailVerificationMessage == null) return null;
+        return emailVerificationMessage.getValue("UserPool.emailVerificationMessage");
+    }
 
     /**
      * String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      * 
      */
-    public String emailVerificationSubject;
+    private UndeferrableValue<String> emailVerificationSubject;
 
-
+    public String emailVerificationSubject() {
+        if (emailVerificationSubject == null) return null;
+        return emailVerificationSubject.getValue("UserPool.emailVerificationSubject");
+    }
 
     /**
      * Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("UserPool.endpoint");
+    }
 
     /**
      * A number estimating the size of the user pool.
      * 
      */
-    public Integer estimatedNumberOfUsers;
+    private UndeferrableValue<Integer> estimatedNumberOfUsers;
 
-
+    public Integer estimatedNumberOfUsers() {
+        if (estimatedNumberOfUsers == null) return null;
+        return estimatedNumberOfUsers.getValue("UserPool.estimatedNumberOfUsers");
+    }
 
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      * 
      */
-    public UserPoolLambdaConfig lambdaConfig;
+    private @Nullable UndeferrableValue<UserPoolLambdaConfig> lambdaConfig;
 
-
+    public @Nullable UserPoolLambdaConfig lambdaConfig() {
+        if (lambdaConfig == null) return null;
+        return lambdaConfig.getValue("UserPool.lambdaConfig");
+    }
 
     /**
      * Date the user pool was last modified.
      * 
      */
-    public String lastModifiedDate;
+    private UndeferrableValue<String> lastModifiedDate;
 
-
+    public String lastModifiedDate() {
+        if (lastModifiedDate == null) return null;
+        return lastModifiedDate.getValue("UserPool.lastModifiedDate");
+    }
 
     /**
      * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
      * 
      */
-    public String mfaConfiguration;
+    private @Nullable UndeferrableValue<String> mfaConfiguration;
 
-
+    public @Nullable String mfaConfiguration() {
+        if (mfaConfiguration == null) return null;
+        return mfaConfiguration.getValue("UserPool.mfaConfiguration");
+    }
 
     /**
      * Name of the user pool.
@@ -187,73 +246,100 @@ public final class UserPool extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UserPool.name");
+    }
 
     /**
      * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
-    public UserPoolPasswordPolicy passwordPolicy;
+    private UndeferrableValue<UserPoolPasswordPolicy> passwordPolicy;
 
-
+    public UserPoolPasswordPolicy passwordPolicy() {
+        if (passwordPolicy == null) return null;
+        return passwordPolicy.getValue("UserPool.passwordPolicy");
+    }
 
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      * 
      */
-    public List<UserPoolSchema> schemas;
+    private @Nullable UndeferrableValue<List<UserPoolSchema>> schemas;
 
-
+    public @Nullable List<UserPoolSchema> schemas() {
+        if (schemas == null) return null;
+        return schemas.getValue("UserPool.schemas");
+    }
 
     /**
      * Configuration block for information about the user pool sign in policy. Detailed below.
      * 
      */
-    public UserPoolSignInPolicy signInPolicy;
+    private UndeferrableValue<UserPoolSignInPolicy> signInPolicy;
 
-
+    public UserPoolSignInPolicy signInPolicy() {
+        if (signInPolicy == null) return null;
+        return signInPolicy.getValue("UserPool.signInPolicy");
+    }
 
     /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      * 
      */
-    public String smsAuthenticationMessage;
+    private @Nullable UndeferrableValue<String> smsAuthenticationMessage;
 
-
+    public @Nullable String smsAuthenticationMessage() {
+        if (smsAuthenticationMessage == null) return null;
+        return smsAuthenticationMessage.getValue("UserPool.smsAuthenticationMessage");
+    }
 
     /**
      * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
-    public UserPoolSmsConfiguration smsConfiguration;
+    private UndeferrableValue<UserPoolSmsConfiguration> smsConfiguration;
 
-
+    public UserPoolSmsConfiguration smsConfiguration() {
+        if (smsConfiguration == null) return null;
+        return smsConfiguration.getValue("UserPool.smsConfiguration");
+    }
 
     /**
      * String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      * 
      */
-    public String smsVerificationMessage;
+    private UndeferrableValue<String> smsVerificationMessage;
 
-
+    public String smsVerificationMessage() {
+        if (smsVerificationMessage == null) return null;
+        return smsVerificationMessage.getValue("UserPool.smsVerificationMessage");
+    }
 
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
      * 
      */
-    public UserPoolSoftwareTokenMfaConfiguration softwareTokenMfaConfiguration;
+    private @Nullable UndeferrableValue<UserPoolSoftwareTokenMfaConfiguration> softwareTokenMfaConfiguration;
 
-
+    public @Nullable UserPoolSoftwareTokenMfaConfiguration softwareTokenMfaConfiguration() {
+        if (softwareTokenMfaConfiguration == null) return null;
+        return softwareTokenMfaConfiguration.getValue("UserPool.softwareTokenMfaConfiguration");
+    }
 
     /**
      * Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UserPool.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -263,64 +349,88 @@ public final class UserPool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UserPool.tagsAll");
+    }
 
     /**
      * Configuration block for user attribute update settings. Detailed below.
      * 
      */
-    public UserPoolUserAttributeUpdateSettings userAttributeUpdateSettings;
+    private @Nullable UndeferrableValue<UserPoolUserAttributeUpdateSettings> userAttributeUpdateSettings;
 
-
+    public @Nullable UserPoolUserAttributeUpdateSettings userAttributeUpdateSettings() {
+        if (userAttributeUpdateSettings == null) return null;
+        return userAttributeUpdateSettings.getValue("UserPool.userAttributeUpdateSettings");
+    }
 
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      * 
      */
-    public UserPoolUserPoolAddOns userPoolAddOns;
+    private @Nullable UndeferrableValue<UserPoolUserPoolAddOns> userPoolAddOns;
 
-
+    public @Nullable UserPoolUserPoolAddOns userPoolAddOns() {
+        if (userPoolAddOns == null) return null;
+        return userPoolAddOns.getValue("UserPool.userPoolAddOns");
+    }
 
     /**
      * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
      * 
      */
-    public String userPoolTier;
+    private UndeferrableValue<String> userPoolTier;
 
-
+    public String userPoolTier() {
+        if (userPoolTier == null) return null;
+        return userPoolTier.getValue("UserPool.userPoolTier");
+    }
 
     /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      * 
      */
-    public List<String> usernameAttributes;
+    private @Nullable UndeferrableValue<List<String>> usernameAttributes;
 
-
+    public @Nullable List<String> usernameAttributes() {
+        if (usernameAttributes == null) return null;
+        return usernameAttributes.getValue("UserPool.usernameAttributes");
+    }
 
     /**
      * Configuration block for username configuration. Detailed below.
      * 
      */
-    public UserPoolUsernameConfiguration usernameConfiguration;
+    private UndeferrableValue<UserPoolUsernameConfiguration> usernameConfiguration;
 
-
+    public UserPoolUsernameConfiguration usernameConfiguration() {
+        if (usernameConfiguration == null) return null;
+        return usernameConfiguration.getValue("UserPool.usernameConfiguration");
+    }
 
     /**
      * Configuration block for verification message templates. Detailed below.
      * 
      */
-    public UserPoolVerificationMessageTemplate verificationMessageTemplate;
+    private UndeferrableValue<UserPoolVerificationMessageTemplate> verificationMessageTemplate;
 
-
+    public UserPoolVerificationMessageTemplate verificationMessageTemplate() {
+        if (verificationMessageTemplate == null) return null;
+        return verificationMessageTemplate.getValue("UserPool.verificationMessageTemplate");
+    }
 
     /**
      * Configuration block for web authn configuration. Detailed below.
      * 
      */
-    public UserPoolWebAuthnConfiguration webAuthnConfiguration;
+    private @Nullable UndeferrableValue<UserPoolWebAuthnConfiguration> webAuthnConfiguration;
 
-
+    public @Nullable UserPoolWebAuthnConfiguration webAuthnConfiguration() {
+        if (webAuthnConfiguration == null) return null;
+        return webAuthnConfiguration.getValue("UserPool.webAuthnConfiguration");
+    }
 
 }

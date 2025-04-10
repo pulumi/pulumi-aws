@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive")
-public final class GroupPolicyAttachmentsExclusive extends com.pulumi.resources.PolicyResource {
+public final class GroupPolicyAttachmentsExclusive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IAM group name.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("GroupPolicyAttachmentsExclusive.groupName");
+    }
 
     /**
      * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
-    public List<String> policyArns;
+    private UndeferrableValue<List<String>> policyArns;
 
-
+    public List<String> policyArns() {
+        if (policyArns == null) return null;
+        return policyArns.getValue("GroupPolicyAttachmentsExclusive.policyArns");
+    }
 
 }

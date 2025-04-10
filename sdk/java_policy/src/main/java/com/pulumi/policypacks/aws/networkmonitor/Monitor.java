@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.networkmonitor;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmonitor/monitor:Monitor")
-public final class Monitor extends com.pulumi.resources.PolicyResource {
+public final class Monitor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
      * 
      */
-    public Integer aggregationPeriod;
+    private UndeferrableValue<Integer> aggregationPeriod;
 
-
+    public Integer aggregationPeriod() {
+        if (aggregationPeriod == null) return null;
+        return aggregationPeriod.getValue("Monitor.aggregationPeriod");
+    }
 
     /**
      * The ARN of the monitor.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Monitor.arn");
+    }
 
     /**
      * The name of the monitor.
@@ -34,17 +42,23 @@ public final class Monitor extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String monitorName;
+    private UndeferrableValue<String> monitorName;
 
-
+    public String monitorName() {
+        if (monitorName == null) return null;
+        return monitorName.getValue("Monitor.monitorName");
+    }
 
     /**
      * Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Monitor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -54,8 +68,11 @@ public final class Monitor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Monitor.tagsAll");
+    }
 
 }

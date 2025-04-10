@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.AnalysisParameters;
-import com.pulumi.policypacks.aws.quicksight.AnalysisPermission;
-import com.pulumi.policypacks.aws.quicksight.AnalysisSourceEntity;
+import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisParameters;
+import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisPermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisSourceEntity;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/analysis:Analysis")
-public final class Analysis extends com.pulumi.resources.PolicyResource {
+public final class Analysis extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the analysis.
      * 
      */
-    public String analysisId;
+    private UndeferrableValue<String> analysisId;
 
-
+    public String analysisId() {
+        if (analysisId == null) return null;
+        return analysisId.getValue("Analysis.analysisId");
+    }
 
     /**
      * ARN of the analysis.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Analysis.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Analysis.awsAccountId");
+    }
 
     /**
      * The time that the analysis was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Analysis.createdTime");
+    }
 
+    private UndeferrableValue<String> lastPublishedTime;
 
-    public String lastPublishedTime;
-
-
+    public String lastPublishedTime() {
+        if (lastPublishedTime == null) return null;
+        return lastPublishedTime.getValue("Analysis.lastPublishedTime");
+    }
 
     /**
      * The time that the analysis was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Analysis.lastUpdatedTime");
+    }
 
     /**
      * Display name for the analysis.
@@ -66,57 +86,78 @@ public final class Analysis extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Analysis.name");
+    }
 
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    public AnalysisParameters parameters;
+    private UndeferrableValue<AnalysisParameters> parameters;
 
-
+    public AnalysisParameters parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Analysis.parameters");
+    }
 
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
-    public List<AnalysisPermission> permissions;
+    private @Nullable UndeferrableValue<List<AnalysisPermission>> permissions;
 
-
+    public @Nullable List<AnalysisPermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Analysis.permissions");
+    }
 
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
-    public Integer recoveryWindowInDays;
+    private @Nullable UndeferrableValue<Integer> recoveryWindowInDays;
 
-
+    public @Nullable Integer recoveryWindowInDays() {
+        if (recoveryWindowInDays == null) return null;
+        return recoveryWindowInDays.getValue("Analysis.recoveryWindowInDays");
+    }
 
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    public AnalysisSourceEntity sourceEntity;
+    private @Nullable UndeferrableValue<AnalysisSourceEntity> sourceEntity;
 
-
+    public @Nullable AnalysisSourceEntity sourceEntity() {
+        if (sourceEntity == null) return null;
+        return sourceEntity.getValue("Analysis.sourceEntity");
+    }
 
     /**
      * The analysis creation status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Analysis.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Analysis.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -126,16 +167,22 @@ public final class Analysis extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Analysis.tagsAll");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
-    public String themeArn;
+    private @Nullable UndeferrableValue<String> themeArn;
 
-
+    public @Nullable String themeArn() {
+        if (themeArn == null) return null;
+        return themeArn.getValue("Analysis.themeArn");
+    }
 
 }

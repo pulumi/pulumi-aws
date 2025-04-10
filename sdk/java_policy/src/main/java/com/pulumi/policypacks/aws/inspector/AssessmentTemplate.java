@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.inspector.AssessmentTemplateEventSubscription;
+import com.pulumi.policypacks.aws.inspector.outputs.AssessmentTemplateEventSubscription;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:inspector/assessmentTemplate:AssessmentTemplate")
-public final class AssessmentTemplate extends com.pulumi.resources.PolicyResource {
+public final class AssessmentTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The template assessment ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AssessmentTemplate.arn");
+    }
 
     /**
      * The duration of the inspector run.
      * 
      */
-    public Integer duration;
+    private UndeferrableValue<Integer> duration;
 
-
+    public Integer duration() {
+        if (duration == null) return null;
+        return duration.getValue("AssessmentTemplate.duration");
+    }
 
     /**
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      * 
      */
-    public List<AssessmentTemplateEventSubscription> eventSubscriptions;
+    private @Nullable UndeferrableValue<List<AssessmentTemplateEventSubscription>> eventSubscriptions;
 
-
+    public @Nullable List<AssessmentTemplateEventSubscription> eventSubscriptions() {
+        if (eventSubscriptions == null) return null;
+        return eventSubscriptions.getValue("AssessmentTemplate.eventSubscriptions");
+    }
 
     /**
      * The name of the assessment template.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AssessmentTemplate.name");
+    }
 
     /**
      * The rules to be used during the run.
      * 
      */
-    public List<String> rulesPackageArns;
+    private UndeferrableValue<List<String>> rulesPackageArns;
 
-
+    public List<String> rulesPackageArns() {
+        if (rulesPackageArns == null) return null;
+        return rulesPackageArns.getValue("AssessmentTemplate.rulesPackageArns");
+    }
 
     /**
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AssessmentTemplate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,16 +90,22 @@ public final class AssessmentTemplate extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AssessmentTemplate.tagsAll");
+    }
 
     /**
      * The assessment target ARN to attach the template to.
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
-
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("AssessmentTemplate.targetArn");
+    }
 
 }

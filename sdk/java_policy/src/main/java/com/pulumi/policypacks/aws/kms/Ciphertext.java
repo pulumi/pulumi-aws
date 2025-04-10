@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/ciphertext:Ciphertext")
-public final class Ciphertext extends com.pulumi.resources.PolicyResource {
+public final class Ciphertext extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Base64 encoded ciphertext
      * 
      */
-    public String ciphertextBlob;
+    private UndeferrableValue<String> ciphertextBlob;
 
-
+    public String ciphertextBlob() {
+        if (ciphertextBlob == null) return null;
+        return ciphertextBlob.getValue("Ciphertext.ciphertextBlob");
+    }
 
     /**
      * An optional mapping that makes up the encryption context.
      * 
      */
-    public Map<String,String> context;
+    private @Nullable UndeferrableValue<Map<String,String>> context;
 
-
+    public @Nullable Map<String,String> context() {
+        if (context == null) return null;
+        return context.getValue("Ciphertext.context");
+    }
 
     /**
      * Globally unique key ID for the customer master key.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("Ciphertext.keyId");
+    }
 
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    public String plaintext;
+    private UndeferrableValue<String> plaintext;
 
-
+    public String plaintext() {
+        if (plaintext == null) return null;
+        return plaintext.getValue("Ciphertext.plaintext");
+    }
 
 }

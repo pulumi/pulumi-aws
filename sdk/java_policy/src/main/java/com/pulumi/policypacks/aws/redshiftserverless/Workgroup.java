@@ -3,114 +3,152 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshiftserverless.WorkgroupConfigParameter;
-import com.pulumi.policypacks.aws.redshiftserverless.WorkgroupEndpoint;
+import com.pulumi.policypacks.aws.redshiftserverless.outputs.WorkgroupConfigParameter;
+import com.pulumi.policypacks.aws.redshiftserverless.outputs.WorkgroupEndpoint;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/workgroup:Workgroup")
-public final class Workgroup extends com.pulumi.resources.PolicyResource {
+public final class Workgroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workgroup.arn");
+    }
 
     /**
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      * 
      */
-    public Integer baseCapacity;
+    private UndeferrableValue<Integer> baseCapacity;
 
-
+    public Integer baseCapacity() {
+        if (baseCapacity == null) return null;
+        return baseCapacity.getValue("Workgroup.baseCapacity");
+    }
 
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      * 
      */
-    public List<WorkgroupConfigParameter> configParameters;
+    private UndeferrableValue<List<WorkgroupConfigParameter>> configParameters;
 
-
+    public List<WorkgroupConfigParameter> configParameters() {
+        if (configParameters == null) return null;
+        return configParameters.getValue("Workgroup.configParameters");
+    }
 
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
-    public List<WorkgroupEndpoint> endpoints;
+    private UndeferrableValue<List<WorkgroupEndpoint>> endpoints;
 
-
+    public List<WorkgroupEndpoint> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("Workgroup.endpoints");
+    }
 
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
-    public Boolean enhancedVpcRouting;
+    private @Nullable UndeferrableValue<Boolean> enhancedVpcRouting;
 
-
+    public @Nullable Boolean enhancedVpcRouting() {
+        if (enhancedVpcRouting == null) return null;
+        return enhancedVpcRouting.getValue("Workgroup.enhancedVpcRouting");
+    }
 
     /**
      * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
      * 
      */
-    public Integer maxCapacity;
+    private @Nullable UndeferrableValue<Integer> maxCapacity;
 
-
+    public @Nullable Integer maxCapacity() {
+        if (maxCapacity == null) return null;
+        return maxCapacity.getValue("Workgroup.maxCapacity");
+    }
 
     /**
      * The name of the namespace.
      * 
      */
-    public String namespaceName;
+    private UndeferrableValue<String> namespaceName;
 
-
+    public String namespaceName() {
+        if (namespaceName == null) return null;
+        return namespaceName.getValue("Workgroup.namespaceName");
+    }
 
     /**
      * The port number on which the cluster accepts incoming connections.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Workgroup.port");
+    }
 
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Workgroup.publiclyAccessible");
+    }
 
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Workgroup.securityGroupIds");
+    }
 
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Workgroup.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workgroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -120,17 +158,23 @@ public final class Workgroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workgroup.tagsAll");
+    }
 
     /**
      * The Redshift Workgroup ID.
      * 
      */
-    public String workgroupId;
+    private UndeferrableValue<String> workgroupId;
 
-
+    public String workgroupId() {
+        if (workgroupId == null) return null;
+        return workgroupId.getValue("Workgroup.workgroupId");
+    }
 
     /**
      * The name of the workgroup.
@@ -138,8 +182,11 @@ public final class Workgroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String workgroupName;
+    private UndeferrableValue<String> workgroupName;
 
-
+    public String workgroupName() {
+        if (workgroupName == null) return null;
+        return workgroupName.getValue("Workgroup.workgroupName");
+    }
 
 }

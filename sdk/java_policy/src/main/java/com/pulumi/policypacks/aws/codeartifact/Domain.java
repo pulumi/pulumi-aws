@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codeartifact/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * The total size of all assets in the domain.
      * 
      */
-    public String assetSizeBytes;
+    private UndeferrableValue<String> assetSizeBytes;
 
-
+    public String assetSizeBytes() {
+        if (assetSizeBytes == null) return null;
+        return assetSizeBytes.getValue("Domain.assetSizeBytes");
+    }
 
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Domain.createdTime");
+    }
 
     /**
      * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Domain.domain");
+    }
 
     /**
      * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      * 
      */
-    public String encryptionKey;
+    private UndeferrableValue<String> encryptionKey;
 
-
+    public String encryptionKey() {
+        if (encryptionKey == null) return null;
+        return encryptionKey.getValue("Domain.encryptionKey");
+    }
 
     /**
      * The AWS account ID that owns the domain.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Domain.owner");
+    }
 
     /**
      * The number of repositories in the domain.
      * 
      */
-    public Integer repositoryCount;
+    private UndeferrableValue<Integer> repositoryCount;
 
-
+    public Integer repositoryCount() {
+        if (repositoryCount == null) return null;
+        return repositoryCount.getValue("Domain.repositoryCount");
+    }
 
     /**
      * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
      * 
      */
-    public String s3BucketArn;
+    private UndeferrableValue<String> s3BucketArn;
 
-
+    public String s3BucketArn() {
+        if (s3BucketArn == null) return null;
+        return s3BucketArn.getValue("Domain.s3BucketArn");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
 }

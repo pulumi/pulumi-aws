@@ -3,106 +3,144 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:macie2/member:Member")
-public final class Member extends com.pulumi.resources.PolicyResource {
+public final class Member extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the account.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Member.accountId");
+    }
 
     /**
      * The AWS account ID for the administrator account.
      * 
      */
-    public String administratorAccountId;
+    private UndeferrableValue<String> administratorAccountId;
 
-
+    public String administratorAccountId() {
+        if (administratorAccountId == null) return null;
+        return administratorAccountId.getValue("Member.administratorAccountId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Member.arn");
+    }
 
     /**
      * The email address for the account.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("Member.email");
+    }
 
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
-    public Boolean invitationDisableEmailNotification;
+    private @Nullable UndeferrableValue<Boolean> invitationDisableEmailNotification;
 
-
+    public @Nullable Boolean invitationDisableEmailNotification() {
+        if (invitationDisableEmailNotification == null) return null;
+        return invitationDisableEmailNotification.getValue("Member.invitationDisableEmailNotification");
+    }
 
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
-    public String invitationMessage;
+    private @Nullable UndeferrableValue<String> invitationMessage;
 
-
+    public @Nullable String invitationMessage() {
+        if (invitationMessage == null) return null;
+        return invitationMessage.getValue("Member.invitationMessage");
+    }
 
     /**
      * Send an invitation to a member
      * 
      */
-    public Boolean invite;
+    private UndeferrableValue<Boolean> invite;
 
-
+    public Boolean invite() {
+        if (invite == null) return null;
+        return invite.getValue("Member.invite");
+    }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn&#39;t been sent to the account.
      * 
      */
-    public String invitedAt;
+    private UndeferrableValue<String> invitedAt;
 
+    public String invitedAt() {
+        if (invitedAt == null) return null;
+        return invitedAt.getValue("Member.invitedAt");
+    }
 
+    private UndeferrableValue<String> masterAccountId;
 
-    public String masterAccountId;
-
-
+    public String masterAccountId() {
+        if (masterAccountId == null) return null;
+        return masterAccountId.getValue("Member.masterAccountId");
+    }
 
     /**
      * The current status of the relationship between the account and the administrator account.
      * 
      */
-    public String relationshipStatus;
+    private UndeferrableValue<String> relationshipStatus;
 
-
+    public String relationshipStatus() {
+        if (relationshipStatus == null) return null;
+        return relationshipStatus.getValue("Member.relationshipStatus");
+    }
 
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Member.status");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Member.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,16 +150,22 @@ public final class Member extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Member.tagsAll");
+    }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("Member.updatedAt");
+    }
 
 }

@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")
-public final class EnvironmentBlueprintConfiguration extends com.pulumi.resources.PolicyResource {
+public final class EnvironmentBlueprintConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the Domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("EnvironmentBlueprintConfiguration.domainId");
+    }
 
     /**
      * Regions in which the blueprint is enabled
@@ -26,40 +31,55 @@ public final class EnvironmentBlueprintConfiguration extends com.pulumi.resource
      * The following arguments are optional:
      * 
      */
-    public List<String> enabledRegions;
+    private UndeferrableValue<List<String>> enabledRegions;
 
-
+    public List<String> enabledRegions() {
+        if (enabledRegions == null) return null;
+        return enabledRegions.getValue("EnvironmentBlueprintConfiguration.enabledRegions");
+    }
 
     /**
      * ID of the Environment Blueprint
      * 
      */
-    public String environmentBlueprintId;
+    private UndeferrableValue<String> environmentBlueprintId;
 
-
+    public String environmentBlueprintId() {
+        if (environmentBlueprintId == null) return null;
+        return environmentBlueprintId.getValue("EnvironmentBlueprintConfiguration.environmentBlueprintId");
+    }
 
     /**
      * ARN of the manage access role with which this blueprint is created.
      * 
      */
-    public String manageAccessRoleArn;
+    private @Nullable UndeferrableValue<String> manageAccessRoleArn;
 
-
+    public @Nullable String manageAccessRoleArn() {
+        if (manageAccessRoleArn == null) return null;
+        return manageAccessRoleArn.getValue("EnvironmentBlueprintConfiguration.manageAccessRoleArn");
+    }
 
     /**
      * ARN of the provisioning role with which this blueprint is created.
      * 
      */
-    public String provisioningRoleArn;
+    private @Nullable UndeferrableValue<String> provisioningRoleArn;
 
-
+    public @Nullable String provisioningRoleArn() {
+        if (provisioningRoleArn == null) return null;
+        return provisioningRoleArn.getValue("EnvironmentBlueprintConfiguration.provisioningRoleArn");
+    }
 
     /**
      * Parameters for each region in which the blueprint is enabled
      * 
      */
-    public Map<String,Map<String,String>> regionalParameters;
+    private @Nullable UndeferrableValue<Map<String,Map<String,String>>> regionalParameters;
 
-
+    public @Nullable Map<String,Map<String,String>> regionalParameters() {
+        if (regionalParameters == null) return null;
+        return regionalParameters.getValue("EnvironmentBlueprintConfiguration.regionalParameters");
+    }
 
 }

@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDeliverySource:LogDeliverySource")
-public final class LogDeliverySource extends com.pulumi.resources.PolicyResource {
+public final class LogDeliverySource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the delivery source.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogDeliverySource.arn");
+    }
 
     /**
      * The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
      * 
      */
-    public String logType;
+    private UndeferrableValue<String> logType;
 
-
+    public String logType() {
+        if (logType == null) return null;
+        return logType.getValue("LogDeliverySource.logType");
+    }
 
     /**
      * The name for this delivery source.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogDeliverySource.name");
+    }
 
     /**
      * The ARN of the AWS resource that is generating and sending logs.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("LogDeliverySource.resourceArn");
+    }
 
     /**
      * The AWS service that is sending logs.
      * 
      */
-    public String service;
+    private UndeferrableValue<String> service;
 
-
+    public String service() {
+        if (service == null) return null;
+        return service.getValue("LogDeliverySource.service");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogDeliverySource.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,8 +87,11 @@ public final class LogDeliverySource extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogDeliverySource.tagsAll");
+    }
 
 }

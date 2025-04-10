@@ -3,129 +3,173 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/namespace:Namespace")
-public final class Namespace extends com.pulumi.resources.PolicyResource {
+public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
      * 
      */
-    public String adminPasswordSecretArn;
+    private UndeferrableValue<String> adminPasswordSecretArn;
 
-
+    public String adminPasswordSecretArn() {
+        if (adminPasswordSecretArn == null) return null;
+        return adminPasswordSecretArn.getValue("Namespace.adminPasswordSecretArn");
+    }
 
     /**
      * ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
      * 
      */
-    public String adminPasswordSecretKmsKeyId;
+    private UndeferrableValue<String> adminPasswordSecretKmsKeyId;
 
-
+    public String adminPasswordSecretKmsKeyId() {
+        if (adminPasswordSecretKmsKeyId == null) return null;
+        return adminPasswordSecretKmsKeyId.getValue("Namespace.adminPasswordSecretKmsKeyId");
+    }
 
     /**
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
-    public String adminUserPassword;
+    private @Nullable UndeferrableValue<String> adminUserPassword;
 
-
+    public @Nullable String adminUserPassword() {
+        if (adminUserPassword == null) return null;
+        return adminUserPassword.getValue("Namespace.adminUserPassword");
+    }
 
     /**
      * The username of the administrator for the first database created in the namespace.
      * 
      */
-    public String adminUsername;
+    private UndeferrableValue<String> adminUsername;
 
-
+    public String adminUsername() {
+        if (adminUsername == null) return null;
+        return adminUsername.getValue("Namespace.adminUsername");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Namespace.arn");
+    }
 
     /**
      * The name of the first database created in the namespace.
      * 
      */
-    public String dbName;
+    private UndeferrableValue<String> dbName;
 
-
+    public String dbName() {
+        if (dbName == null) return null;
+        return dbName.getValue("Namespace.dbName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
-    public String defaultIamRoleArn;
+    private @Nullable UndeferrableValue<String> defaultIamRoleArn;
 
-
+    public @Nullable String defaultIamRoleArn() {
+        if (defaultIamRoleArn == null) return null;
+        return defaultIamRoleArn.getValue("Namespace.defaultIamRoleArn");
+    }
 
     /**
      * A list of IAM roles to associate with the namespace.
      * 
      */
-    public List<String> iamRoles;
+    private UndeferrableValue<List<String>> iamRoles;
 
-
+    public List<String> iamRoles() {
+        if (iamRoles == null) return null;
+        return iamRoles.getValue("Namespace.iamRoles");
+    }
 
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Namespace.kmsKeyId");
+    }
 
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      * 
      */
-    public List<String> logExports;
+    private @Nullable UndeferrableValue<List<String>> logExports;
 
-
+    public @Nullable List<String> logExports() {
+        if (logExports == null) return null;
+        return logExports.getValue("Namespace.logExports");
+    }
 
     /**
      * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
      * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
-    public Boolean manageAdminPassword;
+    private @Nullable UndeferrableValue<Boolean> manageAdminPassword;
 
-
+    public @Nullable Boolean manageAdminPassword() {
+        if (manageAdminPassword == null) return null;
+        return manageAdminPassword.getValue("Namespace.manageAdminPassword");
+    }
 
     /**
      * The Redshift Namespace ID.
      * 
      */
-    public String namespaceId;
+    private UndeferrableValue<String> namespaceId;
 
-
+    public String namespaceId() {
+        if (namespaceId == null) return null;
+        return namespaceId.getValue("Namespace.namespaceId");
+    }
 
     /**
      * The name of the namespace.
      * 
      */
-    public String namespaceName;
+    private UndeferrableValue<String> namespaceName;
 
-
+    public String namespaceName() {
+        if (namespaceName == null) return null;
+        return namespaceName.getValue("Namespace.namespaceName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Namespace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -135,8 +179,11 @@ public final class Namespace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Namespace.tagsAll");
+    }
 
 }

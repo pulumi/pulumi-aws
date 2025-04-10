@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.sqs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sqs/redrivePolicy:RedrivePolicy")
-public final class RedrivePolicy extends com.pulumi.resources.PolicyResource {
+public final class RedrivePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The URL of the SQS Queue to which to attach the policy
      * 
      */
-    public String queueUrl;
+    private UndeferrableValue<String> queueUrl;
 
-
+    public String queueUrl() {
+        if (queueUrl == null) return null;
+        return queueUrl.getValue("RedrivePolicy.queueUrl");
+    }
 
     /**
      * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      * 
      */
-    public String redrivePolicy;
+    private UndeferrableValue<String> redrivePolicy;
 
-
+    public String redrivePolicy() {
+        if (redrivePolicy == null) return null;
+        return redrivePolicy.getValue("RedrivePolicy.redrivePolicy");
+    }
 
 }

@@ -3,102 +3,137 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")
-public final class SecurityGroupEgressRule extends com.pulumi.resources.PolicyResource {
+public final class SecurityGroupEgressRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the security group rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SecurityGroupEgressRule.arn");
+    }
 
     /**
      * The destination IPv4 CIDR range.
      * 
      */
-    public String cidrIpv4;
+    private @Nullable UndeferrableValue<String> cidrIpv4;
 
-
+    public @Nullable String cidrIpv4() {
+        if (cidrIpv4 == null) return null;
+        return cidrIpv4.getValue("SecurityGroupEgressRule.cidrIpv4");
+    }
 
     /**
      * The destination IPv6 CIDR range.
      * 
      */
-    public String cidrIpv6;
+    private @Nullable UndeferrableValue<String> cidrIpv6;
 
-
+    public @Nullable String cidrIpv6() {
+        if (cidrIpv6 == null) return null;
+        return cidrIpv6.getValue("SecurityGroupEgressRule.cidrIpv6");
+    }
 
     /**
      * The security group rule description.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SecurityGroupEgressRule.description");
+    }
 
     /**
      * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
-    public Integer fromPort;
+    private @Nullable UndeferrableValue<Integer> fromPort;
 
-
+    public @Nullable Integer fromPort() {
+        if (fromPort == null) return null;
+        return fromPort.getValue("SecurityGroupEgressRule.fromPort");
+    }
 
     /**
      * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
      * 
      */
-    public String ipProtocol;
+    private UndeferrableValue<String> ipProtocol;
 
-
+    public String ipProtocol() {
+        if (ipProtocol == null) return null;
+        return ipProtocol.getValue("SecurityGroupEgressRule.ipProtocol");
+    }
 
     /**
      * The ID of the destination prefix list.
      * 
      */
-    public String prefixListId;
+    private @Nullable UndeferrableValue<String> prefixListId;
 
-
+    public @Nullable String prefixListId() {
+        if (prefixListId == null) return null;
+        return prefixListId.getValue("SecurityGroupEgressRule.prefixListId");
+    }
 
     /**
      * The destination security group that is referenced in the rule.
      * 
      */
-    public String referencedSecurityGroupId;
+    private @Nullable UndeferrableValue<String> referencedSecurityGroupId;
 
-
+    public @Nullable String referencedSecurityGroupId() {
+        if (referencedSecurityGroupId == null) return null;
+        return referencedSecurityGroupId.getValue("SecurityGroupEgressRule.referencedSecurityGroupId");
+    }
 
     /**
      * The ID of the security group.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("SecurityGroupEgressRule.securityGroupId");
+    }
 
     /**
      * The ID of the security group rule.
      * 
      */
-    public String securityGroupRuleId;
+    private UndeferrableValue<String> securityGroupRuleId;
 
-
+    public String securityGroupRuleId() {
+        if (securityGroupRuleId == null) return null;
+        return securityGroupRuleId.getValue("SecurityGroupEgressRule.securityGroupRuleId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SecurityGroupEgressRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,16 +143,22 @@ public final class SecurityGroupEgressRule extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SecurityGroupEgressRule.tagsAll");
+    }
 
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
-    public Integer toPort;
+    private @Nullable UndeferrableValue<Integer> toPort;
 
-
+    public @Nullable Integer toPort() {
+        if (toPort == null) return null;
+        return toPort.getValue("SecurityGroupEgressRule.toPort");
+    }
 
 }

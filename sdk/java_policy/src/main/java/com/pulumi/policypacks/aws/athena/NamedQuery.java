@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/namedQuery:NamedQuery")
-public final class NamedQuery extends com.pulumi.resources.PolicyResource {
+public final class NamedQuery extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Database to which the query belongs.
      * 
      */
-    public String database;
+    private UndeferrableValue<String> database;
 
-
+    public String database() {
+        if (database == null) return null;
+        return database.getValue("NamedQuery.database");
+    }
 
     /**
      * Brief explanation of the query. Maximum length of 1024.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("NamedQuery.description");
+    }
 
     /**
      * Plain language name for the query. Maximum length of 128.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("NamedQuery.name");
+    }
 
     /**
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
-    public String query;
+    private UndeferrableValue<String> query;
 
-
+    public String query() {
+        if (query == null) return null;
+        return query.getValue("NamedQuery.query");
+    }
 
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
-    public String workgroup;
+    private @Nullable UndeferrableValue<String> workgroup;
 
-
+    public @Nullable String workgroup() {
+        if (workgroup == null) return null;
+        return workgroup.getValue("NamedQuery.workgroup");
+    }
 
 }

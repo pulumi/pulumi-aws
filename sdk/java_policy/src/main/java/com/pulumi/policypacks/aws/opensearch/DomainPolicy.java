@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opensearch/domainPolicy:DomainPolicy")
-public final class DomainPolicy extends com.pulumi.resources.PolicyResource {
+public final class DomainPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IAM policy document specifying the access policies for the domain
      * 
      */
-    public String accessPolicies;
+    private UndeferrableValue<String> accessPolicies;
 
-
+    public String accessPolicies() {
+        if (accessPolicies == null) return null;
+        return accessPolicies.getValue("DomainPolicy.accessPolicies");
+    }
 
     /**
      * Name of the domain.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainPolicy.domainName");
+    }
 
 }

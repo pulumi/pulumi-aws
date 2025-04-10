@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation")
-public final class DomainNameAccessAssociation extends com.pulumi.resources.PolicyResource {
+public final class DomainNameAccessAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
-    public String accessAssociationSource;
+    private UndeferrableValue<String> accessAssociationSource;
 
-
+    public String accessAssociationSource() {
+        if (accessAssociationSource == null) return null;
+        return accessAssociationSource.getValue("DomainNameAccessAssociation.accessAssociationSource");
+    }
 
     /**
      * The type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
-    public String accessAssociationSourceType;
+    private UndeferrableValue<String> accessAssociationSourceType;
 
-
+    public String accessAssociationSourceType() {
+        if (accessAssociationSourceType == null) return null;
+        return accessAssociationSourceType.getValue("DomainNameAccessAssociation.accessAssociationSourceType");
+    }
 
     /**
      * ARN of the domain name access association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainNameAccessAssociation.arn");
+    }
 
     /**
      * The ARN of the domain name.
      * 
      */
-    public String domainNameArn;
+    private UndeferrableValue<String> domainNameArn;
 
-
+    public String domainNameArn() {
+        if (domainNameArn == null) return null;
+        return domainNameArn.getValue("DomainNameAccessAssociation.domainNameArn");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DomainNameAccessAssociation.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class DomainNameAccessAssociation extends com.pulumi.resources.Poli
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DomainNameAccessAssociation.tagsAll");
+    }
 
 }

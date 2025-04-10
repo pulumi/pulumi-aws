@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/routeTable:RouteTable")
-public final class RouteTable extends com.pulumi.resources.PolicyResource {
+public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RouteTable.arn");
+    }
 
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      * 
      */
-    public Boolean defaultAssociationRouteTable;
+    private UndeferrableValue<Boolean> defaultAssociationRouteTable;
 
-
+    public Boolean defaultAssociationRouteTable() {
+        if (defaultAssociationRouteTable == null) return null;
+        return defaultAssociationRouteTable.getValue("RouteTable.defaultAssociationRouteTable");
+    }
 
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      * 
      */
-    public Boolean defaultPropagationRouteTable;
+    private UndeferrableValue<Boolean> defaultPropagationRouteTable;
 
-
+    public Boolean defaultPropagationRouteTable() {
+        if (defaultPropagationRouteTable == null) return null;
+        return defaultPropagationRouteTable.getValue("RouteTable.defaultPropagationRouteTable");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RouteTable.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,16 +66,22 @@ public final class RouteTable extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RouteTable.tagsAll");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("RouteTable.transitGatewayId");
+    }
 
 }

@@ -3,90 +3,119 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.CaCertificateRegistrationConfig;
-import com.pulumi.policypacks.aws.iot.CaCertificateValidity;
+import com.pulumi.policypacks.aws.iot.outputs.CaCertificateRegistrationConfig;
+import com.pulumi.policypacks.aws.iot.outputs.CaCertificateValidity;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/caCertificate:CaCertificate")
-public final class CaCertificate extends com.pulumi.resources.PolicyResource {
+public final class CaCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Boolean flag to indicate if the certificate should be active for device authentication.
      * 
      */
-    public Boolean active;
+    private UndeferrableValue<Boolean> active;
 
-
+    public Boolean active() {
+        if (active == null) return null;
+        return active.getValue("CaCertificate.active");
+    }
 
     /**
      * Boolean flag to indicate if the certificate should be active for device regisration.
      * 
      */
-    public Boolean allowAutoRegistration;
+    private UndeferrableValue<Boolean> allowAutoRegistration;
 
-
+    public Boolean allowAutoRegistration() {
+        if (allowAutoRegistration == null) return null;
+        return allowAutoRegistration.getValue("CaCertificate.allowAutoRegistration");
+    }
 
     /**
      * The ARN of the created CA certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CaCertificate.arn");
+    }
 
     /**
      * PEM encoded CA certificate.
      * 
      */
-    public String caCertificatePem;
+    private UndeferrableValue<String> caCertificatePem;
 
-
+    public String caCertificatePem() {
+        if (caCertificatePem == null) return null;
+        return caCertificatePem.getValue("CaCertificate.caCertificatePem");
+    }
 
     /**
      * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
-    public String certificateMode;
+    private @Nullable UndeferrableValue<String> certificateMode;
 
-
+    public @Nullable String certificateMode() {
+        if (certificateMode == null) return null;
+        return certificateMode.getValue("CaCertificate.certificateMode");
+    }
 
     /**
      * The customer version of the CA certificate.
      * 
      */
-    public Integer customerVersion;
+    private UndeferrableValue<Integer> customerVersion;
 
-
+    public Integer customerVersion() {
+        if (customerVersion == null) return null;
+        return customerVersion.getValue("CaCertificate.customerVersion");
+    }
 
     /**
      * The generation ID of the CA certificate.
      * 
      */
-    public String generationId;
+    private UndeferrableValue<String> generationId;
 
-
+    public String generationId() {
+        if (generationId == null) return null;
+        return generationId.getValue("CaCertificate.generationId");
+    }
 
     /**
      * Information about the registration configuration. See below.
      * 
      */
-    public CaCertificateRegistrationConfig registrationConfig;
+    private @Nullable UndeferrableValue<CaCertificateRegistrationConfig> registrationConfig;
 
-
+    public @Nullable CaCertificateRegistrationConfig registrationConfig() {
+        if (registrationConfig == null) return null;
+        return registrationConfig.getValue("CaCertificate.registrationConfig");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CaCertificate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,25 +125,34 @@ public final class CaCertificate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CaCertificate.tagsAll");
+    }
 
     /**
      * When the CA certificate is valid.
      * 
      */
-    public List<CaCertificateValidity> validities;
+    private UndeferrableValue<List<CaCertificateValidity>> validities;
 
-
+    public List<CaCertificateValidity> validities() {
+        if (validities == null) return null;
+        return validities.getValue("CaCertificate.validities");
+    }
 
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
      * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
      * 
      */
-    public String verificationCertificatePem;
+    private @Nullable UndeferrableValue<String> verificationCertificatePem;
 
-
+    public @Nullable String verificationCertificatePem() {
+        if (verificationCertificatePem == null) return null;
+        return verificationCertificatePem.getValue("CaCertificate.verificationCertificatePem");
+    }
 
 }

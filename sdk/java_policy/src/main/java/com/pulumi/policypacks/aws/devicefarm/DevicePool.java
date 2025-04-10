@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.devicefarm.DevicePoolRule;
+import com.pulumi.policypacks.aws.devicefarm.outputs.DevicePoolRule;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/devicePool:DevicePool")
-public final class DevicePool extends com.pulumi.resources.PolicyResource {
+public final class DevicePool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this Device Pool
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DevicePool.arn");
+    }
 
     /**
      * The device pool&#39;s description.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DevicePool.description");
+    }
 
     /**
      * The number of devices that Device Farm can add to your device pool.
      * 
      */
-    public Integer maxDevices;
+    private @Nullable UndeferrableValue<Integer> maxDevices;
 
-
+    public @Nullable Integer maxDevices() {
+        if (maxDevices == null) return null;
+        return maxDevices.getValue("DevicePool.maxDevices");
+    }
 
     /**
      * The name of the Device Pool
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DevicePool.name");
+    }
 
     /**
      * The ARN of the project for the device pool.
      * 
      */
-    public String projectArn;
+    private UndeferrableValue<String> projectArn;
 
-
+    public String projectArn() {
+        if (projectArn == null) return null;
+        return projectArn.getValue("DevicePool.projectArn");
+    }
 
     /**
      * The device pool&#39;s rules. See Rule.
      * 
      */
-    public List<DevicePoolRule> rules;
+    private UndeferrableValue<List<DevicePoolRule>> rules;
 
-
+    public List<DevicePoolRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("DevicePool.rules");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DevicePool.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,12 +101,18 @@ public final class DevicePool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DevicePool.tagsAll");
+    }
 
+    private UndeferrableValue<String> type;
 
-    public String type;
-
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DevicePool.type");
+    }
 
 }

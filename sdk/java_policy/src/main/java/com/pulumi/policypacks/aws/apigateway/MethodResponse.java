@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/methodResponse:MethodResponse")
-public final class MethodResponse extends com.pulumi.resources.PolicyResource {
+public final class MethodResponse extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
-    public String httpMethod;
+    private UndeferrableValue<String> httpMethod;
 
-
+    public String httpMethod() {
+        if (httpMethod == null) return null;
+        return httpMethod.getValue("MethodResponse.httpMethod");
+    }
 
     /**
      * The Resource identifier for the method resource.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("MethodResponse.resourceId");
+    }
 
     /**
      * A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
-    public Map<String,String> responseModels;
+    private @Nullable UndeferrableValue<Map<String,String>> responseModels;
 
-
+    public @Nullable Map<String,String> responseModels() {
+        if (responseModels == null) return null;
+        return responseModels.getValue("MethodResponse.responseModels");
+    }
 
     /**
      * A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -42,24 +53,33 @@ public final class MethodResponse extends com.pulumi.resources.PolicyResource {
      * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
-    public Map<String,Boolean> responseParameters;
+    private @Nullable UndeferrableValue<Map<String,Boolean>> responseParameters;
 
-
+    public @Nullable Map<String,Boolean> responseParameters() {
+        if (responseParameters == null) return null;
+        return responseParameters.getValue("MethodResponse.responseParameters");
+    }
 
     /**
      * The string identifier of the associated REST API.
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("MethodResponse.restApi");
+    }
 
     /**
      * The method response&#39;s status code.
      * 
      */
-    public String statusCode;
+    private UndeferrableValue<String> statusCode;
 
-
+    public String statusCode() {
+        if (statusCode == null) return null;
+        return statusCode.getValue("MethodResponse.statusCode");
+    }
 
 }

@@ -3,93 +3,122 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsDataCellsFilter;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsDataLocation;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsDatabase;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsLfTag;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsLfTagPolicy;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsTable;
-import com.pulumi.policypacks.aws.lakeformation.PermissionsTableWithColumns;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsDataCellsFilter;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsDataLocation;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsDatabase;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsLfTag;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsLfTagPolicy;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsTable;
+import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsTableWithColumns;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lakeformation/permissions:Permissions")
-public final class Permissions extends com.pulumi.resources.PolicyResource {
+public final class Permissions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    public String catalogId;
+    private @Nullable UndeferrableValue<String> catalogId;
 
-
+    public @Nullable String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("Permissions.catalogId");
+    }
 
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      * 
      */
-    public Boolean catalogResource;
+    private @Nullable UndeferrableValue<Boolean> catalogResource;
 
-
+    public @Nullable Boolean catalogResource() {
+        if (catalogResource == null) return null;
+        return catalogResource.getValue("Permissions.catalogResource");
+    }
 
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      * 
      */
-    public PermissionsDataCellsFilter dataCellsFilter;
+    private @Nullable UndeferrableValue<PermissionsDataCellsFilter> dataCellsFilter;
 
-
+    public @Nullable PermissionsDataCellsFilter dataCellsFilter() {
+        if (dataCellsFilter == null) return null;
+        return dataCellsFilter.getValue("Permissions.dataCellsFilter");
+    }
 
     /**
      * Configuration block for a data location resource. Detailed below.
      * 
      */
-    public PermissionsDataLocation dataLocation;
+    private UndeferrableValue<PermissionsDataLocation> dataLocation;
 
-
+    public PermissionsDataLocation dataLocation() {
+        if (dataLocation == null) return null;
+        return dataLocation.getValue("Permissions.dataLocation");
+    }
 
     /**
      * Configuration block for a database resource. Detailed below.
      * 
      */
-    public PermissionsDatabase database;
+    private UndeferrableValue<PermissionsDatabase> database;
 
-
+    public PermissionsDatabase database() {
+        if (database == null) return null;
+        return database.getValue("Permissions.database");
+    }
 
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      * 
      */
-    public PermissionsLfTag lfTag;
+    private UndeferrableValue<PermissionsLfTag> lfTag;
 
-
+    public PermissionsLfTag lfTag() {
+        if (lfTag == null) return null;
+        return lfTag.getValue("Permissions.lfTag");
+    }
 
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      * 
      */
-    public PermissionsLfTagPolicy lfTagPolicy;
+    private UndeferrableValue<PermissionsLfTagPolicy> lfTagPolicy;
 
-
+    public PermissionsLfTagPolicy lfTagPolicy() {
+        if (lfTagPolicy == null) return null;
+        return lfTagPolicy.getValue("Permissions.lfTagPolicy");
+    }
 
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    public List<String> permissions;
+    private UndeferrableValue<List<String>> permissions;
 
-
+    public List<String> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Permissions.permissions");
+    }
 
     /**
      * Subset of `permissions` which the principal can pass.
      * 
      */
-    public List<String> permissionsWithGrantOptions;
+    private UndeferrableValue<List<String>> permissionsWithGrantOptions;
 
-
+    public List<String> permissionsWithGrantOptions() {
+        if (permissionsWithGrantOptions == null) return null;
+        return permissionsWithGrantOptions.getValue("Permissions.permissionsWithGrantOptions");
+    }
 
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -99,17 +128,23 @@ public final class Permissions extends com.pulumi.resources.PolicyResource {
      * One of the following is required:
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("Permissions.principal");
+    }
 
     /**
      * Configuration block for a table resource. Detailed below.
      * 
      */
-    public PermissionsTable table;
+    private UndeferrableValue<PermissionsTable> table;
 
-
+    public PermissionsTable table() {
+        if (table == null) return null;
+        return table.getValue("Permissions.table");
+    }
 
     /**
      * Configuration block for a table with columns resource. Detailed below.
@@ -117,8 +152,11 @@ public final class Permissions extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public PermissionsTableWithColumns tableWithColumns;
+    private UndeferrableValue<PermissionsTableWithColumns> tableWithColumns;
 
-
+    public PermissionsTableWithColumns tableWithColumns() {
+        if (tableWithColumns == null) return null;
+        return tableWithColumns.getValue("Permissions.tableWithColumns");
+    }
 
 }

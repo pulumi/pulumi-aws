@@ -3,84 +3,110 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcPeeringConnectionAccepter;
-import com.pulumi.policypacks.aws.ec2.VpcPeeringConnectionRequester;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcPeeringConnectionAccepter;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcPeeringConnectionRequester;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcPeeringConnection:VpcPeeringConnection")
-public final class VpcPeeringConnection extends com.pulumi.resources.PolicyResource {
+public final class VpcPeeringConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The status of the VPC Peering Connection request.
      * 
      */
-    public String acceptStatus;
+    private UndeferrableValue<String> acceptStatus;
 
-
+    public String acceptStatus() {
+        if (acceptStatus == null) return null;
+        return acceptStatus.getValue("VpcPeeringConnection.acceptStatus");
+    }
 
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      * 
      */
-    public VpcPeeringConnectionAccepter accepter;
+    private UndeferrableValue<VpcPeeringConnectionAccepter> accepter;
 
-
+    public VpcPeeringConnectionAccepter accepter() {
+        if (accepter == null) return null;
+        return accepter.getValue("VpcPeeringConnection.accepter");
+    }
 
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      * 
      */
-    public Boolean autoAccept;
+    private @Nullable UndeferrableValue<Boolean> autoAccept;
 
-
+    public @Nullable Boolean autoAccept() {
+        if (autoAccept == null) return null;
+        return autoAccept.getValue("VpcPeeringConnection.autoAccept");
+    }
 
     /**
      * The AWS account ID of the target peer VPC.
      * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      * 
      */
-    public String peerOwnerId;
+    private UndeferrableValue<String> peerOwnerId;
 
-
+    public String peerOwnerId() {
+        if (peerOwnerId == null) return null;
+        return peerOwnerId.getValue("VpcPeeringConnection.peerOwnerId");
+    }
 
     /**
      * The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
      * and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
      * 
      */
-    public String peerRegion;
+    private UndeferrableValue<String> peerRegion;
 
-
+    public String peerRegion() {
+        if (peerRegion == null) return null;
+        return peerRegion.getValue("VpcPeeringConnection.peerRegion");
+    }
 
     /**
      * The ID of the target VPC with which you are creating the VPC Peering Connection.
      * 
      */
-    public String peerVpcId;
+    private UndeferrableValue<String> peerVpcId;
 
-
+    public String peerVpcId() {
+        if (peerVpcId == null) return null;
+        return peerVpcId.getValue("VpcPeeringConnection.peerVpcId");
+    }
 
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      * 
      */
-    public VpcPeeringConnectionRequester requester;
+    private UndeferrableValue<VpcPeeringConnectionRequester> requester;
 
-
+    public VpcPeeringConnectionRequester requester() {
+        if (requester == null) return null;
+        return requester.getValue("VpcPeeringConnection.requester");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcPeeringConnection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -90,16 +116,22 @@ public final class VpcPeeringConnection extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcPeeringConnection.tagsAll");
+    }
 
     /**
      * The ID of the requester VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcPeeringConnection.vpcId");
+    }
 
 }

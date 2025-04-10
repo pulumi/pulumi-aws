@@ -3,20 +3,24 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
 
 
 @PolicyResourceType(type="aws:backup/globalSettings:GlobalSettings")
-public final class GlobalSettings extends com.pulumi.resources.PolicyResource {
+public final class GlobalSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of resources along with the opt-in preferences for the account.
      * 
      */
-    public Map<String,String> globalSettings;
+    private UndeferrableValue<Map<String,String>> globalSettings;
 
-
+    public Map<String,String> globalSettings() {
+        if (globalSettings == null) return null;
+        return globalSettings.getValue("GlobalSettings.globalSettings");
+    }
 
 }

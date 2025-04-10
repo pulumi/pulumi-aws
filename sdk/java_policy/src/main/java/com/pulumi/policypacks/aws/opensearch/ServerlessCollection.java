@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.ServerlessCollectionTimeouts;
+import com.pulumi.policypacks.aws.opensearch.outputs.ServerlessCollectionTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/serverlessCollection:ServerlessCollection")
-public final class ServerlessCollection extends com.pulumi.resources.PolicyResource {
+public final class ServerlessCollection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the collection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServerlessCollection.arn");
+    }
 
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
-    public String collectionEndpoint;
+    private UndeferrableValue<String> collectionEndpoint;
 
-
+    public String collectionEndpoint() {
+        if (collectionEndpoint == null) return null;
+        return collectionEndpoint.getValue("ServerlessCollection.collectionEndpoint");
+    }
 
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
-    public String dashboardEndpoint;
+    private UndeferrableValue<String> dashboardEndpoint;
 
-
+    public String dashboardEndpoint() {
+        if (dashboardEndpoint == null) return null;
+        return dashboardEndpoint.getValue("ServerlessCollection.dashboardEndpoint");
+    }
 
     /**
      * Description of the collection.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ServerlessCollection.description");
+    }
 
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("ServerlessCollection.kmsKeyArn");
+    }
 
     /**
      * Name of the collection.
@@ -58,25 +75,34 @@ public final class ServerlessCollection extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessCollection.name");
+    }
 
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    public String standbyReplicas;
+    private UndeferrableValue<String> standbyReplicas;
 
-
+    public String standbyReplicas() {
+        if (standbyReplicas == null) return null;
+        return standbyReplicas.getValue("ServerlessCollection.standbyReplicas");
+    }
 
     /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServerlessCollection.tags");
+    }
 
     /**
      * @deprecated
@@ -84,20 +110,29 @@ public final class ServerlessCollection extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServerlessCollection.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ServerlessCollectionTimeouts> timeouts;
 
-    public ServerlessCollectionTimeouts timeouts;
-
-
+    public @Nullable ServerlessCollectionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ServerlessCollection.timeouts");
+    }
 
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ServerlessCollection.type");
+    }
 
 }

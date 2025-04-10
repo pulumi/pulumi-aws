@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sesv2.EmailIdentityDkimSigningAttributes;
+import com.pulumi.policypacks.aws.sesv2.outputs.EmailIdentityDkimSigningAttributes;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/emailIdentity:EmailIdentity")
-public final class EmailIdentity extends com.pulumi.resources.PolicyResource {
+public final class EmailIdentity extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Email Identity.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EmailIdentity.arn");
+    }
 
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      * 
      */
-    public String configurationSetName;
+    private @Nullable UndeferrableValue<String> configurationSetName;
 
-
+    public @Nullable String configurationSetName() {
+        if (configurationSetName == null) return null;
+        return configurationSetName.getValue("EmailIdentity.configurationSetName");
+    }
 
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      * 
      */
-    public EmailIdentityDkimSigningAttributes dkimSigningAttributes;
+    private UndeferrableValue<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
 
-
+    public EmailIdentityDkimSigningAttributes dkimSigningAttributes() {
+        if (dkimSigningAttributes == null) return null;
+        return dkimSigningAttributes.getValue("EmailIdentity.dkimSigningAttributes");
+    }
 
     /**
      * The email address or domain to verify.
@@ -43,25 +54,34 @@ public final class EmailIdentity extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String emailIdentity;
+    private UndeferrableValue<String> emailIdentity;
 
-
+    public String emailIdentity() {
+        if (emailIdentity == null) return null;
+        return emailIdentity.getValue("EmailIdentity.emailIdentity");
+    }
 
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    public String identityType;
+    private UndeferrableValue<String> identityType;
 
-
+    public String identityType() {
+        if (identityType == null) return null;
+        return identityType.getValue("EmailIdentity.identityType");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EmailIdentity.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,16 +91,22 @@ public final class EmailIdentity extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EmailIdentity.tagsAll");
+    }
 
     /**
      * Specifies whether or not the identity is verified.
      * 
      */
-    public Boolean verifiedForSendingStatus;
+    private UndeferrableValue<Boolean> verifiedForSendingStatus;
 
-
+    public Boolean verifiedForSendingStatus() {
+        if (verifiedForSendingStatus == null) return null;
+        return verifiedForSendingStatus.getValue("EmailIdentity.verifiedForSendingStatus");
+    }
 
 }

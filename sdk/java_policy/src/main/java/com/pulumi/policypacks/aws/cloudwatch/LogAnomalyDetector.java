@@ -3,68 +3,91 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")
-public final class LogAnomalyDetector extends com.pulumi.resources.PolicyResource {
+public final class LogAnomalyDetector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
      * 
      */
-    public Integer anomalyVisibilityTime;
+    private UndeferrableValue<Integer> anomalyVisibilityTime;
 
-
+    public Integer anomalyVisibilityTime() {
+        if (anomalyVisibilityTime == null) return null;
+        return anomalyVisibilityTime.getValue("LogAnomalyDetector.anomalyVisibilityTime");
+    }
 
     /**
      * ARN of the log anomaly detector that you just created.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogAnomalyDetector.arn");
+    }
 
     /**
      * Name for this anomaly detector.
      * 
      */
-    public String detectorName;
+    private @Nullable UndeferrableValue<String> detectorName;
 
+    public @Nullable String detectorName() {
+        if (detectorName == null) return null;
+        return detectorName.getValue("LogAnomalyDetector.detectorName");
+    }
 
+    private UndeferrableValue<Boolean> enabled;
 
-    public Boolean enabled;
-
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("LogAnomalyDetector.enabled");
+    }
 
     /**
      * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
      * 
      */
-    public String evaluationFrequency;
+    private @Nullable UndeferrableValue<String> evaluationFrequency;
 
-
+    public @Nullable String evaluationFrequency() {
+        if (evaluationFrequency == null) return null;
+        return evaluationFrequency.getValue("LogAnomalyDetector.evaluationFrequency");
+    }
 
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
-    public String filterPattern;
+    private @Nullable UndeferrableValue<String> filterPattern;
 
-
+    public @Nullable String filterPattern() {
+        if (filterPattern == null) return null;
+        return filterPattern.getValue("LogAnomalyDetector.filterPattern");
+    }
 
     /**
      * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("LogAnomalyDetector.kmsKeyId");
+    }
 
     /**
      * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
@@ -72,13 +95,19 @@ public final class LogAnomalyDetector extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public List<String> logGroupArnLists;
+    private UndeferrableValue<List<String>> logGroupArnLists;
 
+    public List<String> logGroupArnLists() {
+        if (logGroupArnLists == null) return null;
+        return logGroupArnLists.getValue("LogAnomalyDetector.logGroupArnLists");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogAnomalyDetector.tags");
+    }
 
     /**
      * @deprecated
@@ -86,8 +115,11 @@ public final class LogAnomalyDetector extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogAnomalyDetector.tagsAll");
+    }
 
 }

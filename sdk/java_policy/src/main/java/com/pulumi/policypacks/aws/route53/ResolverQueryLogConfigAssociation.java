@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")
-public final class ResolverQueryLogConfigAssociation extends com.pulumi.resources.PolicyResource {
+public final class ResolverQueryLogConfigAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      * 
      */
-    public String resolverQueryLogConfigId;
+    private UndeferrableValue<String> resolverQueryLogConfigId;
 
-
+    public String resolverQueryLogConfigId() {
+        if (resolverQueryLogConfigId == null) return null;
+        return resolverQueryLogConfigId.getValue("ResolverQueryLogConfigAssociation.resolverQueryLogConfigId");
+    }
 
     /**
      * The ID of a VPC that you want this query logging configuration to log queries for.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ResolverQueryLogConfigAssociation.resourceId");
+    }
 
 }

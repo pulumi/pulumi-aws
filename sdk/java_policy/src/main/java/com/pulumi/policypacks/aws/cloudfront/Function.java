@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/function:Function")
-public final class Function extends com.pulumi.resources.PolicyResource {
+public final class Function extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Function.arn");
+    }
 
     /**
      * Source code of the function
      * 
      */
-    public String code;
+    private UndeferrableValue<String> code;
 
-
+    public String code() {
+        if (code == null) return null;
+        return code.getValue("Function.code");
+    }
 
     /**
      * Comment.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("Function.comment");
+    }
 
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("Function.etag");
+    }
 
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
      * 
      */
-    public List<String> keyValueStoreAssociations;
+    private @Nullable UndeferrableValue<List<String>> keyValueStoreAssociations;
 
-
+    public @Nullable List<String> keyValueStoreAssociations() {
+        if (keyValueStoreAssociations == null) return null;
+        return keyValueStoreAssociations.getValue("Function.keyValueStoreAssociations");
+    }
 
     /**
      * ETag hash of any `LIVE` stage of the function.
      * 
      */
-    public String liveStageEtag;
+    private UndeferrableValue<String> liveStageEtag;
 
-
+    public String liveStageEtag() {
+        if (liveStageEtag == null) return null;
+        return liveStageEtag.getValue("Function.liveStageEtag");
+    }
 
     /**
      * Unique name for your CloudFront Function.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Function.name");
+    }
 
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      * 
      */
-    public Boolean publish;
+    private @Nullable UndeferrableValue<Boolean> publish;
 
-
+    public @Nullable Boolean publish() {
+        if (publish == null) return null;
+        return publish.getValue("Function.publish");
+    }
 
     /**
      * Identifier of the function&#39;s runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
@@ -82,16 +108,22 @@ public final class Function extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String runtime;
+    private UndeferrableValue<String> runtime;
 
-
+    public String runtime() {
+        if (runtime == null) return null;
+        return runtime.getValue("Function.runtime");
+    }
 
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Function.status");
+    }
 
 }

@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpc.SecurityGroupVpcAssociationTimeouts;
+import com.pulumi.policypacks.aws.vpc.outputs.SecurityGroupVpcAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation")
-public final class SecurityGroupVpcAssociation extends com.pulumi.resources.PolicyResource {
+public final class SecurityGroupVpcAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the security group.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("SecurityGroupVpcAssociation.securityGroupId");
+    }
 
     /**
      * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("SecurityGroupVpcAssociation.state");
+    }
 
+    private @Nullable UndeferrableValue<SecurityGroupVpcAssociationTimeouts> timeouts;
 
-    public SecurityGroupVpcAssociationTimeouts timeouts;
-
-
+    public @Nullable SecurityGroupVpcAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("SecurityGroupVpcAssociation.timeouts");
+    }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("SecurityGroupVpcAssociation.vpcId");
+    }
 
 }

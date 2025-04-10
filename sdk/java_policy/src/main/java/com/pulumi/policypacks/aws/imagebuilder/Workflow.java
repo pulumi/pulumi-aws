@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/workflow:Workflow")
-public final class Workflow extends com.pulumi.resources.PolicyResource {
+public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the workflow.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workflow.arn");
+    }
 
     /**
      * Change description of the workflow.
      * 
      */
-    public String changeDescription;
+    private @Nullable UndeferrableValue<String> changeDescription;
 
-
+    public @Nullable String changeDescription() {
+        if (changeDescription == null) return null;
+        return changeDescription.getValue("Workflow.changeDescription");
+    }
 
     /**
      * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
      * 
      */
-    public String data;
+    private UndeferrableValue<String> data;
 
-
+    public String data() {
+        if (data == null) return null;
+        return data.getValue("Workflow.data");
+    }
 
     /**
      * Date the workflow was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("Workflow.dateCreated");
+    }
 
     /**
      * Description of the workflow.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Workflow.description");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Workflow.kmsKeyId");
+    }
 
     /**
      * Name of the workflow.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Workflow.name");
+    }
 
     /**
      * Owner of the workflow.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Workflow.owner");
+    }
 
     /**
      * Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workflow.tags");
+    }
 
     /**
      * @deprecated
@@ -89,25 +118,34 @@ public final class Workflow extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workflow.tagsAll");
+    }
 
     /**
      * Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Workflow.type");
+    }
 
     /**
      * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
      * 
      */
-    public String uri;
+    private @Nullable UndeferrableValue<String> uri;
 
-
+    public @Nullable String uri() {
+        if (uri == null) return null;
+        return uri.getValue("Workflow.uri");
+    }
 
     /**
      * Version of the workflow.
@@ -115,8 +153,11 @@ public final class Workflow extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Workflow.version");
+    }
 
 }

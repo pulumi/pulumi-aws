@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.LinkBandwidth;
+import com.pulumi.policypacks.aws.networkmanager.outputs.LinkBandwidth;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/link:Link")
-public final class Link extends com.pulumi.resources.PolicyResource {
+public final class Link extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Link Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Link.arn");
+    }
 
     /**
      * The upload speed and download speed in Mbps. Documented below.
      * 
      */
-    public LinkBandwidth bandwidth;
+    private UndeferrableValue<LinkBandwidth> bandwidth;
 
-
+    public LinkBandwidth bandwidth() {
+        if (bandwidth == null) return null;
+        return bandwidth.getValue("Link.bandwidth");
+    }
 
     /**
      * A description of the link.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Link.description");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("Link.globalNetworkId");
+    }
 
     /**
      * The provider of the link.
      * 
      */
-    public String providerName;
+    private @Nullable UndeferrableValue<String> providerName;
 
-
+    public @Nullable String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("Link.providerName");
+    }
 
     /**
      * The ID of the site.
      * 
      */
-    public String siteId;
+    private UndeferrableValue<String> siteId;
 
-
+    public String siteId() {
+        if (siteId == null) return null;
+        return siteId.getValue("Link.siteId");
+    }
 
     /**
      * Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Link.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,16 +99,22 @@ public final class Link extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Link.tagsAll");
+    }
 
     /**
      * The type of the link.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Link.type");
+    }
 
 }

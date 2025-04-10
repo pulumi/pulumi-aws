@@ -3,67 +3,89 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudhsmv2/hsm:Hsm")
-public final class Hsm extends com.pulumi.resources.PolicyResource {
+public final class Hsm extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Hsm.availabilityZone");
+    }
 
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("Hsm.clusterId");
+    }
 
     /**
      * The id of the ENI interface allocated for HSM module.
      * 
      */
-    public String hsmEniId;
+    private UndeferrableValue<String> hsmEniId;
 
-
+    public String hsmEniId() {
+        if (hsmEniId == null) return null;
+        return hsmEniId.getValue("Hsm.hsmEniId");
+    }
 
     /**
      * The id of the HSM module.
      * 
      */
-    public String hsmId;
+    private UndeferrableValue<String> hsmId;
 
-
+    public String hsmId() {
+        if (hsmId == null) return null;
+        return hsmId.getValue("Hsm.hsmId");
+    }
 
     /**
      * The state of the HSM module.
      * 
      */
-    public String hsmState;
+    private UndeferrableValue<String> hsmState;
 
-
+    public String hsmState() {
+        if (hsmState == null) return null;
+        return hsmState.getValue("Hsm.hsmState");
+    }
 
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("Hsm.ipAddress");
+    }
 
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("Hsm.subnetId");
+    }
 
 }

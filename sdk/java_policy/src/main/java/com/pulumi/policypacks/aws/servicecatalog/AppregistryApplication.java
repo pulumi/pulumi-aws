@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/appregistryApplication:AppregistryApplication")
-public final class AppregistryApplication extends com.pulumi.resources.PolicyResource {
+public final class AppregistryApplication extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
      * 
      */
-    public Map<String,String> applicationTag;
+    private UndeferrableValue<Map<String,String>> applicationTag;
 
-
+    public Map<String,String> applicationTag() {
+        if (applicationTag == null) return null;
+        return applicationTag.getValue("AppregistryApplication.applicationTag");
+    }
 
     /**
      * ARN (Amazon Resource Name) of the application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AppregistryApplication.arn");
+    }
 
     /**
      * Description of the application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AppregistryApplication.description");
+    }
 
     /**
      * Name of the application. The name must be unique within an AWS region.
@@ -41,17 +52,23 @@ public final class AppregistryApplication extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AppregistryApplication.name");
+    }
 
     /**
      * A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AppregistryApplication.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class AppregistryApplication extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AppregistryApplication.tagsAll");
+    }
 
 }

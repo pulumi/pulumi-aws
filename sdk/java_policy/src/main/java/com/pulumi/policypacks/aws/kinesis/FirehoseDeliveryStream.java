@@ -3,125 +3,166 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamExtendedS3Configuration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamIcebergConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamMskSourceConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamOpensearchConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamRedshiftConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamServerSideEncryption;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration;
-import com.pulumi.policypacks.aws.kinesis.FirehoseDeliveryStreamSplunkConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configuration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamKinesisSourceConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamMskSourceConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamServerSideEncryption;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfiguration;
+import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")
-public final class FirehoseDeliveryStream extends com.pulumi.resources.PolicyResource {
+public final class FirehoseDeliveryStream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FirehoseDeliveryStream.arn");
+    }
 
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
-    public String destination;
+    private UndeferrableValue<String> destination;
 
+    public String destination() {
+        if (destination == null) return null;
+        return destination.getValue("FirehoseDeliveryStream.destination");
+    }
 
+    private UndeferrableValue<String> destinationId;
 
-    public String destinationId;
-
-
+    public String destinationId() {
+        if (destinationId == null) return null;
+        return destinationId.getValue("FirehoseDeliveryStream.destinationId");
+    }
 
     /**
      * Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamElasticsearchConfiguration elasticsearchConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfiguration> elasticsearchConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamElasticsearchConfiguration elasticsearchConfiguration() {
+        if (elasticsearchConfiguration == null) return null;
+        return elasticsearchConfiguration.getValue("FirehoseDeliveryStream.elasticsearchConfiguration");
+    }
 
     /**
      * Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamExtendedS3Configuration extendedS3Configuration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamExtendedS3Configuration> extendedS3Configuration;
 
-
+    public @Nullable FirehoseDeliveryStreamExtendedS3Configuration extendedS3Configuration() {
+        if (extendedS3Configuration == null) return null;
+        return extendedS3Configuration.getValue("FirehoseDeliveryStream.extendedS3Configuration");
+    }
 
     /**
      * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamHttpEndpointConfiguration httpEndpointConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfiguration> httpEndpointConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamHttpEndpointConfiguration httpEndpointConfiguration() {
+        if (httpEndpointConfiguration == null) return null;
+        return httpEndpointConfiguration.getValue("FirehoseDeliveryStream.httpEndpointConfiguration");
+    }
 
     /**
      * Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamIcebergConfiguration icebergConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamIcebergConfiguration> icebergConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamIcebergConfiguration icebergConfiguration() {
+        if (icebergConfiguration == null) return null;
+        return icebergConfiguration.getValue("FirehoseDeliveryStream.icebergConfiguration");
+    }
 
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamKinesisSourceConfiguration kinesisSourceConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamKinesisSourceConfiguration> kinesisSourceConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamKinesisSourceConfiguration kinesisSourceConfiguration() {
+        if (kinesisSourceConfiguration == null) return null;
+        return kinesisSourceConfiguration.getValue("FirehoseDeliveryStream.kinesisSourceConfiguration");
+    }
 
     /**
      * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamMskSourceConfiguration mskSourceConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamMskSourceConfiguration> mskSourceConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamMskSourceConfiguration mskSourceConfiguration() {
+        if (mskSourceConfiguration == null) return null;
+        return mskSourceConfiguration.getValue("FirehoseDeliveryStream.mskSourceConfiguration");
+    }
 
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FirehoseDeliveryStream.name");
+    }
 
     /**
      * Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamOpensearchConfiguration opensearchConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamOpensearchConfiguration> opensearchConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamOpensearchConfiguration opensearchConfiguration() {
+        if (opensearchConfiguration == null) return null;
+        return opensearchConfiguration.getValue("FirehoseDeliveryStream.opensearchConfiguration");
+    }
 
     /**
      * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamOpensearchserverlessConfiguration opensearchserverlessConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfiguration> opensearchserverlessConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamOpensearchserverlessConfiguration opensearchserverlessConfiguration() {
+        if (opensearchserverlessConfiguration == null) return null;
+        return opensearchserverlessConfiguration.getValue("FirehoseDeliveryStream.opensearchserverlessConfiguration");
+    }
 
     /**
      * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamRedshiftConfiguration redshiftConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamRedshiftConfiguration> redshiftConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamRedshiftConfiguration redshiftConfiguration() {
+        if (redshiftConfiguration == null) return null;
+        return redshiftConfiguration.getValue("FirehoseDeliveryStream.redshiftConfiguration");
+    }
 
     /**
      * Encrypt at rest options. See `server_side_encryption` block below for details.
@@ -129,33 +170,45 @@ public final class FirehoseDeliveryStream extends com.pulumi.resources.PolicyRes
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
-    public FirehoseDeliveryStreamServerSideEncryption serverSideEncryption;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamServerSideEncryption> serverSideEncryption;
 
-
+    public @Nullable FirehoseDeliveryStreamServerSideEncryption serverSideEncryption() {
+        if (serverSideEncryption == null) return null;
+        return serverSideEncryption.getValue("FirehoseDeliveryStream.serverSideEncryption");
+    }
 
     /**
      * Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamSnowflakeConfiguration snowflakeConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfiguration> snowflakeConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamSnowflakeConfiguration snowflakeConfiguration() {
+        if (snowflakeConfiguration == null) return null;
+        return snowflakeConfiguration.getValue("FirehoseDeliveryStream.snowflakeConfiguration");
+    }
 
     /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
-    public FirehoseDeliveryStreamSplunkConfiguration splunkConfiguration;
+    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSplunkConfiguration> splunkConfiguration;
 
-
+    public @Nullable FirehoseDeliveryStreamSplunkConfiguration splunkConfiguration() {
+        if (splunkConfiguration == null) return null;
+        return splunkConfiguration.getValue("FirehoseDeliveryStream.splunkConfiguration");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FirehoseDeliveryStream.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -165,12 +218,18 @@ public final class FirehoseDeliveryStream extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FirehoseDeliveryStream.tagsAll");
+    }
 
+    private UndeferrableValue<String> versionId;
 
-    public String versionId;
-
-
+    public String versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("FirehoseDeliveryStream.versionId");
+    }
 
 }

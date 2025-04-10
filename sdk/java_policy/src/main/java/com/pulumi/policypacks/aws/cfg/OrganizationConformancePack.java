@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.OrganizationConformancePackInputParameter;
+import com.pulumi.policypacks.aws.cfg.outputs.OrganizationConformancePackInputParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/organizationConformancePack:OrganizationConformancePack")
-public final class OrganizationConformancePack extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConformancePack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the organization conformance pack.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OrganizationConformancePack.arn");
+    }
 
     /**
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
      * 
      */
-    public String deliveryS3Bucket;
+    private @Nullable UndeferrableValue<String> deliveryS3Bucket;
 
-
+    public @Nullable String deliveryS3Bucket() {
+        if (deliveryS3Bucket == null) return null;
+        return deliveryS3Bucket.getValue("OrganizationConformancePack.deliveryS3Bucket");
+    }
 
     /**
      * The prefix for the Amazon S3 bucket. Maximum length of 1024.
      * 
      */
-    public String deliveryS3KeyPrefix;
+    private @Nullable UndeferrableValue<String> deliveryS3KeyPrefix;
 
-
+    public @Nullable String deliveryS3KeyPrefix() {
+        if (deliveryS3KeyPrefix == null) return null;
+        return deliveryS3KeyPrefix.getValue("OrganizationConformancePack.deliveryS3KeyPrefix");
+    }
 
     /**
      * Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
      * 
      */
-    public List<String> excludedAccounts;
+    private @Nullable UndeferrableValue<List<String>> excludedAccounts;
 
-
+    public @Nullable List<String> excludedAccounts() {
+        if (excludedAccounts == null) return null;
+        return excludedAccounts.getValue("OrganizationConformancePack.excludedAccounts");
+    }
 
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
      * 
      */
-    public List<OrganizationConformancePackInputParameter> inputParameters;
+    private @Nullable UndeferrableValue<List<OrganizationConformancePackInputParameter>> inputParameters;
 
-
+    public @Nullable List<OrganizationConformancePackInputParameter> inputParameters() {
+        if (inputParameters == null) return null;
+        return inputParameters.getValue("OrganizationConformancePack.inputParameters");
+    }
 
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OrganizationConformancePack.name");
+    }
 
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      * 
      */
-    public String templateBody;
+    private @Nullable UndeferrableValue<String> templateBody;
 
-
+    public @Nullable String templateBody() {
+        if (templateBody == null) return null;
+        return templateBody.getValue("OrganizationConformancePack.templateBody");
+    }
 
     /**
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
-    public String templateS3Uri;
+    private @Nullable UndeferrableValue<String> templateS3Uri;
 
-
+    public @Nullable String templateS3Uri() {
+        if (templateS3Uri == null) return null;
+        return templateS3Uri.getValue("OrganizationConformancePack.templateS3Uri");
+    }
 
 }

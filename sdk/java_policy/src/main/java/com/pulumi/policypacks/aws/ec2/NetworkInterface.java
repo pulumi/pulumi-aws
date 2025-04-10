@@ -3,201 +3,275 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.NetworkInterfaceAttachment;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInterfaceAttachment;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkInterface:NetworkInterface")
-public final class NetworkInterface extends com.pulumi.resources.PolicyResource {
+public final class NetworkInterface extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the network interface.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NetworkInterface.arn");
+    }
 
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      * 
      */
-    public List<NetworkInterfaceAttachment> attachments;
+    private UndeferrableValue<List<NetworkInterfaceAttachment>> attachments;
 
-
+    public List<NetworkInterfaceAttachment> attachments() {
+        if (attachments == null) return null;
+        return attachments.getValue("NetworkInterface.attachments");
+    }
 
     /**
      * Description for the network interface.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("NetworkInterface.description");
+    }
 
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      * 
      */
-    public Boolean enablePrimaryIpv6;
+    private UndeferrableValue<Boolean> enablePrimaryIpv6;
 
-
+    public Boolean enablePrimaryIpv6() {
+        if (enablePrimaryIpv6 == null) return null;
+        return enablePrimaryIpv6.getValue("NetworkInterface.enablePrimaryIpv6");
+    }
 
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
      * 
      */
-    public String interfaceType;
+    private UndeferrableValue<String> interfaceType;
 
-
+    public String interfaceType() {
+        if (interfaceType == null) return null;
+        return interfaceType.getValue("NetworkInterface.interfaceType");
+    }
 
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    public Integer ipv4PrefixCount;
+    private UndeferrableValue<Integer> ipv4PrefixCount;
 
-
+    public Integer ipv4PrefixCount() {
+        if (ipv4PrefixCount == null) return null;
+        return ipv4PrefixCount.getValue("NetworkInterface.ipv4PrefixCount");
+    }
 
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      * 
      */
-    public List<String> ipv4Prefixes;
+    private UndeferrableValue<List<String>> ipv4Prefixes;
 
-
+    public List<String> ipv4Prefixes() {
+        if (ipv4Prefixes == null) return null;
+        return ipv4Prefixes.getValue("NetworkInterface.ipv4Prefixes");
+    }
 
     /**
      * Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
-    public Integer ipv6AddressCount;
+    private UndeferrableValue<Integer> ipv6AddressCount;
 
-
+    public Integer ipv6AddressCount() {
+        if (ipv6AddressCount == null) return null;
+        return ipv6AddressCount.getValue("NetworkInterface.ipv6AddressCount");
+    }
 
     /**
      * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
      * 
      */
-    public Boolean ipv6AddressListEnabled;
+    private @Nullable UndeferrableValue<Boolean> ipv6AddressListEnabled;
 
-
+    public @Nullable Boolean ipv6AddressListEnabled() {
+        if (ipv6AddressListEnabled == null) return null;
+        return ipv6AddressListEnabled.getValue("NetworkInterface.ipv6AddressListEnabled");
+    }
 
     /**
      * List of private IPs to assign to the ENI in sequential order.
      * 
      */
-    public List<String> ipv6AddressLists;
+    private UndeferrableValue<List<String>> ipv6AddressLists;
 
-
+    public List<String> ipv6AddressLists() {
+        if (ipv6AddressLists == null) return null;
+        return ipv6AddressLists.getValue("NetworkInterface.ipv6AddressLists");
+    }
 
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
      * 
      */
-    public List<String> ipv6Addresses;
+    private UndeferrableValue<List<String>> ipv6Addresses;
 
-
+    public List<String> ipv6Addresses() {
+        if (ipv6Addresses == null) return null;
+        return ipv6Addresses.getValue("NetworkInterface.ipv6Addresses");
+    }
 
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    public Integer ipv6PrefixCount;
+    private UndeferrableValue<Integer> ipv6PrefixCount;
 
-
+    public Integer ipv6PrefixCount() {
+        if (ipv6PrefixCount == null) return null;
+        return ipv6PrefixCount.getValue("NetworkInterface.ipv6PrefixCount");
+    }
 
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      * 
      */
-    public List<String> ipv6Prefixes;
+    private UndeferrableValue<List<String>> ipv6Prefixes;
 
-
+    public List<String> ipv6Prefixes() {
+        if (ipv6Prefixes == null) return null;
+        return ipv6Prefixes.getValue("NetworkInterface.ipv6Prefixes");
+    }
 
     /**
      * MAC address of the network interface.
      * 
      */
-    public String macAddress;
+    private UndeferrableValue<String> macAddress;
 
+    public String macAddress() {
+        if (macAddress == null) return null;
+        return macAddress.getValue("NetworkInterface.macAddress");
+    }
 
+    private UndeferrableValue<String> outpostArn;
 
-    public String outpostArn;
-
-
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("NetworkInterface.outpostArn");
+    }
 
     /**
      * AWS account ID of the owner of the network interface.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("NetworkInterface.ownerId");
+    }
 
     /**
      * Private DNS name of the network interface (IPv4).
      * 
      */
-    public String privateDnsName;
+    private UndeferrableValue<String> privateDnsName;
 
+    public String privateDnsName() {
+        if (privateDnsName == null) return null;
+        return privateDnsName.getValue("NetworkInterface.privateDnsName");
+    }
 
+    private UndeferrableValue<String> privateIp;
 
-    public String privateIp;
-
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("NetworkInterface.privateIp");
+    }
 
     /**
      * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
      * 
      */
-    public Boolean privateIpListEnabled;
+    private @Nullable UndeferrableValue<Boolean> privateIpListEnabled;
 
-
+    public @Nullable Boolean privateIpListEnabled() {
+        if (privateIpListEnabled == null) return null;
+        return privateIpListEnabled.getValue("NetworkInterface.privateIpListEnabled");
+    }
 
     /**
      * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
-    public List<String> privateIpLists;
+    private UndeferrableValue<List<String>> privateIpLists;
 
-
+    public List<String> privateIpLists() {
+        if (privateIpLists == null) return null;
+        return privateIpLists.getValue("NetworkInterface.privateIpLists");
+    }
 
     /**
      * List of private IPs to assign to the ENI without regard to order.
      * 
      */
-    public List<String> privateIps;
+    private UndeferrableValue<List<String>> privateIps;
 
-
+    public List<String> privateIps() {
+        if (privateIps == null) return null;
+        return privateIps.getValue("NetworkInterface.privateIps");
+    }
 
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
-    public Integer privateIpsCount;
+    private UndeferrableValue<Integer> privateIpsCount;
 
-
+    public Integer privateIpsCount() {
+        if (privateIpsCount == null) return null;
+        return privateIpsCount.getValue("NetworkInterface.privateIpsCount");
+    }
 
     /**
      * List of security group IDs to assign to the ENI.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("NetworkInterface.securityGroups");
+    }
 
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      * 
      */
-    public Boolean sourceDestCheck;
+    private @Nullable UndeferrableValue<Boolean> sourceDestCheck;
 
-
+    public @Nullable Boolean sourceDestCheck() {
+        if (sourceDestCheck == null) return null;
+        return sourceDestCheck.getValue("NetworkInterface.sourceDestCheck");
+    }
 
     /**
      * Subnet ID to create the ENI in.
@@ -205,17 +279,23 @@ public final class NetworkInterface extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("NetworkInterface.subnetId");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NetworkInterface.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,8 +305,11 @@ public final class NetworkInterface extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NetworkInterface.tagsAll");
+    }
 
 }

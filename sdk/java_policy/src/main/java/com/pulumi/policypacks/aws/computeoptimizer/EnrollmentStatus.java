@@ -3,42 +3,56 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.computeoptimizer.EnrollmentStatusTimeouts;
+import com.pulumi.policypacks.aws.computeoptimizer.outputs.EnrollmentStatusTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")
-public final class EnrollmentStatus extends com.pulumi.resources.PolicyResource {
+public final class EnrollmentStatus extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      * 
      */
-    public Boolean includeMemberAccounts;
+    private UndeferrableValue<Boolean> includeMemberAccounts;
 
-
+    public Boolean includeMemberAccounts() {
+        if (includeMemberAccounts == null) return null;
+        return includeMemberAccounts.getValue("EnrollmentStatus.includeMemberAccounts");
+    }
 
     /**
      * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
      * 
      */
-    public Integer numberOfMemberAccountsOptedIn;
+    private UndeferrableValue<Integer> numberOfMemberAccountsOptedIn;
 
-
+    public Integer numberOfMemberAccountsOptedIn() {
+        if (numberOfMemberAccountsOptedIn == null) return null;
+        return numberOfMemberAccountsOptedIn.getValue("EnrollmentStatus.numberOfMemberAccountsOptedIn");
+    }
 
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("EnrollmentStatus.status");
+    }
 
+    private @Nullable UndeferrableValue<EnrollmentStatusTimeouts> timeouts;
 
-    public EnrollmentStatusTimeouts timeouts;
-
-
+    public @Nullable EnrollmentStatusTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("EnrollmentStatus.timeouts");
+    }
 
 }

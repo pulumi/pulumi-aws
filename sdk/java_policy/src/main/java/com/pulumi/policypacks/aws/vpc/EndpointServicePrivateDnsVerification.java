@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpc.EndpointServicePrivateDnsVerificationTimeouts;
+import com.pulumi.policypacks.aws.vpc.outputs.EndpointServicePrivateDnsVerificationTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")
-public final class EndpointServicePrivateDnsVerification extends com.pulumi.resources.PolicyResource {
+public final class EndpointServicePrivateDnsVerification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the endpoint service.
@@ -18,20 +20,29 @@ public final class EndpointServicePrivateDnsVerification extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    public String serviceId;
+    private UndeferrableValue<String> serviceId;
 
+    public String serviceId() {
+        if (serviceId == null) return null;
+        return serviceId.getValue("EndpointServicePrivateDnsVerification.serviceId");
+    }
 
+    private @Nullable UndeferrableValue<EndpointServicePrivateDnsVerificationTimeouts> timeouts;
 
-    public EndpointServicePrivateDnsVerificationTimeouts timeouts;
-
-
+    public @Nullable EndpointServicePrivateDnsVerificationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("EndpointServicePrivateDnsVerification.timeouts");
+    }
 
     /**
      * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
      * 
      */
-    public Boolean waitForVerification;
+    private @Nullable UndeferrableValue<Boolean> waitForVerification;
 
-
+    public @Nullable Boolean waitForVerification() {
+        if (waitForVerification == null) return null;
+        return waitForVerification.getValue("EndpointServicePrivateDnsVerification.waitForVerification");
+    }
 
 }

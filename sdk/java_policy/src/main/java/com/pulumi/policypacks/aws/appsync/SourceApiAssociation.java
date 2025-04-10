@@ -3,78 +3,107 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appsync.SourceApiAssociationSourceApiAssociationConfig;
-import com.pulumi.policypacks.aws.appsync.SourceApiAssociationTimeouts;
+import com.pulumi.policypacks.aws.appsync.outputs.SourceApiAssociationSourceApiAssociationConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.SourceApiAssociationTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/sourceApiAssociation:SourceApiAssociation")
-public final class SourceApiAssociation extends com.pulumi.resources.PolicyResource {
+public final class SourceApiAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Source Api Association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SourceApiAssociation.arn");
+    }
 
     /**
      * ID of the Source Api Association.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("SourceApiAssociation.associationId");
+    }
 
     /**
      * Description of the source API being merged.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SourceApiAssociation.description");
+    }
 
     /**
      * ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    public String mergedApiArn;
+    private UndeferrableValue<String> mergedApiArn;
 
-
+    public String mergedApiArn() {
+        if (mergedApiArn == null) return null;
+        return mergedApiArn.getValue("SourceApiAssociation.mergedApiArn");
+    }
 
     /**
      * ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    public String mergedApiId;
+    private UndeferrableValue<String> mergedApiId;
 
-
+    public String mergedApiId() {
+        if (mergedApiId == null) return null;
+        return mergedApiId.getValue("SourceApiAssociation.mergedApiId");
+    }
 
     /**
      * ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    public String sourceApiArn;
+    private UndeferrableValue<String> sourceApiArn;
 
+    public String sourceApiArn() {
+        if (sourceApiArn == null) return null;
+        return sourceApiArn.getValue("SourceApiAssociation.sourceApiArn");
+    }
 
+    private UndeferrableValue<List<SourceApiAssociationSourceApiAssociationConfig>> sourceApiAssociationConfigs;
 
-    public List<SourceApiAssociationSourceApiAssociationConfig> sourceApiAssociationConfigs;
-
-
+    public List<SourceApiAssociationSourceApiAssociationConfig> sourceApiAssociationConfigs() {
+        if (sourceApiAssociationConfigs == null) return null;
+        return sourceApiAssociationConfigs.getValue("SourceApiAssociation.sourceApiAssociationConfigs");
+    }
 
     /**
      * ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    public String sourceApiId;
+    private UndeferrableValue<String> sourceApiId;
 
+    public String sourceApiId() {
+        if (sourceApiId == null) return null;
+        return sourceApiId.getValue("SourceApiAssociation.sourceApiId");
+    }
 
+    private @Nullable UndeferrableValue<SourceApiAssociationTimeouts> timeouts;
 
-    public SourceApiAssociationTimeouts timeouts;
-
-
+    public @Nullable SourceApiAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("SourceApiAssociation.timeouts");
+    }
 
 }

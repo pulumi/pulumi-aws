@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedpermissions.IdentitySourceConfiguration;
+import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedpermissions/identitySource:IdentitySource")
-public final class IdentitySource extends com.pulumi.resources.PolicyResource {
+public final class IdentitySource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
-    public IdentitySourceConfiguration configuration;
+    private @Nullable UndeferrableValue<IdentitySourceConfiguration> configuration;
 
-
+    public @Nullable IdentitySourceConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("IdentitySource.configuration");
+    }
 
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      * 
      */
-    public String policyStoreId;
+    private UndeferrableValue<String> policyStoreId;
 
-
+    public String policyStoreId() {
+        if (policyStoreId == null) return null;
+        return policyStoreId.getValue("IdentitySource.policyStoreId");
+    }
 
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
-    public String principalEntityType;
+    private UndeferrableValue<String> principalEntityType;
 
-
+    public String principalEntityType() {
+        if (principalEntityType == null) return null;
+        return principalEntityType.getValue("IdentitySource.principalEntityType");
+    }
 
 }

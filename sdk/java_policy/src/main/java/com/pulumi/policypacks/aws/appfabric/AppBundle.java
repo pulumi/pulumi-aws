@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appfabric/appBundle:AppBundle")
-public final class AppBundle extends com.pulumi.resources.PolicyResource {
+public final class AppBundle extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the AppBundle.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AppBundle.arn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
-    public String customerManagedKeyArn;
+    private @Nullable UndeferrableValue<String> customerManagedKeyArn;
 
-
+    public @Nullable String customerManagedKeyArn() {
+        if (customerManagedKeyArn == null) return null;
+        return customerManagedKeyArn.getValue("AppBundle.customerManagedKeyArn");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AppBundle.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -43,8 +54,11 @@ public final class AppBundle extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AppBundle.tagsAll");
+    }
 
 }

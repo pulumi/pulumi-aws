@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.IdentityProviderConfigOidc;
+import com.pulumi.policypacks.aws.eks.outputs.IdentityProviderConfigOidc;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/identityProviderConfig:IdentityProviderConfig")
-public final class IdentityProviderConfig extends com.pulumi.resources.PolicyResource {
+public final class IdentityProviderConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("IdentityProviderConfig.arn");
+    }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("IdentityProviderConfig.clusterName");
+    }
 
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
      */
-    public IdentityProviderConfigOidc oidc;
+    private UndeferrableValue<IdentityProviderConfigOidc> oidc;
 
-
+    public IdentityProviderConfigOidc oidc() {
+        if (oidc == null) return null;
+        return oidc.getValue("IdentityProviderConfig.oidc");
+    }
 
     /**
      * Status of the EKS Identity Provider Configuration.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("IdentityProviderConfig.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("IdentityProviderConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class IdentityProviderConfig extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("IdentityProviderConfig.tagsAll");
+    }
 
 }

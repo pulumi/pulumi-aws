@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkInsightsPath:NetworkInsightsPath")
-public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResource {
+public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Network Insights Path.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NetworkInsightsPath.arn");
+    }
 
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    public String destination;
+    private @Nullable UndeferrableValue<String> destination;
 
-
+    public @Nullable String destination() {
+        if (destination == null) return null;
+        return destination.getValue("NetworkInsightsPath.destination");
+    }
 
     /**
      * ARN of the destination.
      * 
      */
-    public String destinationArn;
+    private UndeferrableValue<String> destinationArn;
 
-
+    public String destinationArn() {
+        if (destinationArn == null) return null;
+        return destinationArn.getValue("NetworkInsightsPath.destinationArn");
+    }
 
     /**
      * IP address of the destination resource.
      * 
      */
-    public String destinationIp;
+    private @Nullable UndeferrableValue<String> destinationIp;
 
-
+    public @Nullable String destinationIp() {
+        if (destinationIp == null) return null;
+        return destinationIp.getValue("NetworkInsightsPath.destinationIp");
+    }
 
     /**
      * Destination port to analyze access to.
      * 
      */
-    public Integer destinationPort;
+    private @Nullable UndeferrableValue<Integer> destinationPort;
 
-
+    public @Nullable Integer destinationPort() {
+        if (destinationPort == null) return null;
+        return destinationPort.getValue("NetworkInsightsPath.destinationPort");
+    }
 
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -58,41 +75,56 @@ public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("NetworkInsightsPath.protocol");
+    }
 
     /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    public String source;
+    private UndeferrableValue<String> source;
 
-
+    public String source() {
+        if (source == null) return null;
+        return source.getValue("NetworkInsightsPath.source");
+    }
 
     /**
      * ARN of the source.
      * 
      */
-    public String sourceArn;
+    private UndeferrableValue<String> sourceArn;
 
-
+    public String sourceArn() {
+        if (sourceArn == null) return null;
+        return sourceArn.getValue("NetworkInsightsPath.sourceArn");
+    }
 
     /**
      * IP address of the source resource.
      * 
      */
-    public String sourceIp;
+    private @Nullable UndeferrableValue<String> sourceIp;
 
-
+    public @Nullable String sourceIp() {
+        if (sourceIp == null) return null;
+        return sourceIp.getValue("NetworkInsightsPath.sourceIp");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NetworkInsightsPath.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -102,8 +134,11 @@ public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NetworkInsightsPath.tagsAll");
+    }
 
 }

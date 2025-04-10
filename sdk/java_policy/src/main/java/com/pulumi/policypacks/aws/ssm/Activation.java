@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/activation:Activation")
-public final class Activation extends com.pulumi.resources.PolicyResource {
+public final class Activation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The code the system generates when it processes the activation.
      * 
      */
-    public String activationCode;
+    private UndeferrableValue<String> activationCode;
 
-
+    public String activationCode() {
+        if (activationCode == null) return null;
+        return activationCode.getValue("Activation.activationCode");
+    }
 
     /**
      * The description of the resource that you want to register.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Activation.description");
+    }
 
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    public String expirationDate;
+    private UndeferrableValue<String> expirationDate;
 
-
+    public String expirationDate() {
+        if (expirationDate == null) return null;
+        return expirationDate.getValue("Activation.expirationDate");
+    }
 
     /**
      * If the current activation has expired.
      * 
      */
-    public Boolean expired;
+    private UndeferrableValue<Boolean> expired;
 
-
+    public Boolean expired() {
+        if (expired == null) return null;
+        return expired.getValue("Activation.expired");
+    }
 
     /**
      * The IAM Role to attach to the managed instance.
      * 
      */
-    public String iamRole;
+    private UndeferrableValue<String> iamRole;
 
-
+    public String iamRole() {
+        if (iamRole == null) return null;
+        return iamRole.getValue("Activation.iamRole");
+    }
 
     /**
      * The default name of the registered managed instance.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Activation.name");
+    }
 
     /**
      * The number of managed instances that are currently registered using this activation.
      * 
      */
-    public Integer registrationCount;
+    private UndeferrableValue<Integer> registrationCount;
 
-
+    public Integer registrationCount() {
+        if (registrationCount == null) return null;
+        return registrationCount.getValue("Activation.registrationCount");
+    }
 
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      * 
      */
-    public Integer registrationLimit;
+    private @Nullable UndeferrableValue<Integer> registrationLimit;
 
-
+    public @Nullable Integer registrationLimit() {
+        if (registrationLimit == null) return null;
+        return registrationLimit.getValue("Activation.registrationLimit");
+    }
 
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Activation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,8 +122,11 @@ public final class Activation extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Activation.tagsAll");
+    }
 
 }

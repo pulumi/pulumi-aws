@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.servicecatalog.ServiceActionDefinition;
+import com.pulumi.policypacks.aws.servicecatalog.outputs.ServiceActionDefinition;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/serviceAction:ServiceAction")
-public final class ServiceAction extends com.pulumi.resources.PolicyResource {
+public final class ServiceAction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("ServiceAction.acceptLanguage");
+    }
 
     /**
      * Self-service action definition configuration block. Detailed below.
      * 
      */
-    public ServiceActionDefinition definition;
+    private UndeferrableValue<ServiceActionDefinition> definition;
 
-
+    public ServiceActionDefinition definition() {
+        if (definition == null) return null;
+        return definition.getValue("ServiceAction.definition");
+    }
 
     /**
      * Self-service action description.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ServiceAction.description");
+    }
 
     /**
      * Self-service action name.
@@ -41,8 +52,11 @@ public final class ServiceAction extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServiceAction.name");
+    }
 
 }

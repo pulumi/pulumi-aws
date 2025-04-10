@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transfer.WorkflowOnExceptionStep;
-import com.pulumi.policypacks.aws.transfer.WorkflowStep;
+import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStep;
+import com.pulumi.policypacks.aws.transfer.outputs.WorkflowStep;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/workflow:Workflow")
-public final class Workflow extends com.pulumi.resources.PolicyResource {
+public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Workflow ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workflow.arn");
+    }
 
     /**
      * A textual description for the workflow.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Workflow.description");
+    }
 
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      * 
      */
-    public List<WorkflowOnExceptionStep> onExceptionSteps;
+    private @Nullable UndeferrableValue<List<WorkflowOnExceptionStep>> onExceptionSteps;
 
-
+    public @Nullable List<WorkflowOnExceptionStep> onExceptionSteps() {
+        if (onExceptionSteps == null) return null;
+        return onExceptionSteps.getValue("Workflow.onExceptionSteps");
+    }
 
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      * 
      */
-    public List<WorkflowStep> steps;
+    private UndeferrableValue<List<WorkflowStep>> steps;
 
-
+    public List<WorkflowStep> steps() {
+        if (steps == null) return null;
+        return steps.getValue("Workflow.steps");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workflow.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,8 +79,11 @@ public final class Workflow extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workflow.tagsAll");
+    }
 
 }

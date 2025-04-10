@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transfer.AccessHomeDirectoryMapping;
-import com.pulumi.policypacks.aws.transfer.AccessPosixProfile;
+import com.pulumi.policypacks.aws.transfer.outputs.AccessHomeDirectoryMapping;
+import com.pulumi.policypacks.aws.transfer.outputs.AccessPosixProfile;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/access:Access")
-public final class Access extends com.pulumi.resources.PolicyResource {
+public final class Access extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      * 
      */
-    public String externalId;
+    private UndeferrableValue<String> externalId;
 
-
+    public String externalId() {
+        if (externalId == null) return null;
+        return externalId.getValue("Access.externalId");
+    }
 
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
-    public String homeDirectory;
+    private @Nullable UndeferrableValue<String> homeDirectory;
 
-
+    public @Nullable String homeDirectory() {
+        if (homeDirectory == null) return null;
+        return homeDirectory.getValue("Access.homeDirectory");
+    }
 
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      * 
      */
-    public List<AccessHomeDirectoryMapping> homeDirectoryMappings;
+    private @Nullable UndeferrableValue<List<AccessHomeDirectoryMapping>> homeDirectoryMappings;
 
-
+    public @Nullable List<AccessHomeDirectoryMapping> homeDirectoryMappings() {
+        if (homeDirectoryMappings == null) return null;
+        return homeDirectoryMappings.getValue("Access.homeDirectoryMappings");
+    }
 
     /**
      * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
-    public String homeDirectoryType;
+    private @Nullable UndeferrableValue<String> homeDirectoryType;
 
-
+    public @Nullable String homeDirectoryType() {
+        if (homeDirectoryType == null) return null;
+        return homeDirectoryType.getValue("Access.homeDirectoryType");
+    }
 
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      * 
      */
-    public String policy;
+    private @Nullable UndeferrableValue<String> policy;
 
-
+    public @Nullable String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Access.policy");
+    }
 
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
      * 
      */
-    public AccessPosixProfile posixProfile;
+    private @Nullable UndeferrableValue<AccessPosixProfile> posixProfile;
 
-
+    public @Nullable AccessPosixProfile posixProfile() {
+        if (posixProfile == null) return null;
+        return posixProfile.getValue("Access.posixProfile");
+    }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
-    public String role;
+    private @Nullable UndeferrableValue<String> role;
 
-
+    public @Nullable String role() {
+        if (role == null) return null;
+        return role.getValue("Access.role");
+    }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    public String serverId;
+    private UndeferrableValue<String> serverId;
 
-
+    public String serverId() {
+        if (serverId == null) return null;
+        return serverId.getValue("Access.serverId");
+    }
 
 }

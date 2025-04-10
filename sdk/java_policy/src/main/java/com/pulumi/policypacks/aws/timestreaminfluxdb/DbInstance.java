@@ -3,170 +3,229 @@
 
 package com.pulumi.policypacks.aws.timestreaminfluxdb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration;
-import com.pulumi.policypacks.aws.timestreaminfluxdb.DbInstanceTimeouts;
+import com.pulumi.policypacks.aws.timestreaminfluxdb.outputs.DbInstanceLogDeliveryConfiguration;
+import com.pulumi.policypacks.aws.timestreaminfluxdb.outputs.DbInstanceTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:timestreaminfluxdb/dbInstance:DbInstance")
-public final class DbInstance extends com.pulumi.resources.PolicyResource {
+public final class DbInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("DbInstance.allocatedStorage");
+    }
 
     /**
      * ARN of the Timestream for InfluxDB Instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DbInstance.arn");
+    }
 
     /**
      * Availability Zone in which the DB instance resides.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("DbInstance.availabilityZone");
+    }
 
     /**
      * Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("DbInstance.bucket");
+    }
 
     /**
      * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
      * 
      */
-    public String dbInstanceType;
+    private UndeferrableValue<String> dbInstanceType;
 
-
+    public String dbInstanceType() {
+        if (dbInstanceType == null) return null;
+        return dbInstanceType.getValue("DbInstance.dbInstanceType");
+    }
 
     /**
      * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
      * 
      */
-    public String dbParameterGroupIdentifier;
+    private @Nullable UndeferrableValue<String> dbParameterGroupIdentifier;
 
-
+    public @Nullable String dbParameterGroupIdentifier() {
+        if (dbParameterGroupIdentifier == null) return null;
+        return dbParameterGroupIdentifier.getValue("DbInstance.dbParameterGroupIdentifier");
+    }
 
     /**
      * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      * 
      */
-    public String dbStorageType;
+    private UndeferrableValue<String> dbStorageType;
 
-
+    public String dbStorageType() {
+        if (dbStorageType == null) return null;
+        return dbStorageType.getValue("DbInstance.dbStorageType");
+    }
 
     /**
      * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
-    public String deploymentType;
+    private UndeferrableValue<String> deploymentType;
 
-
+    public String deploymentType() {
+        if (deploymentType == null) return null;
+        return deploymentType.getValue("DbInstance.deploymentType");
+    }
 
     /**
      * Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("DbInstance.endpoint");
+    }
 
     /**
      * ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
      * 
      */
-    public String influxAuthParametersSecretArn;
+    private UndeferrableValue<String> influxAuthParametersSecretArn;
 
-
+    public String influxAuthParametersSecretArn() {
+        if (influxAuthParametersSecretArn == null) return null;
+        return influxAuthParametersSecretArn.getValue("DbInstance.influxAuthParametersSecretArn");
+    }
 
     /**
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      * 
      */
-    public DbInstanceLogDeliveryConfiguration logDeliveryConfiguration;
+    private @Nullable UndeferrableValue<DbInstanceLogDeliveryConfiguration> logDeliveryConfiguration;
 
-
+    public @Nullable DbInstanceLogDeliveryConfiguration logDeliveryConfiguration() {
+        if (logDeliveryConfiguration == null) return null;
+        return logDeliveryConfiguration.getValue("DbInstance.logDeliveryConfiguration");
+    }
 
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DbInstance.name");
+    }
 
     /**
      * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("DbInstance.networkType");
+    }
 
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
      * 
      */
-    public String organization;
+    private UndeferrableValue<String> organization;
 
-
+    public String organization() {
+        if (organization == null) return null;
+        return organization.getValue("DbInstance.organization");
+    }
 
     /**
      * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
      * 
      */
-    public String password;
+    private UndeferrableValue<String> password;
 
-
+    public String password() {
+        if (password == null) return null;
+        return password.getValue("DbInstance.password");
+    }
 
     /**
      * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("DbInstance.port");
+    }
 
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
-    public Boolean publiclyAccessible;
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("DbInstance.publiclyAccessible");
+    }
 
     /**
      * Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
      * 
      */
-    public String secondaryAvailabilityZone;
+    private UndeferrableValue<String> secondaryAvailabilityZone;
 
-
+    public String secondaryAvailabilityZone() {
+        if (secondaryAvailabilityZone == null) return null;
+        return secondaryAvailabilityZone.getValue("DbInstance.secondaryAvailabilityZone");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DbInstance.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -176,29 +235,41 @@ public final class DbInstance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DbInstance.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<DbInstanceTimeouts> timeouts;
 
-    public DbInstanceTimeouts timeouts;
-
-
+    public @Nullable DbInstanceTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DbInstance.timeouts");
+    }
 
     /**
      * Username of the initial admin user created in InfluxDB. Must start with a letter and can&#39;t end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
      * 
      */
-    public String username;
+    private UndeferrableValue<String> username;
 
-
+    public String username() {
+        if (username == null) return null;
+        return username.getValue("DbInstance.username");
+    }
 
     /**
      * List of VPC security group IDs to associate with the DB instance.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("DbInstance.vpcSecurityGroupIds");
+    }
 
     /**
      * List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
@@ -206,8 +277,11 @@ public final class DbInstance extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> vpcSubnetIds;
+    private UndeferrableValue<List<String>> vpcSubnetIds;
 
-
+    public List<String> vpcSubnetIds() {
+        if (vpcSubnetIds == null) return null;
+        return vpcSubnetIds.getValue("DbInstance.vpcSubnetIds");
+    }
 
 }

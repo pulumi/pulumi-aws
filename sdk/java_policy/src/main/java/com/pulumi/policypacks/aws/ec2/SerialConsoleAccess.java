@@ -3,19 +3,24 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/serialConsoleAccess:SerialConsoleAccess")
-public final class SerialConsoleAccess extends com.pulumi.resources.PolicyResource {
+public final class SerialConsoleAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("SerialConsoleAccess.enabled");
+    }
 
 }

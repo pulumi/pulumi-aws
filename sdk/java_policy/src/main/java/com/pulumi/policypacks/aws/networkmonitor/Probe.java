@@ -3,50 +3,67 @@
 
 package com.pulumi.policypacks.aws.networkmonitor;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmonitor/probe:Probe")
-public final class Probe extends com.pulumi.resources.PolicyResource {
+public final class Probe extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("Probe.addressFamily");
+    }
 
     /**
      * The ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Probe.arn");
+    }
 
     /**
      * The destination IP address. This must be either IPV4 or IPV6.
      * 
      */
-    public String destination;
+    private UndeferrableValue<String> destination;
 
-
+    public String destination() {
+        if (destination == null) return null;
+        return destination.getValue("Probe.destination");
+    }
 
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      * 
      */
-    public Integer destinationPort;
+    private @Nullable UndeferrableValue<Integer> destinationPort;
 
-
+    public @Nullable Integer destinationPort() {
+        if (destinationPort == null) return null;
+        return destinationPort.getValue("Probe.destinationPort");
+    }
 
     /**
      * The name of the monitor.
      * 
      */
-    public String monitorName;
+    private UndeferrableValue<String> monitorName;
 
-
+    public String monitorName() {
+        if (monitorName == null) return null;
+        return monitorName.getValue("Probe.monitorName");
+    }
 
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
@@ -54,37 +71,52 @@ public final class Probe extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer packetSize;
+    private UndeferrableValue<Integer> packetSize;
 
+    public Integer packetSize() {
+        if (packetSize == null) return null;
+        return packetSize.getValue("Probe.packetSize");
+    }
 
+    private UndeferrableValue<String> probeId;
 
-    public String probeId;
-
-
+    public String probeId() {
+        if (probeId == null) return null;
+        return probeId.getValue("Probe.probeId");
+    }
 
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Probe.protocol");
+    }
 
     /**
      * The ARN of the subnet.
      * 
      */
-    public String sourceArn;
+    private UndeferrableValue<String> sourceArn;
 
-
+    public String sourceArn() {
+        if (sourceArn == null) return null;
+        return sourceArn.getValue("Probe.sourceArn");
+    }
 
     /**
      * Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Probe.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,12 +126,18 @@ public final class Probe extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Probe.tagsAll");
+    }
 
+    private UndeferrableValue<String> vpcId;
 
-    public String vpcId;
-
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Probe.vpcId");
+    }
 
 }

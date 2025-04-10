@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.appautoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appautoscaling.TargetSuspendedState;
+import com.pulumi.policypacks.aws.appautoscaling.outputs.TargetSuspendedState;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appautoscaling/target:Target")
-public final class Target extends com.pulumi.resources.PolicyResource {
+public final class Target extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the scalable target.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Target.arn");
+    }
 
     /**
      * Max capacity of the scalable target.
      * 
      */
-    public Integer maxCapacity;
+    private UndeferrableValue<Integer> maxCapacity;
 
-
+    public Integer maxCapacity() {
+        if (maxCapacity == null) return null;
+        return maxCapacity.getValue("Target.maxCapacity");
+    }
 
     /**
      * Min capacity of the scalable target.
      * 
      */
-    public Integer minCapacity;
+    private UndeferrableValue<Integer> minCapacity;
 
-
+    public Integer minCapacity() {
+        if (minCapacity == null) return null;
+        return minCapacity.getValue("Target.minCapacity");
+    }
 
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("Target.resourceId");
+    }
 
     /**
      * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Target.roleArn");
+    }
 
     /**
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    public String scalableDimension;
+    private UndeferrableValue<String> scalableDimension;
 
-
+    public String scalableDimension() {
+        if (scalableDimension == null) return null;
+        return scalableDimension.getValue("Target.scalableDimension");
+    }
 
     /**
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    public String serviceNamespace;
+    private UndeferrableValue<String> serviceNamespace;
 
-
+    public String serviceNamespace() {
+        if (serviceNamespace == null) return null;
+        return serviceNamespace.getValue("Target.serviceNamespace");
+    }
 
     /**
      * Specifies whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
-    public TargetSuspendedState suspendedState;
+    private UndeferrableValue<TargetSuspendedState> suspendedState;
 
-
+    public TargetSuspendedState suspendedState() {
+        if (suspendedState == null) return null;
+        return suspendedState.getValue("Target.suspendedState");
+    }
 
     /**
      * Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Target.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,8 +122,11 @@ public final class Target extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Target.tagsAll");
+    }
 
 }

@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.oam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:oam/sinkPolicy:SinkPolicy")
-public final class SinkPolicy extends com.pulumi.resources.PolicyResource {
+public final class SinkPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Sink.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SinkPolicy.arn");
+    }
 
     /**
      * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("SinkPolicy.policy");
+    }
 
     /**
      * ID string that AWS generated as part of the sink ARN.
      * 
      */
-    public String sinkId;
+    private UndeferrableValue<String> sinkId;
 
-
+    public String sinkId() {
+        if (sinkId == null) return null;
+        return sinkId.getValue("SinkPolicy.sinkId");
+    }
 
     /**
      * ARN of the sink to attach this policy to.
      * 
      */
-    public String sinkIdentifier;
+    private UndeferrableValue<String> sinkIdentifier;
 
-
+    public String sinkIdentifier() {
+        if (sinkIdentifier == null) return null;
+        return sinkIdentifier.getValue("SinkPolicy.sinkIdentifier");
+    }
 
 }

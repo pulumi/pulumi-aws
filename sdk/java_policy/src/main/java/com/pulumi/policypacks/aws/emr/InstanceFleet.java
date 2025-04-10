@@ -3,81 +3,107 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emr.InstanceFleetInstanceTypeConfig;
-import com.pulumi.policypacks.aws.emr.InstanceFleetLaunchSpecifications;
+import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetInstanceTypeConfig;
+import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetLaunchSpecifications;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emr/instanceFleet:InstanceFleet")
-public final class InstanceFleet extends com.pulumi.resources.PolicyResource {
+public final class InstanceFleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("InstanceFleet.clusterId");
+    }
 
     /**
      * Configuration block for instance fleet
      * 
      */
-    public List<InstanceFleetInstanceTypeConfig> instanceTypeConfigs;
+    private @Nullable UndeferrableValue<List<InstanceFleetInstanceTypeConfig>> instanceTypeConfigs;
 
-
+    public @Nullable List<InstanceFleetInstanceTypeConfig> instanceTypeConfigs() {
+        if (instanceTypeConfigs == null) return null;
+        return instanceTypeConfigs.getValue("InstanceFleet.instanceTypeConfigs");
+    }
 
     /**
      * Configuration block for launch specification
      * 
      */
-    public InstanceFleetLaunchSpecifications launchSpecifications;
+    private @Nullable UndeferrableValue<InstanceFleetLaunchSpecifications> launchSpecifications;
 
-
+    public @Nullable InstanceFleetLaunchSpecifications launchSpecifications() {
+        if (launchSpecifications == null) return null;
+        return launchSpecifications.getValue("InstanceFleet.launchSpecifications");
+    }
 
     /**
      * Friendly name given to the instance fleet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InstanceFleet.name");
+    }
 
     /**
      * The number of On-Demand units that have been provisioned for the instance
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      * 
      */
-    public Integer provisionedOnDemandCapacity;
+    private UndeferrableValue<Integer> provisionedOnDemandCapacity;
 
-
+    public Integer provisionedOnDemandCapacity() {
+        if (provisionedOnDemandCapacity == null) return null;
+        return provisionedOnDemandCapacity.getValue("InstanceFleet.provisionedOnDemandCapacity");
+    }
 
     /**
      * The number of Spot units that have been provisioned for this instance fleet
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      * 
      */
-    public Integer provisionedSpotCapacity;
+    private UndeferrableValue<Integer> provisionedSpotCapacity;
 
-
+    public Integer provisionedSpotCapacity() {
+        if (provisionedSpotCapacity == null) return null;
+        return provisionedSpotCapacity.getValue("InstanceFleet.provisionedSpotCapacity");
+    }
 
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    public Integer targetOnDemandCapacity;
+    private @Nullable UndeferrableValue<Integer> targetOnDemandCapacity;
 
-
+    public @Nullable Integer targetOnDemandCapacity() {
+        if (targetOnDemandCapacity == null) return null;
+        return targetOnDemandCapacity.getValue("InstanceFleet.targetOnDemandCapacity");
+    }
 
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    public Integer targetSpotCapacity;
+    private @Nullable UndeferrableValue<Integer> targetSpotCapacity;
 
-
+    public @Nullable Integer targetSpotCapacity() {
+        if (targetSpotCapacity == null) return null;
+        return targetSpotCapacity.getValue("InstanceFleet.targetSpotCapacity");
+    }
 
 }

@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedaccess.GroupSseConfiguration;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.GroupSseConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Timestamp when the access group was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("Group.creationTime");
+    }
 
     /**
      * Timestamp when the access group was deleted.
      * 
      */
-    public String deletionTime;
+    private UndeferrableValue<String> deletionTime;
 
-
+    public String deletionTime() {
+        if (deletionTime == null) return null;
+        return deletionTime.getValue("Group.deletionTime");
+    }
 
     /**
      * Description of the verified access group.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Group.description");
+    }
 
     /**
      * Timestamp when the access group was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Group.lastUpdatedTime");
+    }
 
     /**
      * AWS account number owning this resource.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Group.owner");
+    }
 
     /**
      * The policy document that is associated with this resource.
      * 
      */
-    public String policyDocument;
+    private @Nullable UndeferrableValue<String> policyDocument;
 
-
+    public @Nullable String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("Group.policyDocument");
+    }
 
     /**
      * Configuration block to use KMS keys for server-side encryption.
      * 
      */
-    public GroupSseConfiguration sseConfiguration;
+    private UndeferrableValue<GroupSseConfiguration> sseConfiguration;
 
-
+    public GroupSseConfiguration sseConfiguration() {
+        if (sseConfiguration == null) return null;
+        return sseConfiguration.getValue("Group.sseConfiguration");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Group.tags");
+    }
 
     /**
      * @deprecated
@@ -82,25 +108,34 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Group.tagsAll");
+    }
 
     /**
      * ARN of this verified acess group.
      * 
      */
-    public String verifiedaccessGroupArn;
+    private UndeferrableValue<String> verifiedaccessGroupArn;
 
-
+    public String verifiedaccessGroupArn() {
+        if (verifiedaccessGroupArn == null) return null;
+        return verifiedaccessGroupArn.getValue("Group.verifiedaccessGroupArn");
+    }
 
     /**
      * ID of this verified access group.
      * 
      */
-    public String verifiedaccessGroupId;
+    private UndeferrableValue<String> verifiedaccessGroupId;
 
-
+    public String verifiedaccessGroupId() {
+        if (verifiedaccessGroupId == null) return null;
+        return verifiedaccessGroupId.getValue("Group.verifiedaccessGroupId");
+    }
 
     /**
      * The id of the verified access instance this group is associated with.
@@ -108,8 +143,11 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String verifiedaccessInstanceId;
+    private UndeferrableValue<String> verifiedaccessInstanceId;
 
-
+    public String verifiedaccessInstanceId() {
+        if (verifiedaccessInstanceId == null) return null;
+        return verifiedaccessInstanceId.getValue("Group.verifiedaccessInstanceId");
+    }
 
 }

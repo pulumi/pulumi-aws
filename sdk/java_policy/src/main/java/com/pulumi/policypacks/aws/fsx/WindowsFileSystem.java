@@ -3,219 +3,296 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.WindowsFileSystemAuditLogConfiguration;
-import com.pulumi.policypacks.aws.fsx.WindowsFileSystemDiskIopsConfiguration;
-import com.pulumi.policypacks.aws.fsx.WindowsFileSystemSelfManagedActiveDirectory;
+import com.pulumi.policypacks.aws.fsx.outputs.WindowsFileSystemAuditLogConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.WindowsFileSystemDiskIopsConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.WindowsFileSystemSelfManagedActiveDirectory;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/windowsFileSystem:WindowsFileSystem")
-public final class WindowsFileSystem extends com.pulumi.resources.PolicyResource {
+public final class WindowsFileSystem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
      * 
      */
-    public String activeDirectoryId;
+    private @Nullable UndeferrableValue<String> activeDirectoryId;
 
-
+    public @Nullable String activeDirectoryId() {
+        if (activeDirectoryId == null) return null;
+        return activeDirectoryId.getValue("WindowsFileSystem.activeDirectoryId");
+    }
 
     /**
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
-    public List<String> aliases;
+    private @Nullable UndeferrableValue<List<String>> aliases;
 
-
+    public @Nullable List<String> aliases() {
+        if (aliases == null) return null;
+        return aliases.getValue("WindowsFileSystem.aliases");
+    }
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("WindowsFileSystem.arn");
+    }
 
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
-    public WindowsFileSystemAuditLogConfiguration auditLogConfiguration;
+    private UndeferrableValue<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
-
+    public WindowsFileSystemAuditLogConfiguration auditLogConfiguration() {
+        if (auditLogConfiguration == null) return null;
+        return auditLogConfiguration.getValue("WindowsFileSystem.auditLogConfiguration");
+    }
 
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
-    public Integer automaticBackupRetentionDays;
+    private @Nullable UndeferrableValue<Integer> automaticBackupRetentionDays;
 
-
+    public @Nullable Integer automaticBackupRetentionDays() {
+        if (automaticBackupRetentionDays == null) return null;
+        return automaticBackupRetentionDays.getValue("WindowsFileSystem.automaticBackupRetentionDays");
+    }
 
     /**
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    public String backupId;
+    private @Nullable UndeferrableValue<String> backupId;
 
-
+    public @Nullable String backupId() {
+        if (backupId == null) return null;
+        return backupId.getValue("WindowsFileSystem.backupId");
+    }
 
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      * 
      */
-    public Boolean copyTagsToBackups;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToBackups;
 
-
+    public @Nullable Boolean copyTagsToBackups() {
+        if (copyTagsToBackups == null) return null;
+        return copyTagsToBackups.getValue("WindowsFileSystem.copyTagsToBackups");
+    }
 
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    public String dailyAutomaticBackupStartTime;
+    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
 
-
+    public String dailyAutomaticBackupStartTime() {
+        if (dailyAutomaticBackupStartTime == null) return null;
+        return dailyAutomaticBackupStartTime.getValue("WindowsFileSystem.dailyAutomaticBackupStartTime");
+    }
 
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
-    public String deploymentType;
+    private @Nullable UndeferrableValue<String> deploymentType;
 
-
+    public @Nullable String deploymentType() {
+        if (deploymentType == null) return null;
+        return deploymentType.getValue("WindowsFileSystem.deploymentType");
+    }
 
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
-    public WindowsFileSystemDiskIopsConfiguration diskIopsConfiguration;
+    private UndeferrableValue<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
-
+    public WindowsFileSystemDiskIopsConfiguration diskIopsConfiguration() {
+        if (diskIopsConfiguration == null) return null;
+        return diskIopsConfiguration.getValue("WindowsFileSystem.diskIopsConfiguration");
+    }
 
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("WindowsFileSystem.dnsName");
+    }
 
     /**
      * A map of tags to apply to the file system&#39;s final backup.
      * 
      */
-    public Map<String,String> finalBackupTags;
+    private @Nullable UndeferrableValue<Map<String,String>> finalBackupTags;
 
-
+    public @Nullable Map<String,String> finalBackupTags() {
+        if (finalBackupTags == null) return null;
+        return finalBackupTags.getValue("WindowsFileSystem.finalBackupTags");
+    }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("WindowsFileSystem.kmsKeyId");
+    }
 
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
-
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("WindowsFileSystem.networkInterfaceIds");
+    }
 
     /**
      * AWS account identifier that created the file system.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("WindowsFileSystem.ownerId");
+    }
 
     /**
      * The IP address of the primary, or preferred, file server.
      * 
      */
-    public String preferredFileServerIp;
+    private UndeferrableValue<String> preferredFileServerIp;
 
-
+    public String preferredFileServerIp() {
+        if (preferredFileServerIp == null) return null;
+        return preferredFileServerIp.getValue("WindowsFileSystem.preferredFileServerIp");
+    }
 
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
-    public String preferredSubnetId;
+    private UndeferrableValue<String> preferredSubnetId;
 
-
+    public String preferredSubnetId() {
+        if (preferredSubnetId == null) return null;
+        return preferredSubnetId.getValue("WindowsFileSystem.preferredSubnetId");
+    }
 
     /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      * 
      */
-    public String remoteAdministrationEndpoint;
+    private UndeferrableValue<String> remoteAdministrationEndpoint;
 
-
+    public String remoteAdministrationEndpoint() {
+        if (remoteAdministrationEndpoint == null) return null;
+        return remoteAdministrationEndpoint.getValue("WindowsFileSystem.remoteAdministrationEndpoint");
+    }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("WindowsFileSystem.securityGroupIds");
+    }
 
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
-    public WindowsFileSystemSelfManagedActiveDirectory selfManagedActiveDirectory;
+    private @Nullable UndeferrableValue<WindowsFileSystemSelfManagedActiveDirectory> selfManagedActiveDirectory;
 
-
+    public @Nullable WindowsFileSystemSelfManagedActiveDirectory selfManagedActiveDirectory() {
+        if (selfManagedActiveDirectory == null) return null;
+        return selfManagedActiveDirectory.getValue("WindowsFileSystem.selfManagedActiveDirectory");
+    }
 
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    public Boolean skipFinalBackup;
+    private @Nullable UndeferrableValue<Boolean> skipFinalBackup;
 
-
+    public @Nullable Boolean skipFinalBackup() {
+        if (skipFinalBackup == null) return null;
+        return skipFinalBackup.getValue("WindowsFileSystem.skipFinalBackup");
+    }
 
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      * 
      */
-    public Integer storageCapacity;
+    private UndeferrableValue<Integer> storageCapacity;
 
-
+    public Integer storageCapacity() {
+        if (storageCapacity == null) return null;
+        return storageCapacity.getValue("WindowsFileSystem.storageCapacity");
+    }
 
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
-    public String storageType;
+    private @Nullable UndeferrableValue<String> storageType;
 
-
+    public @Nullable String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("WindowsFileSystem.storageType");
+    }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("WindowsFileSystem.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("WindowsFileSystem.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,9 +302,12 @@ public final class WindowsFileSystem extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("WindowsFileSystem.tagsAll");
+    }
 
     /**
      * Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
@@ -235,24 +315,33 @@ public final class WindowsFileSystem extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public Integer throughputCapacity;
+    private UndeferrableValue<Integer> throughputCapacity;
 
-
+    public Integer throughputCapacity() {
+        if (throughputCapacity == null) return null;
+        return throughputCapacity.getValue("WindowsFileSystem.throughputCapacity");
+    }
 
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("WindowsFileSystem.vpcId");
+    }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public String weeklyMaintenanceStartTime;
+    private UndeferrableValue<String> weeklyMaintenanceStartTime;
 
-
+    public String weeklyMaintenanceStartTime() {
+        if (weeklyMaintenanceStartTime == null) return null;
+        return weeklyMaintenanceStartTime.getValue("WindowsFileSystem.weeklyMaintenanceStartTime");
+    }
 
 }

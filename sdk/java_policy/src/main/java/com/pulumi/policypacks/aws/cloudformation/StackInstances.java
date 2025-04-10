@@ -3,90 +3,119 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudformation.StackInstancesDeploymentTargets;
-import com.pulumi.policypacks.aws.cloudformation.StackInstancesOperationPreferences;
-import com.pulumi.policypacks.aws.cloudformation.StackInstancesStackInstanceSummary;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackInstancesDeploymentTargets;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackInstancesOperationPreferences;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackInstancesStackInstanceSummary;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudformation/stackInstances:StackInstances")
-public final class StackInstances extends com.pulumi.resources.PolicyResource {
+public final class StackInstances extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
      * 
      */
-    public List<String> accounts;
+    private UndeferrableValue<List<String>> accounts;
 
-
+    public List<String> accounts() {
+        if (accounts == null) return null;
+        return accounts.getValue("StackInstances.accounts");
+    }
 
     /**
      * Whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    public String callAs;
+    private @Nullable UndeferrableValue<String> callAs;
 
-
+    public @Nullable String callAs() {
+        if (callAs == null) return null;
+        return callAs.getValue("StackInstances.callAs");
+    }
 
     /**
      * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
      * 
      */
-    public StackInstancesDeploymentTargets deploymentTargets;
+    private @Nullable UndeferrableValue<StackInstancesDeploymentTargets> deploymentTargets;
 
-
+    public @Nullable StackInstancesDeploymentTargets deploymentTargets() {
+        if (deploymentTargets == null) return null;
+        return deploymentTargets.getValue("StackInstances.deploymentTargets");
+    }
 
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
      * 
      */
-    public StackInstancesOperationPreferences operationPreferences;
+    private @Nullable UndeferrableValue<StackInstancesOperationPreferences> operationPreferences;
 
-
+    public @Nullable StackInstancesOperationPreferences operationPreferences() {
+        if (operationPreferences == null) return null;
+        return operationPreferences.getValue("StackInstances.operationPreferences");
+    }
 
     /**
      * Key-value map of input parameters to override from the stack set for these instances. This argument&#39;s drift detection is limited to the first account and region since each instance can have unique parameters.
      * 
      */
-    public Map<String,String> parameterOverrides;
+    private @Nullable UndeferrableValue<Map<String,String>> parameterOverrides;
 
-
+    public @Nullable Map<String,String> parameterOverrides() {
+        if (parameterOverrides == null) return null;
+        return parameterOverrides.getValue("StackInstances.parameterOverrides");
+    }
 
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      * 
      */
-    public List<String> regions;
+    private UndeferrableValue<List<String>> regions;
 
-
+    public List<String> regions() {
+        if (regions == null) return null;
+        return regions.getValue("StackInstances.regions");
+    }
 
     /**
      * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
-    public Boolean retainStacks;
+    private @Nullable UndeferrableValue<Boolean> retainStacks;
 
-
+    public @Nullable Boolean retainStacks() {
+        if (retainStacks == null) return null;
+        return retainStacks.getValue("StackInstances.retainStacks");
+    }
 
     /**
      * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
      * 
      */
-    public List<StackInstancesStackInstanceSummary> stackInstanceSummaries;
+    private UndeferrableValue<List<StackInstancesStackInstanceSummary>> stackInstanceSummaries;
 
-
+    public List<StackInstancesStackInstanceSummary> stackInstanceSummaries() {
+        if (stackInstanceSummaries == null) return null;
+        return stackInstanceSummaries.getValue("StackInstances.stackInstanceSummaries");
+    }
 
     /**
      * Name or unique ID of the stack set that the stack instance is associated with.
      * 
      */
-    public String stackSetId;
+    private UndeferrableValue<String> stackSetId;
 
-
+    public String stackSetId() {
+        if (stackSetId == null) return null;
+        return stackSetId.getValue("StackInstances.stackSetId");
+    }
 
     /**
      * Name of the stack set.
@@ -94,8 +123,11 @@ public final class StackInstances extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String stackSetName;
+    private UndeferrableValue<String> stackSetName;
 
-
+    public String stackSetName() {
+        if (stackSetName == null) return null;
+        return stackSetName.getValue("StackInstances.stackSetName");
+    }
 
 }

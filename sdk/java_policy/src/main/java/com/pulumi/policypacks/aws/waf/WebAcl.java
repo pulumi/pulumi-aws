@@ -3,73 +3,96 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.waf.WebAclDefaultAction;
-import com.pulumi.policypacks.aws.waf.WebAclLoggingConfiguration;
-import com.pulumi.policypacks.aws.waf.WebAclRule;
+import com.pulumi.policypacks.aws.waf.outputs.WebAclDefaultAction;
+import com.pulumi.policypacks.aws.waf.outputs.WebAclLoggingConfiguration;
+import com.pulumi.policypacks.aws.waf.outputs.WebAclRule;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/webAcl:WebAcl")
-public final class WebAcl extends com.pulumi.resources.PolicyResource {
+public final class WebAcl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the WAF WebACL.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("WebAcl.arn");
+    }
 
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      * 
      */
-    public WebAclDefaultAction defaultAction;
+    private UndeferrableValue<WebAclDefaultAction> defaultAction;
 
-
+    public WebAclDefaultAction defaultAction() {
+        if (defaultAction == null) return null;
+        return defaultAction.getValue("WebAcl.defaultAction");
+    }
 
     /**
      * Configuration block to enable WAF logging. Detailed below.
      * 
      */
-    public WebAclLoggingConfiguration loggingConfiguration;
+    private @Nullable UndeferrableValue<WebAclLoggingConfiguration> loggingConfiguration;
 
-
+    public @Nullable WebAclLoggingConfiguration loggingConfiguration() {
+        if (loggingConfiguration == null) return null;
+        return loggingConfiguration.getValue("WebAcl.loggingConfiguration");
+    }
 
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      * 
      */
-    public String metricName;
+    private UndeferrableValue<String> metricName;
 
-
+    public String metricName() {
+        if (metricName == null) return null;
+        return metricName.getValue("WebAcl.metricName");
+    }
 
     /**
      * The name or description of the web ACL.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("WebAcl.name");
+    }
 
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      * 
      */
-    public List<WebAclRule> rules;
+    private @Nullable UndeferrableValue<List<WebAclRule>> rules;
 
-
+    public @Nullable List<WebAclRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("WebAcl.rules");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("WebAcl.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -79,8 +102,11 @@ public final class WebAcl extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("WebAcl.tagsAll");
+    }
 
 }

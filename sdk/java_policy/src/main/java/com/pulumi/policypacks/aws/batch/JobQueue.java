@@ -3,34 +3,42 @@
 
 package com.pulumi.policypacks.aws.batch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.batch.JobQueueComputeEnvironmentOrder;
-import com.pulumi.policypacks.aws.batch.JobQueueJobStateTimeLimitAction;
-import com.pulumi.policypacks.aws.batch.JobQueueTimeouts;
+import com.pulumi.policypacks.aws.batch.outputs.JobQueueComputeEnvironmentOrder;
+import com.pulumi.policypacks.aws.batch.outputs.JobQueueJobStateTimeLimitAction;
+import com.pulumi.policypacks.aws.batch.outputs.JobQueueTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:batch/jobQueue:JobQueue")
-public final class JobQueue extends com.pulumi.resources.PolicyResource {
+public final class JobQueue extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of the job queue.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("JobQueue.arn");
+    }
 
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    public List<JobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
+    private @Nullable UndeferrableValue<List<JobQueueComputeEnvironmentOrder>> computeEnvironmentOrders;
 
-
+    public @Nullable List<JobQueueComputeEnvironmentOrder> computeEnvironmentOrders() {
+        if (computeEnvironmentOrders == null) return null;
+        return computeEnvironmentOrders.getValue("JobQueue.computeEnvironmentOrders");
+    }
 
     /**
      * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
@@ -40,58 +48,79 @@ public final class JobQueue extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    public List<String> computeEnvironments;
+    private @Nullable UndeferrableValue<List<String>> computeEnvironments;
 
-
+    public @Nullable List<String> computeEnvironments() {
+        if (computeEnvironments == null) return null;
+        return computeEnvironments.getValue("JobQueue.computeEnvironments");
+    }
 
     /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
-    public List<JobQueueJobStateTimeLimitAction> jobStateTimeLimitActions;
+    private @Nullable UndeferrableValue<List<JobQueueJobStateTimeLimitAction>> jobStateTimeLimitActions;
 
-
+    public @Nullable List<JobQueueJobStateTimeLimitAction> jobStateTimeLimitActions() {
+        if (jobStateTimeLimitActions == null) return null;
+        return jobStateTimeLimitActions.getValue("JobQueue.jobStateTimeLimitActions");
+    }
 
     /**
      * Specifies the name of the job queue.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("JobQueue.name");
+    }
 
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      * 
      */
-    public Integer priority;
+    private UndeferrableValue<Integer> priority;
 
-
+    public Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("JobQueue.priority");
+    }
 
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
-    public String schedulingPolicyArn;
+    private @Nullable UndeferrableValue<String> schedulingPolicyArn;
 
-
+    public @Nullable String schedulingPolicyArn() {
+        if (schedulingPolicyArn == null) return null;
+        return schedulingPolicyArn.getValue("JobQueue.schedulingPolicyArn");
+    }
 
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("JobQueue.state");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("JobQueue.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -101,12 +130,18 @@ public final class JobQueue extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("JobQueue.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<JobQueueTimeouts> timeouts;
 
-    public JobQueueTimeouts timeouts;
-
-
+    public @Nullable JobQueueTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("JobQueue.timeouts");
+    }
 
 }

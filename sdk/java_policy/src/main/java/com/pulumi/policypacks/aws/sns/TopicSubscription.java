@@ -3,134 +3,181 @@
 
 package com.pulumi.policypacks.aws.sns;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sns/topicSubscription:TopicSubscription")
-public final class TopicSubscription extends com.pulumi.resources.PolicyResource {
+public final class TopicSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the subscription.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TopicSubscription.arn");
+    }
 
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      * 
      */
-    public Integer confirmationTimeoutInMinutes;
+    private @Nullable UndeferrableValue<Integer> confirmationTimeoutInMinutes;
 
-
+    public @Nullable Integer confirmationTimeoutInMinutes() {
+        if (confirmationTimeoutInMinutes == null) return null;
+        return confirmationTimeoutInMinutes.getValue("TopicSubscription.confirmationTimeoutInMinutes");
+    }
 
     /**
      * Whether the subscription confirmation request was authenticated.
      * 
      */
-    public Boolean confirmationWasAuthenticated;
+    private UndeferrableValue<Boolean> confirmationWasAuthenticated;
 
-
+    public Boolean confirmationWasAuthenticated() {
+        if (confirmationWasAuthenticated == null) return null;
+        return confirmationWasAuthenticated.getValue("TopicSubscription.confirmationWasAuthenticated");
+    }
 
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      * 
      */
-    public String deliveryPolicy;
+    private @Nullable UndeferrableValue<String> deliveryPolicy;
 
-
+    public @Nullable String deliveryPolicy() {
+        if (deliveryPolicy == null) return null;
+        return deliveryPolicy.getValue("TopicSubscription.deliveryPolicy");
+    }
 
     /**
      * Endpoint to send data to. The contents vary with the protocol. See details below.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("TopicSubscription.endpoint");
+    }
 
     /**
      * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
      * 
      */
-    public Boolean endpointAutoConfirms;
+    private @Nullable UndeferrableValue<Boolean> endpointAutoConfirms;
 
-
+    public @Nullable Boolean endpointAutoConfirms() {
+        if (endpointAutoConfirms == null) return null;
+        return endpointAutoConfirms.getValue("TopicSubscription.endpointAutoConfirms");
+    }
 
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      * 
      */
-    public String filterPolicy;
+    private @Nullable UndeferrableValue<String> filterPolicy;
 
-
+    public @Nullable String filterPolicy() {
+        if (filterPolicy == null) return null;
+        return filterPolicy.getValue("TopicSubscription.filterPolicy");
+    }
 
     /**
      * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
-    public String filterPolicyScope;
+    private UndeferrableValue<String> filterPolicyScope;
 
-
+    public String filterPolicyScope() {
+        if (filterPolicyScope == null) return null;
+        return filterPolicyScope.getValue("TopicSubscription.filterPolicyScope");
+    }
 
     /**
      * AWS account ID of the subscription&#39;s owner.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("TopicSubscription.ownerId");
+    }
 
     /**
      * Whether the subscription has not been confirmed.
      * 
      */
-    public Boolean pendingConfirmation;
+    private UndeferrableValue<Boolean> pendingConfirmation;
 
-
+    public Boolean pendingConfirmation() {
+        if (pendingConfirmation == null) return null;
+        return pendingConfirmation.getValue("TopicSubscription.pendingConfirmation");
+    }
 
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("TopicSubscription.protocol");
+    }
 
     /**
      * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
      * 
      */
-    public Boolean rawMessageDelivery;
+    private @Nullable UndeferrableValue<Boolean> rawMessageDelivery;
 
-
+    public @Nullable Boolean rawMessageDelivery() {
+        if (rawMessageDelivery == null) return null;
+        return rawMessageDelivery.getValue("TopicSubscription.rawMessageDelivery");
+    }
 
     /**
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      * 
      */
-    public String redrivePolicy;
+    private @Nullable UndeferrableValue<String> redrivePolicy;
 
-
+    public @Nullable String redrivePolicy() {
+        if (redrivePolicy == null) return null;
+        return redrivePolicy.getValue("TopicSubscription.redrivePolicy");
+    }
 
     /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      * 
      */
-    public String replayPolicy;
+    private @Nullable UndeferrableValue<String> replayPolicy;
 
-
+    public @Nullable String replayPolicy() {
+        if (replayPolicy == null) return null;
+        return replayPolicy.getValue("TopicSubscription.replayPolicy");
+    }
 
     /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      * 
      */
-    public String subscriptionRoleArn;
+    private @Nullable UndeferrableValue<String> subscriptionRoleArn;
 
-
+    public @Nullable String subscriptionRoleArn() {
+        if (subscriptionRoleArn == null) return null;
+        return subscriptionRoleArn.getValue("TopicSubscription.subscriptionRoleArn");
+    }
 
     /**
      * ARN of the SNS topic to subscribe to.
@@ -138,8 +185,11 @@ public final class TopicSubscription extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public String topic;
+    private UndeferrableValue<String> topic;
 
-
+    public String topic() {
+        if (topic == null) return null;
+        return topic.getValue("TopicSubscription.topic");
+    }
 
 }

@@ -3,133 +3,180 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ClusterSnapshotCopyTimeouts;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterSnapshotCopyTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy")
-public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResource {
+public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("ClusterSnapshotCopy.allocatedStorage");
+    }
 
     /**
      * Whether to copy existing tags. Defaults to `false`.
      * 
      */
-    public Boolean copyTags;
+    private @Nullable UndeferrableValue<Boolean> copyTags;
 
-
+    public @Nullable Boolean copyTags() {
+        if (copyTags == null) return null;
+        return copyTags.getValue("ClusterSnapshotCopy.copyTags");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the DB cluster snapshot.
      * 
      */
-    public String dbClusterSnapshotArn;
+    private UndeferrableValue<String> dbClusterSnapshotArn;
 
-
+    public String dbClusterSnapshotArn() {
+        if (dbClusterSnapshotArn == null) return null;
+        return dbClusterSnapshotArn.getValue("ClusterSnapshotCopy.dbClusterSnapshotArn");
+    }
 
     /**
      * The Destination region to place snapshot copy.
      * 
      */
-    public String destinationRegion;
+    private @Nullable UndeferrableValue<String> destinationRegion;
 
-
+    public @Nullable String destinationRegion() {
+        if (destinationRegion == null) return null;
+        return destinationRegion.getValue("ClusterSnapshotCopy.destinationRegion");
+    }
 
     /**
      * Specifies the name of the database engine.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterSnapshotCopy.engine");
+    }
 
     /**
      * Specifies the version of the database engine.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterSnapshotCopy.engineVersion");
+    }
 
     /**
      * KMS key ID.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterSnapshotCopy.kmsKeyId");
+    }
 
     /**
      * License model information for the restored DB instance.
      * 
      */
-    public String licenseModel;
+    private UndeferrableValue<String> licenseModel;
 
-
+    public String licenseModel() {
+        if (licenseModel == null) return null;
+        return licenseModel.getValue("ClusterSnapshotCopy.licenseModel");
+    }
 
     /**
      * URL that contains a Signature Version 4 signed request.
      * 
      */
-    public String presignedUrl;
+    private @Nullable UndeferrableValue<String> presignedUrl;
 
-
+    public @Nullable String presignedUrl() {
+        if (presignedUrl == null) return null;
+        return presignedUrl.getValue("ClusterSnapshotCopy.presignedUrl");
+    }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    public List<String> sharedAccounts;
+    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
 
+    public @Nullable List<String> sharedAccounts() {
+        if (sharedAccounts == null) return null;
+        return sharedAccounts.getValue("ClusterSnapshotCopy.sharedAccounts");
+    }
 
+    private UndeferrableValue<String> snapshotType;
 
-    public String snapshotType;
-
-
+    public String snapshotType() {
+        if (snapshotType == null) return null;
+        return snapshotType.getValue("ClusterSnapshotCopy.snapshotType");
+    }
 
     /**
      * Identifier of the source snapshot.
      * 
      */
-    public String sourceDbClusterSnapshotIdentifier;
+    private UndeferrableValue<String> sourceDbClusterSnapshotIdentifier;
 
-
+    public String sourceDbClusterSnapshotIdentifier() {
+        if (sourceDbClusterSnapshotIdentifier == null) return null;
+        return sourceDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopy.sourceDbClusterSnapshotIdentifier");
+    }
 
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterSnapshotCopy.storageEncrypted");
+    }
 
     /**
      * Specifies the storage type associated with DB cluster snapshot.
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("ClusterSnapshotCopy.storageType");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterSnapshotCopy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -139,9 +186,12 @@ public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterSnapshotCopy.tagsAll");
+    }
 
     /**
      * Identifier for the snapshot.
@@ -149,20 +199,29 @@ public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String targetDbClusterSnapshotIdentifier;
+    private UndeferrableValue<String> targetDbClusterSnapshotIdentifier;
 
+    public String targetDbClusterSnapshotIdentifier() {
+        if (targetDbClusterSnapshotIdentifier == null) return null;
+        return targetDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopy.targetDbClusterSnapshotIdentifier");
+    }
 
+    private @Nullable UndeferrableValue<ClusterSnapshotCopyTimeouts> timeouts;
 
-    public ClusterSnapshotCopyTimeouts timeouts;
-
-
+    public @Nullable ClusterSnapshotCopyTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ClusterSnapshotCopy.timeouts");
+    }
 
     /**
      * Provides the VPC ID associated with the DB cluster snapshot.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ClusterSnapshotCopy.vpcId");
+    }
 
 }

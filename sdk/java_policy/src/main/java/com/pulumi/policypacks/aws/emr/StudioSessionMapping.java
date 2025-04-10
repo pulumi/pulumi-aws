@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:emr/studioSessionMapping:StudioSessionMapping")
-public final class StudioSessionMapping extends com.pulumi.resources.PolicyResource {
+public final class StudioSessionMapping extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    public String identityId;
+    private UndeferrableValue<String> identityId;
 
-
+    public String identityId() {
+        if (identityId == null) return null;
+        return identityId.getValue("StudioSessionMapping.identityId");
+    }
 
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    public String identityName;
+    private UndeferrableValue<String> identityName;
 
-
+    public String identityName() {
+        if (identityName == null) return null;
+        return identityName.getValue("StudioSessionMapping.identityName");
+    }
 
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      * 
      */
-    public String identityType;
+    private UndeferrableValue<String> identityType;
 
-
+    public String identityType() {
+        if (identityType == null) return null;
+        return identityType.getValue("StudioSessionMapping.identityType");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
-    public String sessionPolicyArn;
+    private UndeferrableValue<String> sessionPolicyArn;
 
-
+    public String sessionPolicyArn() {
+        if (sessionPolicyArn == null) return null;
+        return sessionPolicyArn.getValue("StudioSessionMapping.sessionPolicyArn");
+    }
 
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      * 
      */
-    public String studioId;
+    private UndeferrableValue<String> studioId;
 
-
+    public String studioId() {
+        if (studioId == null) return null;
+        return studioId.getValue("StudioSessionMapping.studioId");
+    }
 
 }

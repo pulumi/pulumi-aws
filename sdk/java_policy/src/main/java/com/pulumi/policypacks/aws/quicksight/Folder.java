@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.FolderPermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.FolderPermission;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/folder:Folder")
-public final class Folder extends com.pulumi.resources.PolicyResource {
+public final class Folder extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the folder.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Folder.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Folder.awsAccountId");
+    }
 
     /**
      * The time that the folder was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Folder.createdTime");
+    }
 
     /**
      * Identifier for the folder.
      * 
      */
-    public String folderId;
+    private UndeferrableValue<String> folderId;
 
-
+    public String folderId() {
+        if (folderId == null) return null;
+        return folderId.getValue("Folder.folderId");
+    }
 
     /**
      * An array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
-    public List<String> folderPaths;
+    private UndeferrableValue<List<String>> folderPaths;
 
-
+    public List<String> folderPaths() {
+        if (folderPaths == null) return null;
+        return folderPaths.getValue("Folder.folderPaths");
+    }
 
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
-    public String folderType;
+    private @Nullable UndeferrableValue<String> folderType;
 
-
+    public @Nullable String folderType() {
+        if (folderType == null) return null;
+        return folderType.getValue("Folder.folderType");
+    }
 
     /**
      * The time that the folder was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Folder.lastUpdatedTime");
+    }
 
     /**
      * Display name for the folder.
@@ -75,33 +98,45 @@ public final class Folder extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Folder.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      * 
      */
-    public String parentFolderArn;
+    private @Nullable UndeferrableValue<String> parentFolderArn;
 
-
+    public @Nullable String parentFolderArn() {
+        if (parentFolderArn == null) return null;
+        return parentFolderArn.getValue("Folder.parentFolderArn");
+    }
 
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      * 
      */
-    public List<FolderPermission> permissions;
+    private @Nullable UndeferrableValue<List<FolderPermission>> permissions;
 
-
+    public @Nullable List<FolderPermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Folder.permissions");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Folder.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -111,8 +146,11 @@ public final class Folder extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Folder.tagsAll");
+    }
 
 }

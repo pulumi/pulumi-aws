@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssoadmin.ApplicationPortalOptions;
+import com.pulumi.policypacks.aws.ssoadmin.outputs.ApplicationPortalOptions;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssoadmin/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID.
      * 
      */
-    public String applicationAccount;
+    private UndeferrableValue<String> applicationAccount;
 
-
+    public String applicationAccount() {
+        if (applicationAccount == null) return null;
+        return applicationAccount.getValue("Application.applicationAccount");
+    }
 
     /**
      * ARN of the application.
      * 
      */
-    public String applicationArn;
+    private UndeferrableValue<String> applicationArn;
 
-
+    public String applicationArn() {
+        if (applicationArn == null) return null;
+        return applicationArn.getValue("Application.applicationArn");
+    }
 
     /**
      * ARN of the application provider.
      * 
      */
-    public String applicationProviderArn;
+    private UndeferrableValue<String> applicationProviderArn;
 
-
+    public String applicationProviderArn() {
+        if (applicationProviderArn == null) return null;
+        return applicationProviderArn.getValue("Application.applicationProviderArn");
+    }
 
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      * 
      */
-    public String clientToken;
+    private @Nullable UndeferrableValue<String> clientToken;
 
-
+    public @Nullable String clientToken() {
+        if (clientToken == null) return null;
+        return clientToken.getValue("Application.clientToken");
+    }
 
     /**
      * Description of the application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * ARN of the instance of IAM Identity Center.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("Application.instanceArn");
+    }
 
     /**
      * Name of the application.
@@ -66,33 +86,45 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * Options for the portal associated with an application. See `portal_options` below.
      * 
      */
-    public ApplicationPortalOptions portalOptions;
+    private @Nullable UndeferrableValue<ApplicationPortalOptions> portalOptions;
 
-
+    public @Nullable ApplicationPortalOptions portalOptions() {
+        if (portalOptions == null) return null;
+        return portalOptions.getValue("Application.portalOptions");
+    }
 
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Application.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -102,8 +134,11 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
 }

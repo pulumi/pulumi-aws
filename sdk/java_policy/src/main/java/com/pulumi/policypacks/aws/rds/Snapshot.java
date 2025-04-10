@@ -3,168 +3,230 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/snapshot:Snapshot")
-public final class Snapshot extends com.pulumi.resources.PolicyResource {
+public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("Snapshot.allocatedStorage");
+    }
 
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Snapshot.availabilityZone");
+    }
 
     /**
      * The DB Instance Identifier from which to take the snapshot.
      * 
      */
-    public String dbInstanceIdentifier;
+    private UndeferrableValue<String> dbInstanceIdentifier;
 
-
+    public String dbInstanceIdentifier() {
+        if (dbInstanceIdentifier == null) return null;
+        return dbInstanceIdentifier.getValue("Snapshot.dbInstanceIdentifier");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      * 
      */
-    public String dbSnapshotArn;
+    private UndeferrableValue<String> dbSnapshotArn;
 
-
+    public String dbSnapshotArn() {
+        if (dbSnapshotArn == null) return null;
+        return dbSnapshotArn.getValue("Snapshot.dbSnapshotArn");
+    }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    public String dbSnapshotIdentifier;
+    private UndeferrableValue<String> dbSnapshotIdentifier;
 
-
+    public String dbSnapshotIdentifier() {
+        if (dbSnapshotIdentifier == null) return null;
+        return dbSnapshotIdentifier.getValue("Snapshot.dbSnapshotIdentifier");
+    }
 
     /**
      * Specifies whether the DB snapshot is encrypted.
      * 
      */
-    public Boolean encrypted;
+    private UndeferrableValue<Boolean> encrypted;
 
-
+    public Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("Snapshot.encrypted");
+    }
 
     /**
      * Specifies the name of the database engine.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Snapshot.engine");
+    }
 
     /**
      * Specifies the version of the database engine.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Snapshot.engineVersion");
+    }
 
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    public Integer iops;
+    private UndeferrableValue<Integer> iops;
 
-
+    public Integer iops() {
+        if (iops == null) return null;
+        return iops.getValue("Snapshot.iops");
+    }
 
     /**
      * The ARN for the KMS encryption key.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Snapshot.kmsKeyId");
+    }
 
     /**
      * License model information for the restored DB instance.
      * 
      */
-    public String licenseModel;
+    private UndeferrableValue<String> licenseModel;
 
-
+    public String licenseModel() {
+        if (licenseModel == null) return null;
+        return licenseModel.getValue("Snapshot.licenseModel");
+    }
 
     /**
      * Provides the option group name for the DB snapshot.
      * 
      */
-    public String optionGroupName;
+    private UndeferrableValue<String> optionGroupName;
 
+    public String optionGroupName() {
+        if (optionGroupName == null) return null;
+        return optionGroupName.getValue("Snapshot.optionGroupName");
+    }
 
+    private UndeferrableValue<Integer> port;
 
-    public Integer port;
-
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Snapshot.port");
+    }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    public List<String> sharedAccounts;
+    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
 
+    public @Nullable List<String> sharedAccounts() {
+        if (sharedAccounts == null) return null;
+        return sharedAccounts.getValue("Snapshot.sharedAccounts");
+    }
 
+    private UndeferrableValue<String> snapshotType;
 
-    public String snapshotType;
-
-
+    public String snapshotType() {
+        if (snapshotType == null) return null;
+        return snapshotType.getValue("Snapshot.snapshotType");
+    }
 
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      * 
      */
-    public String sourceDbSnapshotIdentifier;
+    private UndeferrableValue<String> sourceDbSnapshotIdentifier;
 
-
+    public String sourceDbSnapshotIdentifier() {
+        if (sourceDbSnapshotIdentifier == null) return null;
+        return sourceDbSnapshotIdentifier.getValue("Snapshot.sourceDbSnapshotIdentifier");
+    }
 
     /**
      * The region that the DB snapshot was created in or copied from.
      * 
      */
-    public String sourceRegion;
+    private UndeferrableValue<String> sourceRegion;
 
-
+    public String sourceRegion() {
+        if (sourceRegion == null) return null;
+        return sourceRegion.getValue("Snapshot.sourceRegion");
+    }
 
     /**
      * Specifies the status of this DB snapshot.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Snapshot.status");
+    }
 
     /**
      * Specifies the storage type associated with DB snapshot.
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Snapshot.storageType");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Snapshot.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -174,16 +236,22 @@ public final class Snapshot extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Snapshot.tagsAll");
+    }
 
     /**
      * Provides the VPC ID associated with the DB snapshot.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Snapshot.vpcId");
+    }
 
 }

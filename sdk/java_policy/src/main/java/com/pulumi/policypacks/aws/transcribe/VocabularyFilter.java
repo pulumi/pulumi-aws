@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transcribe/vocabularyFilter:VocabularyFilter")
-public final class VocabularyFilter extends com.pulumi.resources.PolicyResource {
+public final class VocabularyFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the VocabularyFilter.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VocabularyFilter.arn");
+    }
 
     /**
      * Generated download URI.
      * 
      */
-    public String downloadUri;
+    private UndeferrableValue<String> downloadUri;
 
-
+    public String downloadUri() {
+        if (downloadUri == null) return null;
+        return downloadUri.getValue("VocabularyFilter.downloadUri");
+    }
 
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("VocabularyFilter.languageCode");
+    }
 
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VocabularyFilter.tags");
+    }
 
     /**
      * @deprecated
@@ -50,17 +64,23 @@ public final class VocabularyFilter extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VocabularyFilter.tagsAll");
+    }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
-    public String vocabularyFilterFileUri;
+    private @Nullable UndeferrableValue<String> vocabularyFilterFileUri;
 
-
+    public @Nullable String vocabularyFilterFileUri() {
+        if (vocabularyFilterFileUri == null) return null;
+        return vocabularyFilterFileUri.getValue("VocabularyFilter.vocabularyFilterFileUri");
+    }
 
     /**
      * The name of the VocabularyFilter.
@@ -68,16 +88,22 @@ public final class VocabularyFilter extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String vocabularyFilterName;
+    private UndeferrableValue<String> vocabularyFilterName;
 
-
+    public String vocabularyFilterName() {
+        if (vocabularyFilterName == null) return null;
+        return vocabularyFilterName.getValue("VocabularyFilter.vocabularyFilterName");
+    }
 
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
-    public List<String> words;
+    private @Nullable UndeferrableValue<List<String>> words;
 
-
+    public @Nullable List<String> words() {
+        if (words == null) return null;
+        return words.getValue("VocabularyFilter.words");
+    }
 
 }

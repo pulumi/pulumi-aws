@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:memorydb/acl:Acl")
-public final class Acl extends com.pulumi.resources.PolicyResource {
+public final class Acl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the ACL.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Acl.arn");
+    }
 
     /**
      * The minimum engine version supported by the ACL.
      * 
      */
-    public String minimumEngineVersion;
+    private UndeferrableValue<String> minimumEngineVersion;
 
-
+    public String minimumEngineVersion() {
+        if (minimumEngineVersion == null) return null;
+        return minimumEngineVersion.getValue("Acl.minimumEngineVersion");
+    }
 
     /**
      * Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Acl.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Acl.namePrefix");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Acl.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,16 +77,22 @@ public final class Acl extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Acl.tagsAll");
+    }
 
     /**
      * Set of MemoryDB user names to be included in this ACL.
      * 
      */
-    public List<String> userNames;
+    private @Nullable UndeferrableValue<List<String>> userNames;
 
-
+    public @Nullable List<String> userNames() {
+        if (userNames == null) return null;
+        return userNames.getValue("Acl.userNames");
+    }
 
 }

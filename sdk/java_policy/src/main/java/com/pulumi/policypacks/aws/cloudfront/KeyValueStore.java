@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.KeyValueStoreTimeouts;
+import com.pulumi.policypacks.aws.cloudfront.outputs.KeyValueStoreTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/keyValueStore:KeyValueStore")
-public final class KeyValueStore extends com.pulumi.resources.PolicyResource {
+public final class KeyValueStore extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KeyValueStore.arn");
+    }
 
     /**
      * Comment.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("KeyValueStore.comment");
+    }
 
     /**
      * ETag hash of the KeyValueStore.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("KeyValueStore.etag");
+    }
 
+    private UndeferrableValue<String> lastModifiedTime;
 
-    public String lastModifiedTime;
-
-
+    public String lastModifiedTime() {
+        if (lastModifiedTime == null) return null;
+        return lastModifiedTime.getValue("KeyValueStore.lastModifiedTime");
+    }
 
     /**
      * Unique name for your CloudFront KeyValueStore.
@@ -45,12 +59,18 @@ public final class KeyValueStore extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KeyValueStore.name");
+    }
 
+    private @Nullable UndeferrableValue<KeyValueStoreTimeouts> timeouts;
 
-    public KeyValueStoreTimeouts timeouts;
-
-
+    public @Nullable KeyValueStoreTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("KeyValueStore.timeouts");
+    }
 
 }

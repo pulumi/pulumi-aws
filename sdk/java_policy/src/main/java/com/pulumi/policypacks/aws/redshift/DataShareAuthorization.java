@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/dataShareAuthorization:DataShareAuthorization")
-public final class DataShareAuthorization extends com.pulumi.resources.PolicyResource {
+public final class DataShareAuthorization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to allow write operations for a datashare.
      * 
      */
-    public Boolean allowWrites;
+    private @Nullable UndeferrableValue<Boolean> allowWrites;
 
-
+    public @Nullable Boolean allowWrites() {
+        if (allowWrites == null) return null;
+        return allowWrites.getValue("DataShareAuthorization.allowWrites");
+    }
 
     /**
      * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
      * 
      */
-    public String consumerIdentifier;
+    private UndeferrableValue<String> consumerIdentifier;
 
-
+    public String consumerIdentifier() {
+        if (consumerIdentifier == null) return null;
+        return consumerIdentifier.getValue("DataShareAuthorization.consumerIdentifier");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
@@ -33,24 +41,33 @@ public final class DataShareAuthorization extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String dataShareArn;
+    private UndeferrableValue<String> dataShareArn;
 
-
+    public String dataShareArn() {
+        if (dataShareArn == null) return null;
+        return dataShareArn.getValue("DataShareAuthorization.dataShareArn");
+    }
 
     /**
      * Identifier of a datashare to show its managing entity.
      * 
      */
-    public String managedBy;
+    private UndeferrableValue<String> managedBy;
 
-
+    public String managedBy() {
+        if (managedBy == null) return null;
+        return managedBy.getValue("DataShareAuthorization.managedBy");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the producer.
      * 
      */
-    public String producerArn;
+    private UndeferrableValue<String> producerArn;
 
-
+    public String producerArn() {
+        if (producerArn == null) return null;
+        return producerArn.getValue("DataShareAuthorization.producerArn");
+    }
 
 }

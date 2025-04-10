@@ -3,98 +3,130 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.TaskExcludes;
-import com.pulumi.policypacks.aws.datasync.TaskIncludes;
-import com.pulumi.policypacks.aws.datasync.TaskOptions;
-import com.pulumi.policypacks.aws.datasync.TaskSchedule;
-import com.pulumi.policypacks.aws.datasync.TaskTaskReportConfig;
+import com.pulumi.policypacks.aws.datasync.outputs.TaskExcludes;
+import com.pulumi.policypacks.aws.datasync.outputs.TaskIncludes;
+import com.pulumi.policypacks.aws.datasync.outputs.TaskOptions;
+import com.pulumi.policypacks.aws.datasync.outputs.TaskSchedule;
+import com.pulumi.policypacks.aws.datasync.outputs.TaskTaskReportConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/task:Task")
-public final class Task extends com.pulumi.resources.PolicyResource {
+public final class Task extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Task.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
-    public String cloudwatchLogGroupArn;
+    private @Nullable UndeferrableValue<String> cloudwatchLogGroupArn;
 
-
+    public @Nullable String cloudwatchLogGroupArn() {
+        if (cloudwatchLogGroupArn == null) return null;
+        return cloudwatchLogGroupArn.getValue("Task.cloudwatchLogGroupArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      * 
      */
-    public String destinationLocationArn;
+    private UndeferrableValue<String> destinationLocationArn;
 
-
+    public String destinationLocationArn() {
+        if (destinationLocationArn == null) return null;
+        return destinationLocationArn.getValue("Task.destinationLocationArn");
+    }
 
     /**
      * Filter rules that determines which files to exclude from a task.
      * 
      */
-    public TaskExcludes excludes;
+    private @Nullable UndeferrableValue<TaskExcludes> excludes;
 
-
+    public @Nullable TaskExcludes excludes() {
+        if (excludes == null) return null;
+        return excludes.getValue("Task.excludes");
+    }
 
     /**
      * Filter rules that determines which files to include in a task.
      * 
      */
-    public TaskIncludes includes;
+    private @Nullable UndeferrableValue<TaskIncludes> includes;
 
-
+    public @Nullable TaskIncludes includes() {
+        if (includes == null) return null;
+        return includes.getValue("Task.includes");
+    }
 
     /**
      * Name of the DataSync Task.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Task.name");
+    }
 
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      * 
      */
-    public TaskOptions options;
+    private @Nullable UndeferrableValue<TaskOptions> options;
 
-
+    public @Nullable TaskOptions options() {
+        if (options == null) return null;
+        return options.getValue("Task.options");
+    }
 
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      * 
      */
-    public TaskSchedule schedule;
+    private @Nullable UndeferrableValue<TaskSchedule> schedule;
 
-
+    public @Nullable TaskSchedule schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("Task.schedule");
+    }
 
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      * 
      */
-    public String sourceLocationArn;
+    private UndeferrableValue<String> sourceLocationArn;
 
-
+    public String sourceLocationArn() {
+        if (sourceLocationArn == null) return null;
+        return sourceLocationArn.getValue("Task.sourceLocationArn");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Task.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,9 +136,12 @@ public final class Task extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Task.tagsAll");
+    }
 
     /**
      * One of the following task modes for your data transfer:
@@ -114,16 +149,22 @@ public final class Task extends com.pulumi.resources.PolicyResource {
      * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
      * 
      */
-    public String taskMode;
+    private UndeferrableValue<String> taskMode;
 
-
+    public String taskMode() {
+        if (taskMode == null) return null;
+        return taskMode.getValue("Task.taskMode");
+    }
 
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
      * 
      */
-    public TaskTaskReportConfig taskReportConfig;
+    private @Nullable UndeferrableValue<TaskTaskReportConfig> taskReportConfig;
 
-
+    public @Nullable TaskTaskReportConfig taskReportConfig() {
+        if (taskReportConfig == null) return null;
+        return taskReportConfig.getValue("Task.taskReportConfig");
+    }
 
 }

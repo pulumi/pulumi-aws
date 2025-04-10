@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.AccountThrottleSetting;
+import com.pulumi.policypacks.aws.apigateway.outputs.AccountThrottleSetting;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/account:Account")
-public final class Account extends com.pulumi.resources.PolicyResource {
+public final class Account extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The version of the API keys used for the account.
      * 
      */
-    public String apiKeyVersion;
+    private UndeferrableValue<String> apiKeyVersion;
 
-
+    public String apiKeyVersion() {
+        if (apiKeyVersion == null) return null;
+        return apiKeyVersion.getValue("Account.apiKeyVersion");
+    }
 
     /**
      * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      * 
      */
-    public String cloudwatchRoleArn;
+    private UndeferrableValue<String> cloudwatchRoleArn;
 
-
+    public String cloudwatchRoleArn() {
+        if (cloudwatchRoleArn == null) return null;
+        return cloudwatchRoleArn.getValue("Account.cloudwatchRoleArn");
+    }
 
     /**
      * A list of features supported for the account.
      * 
      */
-    public List<String> features;
+    private UndeferrableValue<List<String>> features;
 
-
+    public List<String> features() {
+        if (features == null) return null;
+        return features.getValue("Account.features");
+    }
 
     /**
      * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
@@ -47,16 +58,22 @@ public final class Account extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    public Boolean resetOnDelete;
+    private @Nullable UndeferrableValue<Boolean> resetOnDelete;
 
-
+    public @Nullable Boolean resetOnDelete() {
+        if (resetOnDelete == null) return null;
+        return resetOnDelete.getValue("Account.resetOnDelete");
+    }
 
     /**
      * Account-Level throttle settings. See exported fields below.
      * 
      */
-    public List<AccountThrottleSetting> throttleSettings;
+    private UndeferrableValue<List<AccountThrottleSetting>> throttleSettings;
 
-
+    public List<AccountThrottleSetting> throttleSettings() {
+        if (throttleSettings == null) return null;
+        return throttleSettings.getValue("Account.throttleSettings");
+    }
 
 }

@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketNotificationLambdaFunction;
-import com.pulumi.policypacks.aws.s3.BucketNotificationQueue;
-import com.pulumi.policypacks.aws.s3.BucketNotificationTopic;
+import com.pulumi.policypacks.aws.s3.outputs.BucketNotificationLambdaFunction;
+import com.pulumi.policypacks.aws.s3.outputs.BucketNotificationQueue;
+import com.pulumi.policypacks.aws.s3.outputs.BucketNotificationTopic;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketNotification:BucketNotification")
-public final class BucketNotification extends com.pulumi.resources.PolicyResource {
+public final class BucketNotification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket for notification configuration.
@@ -21,40 +23,55 @@ public final class BucketNotification extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketNotification.bucket");
+    }
 
     /**
      * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
-    public Boolean eventbridge;
+    private @Nullable UndeferrableValue<Boolean> eventbridge;
 
-
+    public @Nullable Boolean eventbridge() {
+        if (eventbridge == null) return null;
+        return eventbridge.getValue("BucketNotification.eventbridge");
+    }
 
     /**
      * Used to configure notifications to a Lambda Function. See below.
      * 
      */
-    public List<BucketNotificationLambdaFunction> lambdaFunctions;
+    private @Nullable UndeferrableValue<List<BucketNotificationLambdaFunction>> lambdaFunctions;
 
-
+    public @Nullable List<BucketNotificationLambdaFunction> lambdaFunctions() {
+        if (lambdaFunctions == null) return null;
+        return lambdaFunctions.getValue("BucketNotification.lambdaFunctions");
+    }
 
     /**
      * Notification configuration to SQS Queue. See below.
      * 
      */
-    public List<BucketNotificationQueue> queues;
+    private @Nullable UndeferrableValue<List<BucketNotificationQueue>> queues;
 
-
+    public @Nullable List<BucketNotificationQueue> queues() {
+        if (queues == null) return null;
+        return queues.getValue("BucketNotification.queues");
+    }
 
     /**
      * Notification configuration to SNS Topic. See below.
      * 
      */
-    public List<BucketNotificationTopic> topics;
+    private @Nullable UndeferrableValue<List<BucketNotificationTopic>> topics;
 
-
+    public @Nullable List<BucketNotificationTopic> topics() {
+        if (topics == null) return null;
+        return topics.getValue("BucketNotification.topics");
+    }
 
 }

@@ -3,59 +3,76 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codebuild.FleetComputeConfiguration;
-import com.pulumi.policypacks.aws.codebuild.FleetScalingConfiguration;
-import com.pulumi.policypacks.aws.codebuild.FleetStatus;
-import com.pulumi.policypacks.aws.codebuild.FleetVpcConfig;
+import com.pulumi.policypacks.aws.codebuild.outputs.FleetComputeConfiguration;
+import com.pulumi.policypacks.aws.codebuild.outputs.FleetScalingConfiguration;
+import com.pulumi.policypacks.aws.codebuild.outputs.FleetStatus;
+import com.pulumi.policypacks.aws.codebuild.outputs.FleetVpcConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codebuild/fleet:Fleet")
-public final class Fleet extends com.pulumi.resources.PolicyResource {
+public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Fleet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Fleet.arn");
+    }
 
     /**
      * Number of machines allocated to the ﬂeet.
      * 
      */
-    public Integer baseCapacity;
+    private UndeferrableValue<Integer> baseCapacity;
 
-
+    public Integer baseCapacity() {
+        if (baseCapacity == null) return null;
+        return baseCapacity.getValue("Fleet.baseCapacity");
+    }
 
     /**
      * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
      * 
      */
-    public FleetComputeConfiguration computeConfiguration;
+    private @Nullable UndeferrableValue<FleetComputeConfiguration> computeConfiguration;
 
-
+    public @Nullable FleetComputeConfiguration computeConfiguration() {
+        if (computeConfiguration == null) return null;
+        return computeConfiguration.getValue("Fleet.computeConfiguration");
+    }
 
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      * 
      */
-    public String computeType;
+    private UndeferrableValue<String> computeType;
 
-
+    public String computeType() {
+        if (computeType == null) return null;
+        return computeType.getValue("Fleet.computeType");
+    }
 
     /**
      * Creation time of the fleet.
      * 
      */
-    public String created;
+    private UndeferrableValue<String> created;
 
-
+    public String created() {
+        if (created == null) return null;
+        return created.getValue("Fleet.created");
+    }
 
     /**
      * Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -63,73 +80,100 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String environmentType;
+    private UndeferrableValue<String> environmentType;
 
-
+    public String environmentType() {
+        if (environmentType == null) return null;
+        return environmentType.getValue("Fleet.environmentType");
+    }
 
     /**
      * The service role associated with the compute fleet.
      * 
      */
-    public String fleetServiceRole;
+    private @Nullable UndeferrableValue<String> fleetServiceRole;
 
-
+    public @Nullable String fleetServiceRole() {
+        if (fleetServiceRole == null) return null;
+        return fleetServiceRole.getValue("Fleet.fleetServiceRole");
+    }
 
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      * 
      */
-    public String imageId;
+    private @Nullable UndeferrableValue<String> imageId;
 
-
+    public @Nullable String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("Fleet.imageId");
+    }
 
     /**
      * Last modification time of the fleet.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("Fleet.lastModified");
+    }
 
     /**
      * Fleet name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Fleet.name");
+    }
 
     /**
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      * 
      */
-    public String overflowBehavior;
+    private UndeferrableValue<String> overflowBehavior;
 
-
+    public String overflowBehavior() {
+        if (overflowBehavior == null) return null;
+        return overflowBehavior.getValue("Fleet.overflowBehavior");
+    }
 
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
-    public FleetScalingConfiguration scalingConfiguration;
+    private @Nullable UndeferrableValue<FleetScalingConfiguration> scalingConfiguration;
 
-
+    public @Nullable FleetScalingConfiguration scalingConfiguration() {
+        if (scalingConfiguration == null) return null;
+        return scalingConfiguration.getValue("Fleet.scalingConfiguration");
+    }
 
     /**
      * Nested attribute containing information about the current status of the fleet.
      * 
      */
-    public List<FleetStatus> statuses;
+    private UndeferrableValue<List<FleetStatus>> statuses;
 
-
+    public List<FleetStatus> statuses() {
+        if (statuses == null) return null;
+        return statuses.getValue("Fleet.statuses");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Fleet.tags");
+    }
 
     /**
      * @deprecated
@@ -137,16 +181,22 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Fleet.tagsAll");
+    }
 
     /**
      * Configuration block. See `vpc_config` below.
      * 
      */
-    public List<FleetVpcConfig> vpcConfigs;
+    private @Nullable UndeferrableValue<List<FleetVpcConfig>> vpcConfigs;
 
-
+    public @Nullable List<FleetVpcConfig> vpcConfigs() {
+        if (vpcConfigs == null) return null;
+        return vpcConfigs.getValue("Fleet.vpcConfigs");
+    }
 
 }

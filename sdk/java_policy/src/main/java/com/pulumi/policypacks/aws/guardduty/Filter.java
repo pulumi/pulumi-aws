@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.guardduty.FilterFindingCriteria;
+import com.pulumi.policypacks.aws.guardduty.outputs.FilterFindingCriteria;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/filter:Filter")
-public final class Filter extends com.pulumi.resources.PolicyResource {
+public final class Filter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
-    public String action;
+    private UndeferrableValue<String> action;
 
-
+    public String action() {
+        if (action == null) return null;
+        return action.getValue("Filter.action");
+    }
 
     /**
      * The ARN of the GuardDuty filter.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Filter.arn");
+    }
 
     /**
      * Description of the filter.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Filter.description");
+    }
 
     /**
      * ID of a GuardDuty detector, attached to your account.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("Filter.detectorId");
+    }
 
     /**
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
-    public FilterFindingCriteria findingCriteria;
+    private UndeferrableValue<FilterFindingCriteria> findingCriteria;
 
-
+    public FilterFindingCriteria findingCriteria() {
+        if (findingCriteria == null) return null;
+        return findingCriteria.getValue("Filter.findingCriteria");
+    }
 
     /**
      * The name of your filter.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Filter.name");
+    }
 
     /**
      * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
-    public Integer rank;
+    private UndeferrableValue<Integer> rank;
 
-
+    public Integer rank() {
+        if (rank == null) return null;
+        return rank.getValue("Filter.rank");
+    }
 
     /**
      * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Filter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class Filter extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Filter.tagsAll");
+    }
 
 }

@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.chatbot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chatbot.SlackChannelConfigurationTimeouts;
+import com.pulumi.policypacks.aws.chatbot.outputs.SlackChannelConfigurationTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")
-public final class SlackChannelConfiguration extends com.pulumi.resources.PolicyResource {
+public final class SlackChannelConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Slack channel configuration.
      * 
      */
-    public String chatConfigurationArn;
+    private UndeferrableValue<String> chatConfigurationArn;
 
-
+    public String chatConfigurationArn() {
+        if (chatConfigurationArn == null) return null;
+        return chatConfigurationArn.getValue("SlackChannelConfiguration.chatConfigurationArn");
+    }
 
     /**
      * Name of the Slack channel configuration.
      * 
      */
-    public String configurationName;
+    private UndeferrableValue<String> configurationName;
 
-
+    public String configurationName() {
+        if (configurationName == null) return null;
+        return configurationName.getValue("SlackChannelConfiguration.configurationName");
+    }
 
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      * 
      */
-    public List<String> guardrailPolicyArns;
+    private UndeferrableValue<List<String>> guardrailPolicyArns;
 
-
+    public List<String> guardrailPolicyArns() {
+        if (guardrailPolicyArns == null) return null;
+        return guardrailPolicyArns.getValue("SlackChannelConfiguration.guardrailPolicyArns");
+    }
 
     /**
      * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("SlackChannelConfiguration.iamRoleArn");
+    }
 
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      * 
      */
-    public String loggingLevel;
+    private UndeferrableValue<String> loggingLevel;
 
-
+    public String loggingLevel() {
+        if (loggingLevel == null) return null;
+        return loggingLevel.getValue("SlackChannelConfiguration.loggingLevel");
+    }
 
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      * 
      */
-    public String slackChannelId;
+    private UndeferrableValue<String> slackChannelId;
 
-
+    public String slackChannelId() {
+        if (slackChannelId == null) return null;
+        return slackChannelId.getValue("SlackChannelConfiguration.slackChannelId");
+    }
 
     /**
      * Name of the Slack channel.
      * 
      */
-    public String slackChannelName;
+    private UndeferrableValue<String> slackChannelName;
 
-
+    public String slackChannelName() {
+        if (slackChannelName == null) return null;
+        return slackChannelName.getValue("SlackChannelConfiguration.slackChannelName");
+    }
 
     /**
      * ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -76,33 +99,45 @@ public final class SlackChannelConfiguration extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    public String slackTeamId;
+    private UndeferrableValue<String> slackTeamId;
 
-
+    public String slackTeamId() {
+        if (slackTeamId == null) return null;
+        return slackTeamId.getValue("SlackChannelConfiguration.slackTeamId");
+    }
 
     /**
      * Name of the Slack team.
      * 
      */
-    public String slackTeamName;
+    private UndeferrableValue<String> slackTeamName;
 
-
+    public String slackTeamName() {
+        if (slackTeamName == null) return null;
+        return slackTeamName.getValue("SlackChannelConfiguration.slackTeamName");
+    }
 
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      * 
      */
-    public List<String> snsTopicArns;
+    private UndeferrableValue<List<String>> snsTopicArns;
 
-
+    public List<String> snsTopicArns() {
+        if (snsTopicArns == null) return null;
+        return snsTopicArns.getValue("SlackChannelConfiguration.snsTopicArns");
+    }
 
     /**
      * Map of tags assigned to the resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SlackChannelConfiguration.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,20 +147,29 @@ public final class SlackChannelConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SlackChannelConfiguration.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<SlackChannelConfigurationTimeouts> timeouts;
 
-    public SlackChannelConfigurationTimeouts timeouts;
-
-
+    public @Nullable SlackChannelConfigurationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("SlackChannelConfiguration.timeouts");
+    }
 
     /**
      * Enables use of a user role requirement in your chat configuration.
      * 
      */
-    public Boolean userAuthorizationRequired;
+    private UndeferrableValue<Boolean> userAuthorizationRequired;
 
-
+    public Boolean userAuthorizationRequired() {
+        if (userAuthorizationRequired == null) return null;
+        return userAuthorizationRequired.getValue("SlackChannelConfiguration.userAuthorizationRequired");
+    }
 
 }

@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logGroup:LogGroup")
-public final class LogGroup extends com.pulumi.resources.PolicyResource {
+public final class LogGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogGroup.arn");
+    }
 
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -27,33 +32,45 @@ public final class LogGroup extends com.pulumi.resources.PolicyResource {
      * permissions for the CMK whenever the encrypted data is requested.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("LogGroup.kmsKeyId");
+    }
 
     /**
      * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
      * 
      */
-    public String logGroupClass;
+    private UndeferrableValue<String> logGroupClass;
 
-
+    public String logGroupClass() {
+        if (logGroupClass == null) return null;
+        return logGroupClass.getValue("LogGroup.logGroupClass");
+    }
 
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("LogGroup.namePrefix");
+    }
 
     /**
      * Specifies the number of days
@@ -61,25 +78,34 @@ public final class LogGroup extends com.pulumi.resources.PolicyResource {
      * If you select 0, the events in the log group are always retained and never expire.
      * 
      */
-    public Integer retentionInDays;
+    private @Nullable UndeferrableValue<Integer> retentionInDays;
 
-
+    public @Nullable Integer retentionInDays() {
+        if (retentionInDays == null) return null;
+        return retentionInDays.getValue("LogGroup.retentionInDays");
+    }
 
     /**
      * Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("LogGroup.skipDestroy");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -89,8 +115,11 @@ public final class LogGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogGroup.tagsAll");
+    }
 
 }

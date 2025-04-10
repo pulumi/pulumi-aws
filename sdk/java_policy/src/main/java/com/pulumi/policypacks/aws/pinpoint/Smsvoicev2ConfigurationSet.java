@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet")
-public final class Smsvoicev2ConfigurationSet extends com.pulumi.resources.PolicyResource {
+public final class Smsvoicev2ConfigurationSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the configuration set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Smsvoicev2ConfigurationSet.arn");
+    }
 
     /**
      * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
      * 
      */
-    public String defaultMessageType;
+    private @Nullable UndeferrableValue<String> defaultMessageType;
 
-
+    public @Nullable String defaultMessageType() {
+        if (defaultMessageType == null) return null;
+        return defaultMessageType.getValue("Smsvoicev2ConfigurationSet.defaultMessageType");
+    }
 
     /**
      * The default sender ID to use for this configuration set.
      * 
      */
-    public String defaultSenderId;
+    private @Nullable UndeferrableValue<String> defaultSenderId;
 
-
+    public @Nullable String defaultSenderId() {
+        if (defaultSenderId == null) return null;
+        return defaultSenderId.getValue("Smsvoicev2ConfigurationSet.defaultSenderId");
+    }
 
     /**
      * The name of the configuration set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Smsvoicev2ConfigurationSet.name");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Smsvoicev2ConfigurationSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class Smsvoicev2ConfigurationSet extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Smsvoicev2ConfigurationSet.tagsAll");
+    }
 
 }

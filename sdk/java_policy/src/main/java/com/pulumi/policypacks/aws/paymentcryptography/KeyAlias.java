@@ -3,12 +3,14 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:paymentcryptography/keyAlias:KeyAlias")
-public final class KeyAlias extends com.pulumi.resources.PolicyResource {
+public final class KeyAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Key Alias.
@@ -16,16 +18,22 @@ public final class KeyAlias extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String aliasName;
+    private UndeferrableValue<String> aliasName;
 
-
+    public String aliasName() {
+        if (aliasName == null) return null;
+        return aliasName.getValue("KeyAlias.aliasName");
+    }
 
     /**
      * ARN of the key.
      * 
      */
-    public String keyArn;
+    private @Nullable UndeferrableValue<String> keyArn;
 
-
+    public @Nullable String keyArn() {
+        if (keyArn == null) return null;
+        return keyArn.getValue("KeyAlias.keyArn");
+    }
 
 }

@@ -3,111 +3,149 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/maintenanceWindow:MaintenanceWindow")
-public final class MaintenanceWindow extends com.pulumi.resources.PolicyResource {
+public final class MaintenanceWindow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      * 
      */
-    public Boolean allowUnassociatedTargets;
+    private @Nullable UndeferrableValue<Boolean> allowUnassociatedTargets;
 
-
+    public @Nullable Boolean allowUnassociatedTargets() {
+        if (allowUnassociatedTargets == null) return null;
+        return allowUnassociatedTargets.getValue("MaintenanceWindow.allowUnassociatedTargets");
+    }
 
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      * 
      */
-    public Integer cutoff;
+    private UndeferrableValue<Integer> cutoff;
 
-
+    public Integer cutoff() {
+        if (cutoff == null) return null;
+        return cutoff.getValue("MaintenanceWindow.cutoff");
+    }
 
     /**
      * A description for the maintenance window.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MaintenanceWindow.description");
+    }
 
     /**
      * The duration of the Maintenance Window in hours.
      * 
      */
-    public Integer duration;
+    private UndeferrableValue<Integer> duration;
 
-
+    public Integer duration() {
+        if (duration == null) return null;
+        return duration.getValue("MaintenanceWindow.duration");
+    }
 
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("MaintenanceWindow.enabled");
+    }
 
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      * 
      */
-    public String endDate;
+    private @Nullable UndeferrableValue<String> endDate;
 
-
+    public @Nullable String endDate() {
+        if (endDate == null) return null;
+        return endDate.getValue("MaintenanceWindow.endDate");
+    }
 
     /**
      * The name of the maintenance window.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MaintenanceWindow.name");
+    }
 
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
-    public String schedule;
+    private UndeferrableValue<String> schedule;
 
-
+    public String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("MaintenanceWindow.schedule");
+    }
 
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
-    public Integer scheduleOffset;
+    private @Nullable UndeferrableValue<Integer> scheduleOffset;
 
-
+    public @Nullable Integer scheduleOffset() {
+        if (scheduleOffset == null) return null;
+        return scheduleOffset.getValue("MaintenanceWindow.scheduleOffset");
+    }
 
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      * 
      */
-    public String scheduleTimezone;
+    private @Nullable UndeferrableValue<String> scheduleTimezone;
 
-
+    public @Nullable String scheduleTimezone() {
+        if (scheduleTimezone == null) return null;
+        return scheduleTimezone.getValue("MaintenanceWindow.scheduleTimezone");
+    }
 
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      * 
      */
-    public String startDate;
+    private @Nullable UndeferrableValue<String> startDate;
 
-
+    public @Nullable String startDate() {
+        if (startDate == null) return null;
+        return startDate.getValue("MaintenanceWindow.startDate");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MaintenanceWindow.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,8 +155,11 @@ public final class MaintenanceWindow extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MaintenanceWindow.tagsAll");
+    }
 
 }

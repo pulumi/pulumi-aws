@@ -3,30 +3,37 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")
-public final class ProxyProtocolPolicy extends com.pulumi.resources.PolicyResource {
+public final class ProxyProtocolPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
-    public List<String> instancePorts;
+    private UndeferrableValue<List<String>> instancePorts;
 
-
+    public List<String> instancePorts() {
+        if (instancePorts == null) return null;
+        return instancePorts.getValue("ProxyProtocolPolicy.instancePorts");
+    }
 
     /**
      * The load balancer to which the policy
      * should be attached.
      * 
      */
-    public String loadBalancer;
+    private UndeferrableValue<String> loadBalancer;
 
-
+    public String loadBalancer() {
+        if (loadBalancer == null) return null;
+        return loadBalancer.getValue("ProxyProtocolPolicy.loadBalancer");
+    }
 
 }

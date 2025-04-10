@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedpermissions.SchemaDefinition;
+import com.pulumi.policypacks.aws.verifiedpermissions.outputs.SchemaDefinition;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedpermissions/schema:Schema")
-public final class Schema extends com.pulumi.resources.PolicyResource {
+public final class Schema extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The definition of the schema.
      * 
      */
-    public SchemaDefinition definition;
+    private @Nullable UndeferrableValue<SchemaDefinition> definition;
 
-
+    public @Nullable SchemaDefinition definition() {
+        if (definition == null) return null;
+        return definition.getValue("Schema.definition");
+    }
 
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.
      * 
      */
-    public List<String> namespaces;
+    private UndeferrableValue<List<String>> namespaces;
 
-
+    public List<String> namespaces() {
+        if (namespaces == null) return null;
+        return namespaces.getValue("Schema.namespaces");
+    }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    public String policyStoreId;
+    private UndeferrableValue<String> policyStoreId;
 
-
+    public String policyStoreId() {
+        if (policyStoreId == null) return null;
+        return policyStoreId.getValue("Schema.policyStoreId");
+    }
 
 }

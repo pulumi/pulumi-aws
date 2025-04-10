@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.CatalogTableOptimizerConfiguration;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTableOptimizerConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/catalogTableOptimizer:CatalogTableOptimizer")
-public final class CatalogTableOptimizer extends com.pulumi.resources.PolicyResource {
+public final class CatalogTableOptimizer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Catalog ID of the table.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("CatalogTableOptimizer.catalogId");
+    }
 
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
-    public CatalogTableOptimizerConfiguration configuration;
+    private @Nullable UndeferrableValue<CatalogTableOptimizerConfiguration> configuration;
 
-
+    public @Nullable CatalogTableOptimizerConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("CatalogTableOptimizer.configuration");
+    }
 
     /**
      * The name of the database in the catalog in which the table resides.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("CatalogTableOptimizer.databaseName");
+    }
 
     /**
      * The name of the table.
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("CatalogTableOptimizer.tableName");
+    }
 
     /**
      * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("CatalogTableOptimizer.type");
+    }
 
 }

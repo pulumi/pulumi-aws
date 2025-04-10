@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/trustStoreRevocation:TrustStoreRevocation")
-public final class TrustStoreRevocation extends com.pulumi.resources.PolicyResource {
+public final class TrustStoreRevocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS assigned RevocationId, (number).
      * 
      */
-    public Integer revocationId;
+    private UndeferrableValue<Integer> revocationId;
 
-
+    public Integer revocationId() {
+        if (revocationId == null) return null;
+        return revocationId.getValue("TrustStoreRevocation.revocationId");
+    }
 
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      * 
      */
-    public String revocationsS3Bucket;
+    private UndeferrableValue<String> revocationsS3Bucket;
 
-
+    public String revocationsS3Bucket() {
+        if (revocationsS3Bucket == null) return null;
+        return revocationsS3Bucket.getValue("TrustStoreRevocation.revocationsS3Bucket");
+    }
 
     /**
      * S3 object key holding the client certificate CA bundle.
      * 
      */
-    public String revocationsS3Key;
+    private UndeferrableValue<String> revocationsS3Key;
 
-
+    public String revocationsS3Key() {
+        if (revocationsS3Key == null) return null;
+        return revocationsS3Key.getValue("TrustStoreRevocation.revocationsS3Key");
+    }
 
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
-    public String revocationsS3ObjectVersion;
+    private @Nullable UndeferrableValue<String> revocationsS3ObjectVersion;
 
-
+    public @Nullable String revocationsS3ObjectVersion() {
+        if (revocationsS3ObjectVersion == null) return null;
+        return revocationsS3ObjectVersion.getValue("TrustStoreRevocation.revocationsS3ObjectVersion");
+    }
 
     /**
      * Trust Store ARN.
      * 
      */
-    public String trustStoreArn;
+    private UndeferrableValue<String> trustStoreArn;
 
-
+    public String trustStoreArn() {
+        if (trustStoreArn == null) return null;
+        return trustStoreArn.getValue("TrustStoreRevocation.trustStoreArn");
+    }
 
 }

@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rolesanywhere.TrustAnchorNotificationSetting;
-import com.pulumi.policypacks.aws.rolesanywhere.TrustAnchorSource;
+import com.pulumi.policypacks.aws.rolesanywhere.outputs.TrustAnchorNotificationSetting;
+import com.pulumi.policypacks.aws.rolesanywhere.outputs.TrustAnchorSource;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rolesanywhere/trustAnchor:TrustAnchor")
-public final class TrustAnchor extends com.pulumi.resources.PolicyResource {
+public final class TrustAnchor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Trust Anchor
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrustAnchor.arn");
+    }
 
     /**
      * Whether or not the Trust Anchor should be enabled.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("TrustAnchor.enabled");
+    }
 
     /**
      * The name of the Trust Anchor.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TrustAnchor.name");
+    }
 
+    private UndeferrableValue<List<TrustAnchorNotificationSetting>> notificationSettings;
 
-    public List<TrustAnchorNotificationSetting> notificationSettings;
-
-
+    public List<TrustAnchorNotificationSetting> notificationSettings() {
+        if (notificationSettings == null) return null;
+        return notificationSettings.getValue("TrustAnchor.notificationSettings");
+    }
 
     /**
      * The source of trust, documented below
      * 
      */
-    public TrustAnchorSource source;
+    private UndeferrableValue<TrustAnchorSource> source;
 
-
+    public TrustAnchorSource source() {
+        if (source == null) return null;
+        return source.getValue("TrustAnchor.source");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrustAnchor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,8 +87,11 @@ public final class TrustAnchor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrustAnchor.tagsAll");
+    }
 
 }

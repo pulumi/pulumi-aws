@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.qbusiness;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.qbusiness.ApplicationAttachmentsConfiguration;
-import com.pulumi.policypacks.aws.qbusiness.ApplicationEncryptionConfiguration;
-import com.pulumi.policypacks.aws.qbusiness.ApplicationTimeouts;
+import com.pulumi.policypacks.aws.qbusiness.outputs.ApplicationAttachmentsConfiguration;
+import com.pulumi.policypacks.aws.qbusiness.outputs.ApplicationEncryptionConfiguration;
+import com.pulumi.policypacks.aws.qbusiness.outputs.ApplicationTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:qbusiness/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Q Business application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
      * 
      */
-    public ApplicationAttachmentsConfiguration attachmentsConfiguration;
+    private @Nullable UndeferrableValue<ApplicationAttachmentsConfiguration> attachmentsConfiguration;
 
-
+    public @Nullable ApplicationAttachmentsConfiguration attachmentsConfiguration() {
+        if (attachmentsConfiguration == null) return null;
+        return attachmentsConfiguration.getValue("Application.attachmentsConfiguration");
+    }
 
     /**
      * Description of the Amazon Q application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * Name of the Amazon Q application.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Application.displayName");
+    }
 
     /**
      * Information about encryption configuration. See `encryption_configuration` below.
      * 
      */
-    public ApplicationEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<ApplicationEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable ApplicationEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("Application.encryptionConfiguration");
+    }
 
     /**
      * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      * 
      */
-    public String iamServiceRoleArn;
+    private UndeferrableValue<String> iamServiceRoleArn;
 
-
+    public String iamServiceRoleArn() {
+        if (iamServiceRoleArn == null) return null;
+        return iamServiceRoleArn.getValue("Application.iamServiceRoleArn");
+    }
 
     /**
      * ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
      * 
      */
-    public String identityCenterApplicationArn;
+    private UndeferrableValue<String> identityCenterApplicationArn;
 
-
+    public String identityCenterApplicationArn() {
+        if (identityCenterApplicationArn == null) return null;
+        return identityCenterApplicationArn.getValue("Application.identityCenterApplicationArn");
+    }
 
     /**
      * ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
@@ -76,13 +99,19 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String identityCenterInstanceArn;
+    private UndeferrableValue<String> identityCenterInstanceArn;
 
+    public String identityCenterInstanceArn() {
+        if (identityCenterInstanceArn == null) return null;
+        return identityCenterInstanceArn.getValue("Application.identityCenterInstanceArn");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,12 +121,18 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ApplicationTimeouts> timeouts;
 
-    public ApplicationTimeouts timeouts;
-
-
+    public @Nullable ApplicationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Application.timeouts");
+    }
 
 }

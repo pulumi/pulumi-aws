@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.ThingTypeProperties;
+import com.pulumi.policypacks.aws.iot.outputs.ThingTypeProperties;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/thingType:ThingType")
-public final class ThingType extends com.pulumi.resources.PolicyResource {
+public final class ThingType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the created AWS IoT Thing Type.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ThingType.arn");
+    }
 
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      * 
      */
-    public Boolean deprecated;
+    private @Nullable UndeferrableValue<Boolean> deprecated;
 
-
+    public @Nullable Boolean deprecated() {
+        if (deprecated == null) return null;
+        return deprecated.getValue("ThingType.deprecated");
+    }
 
     /**
      * The name of the thing type.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ThingType.name");
+    }
 
     /**
      * , Configuration block that can contain the following properties of the thing type:
      * 
      */
-    public ThingTypeProperties properties;
+    private @Nullable UndeferrableValue<ThingTypeProperties> properties;
 
-
+    public @Nullable ThingTypeProperties properties() {
+        if (properties == null) return null;
+        return properties.getValue("ThingType.properties");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ThingType.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class ThingType extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ThingType.tagsAll");
+    }
 
 }

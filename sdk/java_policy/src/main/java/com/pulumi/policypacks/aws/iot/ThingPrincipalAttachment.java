@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")
-public final class ThingPrincipalAttachment extends com.pulumi.resources.PolicyResource {
+public final class ThingPrincipalAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("ThingPrincipalAttachment.principal");
+    }
 
     /**
      * The name of the thing.
      * 
      */
-    public String thing;
+    private UndeferrableValue<String> thing;
 
-
+    public String thing() {
+        if (thing == null) return null;
+        return thing.getValue("ThingPrincipalAttachment.thing");
+    }
 
 }

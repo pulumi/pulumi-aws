@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin;
+import com.pulumi.policypacks.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/cachePolicy:CachePolicy")
-public final class CachePolicy extends com.pulumi.resources.PolicyResource {
+public final class CachePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The cache policy ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CachePolicy.arn");
+    }
 
     /**
      * Description for the cache policy.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("CachePolicy.comment");
+    }
 
     /**
      * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
-    public Integer defaultTtl;
+    private @Nullable UndeferrableValue<Integer> defaultTtl;
 
-
+    public @Nullable Integer defaultTtl() {
+        if (defaultTtl == null) return null;
+        return defaultTtl.getValue("CachePolicy.defaultTtl");
+    }
 
     /**
      * Current version of the cache policy.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("CachePolicy.etag");
+    }
 
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    public Integer maxTtl;
+    private @Nullable UndeferrableValue<Integer> maxTtl;
 
-
+    public @Nullable Integer maxTtl() {
+        if (maxTtl == null) return null;
+        return maxTtl.getValue("CachePolicy.maxTtl");
+    }
 
     /**
      * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
-    public Integer minTtl;
+    private @Nullable UndeferrableValue<Integer> minTtl;
 
-
+    public @Nullable Integer minTtl() {
+        if (minTtl == null) return null;
+        return minTtl.getValue("CachePolicy.minTtl");
+    }
 
     /**
      * Unique name used to identify the cache policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CachePolicy.name");
+    }
 
     /**
      * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
-    public CachePolicyParametersInCacheKeyAndForwardedToOrigin parametersInCacheKeyAndForwardedToOrigin;
+    private UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin;
 
-
+    public CachePolicyParametersInCacheKeyAndForwardedToOrigin parametersInCacheKeyAndForwardedToOrigin() {
+        if (parametersInCacheKeyAndForwardedToOrigin == null) return null;
+        return parametersInCacheKeyAndForwardedToOrigin.getValue("CachePolicy.parametersInCacheKeyAndForwardedToOrigin");
+    }
 
 }

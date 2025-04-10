@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.msk.ServerlessClusterClientAuthentication;
-import com.pulumi.policypacks.aws.msk.ServerlessClusterVpcConfig;
+import com.pulumi.policypacks.aws.msk.outputs.ServerlessClusterClientAuthentication;
+import com.pulumi.policypacks.aws.msk.outputs.ServerlessClusterVpcConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:msk/serverlessCluster:ServerlessCluster")
-public final class ServerlessCluster extends com.pulumi.resources.PolicyResource {
+public final class ServerlessCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the serverless cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServerlessCluster.arn");
+    }
 
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
-    public ServerlessClusterClientAuthentication clientAuthentication;
+    private UndeferrableValue<ServerlessClusterClientAuthentication> clientAuthentication;
 
-
+    public ServerlessClusterClientAuthentication clientAuthentication() {
+        if (clientAuthentication == null) return null;
+        return clientAuthentication.getValue("ServerlessCluster.clientAuthentication");
+    }
 
     /**
      * The name of the serverless cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("ServerlessCluster.clusterName");
+    }
 
     /**
      * UUID of the serverless cluster, for use in IAM policies.
      * 
      */
-    public String clusterUuid;
+    private UndeferrableValue<String> clusterUuid;
 
-
+    public String clusterUuid() {
+        if (clusterUuid == null) return null;
+        return clusterUuid.getValue("ServerlessCluster.clusterUuid");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServerlessCluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,16 +79,22 @@ public final class ServerlessCluster extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServerlessCluster.tagsAll");
+    }
 
     /**
      * VPC configuration information. See below.
      * 
      */
-    public List<ServerlessClusterVpcConfig> vpcConfigs;
+    private UndeferrableValue<List<ServerlessClusterVpcConfig>> vpcConfigs;
 
-
+    public List<ServerlessClusterVpcConfig> vpcConfigs() {
+        if (vpcConfigs == null) return null;
+        return vpcConfigs.getValue("ServerlessCluster.vpcConfigs");
+    }
 
 }

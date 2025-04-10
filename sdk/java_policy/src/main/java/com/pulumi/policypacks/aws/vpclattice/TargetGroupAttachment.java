@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.TargetGroupAttachmentTarget;
+import com.pulumi.policypacks.aws.vpclattice.outputs.TargetGroupAttachmentTarget;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")
-public final class TargetGroupAttachment extends com.pulumi.resources.PolicyResource {
+public final class TargetGroupAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The target.
      * 
      */
-    public TargetGroupAttachmentTarget target;
+    private UndeferrableValue<TargetGroupAttachmentTarget> target;
 
-
+    public TargetGroupAttachmentTarget target() {
+        if (target == null) return null;
+        return target.getValue("TargetGroupAttachment.target");
+    }
 
     /**
      * The ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
-    public String targetGroupIdentifier;
+    private UndeferrableValue<String> targetGroupIdentifier;
 
-
+    public String targetGroupIdentifier() {
+        if (targetGroupIdentifier == null) return null;
+        return targetGroupIdentifier.getValue("TargetGroupAttachment.targetGroupIdentifier");
+    }
 
 }

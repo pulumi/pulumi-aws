@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.VpcOriginTimeouts;
-import com.pulumi.policypacks.aws.cloudfront.VpcOriginVpcOriginEndpointConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.VpcOriginTimeouts;
+import com.pulumi.policypacks.aws.cloudfront.outputs.VpcOriginVpcOriginEndpointConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/vpcOrigin:VpcOrigin")
-public final class VpcOrigin extends com.pulumi.resources.PolicyResource {
+public final class VpcOrigin extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The VPC origin ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcOrigin.arn");
+    }
 
     /**
      * The current version of the origin.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("VpcOrigin.etag");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcOrigin.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -41,16 +52,25 @@ public final class VpcOrigin extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcOrigin.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<VpcOriginTimeouts> timeouts;
 
-    public VpcOriginTimeouts timeouts;
+    public @Nullable VpcOriginTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("VpcOrigin.timeouts");
+    }
 
+    private @Nullable UndeferrableValue<VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
 
-
-    public VpcOriginVpcOriginEndpointConfig vpcOriginEndpointConfig;
-
-
+    public @Nullable VpcOriginVpcOriginEndpointConfig vpcOriginEndpointConfig() {
+        if (vpcOriginEndpointConfig == null) return null;
+        return vpcOriginEndpointConfig.getValue("VpcOrigin.vpcOriginEndpointConfig");
+    }
 
 }

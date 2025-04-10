@@ -3,95 +3,127 @@
 
 package com.pulumi.policypacks.aws.worklink;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.worklink.FleetIdentityProvider;
-import com.pulumi.policypacks.aws.worklink.FleetNetwork;
+import com.pulumi.policypacks.aws.worklink.outputs.FleetIdentityProvider;
+import com.pulumi.policypacks.aws.worklink.outputs.FleetNetwork;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:worklink/fleet:Fleet")
-public final class Fleet extends com.pulumi.resources.PolicyResource {
+public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the created WorkLink Fleet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Fleet.arn");
+    }
 
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
      * 
      */
-    public String auditStreamArn;
+    private @Nullable UndeferrableValue<String> auditStreamArn;
 
-
+    public @Nullable String auditStreamArn() {
+        if (auditStreamArn == null) return null;
+        return auditStreamArn.getValue("Fleet.auditStreamArn");
+    }
 
     /**
      * The identifier used by users to sign in to the Amazon WorkLink app.
      * 
      */
-    public String companyCode;
+    private UndeferrableValue<String> companyCode;
 
-
+    public String companyCode() {
+        if (companyCode == null) return null;
+        return companyCode.getValue("Fleet.companyCode");
+    }
 
     /**
      * The time that the fleet was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Fleet.createdTime");
+    }
 
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      * 
      */
-    public String deviceCaCertificate;
+    private @Nullable UndeferrableValue<String> deviceCaCertificate;
 
-
+    public @Nullable String deviceCaCertificate() {
+        if (deviceCaCertificate == null) return null;
+        return deviceCaCertificate.getValue("Fleet.deviceCaCertificate");
+    }
 
     /**
      * The name of the fleet.
      * 
      */
-    public String displayName;
+    private @Nullable UndeferrableValue<String> displayName;
 
-
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Fleet.displayName");
+    }
 
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      * 
      */
-    public FleetIdentityProvider identityProvider;
+    private @Nullable UndeferrableValue<FleetIdentityProvider> identityProvider;
 
-
+    public @Nullable FleetIdentityProvider identityProvider() {
+        if (identityProvider == null) return null;
+        return identityProvider.getValue("Fleet.identityProvider");
+    }
 
     /**
      * The time that the fleet was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Fleet.lastUpdatedTime");
+    }
 
     /**
      * A region-unique name for the AMI.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Fleet.name");
+    }
 
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      * 
      */
-    public FleetNetwork network;
+    private @Nullable UndeferrableValue<FleetNetwork> network;
 
-
+    public @Nullable FleetNetwork network() {
+        if (network == null) return null;
+        return network.getValue("Fleet.network");
+    }
 
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
@@ -101,8 +133,11 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** `network` is cannot removed without force recreating.
      * 
      */
-    public Boolean optimizeForEndUserLocation;
+    private @Nullable UndeferrableValue<Boolean> optimizeForEndUserLocation;
 
-
+    public @Nullable Boolean optimizeForEndUserLocation() {
+        if (optimizeForEndUserLocation == null) return null;
+        return optimizeForEndUserLocation.getValue("Fleet.optimizeForEndUserLocation");
+    }
 
 }

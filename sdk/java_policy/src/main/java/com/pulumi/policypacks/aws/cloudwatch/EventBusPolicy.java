@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventBusPolicy:EventBusPolicy")
-public final class EventBusPolicy extends com.pulumi.resources.PolicyResource {
+public final class EventBusPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    public String eventBusName;
+    private @Nullable UndeferrableValue<String> eventBusName;
 
-
+    public @Nullable String eventBusName() {
+        if (eventBusName == null) return null;
+        return eventBusName.getValue("EventBusPolicy.eventBusName");
+    }
 
     /**
      * The text of the policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("EventBusPolicy.policy");
+    }
 
 }

@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.CodeSigningConfigAllowedPublishers;
-import com.pulumi.policypacks.aws.lambda.CodeSigningConfigPolicies;
+import com.pulumi.policypacks.aws.lambda.outputs.CodeSigningConfigAllowedPublishers;
+import com.pulumi.policypacks.aws.lambda.outputs.CodeSigningConfigPolicies;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/codeSigningConfig:CodeSigningConfig")
-public final class CodeSigningConfig extends com.pulumi.resources.PolicyResource {
+public final class CodeSigningConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      * 
      */
-    public CodeSigningConfigAllowedPublishers allowedPublishers;
+    private UndeferrableValue<CodeSigningConfigAllowedPublishers> allowedPublishers;
 
-
+    public CodeSigningConfigAllowedPublishers allowedPublishers() {
+        if (allowedPublishers == null) return null;
+        return allowedPublishers.getValue("CodeSigningConfig.allowedPublishers");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CodeSigningConfig.arn");
+    }
 
     /**
      * Unique identifier for the code signing configuration.
      * 
      */
-    public String configId;
+    private UndeferrableValue<String> configId;
 
-
+    public String configId() {
+        if (configId == null) return null;
+        return configId.getValue("CodeSigningConfig.configId");
+    }
 
     /**
      * Descriptive name for this code signing configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CodeSigningConfig.description");
+    }
 
     /**
      * The date and time that the code signing configuration was last modified.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("CodeSigningConfig.lastModified");
+    }
 
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      * 
      */
-    public CodeSigningConfigPolicies policies;
+    private UndeferrableValue<CodeSigningConfigPolicies> policies;
 
-
+    public CodeSigningConfigPolicies policies() {
+        if (policies == null) return null;
+        return policies.getValue("CodeSigningConfig.policies");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CodeSigningConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class CodeSigningConfig extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CodeSigningConfig.tagsAll");
+    }
 
 }

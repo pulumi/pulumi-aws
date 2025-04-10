@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logIndexPolicy:LogIndexPolicy")
-public final class LogIndexPolicy extends com.pulumi.resources.PolicyResource {
+public final class LogIndexPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Log group name to set the policy for.
      * 
      */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("LogIndexPolicy.logGroupName");
+    }
 
     /**
      * JSON policy document. This is a JSON formatted string.
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("LogIndexPolicy.policyDocument");
+    }
 
 }

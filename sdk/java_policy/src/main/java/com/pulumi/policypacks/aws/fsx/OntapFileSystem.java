@@ -3,177 +3,239 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.OntapFileSystemDiskIopsConfiguration;
-import com.pulumi.policypacks.aws.fsx.OntapFileSystemEndpoint;
+import com.pulumi.policypacks.aws.fsx.outputs.OntapFileSystemDiskIopsConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.OntapFileSystemEndpoint;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/ontapFileSystem:OntapFileSystem")
-public final class OntapFileSystem extends com.pulumi.resources.PolicyResource {
+public final class OntapFileSystem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OntapFileSystem.arn");
+    }
 
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
-    public Integer automaticBackupRetentionDays;
+    private @Nullable UndeferrableValue<Integer> automaticBackupRetentionDays;
 
-
+    public @Nullable Integer automaticBackupRetentionDays() {
+        if (automaticBackupRetentionDays == null) return null;
+        return automaticBackupRetentionDays.getValue("OntapFileSystem.automaticBackupRetentionDays");
+    }
 
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    public String dailyAutomaticBackupStartTime;
+    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
 
-
+    public String dailyAutomaticBackupStartTime() {
+        if (dailyAutomaticBackupStartTime == null) return null;
+        return dailyAutomaticBackupStartTime.getValue("OntapFileSystem.dailyAutomaticBackupStartTime");
+    }
 
     /**
      * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
-    public String deploymentType;
+    private UndeferrableValue<String> deploymentType;
 
-
+    public String deploymentType() {
+        if (deploymentType == null) return null;
+        return deploymentType.getValue("OntapFileSystem.deploymentType");
+    }
 
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
-    public OntapFileSystemDiskIopsConfiguration diskIopsConfiguration;
+    private UndeferrableValue<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
-
+    public OntapFileSystemDiskIopsConfiguration diskIopsConfiguration() {
+        if (diskIopsConfiguration == null) return null;
+        return diskIopsConfiguration.getValue("OntapFileSystem.diskIopsConfiguration");
+    }
 
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("OntapFileSystem.dnsName");
+    }
 
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      * 
      */
-    public String endpointIpAddressRange;
+    private UndeferrableValue<String> endpointIpAddressRange;
 
-
+    public String endpointIpAddressRange() {
+        if (endpointIpAddressRange == null) return null;
+        return endpointIpAddressRange.getValue("OntapFileSystem.endpointIpAddressRange");
+    }
 
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    public List<OntapFileSystemEndpoint> endpoints;
+    private UndeferrableValue<List<OntapFileSystemEndpoint>> endpoints;
 
-
+    public List<OntapFileSystemEndpoint> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("OntapFileSystem.endpoints");
+    }
 
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      * 
      */
-    public String fsxAdminPassword;
+    private @Nullable UndeferrableValue<String> fsxAdminPassword;
 
-
+    public @Nullable String fsxAdminPassword() {
+        if (fsxAdminPassword == null) return null;
+        return fsxAdminPassword.getValue("OntapFileSystem.fsxAdminPassword");
+    }
 
     /**
      * The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
-    public Integer haPairs;
+    private UndeferrableValue<Integer> haPairs;
 
-
+    public Integer haPairs() {
+        if (haPairs == null) return null;
+        return haPairs.getValue("OntapFileSystem.haPairs");
+    }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("OntapFileSystem.kmsKeyId");
+    }
 
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
-
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("OntapFileSystem.networkInterfaceIds");
+    }
 
     /**
      * AWS account identifier that created the file system.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("OntapFileSystem.ownerId");
+    }
 
     /**
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
-    public String preferredSubnetId;
+    private UndeferrableValue<String> preferredSubnetId;
 
-
+    public String preferredSubnetId() {
+        if (preferredSubnetId == null) return null;
+        return preferredSubnetId.getValue("OntapFileSystem.preferredSubnetId");
+    }
 
     /**
      * Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
-    public List<String> routeTableIds;
+    private UndeferrableValue<List<String>> routeTableIds;
 
-
+    public List<String> routeTableIds() {
+        if (routeTableIds == null) return null;
+        return routeTableIds.getValue("OntapFileSystem.routeTableIds");
+    }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("OntapFileSystem.securityGroupIds");
+    }
 
     /**
      * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
-    public Integer storageCapacity;
+    private UndeferrableValue<Integer> storageCapacity;
 
-
+    public Integer storageCapacity() {
+        if (storageCapacity == null) return null;
+        return storageCapacity.getValue("OntapFileSystem.storageCapacity");
+    }
 
     /**
      * The filesystem storage type. defaults to `SSD`.
      * 
      */
-    public String storageType;
+    private @Nullable UndeferrableValue<String> storageType;
 
-
+    public @Nullable String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("OntapFileSystem.storageType");
+    }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("OntapFileSystem.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OntapFileSystem.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -183,40 +245,55 @@ public final class OntapFileSystem extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OntapFileSystem.tagsAll");
+    }
 
     /**
      * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Integer throughputCapacity;
+    private UndeferrableValue<Integer> throughputCapacity;
 
-
+    public Integer throughputCapacity() {
+        if (throughputCapacity == null) return null;
+        return throughputCapacity.getValue("OntapFileSystem.throughputCapacity");
+    }
 
     /**
      * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    public Integer throughputCapacityPerHaPair;
+    private UndeferrableValue<Integer> throughputCapacityPerHaPair;
 
-
+    public Integer throughputCapacityPerHaPair() {
+        if (throughputCapacityPerHaPair == null) return null;
+        return throughputCapacityPerHaPair.getValue("OntapFileSystem.throughputCapacityPerHaPair");
+    }
 
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("OntapFileSystem.vpcId");
+    }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public String weeklyMaintenanceStartTime;
+    private UndeferrableValue<String> weeklyMaintenanceStartTime;
 
-
+    public String weeklyMaintenanceStartTime() {
+        if (weeklyMaintenanceStartTime == null) return null;
+        return weeklyMaintenanceStartTime.getValue("OntapFileSystem.weeklyMaintenanceStartTime");
+    }
 
 }

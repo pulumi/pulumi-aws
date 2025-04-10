@@ -3,105 +3,140 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.EnvironmentLastDeployment;
-import com.pulumi.policypacks.aws.datazone.EnvironmentProvisionedResource;
-import com.pulumi.policypacks.aws.datazone.EnvironmentTimeouts;
-import com.pulumi.policypacks.aws.datazone.EnvironmentUserParameter;
+import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentLastDeployment;
+import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentProvisionedResource;
+import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentUserParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/environment:Environment")
-public final class Environment extends com.pulumi.resources.PolicyResource {
+public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Amazon Web Services account where the environment exists
      * 
      */
-    public String accountIdentifier;
+    private UndeferrableValue<String> accountIdentifier;
 
-
+    public String accountIdentifier() {
+        if (accountIdentifier == null) return null;
+        return accountIdentifier.getValue("Environment.accountIdentifier");
+    }
 
     /**
      * The Amazon Web Services region where the environment exists.
      * 
      */
-    public String accountRegion;
+    private UndeferrableValue<String> accountRegion;
 
-
+    public String accountRegion() {
+        if (accountRegion == null) return null;
+        return accountRegion.getValue("Environment.accountRegion");
+    }
 
     /**
      * The blueprint with which the environment is created.
      * 
      */
-    public String blueprintIdentifier;
+    private UndeferrableValue<String> blueprintIdentifier;
 
-
+    public String blueprintIdentifier() {
+        if (blueprintIdentifier == null) return null;
+        return blueprintIdentifier.getValue("Environment.blueprintIdentifier");
+    }
 
     /**
      * The time the environment was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Environment.createdAt");
+    }
 
     /**
      * The user who created the environment.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("Environment.createdBy");
+    }
 
     /**
      * The description of the environment.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Environment.description");
+    }
 
     /**
      * The ID of the domain where the environment exists.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("Environment.domainIdentifier");
+    }
 
     /**
      * The business glossary terms that can be used in this environment.
      * 
      */
-    public List<String> glossaryTerms;
+    private @Nullable UndeferrableValue<List<String>> glossaryTerms;
 
-
+    public @Nullable List<String> glossaryTerms() {
+        if (glossaryTerms == null) return null;
+        return glossaryTerms.getValue("Environment.glossaryTerms");
+    }
 
     /**
      * The details of the last deployment of the environment.
      * 
      */
-    public List<EnvironmentLastDeployment> lastDeployments;
+    private UndeferrableValue<List<EnvironmentLastDeployment>> lastDeployments;
 
-
+    public List<EnvironmentLastDeployment> lastDeployments() {
+        if (lastDeployments == null) return null;
+        return lastDeployments.getValue("Environment.lastDeployments");
+    }
 
     /**
      * The name of the environment.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Environment.name");
+    }
 
     /**
      * The ID of the profile with which the environment is created.
      * 
      */
-    public String profileIdentifier;
+    private UndeferrableValue<String> profileIdentifier;
 
-
+    public String profileIdentifier() {
+        if (profileIdentifier == null) return null;
+        return profileIdentifier.getValue("Environment.profileIdentifier");
+    }
 
     /**
      * The ID of the project where the environment exists.
@@ -109,32 +144,47 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String projectIdentifier;
+    private UndeferrableValue<String> projectIdentifier;
 
-
+    public String projectIdentifier() {
+        if (projectIdentifier == null) return null;
+        return projectIdentifier.getValue("Environment.projectIdentifier");
+    }
 
     /**
      * The provider of the environment.
      * 
      */
-    public String providerEnvironment;
+    private UndeferrableValue<String> providerEnvironment;
 
+    public String providerEnvironment() {
+        if (providerEnvironment == null) return null;
+        return providerEnvironment.getValue("Environment.providerEnvironment");
+    }
 
+    private UndeferrableValue<List<EnvironmentProvisionedResource>> provisionedResources;
 
-    public List<EnvironmentProvisionedResource> provisionedResources;
+    public List<EnvironmentProvisionedResource> provisionedResources() {
+        if (provisionedResources == null) return null;
+        return provisionedResources.getValue("Environment.provisionedResources");
+    }
 
+    private @Nullable UndeferrableValue<EnvironmentTimeouts> timeouts;
 
-
-    public EnvironmentTimeouts timeouts;
-
-
+    public @Nullable EnvironmentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Environment.timeouts");
+    }
 
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
      * 
      */
-    public List<EnvironmentUserParameter> userParameters;
+    private @Nullable UndeferrableValue<List<EnvironmentUserParameter>> userParameters;
 
-
+    public @Nullable List<EnvironmentUserParameter> userParameters() {
+        if (userParameters == null) return null;
+        return userParameters.getValue("Environment.userParameters");
+    }
 
 }

@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.DashboardDashboardPublishOptions;
-import com.pulumi.policypacks.aws.quicksight.DashboardParameters;
-import com.pulumi.policypacks.aws.quicksight.DashboardPermission;
-import com.pulumi.policypacks.aws.quicksight.DashboardSourceEntity;
+import com.pulumi.policypacks.aws.quicksight.outputs.DashboardDashboardPublishOptions;
+import com.pulumi.policypacks.aws.quicksight.outputs.DashboardParameters;
+import com.pulumi.policypacks.aws.quicksight.outputs.DashboardPermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.DashboardSourceEntity;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/dashboard:Dashboard")
-public final class Dashboard extends com.pulumi.resources.PolicyResource {
+public final class Dashboard extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the dashboard.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Dashboard.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Dashboard.awsAccountId");
+    }
 
     /**
      * The time that the dashboard was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Dashboard.createdTime");
+    }
 
     /**
      * Identifier for the dashboard.
      * 
      */
-    public String dashboardId;
+    private UndeferrableValue<String> dashboardId;
 
-
+    public String dashboardId() {
+        if (dashboardId == null) return null;
+        return dashboardId.getValue("Dashboard.dashboardId");
+    }
 
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      * 
      */
-    public DashboardDashboardPublishOptions dashboardPublishOptions;
+    private UndeferrableValue<DashboardDashboardPublishOptions> dashboardPublishOptions;
 
+    public DashboardDashboardPublishOptions dashboardPublishOptions() {
+        if (dashboardPublishOptions == null) return null;
+        return dashboardPublishOptions.getValue("Dashboard.dashboardPublishOptions");
+    }
 
+    private UndeferrableValue<String> lastPublishedTime;
 
-    public String lastPublishedTime;
-
-
+    public String lastPublishedTime() {
+        if (lastPublishedTime == null) return null;
+        return lastPublishedTime.getValue("Dashboard.lastPublishedTime");
+    }
 
     /**
      * The time that the dashboard was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Dashboard.lastUpdatedTime");
+    }
 
     /**
      * Display name for the dashboard.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Dashboard.name");
+    }
 
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    public DashboardParameters parameters;
+    private UndeferrableValue<DashboardParameters> parameters;
 
-
+    public DashboardParameters parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Dashboard.parameters");
+    }
 
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      * 
      */
-    public List<DashboardPermission> permissions;
+    private @Nullable UndeferrableValue<List<DashboardPermission>> permissions;
 
-
+    public @Nullable List<DashboardPermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Dashboard.permissions");
+    }
 
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    public DashboardSourceEntity sourceEntity;
+    private @Nullable UndeferrableValue<DashboardSourceEntity> sourceEntity;
 
-
+    public @Nullable DashboardSourceEntity sourceEntity() {
+        if (sourceEntity == null) return null;
+        return sourceEntity.getValue("Dashboard.sourceEntity");
+    }
 
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      * 
      */
-    public String sourceEntityArn;
+    private UndeferrableValue<String> sourceEntityArn;
 
-
+    public String sourceEntityArn() {
+        if (sourceEntityArn == null) return null;
+        return sourceEntityArn.getValue("Dashboard.sourceEntityArn");
+    }
 
     /**
      * The dashboard creation status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Dashboard.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Dashboard.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -133,17 +177,23 @@ public final class Dashboard extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Dashboard.tagsAll");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
-    public String themeArn;
+    private @Nullable UndeferrableValue<String> themeArn;
 
-
+    public @Nullable String themeArn() {
+        if (themeArn == null) return null;
+        return themeArn.getValue("Dashboard.themeArn");
+    }
 
     /**
      * A description of the current dashboard version being created/updated.
@@ -151,16 +201,22 @@ public final class Dashboard extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String versionDescription;
+    private UndeferrableValue<String> versionDescription;
 
-
+    public String versionDescription() {
+        if (versionDescription == null) return null;
+        return versionDescription.getValue("Dashboard.versionDescription");
+    }
 
     /**
      * The version number of the dashboard version.
      * 
      */
-    public Integer versionNumber;
+    private UndeferrableValue<Integer> versionNumber;
 
-
+    public Integer versionNumber() {
+        if (versionNumber == null) return null;
+        return versionNumber.getValue("Dashboard.versionNumber");
+    }
 
 }

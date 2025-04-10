@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lambda/functionRecursionConfig:FunctionRecursionConfig")
-public final class FunctionRecursionConfig extends com.pulumi.resources.PolicyResource {
+public final class FunctionRecursionConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Lambda function name.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("FunctionRecursionConfig.functionName");
+    }
 
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
      */
-    public String recursiveLoop;
+    private UndeferrableValue<String> recursiveLoop;
 
-
+    public String recursiveLoop() {
+        if (recursiveLoop == null) return null;
+        return recursiveLoop.getValue("FunctionRecursionConfig.recursiveLoop");
+    }
 
 }

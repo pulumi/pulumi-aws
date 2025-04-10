@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:schemas/discoverer:Discoverer")
-public final class Discoverer extends com.pulumi.resources.PolicyResource {
+public final class Discoverer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the discoverer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Discoverer.arn");
+    }
 
     /**
      * The description of the discoverer. Maximum of 256 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Discoverer.description");
+    }
 
     /**
      * The ARN of the event bus to discover event schemas on.
      * 
      */
-    public String sourceArn;
+    private UndeferrableValue<String> sourceArn;
 
-
+    public String sourceArn() {
+        if (sourceArn == null) return null;
+        return sourceArn.getValue("Discoverer.sourceArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Discoverer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,8 +65,11 @@ public final class Discoverer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Discoverer.tagsAll");
+    }
 
 }

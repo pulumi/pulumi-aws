@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/accessEntry:AccessEntry")
-public final class AccessEntry extends com.pulumi.resources.PolicyResource {
+public final class AccessEntry extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Access Entry.
      * 
      */
-    public String accessEntryArn;
+    private UndeferrableValue<String> accessEntryArn;
 
-
+    public String accessEntryArn() {
+        if (accessEntryArn == null) return null;
+        return accessEntryArn.getValue("AccessEntry.accessEntryArn");
+    }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("AccessEntry.clusterName");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("AccessEntry.createdAt");
+    }
 
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      * 
      */
-    public List<String> kubernetesGroups;
+    private UndeferrableValue<List<String>> kubernetesGroups;
 
-
+    public List<String> kubernetesGroups() {
+        if (kubernetesGroups == null) return null;
+        return kubernetesGroups.getValue("AccessEntry.kubernetesGroups");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    public String modifiedAt;
+    private UndeferrableValue<String> modifiedAt;
 
-
+    public String modifiedAt() {
+        if (modifiedAt == null) return null;
+        return modifiedAt.getValue("AccessEntry.modifiedAt");
+    }
 
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
@@ -58,17 +75,23 @@ public final class AccessEntry extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String principalArn;
+    private UndeferrableValue<String> principalArn;
 
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("AccessEntry.principalArn");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AccessEntry.tags");
+    }
 
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -78,24 +101,33 @@ public final class AccessEntry extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AccessEntry.tagsAll");
+    }
 
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("AccessEntry.type");
+    }
 
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("AccessEntry.userName");
+    }
 
 }

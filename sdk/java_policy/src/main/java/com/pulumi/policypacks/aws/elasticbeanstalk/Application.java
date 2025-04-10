@@ -3,50 +3,67 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticbeanstalk.ApplicationAppversionLifecycle;
+import com.pulumi.policypacks.aws.elasticbeanstalk.outputs.ApplicationAppversionLifecycle;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticbeanstalk/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
-    public ApplicationAppversionLifecycle appversionLifecycle;
+    private @Nullable UndeferrableValue<ApplicationAppversionLifecycle> appversionLifecycle;
 
-
+    public @Nullable ApplicationAppversionLifecycle appversionLifecycle() {
+        if (appversionLifecycle == null) return null;
+        return appversionLifecycle.getValue("Application.appversionLifecycle");
+    }
 
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * Short description of the application
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * The name of the application, must be unique within your account
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -56,8 +73,11 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
 }

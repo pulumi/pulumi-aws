@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.S3LocationS3Config;
+import com.pulumi.policypacks.aws.datasync.outputs.S3LocationS3Config;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/s3Location:S3Location")
-public final class S3Location extends com.pulumi.resources.PolicyResource {
+public final class S3Location extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      * 
      */
-    public List<String> agentArns;
+    private @Nullable UndeferrableValue<List<String>> agentArns;
 
-
+    public @Nullable List<String> agentArns() {
+        if (agentArns == null) return null;
+        return agentArns.getValue("S3Location.agentArns");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("S3Location.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
-    public String s3BucketArn;
+    private UndeferrableValue<String> s3BucketArn;
 
-
+    public String s3BucketArn() {
+        if (s3BucketArn == null) return null;
+        return s3BucketArn.getValue("S3Location.s3BucketArn");
+    }
 
     /**
      * Configuration block containing information for connecting to S3.
      * 
      */
-    public S3LocationS3Config s3Config;
+    private UndeferrableValue<S3LocationS3Config> s3Config;
 
-
+    public S3LocationS3Config s3Config() {
+        if (s3Config == null) return null;
+        return s3Config.getValue("S3Location.s3Config");
+    }
 
     /**
      * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
-    public String s3StorageClass;
+    private UndeferrableValue<String> s3StorageClass;
 
-
+    public String s3StorageClass() {
+        if (s3StorageClass == null) return null;
+        return s3StorageClass.getValue("S3Location.s3StorageClass");
+    }
 
     /**
      * Prefix to perform actions as source or destination.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("S3Location.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("S3Location.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,12 +100,18 @@ public final class S3Location extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("S3Location.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("S3Location.uri");
+    }
 
 }

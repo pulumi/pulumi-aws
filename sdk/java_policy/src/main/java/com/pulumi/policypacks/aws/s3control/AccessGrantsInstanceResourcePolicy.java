@@ -3,23 +3,30 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")
-public final class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AccessGrantsInstanceResourcePolicy.accountId");
+    }
 
     /**
      * The policy document.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("AccessGrantsInstanceResourcePolicy.policy");
+    }
 
 }

@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/logging:Logging")
-public final class Logging extends com.pulumi.resources.PolicyResource {
+public final class Logging extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * 
      */
-    public String bucketName;
+    private @Nullable UndeferrableValue<String> bucketName;
 
-
+    public @Nullable String bucketName() {
+        if (bucketName == null) return null;
+        return bucketName.getValue("Logging.bucketName");
+    }
 
     /**
      * Identifier of the source cluster.
@@ -25,32 +30,44 @@ public final class Logging extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Logging.clusterIdentifier");
+    }
 
     /**
      * Log destination type. Valid values are `s3` and `cloudwatch`.
      * 
      */
-    public String logDestinationType;
+    private @Nullable UndeferrableValue<String> logDestinationType;
 
-
+    public @Nullable String logDestinationType() {
+        if (logDestinationType == null) return null;
+        return logDestinationType.getValue("Logging.logDestinationType");
+    }
 
     /**
      * Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      * 
      */
-    public List<String> logExports;
+    private @Nullable UndeferrableValue<List<String>> logExports;
 
-
+    public @Nullable List<String> logExports() {
+        if (logExports == null) return null;
+        return logExports.getValue("Logging.logExports");
+    }
 
     /**
      * Prefix applied to the log file names.
      * 
      */
-    public String s3KeyPrefix;
+    private @Nullable UndeferrableValue<String> s3KeyPrefix;
 
-
+    public @Nullable String s3KeyPrefix() {
+        if (s3KeyPrefix == null) return null;
+        return s3KeyPrefix.getValue("Logging.s3KeyPrefix");
+    }
 
 }

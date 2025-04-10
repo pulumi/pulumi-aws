@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/loggingOptions:LoggingOptions")
-public final class LoggingOptions extends com.pulumi.resources.PolicyResource {
+public final class LoggingOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The default logging level. Valid Values: `&#34;DEBUG&#34;`, `&#34;INFO&#34;`, `&#34;ERROR&#34;`, `&#34;WARN&#34;`, `&#34;DISABLED&#34;`.
      * 
      */
-    public String defaultLogLevel;
+    private UndeferrableValue<String> defaultLogLevel;
 
-
+    public String defaultLogLevel() {
+        if (defaultLogLevel == null) return null;
+        return defaultLogLevel.getValue("LoggingOptions.defaultLogLevel");
+    }
 
     /**
      * If `true` all logs are disabled. The default is `false`.
      * 
      */
-    public Boolean disableAllLogs;
+    private @Nullable UndeferrableValue<Boolean> disableAllLogs;
 
-
+    public @Nullable Boolean disableAllLogs() {
+        if (disableAllLogs == null) return null;
+        return disableAllLogs.getValue("LoggingOptions.disableAllLogs");
+    }
 
     /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("LoggingOptions.roleArn");
+    }
 
 }

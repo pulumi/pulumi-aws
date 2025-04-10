@@ -3,47 +3,60 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.autoscalingplans.ScalingPlanApplicationSource;
-import com.pulumi.policypacks.aws.autoscalingplans.ScalingPlanScalingInstruction;
+import com.pulumi.policypacks.aws.autoscalingplans.outputs.ScalingPlanApplicationSource;
+import com.pulumi.policypacks.aws.autoscalingplans.outputs.ScalingPlanScalingInstruction;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:autoscalingplans/scalingPlan:ScalingPlan")
-public final class ScalingPlan extends com.pulumi.resources.PolicyResource {
+public final class ScalingPlan extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
-    public ScalingPlanApplicationSource applicationSource;
+    private UndeferrableValue<ScalingPlanApplicationSource> applicationSource;
 
-
+    public ScalingPlanApplicationSource applicationSource() {
+        if (applicationSource == null) return null;
+        return applicationSource.getValue("ScalingPlan.applicationSource");
+    }
 
     /**
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ScalingPlan.name");
+    }
 
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
-    public List<ScalingPlanScalingInstruction> scalingInstructions;
+    private UndeferrableValue<List<ScalingPlanScalingInstruction>> scalingInstructions;
 
-
+    public List<ScalingPlanScalingInstruction> scalingInstructions() {
+        if (scalingInstructions == null) return null;
+        return scalingInstructions.getValue("ScalingPlan.scalingInstructions");
+    }
 
     /**
      * The version number of the scaling plan. This value is always 1.
      * 
      */
-    public Integer scalingPlanVersion;
+    private UndeferrableValue<Integer> scalingPlanVersion;
 
-
+    public Integer scalingPlanVersion() {
+        if (scalingPlanVersion == null) return null;
+        return scalingPlanVersion.getValue("ScalingPlan.scalingPlanVersion");
+    }
 
 }

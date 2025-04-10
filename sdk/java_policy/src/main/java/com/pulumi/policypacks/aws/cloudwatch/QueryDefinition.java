@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/queryDefinition:QueryDefinition")
-public final class QueryDefinition extends com.pulumi.resources.PolicyResource {
+public final class QueryDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specific log groups to use with the query.
      * 
      */
-    public List<String> logGroupNames;
+    private @Nullable UndeferrableValue<List<String>> logGroupNames;
 
-
+    public @Nullable List<String> logGroupNames() {
+        if (logGroupNames == null) return null;
+        return logGroupNames.getValue("QueryDefinition.logGroupNames");
+    }
 
     /**
      * The name of the query.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("QueryDefinition.name");
+    }
 
     /**
      * The query definition ID.
      * 
      */
-    public String queryDefinitionId;
+    private UndeferrableValue<String> queryDefinitionId;
 
-
+    public String queryDefinitionId() {
+        if (queryDefinitionId == null) return null;
+        return queryDefinitionId.getValue("QueryDefinition.queryDefinitionId");
+    }
 
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      * 
      */
-    public String queryString;
+    private UndeferrableValue<String> queryString;
 
-
+    public String queryString() {
+        if (queryString == null) return null;
+        return queryString.getValue("QueryDefinition.queryString");
+    }
 
 }

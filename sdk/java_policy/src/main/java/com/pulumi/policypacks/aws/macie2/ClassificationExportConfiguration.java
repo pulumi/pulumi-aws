@@ -3,19 +3,24 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.macie2.ClassificationExportConfigurationS3Destination;
+import com.pulumi.policypacks.aws.macie2.outputs.ClassificationExportConfigurationS3Destination;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")
-public final class ClassificationExportConfiguration extends com.pulumi.resources.PolicyResource {
+public final class ClassificationExportConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block for a S3 Destination. Defined below
      * 
      */
-    public ClassificationExportConfigurationS3Destination s3Destination;
+    private @Nullable UndeferrableValue<ClassificationExportConfigurationS3Destination> s3Destination;
 
-
+    public @Nullable ClassificationExportConfigurationS3Destination s3Destination() {
+        if (s3Destination == null) return null;
+        return s3Destination.getValue("ClassificationExportConfiguration.s3Destination");
+    }
 
 }

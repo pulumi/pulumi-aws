@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.cloudsearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudsearch.DomainEndpointOptions;
-import com.pulumi.policypacks.aws.cloudsearch.DomainIndexField;
-import com.pulumi.policypacks.aws.cloudsearch.DomainScalingParameters;
+import com.pulumi.policypacks.aws.cloudsearch.outputs.DomainEndpointOptions;
+import com.pulumi.policypacks.aws.cloudsearch.outputs.DomainIndexField;
+import com.pulumi.policypacks.aws.cloudsearch.outputs.DomainScalingParameters;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudsearch/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The domain&#39;s ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * The service endpoint for updating documents in a search domain.
      * 
      */
-    public String documentServiceEndpoint;
+    private UndeferrableValue<String> documentServiceEndpoint;
 
-
+    public String documentServiceEndpoint() {
+        if (documentServiceEndpoint == null) return null;
+        return documentServiceEndpoint.getValue("Domain.documentServiceEndpoint");
+    }
 
     /**
      * An internally generated unique identifier for the domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("Domain.domainId");
+    }
 
     /**
      * Domain endpoint options. Documented below.
      * 
      */
-    public DomainEndpointOptions endpointOptions;
+    private UndeferrableValue<DomainEndpointOptions> endpointOptions;
 
-
+    public DomainEndpointOptions endpointOptions() {
+        if (endpointOptions == null) return null;
+        return endpointOptions.getValue("Domain.endpointOptions");
+    }
 
     /**
      * The index fields for documents added to the domain. Documented below.
      * 
      */
-    public List<DomainIndexField> indexFields;
+    private @Nullable UndeferrableValue<List<DomainIndexField>> indexFields;
 
-
+    public @Nullable List<DomainIndexField> indexFields() {
+        if (indexFields == null) return null;
+        return indexFields.getValue("Domain.indexFields");
+    }
 
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      * 
      */
-    public Boolean multiAz;
+    private UndeferrableValue<Boolean> multiAz;
 
-
+    public Boolean multiAz() {
+        if (multiAz == null) return null;
+        return multiAz.getValue("Domain.multiAz");
+    }
 
     /**
      * The name of the CloudSearch domain.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Domain.name");
+    }
 
     /**
      * Domain scaling parameters. Documented below.
      * 
      */
-    public DomainScalingParameters scalingParameters;
+    private UndeferrableValue<DomainScalingParameters> scalingParameters;
 
-
+    public DomainScalingParameters scalingParameters() {
+        if (scalingParameters == null) return null;
+        return scalingParameters.getValue("Domain.scalingParameters");
+    }
 
     /**
      * The service endpoint for requesting search results from a search domain.
      * 
      */
-    public String searchServiceEndpoint;
+    private UndeferrableValue<String> searchServiceEndpoint;
 
-
+    public String searchServiceEndpoint() {
+        if (searchServiceEndpoint == null) return null;
+        return searchServiceEndpoint.getValue("Domain.searchServiceEndpoint");
+    }
 
 }

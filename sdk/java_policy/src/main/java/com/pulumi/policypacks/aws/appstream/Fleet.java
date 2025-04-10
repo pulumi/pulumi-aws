@@ -3,146 +3,196 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appstream.FleetComputeCapacity;
-import com.pulumi.policypacks.aws.appstream.FleetDomainJoinInfo;
-import com.pulumi.policypacks.aws.appstream.FleetVpcConfig;
+import com.pulumi.policypacks.aws.appstream.outputs.FleetComputeCapacity;
+import com.pulumi.policypacks.aws.appstream.outputs.FleetDomainJoinInfo;
+import com.pulumi.policypacks.aws.appstream.outputs.FleetVpcConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appstream/fleet:Fleet")
-public final class Fleet extends com.pulumi.resources.PolicyResource {
+public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the appstream fleet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Fleet.arn");
+    }
 
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      * 
      */
-    public FleetComputeCapacity computeCapacity;
+    private UndeferrableValue<FleetComputeCapacity> computeCapacity;
 
-
+    public FleetComputeCapacity computeCapacity() {
+        if (computeCapacity == null) return null;
+        return computeCapacity.getValue("Fleet.computeCapacity");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Fleet.createdTime");
+    }
 
     /**
      * Description to display.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Fleet.description");
+    }
 
     /**
      * Amount of time that a streaming session remains active after users disconnect.
      * 
      */
-    public Integer disconnectTimeoutInSeconds;
+    private UndeferrableValue<Integer> disconnectTimeoutInSeconds;
 
-
+    public Integer disconnectTimeoutInSeconds() {
+        if (disconnectTimeoutInSeconds == null) return null;
+        return disconnectTimeoutInSeconds.getValue("Fleet.disconnectTimeoutInSeconds");
+    }
 
     /**
      * Human-readable friendly name for the AppStream fleet.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Fleet.displayName");
+    }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      * 
      */
-    public FleetDomainJoinInfo domainJoinInfo;
+    private UndeferrableValue<FleetDomainJoinInfo> domainJoinInfo;
 
-
+    public FleetDomainJoinInfo domainJoinInfo() {
+        if (domainJoinInfo == null) return null;
+        return domainJoinInfo.getValue("Fleet.domainJoinInfo");
+    }
 
     /**
      * Enables or disables default internet access for the fleet.
      * 
      */
-    public Boolean enableDefaultInternetAccess;
+    private UndeferrableValue<Boolean> enableDefaultInternetAccess;
 
-
+    public Boolean enableDefaultInternetAccess() {
+        if (enableDefaultInternetAccess == null) return null;
+        return enableDefaultInternetAccess.getValue("Fleet.enableDefaultInternetAccess");
+    }
 
     /**
      * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      * 
      */
-    public String fleetType;
+    private UndeferrableValue<String> fleetType;
 
-
+    public String fleetType() {
+        if (fleetType == null) return null;
+        return fleetType.getValue("Fleet.fleetType");
+    }
 
     /**
      * ARN of the IAM role to apply to the fleet.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("Fleet.iamRoleArn");
+    }
 
     /**
      * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
      * 
      */
-    public Integer idleDisconnectTimeoutInSeconds;
+    private @Nullable UndeferrableValue<Integer> idleDisconnectTimeoutInSeconds;
 
-
+    public @Nullable Integer idleDisconnectTimeoutInSeconds() {
+        if (idleDisconnectTimeoutInSeconds == null) return null;
+        return idleDisconnectTimeoutInSeconds.getValue("Fleet.idleDisconnectTimeoutInSeconds");
+    }
 
     /**
      * ARN of the public, private, or shared image to use.
      * 
      */
-    public String imageArn;
+    private UndeferrableValue<String> imageArn;
 
-
+    public String imageArn() {
+        if (imageArn == null) return null;
+        return imageArn.getValue("Fleet.imageArn");
+    }
 
     /**
      * Name of the image used to create the fleet.
      * 
      */
-    public String imageName;
+    private UndeferrableValue<String> imageName;
 
-
+    public String imageName() {
+        if (imageName == null) return null;
+        return imageName.getValue("Fleet.imageName");
+    }
 
     /**
      * Instance type to use when launching fleet instances.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("Fleet.instanceType");
+    }
 
     /**
      * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
      * 
      */
-    public Integer maxSessionsPerInstance;
+    private @Nullable UndeferrableValue<Integer> maxSessionsPerInstance;
 
-
+    public @Nullable Integer maxSessionsPerInstance() {
+        if (maxSessionsPerInstance == null) return null;
+        return maxSessionsPerInstance.getValue("Fleet.maxSessionsPerInstance");
+    }
 
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      * 
      */
-    public Integer maxUserDurationInSeconds;
+    private UndeferrableValue<Integer> maxUserDurationInSeconds;
 
-
+    public Integer maxUserDurationInSeconds() {
+        if (maxUserDurationInSeconds == null) return null;
+        return maxUserDurationInSeconds.getValue("Fleet.maxUserDurationInSeconds");
+    }
 
     /**
      * Unique name for the fleet.
@@ -150,33 +200,45 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Fleet.name");
+    }
 
     /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Fleet.state");
+    }
 
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      * 
      */
-    public String streamView;
+    private UndeferrableValue<String> streamView;
 
-
+    public String streamView() {
+        if (streamView == null) return null;
+        return streamView.getValue("Fleet.streamView");
+    }
 
     /**
      * Map of tags to attach to AppStream instances.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Fleet.tags");
+    }
 
     /**
      * @deprecated
@@ -184,16 +246,22 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Fleet.tagsAll");
+    }
 
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    public FleetVpcConfig vpcConfig;
+    private UndeferrableValue<FleetVpcConfig> vpcConfig;
 
-
+    public FleetVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Fleet.vpcConfig");
+    }
 
 }

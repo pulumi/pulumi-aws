@@ -3,24 +3,31 @@
 
 package com.pulumi.policypacks.aws.costoptimizationhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")
-public final class EnrollmentStatus extends com.pulumi.resources.PolicyResource {
+public final class EnrollmentStatus extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      * 
      */
-    public Boolean includeMemberAccounts;
+    private UndeferrableValue<Boolean> includeMemberAccounts;
 
+    public Boolean includeMemberAccounts() {
+        if (includeMemberAccounts == null) return null;
+        return includeMemberAccounts.getValue("EnrollmentStatus.includeMemberAccounts");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("EnrollmentStatus.status");
+    }
 
 }

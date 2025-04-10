@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")
-public final class ProductPortfolioAssociation extends com.pulumi.resources.PolicyResource {
+public final class ProductPortfolioAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("ProductPortfolioAssociation.acceptLanguage");
+    }
 
     /**
      * Portfolio identifier.
      * 
      */
-    public String portfolioId;
+    private UndeferrableValue<String> portfolioId;
 
-
+    public String portfolioId() {
+        if (portfolioId == null) return null;
+        return portfolioId.getValue("ProductPortfolioAssociation.portfolioId");
+    }
 
     /**
      * Product identifier.
@@ -32,16 +40,22 @@ public final class ProductPortfolioAssociation extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    public String productId;
+    private UndeferrableValue<String> productId;
 
-
+    public String productId() {
+        if (productId == null) return null;
+        return productId.getValue("ProductPortfolioAssociation.productId");
+    }
 
     /**
      * Identifier of the source portfolio.
      * 
      */
-    public String sourcePortfolioId;
+    private @Nullable UndeferrableValue<String> sourcePortfolioId;
 
-
+    public @Nullable String sourcePortfolioId() {
+        if (sourcePortfolioId == null) return null;
+        return sourcePortfolioId.getValue("ProductPortfolioAssociation.sourcePortfolioId");
+    }
 
 }

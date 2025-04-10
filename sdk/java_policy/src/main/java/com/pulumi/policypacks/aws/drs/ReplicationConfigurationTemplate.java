@@ -3,138 +3,185 @@
 
 package com.pulumi.policypacks.aws.drs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.drs.ReplicationConfigurationTemplatePitPolicy;
-import com.pulumi.policypacks.aws.drs.ReplicationConfigurationTemplateTimeouts;
+import com.pulumi.policypacks.aws.drs.outputs.ReplicationConfigurationTemplatePitPolicy;
+import com.pulumi.policypacks.aws.drs.outputs.ReplicationConfigurationTemplateTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate")
-public final class ReplicationConfigurationTemplate extends com.pulumi.resources.PolicyResource {
+public final class ReplicationConfigurationTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Replication configuration template ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReplicationConfigurationTemplate.arn");
+    }
 
     /**
      * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
      * 
      */
-    public Boolean associateDefaultSecurityGroup;
+    private UndeferrableValue<Boolean> associateDefaultSecurityGroup;
 
-
+    public Boolean associateDefaultSecurityGroup() {
+        if (associateDefaultSecurityGroup == null) return null;
+        return associateDefaultSecurityGroup.getValue("ReplicationConfigurationTemplate.associateDefaultSecurityGroup");
+    }
 
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      * 
      */
-    public Boolean autoReplicateNewDisks;
+    private UndeferrableValue<Boolean> autoReplicateNewDisks;
 
-
+    public Boolean autoReplicateNewDisks() {
+        if (autoReplicateNewDisks == null) return null;
+        return autoReplicateNewDisks.getValue("ReplicationConfigurationTemplate.autoReplicateNewDisks");
+    }
 
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      * 
      */
-    public Integer bandwidthThrottling;
+    private UndeferrableValue<Integer> bandwidthThrottling;
 
-
+    public Integer bandwidthThrottling() {
+        if (bandwidthThrottling == null) return null;
+        return bandwidthThrottling.getValue("ReplicationConfigurationTemplate.bandwidthThrottling");
+    }
 
     /**
      * Whether to create a Public IP for the Recovery Instance by default.
      * 
      */
-    public Boolean createPublicIp;
+    private UndeferrableValue<Boolean> createPublicIp;
 
-
+    public Boolean createPublicIp() {
+        if (createPublicIp == null) return null;
+        return createPublicIp.getValue("ReplicationConfigurationTemplate.createPublicIp");
+    }
 
     /**
      * Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
      * 
      */
-    public String dataPlaneRouting;
+    private UndeferrableValue<String> dataPlaneRouting;
 
-
+    public String dataPlaneRouting() {
+        if (dataPlaneRouting == null) return null;
+        return dataPlaneRouting.getValue("ReplicationConfigurationTemplate.dataPlaneRouting");
+    }
 
     /**
      * Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
      * 
      */
-    public String defaultLargeStagingDiskType;
+    private UndeferrableValue<String> defaultLargeStagingDiskType;
 
-
+    public String defaultLargeStagingDiskType() {
+        if (defaultLargeStagingDiskType == null) return null;
+        return defaultLargeStagingDiskType.getValue("ReplicationConfigurationTemplate.defaultLargeStagingDiskType");
+    }
 
     /**
      * Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
      * 
      */
-    public String ebsEncryption;
+    private UndeferrableValue<String> ebsEncryption;
 
-
+    public String ebsEncryption() {
+        if (ebsEncryption == null) return null;
+        return ebsEncryption.getValue("ReplicationConfigurationTemplate.ebsEncryption");
+    }
 
     /**
      * ARN of the EBS encryption key to be used during replication.
      * 
      */
-    public String ebsEncryptionKeyArn;
+    private @Nullable UndeferrableValue<String> ebsEncryptionKeyArn;
 
-
+    public @Nullable String ebsEncryptionKeyArn() {
+        if (ebsEncryptionKeyArn == null) return null;
+        return ebsEncryptionKeyArn.getValue("ReplicationConfigurationTemplate.ebsEncryptionKeyArn");
+    }
 
     /**
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      * 
      */
-    public List<ReplicationConfigurationTemplatePitPolicy> pitPolicies;
+    private @Nullable UndeferrableValue<List<ReplicationConfigurationTemplatePitPolicy>> pitPolicies;
 
-
+    public @Nullable List<ReplicationConfigurationTemplatePitPolicy> pitPolicies() {
+        if (pitPolicies == null) return null;
+        return pitPolicies.getValue("ReplicationConfigurationTemplate.pitPolicies");
+    }
 
     /**
      * Instance type to be used for the replication server.
      * 
      */
-    public String replicationServerInstanceType;
+    private UndeferrableValue<String> replicationServerInstanceType;
 
-
+    public String replicationServerInstanceType() {
+        if (replicationServerInstanceType == null) return null;
+        return replicationServerInstanceType.getValue("ReplicationConfigurationTemplate.replicationServerInstanceType");
+    }
 
     /**
      * Security group IDs that will be used by the replication server.
      * 
      */
-    public List<String> replicationServersSecurityGroupsIds;
+    private UndeferrableValue<List<String>> replicationServersSecurityGroupsIds;
 
-
+    public List<String> replicationServersSecurityGroupsIds() {
+        if (replicationServersSecurityGroupsIds == null) return null;
+        return replicationServersSecurityGroupsIds.getValue("ReplicationConfigurationTemplate.replicationServersSecurityGroupsIds");
+    }
 
     /**
      * Subnet to be used by the replication staging area.
      * 
      */
-    public String stagingAreaSubnetId;
+    private UndeferrableValue<String> stagingAreaSubnetId;
 
-
+    public String stagingAreaSubnetId() {
+        if (stagingAreaSubnetId == null) return null;
+        return stagingAreaSubnetId.getValue("ReplicationConfigurationTemplate.stagingAreaSubnetId");
+    }
 
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      * 
      */
-    public Map<String,String> stagingAreaTags;
+    private UndeferrableValue<Map<String,String>> stagingAreaTags;
 
-
+    public Map<String,String> stagingAreaTags() {
+        if (stagingAreaTags == null) return null;
+        return stagingAreaTags.getValue("ReplicationConfigurationTemplate.stagingAreaTags");
+    }
 
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationConfigurationTemplate.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -144,13 +191,19 @@ public final class ReplicationConfigurationTemplate extends com.pulumi.resources
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationConfigurationTemplate.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ReplicationConfigurationTemplateTimeouts> timeouts;
 
-    public ReplicationConfigurationTemplateTimeouts timeouts;
-
-
+    public @Nullable ReplicationConfigurationTemplateTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ReplicationConfigurationTemplate.timeouts");
+    }
 
     /**
      * Whether to use a dedicated Replication Server in the replication staging area.
@@ -158,8 +211,11 @@ public final class ReplicationConfigurationTemplate extends com.pulumi.resources
      * The following arguments are optional:
      * 
      */
-    public Boolean useDedicatedReplicationServer;
+    private UndeferrableValue<Boolean> useDedicatedReplicationServer;
 
-
+    public Boolean useDedicatedReplicationServer() {
+        if (useDedicatedReplicationServer == null) return null;
+        return useDedicatedReplicationServer.getValue("ReplicationConfigurationTemplate.useDedicatedReplicationServer");
+    }
 
 }

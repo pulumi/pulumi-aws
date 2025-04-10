@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.location;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:location/routeCalculation:RouteCalculation")
-public final class RouteCalculation extends com.pulumi.resources.PolicyResource {
+public final class RouteCalculation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
-    public String calculatorArn;
+    private UndeferrableValue<String> calculatorArn;
 
-
+    public String calculatorArn() {
+        if (calculatorArn == null) return null;
+        return calculatorArn.getValue("RouteCalculation.calculatorArn");
+    }
 
     /**
      * The name of the route calculator resource.
      * 
      */
-    public String calculatorName;
+    private UndeferrableValue<String> calculatorName;
 
-
+    public String calculatorName() {
+        if (calculatorName == null) return null;
+        return calculatorName.getValue("RouteCalculation.calculatorName");
+    }
 
     /**
      * The timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("RouteCalculation.createTime");
+    }
 
     /**
      * Specifies the data provider of traffic and road network data.
@@ -41,25 +52,34 @@ public final class RouteCalculation extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String dataSource;
+    private UndeferrableValue<String> dataSource;
 
-
+    public String dataSource() {
+        if (dataSource == null) return null;
+        return dataSource.getValue("RouteCalculation.dataSource");
+    }
 
     /**
      * The optional description for the route calculator resource.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("RouteCalculation.description");
+    }
 
     /**
      * Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RouteCalculation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,16 +89,22 @@ public final class RouteCalculation extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RouteCalculation.tagsAll");
+    }
 
     /**
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("RouteCalculation.updateTime");
+    }
 
 }

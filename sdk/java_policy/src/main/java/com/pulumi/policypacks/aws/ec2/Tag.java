@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/tag:Tag")
-public final class Tag extends com.pulumi.resources.PolicyResource {
+public final class Tag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The tag name.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("Tag.key");
+    }
 
     /**
      * The ID of the EC2 resource to manage the tag for.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("Tag.resourceId");
+    }
 
     /**
      * The value of the tag.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("Tag.value");
+    }
 
 }

@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.IdentityPoolCognitoIdentityProvider;
+import com.pulumi.policypacks.aws.cognito.outputs.IdentityPoolCognitoIdentityProvider;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/identityPool:IdentityPool")
-public final class IdentityPool extends com.pulumi.resources.PolicyResource {
+public final class IdentityPool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Enables or disables the classic / basic authentication flow. Default is `false`.
      * 
      */
-    public Boolean allowClassicFlow;
+    private @Nullable UndeferrableValue<Boolean> allowClassicFlow;
 
-
+    public @Nullable Boolean allowClassicFlow() {
+        if (allowClassicFlow == null) return null;
+        return allowClassicFlow.getValue("IdentityPool.allowClassicFlow");
+    }
 
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      * 
      */
-    public Boolean allowUnauthenticatedIdentities;
+    private @Nullable UndeferrableValue<Boolean> allowUnauthenticatedIdentities;
 
-
+    public @Nullable Boolean allowUnauthenticatedIdentities() {
+        if (allowUnauthenticatedIdentities == null) return null;
+        return allowUnauthenticatedIdentities.getValue("IdentityPool.allowUnauthenticatedIdentities");
+    }
 
     /**
      * The ARN of the identity pool.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("IdentityPool.arn");
+    }
 
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      * 
      */
-    public List<IdentityPoolCognitoIdentityProvider> cognitoIdentityProviders;
+    private @Nullable UndeferrableValue<List<IdentityPoolCognitoIdentityProvider>> cognitoIdentityProviders;
 
-
+    public @Nullable List<IdentityPoolCognitoIdentityProvider> cognitoIdentityProviders() {
+        if (cognitoIdentityProviders == null) return null;
+        return cognitoIdentityProviders.getValue("IdentityPool.cognitoIdentityProviders");
+    }
 
     /**
      * The &#34;domain&#34; by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
      * 
      */
-    public String developerProviderName;
+    private @Nullable UndeferrableValue<String> developerProviderName;
 
-
+    public @Nullable String developerProviderName() {
+        if (developerProviderName == null) return null;
+        return developerProviderName.getValue("IdentityPool.developerProviderName");
+    }
 
     /**
      * The Cognito Identity Pool name.
      * 
      */
-    public String identityPoolName;
+    private UndeferrableValue<String> identityPoolName;
 
-
+    public String identityPoolName() {
+        if (identityPoolName == null) return null;
+        return identityPoolName.getValue("IdentityPool.identityPoolName");
+    }
 
     /**
      * Set of OpendID Connect provider ARNs.
      * 
      */
-    public List<String> openidConnectProviderArns;
+    private @Nullable UndeferrableValue<List<String>> openidConnectProviderArns;
 
-
+    public @Nullable List<String> openidConnectProviderArns() {
+        if (openidConnectProviderArns == null) return null;
+        return openidConnectProviderArns.getValue("IdentityPool.openidConnectProviderArns");
+    }
 
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
      */
-    public List<String> samlProviderArns;
+    private @Nullable UndeferrableValue<List<String>> samlProviderArns;
 
-
+    public @Nullable List<String> samlProviderArns() {
+        if (samlProviderArns == null) return null;
+        return samlProviderArns.getValue("IdentityPool.samlProviderArns");
+    }
 
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      * 
      */
-    public Map<String,String> supportedLoginProviders;
+    private @Nullable UndeferrableValue<Map<String,String>> supportedLoginProviders;
 
-
+    public @Nullable Map<String,String> supportedLoginProviders() {
+        if (supportedLoginProviders == null) return null;
+        return supportedLoginProviders.getValue("IdentityPool.supportedLoginProviders");
+    }
 
     /**
      * A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("IdentityPool.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,8 +135,11 @@ public final class IdentityPool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("IdentityPool.tagsAll");
+    }
 
 }

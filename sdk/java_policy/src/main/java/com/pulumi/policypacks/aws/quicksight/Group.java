@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of group
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Group.arn");
+    }
 
     /**
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Group.awsAccountId");
+    }
 
     /**
      * A description for the group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Group.description");
+    }
 
     /**
      * A name for the group.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("Group.groupName");
+    }
 
     /**
      * The namespace. Currently, you should set this to `default`.
      * 
      */
-    public String namespace;
+    private @Nullable UndeferrableValue<String> namespace;
 
-
+    public @Nullable String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("Group.namespace");
+    }
 
 }

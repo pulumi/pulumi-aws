@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.cloudsearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")
-public final class DomainServiceAccessPolicy extends com.pulumi.resources.PolicyResource {
+public final class DomainServiceAccessPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
      * 
      */
-    public String accessPolicy;
+    private UndeferrableValue<String> accessPolicy;
 
-
+    public String accessPolicy() {
+        if (accessPolicy == null) return null;
+        return accessPolicy.getValue("DomainServiceAccessPolicy.accessPolicy");
+    }
 
     /**
      * The CloudSearch domain name the policy applies to.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainServiceAccessPolicy.domainName");
+    }
 
 }

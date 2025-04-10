@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/aggregateAuthorization:AggregateAuthorization")
-public final class AggregateAuthorization extends com.pulumi.resources.PolicyResource {
+public final class AggregateAuthorization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Account ID
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AggregateAuthorization.accountId");
+    }
 
     /**
      * The ARN of the authorization
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AggregateAuthorization.arn");
+    }
 
     /**
      * Region
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("AggregateAuthorization.region");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AggregateAuthorization.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,8 +65,11 @@ public final class AggregateAuthorization extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AggregateAuthorization.tagsAll");
+    }
 
 }

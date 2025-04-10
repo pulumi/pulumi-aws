@@ -3,117 +3,155 @@
 
 package com.pulumi.policypacks.aws.emrserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationAutoStartConfiguration;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationAutoStopConfiguration;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationImageConfiguration;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationInitialCapacity;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationInteractiveConfiguration;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationMaximumCapacity;
-import com.pulumi.policypacks.aws.emrserverless.ApplicationNetworkConfiguration;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationAutoStartConfiguration;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationAutoStopConfiguration;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationImageConfiguration;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationInitialCapacity;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationInteractiveConfiguration;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationMaximumCapacity;
+import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationNetworkConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emrserverless/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      * 
      */
-    public String architecture;
+    private @Nullable UndeferrableValue<String> architecture;
 
-
+    public @Nullable String architecture() {
+        if (architecture == null) return null;
+        return architecture.getValue("Application.architecture");
+    }
 
     /**
      * ARN of the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * The configuration for an application to automatically start on job submission.
      * 
      */
-    public ApplicationAutoStartConfiguration autoStartConfiguration;
+    private UndeferrableValue<ApplicationAutoStartConfiguration> autoStartConfiguration;
 
-
+    public ApplicationAutoStartConfiguration autoStartConfiguration() {
+        if (autoStartConfiguration == null) return null;
+        return autoStartConfiguration.getValue("Application.autoStartConfiguration");
+    }
 
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      * 
      */
-    public ApplicationAutoStopConfiguration autoStopConfiguration;
+    private UndeferrableValue<ApplicationAutoStopConfiguration> autoStopConfiguration;
 
-
+    public ApplicationAutoStopConfiguration autoStopConfiguration() {
+        if (autoStopConfiguration == null) return null;
+        return autoStopConfiguration.getValue("Application.autoStopConfiguration");
+    }
 
     /**
      * The image configuration applied to all worker types.
      * 
      */
-    public ApplicationImageConfiguration imageConfiguration;
+    private UndeferrableValue<ApplicationImageConfiguration> imageConfiguration;
 
-
+    public ApplicationImageConfiguration imageConfiguration() {
+        if (imageConfiguration == null) return null;
+        return imageConfiguration.getValue("Application.imageConfiguration");
+    }
 
     /**
      * The capacity to initialize when the application is created.
      * 
      */
-    public List<ApplicationInitialCapacity> initialCapacities;
+    private @Nullable UndeferrableValue<List<ApplicationInitialCapacity>> initialCapacities;
 
-
+    public @Nullable List<ApplicationInitialCapacity> initialCapacities() {
+        if (initialCapacities == null) return null;
+        return initialCapacities.getValue("Application.initialCapacities");
+    }
 
     /**
      * Enables the interactive use cases to use when running an application.
      * 
      */
-    public ApplicationInteractiveConfiguration interactiveConfiguration;
+    private UndeferrableValue<ApplicationInteractiveConfiguration> interactiveConfiguration;
 
-
+    public ApplicationInteractiveConfiguration interactiveConfiguration() {
+        if (interactiveConfiguration == null) return null;
+        return interactiveConfiguration.getValue("Application.interactiveConfiguration");
+    }
 
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      * 
      */
-    public ApplicationMaximumCapacity maximumCapacity;
+    private UndeferrableValue<ApplicationMaximumCapacity> maximumCapacity;
 
-
+    public ApplicationMaximumCapacity maximumCapacity() {
+        if (maximumCapacity == null) return null;
+        return maximumCapacity.getValue("Application.maximumCapacity");
+    }
 
     /**
      * The name of the application.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * The network configuration for customer VPC connectivity.
      * 
      */
-    public ApplicationNetworkConfiguration networkConfiguration;
+    private @Nullable UndeferrableValue<ApplicationNetworkConfiguration> networkConfiguration;
 
-
+    public @Nullable ApplicationNetworkConfiguration networkConfiguration() {
+        if (networkConfiguration == null) return null;
+        return networkConfiguration.getValue("Application.networkConfiguration");
+    }
 
     /**
      * The EMR release version associated with the application.
      * 
      */
-    public String releaseLabel;
+    private UndeferrableValue<String> releaseLabel;
 
-
+    public String releaseLabel() {
+        if (releaseLabel == null) return null;
+        return releaseLabel.getValue("Application.releaseLabel");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,16 +161,22 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
     /**
      * The type of application you want to start, such as `spark` or `hive`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Application.type");
+    }
 
 }

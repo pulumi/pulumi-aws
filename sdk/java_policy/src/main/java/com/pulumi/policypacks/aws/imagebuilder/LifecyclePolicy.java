@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.LifecyclePolicyPolicyDetail;
-import com.pulumi.policypacks.aws.imagebuilder.LifecyclePolicyResourceSelection;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetail;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyResourceSelection;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")
-public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
+public final class LifecyclePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the lifecycle policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LifecyclePolicy.arn");
+    }
 
     /**
      * description for the lifecycle policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("LifecyclePolicy.description");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      * 
      */
-    public String executionRole;
+    private UndeferrableValue<String> executionRole;
 
-
+    public String executionRole() {
+        if (executionRole == null) return null;
+        return executionRole.getValue("LifecyclePolicy.executionRole");
+    }
 
     /**
      * The name of the lifecycle policy to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LifecyclePolicy.name");
+    }
 
     /**
      * Configuration block with policy details. Detailed below.
      * 
      */
-    public List<LifecyclePolicyPolicyDetail> policyDetails;
+    private @Nullable UndeferrableValue<List<LifecyclePolicyPolicyDetail>> policyDetails;
 
-
+    public @Nullable List<LifecyclePolicyPolicyDetail> policyDetails() {
+        if (policyDetails == null) return null;
+        return policyDetails.getValue("LifecyclePolicy.policyDetails");
+    }
 
     /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
@@ -60,33 +77,45 @@ public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public LifecyclePolicyResourceSelection resourceSelection;
+    private @Nullable UndeferrableValue<LifecyclePolicyResourceSelection> resourceSelection;
 
-
+    public @Nullable LifecyclePolicyResourceSelection resourceSelection() {
+        if (resourceSelection == null) return null;
+        return resourceSelection.getValue("LifecyclePolicy.resourceSelection");
+    }
 
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("LifecyclePolicy.resourceType");
+    }
 
     /**
      * The status of the lifecycle policy.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("LifecyclePolicy.status");
+    }
 
     /**
      * Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LifecyclePolicy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,8 +125,11 @@ public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LifecyclePolicy.tagsAll");
+    }
 
 }

@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cognito/userInGroup:UserInGroup")
-public final class UserInGroup extends com.pulumi.resources.PolicyResource {
+public final class UserInGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the group to which the user is to be added.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("UserInGroup.groupName");
+    }
 
     /**
      * The user pool ID of the user and group.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("UserInGroup.userPoolId");
+    }
 
     /**
      * The username of the user to be added to the group.
      * 
      */
-    public String username;
+    private UndeferrableValue<String> username;
 
-
+    public String username() {
+        if (username == null) return null;
+        return username.getValue("UserInGroup.username");
+    }
 
 }

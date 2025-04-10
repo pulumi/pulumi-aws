@@ -3,57 +3,77 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3control/accessGrantsInstance:AccessGrantsInstance")
-public final class AccessGrantsInstance extends com.pulumi.resources.PolicyResource {
+public final class AccessGrantsInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grants instance.
      * 
      */
-    public String accessGrantsInstanceArn;
+    private UndeferrableValue<String> accessGrantsInstanceArn;
 
-
+    public String accessGrantsInstanceArn() {
+        if (accessGrantsInstanceArn == null) return null;
+        return accessGrantsInstanceArn.getValue("AccessGrantsInstance.accessGrantsInstanceArn");
+    }
 
     /**
      * Unique ID of the S3 Access Grants instance.
      * 
      */
-    public String accessGrantsInstanceId;
+    private UndeferrableValue<String> accessGrantsInstanceId;
 
+    public String accessGrantsInstanceId() {
+        if (accessGrantsInstanceId == null) return null;
+        return accessGrantsInstanceId.getValue("AccessGrantsInstance.accessGrantsInstanceId");
+    }
 
+    private UndeferrableValue<String> accountId;
 
-    public String accountId;
-
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AccessGrantsInstance.accountId");
+    }
 
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      * 
      */
-    public String identityCenterApplicationArn;
+    private UndeferrableValue<String> identityCenterApplicationArn;
 
-
+    public String identityCenterApplicationArn() {
+        if (identityCenterApplicationArn == null) return null;
+        return identityCenterApplicationArn.getValue("AccessGrantsInstance.identityCenterApplicationArn");
+    }
 
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
-    public String identityCenterArn;
+    private @Nullable UndeferrableValue<String> identityCenterArn;
 
-
+    public @Nullable String identityCenterArn() {
+        if (identityCenterArn == null) return null;
+        return identityCenterArn.getValue("AccessGrantsInstance.identityCenterArn");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AccessGrantsInstance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -63,8 +83,11 @@ public final class AccessGrantsInstance extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AccessGrantsInstance.tagsAll");
+    }
 
 }

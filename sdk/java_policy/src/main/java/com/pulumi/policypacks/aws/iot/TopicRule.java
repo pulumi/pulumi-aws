@@ -3,171 +3,251 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.TopicRuleCloudwatchAlarm;
-import com.pulumi.policypacks.aws.iot.TopicRuleCloudwatchLog;
-import com.pulumi.policypacks.aws.iot.TopicRuleCloudwatchMetric;
-import com.pulumi.policypacks.aws.iot.TopicRuleDynamodb;
-import com.pulumi.policypacks.aws.iot.TopicRuleDynamodbv2;
-import com.pulumi.policypacks.aws.iot.TopicRuleElasticsearch;
-import com.pulumi.policypacks.aws.iot.TopicRuleErrorAction;
-import com.pulumi.policypacks.aws.iot.TopicRuleFirehose;
-import com.pulumi.policypacks.aws.iot.TopicRuleHttp;
-import com.pulumi.policypacks.aws.iot.TopicRuleIotAnalytic;
-import com.pulumi.policypacks.aws.iot.TopicRuleIotEvent;
-import com.pulumi.policypacks.aws.iot.TopicRuleKafka;
-import com.pulumi.policypacks.aws.iot.TopicRuleKinesis;
-import com.pulumi.policypacks.aws.iot.TopicRuleLambda;
-import com.pulumi.policypacks.aws.iot.TopicRuleRepublish;
-import com.pulumi.policypacks.aws.iot.TopicRuleS3;
-import com.pulumi.policypacks.aws.iot.TopicRuleSns;
-import com.pulumi.policypacks.aws.iot.TopicRuleSqs;
-import com.pulumi.policypacks.aws.iot.TopicRuleStepFunction;
-import com.pulumi.policypacks.aws.iot.TopicRuleTimestream;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleCloudwatchAlarm;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleCloudwatchLog;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleCloudwatchMetric;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleDynamodb;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleDynamodbv2;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleElasticsearch;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleErrorAction;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleFirehose;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleHttp;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleIotAnalytic;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleIotEvent;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleKafka;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleKinesis;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleLambda;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleRepublish;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleS3;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleSns;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleSqs;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleStepFunction;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleTimestream;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/topicRule:TopicRule")
-public final class TopicRule extends com.pulumi.resources.PolicyResource {
+public final class TopicRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the topic rule
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TopicRule.arn");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchAlarm>> cloudwatchAlarms;
 
-    public List<TopicRuleCloudwatchAlarm> cloudwatchAlarms;
+    public @Nullable List<TopicRuleCloudwatchAlarm> cloudwatchAlarms() {
+        if (cloudwatchAlarms == null) return null;
+        return cloudwatchAlarms.getValue("TopicRule.cloudwatchAlarms");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchLog>> cloudwatchLogs;
 
+    public @Nullable List<TopicRuleCloudwatchLog> cloudwatchLogs() {
+        if (cloudwatchLogs == null) return null;
+        return cloudwatchLogs.getValue("TopicRule.cloudwatchLogs");
+    }
 
-    public List<TopicRuleCloudwatchLog> cloudwatchLogs;
+    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchMetric>> cloudwatchMetrics;
 
-
-
-    public List<TopicRuleCloudwatchMetric> cloudwatchMetrics;
-
-
+    public @Nullable List<TopicRuleCloudwatchMetric> cloudwatchMetrics() {
+        if (cloudwatchMetrics == null) return null;
+        return cloudwatchMetrics.getValue("TopicRule.cloudwatchMetrics");
+    }
 
     /**
      * The description of the rule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TopicRule.description");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleDynamodb>> dynamodbs;
 
-    public List<TopicRuleDynamodb> dynamodbs;
+    public @Nullable List<TopicRuleDynamodb> dynamodbs() {
+        if (dynamodbs == null) return null;
+        return dynamodbs.getValue("TopicRule.dynamodbs");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleDynamodbv2>> dynamodbv2s;
 
+    public @Nullable List<TopicRuleDynamodbv2> dynamodbv2s() {
+        if (dynamodbv2s == null) return null;
+        return dynamodbv2s.getValue("TopicRule.dynamodbv2s");
+    }
 
-    public List<TopicRuleDynamodbv2> dynamodbv2s;
+    private @Nullable UndeferrableValue<List<TopicRuleElasticsearch>> elasticsearch;
 
-
-
-    public List<TopicRuleElasticsearch> elasticsearch;
-
-
+    public @Nullable List<TopicRuleElasticsearch> elasticsearch() {
+        if (elasticsearch == null) return null;
+        return elasticsearch.getValue("TopicRule.elasticsearch");
+    }
 
     /**
      * Specifies whether the rule is enabled.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("TopicRule.enabled");
+    }
 
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
      * 
      */
-    public TopicRuleErrorAction errorAction;
+    private @Nullable UndeferrableValue<TopicRuleErrorAction> errorAction;
 
+    public @Nullable TopicRuleErrorAction errorAction() {
+        if (errorAction == null) return null;
+        return errorAction.getValue("TopicRule.errorAction");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleFirehose>> firehoses;
 
-    public List<TopicRuleFirehose> firehoses;
+    public @Nullable List<TopicRuleFirehose> firehoses() {
+        if (firehoses == null) return null;
+        return firehoses.getValue("TopicRule.firehoses");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleHttp>> https;
 
+    public @Nullable List<TopicRuleHttp> https() {
+        if (https == null) return null;
+        return https.getValue("TopicRule.https");
+    }
 
-    public List<TopicRuleHttp> https;
+    private @Nullable UndeferrableValue<List<TopicRuleIotAnalytic>> iotAnalytics;
 
+    public @Nullable List<TopicRuleIotAnalytic> iotAnalytics() {
+        if (iotAnalytics == null) return null;
+        return iotAnalytics.getValue("TopicRule.iotAnalytics");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleIotEvent>> iotEvents;
 
-    public List<TopicRuleIotAnalytic> iotAnalytics;
+    public @Nullable List<TopicRuleIotEvent> iotEvents() {
+        if (iotEvents == null) return null;
+        return iotEvents.getValue("TopicRule.iotEvents");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleKafka>> kafkas;
 
+    public @Nullable List<TopicRuleKafka> kafkas() {
+        if (kafkas == null) return null;
+        return kafkas.getValue("TopicRule.kafkas");
+    }
 
-    public List<TopicRuleIotEvent> iotEvents;
+    private @Nullable UndeferrableValue<List<TopicRuleKinesis>> kineses;
 
+    public @Nullable List<TopicRuleKinesis> kineses() {
+        if (kineses == null) return null;
+        return kineses.getValue("TopicRule.kineses");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleLambda>> lambdas;
 
-    public List<TopicRuleKafka> kafkas;
-
-
-
-    public List<TopicRuleKinesis> kineses;
-
-
-
-    public List<TopicRuleLambda> lambdas;
-
-
+    public @Nullable List<TopicRuleLambda> lambdas() {
+        if (lambdas == null) return null;
+        return lambdas.getValue("TopicRule.lambdas");
+    }
 
     /**
      * The name of the rule.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TopicRule.name");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleRepublish>> republishes;
 
-    public List<TopicRuleRepublish> republishes;
+    public @Nullable List<TopicRuleRepublish> republishes() {
+        if (republishes == null) return null;
+        return republishes.getValue("TopicRule.republishes");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleS3>> s3;
 
+    public @Nullable List<TopicRuleS3> s3() {
+        if (s3 == null) return null;
+        return s3.getValue("TopicRule.s3");
+    }
 
-    public List<TopicRuleS3> s3;
+    private @Nullable UndeferrableValue<List<TopicRuleSns>> sns;
 
-
-
-    public List<TopicRuleSns> sns;
-
-
+    public @Nullable List<TopicRuleSns> sns() {
+        if (sns == null) return null;
+        return sns.getValue("TopicRule.sns");
+    }
 
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      * 
      */
-    public String sql;
+    private UndeferrableValue<String> sql;
 
-
+    public String sql() {
+        if (sql == null) return null;
+        return sql.getValue("TopicRule.sql");
+    }
 
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      * 
      */
-    public String sqlVersion;
+    private UndeferrableValue<String> sqlVersion;
 
+    public String sqlVersion() {
+        if (sqlVersion == null) return null;
+        return sqlVersion.getValue("TopicRule.sqlVersion");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleSqs>> sqs;
 
-    public List<TopicRuleSqs> sqs;
+    public @Nullable List<TopicRuleSqs> sqs() {
+        if (sqs == null) return null;
+        return sqs.getValue("TopicRule.sqs");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleStepFunction>> stepFunctions;
 
-
-    public List<TopicRuleStepFunction> stepFunctions;
-
-
+    public @Nullable List<TopicRuleStepFunction> stepFunctions() {
+        if (stepFunctions == null) return null;
+        return stepFunctions.getValue("TopicRule.stepFunctions");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TopicRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -177,12 +257,18 @@ public final class TopicRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TopicRule.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<List<TopicRuleTimestream>> timestreams;
 
-    public List<TopicRuleTimestream> timestreams;
-
-
+    public @Nullable List<TopicRuleTimestream> timestreams() {
+        if (timestreams == null) return null;
+        return timestreams.getValue("TopicRule.timestreams");
+    }
 
 }

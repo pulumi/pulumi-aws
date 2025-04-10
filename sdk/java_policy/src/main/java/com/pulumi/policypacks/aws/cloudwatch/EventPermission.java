@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.EventPermissionCondition;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventPermissionCondition;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventPermission:EventPermission")
-public final class EventPermission extends com.pulumi.resources.PolicyResource {
+public final class EventPermission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      * 
      */
-    public String action;
+    private @Nullable UndeferrableValue<String> action;
 
-
+    public @Nullable String action() {
+        if (action == null) return null;
+        return action.getValue("EventPermission.action");
+    }
 
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      * 
      */
-    public EventPermissionCondition condition;
+    private @Nullable UndeferrableValue<EventPermissionCondition> condition;
 
-
+    public @Nullable EventPermissionCondition condition() {
+        if (condition == null) return null;
+        return condition.getValue("EventPermission.condition");
+    }
 
     /**
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    public String eventBusName;
+    private @Nullable UndeferrableValue<String> eventBusName;
 
-
+    public @Nullable String eventBusName() {
+        if (eventBusName == null) return null;
+        return eventBusName.getValue("EventPermission.eventBusName");
+    }
 
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("EventPermission.principal");
+    }
 
     /**
      * An identifier string for the external account that you are granting permissions to.
      * 
      */
-    public String statementId;
+    private UndeferrableValue<String> statementId;
 
-
+    public String statementId() {
+        if (statementId == null) return null;
+        return statementId.getValue("EventPermission.statementId");
+    }
 
 }

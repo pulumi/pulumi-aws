@@ -3,70 +3,96 @@
 
 package com.pulumi.policypacks.aws.m2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.m2.EnvironmentHighAvailabilityConfig;
-import com.pulumi.policypacks.aws.m2.EnvironmentStorageConfiguration;
-import com.pulumi.policypacks.aws.m2.EnvironmentTimeouts;
+import com.pulumi.policypacks.aws.m2.outputs.EnvironmentHighAvailabilityConfig;
+import com.pulumi.policypacks.aws.m2.outputs.EnvironmentStorageConfiguration;
+import com.pulumi.policypacks.aws.m2.outputs.EnvironmentTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:m2/environment:Environment")
-public final class Environment extends com.pulumi.resources.PolicyResource {
+public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
-    public Boolean applyChangesDuringMaintenanceWindow;
+    private @Nullable UndeferrableValue<Boolean> applyChangesDuringMaintenanceWindow;
 
-
+    public @Nullable Boolean applyChangesDuringMaintenanceWindow() {
+        if (applyChangesDuringMaintenanceWindow == null) return null;
+        return applyChangesDuringMaintenanceWindow.getValue("Environment.applyChangesDuringMaintenanceWindow");
+    }
 
     /**
      * ARN of the Environment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Environment.arn");
+    }
 
+    private @Nullable UndeferrableValue<String> description;
 
-    public String description;
-
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Environment.description");
+    }
 
     /**
      * Engine type must be `microfocus` or `bluage`.
      * 
      */
-    public String engineType;
+    private UndeferrableValue<String> engineType;
 
-
+    public String engineType() {
+        if (engineType == null) return null;
+        return engineType.getValue("Environment.engineType");
+    }
 
     /**
      * The specific version of the engine for the Environment.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Environment.engineVersion");
+    }
 
     /**
      * The id of the Environment.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("Environment.environmentId");
+    }
 
     /**
      * Force update the environment even if applications are running.
      * 
      */
-    public Boolean forceUpdate;
+    private @Nullable UndeferrableValue<Boolean> forceUpdate;
 
+    public @Nullable Boolean forceUpdate() {
+        if (forceUpdate == null) return null;
+        return forceUpdate.getValue("Environment.forceUpdate");
+    }
 
+    private @Nullable UndeferrableValue<EnvironmentHighAvailabilityConfig> highAvailabilityConfig;
 
-    public EnvironmentHighAvailabilityConfig highAvailabilityConfig;
-
-
+    public @Nullable EnvironmentHighAvailabilityConfig highAvailabilityConfig() {
+        if (highAvailabilityConfig == null) return null;
+        return highAvailabilityConfig.getValue("Environment.highAvailabilityConfig");
+    }
 
     /**
      * M2 Instance Type.
@@ -74,77 +100,107 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("Environment.instanceType");
+    }
 
     /**
      * ARN of the KMS key to use for the Environment.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Environment.kmsKeyId");
+    }
 
     /**
      * ARN of the load balancer created by the Environment.
      * 
      */
-    public String loadBalancerArn;
+    private UndeferrableValue<String> loadBalancerArn;
 
-
+    public String loadBalancerArn() {
+        if (loadBalancerArn == null) return null;
+        return loadBalancerArn.getValue("Environment.loadBalancerArn");
+    }
 
     /**
      * Name of the runtime environment. Must be unique within the account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Environment.name");
+    }
 
     /**
      * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Environment.preferredMaintenanceWindow");
+    }
 
     /**
      * Allow applications deployed to this environment to be publicly accessible.
      * 
      */
-    public Boolean publiclyAccessible;
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Environment.publiclyAccessible");
+    }
 
     /**
      * List of security group ids.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Environment.securityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<EnvironmentStorageConfiguration> storageConfiguration;
 
-    public EnvironmentStorageConfiguration storageConfiguration;
-
-
+    public @Nullable EnvironmentStorageConfiguration storageConfiguration() {
+        if (storageConfiguration == null) return null;
+        return storageConfiguration.getValue("Environment.storageConfiguration");
+    }
 
     /**
      * List of subnet ids to deploy environment to.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Environment.subnetIds");
+    }
 
     /**
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Environment.tags");
+    }
 
     /**
      * @deprecated
@@ -152,12 +208,18 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Environment.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<EnvironmentTimeouts> timeouts;
 
-    public EnvironmentTimeouts timeouts;
-
-
+    public @Nullable EnvironmentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Environment.timeouts");
+    }
 
 }

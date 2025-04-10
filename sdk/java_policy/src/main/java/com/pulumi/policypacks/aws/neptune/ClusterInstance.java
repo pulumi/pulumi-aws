@@ -3,217 +3,294 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:neptune/clusterInstance:ClusterInstance")
-public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
+public final class ClusterInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The hostname of the instance. See also `endpoint` and `port`.
      * 
      */
-    public String address;
+    private UndeferrableValue<String> address;
 
-
+    public String address() {
+        if (address == null) return null;
+        return address.getValue("ClusterInstance.address");
+    }
 
     /**
      * Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("ClusterInstance.applyImmediately");
+    }
 
     /**
      * Amazon Resource Name (ARN) of neptune instance
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ClusterInstance.arn");
+    }
 
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public @Nullable Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("ClusterInstance.autoMinorVersionUpgrade");
+    }
 
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("ClusterInstance.availabilityZone");
+    }
 
     /**
      * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterInstance.clusterIdentifier");
+    }
 
     /**
      * The region-unique, immutable identifier for the neptune instance.
      * 
      */
-    public String dbiResourceId;
+    private UndeferrableValue<String> dbiResourceId;
 
-
+    public String dbiResourceId() {
+        if (dbiResourceId == null) return null;
+        return dbiResourceId.getValue("ClusterInstance.dbiResourceId");
+    }
 
     /**
      * The connection endpoint in `address:port` format.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ClusterInstance.endpoint");
+    }
 
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      * 
      */
-    public String engine;
+    private @Nullable UndeferrableValue<String> engine;
 
-
+    public @Nullable String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterInstance.engine");
+    }
 
     /**
      * The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterInstance.engineVersion");
+    }
 
     /**
      * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("ClusterInstance.identifier");
+    }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public String identifierPrefix;
+    private UndeferrableValue<String> identifierPrefix;
 
-
+    public String identifierPrefix() {
+        if (identifierPrefix == null) return null;
+        return identifierPrefix.getValue("ClusterInstance.identifierPrefix");
+    }
 
     /**
      * The instance class to use.
      * 
      */
-    public String instanceClass;
+    private UndeferrableValue<String> instanceClass;
 
-
+    public String instanceClass() {
+        if (instanceClass == null) return null;
+        return instanceClass.getValue("ClusterInstance.instanceClass");
+    }
 
     /**
      * The ARN for the KMS encryption key if one is set to the neptune cluster.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("ClusterInstance.kmsKeyArn");
+    }
 
     /**
      * The name of the neptune parameter group to associate with this instance.
      * 
      */
-    public String neptuneParameterGroupName;
+    private UndeferrableValue<String> neptuneParameterGroupName;
 
-
+    public String neptuneParameterGroupName() {
+        if (neptuneParameterGroupName == null) return null;
+        return neptuneParameterGroupName.getValue("ClusterInstance.neptuneParameterGroupName");
+    }
 
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
      * 
      */
-    public String neptuneSubnetGroupName;
+    private UndeferrableValue<String> neptuneSubnetGroupName;
 
-
+    public String neptuneSubnetGroupName() {
+        if (neptuneSubnetGroupName == null) return null;
+        return neptuneSubnetGroupName.getValue("ClusterInstance.neptuneSubnetGroupName");
+    }
 
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("ClusterInstance.port");
+    }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("ClusterInstance.preferredBackupWindow");
+    }
 
     /**
      * The window to perform maintenance in.
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("ClusterInstance.preferredMaintenanceWindow");
+    }
 
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
-    public Integer promotionTier;
+    private @Nullable UndeferrableValue<Integer> promotionTier;
 
-
+    public @Nullable Integer promotionTier() {
+        if (promotionTier == null) return null;
+        return promotionTier.getValue("ClusterInstance.promotionTier");
+    }
 
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("ClusterInstance.publiclyAccessible");
+    }
 
     /**
      * Determines whether a final DB snapshot is created before the DB instance is deleted.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("ClusterInstance.skipFinalSnapshot");
+    }
 
     /**
      * Specifies whether the neptune cluster is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterInstance.storageEncrypted");
+    }
 
     /**
      * Storage type associated with the cluster `standard/iopt1`.
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("ClusterInstance.storageType");
+    }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterInstance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -223,16 +300,22 @@ public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterInstance.tagsAll");
+    }
 
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Boolean writer;
+    private UndeferrableValue<Boolean> writer;
 
-
+    public Boolean writer() {
+        if (writer == null) return null;
+        return writer.getValue("ClusterInstance.writer");
+    }
 
 }

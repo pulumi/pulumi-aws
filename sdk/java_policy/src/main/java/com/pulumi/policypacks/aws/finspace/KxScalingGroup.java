@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxScalingGroup:KxScalingGroup")
-public final class KxScalingGroup extends com.pulumi.resources.PolicyResource {
+public final class KxScalingGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxScalingGroup.arn");
+    }
 
     /**
      * The availability zone identifiers for the requested regions.
      * 
      */
-    public String availabilityZoneId;
+    private UndeferrableValue<String> availabilityZoneId;
 
-
+    public String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("KxScalingGroup.availabilityZoneId");
+    }
 
     /**
      * The list of Managed kdb clusters that are currently active in the given scaling group.
      * 
      */
-    public List<String> clusters;
+    private UndeferrableValue<List<String>> clusters;
 
-
+    public List<String> clusters() {
+        if (clusters == null) return null;
+        return clusters.getValue("KxScalingGroup.clusters");
+    }
 
     /**
      * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("KxScalingGroup.createdTimestamp");
+    }
 
     /**
      * A unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("KxScalingGroup.environmentId");
+    }
 
     /**
      * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
@@ -58,25 +75,34 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String hostType;
+    private UndeferrableValue<String> hostType;
 
-
+    public String hostType() {
+        if (hostType == null) return null;
+        return hostType.getValue("KxScalingGroup.hostType");
+    }
 
     /**
      * Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String lastModifiedTimestamp;
+    private UndeferrableValue<String> lastModifiedTimestamp;
 
-
+    public String lastModifiedTimestamp() {
+        if (lastModifiedTimestamp == null) return null;
+        return lastModifiedTimestamp.getValue("KxScalingGroup.lastModifiedTimestamp");
+    }
 
     /**
      * Unique name for the scaling group that you want to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxScalingGroup.name");
+    }
 
     /**
      * The status of scaling group.
@@ -90,25 +116,34 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResource {
      * * `DELETED` – The scaling group is successfully deleted.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("KxScalingGroup.status");
+    }
 
     /**
      * The error message when a failed state occurs.
      * 
      */
-    public String statusReason;
+    private UndeferrableValue<String> statusReason;
 
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("KxScalingGroup.statusReason");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxScalingGroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -118,8 +153,11 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxScalingGroup.tagsAll");
+    }
 
 }

@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transfer.ConnectorAs2Config;
-import com.pulumi.policypacks.aws.transfer.ConnectorSftpConfig;
+import com.pulumi.policypacks.aws.transfer.outputs.ConnectorAs2Config;
+import com.pulumi.policypacks.aws.transfer.outputs.ConnectorSftpConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/connector:Connector")
-public final class Connector extends com.pulumi.resources.PolicyResource {
+public final class Connector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
-    public String accessRole;
+    private UndeferrableValue<String> accessRole;
 
-
+    public String accessRole() {
+        if (accessRole == null) return null;
+        return accessRole.getValue("Connector.accessRole");
+    }
 
     /**
      * The ARN of the connector.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Connector.arn");
+    }
 
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    public ConnectorAs2Config as2Config;
+    private @Nullable UndeferrableValue<ConnectorAs2Config> as2Config;
 
-
+    public @Nullable ConnectorAs2Config as2Config() {
+        if (as2Config == null) return null;
+        return as2Config.getValue("Connector.as2Config");
+    }
 
     /**
      * The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
-    public String connectorId;
+    private UndeferrableValue<String> connectorId;
 
-
+    public String connectorId() {
+        if (connectorId == null) return null;
+        return connectorId.getValue("Connector.connectorId");
+    }
 
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
-    public String loggingRole;
+    private @Nullable UndeferrableValue<String> loggingRole;
 
-
+    public @Nullable String loggingRole() {
+        if (loggingRole == null) return null;
+        return loggingRole.getValue("Connector.loggingRole");
+    }
 
     /**
      * Name of the security policy for the connector.
      * 
      */
-    public String securityPolicyName;
+    private UndeferrableValue<String> securityPolicyName;
 
-
+    public String securityPolicyName() {
+        if (securityPolicyName == null) return null;
+        return securityPolicyName.getValue("Connector.securityPolicyName");
+    }
 
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    public ConnectorSftpConfig sftpConfig;
+    private @Nullable UndeferrableValue<ConnectorSftpConfig> sftpConfig;
 
-
+    public @Nullable ConnectorSftpConfig sftpConfig() {
+        if (sftpConfig == null) return null;
+        return sftpConfig.getValue("Connector.sftpConfig");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connector.tags");
+    }
 
     /**
      * @deprecated
@@ -83,16 +109,22 @@ public final class Connector extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connector.tagsAll");
+    }
 
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Connector.url");
+    }
 
 }

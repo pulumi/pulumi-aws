@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.devicefarm.TestGridProjectVpcConfig;
+import com.pulumi.policypacks.aws.devicefarm.outputs.TestGridProjectVpcConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/testGridProject:TestGridProject")
-public final class TestGridProject extends com.pulumi.resources.PolicyResource {
+public final class TestGridProject extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this Test Grid Project.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TestGridProject.arn");
+    }
 
     /**
      * Human-readable description of the project.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TestGridProject.description");
+    }
 
     /**
      * The name of the Selenium testing project.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TestGridProject.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TestGridProject.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,16 +66,22 @@ public final class TestGridProject extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TestGridProject.tagsAll");
+    }
 
     /**
      * The VPC security groups and subnets that are attached to a project. See VPC Config below.
      * 
      */
-    public TestGridProjectVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<TestGridProjectVpcConfig> vpcConfig;
 
-
+    public @Nullable TestGridProjectVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("TestGridProject.vpcConfig");
+    }
 
 }

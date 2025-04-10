@@ -3,203 +3,274 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.amplify.AppAutoBranchCreationConfig;
-import com.pulumi.policypacks.aws.amplify.AppCacheConfig;
-import com.pulumi.policypacks.aws.amplify.AppCustomRule;
-import com.pulumi.policypacks.aws.amplify.AppProductionBranch;
+import com.pulumi.policypacks.aws.amplify.outputs.AppAutoBranchCreationConfig;
+import com.pulumi.policypacks.aws.amplify.outputs.AppCacheConfig;
+import com.pulumi.policypacks.aws.amplify.outputs.AppCustomRule;
+import com.pulumi.policypacks.aws.amplify.outputs.AppProductionBranch;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amplify/app:App")
-public final class App extends com.pulumi.resources.PolicyResource {
+public final class App extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      * 
      */
-    public String accessToken;
+    private @Nullable UndeferrableValue<String> accessToken;
 
-
+    public @Nullable String accessToken() {
+        if (accessToken == null) return null;
+        return accessToken.getValue("App.accessToken");
+    }
 
     /**
      * ARN of the Amplify app.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("App.arn");
+    }
 
     /**
      * Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
-    public AppAutoBranchCreationConfig autoBranchCreationConfig;
+    private UndeferrableValue<AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
-
+    public AppAutoBranchCreationConfig autoBranchCreationConfig() {
+        if (autoBranchCreationConfig == null) return null;
+        return autoBranchCreationConfig.getValue("App.autoBranchCreationConfig");
+    }
 
     /**
      * Automated branch creation glob patterns for an Amplify app.
      * 
      */
-    public List<String> autoBranchCreationPatterns;
+    private @Nullable UndeferrableValue<List<String>> autoBranchCreationPatterns;
 
-
+    public @Nullable List<String> autoBranchCreationPatterns() {
+        if (autoBranchCreationPatterns == null) return null;
+        return autoBranchCreationPatterns.getValue("App.autoBranchCreationPatterns");
+    }
 
     /**
      * Credentials for basic authorization for an Amplify app.
      * 
      */
-    public String basicAuthCredentials;
+    private @Nullable UndeferrableValue<String> basicAuthCredentials;
 
-
+    public @Nullable String basicAuthCredentials() {
+        if (basicAuthCredentials == null) return null;
+        return basicAuthCredentials.getValue("App.basicAuthCredentials");
+    }
 
     /**
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      * 
      */
-    public String buildSpec;
+    private UndeferrableValue<String> buildSpec;
 
-
+    public String buildSpec() {
+        if (buildSpec == null) return null;
+        return buildSpec.getValue("App.buildSpec");
+    }
 
     /**
      * Cache configuration for the Amplify app. See `cache_config` Block for details.
      * 
      */
-    public AppCacheConfig cacheConfig;
+    private UndeferrableValue<AppCacheConfig> cacheConfig;
 
-
+    public AppCacheConfig cacheConfig() {
+        if (cacheConfig == null) return null;
+        return cacheConfig.getValue("App.cacheConfig");
+    }
 
     /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
-    public String customHeaders;
+    private UndeferrableValue<String> customHeaders;
 
-
+    public String customHeaders() {
+        if (customHeaders == null) return null;
+        return customHeaders.getValue("App.customHeaders");
+    }
 
     /**
      * Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
-    public List<AppCustomRule> customRules;
+    private @Nullable UndeferrableValue<List<AppCustomRule>> customRules;
 
-
+    public @Nullable List<AppCustomRule> customRules() {
+        if (customRules == null) return null;
+        return customRules.getValue("App.customRules");
+    }
 
     /**
      * Default domain for the Amplify app.
      * 
      */
-    public String defaultDomain;
+    private UndeferrableValue<String> defaultDomain;
 
-
+    public String defaultDomain() {
+        if (defaultDomain == null) return null;
+        return defaultDomain.getValue("App.defaultDomain");
+    }
 
     /**
      * Description for an Amplify app.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("App.description");
+    }
 
     /**
      * Enables automated branch creation for an Amplify app.
      * 
      */
-    public Boolean enableAutoBranchCreation;
+    private @Nullable UndeferrableValue<Boolean> enableAutoBranchCreation;
 
-
+    public @Nullable Boolean enableAutoBranchCreation() {
+        if (enableAutoBranchCreation == null) return null;
+        return enableAutoBranchCreation.getValue("App.enableAutoBranchCreation");
+    }
 
     /**
      * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
      * 
      */
-    public Boolean enableBasicAuth;
+    private @Nullable UndeferrableValue<Boolean> enableBasicAuth;
 
-
+    public @Nullable Boolean enableBasicAuth() {
+        if (enableBasicAuth == null) return null;
+        return enableBasicAuth.getValue("App.enableBasicAuth");
+    }
 
     /**
      * Enables auto-building of branches for the Amplify App.
      * 
      */
-    public Boolean enableBranchAutoBuild;
+    private @Nullable UndeferrableValue<Boolean> enableBranchAutoBuild;
 
-
+    public @Nullable Boolean enableBranchAutoBuild() {
+        if (enableBranchAutoBuild == null) return null;
+        return enableBranchAutoBuild.getValue("App.enableBranchAutoBuild");
+    }
 
     /**
      * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
      * 
      */
-    public Boolean enableBranchAutoDeletion;
+    private @Nullable UndeferrableValue<Boolean> enableBranchAutoDeletion;
 
-
+    public @Nullable Boolean enableBranchAutoDeletion() {
+        if (enableBranchAutoDeletion == null) return null;
+        return enableBranchAutoDeletion.getValue("App.enableBranchAutoDeletion");
+    }
 
     /**
      * Environment variables map for an Amplify app.
      * 
      */
-    public Map<String,String> environmentVariables;
+    private @Nullable UndeferrableValue<Map<String,String>> environmentVariables;
 
-
+    public @Nullable Map<String,String> environmentVariables() {
+        if (environmentVariables == null) return null;
+        return environmentVariables.getValue("App.environmentVariables");
+    }
 
     /**
      * AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
-    public String iamServiceRoleArn;
+    private @Nullable UndeferrableValue<String> iamServiceRoleArn;
 
-
+    public @Nullable String iamServiceRoleArn() {
+        if (iamServiceRoleArn == null) return null;
+        return iamServiceRoleArn.getValue("App.iamServiceRoleArn");
+    }
 
     /**
      * Name for an Amplify app.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("App.name");
+    }
 
     /**
      * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
-    public String oauthToken;
+    private @Nullable UndeferrableValue<String> oauthToken;
 
-
+    public @Nullable String oauthToken() {
+        if (oauthToken == null) return null;
+        return oauthToken.getValue("App.oauthToken");
+    }
 
     /**
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
-    public String platform;
+    private @Nullable UndeferrableValue<String> platform;
 
-
+    public @Nullable String platform() {
+        if (platform == null) return null;
+        return platform.getValue("App.platform");
+    }
 
     /**
      * Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
      * 
      */
-    public List<AppProductionBranch> productionBranches;
+    private UndeferrableValue<List<AppProductionBranch>> productionBranches;
 
-
+    public List<AppProductionBranch> productionBranches() {
+        if (productionBranches == null) return null;
+        return productionBranches.getValue("App.productionBranches");
+    }
 
     /**
      * Repository for an Amplify app.
      * 
      */
-    public String repository;
+    private @Nullable UndeferrableValue<String> repository;
 
-
+    public @Nullable String repository() {
+        if (repository == null) return null;
+        return repository.getValue("App.repository");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("App.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -209,8 +280,11 @@ public final class App extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("App.tagsAll");
+    }
 
 }

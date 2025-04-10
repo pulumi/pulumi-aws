@@ -3,21 +3,25 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")
-public final class AppCookieStickinessPolicy extends com.pulumi.resources.PolicyResource {
+public final class AppCookieStickinessPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
-    public String cookieName;
+    private UndeferrableValue<String> cookieName;
 
-
+    public String cookieName() {
+        if (cookieName == null) return null;
+        return cookieName.getValue("AppCookieStickinessPolicy.cookieName");
+    }
 
     /**
      * Load balancer port to which the policy
@@ -25,25 +29,34 @@ public final class AppCookieStickinessPolicy extends com.pulumi.resources.Policy
      * balancer.
      * 
      */
-    public Integer lbPort;
+    private UndeferrableValue<Integer> lbPort;
 
-
+    public Integer lbPort() {
+        if (lbPort == null) return null;
+        return lbPort.getValue("AppCookieStickinessPolicy.lbPort");
+    }
 
     /**
      * Name of load balancer to which the policy
      * should be attached.
      * 
      */
-    public String loadBalancer;
+    private UndeferrableValue<String> loadBalancer;
 
-
+    public String loadBalancer() {
+        if (loadBalancer == null) return null;
+        return loadBalancer.getValue("AppCookieStickinessPolicy.loadBalancer");
+    }
 
     /**
      * Name of the stickiness policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AppCookieStickinessPolicy.name");
+    }
 
 }

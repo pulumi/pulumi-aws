@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.finspace.KxVolumeAttachedCluster;
-import com.pulumi.policypacks.aws.finspace.KxVolumeNas1Configuration;
+import com.pulumi.policypacks.aws.finspace.outputs.KxVolumeAttachedCluster;
+import com.pulumi.policypacks.aws.finspace.outputs.KxVolumeNas1Configuration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxVolume:KxVolume")
-public final class KxVolume extends com.pulumi.resources.PolicyResource {
+public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX volume.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxVolume.arn");
+    }
 
+    private UndeferrableValue<List<KxVolumeAttachedCluster>> attachedClusters;
 
-    public List<KxVolumeAttachedCluster> attachedClusters;
-
-
+    public List<KxVolumeAttachedCluster> attachedClusters() {
+        if (attachedClusters == null) return null;
+        return attachedClusters.getValue("KxVolume.attachedClusters");
+    }
 
     /**
      * The identifier of the AWS Availability Zone IDs.
@@ -32,66 +40,90 @@ public final class KxVolume extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("KxVolume.availabilityZones");
+    }
 
     /**
      * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
      * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
-    public String azMode;
+    private UndeferrableValue<String> azMode;
 
-
+    public String azMode() {
+        if (azMode == null) return null;
+        return azMode.getValue("KxVolume.azMode");
+    }
 
     /**
      * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("KxVolume.createdTimestamp");
+    }
 
     /**
      * Description of the volume.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("KxVolume.description");
+    }
 
     /**
      * A unique identifier for the kdb environment, whose clusters can attach to the volume.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("KxVolume.environmentId");
+    }
 
     /**
      * Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    public String lastModifiedTimestamp;
+    private UndeferrableValue<String> lastModifiedTimestamp;
 
-
+    public String lastModifiedTimestamp() {
+        if (lastModifiedTimestamp == null) return null;
+        return lastModifiedTimestamp.getValue("KxVolume.lastModifiedTimestamp");
+    }
 
     /**
      * Unique name for the volumr that you want to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxVolume.name");
+    }
 
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
      * 
      */
-    public List<KxVolumeNas1Configuration> nas1Configurations;
+    private @Nullable UndeferrableValue<List<KxVolumeNas1Configuration>> nas1Configurations;
 
-
+    public @Nullable List<KxVolumeNas1Configuration> nas1Configurations() {
+        if (nas1Configurations == null) return null;
+        return nas1Configurations.getValue("KxVolume.nas1Configurations");
+    }
 
     /**
      * The status of volume creation.
@@ -106,25 +138,34 @@ public final class KxVolume extends com.pulumi.resources.PolicyResource {
      * * `DELETED` – The volume is successfully deleted.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("KxVolume.status");
+    }
 
     /**
      * The error message when a failed state occurs.
      * 
      */
-    public String statusReason;
+    private UndeferrableValue<String> statusReason;
 
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("KxVolume.statusReason");
+    }
 
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxVolume.tags");
+    }
 
     /**
      * @deprecated
@@ -132,16 +173,22 @@ public final class KxVolume extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxVolume.tagsAll");
+    }
 
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("KxVolume.type");
+    }
 
 }

@@ -3,119 +3,160 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/connection:Connection")
-public final class Connection extends com.pulumi.resources.PolicyResource {
+public final class Connection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Connection.arn");
+    }
 
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    public String awsDevice;
+    private UndeferrableValue<String> awsDevice;
 
-
+    public String awsDevice() {
+        if (awsDevice == null) return null;
+        return awsDevice.getValue("Connection.awsDevice");
+    }
 
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      * 
      */
-    public String bandwidth;
+    private UndeferrableValue<String> bandwidth;
 
-
+    public String bandwidth() {
+        if (bandwidth == null) return null;
+        return bandwidth.getValue("Connection.bandwidth");
+    }
 
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
      * 
      */
-    public String encryptionMode;
+    private UndeferrableValue<String> encryptionMode;
 
-
+    public String encryptionMode() {
+        if (encryptionMode == null) return null;
+        return encryptionMode.getValue("Connection.encryptionMode");
+    }
 
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public String hasLogicalRedundancy;
+    private UndeferrableValue<String> hasLogicalRedundancy;
 
-
+    public String hasLogicalRedundancy() {
+        if (hasLogicalRedundancy == null) return null;
+        return hasLogicalRedundancy.getValue("Connection.hasLogicalRedundancy");
+    }
 
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    public Boolean jumboFrameCapable;
+    private UndeferrableValue<Boolean> jumboFrameCapable;
 
-
+    public Boolean jumboFrameCapable() {
+        if (jumboFrameCapable == null) return null;
+        return jumboFrameCapable.getValue("Connection.jumboFrameCapable");
+    }
 
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      * 
      */
-    public String location;
+    private UndeferrableValue<String> location;
 
-
+    public String location() {
+        if (location == null) return null;
+        return location.getValue("Connection.location");
+    }
 
     /**
      * Boolean value indicating whether the connection supports MAC Security (MACsec).
      * 
      */
-    public Boolean macsecCapable;
+    private UndeferrableValue<Boolean> macsecCapable;
 
-
+    public Boolean macsecCapable() {
+        if (macsecCapable == null) return null;
+        return macsecCapable.getValue("Connection.macsecCapable");
+    }
 
     /**
      * The name of the connection.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Connection.name");
+    }
 
     /**
      * The ID of the AWS account that owns the connection.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("Connection.ownerAccountId");
+    }
 
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    public String partnerName;
+    private UndeferrableValue<String> partnerName;
 
-
+    public String partnerName() {
+        if (partnerName == null) return null;
+        return partnerName.getValue("Connection.partnerName");
+    }
 
     /**
      * The MAC Security (MACsec) port link status of the connection.
      * 
      */
-    public String portEncryptionStatus;
+    private UndeferrableValue<String> portEncryptionStatus;
 
-
+    public String portEncryptionStatus() {
+        if (portEncryptionStatus == null) return null;
+        return portEncryptionStatus.getValue("Connection.portEncryptionStatus");
+    }
 
     /**
      * The name of the service provider associated with the connection.
      * 
      */
-    public String providerName;
+    private UndeferrableValue<String> providerName;
 
-
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("Connection.providerName");
+    }
 
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -123,25 +164,34 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
      * 
      */
-    public Boolean requestMacsec;
+    private @Nullable UndeferrableValue<Boolean> requestMacsec;
 
-
+    public @Nullable Boolean requestMacsec() {
+        if (requestMacsec == null) return null;
+        return requestMacsec.getValue("Connection.requestMacsec");
+    }
 
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("Connection.skipDestroy");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -151,16 +201,22 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connection.tagsAll");
+    }
 
     /**
      * The VLAN ID.
      * 
      */
-    public Integer vlanId;
+    private UndeferrableValue<Integer> vlanId;
 
-
+    public Integer vlanId() {
+        if (vlanId == null) return null;
+        return vlanId.getValue("Connection.vlanId");
+    }
 
 }

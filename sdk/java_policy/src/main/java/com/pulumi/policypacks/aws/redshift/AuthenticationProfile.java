@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:redshift/authenticationProfile:AuthenticationProfile")
-public final class AuthenticationProfile extends com.pulumi.resources.PolicyResource {
+public final class AuthenticationProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
      * 
      */
-    public String authenticationProfileContent;
+    private UndeferrableValue<String> authenticationProfileContent;
 
-
+    public String authenticationProfileContent() {
+        if (authenticationProfileContent == null) return null;
+        return authenticationProfileContent.getValue("AuthenticationProfile.authenticationProfileContent");
+    }
 
     /**
      * The name of the authentication profile.
      * 
      */
-    public String authenticationProfileName;
+    private UndeferrableValue<String> authenticationProfileName;
 
-
+    public String authenticationProfileName() {
+        if (authenticationProfileName == null) return null;
+        return authenticationProfileName.getValue("AuthenticationProfile.authenticationProfileName");
+    }
 
 }

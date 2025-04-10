@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.VpcConnectionTimeouts;
+import com.pulumi.policypacks.aws.quicksight.outputs.VpcConnectionTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/vpcConnection:VpcConnection")
-public final class VpcConnection extends com.pulumi.resources.PolicyResource {
+public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the VPC connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcConnection.arn");
+    }
 
     /**
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
-    public String availabilityStatus;
+    private UndeferrableValue<String> availabilityStatus;
 
-
+    public String availabilityStatus() {
+        if (availabilityStatus == null) return null;
+        return availabilityStatus.getValue("VpcConnection.availabilityStatus");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("VpcConnection.awsAccountId");
+    }
 
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
-    public List<String> dnsResolvers;
+    private @Nullable UndeferrableValue<List<String>> dnsResolvers;
 
-
+    public @Nullable List<String> dnsResolvers() {
+        if (dnsResolvers == null) return null;
+        return dnsResolvers.getValue("VpcConnection.dnsResolvers");
+    }
 
     /**
      * The display name for the VPC connection.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VpcConnection.name");
+    }
 
     /**
      * The IAM role to associate with the VPC connection.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("VpcConnection.roleArn");
+    }
 
     /**
      * A list of security group IDs for the VPC connection.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("VpcConnection.securityGroupIds");
+    }
 
     /**
      * A list of subnet IDs for the VPC connection.
@@ -75,17 +98,23 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("VpcConnection.subnetIds");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcConnection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,20 +124,29 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcConnection.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<VpcConnectionTimeouts> timeouts;
 
-    public VpcConnectionTimeouts timeouts;
-
-
+    public @Nullable VpcConnectionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("VpcConnection.timeouts");
+    }
 
     /**
      * The ID of the VPC connection.
      * 
      */
-    public String vpcConnectionId;
+    private UndeferrableValue<String> vpcConnectionId;
 
-
+    public String vpcConnectionId() {
+        if (vpcConnectionId == null) return null;
+        return vpcConnectionId.getValue("VpcConnection.vpcConnectionId");
+    }
 
 }

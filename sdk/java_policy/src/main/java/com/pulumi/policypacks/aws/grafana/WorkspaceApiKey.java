@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:grafana/workspaceApiKey:WorkspaceApiKey")
-public final class WorkspaceApiKey extends com.pulumi.resources.PolicyResource {
+public final class WorkspaceApiKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("WorkspaceApiKey.key");
+    }
 
     /**
      * Specifies the name of the API key. Key names must be unique to the workspace.
      * 
      */
-    public String keyName;
+    private UndeferrableValue<String> keyName;
 
-
+    public String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("WorkspaceApiKey.keyName");
+    }
 
     /**
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
-    public String keyRole;
+    private UndeferrableValue<String> keyRole;
 
-
+    public String keyRole() {
+        if (keyRole == null) return null;
+        return keyRole.getValue("WorkspaceApiKey.keyRole");
+    }
 
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
-    public Integer secondsToLive;
+    private UndeferrableValue<Integer> secondsToLive;
 
-
+    public Integer secondsToLive() {
+        if (secondsToLive == null) return null;
+        return secondsToLive.getValue("WorkspaceApiKey.secondsToLive");
+    }
 
     /**
      * The ID of the workspace that the API key is valid for.
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("WorkspaceApiKey.workspaceId");
+    }
 
 }

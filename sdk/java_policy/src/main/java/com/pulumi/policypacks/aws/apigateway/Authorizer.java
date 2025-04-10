@@ -3,94 +3,126 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/authorizer:Authorizer")
-public final class Authorizer extends com.pulumi.resources.PolicyResource {
+public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the API Gateway Authorizer
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Authorizer.arn");
+    }
 
     /**
      * Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      * 
      */
-    public String authorizerCredentials;
+    private @Nullable UndeferrableValue<String> authorizerCredentials;
 
-
+    public @Nullable String authorizerCredentials() {
+        if (authorizerCredentials == null) return null;
+        return authorizerCredentials.getValue("Authorizer.authorizerCredentials");
+    }
 
     /**
      * TTL of cached authorizer results in seconds. Defaults to `300`.
      * 
      */
-    public Integer authorizerResultTtlInSeconds;
+    private @Nullable UndeferrableValue<Integer> authorizerResultTtlInSeconds;
 
-
+    public @Nullable Integer authorizerResultTtlInSeconds() {
+        if (authorizerResultTtlInSeconds == null) return null;
+        return authorizerResultTtlInSeconds.getValue("Authorizer.authorizerResultTtlInSeconds");
+    }
 
     /**
      * Authorizer&#39;s Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      * 
      */
-    public String authorizerUri;
+    private @Nullable UndeferrableValue<String> authorizerUri;
 
-
+    public @Nullable String authorizerUri() {
+        if (authorizerUri == null) return null;
+        return authorizerUri.getValue("Authorizer.authorizerUri");
+    }
 
     /**
      * Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
      * 
      */
-    public String identitySource;
+    private @Nullable UndeferrableValue<String> identitySource;
 
-
+    public @Nullable String identitySource() {
+        if (identitySource == null) return null;
+        return identitySource.getValue("Authorizer.identitySource");
+    }
 
     /**
      * Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
      * 
      */
-    public String identityValidationExpression;
+    private @Nullable UndeferrableValue<String> identityValidationExpression;
 
-
+    public @Nullable String identityValidationExpression() {
+        if (identityValidationExpression == null) return null;
+        return identityValidationExpression.getValue("Authorizer.identityValidationExpression");
+    }
 
     /**
      * Name of the authorizer
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Authorizer.name");
+    }
 
     /**
      * List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      * 
      */
-    public List<String> providerArns;
+    private @Nullable UndeferrableValue<List<String>> providerArns;
 
-
+    public @Nullable List<String> providerArns() {
+        if (providerArns == null) return null;
+        return providerArns.getValue("Authorizer.providerArns");
+    }
 
     /**
      * ID of the associated REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Authorizer.restApi");
+    }
 
     /**
      * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Authorizer.type");
+    }
 
 }

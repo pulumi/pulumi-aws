@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:codeartifact/domainPermissions:DomainPermissions")
-public final class DomainPermissions extends com.pulumi.resources.PolicyResource {
+public final class DomainPermissions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the domain on which to set the resource policy.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("DomainPermissions.domain");
+    }
 
     /**
      * The account number of the AWS account that owns the domain.
      * 
      */
-    public String domainOwner;
+    private UndeferrableValue<String> domainOwner;
 
-
+    public String domainOwner() {
+        if (domainOwner == null) return null;
+        return domainOwner.getValue("DomainPermissions.domainOwner");
+    }
 
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("DomainPermissions.policyDocument");
+    }
 
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
      * 
      */
-    public String policyRevision;
+    private UndeferrableValue<String> policyRevision;
 
-
+    public String policyRevision() {
+        if (policyRevision == null) return null;
+        return policyRevision.getValue("DomainPermissions.policyRevision");
+    }
 
     /**
      * The ARN of the resource associated with the resource policy.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("DomainPermissions.resourceArn");
+    }
 
 }

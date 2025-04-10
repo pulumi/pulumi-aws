@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rekognition.ProjectTimeouts;
+import com.pulumi.policypacks.aws.rekognition.outputs.ProjectTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rekognition/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Project.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Project.arn");
+    }
 
     /**
      * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    public String autoUpdate;
+    private UndeferrableValue<String> autoUpdate;
 
-
+    public String autoUpdate() {
+        if (autoUpdate == null) return null;
+        return autoUpdate.getValue("Project.autoUpdate");
+    }
 
     /**
      * Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      * 
      */
-    public String feature;
+    private @Nullable UndeferrableValue<String> feature;
 
-
+    public @Nullable String feature() {
+        if (feature == null) return null;
+        return feature.getValue("Project.feature");
+    }
 
     /**
      * Desired name of the project.
@@ -42,17 +53,23 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Project.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,12 +79,18 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Project.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ProjectTimeouts> timeouts;
 
-    public ProjectTimeouts timeouts;
-
-
+    public @Nullable ProjectTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Project.timeouts");
+    }
 
 }

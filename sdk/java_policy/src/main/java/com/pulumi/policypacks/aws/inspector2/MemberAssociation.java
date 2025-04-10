@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:inspector2/memberAssociation:MemberAssociation")
-public final class MemberAssociation extends com.pulumi.resources.PolicyResource {
+public final class MemberAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the account to associate
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("MemberAssociation.accountId");
+    }
 
     /**
      * Account ID of the delegated administrator account
      * 
      */
-    public String delegatedAdminAccountId;
+    private UndeferrableValue<String> delegatedAdminAccountId;
 
-
+    public String delegatedAdminAccountId() {
+        if (delegatedAdminAccountId == null) return null;
+        return delegatedAdminAccountId.getValue("MemberAssociation.delegatedAdminAccountId");
+    }
 
     /**
      * Status of the member relationship
      * 
      */
-    public String relationshipStatus;
+    private UndeferrableValue<String> relationshipStatus;
 
-
+    public String relationshipStatus() {
+        if (relationshipStatus == null) return null;
+        return relationshipStatus.getValue("MemberAssociation.relationshipStatus");
+    }
 
     /**
      * Date and time of the last update of the relationship
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("MemberAssociation.updatedAt");
+    }
 
 }

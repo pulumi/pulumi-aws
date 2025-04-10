@@ -3,80 +3,103 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.autoscaling.GroupAvailabilityZoneDistribution;
-import com.pulumi.policypacks.aws.autoscaling.GroupInitialLifecycleHook;
-import com.pulumi.policypacks.aws.autoscaling.GroupInstanceMaintenancePolicy;
-import com.pulumi.policypacks.aws.autoscaling.GroupInstanceRefresh;
-import com.pulumi.policypacks.aws.autoscaling.GroupLaunchTemplate;
-import com.pulumi.policypacks.aws.autoscaling.GroupMixedInstancesPolicy;
-import com.pulumi.policypacks.aws.autoscaling.GroupTag;
-import com.pulumi.policypacks.aws.autoscaling.GroupTrafficSource;
-import com.pulumi.policypacks.aws.autoscaling.GroupWarmPool;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupInitialLifecycleHook;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupInstanceRefresh;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupLaunchTemplate;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupMixedInstancesPolicy;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupTag;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupTrafficSource;
+import com.pulumi.policypacks.aws.autoscaling.outputs.GroupWarmPool;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:autoscaling/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN for this Auto Scaling Group
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Group.arn");
+    }
 
     /**
      * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
      * 
      */
-    public GroupAvailabilityZoneDistribution availabilityZoneDistribution;
+    private UndeferrableValue<GroupAvailabilityZoneDistribution> availabilityZoneDistribution;
 
-
+    public GroupAvailabilityZoneDistribution availabilityZoneDistribution() {
+        if (availabilityZoneDistribution == null) return null;
+        return availabilityZoneDistribution.getValue("Group.availabilityZoneDistribution");
+    }
 
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Group.availabilityZones");
+    }
 
     /**
      * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      * 
      */
-    public Boolean capacityRebalance;
+    private @Nullable UndeferrableValue<Boolean> capacityRebalance;
 
-
+    public @Nullable Boolean capacityRebalance() {
+        if (capacityRebalance == null) return null;
+        return capacityRebalance.getValue("Group.capacityRebalance");
+    }
 
     /**
      * Reserved.
      * 
      */
-    public String context;
+    private @Nullable UndeferrableValue<String> context;
 
-
+    public @Nullable String context() {
+        if (context == null) return null;
+        return context.getValue("Group.context");
+    }
 
     /**
      * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      * 
      */
-    public Integer defaultCooldown;
+    private UndeferrableValue<Integer> defaultCooldown;
 
-
+    public Integer defaultCooldown() {
+        if (defaultCooldown == null) return null;
+        return defaultCooldown.getValue("Group.defaultCooldown");
+    }
 
     /**
      * Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
      * 
      */
-    public Integer defaultInstanceWarmup;
+    private @Nullable UndeferrableValue<Integer> defaultInstanceWarmup;
 
-
+    public @Nullable Integer defaultInstanceWarmup() {
+        if (defaultInstanceWarmup == null) return null;
+        return defaultInstanceWarmup.getValue("Group.defaultInstanceWarmup");
+    }
 
     /**
      * Number of Amazon EC2 instances that
@@ -84,25 +107,34 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * Capacity below.)
      * 
      */
-    public Integer desiredCapacity;
+    private UndeferrableValue<Integer> desiredCapacity;
 
-
+    public Integer desiredCapacity() {
+        if (desiredCapacity == null) return null;
+        return desiredCapacity.getValue("Group.desiredCapacity");
+    }
 
     /**
      * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
      * 
      */
-    public String desiredCapacityType;
+    private @Nullable UndeferrableValue<String> desiredCapacityType;
 
-
+    public @Nullable String desiredCapacityType() {
+        if (desiredCapacityType == null) return null;
+        return desiredCapacityType.getValue("Group.desiredCapacityType");
+    }
 
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    public List<String> enabledMetrics;
+    private @Nullable UndeferrableValue<List<String>> enabledMetrics;
 
-
+    public @Nullable List<String> enabledMetrics() {
+        if (enabledMetrics == null) return null;
+        return enabledMetrics.getValue("Group.enabledMetrics");
+    }
 
     /**
      * Allows deleting the Auto Scaling Group without waiting
@@ -112,41 +144,56 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * behavior and potentially leaves resources dangling.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("Group.forceDelete");
+    }
 
     /**
      * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
      * 
      */
-    public Boolean forceDeleteWarmPool;
+    private @Nullable UndeferrableValue<Boolean> forceDeleteWarmPool;
 
-
+    public @Nullable Boolean forceDeleteWarmPool() {
+        if (forceDeleteWarmPool == null) return null;
+        return forceDeleteWarmPool.getValue("Group.forceDeleteWarmPool");
+    }
 
     /**
      * Time (in seconds) after instance comes into service before checking health.
      * 
      */
-    public Integer healthCheckGracePeriod;
+    private @Nullable UndeferrableValue<Integer> healthCheckGracePeriod;
 
-
+    public @Nullable Integer healthCheckGracePeriod() {
+        if (healthCheckGracePeriod == null) return null;
+        return healthCheckGracePeriod.getValue("Group.healthCheckGracePeriod");
+    }
 
     /**
      * &#34;EC2&#34; or &#34;ELB&#34;. Controls how health checking is done.
      * 
      */
-    public String healthCheckType;
+    private UndeferrableValue<String> healthCheckType;
 
-
+    public String healthCheckType() {
+        if (healthCheckType == null) return null;
+        return healthCheckType.getValue("Group.healthCheckType");
+    }
 
     /**
      * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
      * 
      */
-    public Boolean ignoreFailedScalingActivities;
+    private @Nullable UndeferrableValue<Boolean> ignoreFailedScalingActivities;
 
-
+    public @Nullable Boolean ignoreFailedScalingActivities() {
+        if (ignoreFailedScalingActivities == null) return null;
+        return ignoreFailedScalingActivities.getValue("Group.ignoreFailedScalingActivities");
+    }
 
     /**
      * One or more
@@ -158,17 +205,23 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
-    public List<GroupInitialLifecycleHook> initialLifecycleHooks;
+    private @Nullable UndeferrableValue<List<GroupInitialLifecycleHook>> initialLifecycleHooks;
 
-
+    public @Nullable List<GroupInitialLifecycleHook> initialLifecycleHooks() {
+        if (initialLifecycleHooks == null) return null;
+        return initialLifecycleHooks.getValue("Group.initialLifecycleHooks");
+    }
 
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      * 
      */
-    public GroupInstanceMaintenancePolicy instanceMaintenancePolicy;
+    private @Nullable UndeferrableValue<GroupInstanceMaintenancePolicy> instanceMaintenancePolicy;
 
-
+    public @Nullable GroupInstanceMaintenancePolicy instanceMaintenancePolicy() {
+        if (instanceMaintenancePolicy == null) return null;
+        return instanceMaintenancePolicy.getValue("Group.instanceMaintenancePolicy");
+    }
 
     /**
      * If this block is configured, start an
@@ -176,58 +229,79 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * when this Auto Scaling Group is updated. Defined below.
      * 
      */
-    public GroupInstanceRefresh instanceRefresh;
+    private @Nullable UndeferrableValue<GroupInstanceRefresh> instanceRefresh;
 
-
+    public @Nullable GroupInstanceRefresh instanceRefresh() {
+        if (instanceRefresh == null) return null;
+        return instanceRefresh.getValue("Group.instanceRefresh");
+    }
 
     /**
      * Name of the launch configuration to use.
      * 
      */
-    public String launchConfiguration;
+    private @Nullable UndeferrableValue<String> launchConfiguration;
 
-
+    public @Nullable String launchConfiguration() {
+        if (launchConfiguration == null) return null;
+        return launchConfiguration.getValue("Group.launchConfiguration");
+    }
 
     /**
      * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
-    public GroupLaunchTemplate launchTemplate;
+    private UndeferrableValue<GroupLaunchTemplate> launchTemplate;
 
-
+    public GroupLaunchTemplate launchTemplate() {
+        if (launchTemplate == null) return null;
+        return launchTemplate.getValue("Group.launchTemplate");
+    }
 
     /**
      * List of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
-    public List<String> loadBalancers;
+    private UndeferrableValue<List<String>> loadBalancers;
 
-
+    public List<String> loadBalancers() {
+        if (loadBalancers == null) return null;
+        return loadBalancers.getValue("Group.loadBalancers");
+    }
 
     /**
      * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      * 
      */
-    public Integer maxInstanceLifetime;
+    private @Nullable UndeferrableValue<Integer> maxInstanceLifetime;
 
-
+    public @Nullable Integer maxInstanceLifetime() {
+        if (maxInstanceLifetime == null) return null;
+        return maxInstanceLifetime.getValue("Group.maxInstanceLifetime");
+    }
 
     /**
      * Maximum size of the Auto Scaling Group.
      * 
      */
-    public Integer maxSize;
+    private UndeferrableValue<Integer> maxSize;
 
-
+    public Integer maxSize() {
+        if (maxSize == null) return null;
+        return maxSize.getValue("Group.maxSize");
+    }
 
     /**
      * Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      * 
      */
-    public String metricsGranularity;
+    private @Nullable UndeferrableValue<String> metricsGranularity;
 
-
+    public @Nullable String metricsGranularity() {
+        if (metricsGranularity == null) return null;
+        return metricsGranularity.getValue("Group.metricsGranularity");
+    }
 
     /**
      * Setting this causes Pulumi to wait for
@@ -236,59 +310,80 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * (See also Waiting for Capacity below.)
      * 
      */
-    public Integer minElbCapacity;
+    private @Nullable UndeferrableValue<Integer> minElbCapacity;
 
-
+    public @Nullable Integer minElbCapacity() {
+        if (minElbCapacity == null) return null;
+        return minElbCapacity.getValue("Group.minElbCapacity");
+    }
 
     /**
      * Minimum size of the Auto Scaling Group.
      * (See also Waiting for Capacity below.)
      * 
      */
-    public Integer minSize;
+    private UndeferrableValue<Integer> minSize;
 
-
+    public Integer minSize() {
+        if (minSize == null) return null;
+        return minSize.getValue("Group.minSize");
+    }
 
     /**
      * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      * 
      */
-    public GroupMixedInstancesPolicy mixedInstancesPolicy;
+    private UndeferrableValue<GroupMixedInstancesPolicy> mixedInstancesPolicy;
 
-
+    public GroupMixedInstancesPolicy mixedInstancesPolicy() {
+        if (mixedInstancesPolicy == null) return null;
+        return mixedInstancesPolicy.getValue("Group.mixedInstancesPolicy");
+    }
 
     /**
      * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Group.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Group.namePrefix");
+    }
 
     /**
      * Name of the placement group into which you&#39;ll launch your instances, if any.
      * 
      */
-    public String placementGroup;
+    private @Nullable UndeferrableValue<String> placementGroup;
 
-
+    public @Nullable String placementGroup() {
+        if (placementGroup == null) return null;
+        return placementGroup.getValue("Group.placementGroup");
+    }
 
     /**
      * Predicted capacity of the group.
      * 
      */
-    public Integer predictedCapacity;
+    private UndeferrableValue<Integer> predictedCapacity;
 
-
+    public Integer predictedCapacity() {
+        if (predictedCapacity == null) return null;
+        return predictedCapacity.getValue("Group.predictedCapacity");
+    }
 
     /**
      * Whether newly launched instances
@@ -298,66 +393,90 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * in the Amazon EC2 Auto Scaling User Guide.
      * 
      */
-    public Boolean protectFromScaleIn;
+    private @Nullable UndeferrableValue<Boolean> protectFromScaleIn;
 
-
+    public @Nullable Boolean protectFromScaleIn() {
+        if (protectFromScaleIn == null) return null;
+        return protectFromScaleIn.getValue("Group.protectFromScaleIn");
+    }
 
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      * 
      */
-    public String serviceLinkedRoleArn;
+    private UndeferrableValue<String> serviceLinkedRoleArn;
 
-
+    public String serviceLinkedRoleArn() {
+        if (serviceLinkedRoleArn == null) return null;
+        return serviceLinkedRoleArn.getValue("Group.serviceLinkedRoleArn");
+    }
 
     /**
      * List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */
-    public List<String> suspendedProcesses;
+    private @Nullable UndeferrableValue<List<String>> suspendedProcesses;
 
-
+    public @Nullable List<String> suspendedProcesses() {
+        if (suspendedProcesses == null) return null;
+        return suspendedProcesses.getValue("Group.suspendedProcesses");
+    }
 
     /**
      * Configuration block(s) containing resource tags. See Tag below for more details.
      * 
      */
-    public List<GroupTag> tags;
+    private @Nullable UndeferrableValue<List<GroupTag>> tags;
 
-
+    public @Nullable List<GroupTag> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Group.tags");
+    }
 
     /**
      * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      * 
      */
-    public List<String> targetGroupArns;
+    private UndeferrableValue<List<String>> targetGroupArns;
 
-
+    public List<String> targetGroupArns() {
+        if (targetGroupArns == null) return null;
+        return targetGroupArns.getValue("Group.targetGroupArns");
+    }
 
     /**
      * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
-    public List<String> terminationPolicies;
+    private @Nullable UndeferrableValue<List<String>> terminationPolicies;
 
-
+    public @Nullable List<String> terminationPolicies() {
+        if (terminationPolicies == null) return null;
+        return terminationPolicies.getValue("Group.terminationPolicies");
+    }
 
     /**
      * Attaches one or more traffic sources to the specified Auto Scaling group.
      * 
      */
-    public List<GroupTrafficSource> trafficSources;
+    private UndeferrableValue<List<GroupTrafficSource>> trafficSources;
 
-
+    public List<GroupTrafficSource> trafficSources() {
+        if (trafficSources == null) return null;
+        return trafficSources.getValue("Group.trafficSources");
+    }
 
     /**
      * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
      * 
      */
-    public List<String> vpcZoneIdentifiers;
+    private UndeferrableValue<List<String>> vpcZoneIdentifiers;
 
-
+    public List<String> vpcZoneIdentifiers() {
+        if (vpcZoneIdentifiers == null) return null;
+        return vpcZoneIdentifiers.getValue("Group.vpcZoneIdentifiers");
+    }
 
     /**
      * Maximum
@@ -367,9 +486,12 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * the provider to skip all Capacity Waiting behavior.
      * 
      */
-    public String waitForCapacityTimeout;
+    private @Nullable UndeferrableValue<String> waitForCapacityTimeout;
 
-
+    public @Nullable String waitForCapacityTimeout() {
+        if (waitForCapacityTimeout == null) return null;
+        return waitForCapacityTimeout.getValue("Group.waitForCapacityTimeout");
+    }
 
     /**
      * Setting this will cause Pulumi to wait
@@ -379,25 +501,34 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * (See also Waiting for Capacity below.)
      * 
      */
-    public Integer waitForElbCapacity;
+    private @Nullable UndeferrableValue<Integer> waitForElbCapacity;
 
-
+    public @Nullable Integer waitForElbCapacity() {
+        if (waitForElbCapacity == null) return null;
+        return waitForElbCapacity.getValue("Group.waitForElbCapacity");
+    }
 
     /**
      * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
      * to the specified Auto Scaling group. Defined below
      * 
      */
-    public GroupWarmPool warmPool;
+    private @Nullable UndeferrableValue<GroupWarmPool> warmPool;
 
-
+    public @Nullable GroupWarmPool warmPool() {
+        if (warmPool == null) return null;
+        return warmPool.getValue("Group.warmPool");
+    }
 
     /**
      * Current size of the warm pool.
      * 
      */
-    public Integer warmPoolSize;
+    private UndeferrableValue<Integer> warmPoolSize;
 
-
+    public Integer warmPoolSize() {
+        if (warmPoolSize == null) return null;
+        return warmPoolSize.getValue("Group.warmPoolSize");
+    }
 
 }

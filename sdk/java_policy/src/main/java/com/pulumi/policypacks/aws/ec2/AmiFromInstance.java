@@ -3,178 +3,252 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.AmiFromInstanceEbsBlockDevice;
-import com.pulumi.policypacks.aws.ec2.AmiFromInstanceEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.AmiFromInstanceEbsBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.AmiFromInstanceEphemeralBlockDevice;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/amiFromInstance:AmiFromInstance")
-public final class AmiFromInstance extends com.pulumi.resources.PolicyResource {
+public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
-    public String architecture;
+    private UndeferrableValue<String> architecture;
 
-
+    public String architecture() {
+        if (architecture == null) return null;
+        return architecture.getValue("AmiFromInstance.architecture");
+    }
 
     /**
      * ARN of the AMI.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AmiFromInstance.arn");
+    }
 
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public String bootMode;
+    private UndeferrableValue<String> bootMode;
 
-
+    public String bootMode() {
+        if (bootMode == null) return null;
+        return bootMode.getValue("AmiFromInstance.bootMode");
+    }
 
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String deprecationTime;
+    private @Nullable UndeferrableValue<String> deprecationTime;
 
-
+    public @Nullable String deprecationTime() {
+        if (deprecationTime == null) return null;
+        return deprecationTime.getValue("AmiFromInstance.deprecationTime");
+    }
 
     /**
      * Longer, human-readable description for the AMI.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AmiFromInstance.description");
+    }
 
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    public List<AmiFromInstanceEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<AmiFromInstanceEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<AmiFromInstanceEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("AmiFromInstance.ebsBlockDevices");
+    }
 
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    public Boolean enaSupport;
+    private UndeferrableValue<Boolean> enaSupport;
 
-
+    public Boolean enaSupport() {
+        if (enaSupport == null) return null;
+        return enaSupport.getValue("AmiFromInstance.enaSupport");
+    }
 
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    public List<AmiFromInstanceEphemeralBlockDevice> ephemeralBlockDevices;
+    private UndeferrableValue<List<AmiFromInstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
+    public List<AmiFromInstanceEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("AmiFromInstance.ephemeralBlockDevices");
+    }
 
+    private UndeferrableValue<String> hypervisor;
 
-    public String hypervisor;
-
-
+    public String hypervisor() {
+        if (hypervisor == null) return null;
+        return hypervisor.getValue("AmiFromInstance.hypervisor");
+    }
 
     /**
      * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    public String imageLocation;
+    private UndeferrableValue<String> imageLocation;
 
+    public String imageLocation() {
+        if (imageLocation == null) return null;
+        return imageLocation.getValue("AmiFromInstance.imageLocation");
+    }
 
+    private UndeferrableValue<String> imageOwnerAlias;
 
-    public String imageOwnerAlias;
+    public String imageOwnerAlias() {
+        if (imageOwnerAlias == null) return null;
+        return imageOwnerAlias.getValue("AmiFromInstance.imageOwnerAlias");
+    }
 
+    private UndeferrableValue<String> imageType;
 
-
-    public String imageType;
-
-
+    public String imageType() {
+        if (imageType == null) return null;
+        return imageType.getValue("AmiFromInstance.imageType");
+    }
 
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    public String imdsSupport;
+    private UndeferrableValue<String> imdsSupport;
 
-
+    public String imdsSupport() {
+        if (imdsSupport == null) return null;
+        return imdsSupport.getValue("AmiFromInstance.imdsSupport");
+    }
 
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
-    public String kernelId;
+    private UndeferrableValue<String> kernelId;
 
-
+    public String kernelId() {
+        if (kernelId == null) return null;
+        return kernelId.getValue("AmiFromInstance.kernelId");
+    }
 
     /**
      * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      * 
      */
-    public String lastLaunchedTime;
+    private UndeferrableValue<String> lastLaunchedTime;
 
+    public String lastLaunchedTime() {
+        if (lastLaunchedTime == null) return null;
+        return lastLaunchedTime.getValue("AmiFromInstance.lastLaunchedTime");
+    }
 
+    private UndeferrableValue<Boolean> manageEbsSnapshots;
 
-    public Boolean manageEbsSnapshots;
-
-
+    public Boolean manageEbsSnapshots() {
+        if (manageEbsSnapshots == null) return null;
+        return manageEbsSnapshots.getValue("AmiFromInstance.manageEbsSnapshots");
+    }
 
     /**
      * Region-unique name for the AMI.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AmiFromInstance.name");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("AmiFromInstance.ownerId");
+    }
 
+    private UndeferrableValue<String> platform;
 
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("AmiFromInstance.platform");
+    }
 
-    public String platform;
+    private UndeferrableValue<String> platformDetails;
 
+    public String platformDetails() {
+        if (platformDetails == null) return null;
+        return platformDetails.getValue("AmiFromInstance.platformDetails");
+    }
 
+    private UndeferrableValue<Boolean> public_;
 
-    public String platformDetails;
-
-
-
-    public Boolean public_;
-
-
+    public Boolean public_() {
+        if (public_ == null) return null;
+        return public_.getValue("AmiFromInstance.public_");
+    }
 
     /**
      * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
-    public String ramdiskId;
+    private UndeferrableValue<String> ramdiskId;
 
-
+    public String ramdiskId() {
+        if (ramdiskId == null) return null;
+        return ramdiskId.getValue("AmiFromInstance.ramdiskId");
+    }
 
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    public String rootDeviceName;
+    private UndeferrableValue<String> rootDeviceName;
 
+    public String rootDeviceName() {
+        if (rootDeviceName == null) return null;
+        return rootDeviceName.getValue("AmiFromInstance.rootDeviceName");
+    }
 
+    private UndeferrableValue<String> rootSnapshotId;
 
-    public String rootSnapshotId;
-
-
+    public String rootSnapshotId() {
+        if (rootSnapshotId == null) return null;
+        return rootSnapshotId.getValue("AmiFromInstance.rootSnapshotId");
+    }
 
     /**
      * Boolean that overrides the behavior of stopping
@@ -183,34 +257,46 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResource {
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      * 
      */
-    public Boolean snapshotWithoutReboot;
+    private @Nullable UndeferrableValue<Boolean> snapshotWithoutReboot;
 
-
+    public @Nullable Boolean snapshotWithoutReboot() {
+        if (snapshotWithoutReboot == null) return null;
+        return snapshotWithoutReboot.getValue("AmiFromInstance.snapshotWithoutReboot");
+    }
 
     /**
      * ID of the instance to use as the basis of the AMI.
      * 
      */
-    public String sourceInstanceId;
+    private UndeferrableValue<String> sourceInstanceId;
 
-
+    public String sourceInstanceId() {
+        if (sourceInstanceId == null) return null;
+        return sourceInstanceId.getValue("AmiFromInstance.sourceInstanceId");
+    }
 
     /**
      * When set to &#34;simple&#34; (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      * 
      */
-    public String sriovNetSupport;
+    private UndeferrableValue<String> sriovNetSupport;
 
-
+    public String sriovNetSupport() {
+        if (sriovNetSupport == null) return null;
+        return sriovNetSupport.getValue("AmiFromInstance.sriovNetSupport");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AmiFromInstance.tags");
+    }
 
     /**
      * @deprecated
@@ -218,29 +304,41 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AmiFromInstance.tagsAll");
+    }
 
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public String tpmSupport;
+    private UndeferrableValue<String> tpmSupport;
 
-
+    public String tpmSupport() {
+        if (tpmSupport == null) return null;
+        return tpmSupport.getValue("AmiFromInstance.tpmSupport");
+    }
 
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      * 
      */
-    public String uefiData;
+    private UndeferrableValue<String> uefiData;
 
+    public String uefiData() {
+        if (uefiData == null) return null;
+        return uefiData.getValue("AmiFromInstance.uefiData");
+    }
 
+    private UndeferrableValue<String> usageOperation;
 
-    public String usageOperation;
-
-
+    public String usageOperation() {
+        if (usageOperation == null) return null;
+        return usageOperation.getValue("AmiFromInstance.usageOperation");
+    }
 
     /**
      * Keyword to choose what virtualization mode created instances
@@ -248,8 +346,11 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResource {
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    public String virtualizationType;
+    private UndeferrableValue<String> virtualizationType;
 
-
+    public String virtualizationType() {
+        if (virtualizationType == null) return null;
+        return virtualizationType.getValue("AmiFromInstance.virtualizationType");
+    }
 
 }

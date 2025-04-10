@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.MonitoringSubscriptionMonitoringSubscription;
+import com.pulumi.policypacks.aws.cloudfront.outputs.MonitoringSubscriptionMonitoringSubscription;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudfront/monitoringSubscription:MonitoringSubscription")
-public final class MonitoringSubscription extends com.pulumi.resources.PolicyResource {
+public final class MonitoringSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the distribution that you are enabling metrics for.
      * 
      */
-    public String distributionId;
+    private UndeferrableValue<String> distributionId;
 
-
+    public String distributionId() {
+        if (distributionId == null) return null;
+        return distributionId.getValue("MonitoringSubscription.distributionId");
+    }
 
     /**
      * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
      * 
      */
-    public MonitoringSubscriptionMonitoringSubscription monitoringSubscription;
+    private UndeferrableValue<MonitoringSubscriptionMonitoringSubscription> monitoringSubscription;
 
-
+    public MonitoringSubscriptionMonitoringSubscription monitoringSubscription() {
+        if (monitoringSubscription == null) return null;
+        return monitoringSubscription.getValue("MonitoringSubscription.monitoringSubscription");
+    }
 
 }

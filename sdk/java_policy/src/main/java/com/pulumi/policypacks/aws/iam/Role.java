@@ -3,25 +3,30 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iam.RoleInlinePolicy;
+import com.pulumi.policypacks.aws.iam.outputs.RoleInlinePolicy;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/role:Role")
-public final class Role extends com.pulumi.resources.PolicyResource {
+public final class Role extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Role.arn");
+    }
 
     /**
      * Policy that grants an entity permission to assume the role.
@@ -31,97 +36,133 @@ public final class Role extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String assumeRolePolicy;
+    private UndeferrableValue<String> assumeRolePolicy;
 
-
+    public String assumeRolePolicy() {
+        if (assumeRolePolicy == null) return null;
+        return assumeRolePolicy.getValue("Role.assumeRolePolicy");
+    }
 
     /**
      * Creation date of the IAM role.
      * 
      */
-    public String createDate;
+    private UndeferrableValue<String> createDate;
 
-
+    public String createDate() {
+        if (createDate == null) return null;
+        return createDate.getValue("Role.createDate");
+    }
 
     /**
      * Description of the role.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Role.description");
+    }
 
     /**
      * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
      * 
      */
-    public Boolean forceDetachPolicies;
+    private @Nullable UndeferrableValue<Boolean> forceDetachPolicies;
 
-
+    public @Nullable Boolean forceDetachPolicies() {
+        if (forceDetachPolicies == null) return null;
+        return forceDetachPolicies.getValue("Role.forceDetachPolicies");
+    }
 
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
      * 
      */
-    public List<RoleInlinePolicy> inlinePolicies;
+    private UndeferrableValue<List<RoleInlinePolicy>> inlinePolicies;
 
-
+    public List<RoleInlinePolicy> inlinePolicies() {
+        if (inlinePolicies == null) return null;
+        return inlinePolicies.getValue("Role.inlinePolicies");
+    }
 
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
      * 
      */
-    public List<String> managedPolicyArns;
+    private UndeferrableValue<List<String>> managedPolicyArns;
 
-
+    public List<String> managedPolicyArns() {
+        if (managedPolicyArns == null) return null;
+        return managedPolicyArns.getValue("Role.managedPolicyArns");
+    }
 
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      * 
      */
-    public Integer maxSessionDuration;
+    private @Nullable UndeferrableValue<Integer> maxSessionDuration;
 
-
+    public @Nullable Integer maxSessionDuration() {
+        if (maxSessionDuration == null) return null;
+        return maxSessionDuration.getValue("Role.maxSessionDuration");
+    }
 
     /**
      * Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Role.name");
+    }
 
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Role.namePrefix");
+    }
 
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("Role.path");
+    }
 
     /**
      * ARN of the policy that is used to set the permissions boundary for the role.
      * 
      */
-    public String permissionsBoundary;
+    private @Nullable UndeferrableValue<String> permissionsBoundary;
 
-
+    public @Nullable String permissionsBoundary() {
+        if (permissionsBoundary == null) return null;
+        return permissionsBoundary.getValue("Role.permissionsBoundary");
+    }
 
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Role.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,16 +172,22 @@ public final class Role extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Role.tagsAll");
+    }
 
     /**
      * Stable and unique string identifying the role.
      * 
      */
-    public String uniqueId;
+    private UndeferrableValue<String> uniqueId;
 
-
+    public String uniqueId() {
+        if (uniqueId == null) return null;
+        return uniqueId.getValue("Role.uniqueId");
+    }
 
 }

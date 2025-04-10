@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.costexplorer.CostCategoryRule;
-import com.pulumi.policypacks.aws.costexplorer.CostCategorySplitChargeRule;
+import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRule;
+import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategorySplitChargeRule;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:costexplorer/costCategory:CostCategory")
-public final class CostCategory extends com.pulumi.resources.PolicyResource {
+public final class CostCategory extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the cost category.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CostCategory.arn");
+    }
 
     /**
      * Default value for the cost category.
      * 
      */
-    public String defaultValue;
+    private @Nullable UndeferrableValue<String> defaultValue;
 
-
+    public @Nullable String defaultValue() {
+        if (defaultValue == null) return null;
+        return defaultValue.getValue("CostCategory.defaultValue");
+    }
 
     /**
      * Effective end data of your Cost Category.
      * 
      */
-    public String effectiveEnd;
+    private UndeferrableValue<String> effectiveEnd;
 
-
+    public String effectiveEnd() {
+        if (effectiveEnd == null) return null;
+        return effectiveEnd.getValue("CostCategory.effectiveEnd");
+    }
 
     /**
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
@@ -44,49 +55,67 @@ public final class CostCategory extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String effectiveStart;
+    private UndeferrableValue<String> effectiveStart;
 
-
+    public String effectiveStart() {
+        if (effectiveStart == null) return null;
+        return effectiveStart.getValue("CostCategory.effectiveStart");
+    }
 
     /**
      * Unique name for the Cost Category.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CostCategory.name");
+    }
 
     /**
      * Rule schema version in this particular Cost Category.
      * 
      */
-    public String ruleVersion;
+    private UndeferrableValue<String> ruleVersion;
 
-
+    public String ruleVersion() {
+        if (ruleVersion == null) return null;
+        return ruleVersion.getValue("CostCategory.ruleVersion");
+    }
 
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
-    public List<CostCategoryRule> rules;
+    private UndeferrableValue<List<CostCategoryRule>> rules;
 
-
+    public List<CostCategoryRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("CostCategory.rules");
+    }
 
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    public List<CostCategorySplitChargeRule> splitChargeRules;
+    private @Nullable UndeferrableValue<List<CostCategorySplitChargeRule>> splitChargeRules;
 
-
+    public @Nullable List<CostCategorySplitChargeRule> splitChargeRules() {
+        if (splitChargeRules == null) return null;
+        return splitChargeRules.getValue("CostCategory.splitChargeRules");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CostCategory.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,8 +125,11 @@ public final class CostCategory extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CostCategory.tagsAll");
+    }
 
 }

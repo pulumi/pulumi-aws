@@ -3,12 +3,13 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/standardsSubscription:StandardsSubscription")
-public final class StandardsSubscription extends com.pulumi.resources.PolicyResource {
+public final class StandardsSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of a standard - see below.
@@ -26,8 +27,11 @@ public final class StandardsSubscription extends com.pulumi.resources.PolicyReso
      * | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
      * 
      */
-    public String standardsArn;
+    private UndeferrableValue<String> standardsArn;
 
-
+    public String standardsArn() {
+        if (standardsArn == null) return null;
+        return standardsArn.getValue("StandardsSubscription.standardsArn");
+    }
 
 }

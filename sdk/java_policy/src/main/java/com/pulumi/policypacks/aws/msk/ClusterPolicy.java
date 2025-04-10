@@ -3,31 +3,41 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:msk/clusterPolicy:ClusterPolicy")
-public final class ClusterPolicy extends com.pulumi.resources.PolicyResource {
+public final class ClusterPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      * 
      */
-    public String clusterArn;
+    private UndeferrableValue<String> clusterArn;
 
+    public String clusterArn() {
+        if (clusterArn == null) return null;
+        return clusterArn.getValue("ClusterPolicy.clusterArn");
+    }
 
+    private UndeferrableValue<String> currentVersion;
 
-    public String currentVersion;
-
-
+    public String currentVersion() {
+        if (currentVersion == null) return null;
+        return currentVersion.getValue("ClusterPolicy.currentVersion");
+    }
 
     /**
      * Resource policy for cluster.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ClusterPolicy.policy");
+    }
 
 }

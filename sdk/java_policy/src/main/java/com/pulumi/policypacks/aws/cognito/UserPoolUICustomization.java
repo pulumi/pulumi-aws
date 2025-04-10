@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/userPoolUICustomization:UserPoolUICustomization")
-public final class UserPoolUICustomization extends com.pulumi.resources.PolicyResource {
+public final class UserPoolUICustomization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
      * 
      */
-    public String clientId;
+    private @Nullable UndeferrableValue<String> clientId;
 
-
+    public @Nullable String clientId() {
+        if (clientId == null) return null;
+        return clientId.getValue("UserPoolUICustomization.clientId");
+    }
 
     /**
      * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("UserPoolUICustomization.creationDate");
+    }
 
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
      * 
      */
-    public String css;
+    private @Nullable UndeferrableValue<String> css;
 
-
+    public @Nullable String css() {
+        if (css == null) return null;
+        return css.getValue("UserPoolUICustomization.css");
+    }
 
     /**
      * The CSS version number.
      * 
      */
-    public String cssVersion;
+    private UndeferrableValue<String> cssVersion;
 
-
+    public String cssVersion() {
+        if (cssVersion == null) return null;
+        return cssVersion.getValue("UserPoolUICustomization.cssVersion");
+    }
 
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
      * 
      */
-    public String imageFile;
+    private @Nullable UndeferrableValue<String> imageFile;
 
-
+    public @Nullable String imageFile() {
+        if (imageFile == null) return null;
+        return imageFile.getValue("UserPoolUICustomization.imageFile");
+    }
 
     /**
      * The logo image URL for the UI customization.
      * 
      */
-    public String imageUrl;
+    private UndeferrableValue<String> imageUrl;
 
-
+    public String imageUrl() {
+        if (imageUrl == null) return null;
+        return imageUrl.getValue("UserPoolUICustomization.imageUrl");
+    }
 
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    public String lastModifiedDate;
+    private UndeferrableValue<String> lastModifiedDate;
 
-
+    public String lastModifiedDate() {
+        if (lastModifiedDate == null) return null;
+        return lastModifiedDate.getValue("UserPoolUICustomization.lastModifiedDate");
+    }
 
     /**
      * The user pool ID for the user pool.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("UserPoolUICustomization.userPoolId");
+    }
 
 }

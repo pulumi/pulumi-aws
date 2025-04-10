@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpnGateway:VpnGateway")
-public final class VpnGateway extends com.pulumi.resources.PolicyResource {
+public final class VpnGateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
      * 
      */
-    public String amazonSideAsn;
+    private UndeferrableValue<String> amazonSideAsn;
 
-
+    public String amazonSideAsn() {
+        if (amazonSideAsn == null) return null;
+        return amazonSideAsn.getValue("VpnGateway.amazonSideAsn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the VPN Gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpnGateway.arn");
+    }
 
     /**
      * The Availability Zone for the virtual private gateway.
      * 
      */
-    public String availabilityZone;
+    private @Nullable UndeferrableValue<String> availabilityZone;
 
-
+    public @Nullable String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("VpnGateway.availabilityZone");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpnGateway.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,16 +65,22 @@ public final class VpnGateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpnGateway.tagsAll");
+    }
 
     /**
      * The VPC ID to create in.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpnGateway.vpcId");
+    }
 
 }

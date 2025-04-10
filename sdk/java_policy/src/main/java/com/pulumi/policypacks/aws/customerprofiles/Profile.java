@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.customerprofiles;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.customerprofiles.ProfileAddress;
-import com.pulumi.policypacks.aws.customerprofiles.ProfileBillingAddress;
-import com.pulumi.policypacks.aws.customerprofiles.ProfileMailingAddress;
-import com.pulumi.policypacks.aws.customerprofiles.ProfileShippingAddress;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileAddress;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileBillingAddress;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileMailingAddress;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileShippingAddress;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:customerprofiles/profile:Profile")
-public final class Profile extends com.pulumi.resources.PolicyResource {
+public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A unique account number that you have given to the customer.
      * 
      */
-    public String accountNumber;
+    private @Nullable UndeferrableValue<String> accountNumber;
 
-
+    public @Nullable String accountNumber() {
+        if (accountNumber == null) return null;
+        return accountNumber.getValue("Profile.accountNumber");
+    }
 
     /**
      * Any additional information relevant to the customer’s profile.
      * 
      */
-    public String additionalInformation;
+    private @Nullable UndeferrableValue<String> additionalInformation;
 
-
+    public @Nullable String additionalInformation() {
+        if (additionalInformation == null) return null;
+        return additionalInformation.getValue("Profile.additionalInformation");
+    }
 
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      * 
      */
-    public ProfileAddress address;
+    private @Nullable UndeferrableValue<ProfileAddress> address;
 
-
+    public @Nullable ProfileAddress address() {
+        if (address == null) return null;
+        return address.getValue("Profile.address");
+    }
 
     /**
      * A key value pair of attributes of a customer profile.
      * 
      */
-    public Map<String,String> attributes;
+    private @Nullable UndeferrableValue<Map<String,String>> attributes;
 
-
+    public @Nullable Map<String,String> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("Profile.attributes");
+    }
 
     /**
      * A block that specifies the customer’s billing address. Documented below.
      * 
      */
-    public ProfileBillingAddress billingAddress;
+    private @Nullable UndeferrableValue<ProfileBillingAddress> billingAddress;
 
-
+    public @Nullable ProfileBillingAddress billingAddress() {
+        if (billingAddress == null) return null;
+        return billingAddress.getValue("Profile.billingAddress");
+    }
 
     /**
      * The customer’s birth date.
      * 
      */
-    public String birthDate;
+    private @Nullable UndeferrableValue<String> birthDate;
 
-
+    public @Nullable String birthDate() {
+        if (birthDate == null) return null;
+        return birthDate.getValue("Profile.birthDate");
+    }
 
     /**
      * The customer’s business email address.
      * 
      */
-    public String businessEmailAddress;
+    private @Nullable UndeferrableValue<String> businessEmailAddress;
 
-
+    public @Nullable String businessEmailAddress() {
+        if (businessEmailAddress == null) return null;
+        return businessEmailAddress.getValue("Profile.businessEmailAddress");
+    }
 
     /**
      * The name of the customer’s business.
      * 
      */
-    public String businessName;
+    private @Nullable UndeferrableValue<String> businessName;
 
-
+    public @Nullable String businessName() {
+        if (businessName == null) return null;
+        return businessName.getValue("Profile.businessName");
+    }
 
     /**
      * The customer’s business phone number.
      * 
      */
-    public String businessPhoneNumber;
+    private @Nullable UndeferrableValue<String> businessPhoneNumber;
 
-
+    public @Nullable String businessPhoneNumber() {
+        if (businessPhoneNumber == null) return null;
+        return businessPhoneNumber.getValue("Profile.businessPhoneNumber");
+    }
 
     /**
      * The name of your Customer Profile domain. It must be unique for your AWS account.
@@ -93,104 +122,143 @@ public final class Profile extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Profile.domainName");
+    }
 
     /**
      * The customer’s email address, which has not been specified as a personal or business address.
      * 
      */
-    public String emailAddress;
+    private @Nullable UndeferrableValue<String> emailAddress;
 
-
+    public @Nullable String emailAddress() {
+        if (emailAddress == null) return null;
+        return emailAddress.getValue("Profile.emailAddress");
+    }
 
     /**
      * The customer’s first name.
      * 
      */
-    public String firstName;
+    private @Nullable UndeferrableValue<String> firstName;
 
-
+    public @Nullable String firstName() {
+        if (firstName == null) return null;
+        return firstName.getValue("Profile.firstName");
+    }
 
     /**
      * The gender with which the customer identifies.
      * 
      */
-    public String genderString;
+    private @Nullable UndeferrableValue<String> genderString;
 
-
+    public @Nullable String genderString() {
+        if (genderString == null) return null;
+        return genderString.getValue("Profile.genderString");
+    }
 
     /**
      * The customer’s home phone number.
      * 
      */
-    public String homePhoneNumber;
+    private @Nullable UndeferrableValue<String> homePhoneNumber;
 
-
+    public @Nullable String homePhoneNumber() {
+        if (homePhoneNumber == null) return null;
+        return homePhoneNumber.getValue("Profile.homePhoneNumber");
+    }
 
     /**
      * The customer’s last name.
      * 
      */
-    public String lastName;
+    private @Nullable UndeferrableValue<String> lastName;
 
-
+    public @Nullable String lastName() {
+        if (lastName == null) return null;
+        return lastName.getValue("Profile.lastName");
+    }
 
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      * 
      */
-    public ProfileMailingAddress mailingAddress;
+    private @Nullable UndeferrableValue<ProfileMailingAddress> mailingAddress;
 
-
+    public @Nullable ProfileMailingAddress mailingAddress() {
+        if (mailingAddress == null) return null;
+        return mailingAddress.getValue("Profile.mailingAddress");
+    }
 
     /**
      * The customer’s middle name.
      * 
      */
-    public String middleName;
+    private @Nullable UndeferrableValue<String> middleName;
 
-
+    public @Nullable String middleName() {
+        if (middleName == null) return null;
+        return middleName.getValue("Profile.middleName");
+    }
 
     /**
      * The customer’s mobile phone number.
      * 
      */
-    public String mobilePhoneNumber;
+    private @Nullable UndeferrableValue<String> mobilePhoneNumber;
 
-
+    public @Nullable String mobilePhoneNumber() {
+        if (mobilePhoneNumber == null) return null;
+        return mobilePhoneNumber.getValue("Profile.mobilePhoneNumber");
+    }
 
     /**
      * The type of profile used to describe the customer.
      * 
      */
-    public String partyTypeString;
+    private @Nullable UndeferrableValue<String> partyTypeString;
 
-
+    public @Nullable String partyTypeString() {
+        if (partyTypeString == null) return null;
+        return partyTypeString.getValue("Profile.partyTypeString");
+    }
 
     /**
      * The customer’s personal email address.
      * 
      */
-    public String personalEmailAddress;
+    private @Nullable UndeferrableValue<String> personalEmailAddress;
 
-
+    public @Nullable String personalEmailAddress() {
+        if (personalEmailAddress == null) return null;
+        return personalEmailAddress.getValue("Profile.personalEmailAddress");
+    }
 
     /**
      * The customer’s phone number, which has not been specified as a mobile, home, or business number.
      * 
      */
-    public String phoneNumber;
+    private @Nullable UndeferrableValue<String> phoneNumber;
 
-
+    public @Nullable String phoneNumber() {
+        if (phoneNumber == null) return null;
+        return phoneNumber.getValue("Profile.phoneNumber");
+    }
 
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      * 
      */
-    public ProfileShippingAddress shippingAddress;
+    private @Nullable UndeferrableValue<ProfileShippingAddress> shippingAddress;
 
-
+    public @Nullable ProfileShippingAddress shippingAddress() {
+        if (shippingAddress == null) return null;
+        return shippingAddress.getValue("Profile.shippingAddress");
+    }
 
 }

@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")
-public final class WorkspaceServiceAccount extends com.pulumi.resources.PolicyResource {
+public final class WorkspaceServiceAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
-    public String grafanaRole;
+    private UndeferrableValue<String> grafanaRole;
 
-
+    public String grafanaRole() {
+        if (grafanaRole == null) return null;
+        return grafanaRole.getValue("WorkspaceServiceAccount.grafanaRole");
+    }
 
     /**
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("WorkspaceServiceAccount.name");
+    }
 
     /**
      * Identifier of the service account in the given Grafana workspace
      * 
      */
-    public String serviceAccountId;
+    private UndeferrableValue<String> serviceAccountId;
 
-
+    public String serviceAccountId() {
+        if (serviceAccountId == null) return null;
+        return serviceAccountId.getValue("WorkspaceServiceAccount.serviceAccountId");
+    }
 
     /**
      * The Grafana workspace with which the service account is associated.
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("WorkspaceServiceAccount.workspaceId");
+    }
 
 }

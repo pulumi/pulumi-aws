@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.ThingGroupMetadata;
-import com.pulumi.policypacks.aws.iot.ThingGroupProperties;
+import com.pulumi.policypacks.aws.iot.outputs.ThingGroupMetadata;
+import com.pulumi.policypacks.aws.iot.outputs.ThingGroupProperties;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/thingGroup:ThingGroup")
-public final class ThingGroup extends com.pulumi.resources.PolicyResource {
+public final class ThingGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Thing Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ThingGroup.arn");
+    }
 
+    private UndeferrableValue<List<ThingGroupMetadata>> metadatas;
 
-    public List<ThingGroupMetadata> metadatas;
-
-
+    public List<ThingGroupMetadata> metadatas() {
+        if (metadatas == null) return null;
+        return metadatas.getValue("ThingGroup.metadatas");
+    }
 
     /**
      * The name of the Thing Group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ThingGroup.name");
+    }
 
     /**
      * The name of the parent Thing Group.
      * 
      */
-    public String parentGroupName;
+    private @Nullable UndeferrableValue<String> parentGroupName;
 
-
+    public @Nullable String parentGroupName() {
+        if (parentGroupName == null) return null;
+        return parentGroupName.getValue("ThingGroup.parentGroupName");
+    }
 
     /**
      * The Thing Group properties. Defined below.
      * 
      */
-    public ThingGroupProperties properties;
+    private @Nullable UndeferrableValue<ThingGroupProperties> properties;
 
-
+    public @Nullable ThingGroupProperties properties() {
+        if (properties == null) return null;
+        return properties.getValue("ThingGroup.properties");
+    }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ThingGroup.tags");
+    }
 
     /**
      * @deprecated
@@ -65,16 +85,22 @@ public final class ThingGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ThingGroup.tagsAll");
+    }
 
     /**
      * The current version of the Thing Group record in the registry.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("ThingGroup.version");
+    }
 
 }

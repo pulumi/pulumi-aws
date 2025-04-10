@@ -3,84 +3,113 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.BotAliasConversationLogs;
+import com.pulumi.policypacks.aws.lex.outputs.BotAliasConversationLogs;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/botAlias:BotAlias")
-public final class BotAlias extends com.pulumi.resources.PolicyResource {
+public final class BotAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the bot alias.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("BotAlias.arn");
+    }
 
     /**
      * The name of the bot.
      * 
      */
-    public String botName;
+    private UndeferrableValue<String> botName;
 
-
+    public String botName() {
+        if (botName == null) return null;
+        return botName.getValue("BotAlias.botName");
+    }
 
     /**
      * The version of the bot.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("BotAlias.botVersion");
+    }
 
     /**
      * Checksum of the bot alias.
      * 
      */
-    public String checksum;
+    private UndeferrableValue<String> checksum;
 
-
+    public String checksum() {
+        if (checksum == null) return null;
+        return checksum.getValue("BotAlias.checksum");
+    }
 
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      * 
      */
-    public BotAliasConversationLogs conversationLogs;
+    private @Nullable UndeferrableValue<BotAliasConversationLogs> conversationLogs;
 
-
+    public @Nullable BotAliasConversationLogs conversationLogs() {
+        if (conversationLogs == null) return null;
+        return conversationLogs.getValue("BotAlias.conversationLogs");
+    }
 
     /**
      * The date that the bot alias was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("BotAlias.createdDate");
+    }
 
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("BotAlias.description");
+    }
 
     /**
      * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("BotAlias.lastUpdatedDate");
+    }
 
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("BotAlias.name");
+    }
 
 }

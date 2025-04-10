@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/subnet:Subnet")
-public final class Subnet extends com.pulumi.resources.PolicyResource {
+public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the subnet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Subnet.arn");
+    }
 
     /**
      * Specify true to indicate
@@ -27,106 +32,145 @@ public final class Subnet extends com.pulumi.resources.PolicyResource {
      * assigned an IPv6 address. Default is `false`
      * 
      */
-    public Boolean assignIpv6AddressOnCreation;
+    private @Nullable UndeferrableValue<Boolean> assignIpv6AddressOnCreation;
 
-
+    public @Nullable Boolean assignIpv6AddressOnCreation() {
+        if (assignIpv6AddressOnCreation == null) return null;
+        return assignIpv6AddressOnCreation.getValue("Subnet.assignIpv6AddressOnCreation");
+    }
 
     /**
      * AZ for the subnet.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Subnet.availabilityZone");
+    }
 
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
      * 
      */
-    public String availabilityZoneId;
+    private UndeferrableValue<String> availabilityZoneId;
 
-
+    public String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("Subnet.availabilityZoneId");
+    }
 
     /**
      * The IPv4 CIDR block for the subnet.
      * 
      */
-    public String cidrBlock;
+    private @Nullable UndeferrableValue<String> cidrBlock;
 
-
+    public @Nullable String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("Subnet.cidrBlock");
+    }
 
     /**
      * The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
      * 
      */
-    public String customerOwnedIpv4Pool;
+    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
 
-
+    public @Nullable String customerOwnedIpv4Pool() {
+        if (customerOwnedIpv4Pool == null) return null;
+        return customerOwnedIpv4Pool.getValue("Subnet.customerOwnedIpv4Pool");
+    }
 
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      * 
      */
-    public Boolean enableDns64;
+    private @Nullable UndeferrableValue<Boolean> enableDns64;
 
-
+    public @Nullable Boolean enableDns64() {
+        if (enableDns64 == null) return null;
+        return enableDns64.getValue("Subnet.enableDns64");
+    }
 
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      * 
      */
-    public Integer enableLniAtDeviceIndex;
+    private @Nullable UndeferrableValue<Integer> enableLniAtDeviceIndex;
 
-
+    public @Nullable Integer enableLniAtDeviceIndex() {
+        if (enableLniAtDeviceIndex == null) return null;
+        return enableLniAtDeviceIndex.getValue("Subnet.enableLniAtDeviceIndex");
+    }
 
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      * 
      */
-    public Boolean enableResourceNameDnsARecordOnLaunch;
+    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsARecordOnLaunch;
 
-
+    public @Nullable Boolean enableResourceNameDnsARecordOnLaunch() {
+        if (enableResourceNameDnsARecordOnLaunch == null) return null;
+        return enableResourceNameDnsARecordOnLaunch.getValue("Subnet.enableResourceNameDnsARecordOnLaunch");
+    }
 
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      * 
      */
-    public Boolean enableResourceNameDnsAaaaRecordOnLaunch;
+    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsAaaaRecordOnLaunch;
 
-
+    public @Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch() {
+        if (enableResourceNameDnsAaaaRecordOnLaunch == null) return null;
+        return enableResourceNameDnsAaaaRecordOnLaunch.getValue("Subnet.enableResourceNameDnsAaaaRecordOnLaunch");
+    }
 
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      * 
      */
-    public String ipv6CidrBlock;
+    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
 
-
+    public @Nullable String ipv6CidrBlock() {
+        if (ipv6CidrBlock == null) return null;
+        return ipv6CidrBlock.getValue("Subnet.ipv6CidrBlock");
+    }
 
     /**
      * The association ID for the IPv6 CIDR block.
      * 
      */
-    public String ipv6CidrBlockAssociationId;
+    private UndeferrableValue<String> ipv6CidrBlockAssociationId;
 
-
+    public String ipv6CidrBlockAssociationId() {
+        if (ipv6CidrBlockAssociationId == null) return null;
+        return ipv6CidrBlockAssociationId.getValue("Subnet.ipv6CidrBlockAssociationId");
+    }
 
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      * 
      */
-    public Boolean ipv6Native;
+    private @Nullable UndeferrableValue<Boolean> ipv6Native;
 
-
+    public @Nullable Boolean ipv6Native() {
+        if (ipv6Native == null) return null;
+        return ipv6Native.getValue("Subnet.ipv6Native");
+    }
 
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
-    public Boolean mapCustomerOwnedIpOnLaunch;
+    private @Nullable UndeferrableValue<Boolean> mapCustomerOwnedIpOnLaunch;
 
-
+    public @Nullable Boolean mapCustomerOwnedIpOnLaunch() {
+        if (mapCustomerOwnedIpOnLaunch == null) return null;
+        return mapCustomerOwnedIpOnLaunch.getValue("Subnet.mapCustomerOwnedIpOnLaunch");
+    }
 
     /**
      * Specify true to indicate
@@ -134,41 +178,56 @@ public final class Subnet extends com.pulumi.resources.PolicyResource {
      * a public IP address. Default is `false`.
      * 
      */
-    public Boolean mapPublicIpOnLaunch;
+    private @Nullable UndeferrableValue<Boolean> mapPublicIpOnLaunch;
 
-
+    public @Nullable Boolean mapPublicIpOnLaunch() {
+        if (mapPublicIpOnLaunch == null) return null;
+        return mapPublicIpOnLaunch.getValue("Subnet.mapPublicIpOnLaunch");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    public String outpostArn;
+    private @Nullable UndeferrableValue<String> outpostArn;
 
-
+    public @Nullable String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("Subnet.outpostArn");
+    }
 
     /**
      * The ID of the AWS account that owns the subnet.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("Subnet.ownerId");
+    }
 
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      * 
      */
-    public String privateDnsHostnameTypeOnLaunch;
+    private UndeferrableValue<String> privateDnsHostnameTypeOnLaunch;
 
-
+    public String privateDnsHostnameTypeOnLaunch() {
+        if (privateDnsHostnameTypeOnLaunch == null) return null;
+        return privateDnsHostnameTypeOnLaunch.getValue("Subnet.privateDnsHostnameTypeOnLaunch");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Subnet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -178,16 +237,22 @@ public final class Subnet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Subnet.tagsAll");
+    }
 
     /**
      * The VPC ID.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Subnet.vpcId");
+    }
 
 }

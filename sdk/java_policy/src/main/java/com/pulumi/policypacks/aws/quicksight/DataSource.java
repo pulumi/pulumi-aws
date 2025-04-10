@@ -3,91 +3,120 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.DataSourceCredentials;
-import com.pulumi.policypacks.aws.quicksight.DataSourceParameters;
-import com.pulumi.policypacks.aws.quicksight.DataSourcePermission;
-import com.pulumi.policypacks.aws.quicksight.DataSourceSslProperties;
-import com.pulumi.policypacks.aws.quicksight.DataSourceVpcConnectionProperties;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceCredentials;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceParameters;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSourcePermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceSslProperties;
+import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceVpcConnectionProperties;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/dataSource:DataSource")
-public final class DataSource extends com.pulumi.resources.PolicyResource {
+public final class DataSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the data source
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataSource.arn");
+    }
 
     /**
      * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("DataSource.awsAccountId");
+    }
 
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
-    public DataSourceCredentials credentials;
+    private @Nullable UndeferrableValue<DataSourceCredentials> credentials;
 
-
+    public @Nullable DataSourceCredentials credentials() {
+        if (credentials == null) return null;
+        return credentials.getValue("DataSource.credentials");
+    }
 
     /**
      * An identifier for the data source.
      * 
      */
-    public String dataSourceId;
+    private UndeferrableValue<String> dataSourceId;
 
-
+    public String dataSourceId() {
+        if (dataSourceId == null) return null;
+        return dataSourceId.getValue("DataSource.dataSourceId");
+    }
 
     /**
      * A name for the data source, maximum of 128 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataSource.name");
+    }
 
     /**
      * The parameters used to connect to this data source (exactly one).
      * 
      */
-    public DataSourceParameters parameters;
+    private UndeferrableValue<DataSourceParameters> parameters;
 
-
+    public DataSourceParameters parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("DataSource.parameters");
+    }
 
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      * 
      */
-    public List<DataSourcePermission> permissions;
+    private @Nullable UndeferrableValue<List<DataSourcePermission>> permissions;
 
-
+    public @Nullable List<DataSourcePermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("DataSource.permissions");
+    }
 
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
-    public DataSourceSslProperties sslProperties;
+    private UndeferrableValue<DataSourceSslProperties> sslProperties;
 
-
+    public DataSourceSslProperties sslProperties() {
+        if (sslProperties == null) return null;
+        return sslProperties.getValue("DataSource.sslProperties");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataSource.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -97,9 +126,12 @@ public final class DataSource extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataSource.tagsAll");
+    }
 
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
@@ -107,16 +139,22 @@ public final class DataSource extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DataSource.type");
+    }
 
     /**
      * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
      * 
      */
-    public DataSourceVpcConnectionProperties vpcConnectionProperties;
+    private @Nullable UndeferrableValue<DataSourceVpcConnectionProperties> vpcConnectionProperties;
 
-
+    public @Nullable DataSourceVpcConnectionProperties vpcConnectionProperties() {
+        if (vpcConnectionProperties == null) return null;
+        return vpcConnectionProperties.getValue("DataSource.vpcConnectionProperties");
+    }
 
 }

@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.fms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:fms/adminAccount:AdminAccount")
-public final class AdminAccount extends com.pulumi.resources.PolicyResource {
+public final class AdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AdminAccount.accountId");
+    }
 
 }

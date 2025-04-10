@@ -3,195 +3,263 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.ClusterAccessConfig;
-import com.pulumi.policypacks.aws.eks.ClusterCertificateAuthority;
-import com.pulumi.policypacks.aws.eks.ClusterComputeConfig;
-import com.pulumi.policypacks.aws.eks.ClusterEncryptionConfig;
-import com.pulumi.policypacks.aws.eks.ClusterIdentity;
-import com.pulumi.policypacks.aws.eks.ClusterKubernetesNetworkConfig;
-import com.pulumi.policypacks.aws.eks.ClusterOutpostConfig;
-import com.pulumi.policypacks.aws.eks.ClusterRemoteNetworkConfig;
-import com.pulumi.policypacks.aws.eks.ClusterStorageConfig;
-import com.pulumi.policypacks.aws.eks.ClusterUpgradePolicy;
-import com.pulumi.policypacks.aws.eks.ClusterVpcConfig;
-import com.pulumi.policypacks.aws.eks.ClusterZonalShiftConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterAccessConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterCertificateAuthority;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterComputeConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterEncryptionConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterIdentity;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterKubernetesNetworkConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterOutpostConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterRemoteNetworkConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterStorageConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterUpgradePolicy;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterVpcConfig;
+import com.pulumi.policypacks.aws.eks.outputs.ClusterZonalShiftConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
-    public ClusterAccessConfig accessConfig;
+    private UndeferrableValue<ClusterAccessConfig> accessConfig;
 
-
+    public ClusterAccessConfig accessConfig() {
+        if (accessConfig == null) return null;
+        return accessConfig.getValue("Cluster.accessConfig");
+    }
 
     /**
      * ARN of the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      * 
      */
-    public Boolean bootstrapSelfManagedAddons;
+    private @Nullable UndeferrableValue<Boolean> bootstrapSelfManagedAddons;
 
+    public @Nullable Boolean bootstrapSelfManagedAddons() {
+        if (bootstrapSelfManagedAddons == null) return null;
+        return bootstrapSelfManagedAddons.getValue("Cluster.bootstrapSelfManagedAddons");
+    }
 
+    private UndeferrableValue<List<ClusterCertificateAuthority>> certificateAuthorities;
 
-    public List<ClusterCertificateAuthority> certificateAuthorities;
-
-
+    public List<ClusterCertificateAuthority> certificateAuthorities() {
+        if (certificateAuthorities == null) return null;
+        return certificateAuthorities.getValue("Cluster.certificateAuthorities");
+    }
 
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public ClusterCertificateAuthority certificateAuthority;
+    private UndeferrableValue<ClusterCertificateAuthority> certificateAuthority;
 
-
+    public ClusterCertificateAuthority certificateAuthority() {
+        if (certificateAuthority == null) return null;
+        return certificateAuthority.getValue("Cluster.certificateAuthority");
+    }
 
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("Cluster.clusterId");
+    }
 
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    public ClusterComputeConfig computeConfig;
+    private @Nullable UndeferrableValue<ClusterComputeConfig> computeConfig;
 
-
+    public @Nullable ClusterComputeConfig computeConfig() {
+        if (computeConfig == null) return null;
+        return computeConfig.getValue("Cluster.computeConfig");
+    }
 
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Cluster.createdAt");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> defaultAddonsToRemoves;
 
-    public List<String> defaultAddonsToRemoves;
-
-
+    public @Nullable List<String> defaultAddonsToRemoves() {
+        if (defaultAddonsToRemoves == null) return null;
+        return defaultAddonsToRemoves.getValue("Cluster.defaultAddonsToRemoves");
+    }
 
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
      */
-    public List<String> enabledClusterLogTypes;
+    private @Nullable UndeferrableValue<List<String>> enabledClusterLogTypes;
 
-
+    public @Nullable List<String> enabledClusterLogTypes() {
+        if (enabledClusterLogTypes == null) return null;
+        return enabledClusterLogTypes.getValue("Cluster.enabledClusterLogTypes");
+    }
 
     /**
      * Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
-    public ClusterEncryptionConfig encryptionConfig;
+    private @Nullable UndeferrableValue<ClusterEncryptionConfig> encryptionConfig;
 
-
+    public @Nullable ClusterEncryptionConfig encryptionConfig() {
+        if (encryptionConfig == null) return null;
+        return encryptionConfig.getValue("Cluster.encryptionConfig");
+    }
 
     /**
      * Endpoint for your Kubernetes API server.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Cluster.endpoint");
+    }
 
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      * 
      */
-    public List<ClusterIdentity> identities;
+    private UndeferrableValue<List<ClusterIdentity>> identities;
 
-
+    public List<ClusterIdentity> identities() {
+        if (identities == null) return null;
+        return identities.getValue("Cluster.identities");
+    }
 
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public ClusterKubernetesNetworkConfig kubernetesNetworkConfig;
+    private UndeferrableValue<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig;
 
-
+    public ClusterKubernetesNetworkConfig kubernetesNetworkConfig() {
+        if (kubernetesNetworkConfig == null) return null;
+        return kubernetesNetworkConfig.getValue("Cluster.kubernetesNetworkConfig");
+    }
 
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Cluster.name");
+    }
 
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
      * 
      */
-    public ClusterOutpostConfig outpostConfig;
+    private @Nullable UndeferrableValue<ClusterOutpostConfig> outpostConfig;
 
-
+    public @Nullable ClusterOutpostConfig outpostConfig() {
+        if (outpostConfig == null) return null;
+        return outpostConfig.getValue("Cluster.outpostConfig");
+    }
 
     /**
      * Platform version for the cluster.
      * 
      */
-    public String platformVersion;
+    private UndeferrableValue<String> platformVersion;
 
-
+    public String platformVersion() {
+        if (platformVersion == null) return null;
+        return platformVersion.getValue("Cluster.platformVersion");
+    }
 
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    public ClusterRemoteNetworkConfig remoteNetworkConfig;
+    private @Nullable UndeferrableValue<ClusterRemoteNetworkConfig> remoteNetworkConfig;
 
-
+    public @Nullable ClusterRemoteNetworkConfig remoteNetworkConfig() {
+        if (remoteNetworkConfig == null) return null;
+        return remoteNetworkConfig.getValue("Cluster.remoteNetworkConfig");
+    }
 
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Cluster.roleArn");
+    }
 
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Cluster.status");
+    }
 
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    public ClusterStorageConfig storageConfig;
+    private @Nullable UndeferrableValue<ClusterStorageConfig> storageConfig;
 
-
+    public @Nullable ClusterStorageConfig storageConfig() {
+        if (storageConfig == null) return null;
+        return storageConfig.getValue("Cluster.storageConfig");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -201,25 +269,34 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
      * 
      */
-    public ClusterUpgradePolicy upgradePolicy;
+    private UndeferrableValue<ClusterUpgradePolicy> upgradePolicy;
 
-
+    public ClusterUpgradePolicy upgradePolicy() {
+        if (upgradePolicy == null) return null;
+        return upgradePolicy.getValue("Cluster.upgradePolicy");
+    }
 
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Cluster.version");
+    }
 
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -227,16 +304,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ClusterVpcConfig vpcConfig;
+    private UndeferrableValue<ClusterVpcConfig> vpcConfig;
 
-
+    public ClusterVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Cluster.vpcConfig");
+    }
 
     /**
      * Configuration block with zonal shift configuration for the cluster. Detailed below.
      * 
      */
-    public ClusterZonalShiftConfig zonalShiftConfig;
+    private @Nullable UndeferrableValue<ClusterZonalShiftConfig> zonalShiftConfig;
 
-
+    public @Nullable ClusterZonalShiftConfig zonalShiftConfig() {
+        if (zonalShiftConfig == null) return null;
+        return zonalShiftConfig.getValue("Cluster.zonalShiftConfig");
+    }
 
 }

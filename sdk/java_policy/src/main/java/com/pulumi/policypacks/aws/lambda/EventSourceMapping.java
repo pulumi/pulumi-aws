@@ -3,274 +3,369 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingDestinationConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingDocumentDbEventSourceConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingFilterCriteria;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingMetricsConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingProvisionedPollerConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingScalingConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingSelfManagedEventSource;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig;
-import com.pulumi.policypacks.aws.lambda.EventSourceMappingSourceAccessConfiguration;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingDestinationConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingDocumentDbEventSourceConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingFilterCriteria;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingMetricsConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingProvisionedPollerConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingScalingConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingSelfManagedEventSource;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingSourceAccessConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/eventSourceMapping:EventSourceMapping")
-public final class EventSourceMapping extends com.pulumi.resources.PolicyResource {
+public final class EventSourceMapping extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    public EventSourceMappingAmazonManagedKafkaEventSourceConfig amazonManagedKafkaEventSourceConfig;
+    private UndeferrableValue<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
 
-
+    public EventSourceMappingAmazonManagedKafkaEventSourceConfig amazonManagedKafkaEventSourceConfig() {
+        if (amazonManagedKafkaEventSourceConfig == null) return null;
+        return amazonManagedKafkaEventSourceConfig.getValue("EventSourceMapping.amazonManagedKafkaEventSourceConfig");
+    }
 
     /**
      * The event source mapping ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventSourceMapping.arn");
+    }
 
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * 
      */
-    public Integer batchSize;
+    private @Nullable UndeferrableValue<Integer> batchSize;
 
-
+    public @Nullable Integer batchSize() {
+        if (batchSize == null) return null;
+        return batchSize.getValue("EventSourceMapping.batchSize");
+    }
 
     /**
      * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      * 
      */
-    public Boolean bisectBatchOnFunctionError;
+    private @Nullable UndeferrableValue<Boolean> bisectBatchOnFunctionError;
 
-
+    public @Nullable Boolean bisectBatchOnFunctionError() {
+        if (bisectBatchOnFunctionError == null) return null;
+        return bisectBatchOnFunctionError.getValue("EventSourceMapping.bisectBatchOnFunctionError");
+    }
 
     /**
      * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
-    public EventSourceMappingDestinationConfig destinationConfig;
+    private @Nullable UndeferrableValue<EventSourceMappingDestinationConfig> destinationConfig;
 
-
+    public @Nullable EventSourceMappingDestinationConfig destinationConfig() {
+        if (destinationConfig == null) return null;
+        return destinationConfig.getValue("EventSourceMapping.destinationConfig");
+    }
 
     /**
      * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
      * 
      */
-    public EventSourceMappingDocumentDbEventSourceConfig documentDbEventSourceConfig;
+    private @Nullable UndeferrableValue<EventSourceMappingDocumentDbEventSourceConfig> documentDbEventSourceConfig;
 
-
+    public @Nullable EventSourceMappingDocumentDbEventSourceConfig documentDbEventSourceConfig() {
+        if (documentDbEventSourceConfig == null) return null;
+        return documentDbEventSourceConfig.getValue("EventSourceMapping.documentDbEventSourceConfig");
+    }
 
     /**
      * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EventSourceMapping.enabled");
+    }
 
     /**
      * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
-    public String eventSourceArn;
+    private @Nullable UndeferrableValue<String> eventSourceArn;
 
-
+    public @Nullable String eventSourceArn() {
+        if (eventSourceArn == null) return null;
+        return eventSourceArn.getValue("EventSourceMapping.eventSourceArn");
+    }
 
     /**
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      * 
      */
-    public EventSourceMappingFilterCriteria filterCriteria;
+    private @Nullable UndeferrableValue<EventSourceMappingFilterCriteria> filterCriteria;
 
-
+    public @Nullable EventSourceMappingFilterCriteria filterCriteria() {
+        if (filterCriteria == null) return null;
+        return filterCriteria.getValue("EventSourceMapping.filterCriteria");
+    }
 
     /**
      * The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
-    public String functionArn;
+    private UndeferrableValue<String> functionArn;
 
-
+    public String functionArn() {
+        if (functionArn == null) return null;
+        return functionArn.getValue("EventSourceMapping.functionArn");
+    }
 
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("EventSourceMapping.functionName");
+    }
 
     /**
      * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      * 
      */
-    public List<String> functionResponseTypes;
+    private @Nullable UndeferrableValue<List<String>> functionResponseTypes;
 
-
+    public @Nullable List<String> functionResponseTypes() {
+        if (functionResponseTypes == null) return null;
+        return functionResponseTypes.getValue("EventSourceMapping.functionResponseTypes");
+    }
 
     /**
      * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("EventSourceMapping.kmsKeyArn");
+    }
 
     /**
      * The date this resource was last modified.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("EventSourceMapping.lastModified");
+    }
 
     /**
      * The result of the last AWS Lambda invocation of your Lambda function.
      * 
      */
-    public String lastProcessingResult;
+    private UndeferrableValue<String> lastProcessingResult;
 
-
+    public String lastProcessingResult() {
+        if (lastProcessingResult == null) return null;
+        return lastProcessingResult.getValue("EventSourceMapping.lastProcessingResult");
+    }
 
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      * 
      */
-    public Integer maximumBatchingWindowInSeconds;
+    private @Nullable UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
 
-
+    public @Nullable Integer maximumBatchingWindowInSeconds() {
+        if (maximumBatchingWindowInSeconds == null) return null;
+        return maximumBatchingWindowInSeconds.getValue("EventSourceMapping.maximumBatchingWindowInSeconds");
+    }
 
     /**
      * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      * 
      */
-    public Integer maximumRecordAgeInSeconds;
+    private UndeferrableValue<Integer> maximumRecordAgeInSeconds;
 
-
+    public Integer maximumRecordAgeInSeconds() {
+        if (maximumRecordAgeInSeconds == null) return null;
+        return maximumRecordAgeInSeconds.getValue("EventSourceMapping.maximumRecordAgeInSeconds");
+    }
 
     /**
      * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
-    public Integer maximumRetryAttempts;
+    private UndeferrableValue<Integer> maximumRetryAttempts;
 
-
+    public Integer maximumRetryAttempts() {
+        if (maximumRetryAttempts == null) return null;
+        return maximumRetryAttempts.getValue("EventSourceMapping.maximumRetryAttempts");
+    }
 
     /**
      * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
      * 
      */
-    public EventSourceMappingMetricsConfig metricsConfig;
+    private @Nullable UndeferrableValue<EventSourceMappingMetricsConfig> metricsConfig;
 
-
+    public @Nullable EventSourceMappingMetricsConfig metricsConfig() {
+        if (metricsConfig == null) return null;
+        return metricsConfig.getValue("EventSourceMapping.metricsConfig");
+    }
 
     /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
-    public Integer parallelizationFactor;
+    private UndeferrableValue<Integer> parallelizationFactor;
 
-
+    public Integer parallelizationFactor() {
+        if (parallelizationFactor == null) return null;
+        return parallelizationFactor.getValue("EventSourceMapping.parallelizationFactor");
+    }
 
     /**
      * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
      * 
      */
-    public EventSourceMappingProvisionedPollerConfig provisionedPollerConfig;
+    private @Nullable UndeferrableValue<EventSourceMappingProvisionedPollerConfig> provisionedPollerConfig;
 
-
+    public @Nullable EventSourceMappingProvisionedPollerConfig provisionedPollerConfig() {
+        if (provisionedPollerConfig == null) return null;
+        return provisionedPollerConfig.getValue("EventSourceMapping.provisionedPollerConfig");
+    }
 
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
-    public String queues;
+    private @Nullable UndeferrableValue<String> queues;
 
-
+    public @Nullable String queues() {
+        if (queues == null) return null;
+        return queues.getValue("EventSourceMapping.queues");
+    }
 
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      * 
      */
-    public EventSourceMappingScalingConfig scalingConfig;
+    private @Nullable UndeferrableValue<EventSourceMappingScalingConfig> scalingConfig;
 
-
+    public @Nullable EventSourceMappingScalingConfig scalingConfig() {
+        if (scalingConfig == null) return null;
+        return scalingConfig.getValue("EventSourceMapping.scalingConfig");
+    }
 
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
-    public EventSourceMappingSelfManagedEventSource selfManagedEventSource;
+    private @Nullable UndeferrableValue<EventSourceMappingSelfManagedEventSource> selfManagedEventSource;
 
-
+    public @Nullable EventSourceMappingSelfManagedEventSource selfManagedEventSource() {
+        if (selfManagedEventSource == null) return null;
+        return selfManagedEventSource.getValue("EventSourceMapping.selfManagedEventSource");
+    }
 
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    public EventSourceMappingSelfManagedKafkaEventSourceConfig selfManagedKafkaEventSourceConfig;
+    private UndeferrableValue<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
 
-
+    public EventSourceMappingSelfManagedKafkaEventSourceConfig selfManagedKafkaEventSourceConfig() {
+        if (selfManagedKafkaEventSourceConfig == null) return null;
+        return selfManagedKafkaEventSourceConfig.getValue("EventSourceMapping.selfManagedKafkaEventSourceConfig");
+    }
 
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
-    public List<EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations;
+    private @Nullable UndeferrableValue<List<EventSourceMappingSourceAccessConfiguration>> sourceAccessConfigurations;
 
-
+    public @Nullable List<EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations() {
+        if (sourceAccessConfigurations == null) return null;
+        return sourceAccessConfigurations.getValue("EventSourceMapping.sourceAccessConfigurations");
+    }
 
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      * 
      */
-    public String startingPosition;
+    private @Nullable UndeferrableValue<String> startingPosition;
 
-
+    public @Nullable String startingPosition() {
+        if (startingPosition == null) return null;
+        return startingPosition.getValue("EventSourceMapping.startingPosition");
+    }
 
     /**
      * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      * 
      */
-    public String startingPositionTimestamp;
+    private @Nullable UndeferrableValue<String> startingPositionTimestamp;
 
-
+    public @Nullable String startingPositionTimestamp() {
+        if (startingPositionTimestamp == null) return null;
+        return startingPositionTimestamp.getValue("EventSourceMapping.startingPositionTimestamp");
+    }
 
     /**
      * The state of the event source mapping.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("EventSourceMapping.state");
+    }
 
     /**
      * The reason the event source mapping is in its current state.
      * 
      */
-    public String stateTransitionReason;
+    private UndeferrableValue<String> stateTransitionReason;
 
-
+    public String stateTransitionReason() {
+        if (stateTransitionReason == null) return null;
+        return stateTransitionReason.getValue("EventSourceMapping.stateTransitionReason");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventSourceMapping.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -280,32 +375,44 @@ public final class EventSourceMapping extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventSourceMapping.tagsAll");
+    }
 
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      * 
      */
-    public List<String> topics;
+    private @Nullable UndeferrableValue<List<String>> topics;
 
-
+    public @Nullable List<String> topics() {
+        if (topics == null) return null;
+        return topics.getValue("EventSourceMapping.topics");
+    }
 
     /**
      * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
      * 
      */
-    public Integer tumblingWindowInSeconds;
+    private @Nullable UndeferrableValue<Integer> tumblingWindowInSeconds;
 
-
+    public @Nullable Integer tumblingWindowInSeconds() {
+        if (tumblingWindowInSeconds == null) return null;
+        return tumblingWindowInSeconds.getValue("EventSourceMapping.tumblingWindowInSeconds");
+    }
 
     /**
      * The UUID of the created event source mapping.
      * 
      */
-    public String uuid;
+    private UndeferrableValue<String> uuid;
 
-
+    public String uuid() {
+        if (uuid == null) return null;
+        return uuid.getValue("EventSourceMapping.uuid");
+    }
 
 }

@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emrcontainers.JobTemplateJobTemplateData;
+import com.pulumi.policypacks.aws.emrcontainers.outputs.JobTemplateJobTemplateData;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emrcontainers/jobTemplate:JobTemplate")
-public final class JobTemplate extends com.pulumi.resources.PolicyResource {
+public final class JobTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the job template.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("JobTemplate.arn");
+    }
 
     /**
      * The job template data which holds values of StartJobRun API request.
      * 
      */
-    public JobTemplateJobTemplateData jobTemplateData;
+    private UndeferrableValue<JobTemplateJobTemplateData> jobTemplateData;
 
-
+    public JobTemplateJobTemplateData jobTemplateData() {
+        if (jobTemplateData == null) return null;
+        return jobTemplateData.getValue("JobTemplate.jobTemplateData");
+    }
 
     /**
      * The KMS key ARN used to encrypt the job template.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("JobTemplate.kmsKeyArn");
+    }
 
     /**
      * The specified name of the job template.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("JobTemplate.name");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("JobTemplate.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class JobTemplate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("JobTemplate.tagsAll");
+    }
 
 }

@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketCorsConfigurationV2CorsRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketCorsConfigurationV2CorsRule;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")
-public final class BucketCorsConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketCorsConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketCorsConfigurationV2.bucket");
+    }
 
     /**
      * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
-    public List<BucketCorsConfigurationV2CorsRule> corsRules;
+    private UndeferrableValue<List<BucketCorsConfigurationV2CorsRule>> corsRules;
 
-
+    public List<BucketCorsConfigurationV2CorsRule> corsRules() {
+        if (corsRules == null) return null;
+        return corsRules.getValue("BucketCorsConfigurationV2.corsRules");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketCorsConfigurationV2.expectedBucketOwner");
+    }
 
 }

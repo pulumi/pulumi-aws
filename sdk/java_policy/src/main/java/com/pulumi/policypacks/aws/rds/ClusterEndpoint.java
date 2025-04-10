@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/clusterEndpoint:ClusterEndpoint")
-public final class ClusterEndpoint extends com.pulumi.resources.PolicyResource {
+public final class ClusterEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ClusterEndpoint.arn");
+    }
 
     /**
      * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
-    public String clusterEndpointIdentifier;
+    private UndeferrableValue<String> clusterEndpointIdentifier;
 
-
+    public String clusterEndpointIdentifier() {
+        if (clusterEndpointIdentifier == null) return null;
+        return clusterEndpointIdentifier.getValue("ClusterEndpoint.clusterEndpointIdentifier");
+    }
 
     /**
      * The cluster identifier.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterEndpoint.clusterIdentifier");
+    }
 
     /**
      * The type of the endpoint. One of: READER , ANY .
      * 
      */
-    public String customEndpointType;
+    private UndeferrableValue<String> customEndpointType;
 
-
+    public String customEndpointType() {
+        if (customEndpointType == null) return null;
+        return customEndpointType.getValue("ClusterEndpoint.customEndpointType");
+    }
 
     /**
      * A custom endpoint for the Aurora cluster
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ClusterEndpoint.endpoint");
+    }
 
     /**
      * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
      * 
      */
-    public List<String> excludedMembers;
+    private @Nullable UndeferrableValue<List<String>> excludedMembers;
 
-
+    public @Nullable List<String> excludedMembers() {
+        if (excludedMembers == null) return null;
+        return excludedMembers.getValue("ClusterEndpoint.excludedMembers");
+    }
 
     /**
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
      * 
      */
-    public List<String> staticMembers;
+    private @Nullable UndeferrableValue<List<String>> staticMembers;
 
-
+    public @Nullable List<String> staticMembers() {
+        if (staticMembers == null) return null;
+        return staticMembers.getValue("ClusterEndpoint.staticMembers");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterEndpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,8 +110,11 @@ public final class ClusterEndpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterEndpoint.tagsAll");
+    }
 
 }

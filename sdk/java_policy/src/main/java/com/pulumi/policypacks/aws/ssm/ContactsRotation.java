@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.ContactsRotationRecurrence;
+import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrence;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/contactsRotation:ContactsRotation")
-public final class ContactsRotation extends com.pulumi.resources.PolicyResource {
+public final class ContactsRotation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the rotation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContactsRotation.arn");
+    }
 
     /**
      * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
-    public List<String> contactIds;
+    private UndeferrableValue<List<String>> contactIds;
 
-
+    public List<String> contactIds() {
+        if (contactIds == null) return null;
+        return contactIds.getValue("ContactsRotation.contactIds");
+    }
 
     /**
      * The name for the rotation.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ContactsRotation.name");
+    }
 
     /**
      * Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
@@ -43,25 +54,34 @@ public final class ContactsRotation extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public ContactsRotationRecurrence recurrence;
+    private @Nullable UndeferrableValue<ContactsRotationRecurrence> recurrence;
 
-
+    public @Nullable ContactsRotationRecurrence recurrence() {
+        if (recurrence == null) return null;
+        return recurrence.getValue("ContactsRotation.recurrence");
+    }
 
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      * 
      */
-    public String startTime;
+    private @Nullable UndeferrableValue<String> startTime;
 
-
+    public @Nullable String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("ContactsRotation.startTime");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContactsRotation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,16 +91,22 @@ public final class ContactsRotation extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContactsRotation.tagsAll");
+    }
 
     /**
      * The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
      * 
      */
-    public String timeZoneId;
+    private UndeferrableValue<String> timeZoneId;
 
-
+    public String timeZoneId() {
+        if (timeZoneId == null) return null;
+        return timeZoneId.getValue("ContactsRotation.timeZoneId");
+    }
 
 }

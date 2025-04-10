@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/userGroupMembership:UserGroupMembership")
-public final class UserGroupMembership extends com.pulumi.resources.PolicyResource {
+public final class UserGroupMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of IAM Groups to add the user to
      * 
      */
-    public List<String> groups;
+    private UndeferrableValue<List<String>> groups;
 
-
+    public List<String> groups() {
+        if (groups == null) return null;
+        return groups.getValue("UserGroupMembership.groups");
+    }
 
     /**
      * The name of the IAM User to add to groups
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("UserGroupMembership.user");
+    }
 
 }

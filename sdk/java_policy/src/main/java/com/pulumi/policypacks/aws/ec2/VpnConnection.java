@@ -3,132 +3,176 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpnConnectionRoute;
-import com.pulumi.policypacks.aws.ec2.VpnConnectionTunnel1LogOptions;
-import com.pulumi.policypacks.aws.ec2.VpnConnectionTunnel2LogOptions;
-import com.pulumi.policypacks.aws.ec2.VpnConnectionVgwTelemetry;
+import com.pulumi.policypacks.aws.ec2.outputs.VpnConnectionRoute;
+import com.pulumi.policypacks.aws.ec2.outputs.VpnConnectionTunnel1LogOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.VpnConnectionTunnel2LogOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.VpnConnectionVgwTelemetry;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpnConnection:VpnConnection")
-public final class VpnConnection extends com.pulumi.resources.PolicyResource {
+public final class VpnConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the VPN Connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpnConnection.arn");
+    }
 
     /**
      * The ARN of the core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("VpnConnection.coreNetworkArn");
+    }
 
     /**
      * The ARN of the core network attachment.
      * 
      */
-    public String coreNetworkAttachmentArn;
+    private UndeferrableValue<String> coreNetworkAttachmentArn;
 
-
+    public String coreNetworkAttachmentArn() {
+        if (coreNetworkAttachmentArn == null) return null;
+        return coreNetworkAttachmentArn.getValue("VpnConnection.coreNetworkAttachmentArn");
+    }
 
     /**
      * The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
-    public String customerGatewayConfiguration;
+    private UndeferrableValue<String> customerGatewayConfiguration;
 
-
+    public String customerGatewayConfiguration() {
+        if (customerGatewayConfiguration == null) return null;
+        return customerGatewayConfiguration.getValue("VpnConnection.customerGatewayConfiguration");
+    }
 
     /**
      * The ID of the customer gateway.
      * 
      */
-    public String customerGatewayId;
+    private UndeferrableValue<String> customerGatewayId;
 
-
+    public String customerGatewayId() {
+        if (customerGatewayId == null) return null;
+        return customerGatewayId.getValue("VpnConnection.customerGatewayId");
+    }
 
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
-    public Boolean enableAcceleration;
+    private UndeferrableValue<Boolean> enableAcceleration;
 
-
+    public Boolean enableAcceleration() {
+        if (enableAcceleration == null) return null;
+        return enableAcceleration.getValue("VpnConnection.enableAcceleration");
+    }
 
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    public String localIpv4NetworkCidr;
+    private UndeferrableValue<String> localIpv4NetworkCidr;
 
-
+    public String localIpv4NetworkCidr() {
+        if (localIpv4NetworkCidr == null) return null;
+        return localIpv4NetworkCidr.getValue("VpnConnection.localIpv4NetworkCidr");
+    }
 
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    public String localIpv6NetworkCidr;
+    private UndeferrableValue<String> localIpv6NetworkCidr;
 
-
+    public String localIpv6NetworkCidr() {
+        if (localIpv6NetworkCidr == null) return null;
+        return localIpv6NetworkCidr.getValue("VpnConnection.localIpv6NetworkCidr");
+    }
 
     /**
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      * 
      */
-    public String outsideIpAddressType;
+    private UndeferrableValue<String> outsideIpAddressType;
 
-
+    public String outsideIpAddressType() {
+        if (outsideIpAddressType == null) return null;
+        return outsideIpAddressType.getValue("VpnConnection.outsideIpAddressType");
+    }
 
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
-    public String remoteIpv4NetworkCidr;
+    private UndeferrableValue<String> remoteIpv4NetworkCidr;
 
-
+    public String remoteIpv4NetworkCidr() {
+        if (remoteIpv4NetworkCidr == null) return null;
+        return remoteIpv4NetworkCidr.getValue("VpnConnection.remoteIpv4NetworkCidr");
+    }
 
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
-    public String remoteIpv6NetworkCidr;
+    private UndeferrableValue<String> remoteIpv6NetworkCidr;
 
-
+    public String remoteIpv6NetworkCidr() {
+        if (remoteIpv6NetworkCidr == null) return null;
+        return remoteIpv6NetworkCidr.getValue("VpnConnection.remoteIpv6NetworkCidr");
+    }
 
     /**
      * The static routes associated with the VPN connection. Detailed below.
      * 
      */
-    public List<VpnConnectionRoute> routes;
+    private UndeferrableValue<List<VpnConnectionRoute>> routes;
 
-
+    public List<VpnConnectionRoute> routes() {
+        if (routes == null) return null;
+        return routes.getValue("VpnConnection.routes");
+    }
 
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don&#39;t support BGP.
      * 
      */
-    public Boolean staticRoutesOnly;
+    private UndeferrableValue<Boolean> staticRoutesOnly;
 
-
+    public Boolean staticRoutesOnly() {
+        if (staticRoutesOnly == null) return null;
+        return staticRoutesOnly.getValue("VpnConnection.staticRoutesOnly");
+    }
 
     /**
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpnConnection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -138,464 +182,638 @@ public final class VpnConnection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpnConnection.tagsAll");
+    }
 
     /**
      * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("VpnConnection.transitGatewayAttachmentId");
+    }
 
     /**
      * The ID of the EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private @Nullable UndeferrableValue<String> transitGatewayId;
 
-
+    public @Nullable String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("VpnConnection.transitGatewayId");
+    }
 
     /**
      * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
      * 
      */
-    public String transportTransitGatewayAttachmentId;
+    private @Nullable UndeferrableValue<String> transportTransitGatewayAttachmentId;
 
-
+    public @Nullable String transportTransitGatewayAttachmentId() {
+        if (transportTransitGatewayAttachmentId == null) return null;
+        return transportTransitGatewayAttachmentId.getValue("VpnConnection.transportTransitGatewayAttachmentId");
+    }
 
     /**
      * The public IP address of the first VPN tunnel.
      * 
      */
-    public String tunnel1Address;
+    private UndeferrableValue<String> tunnel1Address;
 
-
+    public String tunnel1Address() {
+        if (tunnel1Address == null) return null;
+        return tunnel1Address.getValue("VpnConnection.tunnel1Address");
+    }
 
     /**
      * The bgp asn number of the first VPN tunnel.
      * 
      */
-    public String tunnel1BgpAsn;
+    private UndeferrableValue<String> tunnel1BgpAsn;
 
-
+    public String tunnel1BgpAsn() {
+        if (tunnel1BgpAsn == null) return null;
+        return tunnel1BgpAsn.getValue("VpnConnection.tunnel1BgpAsn");
+    }
 
     /**
      * The bgp holdtime of the first VPN tunnel.
      * 
      */
-    public Integer tunnel1BgpHoldtime;
+    private UndeferrableValue<Integer> tunnel1BgpHoldtime;
 
-
+    public Integer tunnel1BgpHoldtime() {
+        if (tunnel1BgpHoldtime == null) return null;
+        return tunnel1BgpHoldtime.getValue("VpnConnection.tunnel1BgpHoldtime");
+    }
 
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
-    public String tunnel1CgwInsideAddress;
+    private UndeferrableValue<String> tunnel1CgwInsideAddress;
 
-
+    public String tunnel1CgwInsideAddress() {
+        if (tunnel1CgwInsideAddress == null) return null;
+        return tunnel1CgwInsideAddress.getValue("VpnConnection.tunnel1CgwInsideAddress");
+    }
 
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    public String tunnel1DpdTimeoutAction;
+    private @Nullable UndeferrableValue<String> tunnel1DpdTimeoutAction;
 
-
+    public @Nullable String tunnel1DpdTimeoutAction() {
+        if (tunnel1DpdTimeoutAction == null) return null;
+        return tunnel1DpdTimeoutAction.getValue("VpnConnection.tunnel1DpdTimeoutAction");
+    }
 
     /**
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    public Integer tunnel1DpdTimeoutSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel1DpdTimeoutSeconds;
 
-
+    public @Nullable Integer tunnel1DpdTimeoutSeconds() {
+        if (tunnel1DpdTimeoutSeconds == null) return null;
+        return tunnel1DpdTimeoutSeconds.getValue("VpnConnection.tunnel1DpdTimeoutSeconds");
+    }
 
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
-    public Boolean tunnel1EnableTunnelLifecycleControl;
+    private @Nullable UndeferrableValue<Boolean> tunnel1EnableTunnelLifecycleControl;
 
-
+    public @Nullable Boolean tunnel1EnableTunnelLifecycleControl() {
+        if (tunnel1EnableTunnelLifecycleControl == null) return null;
+        return tunnel1EnableTunnelLifecycleControl.getValue("VpnConnection.tunnel1EnableTunnelLifecycleControl");
+    }
 
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    public List<String> tunnel1IkeVersions;
+    private @Nullable UndeferrableValue<List<String>> tunnel1IkeVersions;
 
-
+    public @Nullable List<String> tunnel1IkeVersions() {
+        if (tunnel1IkeVersions == null) return null;
+        return tunnel1IkeVersions.getValue("VpnConnection.tunnel1IkeVersions");
+    }
 
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    public String tunnel1InsideCidr;
+    private UndeferrableValue<String> tunnel1InsideCidr;
 
-
+    public String tunnel1InsideCidr() {
+        if (tunnel1InsideCidr == null) return null;
+        return tunnel1InsideCidr.getValue("VpnConnection.tunnel1InsideCidr");
+    }
 
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    public String tunnel1InsideIpv6Cidr;
+    private UndeferrableValue<String> tunnel1InsideIpv6Cidr;
 
-
+    public String tunnel1InsideIpv6Cidr() {
+        if (tunnel1InsideIpv6Cidr == null) return null;
+        return tunnel1InsideIpv6Cidr.getValue("VpnConnection.tunnel1InsideIpv6Cidr");
+    }
 
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    public VpnConnectionTunnel1LogOptions tunnel1LogOptions;
+    private UndeferrableValue<VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
 
-
+    public VpnConnectionTunnel1LogOptions tunnel1LogOptions() {
+        if (tunnel1LogOptions == null) return null;
+        return tunnel1LogOptions.getValue("VpnConnection.tunnel1LogOptions");
+    }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    public List<Integer> tunnel1Phase1DhGroupNumbers;
+    private @Nullable UndeferrableValue<List<Integer>> tunnel1Phase1DhGroupNumbers;
 
-
+    public @Nullable List<Integer> tunnel1Phase1DhGroupNumbers() {
+        if (tunnel1Phase1DhGroupNumbers == null) return null;
+        return tunnel1Phase1DhGroupNumbers.getValue("VpnConnection.tunnel1Phase1DhGroupNumbers");
+    }
 
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    public List<String> tunnel1Phase1EncryptionAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel1Phase1EncryptionAlgorithms;
 
-
+    public @Nullable List<String> tunnel1Phase1EncryptionAlgorithms() {
+        if (tunnel1Phase1EncryptionAlgorithms == null) return null;
+        return tunnel1Phase1EncryptionAlgorithms.getValue("VpnConnection.tunnel1Phase1EncryptionAlgorithms");
+    }
 
     /**
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    public List<String> tunnel1Phase1IntegrityAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel1Phase1IntegrityAlgorithms;
 
-
+    public @Nullable List<String> tunnel1Phase1IntegrityAlgorithms() {
+        if (tunnel1Phase1IntegrityAlgorithms == null) return null;
+        return tunnel1Phase1IntegrityAlgorithms.getValue("VpnConnection.tunnel1Phase1IntegrityAlgorithms");
+    }
 
     /**
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    public Integer tunnel1Phase1LifetimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel1Phase1LifetimeSeconds;
 
-
+    public @Nullable Integer tunnel1Phase1LifetimeSeconds() {
+        if (tunnel1Phase1LifetimeSeconds == null) return null;
+        return tunnel1Phase1LifetimeSeconds.getValue("VpnConnection.tunnel1Phase1LifetimeSeconds");
+    }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    public List<Integer> tunnel1Phase2DhGroupNumbers;
+    private @Nullable UndeferrableValue<List<Integer>> tunnel1Phase2DhGroupNumbers;
 
-
+    public @Nullable List<Integer> tunnel1Phase2DhGroupNumbers() {
+        if (tunnel1Phase2DhGroupNumbers == null) return null;
+        return tunnel1Phase2DhGroupNumbers.getValue("VpnConnection.tunnel1Phase2DhGroupNumbers");
+    }
 
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    public List<String> tunnel1Phase2EncryptionAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel1Phase2EncryptionAlgorithms;
 
-
+    public @Nullable List<String> tunnel1Phase2EncryptionAlgorithms() {
+        if (tunnel1Phase2EncryptionAlgorithms == null) return null;
+        return tunnel1Phase2EncryptionAlgorithms.getValue("VpnConnection.tunnel1Phase2EncryptionAlgorithms");
+    }
 
     /**
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    public List<String> tunnel1Phase2IntegrityAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel1Phase2IntegrityAlgorithms;
 
-
+    public @Nullable List<String> tunnel1Phase2IntegrityAlgorithms() {
+        if (tunnel1Phase2IntegrityAlgorithms == null) return null;
+        return tunnel1Phase2IntegrityAlgorithms.getValue("VpnConnection.tunnel1Phase2IntegrityAlgorithms");
+    }
 
     /**
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    public Integer tunnel1Phase2LifetimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel1Phase2LifetimeSeconds;
 
-
+    public @Nullable Integer tunnel1Phase2LifetimeSeconds() {
+        if (tunnel1Phase2LifetimeSeconds == null) return null;
+        return tunnel1Phase2LifetimeSeconds.getValue("VpnConnection.tunnel1Phase2LifetimeSeconds");
+    }
 
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    public String tunnel1PresharedKey;
+    private UndeferrableValue<String> tunnel1PresharedKey;
 
-
+    public String tunnel1PresharedKey() {
+        if (tunnel1PresharedKey == null) return null;
+        return tunnel1PresharedKey.getValue("VpnConnection.tunnel1PresharedKey");
+    }
 
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    public Integer tunnel1RekeyFuzzPercentage;
+    private @Nullable UndeferrableValue<Integer> tunnel1RekeyFuzzPercentage;
 
-
+    public @Nullable Integer tunnel1RekeyFuzzPercentage() {
+        if (tunnel1RekeyFuzzPercentage == null) return null;
+        return tunnel1RekeyFuzzPercentage.getValue("VpnConnection.tunnel1RekeyFuzzPercentage");
+    }
 
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
      * 
      */
-    public Integer tunnel1RekeyMarginTimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel1RekeyMarginTimeSeconds;
 
-
+    public @Nullable Integer tunnel1RekeyMarginTimeSeconds() {
+        if (tunnel1RekeyMarginTimeSeconds == null) return null;
+        return tunnel1RekeyMarginTimeSeconds.getValue("VpnConnection.tunnel1RekeyMarginTimeSeconds");
+    }
 
     /**
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    public Integer tunnel1ReplayWindowSize;
+    private @Nullable UndeferrableValue<Integer> tunnel1ReplayWindowSize;
 
-
+    public @Nullable Integer tunnel1ReplayWindowSize() {
+        if (tunnel1ReplayWindowSize == null) return null;
+        return tunnel1ReplayWindowSize.getValue("VpnConnection.tunnel1ReplayWindowSize");
+    }
 
     /**
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    public String tunnel1StartupAction;
+    private @Nullable UndeferrableValue<String> tunnel1StartupAction;
 
-
+    public @Nullable String tunnel1StartupAction() {
+        if (tunnel1StartupAction == null) return null;
+        return tunnel1StartupAction.getValue("VpnConnection.tunnel1StartupAction");
+    }
 
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      * 
      */
-    public String tunnel1VgwInsideAddress;
+    private UndeferrableValue<String> tunnel1VgwInsideAddress;
 
-
+    public String tunnel1VgwInsideAddress() {
+        if (tunnel1VgwInsideAddress == null) return null;
+        return tunnel1VgwInsideAddress.getValue("VpnConnection.tunnel1VgwInsideAddress");
+    }
 
     /**
      * The public IP address of the second VPN tunnel.
      * 
      */
-    public String tunnel2Address;
+    private UndeferrableValue<String> tunnel2Address;
 
-
+    public String tunnel2Address() {
+        if (tunnel2Address == null) return null;
+        return tunnel2Address.getValue("VpnConnection.tunnel2Address");
+    }
 
     /**
      * The bgp asn number of the second VPN tunnel.
      * 
      */
-    public String tunnel2BgpAsn;
+    private UndeferrableValue<String> tunnel2BgpAsn;
 
-
+    public String tunnel2BgpAsn() {
+        if (tunnel2BgpAsn == null) return null;
+        return tunnel2BgpAsn.getValue("VpnConnection.tunnel2BgpAsn");
+    }
 
     /**
      * The bgp holdtime of the second VPN tunnel.
      * 
      */
-    public Integer tunnel2BgpHoldtime;
+    private UndeferrableValue<Integer> tunnel2BgpHoldtime;
 
-
+    public Integer tunnel2BgpHoldtime() {
+        if (tunnel2BgpHoldtime == null) return null;
+        return tunnel2BgpHoldtime.getValue("VpnConnection.tunnel2BgpHoldtime");
+    }
 
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
-    public String tunnel2CgwInsideAddress;
+    private UndeferrableValue<String> tunnel2CgwInsideAddress;
 
-
+    public String tunnel2CgwInsideAddress() {
+        if (tunnel2CgwInsideAddress == null) return null;
+        return tunnel2CgwInsideAddress.getValue("VpnConnection.tunnel2CgwInsideAddress");
+    }
 
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    public String tunnel2DpdTimeoutAction;
+    private @Nullable UndeferrableValue<String> tunnel2DpdTimeoutAction;
 
-
+    public @Nullable String tunnel2DpdTimeoutAction() {
+        if (tunnel2DpdTimeoutAction == null) return null;
+        return tunnel2DpdTimeoutAction.getValue("VpnConnection.tunnel2DpdTimeoutAction");
+    }
 
     /**
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    public Integer tunnel2DpdTimeoutSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel2DpdTimeoutSeconds;
 
-
+    public @Nullable Integer tunnel2DpdTimeoutSeconds() {
+        if (tunnel2DpdTimeoutSeconds == null) return null;
+        return tunnel2DpdTimeoutSeconds.getValue("VpnConnection.tunnel2DpdTimeoutSeconds");
+    }
 
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
-    public Boolean tunnel2EnableTunnelLifecycleControl;
+    private @Nullable UndeferrableValue<Boolean> tunnel2EnableTunnelLifecycleControl;
 
-
+    public @Nullable Boolean tunnel2EnableTunnelLifecycleControl() {
+        if (tunnel2EnableTunnelLifecycleControl == null) return null;
+        return tunnel2EnableTunnelLifecycleControl.getValue("VpnConnection.tunnel2EnableTunnelLifecycleControl");
+    }
 
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    public List<String> tunnel2IkeVersions;
+    private @Nullable UndeferrableValue<List<String>> tunnel2IkeVersions;
 
-
+    public @Nullable List<String> tunnel2IkeVersions() {
+        if (tunnel2IkeVersions == null) return null;
+        return tunnel2IkeVersions.getValue("VpnConnection.tunnel2IkeVersions");
+    }
 
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    public String tunnel2InsideCidr;
+    private UndeferrableValue<String> tunnel2InsideCidr;
 
-
+    public String tunnel2InsideCidr() {
+        if (tunnel2InsideCidr == null) return null;
+        return tunnel2InsideCidr.getValue("VpnConnection.tunnel2InsideCidr");
+    }
 
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    public String tunnel2InsideIpv6Cidr;
+    private UndeferrableValue<String> tunnel2InsideIpv6Cidr;
 
-
+    public String tunnel2InsideIpv6Cidr() {
+        if (tunnel2InsideIpv6Cidr == null) return null;
+        return tunnel2InsideIpv6Cidr.getValue("VpnConnection.tunnel2InsideIpv6Cidr");
+    }
 
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    public VpnConnectionTunnel2LogOptions tunnel2LogOptions;
+    private UndeferrableValue<VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
 
-
+    public VpnConnectionTunnel2LogOptions tunnel2LogOptions() {
+        if (tunnel2LogOptions == null) return null;
+        return tunnel2LogOptions.getValue("VpnConnection.tunnel2LogOptions");
+    }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    public List<Integer> tunnel2Phase1DhGroupNumbers;
+    private @Nullable UndeferrableValue<List<Integer>> tunnel2Phase1DhGroupNumbers;
 
-
+    public @Nullable List<Integer> tunnel2Phase1DhGroupNumbers() {
+        if (tunnel2Phase1DhGroupNumbers == null) return null;
+        return tunnel2Phase1DhGroupNumbers.getValue("VpnConnection.tunnel2Phase1DhGroupNumbers");
+    }
 
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    public List<String> tunnel2Phase1EncryptionAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel2Phase1EncryptionAlgorithms;
 
-
+    public @Nullable List<String> tunnel2Phase1EncryptionAlgorithms() {
+        if (tunnel2Phase1EncryptionAlgorithms == null) return null;
+        return tunnel2Phase1EncryptionAlgorithms.getValue("VpnConnection.tunnel2Phase1EncryptionAlgorithms");
+    }
 
     /**
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    public List<String> tunnel2Phase1IntegrityAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel2Phase1IntegrityAlgorithms;
 
-
+    public @Nullable List<String> tunnel2Phase1IntegrityAlgorithms() {
+        if (tunnel2Phase1IntegrityAlgorithms == null) return null;
+        return tunnel2Phase1IntegrityAlgorithms.getValue("VpnConnection.tunnel2Phase1IntegrityAlgorithms");
+    }
 
     /**
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    public Integer tunnel2Phase1LifetimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel2Phase1LifetimeSeconds;
 
-
+    public @Nullable Integer tunnel2Phase1LifetimeSeconds() {
+        if (tunnel2Phase1LifetimeSeconds == null) return null;
+        return tunnel2Phase1LifetimeSeconds.getValue("VpnConnection.tunnel2Phase1LifetimeSeconds");
+    }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    public List<Integer> tunnel2Phase2DhGroupNumbers;
+    private @Nullable UndeferrableValue<List<Integer>> tunnel2Phase2DhGroupNumbers;
 
-
+    public @Nullable List<Integer> tunnel2Phase2DhGroupNumbers() {
+        if (tunnel2Phase2DhGroupNumbers == null) return null;
+        return tunnel2Phase2DhGroupNumbers.getValue("VpnConnection.tunnel2Phase2DhGroupNumbers");
+    }
 
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    public List<String> tunnel2Phase2EncryptionAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel2Phase2EncryptionAlgorithms;
 
-
+    public @Nullable List<String> tunnel2Phase2EncryptionAlgorithms() {
+        if (tunnel2Phase2EncryptionAlgorithms == null) return null;
+        return tunnel2Phase2EncryptionAlgorithms.getValue("VpnConnection.tunnel2Phase2EncryptionAlgorithms");
+    }
 
     /**
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    public List<String> tunnel2Phase2IntegrityAlgorithms;
+    private @Nullable UndeferrableValue<List<String>> tunnel2Phase2IntegrityAlgorithms;
 
-
+    public @Nullable List<String> tunnel2Phase2IntegrityAlgorithms() {
+        if (tunnel2Phase2IntegrityAlgorithms == null) return null;
+        return tunnel2Phase2IntegrityAlgorithms.getValue("VpnConnection.tunnel2Phase2IntegrityAlgorithms");
+    }
 
     /**
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    public Integer tunnel2Phase2LifetimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel2Phase2LifetimeSeconds;
 
-
+    public @Nullable Integer tunnel2Phase2LifetimeSeconds() {
+        if (tunnel2Phase2LifetimeSeconds == null) return null;
+        return tunnel2Phase2LifetimeSeconds.getValue("VpnConnection.tunnel2Phase2LifetimeSeconds");
+    }
 
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    public String tunnel2PresharedKey;
+    private UndeferrableValue<String> tunnel2PresharedKey;
 
-
+    public String tunnel2PresharedKey() {
+        if (tunnel2PresharedKey == null) return null;
+        return tunnel2PresharedKey.getValue("VpnConnection.tunnel2PresharedKey");
+    }
 
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    public Integer tunnel2RekeyFuzzPercentage;
+    private @Nullable UndeferrableValue<Integer> tunnel2RekeyFuzzPercentage;
 
-
+    public @Nullable Integer tunnel2RekeyFuzzPercentage() {
+        if (tunnel2RekeyFuzzPercentage == null) return null;
+        return tunnel2RekeyFuzzPercentage.getValue("VpnConnection.tunnel2RekeyFuzzPercentage");
+    }
 
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
      * 
      */
-    public Integer tunnel2RekeyMarginTimeSeconds;
+    private @Nullable UndeferrableValue<Integer> tunnel2RekeyMarginTimeSeconds;
 
-
+    public @Nullable Integer tunnel2RekeyMarginTimeSeconds() {
+        if (tunnel2RekeyMarginTimeSeconds == null) return null;
+        return tunnel2RekeyMarginTimeSeconds.getValue("VpnConnection.tunnel2RekeyMarginTimeSeconds");
+    }
 
     /**
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    public Integer tunnel2ReplayWindowSize;
+    private @Nullable UndeferrableValue<Integer> tunnel2ReplayWindowSize;
 
-
+    public @Nullable Integer tunnel2ReplayWindowSize() {
+        if (tunnel2ReplayWindowSize == null) return null;
+        return tunnel2ReplayWindowSize.getValue("VpnConnection.tunnel2ReplayWindowSize");
+    }
 
     /**
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    public String tunnel2StartupAction;
+    private @Nullable UndeferrableValue<String> tunnel2StartupAction;
 
-
+    public @Nullable String tunnel2StartupAction() {
+        if (tunnel2StartupAction == null) return null;
+        return tunnel2StartupAction.getValue("VpnConnection.tunnel2StartupAction");
+    }
 
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      * 
      */
-    public String tunnel2VgwInsideAddress;
+    private UndeferrableValue<String> tunnel2VgwInsideAddress;
 
-
+    public String tunnel2VgwInsideAddress() {
+        if (tunnel2VgwInsideAddress == null) return null;
+        return tunnel2VgwInsideAddress.getValue("VpnConnection.tunnel2VgwInsideAddress");
+    }
 
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
-    public String tunnelInsideIpVersion;
+    private UndeferrableValue<String> tunnelInsideIpVersion;
 
-
+    public String tunnelInsideIpVersion() {
+        if (tunnelInsideIpVersion == null) return null;
+        return tunnelInsideIpVersion.getValue("VpnConnection.tunnelInsideIpVersion");
+    }
 
     /**
      * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("VpnConnection.type");
+    }
 
     /**
      * Telemetry for the VPN tunnels. Detailed below.
      * 
      */
-    public List<VpnConnectionVgwTelemetry> vgwTelemetries;
+    private UndeferrableValue<List<VpnConnectionVgwTelemetry>> vgwTelemetries;
 
-
+    public List<VpnConnectionVgwTelemetry> vgwTelemetries() {
+        if (vgwTelemetries == null) return null;
+        return vgwTelemetries.getValue("VpnConnection.vgwTelemetries");
+    }
 
     /**
      * The ID of the Virtual Private Gateway.
      * 
      */
-    public String vpnGatewayId;
+    private @Nullable UndeferrableValue<String> vpnGatewayId;
 
-
+    public @Nullable String vpnGatewayId() {
+        if (vpnGatewayId == null) return null;
+        return vpnGatewayId.getValue("VpnConnection.vpnGatewayId");
+    }
 
 }

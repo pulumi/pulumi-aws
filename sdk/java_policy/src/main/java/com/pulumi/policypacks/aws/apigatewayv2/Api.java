@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.ApiCorsConfiguration;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.ApiCorsConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/api:Api")
-public final class Api extends com.pulumi.resources.PolicyResource {
+public final class Api extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    public String apiEndpoint;
+    private UndeferrableValue<String> apiEndpoint;
 
-
+    public String apiEndpoint() {
+        if (apiEndpoint == null) return null;
+        return apiEndpoint.getValue("Api.apiEndpoint");
+    }
 
     /**
      * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
@@ -27,49 +32,67 @@ public final class Api extends com.pulumi.resources.PolicyResource {
      * Applicable for WebSocket APIs.
      * 
      */
-    public String apiKeySelectionExpression;
+    private @Nullable UndeferrableValue<String> apiKeySelectionExpression;
 
-
+    public @Nullable String apiKeySelectionExpression() {
+        if (apiKeySelectionExpression == null) return null;
+        return apiKeySelectionExpression.getValue("Api.apiKeySelectionExpression");
+    }
 
     /**
      * ARN of the API.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Api.arn");
+    }
 
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
-    public String body;
+    private @Nullable UndeferrableValue<String> body;
 
-
+    public @Nullable String body() {
+        if (body == null) return null;
+        return body.getValue("Api.body");
+    }
 
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
-    public ApiCorsConfiguration corsConfiguration;
+    private @Nullable UndeferrableValue<ApiCorsConfiguration> corsConfiguration;
 
-
+    public @Nullable ApiCorsConfiguration corsConfiguration() {
+        if (corsConfiguration == null) return null;
+        return corsConfiguration.getValue("Api.corsConfiguration");
+    }
 
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      * 
      */
-    public String credentialsArn;
+    private @Nullable UndeferrableValue<String> credentialsArn;
 
-
+    public @Nullable String credentialsArn() {
+        if (credentialsArn == null) return null;
+        return credentialsArn.getValue("Api.credentialsArn");
+    }
 
     /**
      * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Api.description");
+    }
 
     /**
      * Whether clients can invoke the API by using the default `execute-api` endpoint.
@@ -77,9 +100,12 @@ public final class Api extends com.pulumi.resources.PolicyResource {
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
-    public Boolean disableExecuteApiEndpoint;
+    private @Nullable UndeferrableValue<Boolean> disableExecuteApiEndpoint;
 
-
+    public @Nullable Boolean disableExecuteApiEndpoint() {
+        if (disableExecuteApiEndpoint == null) return null;
+        return disableExecuteApiEndpoint.getValue("Api.disableExecuteApiEndpoint");
+    }
 
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
@@ -87,58 +113,79 @@ public final class Api extends com.pulumi.resources.PolicyResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    public String executionArn;
+    private UndeferrableValue<String> executionArn;
 
-
+    public String executionArn() {
+        if (executionArn == null) return null;
+        return executionArn.getValue("Api.executionArn");
+    }
 
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    public Boolean failOnWarnings;
+    private @Nullable UndeferrableValue<Boolean> failOnWarnings;
 
-
+    public @Nullable Boolean failOnWarnings() {
+        if (failOnWarnings == null) return null;
+        return failOnWarnings.getValue("Api.failOnWarnings");
+    }
 
     /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Api.name");
+    }
 
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
-    public String protocolType;
+    private UndeferrableValue<String> protocolType;
 
-
+    public String protocolType() {
+        if (protocolType == null) return null;
+        return protocolType.getValue("Api.protocolType");
+    }
 
     /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      * 
      */
-    public String routeKey;
+    private @Nullable UndeferrableValue<String> routeKey;
 
-
+    public @Nullable String routeKey() {
+        if (routeKey == null) return null;
+        return routeKey.getValue("Api.routeKey");
+    }
 
     /**
      * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * Defaults to `$request.method $request.path`.
      * 
      */
-    public String routeSelectionExpression;
+    private @Nullable UndeferrableValue<String> routeSelectionExpression;
 
-
+    public @Nullable String routeSelectionExpression() {
+        if (routeSelectionExpression == null) return null;
+        return routeSelectionExpression.getValue("Api.routeSelectionExpression");
+    }
 
     /**
      * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Api.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -148,9 +195,12 @@ public final class Api extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Api.tagsAll");
+    }
 
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
@@ -158,16 +208,22 @@ public final class Api extends com.pulumi.resources.PolicyResource {
      * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
-    public String target;
+    private @Nullable UndeferrableValue<String> target;
 
-
+    public @Nullable String target() {
+        if (target == null) return null;
+        return target.getValue("Api.target");
+    }
 
     /**
      * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
-    public String version;
+    private @Nullable UndeferrableValue<String> version;
 
-
+    public @Nullable String version() {
+        if (version == null) return null;
+        return version.getValue("Api.version");
+    }
 
 }

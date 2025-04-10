@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appmesh.RouteSpec;
+import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpec;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appmesh/route:Route")
-public final class Route extends com.pulumi.resources.PolicyResource {
+public final class Route extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the route.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Route.arn");
+    }
 
     /**
      * Creation date of the route.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Route.createdDate");
+    }
 
     /**
      * Last update date of the route.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("Route.lastUpdatedDate");
+    }
 
     /**
      * Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
-    public String meshName;
+    private UndeferrableValue<String> meshName;
 
-
+    public String meshName() {
+        if (meshName == null) return null;
+        return meshName.getValue("Route.meshName");
+    }
 
     /**
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public String meshOwner;
+    private UndeferrableValue<String> meshOwner;
 
-
+    public String meshOwner() {
+        if (meshOwner == null) return null;
+        return meshOwner.getValue("Route.meshOwner");
+    }
 
     /**
      * Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Route.name");
+    }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("Route.resourceOwner");
+    }
 
     /**
      * Route specification to apply.
      * 
      */
-    public RouteSpec spec;
+    private UndeferrableValue<RouteSpec> spec;
 
-
+    public RouteSpec spec() {
+        if (spec == null) return null;
+        return spec.getValue("Route.spec");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Route.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,16 +121,22 @@ public final class Route extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Route.tagsAll");
+    }
 
     /**
      * Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      * 
      */
-    public String virtualRouterName;
+    private UndeferrableValue<String> virtualRouterName;
 
-
+    public String virtualRouterName() {
+        if (virtualRouterName == null) return null;
+        return virtualRouterName.getValue("Route.virtualRouterName");
+    }
 
 }

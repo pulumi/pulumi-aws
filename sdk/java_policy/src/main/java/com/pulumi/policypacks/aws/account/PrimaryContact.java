@@ -3,115 +3,156 @@
 
 package com.pulumi.policypacks.aws.account;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:account/primaryContact:PrimaryContact")
-public final class PrimaryContact extends com.pulumi.resources.PolicyResource {
+public final class PrimaryContact extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
-    public String accountId;
+    private @Nullable UndeferrableValue<String> accountId;
 
-
+    public @Nullable String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("PrimaryContact.accountId");
+    }
 
     /**
      * The first line of the primary contact address.
      * 
      */
-    public String addressLine1;
+    private UndeferrableValue<String> addressLine1;
 
-
+    public String addressLine1() {
+        if (addressLine1 == null) return null;
+        return addressLine1.getValue("PrimaryContact.addressLine1");
+    }
 
     /**
      * The second line of the primary contact address, if any.
      * 
      */
-    public String addressLine2;
+    private @Nullable UndeferrableValue<String> addressLine2;
 
-
+    public @Nullable String addressLine2() {
+        if (addressLine2 == null) return null;
+        return addressLine2.getValue("PrimaryContact.addressLine2");
+    }
 
     /**
      * The third line of the primary contact address, if any.
      * 
      */
-    public String addressLine3;
+    private @Nullable UndeferrableValue<String> addressLine3;
 
-
+    public @Nullable String addressLine3() {
+        if (addressLine3 == null) return null;
+        return addressLine3.getValue("PrimaryContact.addressLine3");
+    }
 
     /**
      * The city of the primary contact address.
      * 
      */
-    public String city;
+    private UndeferrableValue<String> city;
 
-
+    public String city() {
+        if (city == null) return null;
+        return city.getValue("PrimaryContact.city");
+    }
 
     /**
      * The name of the company associated with the primary contact information, if any.
      * 
      */
-    public String companyName;
+    private @Nullable UndeferrableValue<String> companyName;
 
-
+    public @Nullable String companyName() {
+        if (companyName == null) return null;
+        return companyName.getValue("PrimaryContact.companyName");
+    }
 
     /**
      * The ISO-3166 two-letter country code for the primary contact address.
      * 
      */
-    public String countryCode;
+    private UndeferrableValue<String> countryCode;
 
-
+    public String countryCode() {
+        if (countryCode == null) return null;
+        return countryCode.getValue("PrimaryContact.countryCode");
+    }
 
     /**
      * The district or county of the primary contact address, if any.
      * 
      */
-    public String districtOrCounty;
+    private @Nullable UndeferrableValue<String> districtOrCounty;
 
-
+    public @Nullable String districtOrCounty() {
+        if (districtOrCounty == null) return null;
+        return districtOrCounty.getValue("PrimaryContact.districtOrCounty");
+    }
 
     /**
      * The full name of the primary contact address.
      * 
      */
-    public String fullName;
+    private UndeferrableValue<String> fullName;
 
-
+    public String fullName() {
+        if (fullName == null) return null;
+        return fullName.getValue("PrimaryContact.fullName");
+    }
 
     /**
      * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
      * 
      */
-    public String phoneNumber;
+    private UndeferrableValue<String> phoneNumber;
 
-
+    public String phoneNumber() {
+        if (phoneNumber == null) return null;
+        return phoneNumber.getValue("PrimaryContact.phoneNumber");
+    }
 
     /**
      * The postal code of the primary contact address.
      * 
      */
-    public String postalCode;
+    private UndeferrableValue<String> postalCode;
 
-
+    public String postalCode() {
+        if (postalCode == null) return null;
+        return postalCode.getValue("PrimaryContact.postalCode");
+    }
 
     /**
      * The state or region of the primary contact address. This field is required in selected countries.
      * 
      */
-    public String stateOrRegion;
+    private @Nullable UndeferrableValue<String> stateOrRegion;
 
-
+    public @Nullable String stateOrRegion() {
+        if (stateOrRegion == null) return null;
+        return stateOrRegion.getValue("PrimaryContact.stateOrRegion");
+    }
 
     /**
      * The URL of the website associated with the primary contact information, if any.
      * 
      */
-    public String websiteUrl;
+    private @Nullable UndeferrableValue<String> websiteUrl;
 
-
+    public @Nullable String websiteUrl() {
+        if (websiteUrl == null) return null;
+        return websiteUrl.getValue("PrimaryContact.websiteUrl");
+    }
 
 }

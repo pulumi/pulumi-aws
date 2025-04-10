@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:amplify/backendEnvironment:BackendEnvironment")
-public final class BackendEnvironment extends com.pulumi.resources.PolicyResource {
+public final class BackendEnvironment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique ID for an Amplify app.
      * 
      */
-    public String appId;
+    private UndeferrableValue<String> appId;
 
-
+    public String appId() {
+        if (appId == null) return null;
+        return appId.getValue("BackendEnvironment.appId");
+    }
 
     /**
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("BackendEnvironment.arn");
+    }
 
     /**
      * Name of deployment artifacts.
      * 
      */
-    public String deploymentArtifacts;
+    private UndeferrableValue<String> deploymentArtifacts;
 
-
+    public String deploymentArtifacts() {
+        if (deploymentArtifacts == null) return null;
+        return deploymentArtifacts.getValue("BackendEnvironment.deploymentArtifacts");
+    }
 
     /**
      * Name for the backend environment.
      * 
      */
-    public String environmentName;
+    private UndeferrableValue<String> environmentName;
 
-
+    public String environmentName() {
+        if (environmentName == null) return null;
+        return environmentName.getValue("BackendEnvironment.environmentName");
+    }
 
     /**
      * AWS CloudFormation stack name of a backend environment.
      * 
      */
-    public String stackName;
+    private UndeferrableValue<String> stackName;
 
-
+    public String stackName() {
+        if (stackName == null) return null;
+        return stackName.getValue("BackendEnvironment.stackName");
+    }
 
 }

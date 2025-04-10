@@ -3,161 +3,217 @@
 
 package com.pulumi.policypacks.aws.signer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.signer.SigningJobDestination;
-import com.pulumi.policypacks.aws.signer.SigningJobRevocationRecord;
-import com.pulumi.policypacks.aws.signer.SigningJobSignedObject;
-import com.pulumi.policypacks.aws.signer.SigningJobSource;
+import com.pulumi.policypacks.aws.signer.outputs.SigningJobDestination;
+import com.pulumi.policypacks.aws.signer.outputs.SigningJobRevocationRecord;
+import com.pulumi.policypacks.aws.signer.outputs.SigningJobSignedObject;
+import com.pulumi.policypacks.aws.signer.outputs.SigningJobSource;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:signer/signingJob:SigningJob")
-public final class SigningJob extends com.pulumi.resources.PolicyResource {
+public final class SigningJob extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
      * 
      */
-    public String completedAt;
+    private UndeferrableValue<String> completedAt;
 
-
+    public String completedAt() {
+        if (completedAt == null) return null;
+        return completedAt.getValue("SigningJob.completedAt");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("SigningJob.createdAt");
+    }
 
     /**
      * The S3 bucket in which to save your signed object. See Destination below for details.
      * 
      */
-    public SigningJobDestination destination;
+    private UndeferrableValue<SigningJobDestination> destination;
 
-
+    public SigningJobDestination destination() {
+        if (destination == null) return null;
+        return destination.getValue("SigningJob.destination");
+    }
 
     /**
      * Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
      * 
      */
-    public Boolean ignoreSigningJobFailure;
+    private @Nullable UndeferrableValue<Boolean> ignoreSigningJobFailure;
 
-
+    public @Nullable Boolean ignoreSigningJobFailure() {
+        if (ignoreSigningJobFailure == null) return null;
+        return ignoreSigningJobFailure.getValue("SigningJob.ignoreSigningJobFailure");
+    }
 
     /**
      * The ID of the signing job on output.
      * 
      */
-    public String jobId;
+    private UndeferrableValue<String> jobId;
 
-
+    public String jobId() {
+        if (jobId == null) return null;
+        return jobId.getValue("SigningJob.jobId");
+    }
 
     /**
      * The IAM entity that initiated the signing job.
      * 
      */
-    public String jobInvoker;
+    private UndeferrableValue<String> jobInvoker;
 
-
+    public String jobInvoker() {
+        if (jobInvoker == null) return null;
+        return jobInvoker.getValue("SigningJob.jobInvoker");
+    }
 
     /**
      * The AWS account ID of the job owner.
      * 
      */
-    public String jobOwner;
+    private UndeferrableValue<String> jobOwner;
 
-
+    public String jobOwner() {
+        if (jobOwner == null) return null;
+        return jobOwner.getValue("SigningJob.jobOwner");
+    }
 
     /**
      * A human-readable name for the signing platform associated with the signing job.
      * 
      */
-    public String platformDisplayName;
+    private UndeferrableValue<String> platformDisplayName;
 
-
+    public String platformDisplayName() {
+        if (platformDisplayName == null) return null;
+        return platformDisplayName.getValue("SigningJob.platformDisplayName");
+    }
 
     /**
      * The platform to which your signed code image will be distributed.
      * 
      */
-    public String platformId;
+    private UndeferrableValue<String> platformId;
 
-
+    public String platformId() {
+        if (platformId == null) return null;
+        return platformId.getValue("SigningJob.platformId");
+    }
 
     /**
      * The name of the profile to initiate the signing operation.
      * 
      */
-    public String profileName;
+    private UndeferrableValue<String> profileName;
 
-
+    public String profileName() {
+        if (profileName == null) return null;
+        return profileName.getValue("SigningJob.profileName");
+    }
 
     /**
      * The version of the signing profile used to initiate the signing job.
      * 
      */
-    public String profileVersion;
+    private UndeferrableValue<String> profileVersion;
 
-
+    public String profileVersion() {
+        if (profileVersion == null) return null;
+        return profileVersion.getValue("SigningJob.profileVersion");
+    }
 
     /**
      * The IAM principal that requested the signing job.
      * 
      */
-    public String requestedBy;
+    private UndeferrableValue<String> requestedBy;
 
-
+    public String requestedBy() {
+        if (requestedBy == null) return null;
+        return requestedBy.getValue("SigningJob.requestedBy");
+    }
 
     /**
      * A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
      * 
      */
-    public List<SigningJobRevocationRecord> revocationRecords;
+    private UndeferrableValue<List<SigningJobRevocationRecord>> revocationRecords;
 
-
+    public List<SigningJobRevocationRecord> revocationRecords() {
+        if (revocationRecords == null) return null;
+        return revocationRecords.getValue("SigningJob.revocationRecords");
+    }
 
     /**
      * The time when the signature of a signing job expires.
      * 
      */
-    public String signatureExpiresAt;
+    private UndeferrableValue<String> signatureExpiresAt;
 
-
+    public String signatureExpiresAt() {
+        if (signatureExpiresAt == null) return null;
+        return signatureExpiresAt.getValue("SigningJob.signatureExpiresAt");
+    }
 
     /**
      * Name of the S3 bucket where the signed code image is saved by code signing.
      * 
      */
-    public List<SigningJobSignedObject> signedObjects;
+    private UndeferrableValue<List<SigningJobSignedObject>> signedObjects;
 
-
+    public List<SigningJobSignedObject> signedObjects() {
+        if (signedObjects == null) return null;
+        return signedObjects.getValue("SigningJob.signedObjects");
+    }
 
     /**
      * The S3 bucket that contains the object to sign. See Source below for details.
      * 
      */
-    public SigningJobSource source;
+    private UndeferrableValue<SigningJobSource> source;
 
-
+    public SigningJobSource source() {
+        if (source == null) return null;
+        return source.getValue("SigningJob.source");
+    }
 
     /**
      * Status of the signing job.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("SigningJob.status");
+    }
 
     /**
      * String value that contains the status reason.
      * 
      */
-    public String statusReason;
+    private UndeferrableValue<String> statusReason;
 
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("SigningJob.statusReason");
+    }
 
 }

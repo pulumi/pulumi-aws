@@ -3,196 +3,264 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcEndpointDnsEntry;
-import com.pulumi.policypacks.aws.ec2.VpcEndpointDnsOptions;
-import com.pulumi.policypacks.aws.ec2.VpcEndpointSubnetConfiguration;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcEndpointDnsEntry;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcEndpointDnsOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcEndpointSubnetConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpoint:VpcEndpoint")
-public final class VpcEndpoint extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcEndpoint.arn");
+    }
 
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
-    public Boolean autoAccept;
+    private @Nullable UndeferrableValue<Boolean> autoAccept;
 
-
+    public @Nullable Boolean autoAccept() {
+        if (autoAccept == null) return null;
+        return autoAccept.getValue("VpcEndpoint.autoAccept");
+    }
 
     /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public List<String> cidrBlocks;
+    private UndeferrableValue<List<String>> cidrBlocks;
 
-
+    public List<String> cidrBlocks() {
+        if (cidrBlocks == null) return null;
+        return cidrBlocks.getValue("VpcEndpoint.cidrBlocks");
+    }
 
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
-    public List<VpcEndpointDnsEntry> dnsEntries;
+    private UndeferrableValue<List<VpcEndpointDnsEntry>> dnsEntries;
 
-
+    public List<VpcEndpointDnsEntry> dnsEntries() {
+        if (dnsEntries == null) return null;
+        return dnsEntries.getValue("VpcEndpoint.dnsEntries");
+    }
 
     /**
      * The DNS options for the endpoint. See dns_options below.
      * 
      */
-    public VpcEndpointDnsOptions dnsOptions;
+    private UndeferrableValue<VpcEndpointDnsOptions> dnsOptions;
 
-
+    public VpcEndpointDnsOptions dnsOptions() {
+        if (dnsOptions == null) return null;
+        return dnsOptions.getValue("VpcEndpoint.dnsOptions");
+    }
 
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
-    public String ipAddressType;
+    private UndeferrableValue<String> ipAddressType;
 
-
+    public String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("VpcEndpoint.ipAddressType");
+    }
 
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
-
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("VpcEndpoint.networkInterfaceIds");
+    }
 
     /**
      * The ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("VpcEndpoint.ownerId");
+    }
 
     /**
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("VpcEndpoint.policy");
+    }
 
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public String prefixListId;
+    private UndeferrableValue<String> prefixListId;
 
-
+    public String prefixListId() {
+        if (prefixListId == null) return null;
+        return prefixListId.getValue("VpcEndpoint.prefixListId");
+    }
 
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      * 
      */
-    public Boolean privateDnsEnabled;
+    private UndeferrableValue<Boolean> privateDnsEnabled;
 
-
+    public Boolean privateDnsEnabled() {
+        if (privateDnsEnabled == null) return null;
+        return privateDnsEnabled.getValue("VpcEndpoint.privateDnsEnabled");
+    }
 
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    public Boolean requesterManaged;
+    private UndeferrableValue<Boolean> requesterManaged;
 
-
+    public Boolean requesterManaged() {
+        if (requesterManaged == null) return null;
+        return requesterManaged.getValue("VpcEndpoint.requesterManaged");
+    }
 
     /**
      * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    public String resourceConfigurationArn;
+    private @Nullable UndeferrableValue<String> resourceConfigurationArn;
 
-
+    public @Nullable String resourceConfigurationArn() {
+        if (resourceConfigurationArn == null) return null;
+        return resourceConfigurationArn.getValue("VpcEndpoint.resourceConfigurationArn");
+    }
 
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
-    public List<String> routeTableIds;
+    private UndeferrableValue<List<String>> routeTableIds;
 
-
+    public List<String> routeTableIds() {
+        if (routeTableIds == null) return null;
+        return routeTableIds.getValue("VpcEndpoint.routeTableIds");
+    }
 
     /**
      * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
      * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("VpcEndpoint.securityGroupIds");
+    }
 
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    public String serviceName;
+    private @Nullable UndeferrableValue<String> serviceName;
 
-
+    public @Nullable String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("VpcEndpoint.serviceName");
+    }
 
     /**
      * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    public String serviceNetworkArn;
+    private @Nullable UndeferrableValue<String> serviceNetworkArn;
 
-
+    public @Nullable String serviceNetworkArn() {
+        if (serviceNetworkArn == null) return null;
+        return serviceNetworkArn.getValue("VpcEndpoint.serviceNetworkArn");
+    }
 
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
-    public String serviceRegion;
+    private UndeferrableValue<String> serviceRegion;
 
-
+    public String serviceRegion() {
+        if (serviceRegion == null) return null;
+        return serviceRegion.getValue("VpcEndpoint.serviceRegion");
+    }
 
     /**
      * The state of the VPC endpoint.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcEndpoint.state");
+    }
 
     /**
      * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
      * 
      */
-    public List<VpcEndpointSubnetConfiguration> subnetConfigurations;
+    private UndeferrableValue<List<VpcEndpointSubnetConfiguration>> subnetConfigurations;
 
-
+    public List<VpcEndpointSubnetConfiguration> subnetConfigurations() {
+        if (subnetConfigurations == null) return null;
+        return subnetConfigurations.getValue("VpcEndpoint.subnetConfigurations");
+    }
 
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("VpcEndpoint.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcEndpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -202,24 +270,33 @@ public final class VpcEndpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcEndpoint.tagsAll");
+    }
 
     /**
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
-    public String vpcEndpointType;
+    private @Nullable UndeferrableValue<String> vpcEndpointType;
 
-
+    public @Nullable String vpcEndpointType() {
+        if (vpcEndpointType == null) return null;
+        return vpcEndpointType.getValue("VpcEndpoint.vpcEndpointType");
+    }
 
     /**
      * The ID of the VPC in which the endpoint will be used.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcEndpoint.vpcId");
+    }
 
 }

@@ -3,329 +3,448 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.InstanceEbsBlockDevice;
-import com.pulumi.policypacks.aws.opsworks.InstanceEphemeralBlockDevice;
-import com.pulumi.policypacks.aws.opsworks.InstanceRootBlockDevice;
+import com.pulumi.policypacks.aws.opsworks.outputs.InstanceEbsBlockDevice;
+import com.pulumi.policypacks.aws.opsworks.outputs.InstanceEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.opsworks.outputs.InstanceRootBlockDevice;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * OpsWorks agent to install. Default is `INHERIT`.
      * 
      */
-    public String agentVersion;
+    private @Nullable UndeferrableValue<String> agentVersion;
 
-
+    public @Nullable String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("Instance.agentVersion");
+    }
 
     /**
      * AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
      * 
      */
-    public String amiId;
+    private UndeferrableValue<String> amiId;
 
-
+    public String amiId() {
+        if (amiId == null) return null;
+        return amiId.getValue("Instance.amiId");
+    }
 
     /**
      * Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
      * 
      */
-    public String architecture;
+    private @Nullable UndeferrableValue<String> architecture;
 
-
+    public @Nullable String architecture() {
+        if (architecture == null) return null;
+        return architecture.getValue("Instance.architecture");
+    }
 
     /**
      * Creates load-based or time-based instances.  Valid values are `load`, `timer`.
      * 
      */
-    public String autoScalingType;
+    private @Nullable UndeferrableValue<String> autoScalingType;
 
-
+    public @Nullable String autoScalingType() {
+        if (autoScalingType == null) return null;
+        return autoScalingType.getValue("Instance.autoScalingType");
+    }
 
     /**
      * Name of the availability zone where instances will be created by default.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Instance.availabilityZone");
+    }
 
     /**
      * Time that the instance was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Instance.createdAt");
+    }
 
     /**
      * Whether to delete EBS volume on deletion. Default is `true`.
      * 
      */
-    public Boolean deleteEbs;
+    private @Nullable UndeferrableValue<Boolean> deleteEbs;
 
-
+    public @Nullable Boolean deleteEbs() {
+        if (deleteEbs == null) return null;
+        return deleteEbs.getValue("Instance.deleteEbs");
+    }
 
     /**
      * Whether to delete the Elastic IP on deletion.
      * 
      */
-    public Boolean deleteEip;
+    private @Nullable UndeferrableValue<Boolean> deleteEip;
 
-
+    public @Nullable Boolean deleteEip() {
+        if (deleteEip == null) return null;
+        return deleteEip.getValue("Instance.deleteEip");
+    }
 
     /**
      * Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
      * 
      */
-    public List<InstanceEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<InstanceEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<InstanceEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("Instance.ebsBlockDevices");
+    }
 
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    public Boolean ebsOptimized;
+    private @Nullable UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public @Nullable Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("Instance.ebsOptimized");
+    }
 
     /**
      * EC2 instance ID.
      * 
      */
-    public String ec2InstanceId;
+    private UndeferrableValue<String> ec2InstanceId;
 
-
+    public String ec2InstanceId() {
+        if (ec2InstanceId == null) return null;
+        return ec2InstanceId.getValue("Instance.ec2InstanceId");
+    }
 
     /**
      * ECS cluster&#39;s ARN for container instances.
      * 
      */
-    public String ecsClusterArn;
+    private UndeferrableValue<String> ecsClusterArn;
 
-
+    public String ecsClusterArn() {
+        if (ecsClusterArn == null) return null;
+        return ecsClusterArn.getValue("Instance.ecsClusterArn");
+    }
 
     /**
      * Instance Elastic IP address.
      * 
      */
-    public String elasticIp;
+    private UndeferrableValue<String> elasticIp;
 
-
+    public String elasticIp() {
+        if (elasticIp == null) return null;
+        return elasticIp.getValue("Instance.elasticIp");
+    }
 
     /**
      * Configuration block for ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below.
      * 
      */
-    public List<InstanceEphemeralBlockDevice> ephemeralBlockDevices;
+    private UndeferrableValue<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
-
+    public List<InstanceEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("Instance.ephemeralBlockDevices");
+    }
 
     /**
      * Instance&#39;s host name.
      * 
      */
-    public String hostname;
+    private UndeferrableValue<String> hostname;
 
-
+    public String hostname() {
+        if (hostname == null) return null;
+        return hostname.getValue("Instance.hostname");
+    }
 
     /**
      * For registered instances, infrastructure class: ec2 or on-premises.
      * 
      */
-    public String infrastructureClass;
+    private UndeferrableValue<String> infrastructureClass;
 
-
+    public String infrastructureClass() {
+        if (infrastructureClass == null) return null;
+        return infrastructureClass.getValue("Instance.infrastructureClass");
+    }
 
     /**
      * Controls where to install OS and package updates when the instance boots.  Default is `true`.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("Instance.installUpdatesOnBoot");
+    }
 
     /**
      * ARN of the instance&#39;s IAM profile.
      * 
      */
-    public String instanceProfileArn;
+    private UndeferrableValue<String> instanceProfileArn;
 
-
+    public String instanceProfileArn() {
+        if (instanceProfileArn == null) return null;
+        return instanceProfileArn.getValue("Instance.instanceProfileArn");
+    }
 
     /**
      * Type of instance to start.
      * 
      */
-    public String instanceType;
+    private @Nullable UndeferrableValue<String> instanceType;
 
-
+    public @Nullable String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("Instance.instanceType");
+    }
 
     /**
      * ID of the last service error.
      * 
      */
-    public String lastServiceErrorId;
+    private UndeferrableValue<String> lastServiceErrorId;
 
-
+    public String lastServiceErrorId() {
+        if (lastServiceErrorId == null) return null;
+        return lastServiceErrorId.getValue("Instance.lastServiceErrorId");
+    }
 
     /**
      * List of the layers the instance will belong to.
      * 
      */
-    public List<String> layerIds;
+    private UndeferrableValue<List<String>> layerIds;
 
-
+    public List<String> layerIds() {
+        if (layerIds == null) return null;
+        return layerIds.getValue("Instance.layerIds");
+    }
 
     /**
      * Name of operating system that will be installed.
      * 
      */
-    public String os;
+    private UndeferrableValue<String> os;
 
-
+    public String os() {
+        if (os == null) return null;
+        return os.getValue("Instance.os");
+    }
 
     /**
      * Instance&#39;s platform.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("Instance.platform");
+    }
 
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String privateDns;
+    private UndeferrableValue<String> privateDns;
 
-
+    public String privateDns() {
+        if (privateDns == null) return null;
+        return privateDns.getValue("Instance.privateDns");
+    }
 
     /**
      * Private IP address assigned to the instance.
      * 
      */
-    public String privateIp;
+    private UndeferrableValue<String> privateIp;
 
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("Instance.privateIp");
+    }
 
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String publicDns;
+    private UndeferrableValue<String> publicDns;
 
-
+    public String publicDns() {
+        if (publicDns == null) return null;
+        return publicDns.getValue("Instance.publicDns");
+    }
 
     /**
      * Public IP address assigned to the instance, if applicable.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("Instance.publicIp");
+    }
 
     /**
      * For registered instances, who performed the registration.
      * 
      */
-    public String registeredBy;
+    private UndeferrableValue<String> registeredBy;
 
-
+    public String registeredBy() {
+        if (registeredBy == null) return null;
+        return registeredBy.getValue("Instance.registeredBy");
+    }
 
     /**
      * Instance&#39;s reported AWS OpsWorks Stacks agent version.
      * 
      */
-    public String reportedAgentVersion;
+    private UndeferrableValue<String> reportedAgentVersion;
 
-
+    public String reportedAgentVersion() {
+        if (reportedAgentVersion == null) return null;
+        return reportedAgentVersion.getValue("Instance.reportedAgentVersion");
+    }
 
     /**
      * For registered instances, the reported operating system family.
      * 
      */
-    public String reportedOsFamily;
+    private UndeferrableValue<String> reportedOsFamily;
 
-
+    public String reportedOsFamily() {
+        if (reportedOsFamily == null) return null;
+        return reportedOsFamily.getValue("Instance.reportedOsFamily");
+    }
 
     /**
      * For registered instances, the reported operating system name.
      * 
      */
-    public String reportedOsName;
+    private UndeferrableValue<String> reportedOsName;
 
-
+    public String reportedOsName() {
+        if (reportedOsName == null) return null;
+        return reportedOsName.getValue("Instance.reportedOsName");
+    }
 
     /**
      * For registered instances, the reported operating system version.
      * 
      */
-    public String reportedOsVersion;
+    private UndeferrableValue<String> reportedOsVersion;
 
-
+    public String reportedOsVersion() {
+        if (reportedOsVersion == null) return null;
+        return reportedOsVersion.getValue("Instance.reportedOsVersion");
+    }
 
     /**
      * Configuration block for the root block device of the instance. See Block Devices below.
      * 
      */
-    public List<InstanceRootBlockDevice> rootBlockDevices;
+    private UndeferrableValue<List<InstanceRootBlockDevice>> rootBlockDevices;
 
-
+    public List<InstanceRootBlockDevice> rootBlockDevices() {
+        if (rootBlockDevices == null) return null;
+        return rootBlockDevices.getValue("Instance.rootBlockDevices");
+    }
 
     /**
      * Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      * 
      */
-    public String rootDeviceType;
+    private UndeferrableValue<String> rootDeviceType;
 
-
+    public String rootDeviceType() {
+        if (rootDeviceType == null) return null;
+        return rootDeviceType.getValue("Instance.rootDeviceType");
+    }
 
     /**
      * Root device volume ID.
      * 
      */
-    public String rootDeviceVolumeId;
+    private UndeferrableValue<String> rootDeviceVolumeId;
 
-
+    public String rootDeviceVolumeId() {
+        if (rootDeviceVolumeId == null) return null;
+        return rootDeviceVolumeId.getValue("Instance.rootDeviceVolumeId");
+    }
 
     /**
      * Associated security groups.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Instance.securityGroupIds");
+    }
 
     /**
      * SSH key&#39;s Deep Security Agent (DSA) fingerprint.
      * 
      */
-    public String sshHostDsaKeyFingerprint;
+    private UndeferrableValue<String> sshHostDsaKeyFingerprint;
 
-
+    public String sshHostDsaKeyFingerprint() {
+        if (sshHostDsaKeyFingerprint == null) return null;
+        return sshHostDsaKeyFingerprint.getValue("Instance.sshHostDsaKeyFingerprint");
+    }
 
     /**
      * SSH key&#39;s RSA fingerprint.
      * 
      */
-    public String sshHostRsaKeyFingerprint;
+    private UndeferrableValue<String> sshHostRsaKeyFingerprint;
 
-
+    public String sshHostRsaKeyFingerprint() {
+        if (sshHostRsaKeyFingerprint == null) return null;
+        return sshHostRsaKeyFingerprint.getValue("Instance.sshHostRsaKeyFingerprint");
+    }
 
     /**
      * Name of the SSH keypair that instances will have by default.
      * 
      */
-    public String sshKeyName;
+    private UndeferrableValue<String> sshKeyName;
 
-
+    public String sshKeyName() {
+        if (sshKeyName == null) return null;
+        return sshKeyName.getValue("Instance.sshKeyName");
+    }
 
     /**
      * Identifier of the stack the instance will belong to.
@@ -333,48 +452,66 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("Instance.stackId");
+    }
 
     /**
      * Desired state of the instance. Valid values are `running` or `stopped`.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("Instance.state");
+    }
 
     /**
      * Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Instance.status");
+    }
 
     /**
      * Subnet ID to attach to.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("Instance.subnetId");
+    }
 
     /**
      * Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      * 
      */
-    public String tenancy;
+    private UndeferrableValue<String> tenancy;
 
-
+    public String tenancy() {
+        if (tenancy == null) return null;
+        return tenancy.getValue("Instance.tenancy");
+    }
 
     /**
      * Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      * 
      */
-    public String virtualizationType;
+    private UndeferrableValue<String> virtualizationType;
 
-
+    public String virtualizationType() {
+        if (virtualizationType == null) return null;
+        return virtualizationType.getValue("Instance.virtualizationType");
+    }
 
 }

@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.accessanalyzer.AnalyzerConfiguration;
+import com.pulumi.policypacks.aws.accessanalyzer.outputs.AnalyzerConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:accessanalyzer/analyzer:Analyzer")
-public final class Analyzer extends com.pulumi.resources.PolicyResource {
+public final class Analyzer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Analyzer.
@@ -18,33 +20,45 @@ public final class Analyzer extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String analyzerName;
+    private UndeferrableValue<String> analyzerName;
 
-
+    public String analyzerName() {
+        if (analyzerName == null) return null;
+        return analyzerName.getValue("Analyzer.analyzerName");
+    }
 
     /**
      * ARN of the Analyzer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Analyzer.arn");
+    }
 
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      * 
      */
-    public AnalyzerConfiguration configuration;
+    private @Nullable UndeferrableValue<AnalyzerConfiguration> configuration;
 
-
+    public @Nullable AnalyzerConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Analyzer.configuration");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Analyzer.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -54,16 +68,22 @@ public final class Analyzer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Analyzer.tagsAll");
+    }
 
     /**
      * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Analyzer.type");
+    }
 
 }

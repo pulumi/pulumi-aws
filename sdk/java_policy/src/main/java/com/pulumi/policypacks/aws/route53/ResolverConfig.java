@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/resolverConfig:ResolverConfig")
-public final class ResolverConfig extends com.pulumi.resources.PolicyResource {
+public final class ResolverConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      * 
      */
-    public String autodefinedReverseFlag;
+    private UndeferrableValue<String> autodefinedReverseFlag;
 
-
+    public String autodefinedReverseFlag() {
+        if (autodefinedReverseFlag == null) return null;
+        return autodefinedReverseFlag.getValue("ResolverConfig.autodefinedReverseFlag");
+    }
 
     /**
      * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ResolverConfig.ownerId");
+    }
 
     /**
      * The ID of the VPC that the configuration is for.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ResolverConfig.resourceId");
+    }
 
 }

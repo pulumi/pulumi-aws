@@ -3,95 +3,127 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kms.GrantConstraint;
+import com.pulumi.policypacks.aws.kms.outputs.GrantConstraint;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/grant:Grant")
-public final class Grant extends com.pulumi.resources.PolicyResource {
+public final class Grant extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      * 
      */
-    public List<GrantConstraint> constraints;
+    private @Nullable UndeferrableValue<List<GrantConstraint>> constraints;
 
-
+    public @Nullable List<GrantConstraint> constraints() {
+        if (constraints == null) return null;
+        return constraints.getValue("Grant.constraints");
+    }
 
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      * 
      */
-    public List<String> grantCreationTokens;
+    private @Nullable UndeferrableValue<List<String>> grantCreationTokens;
 
-
+    public @Nullable List<String> grantCreationTokens() {
+        if (grantCreationTokens == null) return null;
+        return grantCreationTokens.getValue("Grant.grantCreationTokens");
+    }
 
     /**
      * The unique identifier for the grant.
      * 
      */
-    public String grantId;
+    private UndeferrableValue<String> grantId;
 
-
+    public String grantId() {
+        if (grantId == null) return null;
+        return grantId.getValue("Grant.grantId");
+    }
 
     /**
      * The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
      * 
      */
-    public String grantToken;
+    private UndeferrableValue<String> grantToken;
 
-
+    public String grantToken() {
+        if (grantToken == null) return null;
+        return grantToken.getValue("Grant.grantToken");
+    }
 
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
-    public String granteePrincipal;
+    private UndeferrableValue<String> granteePrincipal;
 
-
+    public String granteePrincipal() {
+        if (granteePrincipal == null) return null;
+        return granteePrincipal.getValue("Grant.granteePrincipal");
+    }
 
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("Grant.keyId");
+    }
 
     /**
      * A friendly name for identifying the grant.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Grant.name");
+    }
 
     /**
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      * 
      */
-    public List<String> operations;
+    private UndeferrableValue<List<String>> operations;
 
-
+    public List<String> operations() {
+        if (operations == null) return null;
+        return operations.getValue("Grant.operations");
+    }
 
     /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      * 
      */
-    public Boolean retireOnDelete;
+    private @Nullable UndeferrableValue<Boolean> retireOnDelete;
 
-
+    public @Nullable Boolean retireOnDelete() {
+        if (retireOnDelete == null) return null;
+        return retireOnDelete.getValue("Grant.retireOnDelete");
+    }
 
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
-    public String retiringPrincipal;
+    private @Nullable UndeferrableValue<String> retiringPrincipal;
 
-
+    public @Nullable String retiringPrincipal() {
+        if (retiringPrincipal == null) return null;
+        return retiringPrincipal.getValue("Grant.retiringPrincipal");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")
-public final class LogDeliveryDestinationPolicy extends com.pulumi.resources.PolicyResource {
+public final class LogDeliveryDestinationPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the delivery destination to assign this policy to.
      * 
      */
-    public String deliveryDestinationName;
+    private UndeferrableValue<String> deliveryDestinationName;
 
-
+    public String deliveryDestinationName() {
+        if (deliveryDestinationName == null) return null;
+        return deliveryDestinationName.getValue("LogDeliveryDestinationPolicy.deliveryDestinationName");
+    }
 
     /**
      * The contents of the policy.
      * 
      */
-    public String deliveryDestinationPolicy;
+    private UndeferrableValue<String> deliveryDestinationPolicy;
 
-
+    public String deliveryDestinationPolicy() {
+        if (deliveryDestinationPolicy == null) return null;
+        return deliveryDestinationPolicy.getValue("LogDeliveryDestinationPolicy.deliveryDestinationPolicy");
+    }
 
 }

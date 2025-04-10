@@ -3,90 +3,122 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecr.RepositoryCreationTemplateEncryptionConfiguration;
+import com.pulumi.policypacks.aws.ecr.outputs.RepositoryCreationTemplateEncryptionConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")
-public final class RepositoryCreationTemplate extends com.pulumi.resources.PolicyResource {
+public final class RepositoryCreationTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
      * 
      */
-    public List<String> appliedFors;
+    private UndeferrableValue<List<String>> appliedFors;
 
-
+    public List<String> appliedFors() {
+        if (appliedFors == null) return null;
+        return appliedFors.getValue("RepositoryCreationTemplate.appliedFors");
+    }
 
     /**
      * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
      * 
      */
-    public String customRoleArn;
+    private @Nullable UndeferrableValue<String> customRoleArn;
 
-
+    public @Nullable String customRoleArn() {
+        if (customRoleArn == null) return null;
+        return customRoleArn.getValue("RepositoryCreationTemplate.customRoleArn");
+    }
 
     /**
      * The description for this template.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("RepositoryCreationTemplate.description");
+    }
 
     /**
      * Encryption configuration for any created repositories. See below for schema.
      * 
      */
-    public List<RepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations;
+    private @Nullable UndeferrableValue<List<RepositoryCreationTemplateEncryptionConfiguration>> encryptionConfigurations;
 
-
+    public @Nullable List<RepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations() {
+        if (encryptionConfigurations == null) return null;
+        return encryptionConfigurations.getValue("RepositoryCreationTemplate.encryptionConfigurations");
+    }
 
     /**
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      * 
      */
-    public String imageTagMutability;
+    private @Nullable UndeferrableValue<String> imageTagMutability;
 
-
+    public @Nullable String imageTagMutability() {
+        if (imageTagMutability == null) return null;
+        return imageTagMutability.getValue("RepositoryCreationTemplate.imageTagMutability");
+    }
 
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
      * 
      */
-    public String lifecyclePolicy;
+    private @Nullable UndeferrableValue<String> lifecyclePolicy;
 
-
+    public @Nullable String lifecyclePolicy() {
+        if (lifecyclePolicy == null) return null;
+        return lifecyclePolicy.getValue("RepositoryCreationTemplate.lifecyclePolicy");
+    }
 
     /**
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
-    public String prefix;
+    private UndeferrableValue<String> prefix;
 
-
+    public String prefix() {
+        if (prefix == null) return null;
+        return prefix.getValue("RepositoryCreationTemplate.prefix");
+    }
 
     /**
      * The registry ID the repository creation template applies to.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("RepositoryCreationTemplate.registryId");
+    }
 
+    private @Nullable UndeferrableValue<String> repositoryPolicy;
 
-    public String repositoryPolicy;
-
-
+    public @Nullable String repositoryPolicy() {
+        if (repositoryPolicy == null) return null;
+        return repositoryPolicy.getValue("RepositoryCreationTemplate.repositoryPolicy");
+    }
 
     /**
      * A map of tags to assign to any created repositories.
      * 
      */
-    public Map<String,String> resourceTags;
+    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
 
-
+    public @Nullable Map<String,String> resourceTags() {
+        if (resourceTags == null) return null;
+        return resourceTags.getValue("RepositoryCreationTemplate.resourceTags");
+    }
 
 }

@@ -3,92 +3,124 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/accountPasswordPolicy:AccountPasswordPolicy")
-public final class AccountPasswordPolicy extends com.pulumi.resources.PolicyResource {
+public final class AccountPasswordPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to allow users to change their own password
      * 
      */
-    public Boolean allowUsersToChangePassword;
+    private @Nullable UndeferrableValue<Boolean> allowUsersToChangePassword;
 
-
+    public @Nullable Boolean allowUsersToChangePassword() {
+        if (allowUsersToChangePassword == null) return null;
+        return allowUsersToChangePassword.getValue("AccountPasswordPolicy.allowUsersToChangePassword");
+    }
 
     /**
      * Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
-    public Boolean expirePasswords;
+    private UndeferrableValue<Boolean> expirePasswords;
 
-
+    public Boolean expirePasswords() {
+        if (expirePasswords == null) return null;
+        return expirePasswords.getValue("AccountPasswordPolicy.expirePasswords");
+    }
 
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      * 
      */
-    public Boolean hardExpiry;
+    private UndeferrableValue<Boolean> hardExpiry;
 
-
+    public Boolean hardExpiry() {
+        if (hardExpiry == null) return null;
+        return hardExpiry.getValue("AccountPasswordPolicy.hardExpiry");
+    }
 
     /**
      * The number of days that an user password is valid.
      * 
      */
-    public Integer maxPasswordAge;
+    private UndeferrableValue<Integer> maxPasswordAge;
 
-
+    public Integer maxPasswordAge() {
+        if (maxPasswordAge == null) return null;
+        return maxPasswordAge.getValue("AccountPasswordPolicy.maxPasswordAge");
+    }
 
     /**
      * Minimum length to require for user passwords.
      * 
      */
-    public Integer minimumPasswordLength;
+    private @Nullable UndeferrableValue<Integer> minimumPasswordLength;
 
-
+    public @Nullable Integer minimumPasswordLength() {
+        if (minimumPasswordLength == null) return null;
+        return minimumPasswordLength.getValue("AccountPasswordPolicy.minimumPasswordLength");
+    }
 
     /**
      * The number of previous passwords that users are prevented from reusing.
      * 
      */
-    public Integer passwordReusePrevention;
+    private UndeferrableValue<Integer> passwordReusePrevention;
 
-
+    public Integer passwordReusePrevention() {
+        if (passwordReusePrevention == null) return null;
+        return passwordReusePrevention.getValue("AccountPasswordPolicy.passwordReusePrevention");
+    }
 
     /**
      * Whether to require lowercase characters for user passwords.
      * 
      */
-    public Boolean requireLowercaseCharacters;
+    private UndeferrableValue<Boolean> requireLowercaseCharacters;
 
-
+    public Boolean requireLowercaseCharacters() {
+        if (requireLowercaseCharacters == null) return null;
+        return requireLowercaseCharacters.getValue("AccountPasswordPolicy.requireLowercaseCharacters");
+    }
 
     /**
      * Whether to require numbers for user passwords.
      * 
      */
-    public Boolean requireNumbers;
+    private UndeferrableValue<Boolean> requireNumbers;
 
-
+    public Boolean requireNumbers() {
+        if (requireNumbers == null) return null;
+        return requireNumbers.getValue("AccountPasswordPolicy.requireNumbers");
+    }
 
     /**
      * Whether to require symbols for user passwords.
      * 
      */
-    public Boolean requireSymbols;
+    private UndeferrableValue<Boolean> requireSymbols;
 
-
+    public Boolean requireSymbols() {
+        if (requireSymbols == null) return null;
+        return requireSymbols.getValue("AccountPasswordPolicy.requireSymbols");
+    }
 
     /**
      * Whether to require uppercase characters for user passwords.
      * 
      */
-    public Boolean requireUppercaseCharacters;
+    private UndeferrableValue<Boolean> requireUppercaseCharacters;
 
-
+    public Boolean requireUppercaseCharacters() {
+        if (requireUppercaseCharacters == null) return null;
+        return requireUppercaseCharacters.getValue("AccountPasswordPolicy.requireUppercaseCharacters");
+    }
 
 }

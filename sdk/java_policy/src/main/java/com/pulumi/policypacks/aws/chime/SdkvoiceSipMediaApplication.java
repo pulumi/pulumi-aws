@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.SdkvoiceSipMediaApplicationEndpoints;
+import com.pulumi.policypacks.aws.chime.outputs.SdkvoiceSipMediaApplicationEndpoints;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")
-public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.PolicyResource {
+public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SdkvoiceSipMediaApplication.arn");
+    }
 
     /**
      * The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
      * 
      */
-    public String awsRegion;
+    private UndeferrableValue<String> awsRegion;
 
-
+    public String awsRegion() {
+        if (awsRegion == null) return null;
+        return awsRegion.getValue("SdkvoiceSipMediaApplication.awsRegion");
+    }
 
     /**
      * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
-    public SdkvoiceSipMediaApplicationEndpoints endpoints;
+    private UndeferrableValue<SdkvoiceSipMediaApplicationEndpoints> endpoints;
 
-
+    public SdkvoiceSipMediaApplicationEndpoints endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("SdkvoiceSipMediaApplication.endpoints");
+    }
 
     /**
      * The name of the AWS Chime SDK Voice Sip Media Application.
@@ -42,17 +53,23 @@ public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SdkvoiceSipMediaApplication.name");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SdkvoiceSipMediaApplication.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,8 +79,11 @@ public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.Poli
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SdkvoiceSipMediaApplication.tagsAll");
+    }
 
 }

@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.FrameworkControl;
+import com.pulumi.policypacks.aws.backup.outputs.FrameworkControl;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/framework:Framework")
-public final class Framework extends com.pulumi.resources.PolicyResource {
+public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the backup framework.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Framework.arn");
+    }
 
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    public List<FrameworkControl> controls;
+    private UndeferrableValue<List<FrameworkControl>> controls;
 
-
+    public List<FrameworkControl> controls() {
+        if (controls == null) return null;
+        return controls.getValue("Framework.controls");
+    }
 
     /**
      * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("Framework.creationTime");
+    }
 
     /**
      * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
-    public String deploymentStatus;
+    private UndeferrableValue<String> deploymentStatus;
 
-
+    public String deploymentStatus() {
+        if (deploymentStatus == null) return null;
+        return deploymentStatus.getValue("Framework.deploymentStatus");
+    }
 
     /**
      * The description of the framework with a maximum of 1,024 characters
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Framework.description");
+    }
 
     /**
      * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Framework.name");
+    }
 
     /**
      * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Framework.status");
+    }
 
     /**
      * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Framework.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class Framework extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Framework.tagsAll");
+    }
 
 }

@@ -3,93 +3,122 @@
 
 package com.pulumi.policypacks.aws.keyspaces;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.keyspaces.TableCapacitySpecification;
-import com.pulumi.policypacks.aws.keyspaces.TableClientSideTimestamps;
-import com.pulumi.policypacks.aws.keyspaces.TableComment;
-import com.pulumi.policypacks.aws.keyspaces.TableEncryptionSpecification;
-import com.pulumi.policypacks.aws.keyspaces.TablePointInTimeRecovery;
-import com.pulumi.policypacks.aws.keyspaces.TableSchemaDefinition;
-import com.pulumi.policypacks.aws.keyspaces.TableTtl;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableCapacitySpecification;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableClientSideTimestamps;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableComment;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableEncryptionSpecification;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TablePointInTimeRecovery;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableSchemaDefinition;
+import com.pulumi.policypacks.aws.keyspaces.outputs.TableTtl;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:keyspaces/table:Table")
-public final class Table extends com.pulumi.resources.PolicyResource {
+public final class Table extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Table.arn");
+    }
 
     /**
      * Specifies the read/write throughput capacity mode for the table.
      * 
      */
-    public TableCapacitySpecification capacitySpecification;
+    private UndeferrableValue<TableCapacitySpecification> capacitySpecification;
 
-
+    public TableCapacitySpecification capacitySpecification() {
+        if (capacitySpecification == null) return null;
+        return capacitySpecification.getValue("Table.capacitySpecification");
+    }
 
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      * 
      */
-    public TableClientSideTimestamps clientSideTimestamps;
+    private @Nullable UndeferrableValue<TableClientSideTimestamps> clientSideTimestamps;
 
-
+    public @Nullable TableClientSideTimestamps clientSideTimestamps() {
+        if (clientSideTimestamps == null) return null;
+        return clientSideTimestamps.getValue("Table.clientSideTimestamps");
+    }
 
     /**
      * A description of the table.
      * 
      */
-    public TableComment comment;
+    private UndeferrableValue<TableComment> comment;
 
-
+    public TableComment comment() {
+        if (comment == null) return null;
+        return comment.getValue("Table.comment");
+    }
 
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
-    public Integer defaultTimeToLive;
+    private @Nullable UndeferrableValue<Integer> defaultTimeToLive;
 
-
+    public @Nullable Integer defaultTimeToLive() {
+        if (defaultTimeToLive == null) return null;
+        return defaultTimeToLive.getValue("Table.defaultTimeToLive");
+    }
 
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      * 
      */
-    public TableEncryptionSpecification encryptionSpecification;
+    private UndeferrableValue<TableEncryptionSpecification> encryptionSpecification;
 
-
+    public TableEncryptionSpecification encryptionSpecification() {
+        if (encryptionSpecification == null) return null;
+        return encryptionSpecification.getValue("Table.encryptionSpecification");
+    }
 
     /**
      * The name of the keyspace that the table is going to be created in.
      * 
      */
-    public String keyspaceName;
+    private UndeferrableValue<String> keyspaceName;
 
-
+    public String keyspaceName() {
+        if (keyspaceName == null) return null;
+        return keyspaceName.getValue("Table.keyspaceName");
+    }
 
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      * 
      */
-    public TablePointInTimeRecovery pointInTimeRecovery;
+    private UndeferrableValue<TablePointInTimeRecovery> pointInTimeRecovery;
 
-
+    public TablePointInTimeRecovery pointInTimeRecovery() {
+        if (pointInTimeRecovery == null) return null;
+        return pointInTimeRecovery.getValue("Table.pointInTimeRecovery");
+    }
 
     /**
      * Describes the schema of the table.
      * 
      */
-    public TableSchemaDefinition schemaDefinition;
+    private UndeferrableValue<TableSchemaDefinition> schemaDefinition;
 
-
+    public TableSchemaDefinition schemaDefinition() {
+        if (schemaDefinition == null) return null;
+        return schemaDefinition.getValue("Table.schemaDefinition");
+    }
 
     /**
      * The name of the table.
@@ -97,17 +126,23 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("Table.tableName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Table.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,16 +152,22 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Table.tagsAll");
+    }
 
     /**
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      * 
      */
-    public TableTtl ttl;
+    private @Nullable UndeferrableValue<TableTtl> ttl;
 
-
+    public @Nullable TableTtl ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("Table.ttl");
+    }
 
 }

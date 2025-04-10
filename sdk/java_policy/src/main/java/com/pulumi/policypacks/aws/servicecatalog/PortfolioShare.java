@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/portfolioShare:PortfolioShare")
-public final class PortfolioShare extends com.pulumi.resources.PolicyResource {
+public final class PortfolioShare extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("PortfolioShare.acceptLanguage");
+    }
 
     /**
      * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      * 
      */
-    public Boolean accepted;
+    private UndeferrableValue<Boolean> accepted;
 
-
+    public Boolean accepted() {
+        if (accepted == null) return null;
+        return accepted.getValue("PortfolioShare.accepted");
+    }
 
     /**
      * Portfolio identifier.
      * 
      */
-    public String portfolioId;
+    private UndeferrableValue<String> portfolioId;
 
-
+    public String portfolioId() {
+        if (portfolioId == null) return null;
+        return portfolioId.getValue("PortfolioShare.portfolioId");
+    }
 
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      * 
      */
-    public String principalId;
+    private UndeferrableValue<String> principalId;
 
-
+    public String principalId() {
+        if (principalId == null) return null;
+        return principalId.getValue("PortfolioShare.principalId");
+    }
 
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      * 
      */
-    public Boolean sharePrincipals;
+    private @Nullable UndeferrableValue<Boolean> sharePrincipals;
 
-
+    public @Nullable Boolean sharePrincipals() {
+        if (sharePrincipals == null) return null;
+        return sharePrincipals.getValue("PortfolioShare.sharePrincipals");
+    }
 
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      * 
      */
-    public Boolean shareTagOptions;
+    private @Nullable UndeferrableValue<Boolean> shareTagOptions;
 
-
+    public @Nullable Boolean shareTagOptions() {
+        if (shareTagOptions == null) return null;
+        return shareTagOptions.getValue("PortfolioShare.shareTagOptions");
+    }
 
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -65,16 +85,22 @@ public final class PortfolioShare extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("PortfolioShare.type");
+    }
 
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      * 
      */
-    public Boolean waitForAcceptance;
+    private @Nullable UndeferrableValue<Boolean> waitForAcceptance;
 
-
+    public @Nullable Boolean waitForAcceptance() {
+        if (waitForAcceptance == null) return null;
+        return waitForAcceptance.getValue("PortfolioShare.waitForAcceptance");
+    }
 
 }

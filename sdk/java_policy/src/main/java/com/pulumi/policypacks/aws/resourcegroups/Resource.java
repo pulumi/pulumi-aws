@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.resourcegroups;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:resourcegroups/resource:Resource")
-public final class Resource extends com.pulumi.resources.PolicyResource {
+public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name or ARN of the resource group to add resources to.
      * 
      */
-    public String groupArn;
+    private UndeferrableValue<String> groupArn;
 
-
+    public String groupArn() {
+        if (groupArn == null) return null;
+        return groupArn.getValue("Resource.groupArn");
+    }
 
     /**
      * ARN of the resource to be added to the group.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("Resource.resourceArn");
+    }
 
     /**
      * The resource type of a resource, such as `AWS::EC2::Instance`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("Resource.resourceType");
+    }
 
 }

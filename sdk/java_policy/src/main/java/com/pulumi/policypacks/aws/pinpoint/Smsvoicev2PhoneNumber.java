@@ -3,108 +3,146 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.pinpoint.Smsvoicev2PhoneNumberTimeouts;
+import com.pulumi.policypacks.aws.pinpoint.outputs.Smsvoicev2PhoneNumberTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")
-public final class Smsvoicev2PhoneNumber extends com.pulumi.resources.PolicyResource {
+public final class Smsvoicev2PhoneNumber extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the phone number.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Smsvoicev2PhoneNumber.arn");
+    }
 
     /**
      * By default this is set to `false`. When set to true the phone number can’t be deleted.
      * 
      */
-    public Boolean deletionProtectionEnabled;
+    private UndeferrableValue<Boolean> deletionProtectionEnabled;
 
-
+    public Boolean deletionProtectionEnabled() {
+        if (deletionProtectionEnabled == null) return null;
+        return deletionProtectionEnabled.getValue("Smsvoicev2PhoneNumber.deletionProtectionEnabled");
+    }
 
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
-    public String isoCountryCode;
+    private UndeferrableValue<String> isoCountryCode;
 
-
+    public String isoCountryCode() {
+        if (isoCountryCode == null) return null;
+        return isoCountryCode.getValue("Smsvoicev2PhoneNumber.isoCountryCode");
+    }
 
     /**
      * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
-    public String messageType;
+    private UndeferrableValue<String> messageType;
 
-
+    public String messageType() {
+        if (messageType == null) return null;
+        return messageType.getValue("Smsvoicev2PhoneNumber.messageType");
+    }
 
     /**
      * The monthly price, in US dollars, to lease the phone number.
      * 
      */
-    public String monthlyLeasingPrice;
+    private UndeferrableValue<String> monthlyLeasingPrice;
 
-
+    public String monthlyLeasingPrice() {
+        if (monthlyLeasingPrice == null) return null;
+        return monthlyLeasingPrice.getValue("Smsvoicev2PhoneNumber.monthlyLeasingPrice");
+    }
 
     /**
      * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
      * 
      */
-    public List<String> numberCapabilities;
+    private UndeferrableValue<List<String>> numberCapabilities;
 
-
+    public List<String> numberCapabilities() {
+        if (numberCapabilities == null) return null;
+        return numberCapabilities.getValue("Smsvoicev2PhoneNumber.numberCapabilities");
+    }
 
     /**
      * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
-    public String numberType;
+    private UndeferrableValue<String> numberType;
 
-
+    public String numberType() {
+        if (numberType == null) return null;
+        return numberType.getValue("Smsvoicev2PhoneNumber.numberType");
+    }
 
     /**
      * The name of the opt-out list to associate with the phone number.
      * 
      */
-    public String optOutListName;
+    private UndeferrableValue<String> optOutListName;
 
-
+    public String optOutListName() {
+        if (optOutListName == null) return null;
+        return optOutListName.getValue("Smsvoicev2PhoneNumber.optOutListName");
+    }
 
     /**
      * The new phone number that was requested.
      * 
      */
-    public String phoneNumber;
+    private UndeferrableValue<String> phoneNumber;
 
-
+    public String phoneNumber() {
+        if (phoneNumber == null) return null;
+        return phoneNumber.getValue("Smsvoicev2PhoneNumber.phoneNumber");
+    }
 
     /**
      * Use this field to attach your phone number for an external registration process.
      * 
      */
-    public String registrationId;
+    private @Nullable UndeferrableValue<String> registrationId;
 
-
+    public @Nullable String registrationId() {
+        if (registrationId == null) return null;
+        return registrationId.getValue("Smsvoicev2PhoneNumber.registrationId");
+    }
 
     /**
      * When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
      * 
      */
-    public Boolean selfManagedOptOutsEnabled;
+    private UndeferrableValue<Boolean> selfManagedOptOutsEnabled;
 
+    public Boolean selfManagedOptOutsEnabled() {
+        if (selfManagedOptOutsEnabled == null) return null;
+        return selfManagedOptOutsEnabled.getValue("Smsvoicev2PhoneNumber.selfManagedOptOutsEnabled");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Smsvoicev2PhoneNumber.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -114,28 +152,40 @@ public final class Smsvoicev2PhoneNumber extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Smsvoicev2PhoneNumber.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<Smsvoicev2PhoneNumberTimeouts> timeouts;
 
-    public Smsvoicev2PhoneNumberTimeouts timeouts;
-
-
+    public @Nullable Smsvoicev2PhoneNumberTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Smsvoicev2PhoneNumber.timeouts");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the two way channel.
      * 
      */
-    public String twoWayChannelArn;
+    private @Nullable UndeferrableValue<String> twoWayChannelArn;
 
-
+    public @Nullable String twoWayChannelArn() {
+        if (twoWayChannelArn == null) return null;
+        return twoWayChannelArn.getValue("Smsvoicev2PhoneNumber.twoWayChannelArn");
+    }
 
     /**
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      * 
      */
-    public Boolean twoWayChannelEnabled;
+    private UndeferrableValue<Boolean> twoWayChannelEnabled;
 
-
+    public Boolean twoWayChannelEnabled() {
+        if (twoWayChannelEnabled == null) return null;
+        return twoWayChannelEnabled.getValue("Smsvoicev2PhoneNumber.twoWayChannelEnabled");
+    }
 
 }

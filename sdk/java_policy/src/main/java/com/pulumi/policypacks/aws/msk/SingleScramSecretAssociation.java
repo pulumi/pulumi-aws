@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation")
-public final class SingleScramSecretAssociation extends com.pulumi.resources.PolicyResource {
+public final class SingleScramSecretAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    public String clusterArn;
+    private UndeferrableValue<String> clusterArn;
 
-
+    public String clusterArn() {
+        if (clusterArn == null) return null;
+        return clusterArn.getValue("SingleScramSecretAssociation.clusterArn");
+    }
 
     /**
      * AWS Secrets Manager secret ARN.
      * 
      */
-    public String secretArn;
+    private UndeferrableValue<String> secretArn;
 
-
+    public String secretArn() {
+        if (secretArn == null) return null;
+        return secretArn.getValue("SingleScramSecretAssociation.secretArn");
+    }
 
 }

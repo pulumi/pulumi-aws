@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/usageLimit:UsageLimit")
-public final class UsageLimit extends com.pulumi.resources.PolicyResource {
+public final class UsageLimit extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
      * 
      */
-    public Integer amount;
+    private UndeferrableValue<Integer> amount;
 
-
+    public Integer amount() {
+        if (amount == null) return null;
+        return amount.getValue("UsageLimit.amount");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Usage Limit.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UsageLimit.arn");
+    }
 
     /**
      * The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
      * 
      */
-    public String breachAction;
+    private @Nullable UndeferrableValue<String> breachAction;
 
-
+    public @Nullable String breachAction() {
+        if (breachAction == null) return null;
+        return breachAction.getValue("UsageLimit.breachAction");
+    }
 
     /**
      * The identifier of the cluster that you want to limit usage.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("UsageLimit.clusterIdentifier");
+    }
 
     /**
      * The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
      * 
      */
-    public String featureType;
+    private UndeferrableValue<String> featureType;
 
-
+    public String featureType() {
+        if (featureType == null) return null;
+        return featureType.getValue("UsageLimit.featureType");
+    }
 
     /**
      * The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
      * 
      */
-    public String limitType;
+    private UndeferrableValue<String> limitType;
 
-
+    public String limitType() {
+        if (limitType == null) return null;
+        return limitType.getValue("UsageLimit.limitType");
+    }
 
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
      * 
      */
-    public String period;
+    private @Nullable UndeferrableValue<String> period;
 
-
+    public @Nullable String period() {
+        if (period == null) return null;
+        return period.getValue("UsageLimit.period");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UsageLimit.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,8 +110,11 @@ public final class UsageLimit extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UsageLimit.tagsAll");
+    }
 
 }

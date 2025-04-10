@@ -3,89 +3,115 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dynamodb.TableAttribute;
-import com.pulumi.policypacks.aws.dynamodb.TableGlobalSecondaryIndex;
-import com.pulumi.policypacks.aws.dynamodb.TableImportTable;
-import com.pulumi.policypacks.aws.dynamodb.TableLocalSecondaryIndex;
-import com.pulumi.policypacks.aws.dynamodb.TableOnDemandThroughput;
-import com.pulumi.policypacks.aws.dynamodb.TablePointInTimeRecovery;
-import com.pulumi.policypacks.aws.dynamodb.TableReplica;
-import com.pulumi.policypacks.aws.dynamodb.TableServerSideEncryption;
-import com.pulumi.policypacks.aws.dynamodb.TableTtl;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableAttribute;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableGlobalSecondaryIndex;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableImportTable;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableLocalSecondaryIndex;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableOnDemandThroughput;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TablePointInTimeRecovery;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableReplica;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableServerSideEncryption;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableTtl;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dynamodb/table:Table")
-public final class Table extends com.pulumi.resources.PolicyResource {
+public final class Table extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the table
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Table.arn");
+    }
 
     /**
      * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
-    public List<TableAttribute> attributes;
+    private UndeferrableValue<List<TableAttribute>> attributes;
 
-
+    public List<TableAttribute> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("Table.attributes");
+    }
 
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      * 
      */
-    public String billingMode;
+    private @Nullable UndeferrableValue<String> billingMode;
 
-
+    public @Nullable String billingMode() {
+        if (billingMode == null) return null;
+        return billingMode.getValue("Table.billingMode");
+    }
 
     /**
      * Enables deletion protection for table. Defaults to `false`.
      * 
      */
-    public Boolean deletionProtectionEnabled;
+    private @Nullable UndeferrableValue<Boolean> deletionProtectionEnabled;
 
-
+    public @Nullable Boolean deletionProtectionEnabled() {
+        if (deletionProtectionEnabled == null) return null;
+        return deletionProtectionEnabled.getValue("Table.deletionProtectionEnabled");
+    }
 
     /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
-    public List<TableGlobalSecondaryIndex> globalSecondaryIndexes;
+    private @Nullable UndeferrableValue<List<TableGlobalSecondaryIndex>> globalSecondaryIndexes;
 
-
+    public @Nullable List<TableGlobalSecondaryIndex> globalSecondaryIndexes() {
+        if (globalSecondaryIndexes == null) return null;
+        return globalSecondaryIndexes.getValue("Table.globalSecondaryIndexes");
+    }
 
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
-    public String hashKey;
+    private UndeferrableValue<String> hashKey;
 
-
+    public String hashKey() {
+        if (hashKey == null) return null;
+        return hashKey.getValue("Table.hashKey");
+    }
 
     /**
      * Import Amazon S3 data into a new table. See below.
      * 
      */
-    public TableImportTable importTable;
+    private @Nullable UndeferrableValue<TableImportTable> importTable;
 
-
+    public @Nullable TableImportTable importTable() {
+        if (importTable == null) return null;
+        return importTable.getValue("Table.importTable");
+    }
 
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
-    public List<TableLocalSecondaryIndex> localSecondaryIndexes;
+    private @Nullable UndeferrableValue<List<TableLocalSecondaryIndex>> localSecondaryIndexes;
 
-
+    public @Nullable List<TableLocalSecondaryIndex> localSecondaryIndexes() {
+        if (localSecondaryIndexes == null) return null;
+        return localSecondaryIndexes.getValue("Table.localSecondaryIndexes");
+    }
 
     /**
      * Unique within a region name of the table.
@@ -93,121 +119,166 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * Optional arguments:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Table.name");
+    }
 
     /**
      * Sets the maximum number of read and write units for the specified on-demand table. See below.
      * 
      */
-    public TableOnDemandThroughput onDemandThroughput;
+    private @Nullable UndeferrableValue<TableOnDemandThroughput> onDemandThroughput;
 
-
+    public @Nullable TableOnDemandThroughput onDemandThroughput() {
+        if (onDemandThroughput == null) return null;
+        return onDemandThroughput.getValue("Table.onDemandThroughput");
+    }
 
     /**
      * Enable point-in-time recovery options. See below.
      * 
      */
-    public TablePointInTimeRecovery pointInTimeRecovery;
+    private UndeferrableValue<TablePointInTimeRecovery> pointInTimeRecovery;
 
-
+    public TablePointInTimeRecovery pointInTimeRecovery() {
+        if (pointInTimeRecovery == null) return null;
+        return pointInTimeRecovery.getValue("Table.pointInTimeRecovery");
+    }
 
     /**
      * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
-    public String rangeKey;
+    private @Nullable UndeferrableValue<String> rangeKey;
 
-
+    public @Nullable String rangeKey() {
+        if (rangeKey == null) return null;
+        return rangeKey.getValue("Table.rangeKey");
+    }
 
     /**
      * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    public Integer readCapacity;
+    private UndeferrableValue<Integer> readCapacity;
 
-
+    public Integer readCapacity() {
+        if (readCapacity == null) return null;
+        return readCapacity.getValue("Table.readCapacity");
+    }
 
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
-    public List<TableReplica> replicas;
+    private @Nullable UndeferrableValue<List<TableReplica>> replicas;
 
-
+    public @Nullable List<TableReplica> replicas() {
+        if (replicas == null) return null;
+        return replicas.getValue("Table.replicas");
+    }
 
     /**
      * Time of the point-in-time recovery point to restore.
      * 
      */
-    public String restoreDateTime;
+    private @Nullable UndeferrableValue<String> restoreDateTime;
 
-
+    public @Nullable String restoreDateTime() {
+        if (restoreDateTime == null) return null;
+        return restoreDateTime.getValue("Table.restoreDateTime");
+    }
 
     /**
      * Name of the table to restore. Must match the name of an existing table.
      * 
      */
-    public String restoreSourceName;
+    private @Nullable UndeferrableValue<String> restoreSourceName;
 
-
+    public @Nullable String restoreSourceName() {
+        if (restoreSourceName == null) return null;
+        return restoreSourceName.getValue("Table.restoreSourceName");
+    }
 
     /**
      * ARN of the source table to restore. Must be supplied for cross-region restores.
      * 
      */
-    public String restoreSourceTableArn;
+    private @Nullable UndeferrableValue<String> restoreSourceTableArn;
 
-
+    public @Nullable String restoreSourceTableArn() {
+        if (restoreSourceTableArn == null) return null;
+        return restoreSourceTableArn.getValue("Table.restoreSourceTableArn");
+    }
 
     /**
      * If set, restores table to the most recent point-in-time recovery point.
      * 
      */
-    public Boolean restoreToLatestTime;
+    private @Nullable UndeferrableValue<Boolean> restoreToLatestTime;
 
-
+    public @Nullable Boolean restoreToLatestTime() {
+        if (restoreToLatestTime == null) return null;
+        return restoreToLatestTime.getValue("Table.restoreToLatestTime");
+    }
 
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
-    public TableServerSideEncryption serverSideEncryption;
+    private UndeferrableValue<TableServerSideEncryption> serverSideEncryption;
 
-
+    public TableServerSideEncryption serverSideEncryption() {
+        if (serverSideEncryption == null) return null;
+        return serverSideEncryption.getValue("Table.serverSideEncryption");
+    }
 
     /**
      * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
-    public String streamArn;
+    private UndeferrableValue<String> streamArn;
 
-
+    public String streamArn() {
+        if (streamArn == null) return null;
+        return streamArn.getValue("Table.streamArn");
+    }
 
     /**
      * Whether Streams are enabled.
      * 
      */
-    public Boolean streamEnabled;
+    private @Nullable UndeferrableValue<Boolean> streamEnabled;
 
-
+    public @Nullable Boolean streamEnabled() {
+        if (streamEnabled == null) return null;
+        return streamEnabled.getValue("Table.streamEnabled");
+    }
 
     /**
      * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
      * 
      */
-    public String streamLabel;
+    private UndeferrableValue<String> streamLabel;
 
-
+    public String streamLabel() {
+        if (streamLabel == null) return null;
+        return streamLabel.getValue("Table.streamLabel");
+    }
 
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      * 
      */
-    public String streamViewType;
+    private UndeferrableValue<String> streamViewType;
 
-
+    public String streamViewType() {
+        if (streamViewType == null) return null;
+        return streamViewType.getValue("Table.streamViewType");
+    }
 
     /**
      * Storage class of the table.
@@ -215,17 +286,23 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * Default value is `STANDARD`.
      * 
      */
-    public String tableClass;
+    private @Nullable UndeferrableValue<String> tableClass;
 
-
+    public @Nullable String tableClass() {
+        if (tableClass == null) return null;
+        return tableClass.getValue("Table.tableClass");
+    }
 
     /**
      * A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Table.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -235,24 +312,33 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Table.tagsAll");
+    }
 
     /**
      * Configuration block for TTL. See below.
      * 
      */
-    public TableTtl ttl;
+    private UndeferrableValue<TableTtl> ttl;
 
-
+    public TableTtl ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("Table.ttl");
+    }
 
     /**
      * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    public Integer writeCapacity;
+    private UndeferrableValue<Integer> writeCapacity;
 
-
+    public Integer writeCapacity() {
+        if (writeCapacity == null) return null;
+        return writeCapacity.getValue("Table.writeCapacity");
+    }
 
 }

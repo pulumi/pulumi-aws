@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.fms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fms.ResourceSetResourceSet;
-import com.pulumi.policypacks.aws.fms.ResourceSetTimeouts;
+import com.pulumi.policypacks.aws.fms.outputs.ResourceSetResourceSet;
+import com.pulumi.policypacks.aws.fms.outputs.ResourceSetTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fms/resourceSet:ResourceSet")
-public final class ResourceSet extends com.pulumi.resources.PolicyResource {
+public final class ResourceSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Resource Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceSet.arn");
+    }
 
     /**
      * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
      * 
      */
-    public List<ResourceSetResourceSet> resourceSets;
+    private @Nullable UndeferrableValue<List<ResourceSetResourceSet>> resourceSets;
 
+    public @Nullable List<ResourceSetResourceSet> resourceSets() {
+        if (resourceSets == null) return null;
+        return resourceSets.getValue("ResourceSet.resourceSets");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceSet.tags");
+    }
 
     /**
      * @deprecated
@@ -40,12 +51,18 @@ public final class ResourceSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResourceSet.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ResourceSetTimeouts> timeouts;
 
-    public ResourceSetTimeouts timeouts;
-
-
+    public @Nullable ResourceSetTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ResourceSet.timeouts");
+    }
 
 }

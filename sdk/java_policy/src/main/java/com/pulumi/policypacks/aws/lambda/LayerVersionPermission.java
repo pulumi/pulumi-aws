@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/layerVersionPermission:LayerVersionPermission")
-public final class LayerVersionPermission extends com.pulumi.resources.PolicyResource {
+public final class LayerVersionPermission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
      * 
      */
-    public String action;
+    private UndeferrableValue<String> action;
 
-
+    public String action() {
+        if (action == null) return null;
+        return action.getValue("LayerVersionPermission.action");
+    }
 
     /**
      * The name or ARN of the Lambda Layer, which you want to grant access to.
      * 
      */
-    public String layerName;
+    private UndeferrableValue<String> layerName;
 
-
+    public String layerName() {
+        if (layerName == null) return null;
+        return layerName.getValue("LayerVersionPermission.layerName");
+    }
 
     /**
      * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
      * 
      */
-    public String organizationId;
+    private @Nullable UndeferrableValue<String> organizationId;
 
-
+    public @Nullable String organizationId() {
+        if (organizationId == null) return null;
+        return organizationId.getValue("LayerVersionPermission.organizationId");
+    }
 
     /**
      * Full Lambda Layer Permission policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("LayerVersionPermission.policy");
+    }
 
     /**
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("LayerVersionPermission.principal");
+    }
 
     /**
      * A unique identifier for the current revision of the policy.
      * 
      */
-    public String revisionId;
+    private UndeferrableValue<String> revisionId;
 
-
+    public String revisionId() {
+        if (revisionId == null) return null;
+        return revisionId.getValue("LayerVersionPermission.revisionId");
+    }
 
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("LayerVersionPermission.skipDestroy");
+    }
 
     /**
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      * 
      */
-    public String statementId;
+    private UndeferrableValue<String> statementId;
 
-
+    public String statementId() {
+        if (statementId == null) return null;
+        return statementId.getValue("LayerVersionPermission.statementId");
+    }
 
     /**
      * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
      * 
      */
-    public Integer versionNumber;
+    private UndeferrableValue<Integer> versionNumber;
 
-
+    public Integer versionNumber() {
+        if (versionNumber == null) return null;
+        return versionNumber.getValue("LayerVersionPermission.versionNumber");
+    }
 
 }

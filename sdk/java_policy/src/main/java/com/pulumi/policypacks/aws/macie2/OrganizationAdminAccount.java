@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:macie2/organizationAdminAccount:OrganizationAdminAccount")
-public final class OrganizationAdminAccount extends com.pulumi.resources.PolicyResource {
+public final class OrganizationAdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      * 
      */
-    public String adminAccountId;
+    private UndeferrableValue<String> adminAccountId;
 
-
+    public String adminAccountId() {
+        if (adminAccountId == null) return null;
+        return adminAccountId.getValue("OrganizationAdminAccount.adminAccountId");
+    }
 
 }

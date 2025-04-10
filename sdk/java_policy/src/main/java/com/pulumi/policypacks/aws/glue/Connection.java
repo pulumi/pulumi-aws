@@ -3,31 +3,39 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.ConnectionPhysicalConnectionRequirements;
+import com.pulumi.policypacks.aws.glue.outputs.ConnectionPhysicalConnectionRequirements;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/connection:Connection")
-public final class Connection extends com.pulumi.resources.PolicyResource {
+public final class Connection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Glue Connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Connection.arn");
+    }
 
     /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("Connection.catalogId");
+    }
 
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
@@ -35,33 +43,45 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
-    public Map<String,String> connectionProperties;
+    private @Nullable UndeferrableValue<Map<String,String>> connectionProperties;
 
-
+    public @Nullable Map<String,String> connectionProperties() {
+        if (connectionProperties == null) return null;
+        return connectionProperties.getValue("Connection.connectionProperties");
+    }
 
     /**
      * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
-    public String connectionType;
+    private @Nullable UndeferrableValue<String> connectionType;
 
-
+    public @Nullable String connectionType() {
+        if (connectionType == null) return null;
+        return connectionType.getValue("Connection.connectionType");
+    }
 
     /**
      * Description of the connection.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Connection.description");
+    }
 
     /**
      * List of criteria that can be used in selecting this connection.
      * 
      */
-    public List<String> matchCriterias;
+    private @Nullable UndeferrableValue<List<String>> matchCriterias;
 
-
+    public @Nullable List<String> matchCriterias() {
+        if (matchCriterias == null) return null;
+        return matchCriterias.getValue("Connection.matchCriterias");
+    }
 
     /**
      * Name of the connection.
@@ -69,25 +89,34 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Connection.name");
+    }
 
     /**
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
-    public ConnectionPhysicalConnectionRequirements physicalConnectionRequirements;
+    private @Nullable UndeferrableValue<ConnectionPhysicalConnectionRequirements> physicalConnectionRequirements;
 
-
+    public @Nullable ConnectionPhysicalConnectionRequirements physicalConnectionRequirements() {
+        if (physicalConnectionRequirements == null) return null;
+        return physicalConnectionRequirements.getValue("Connection.physicalConnectionRequirements");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -97,8 +126,11 @@ public final class Connection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connection.tagsAll");
+    }
 
 }

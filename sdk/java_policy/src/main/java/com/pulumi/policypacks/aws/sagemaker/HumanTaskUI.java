@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.HumanTaskUIUiTemplate;
+import com.pulumi.policypacks.aws.sagemaker.outputs.HumanTaskUIUiTemplate;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/humanTaskUI:HumanTaskUI")
-public final class HumanTaskUI extends com.pulumi.resources.PolicyResource {
+public final class HumanTaskUI extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HumanTaskUI.arn");
+    }
 
     /**
      * The name of the Human Task UI.
      * 
      */
-    public String humanTaskUiName;
+    private UndeferrableValue<String> humanTaskUiName;
 
-
+    public String humanTaskUiName() {
+        if (humanTaskUiName == null) return null;
+        return humanTaskUiName.getValue("HumanTaskUI.humanTaskUiName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HumanTaskUI.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -44,16 +55,22 @@ public final class HumanTaskUI extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HumanTaskUI.tagsAll");
+    }
 
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      * 
      */
-    public HumanTaskUIUiTemplate uiTemplate;
+    private UndeferrableValue<HumanTaskUIUiTemplate> uiTemplate;
 
-
+    public HumanTaskUIUiTemplate uiTemplate() {
+        if (uiTemplate == null) return null;
+        return uiTemplate.getValue("HumanTaskUI.uiTemplate");
+    }
 
 }

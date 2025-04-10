@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.TemplatePermission;
-import com.pulumi.policypacks.aws.quicksight.TemplateSourceEntity;
+import com.pulumi.policypacks.aws.quicksight.outputs.TemplatePermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.TemplateSourceEntity;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/template:Template")
-public final class Template extends com.pulumi.resources.PolicyResource {
+public final class Template extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the template.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Template.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Template.awsAccountId");
+    }
 
     /**
      * The time that the template was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Template.createdTime");
+    }
 
     /**
      * The time that the template was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Template.lastUpdatedTime");
+    }
 
     /**
      * Display name for the template.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Template.name");
+    }
 
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      * 
      */
-    public List<TemplatePermission> permissions;
+    private @Nullable UndeferrableValue<List<TemplatePermission>> permissions;
 
-
+    public @Nullable List<TemplatePermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Template.permissions");
+    }
 
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    public TemplateSourceEntity sourceEntity;
+    private @Nullable UndeferrableValue<TemplateSourceEntity> sourceEntity;
 
-
+    public @Nullable TemplateSourceEntity sourceEntity() {
+        if (sourceEntity == null) return null;
+        return sourceEntity.getValue("Template.sourceEntity");
+    }
 
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      * 
      */
-    public String sourceEntityArn;
+    private UndeferrableValue<String> sourceEntityArn;
 
-
+    public String sourceEntityArn() {
+        if (sourceEntityArn == null) return null;
+        return sourceEntityArn.getValue("Template.sourceEntityArn");
+    }
 
     /**
      * The template creation status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Template.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Template.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,17 +135,23 @@ public final class Template extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Template.tagsAll");
+    }
 
     /**
      * Identifier for the template.
      * 
      */
-    public String templateId;
+    private UndeferrableValue<String> templateId;
 
-
+    public String templateId() {
+        if (templateId == null) return null;
+        return templateId.getValue("Template.templateId");
+    }
 
     /**
      * A description of the current template version being created/updated.
@@ -121,16 +159,22 @@ public final class Template extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String versionDescription;
+    private UndeferrableValue<String> versionDescription;
 
-
+    public String versionDescription() {
+        if (versionDescription == null) return null;
+        return versionDescription.getValue("Template.versionDescription");
+    }
 
     /**
      * The version number of the template version.
      * 
      */
-    public Integer versionNumber;
+    private UndeferrableValue<Integer> versionNumber;
 
-
+    public Integer versionNumber() {
+        if (versionNumber == null) return null;
+        return versionNumber.getValue("Template.versionNumber");
+    }
 
 }

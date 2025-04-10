@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/delegationSet:DelegationSet")
-public final class DelegationSet extends com.pulumi.resources.PolicyResource {
+public final class DelegationSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Delegation Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DelegationSet.arn");
+    }
 
     /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      * 
      */
-    public List<String> nameServers;
+    private UndeferrableValue<List<String>> nameServers;
 
-
+    public List<String> nameServers() {
+        if (nameServers == null) return null;
+        return nameServers.getValue("DelegationSet.nameServers");
+    }
 
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      * 
      */
-    public String referenceName;
+    private @Nullable UndeferrableValue<String> referenceName;
 
-
+    public @Nullable String referenceName() {
+        if (referenceName == null) return null;
+        return referenceName.getValue("DelegationSet.referenceName");
+    }
 
 }

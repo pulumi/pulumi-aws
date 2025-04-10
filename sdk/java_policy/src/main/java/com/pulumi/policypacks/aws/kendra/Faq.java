@@ -3,102 +3,143 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.FaqS3Path;
+import com.pulumi.policypacks.aws.kendra.outputs.FaqS3Path;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/faq:Faq")
-public final class Faq extends com.pulumi.resources.PolicyResource {
+public final class Faq extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the FAQ.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Faq.arn");
+    }
 
     /**
      * The Unix datetime that the FAQ was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Faq.createdAt");
+    }
 
+    private @Nullable UndeferrableValue<String> description;
 
-    public String description;
-
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Faq.description");
+    }
 
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public String errorMessage;
+    private UndeferrableValue<String> errorMessage;
 
-
+    public String errorMessage() {
+        if (errorMessage == null) return null;
+        return errorMessage.getValue("Faq.errorMessage");
+    }
 
     /**
      * The identifier of the FAQ.
      * 
      */
-    public String faqId;
+    private UndeferrableValue<String> faqId;
 
+    public String faqId() {
+        if (faqId == null) return null;
+        return faqId.getValue("Faq.faqId");
+    }
 
+    private @Nullable UndeferrableValue<String> fileFormat;
 
-    public String fileFormat;
-
-
+    public @Nullable String fileFormat() {
+        if (fileFormat == null) return null;
+        return fileFormat.getValue("Faq.fileFormat");
+    }
 
     /**
      * The identifier of the index for a FAQ.
      * 
      */
-    public String indexId;
+    private UndeferrableValue<String> indexId;
 
+    public String indexId() {
+        if (indexId == null) return null;
+        return indexId.getValue("Faq.indexId");
+    }
 
+    private UndeferrableValue<String> languageCode;
 
-    public String languageCode;
-
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("Faq.languageCode");
+    }
 
     /**
      * The name that should be associated with the FAQ.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Faq.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Faq.roleArn");
+    }
 
     /**
      * The S3 location of the FAQ input data. Detailed below.
      * 
      */
-    public FaqS3Path s3Path;
+    private UndeferrableValue<FaqS3Path> s3Path;
 
-
+    public FaqS3Path s3Path() {
+        if (s3Path == null) return null;
+        return s3Path.getValue("Faq.s3Path");
+    }
 
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Faq.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Faq.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,16 +149,22 @@ public final class Faq extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Faq.tagsAll");
+    }
 
     /**
      * The date and time that the FAQ was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("Faq.updatedAt");
+    }
 
 }

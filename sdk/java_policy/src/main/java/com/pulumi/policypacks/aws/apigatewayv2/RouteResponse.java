@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/routeResponse:RouteResponse")
-public final class RouteResponse extends com.pulumi.resources.PolicyResource {
+public final class RouteResponse extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("RouteResponse.apiId");
+    }
 
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
-    public String modelSelectionExpression;
+    private @Nullable UndeferrableValue<String> modelSelectionExpression;
 
-
+    public @Nullable String modelSelectionExpression() {
+        if (modelSelectionExpression == null) return null;
+        return modelSelectionExpression.getValue("RouteResponse.modelSelectionExpression");
+    }
 
     /**
      * Response models for the route response.
      * 
      */
-    public Map<String,String> responseModels;
+    private @Nullable UndeferrableValue<Map<String,String>> responseModels;
 
-
+    public @Nullable Map<String,String> responseModels() {
+        if (responseModels == null) return null;
+        return responseModels.getValue("RouteResponse.responseModels");
+    }
 
     /**
      * Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
-    public String routeId;
+    private UndeferrableValue<String> routeId;
 
-
+    public String routeId() {
+        if (routeId == null) return null;
+        return routeId.getValue("RouteResponse.routeId");
+    }
 
     /**
      * Route response key.
      * 
      */
-    public String routeResponseKey;
+    private UndeferrableValue<String> routeResponseKey;
 
-
+    public String routeResponseKey() {
+        if (routeResponseKey == null) return null;
+        return routeResponseKey.getValue("RouteResponse.routeResponseKey");
+    }
 
 }

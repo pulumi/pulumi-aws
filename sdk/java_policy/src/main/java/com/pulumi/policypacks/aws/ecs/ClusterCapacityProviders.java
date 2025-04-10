@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy;
+import com.pulumi.policypacks.aws.ecs.outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")
-public final class ClusterCapacityProviders extends com.pulumi.resources.PolicyResource {
+public final class ClusterCapacityProviders extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      * 
      */
-    public List<String> capacityProviders;
+    private @Nullable UndeferrableValue<List<String>> capacityProviders;
 
-
+    public @Nullable List<String> capacityProviders() {
+        if (capacityProviders == null) return null;
+        return capacityProviders.getValue("ClusterCapacityProviders.capacityProviders");
+    }
 
     /**
      * Name of the ECS cluster to manage capacity providers for.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("ClusterCapacityProviders.clusterName");
+    }
 
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      * 
      */
-    public List<ClusterCapacityProvidersDefaultCapacityProviderStrategy> defaultCapacityProviderStrategies;
+    private @Nullable UndeferrableValue<List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
 
-
+    public @Nullable List<ClusterCapacityProvidersDefaultCapacityProviderStrategy> defaultCapacityProviderStrategies() {
+        if (defaultCapacityProviderStrategies == null) return null;
+        return defaultCapacityProviderStrategies.getValue("ClusterCapacityProviders.defaultCapacityProviderStrategies");
+    }
 
 }

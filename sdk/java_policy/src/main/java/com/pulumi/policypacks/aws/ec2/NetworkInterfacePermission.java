@@ -3,48 +3,65 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.NetworkInterfacePermissionTimeouts;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInterfacePermissionTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkInterfacePermission:NetworkInterfacePermission")
-public final class NetworkInterfacePermission extends com.pulumi.resources.PolicyResource {
+public final class NetworkInterfacePermission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Web Services account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("NetworkInterfacePermission.awsAccountId");
+    }
 
     /**
      * The ID of the network interface.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("NetworkInterfacePermission.networkInterfaceId");
+    }
 
     /**
      * ENI permission ID.
      * 
      */
-    public String networkInterfacePermissionId;
+    private UndeferrableValue<String> networkInterfacePermissionId;
 
-
+    public String networkInterfacePermissionId() {
+        if (networkInterfacePermissionId == null) return null;
+        return networkInterfacePermissionId.getValue("NetworkInterfacePermission.networkInterfacePermissionId");
+    }
 
     /**
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      * 
      */
-    public String permission;
+    private UndeferrableValue<String> permission;
 
+    public String permission() {
+        if (permission == null) return null;
+        return permission.getValue("NetworkInterfacePermission.permission");
+    }
 
+    private @Nullable UndeferrableValue<NetworkInterfacePermissionTimeouts> timeouts;
 
-    public NetworkInterfacePermissionTimeouts timeouts;
-
-
+    public @Nullable NetworkInterfacePermissionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("NetworkInterfacePermission.timeouts");
+    }
 
 }

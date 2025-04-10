@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.keyspaces;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.keyspaces.KeyspaceReplicationSpecification;
+import com.pulumi.policypacks.aws.keyspaces.outputs.KeyspaceReplicationSpecification;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:keyspaces/keyspace:Keyspace")
-public final class Keyspace extends com.pulumi.resources.PolicyResource {
+public final class Keyspace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the keyspace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Keyspace.arn");
+    }
 
     /**
      * The name of the keyspace to be created.
@@ -26,25 +31,34 @@ public final class Keyspace extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Keyspace.name");
+    }
 
     /**
      * The replication specification of the keyspace.
      * 
      */
-    public KeyspaceReplicationSpecification replicationSpecification;
+    private UndeferrableValue<KeyspaceReplicationSpecification> replicationSpecification;
 
-
+    public KeyspaceReplicationSpecification replicationSpecification() {
+        if (replicationSpecification == null) return null;
+        return replicationSpecification.getValue("Keyspace.replicationSpecification");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Keyspace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -54,8 +68,11 @@ public final class Keyspace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Keyspace.tagsAll");
+    }
 
 }

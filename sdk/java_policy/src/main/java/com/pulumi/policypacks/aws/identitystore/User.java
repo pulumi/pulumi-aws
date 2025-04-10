@@ -3,130 +3,174 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.identitystore.UserAddresses;
-import com.pulumi.policypacks.aws.identitystore.UserEmails;
-import com.pulumi.policypacks.aws.identitystore.UserExternalId;
-import com.pulumi.policypacks.aws.identitystore.UserName;
-import com.pulumi.policypacks.aws.identitystore.UserPhoneNumbers;
+import com.pulumi.policypacks.aws.identitystore.outputs.UserAddresses;
+import com.pulumi.policypacks.aws.identitystore.outputs.UserEmails;
+import com.pulumi.policypacks.aws.identitystore.outputs.UserExternalId;
+import com.pulumi.policypacks.aws.identitystore.outputs.UserName;
+import com.pulumi.policypacks.aws.identitystore.outputs.UserPhoneNumbers;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:identitystore/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Details about the user&#39;s address. At most 1 address is allowed. Detailed below.
      * 
      */
-    public UserAddresses addresses;
+    private @Nullable UndeferrableValue<UserAddresses> addresses;
 
-
+    public @Nullable UserAddresses addresses() {
+        if (addresses == null) return null;
+        return addresses.getValue("User.addresses");
+    }
 
     /**
      * The name that is typically displayed when the user is referenced.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("User.displayName");
+    }
 
     /**
      * Details about the user&#39;s email. At most 1 email is allowed. Detailed below.
      * 
      */
-    public UserEmails emails;
+    private @Nullable UndeferrableValue<UserEmails> emails;
 
-
+    public @Nullable UserEmails emails() {
+        if (emails == null) return null;
+        return emails.getValue("User.emails");
+    }
 
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      * 
      */
-    public List<UserExternalId> externalIds;
+    private UndeferrableValue<List<UserExternalId>> externalIds;
 
-
+    public List<UserExternalId> externalIds() {
+        if (externalIds == null) return null;
+        return externalIds.getValue("User.externalIds");
+    }
 
     /**
      * The globally unique identifier for the identity store that this user is in.
      * 
      */
-    public String identityStoreId;
+    private UndeferrableValue<String> identityStoreId;
 
-
+    public String identityStoreId() {
+        if (identityStoreId == null) return null;
+        return identityStoreId.getValue("User.identityStoreId");
+    }
 
     /**
      * The user&#39;s geographical region or location.
      * 
      */
-    public String locale;
+    private @Nullable UndeferrableValue<String> locale;
 
-
+    public @Nullable String locale() {
+        if (locale == null) return null;
+        return locale.getValue("User.locale");
+    }
 
     /**
      * Details about the user&#39;s full name. Detailed below.
      * 
      */
-    public UserName name;
+    private UndeferrableValue<UserName> name;
 
-
+    public UserName name() {
+        if (name == null) return null;
+        return name.getValue("User.name");
+    }
 
     /**
      * An alternate name for the user.
      * 
      */
-    public String nickname;
+    private @Nullable UndeferrableValue<String> nickname;
 
-
+    public @Nullable String nickname() {
+        if (nickname == null) return null;
+        return nickname.getValue("User.nickname");
+    }
 
     /**
      * Details about the user&#39;s phone number. At most 1 phone number is allowed. Detailed below.
      * 
      */
-    public UserPhoneNumbers phoneNumbers;
+    private @Nullable UndeferrableValue<UserPhoneNumbers> phoneNumbers;
 
-
+    public @Nullable UserPhoneNumbers phoneNumbers() {
+        if (phoneNumbers == null) return null;
+        return phoneNumbers.getValue("User.phoneNumbers");
+    }
 
     /**
      * The preferred language of the user.
      * 
      */
-    public String preferredLanguage;
+    private @Nullable UndeferrableValue<String> preferredLanguage;
 
-
+    public @Nullable String preferredLanguage() {
+        if (preferredLanguage == null) return null;
+        return preferredLanguage.getValue("User.preferredLanguage");
+    }
 
     /**
      * An URL that may be associated with the user.
      * 
      */
-    public String profileUrl;
+    private @Nullable UndeferrableValue<String> profileUrl;
 
-
+    public @Nullable String profileUrl() {
+        if (profileUrl == null) return null;
+        return profileUrl.getValue("User.profileUrl");
+    }
 
     /**
      * The user&#39;s time zone.
      * 
      */
-    public String timezone;
+    private @Nullable UndeferrableValue<String> timezone;
 
-
+    public @Nullable String timezone() {
+        if (timezone == null) return null;
+        return timezone.getValue("User.timezone");
+    }
 
     /**
      * The user&#39;s title.
      * 
      */
-    public String title;
+    private @Nullable UndeferrableValue<String> title;
 
-
+    public @Nullable String title() {
+        if (title == null) return null;
+        return title.getValue("User.title");
+    }
 
     /**
      * The identifier for this user in the identity store.
      * 
      */
-    public String userId;
+    private UndeferrableValue<String> userId;
 
-
+    public String userId() {
+        if (userId == null) return null;
+        return userId.getValue("User.userId");
+    }
 
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
@@ -134,16 +178,22 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
     /**
      * The user type.
      * 
      */
-    public String userType;
+    private @Nullable UndeferrableValue<String> userType;
 
-
+    public @Nullable String userType() {
+        if (userType == null) return null;
+        return userType.getValue("User.userType");
+    }
 
 }

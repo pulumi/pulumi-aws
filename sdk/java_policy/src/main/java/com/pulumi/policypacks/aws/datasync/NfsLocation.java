@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.NfsLocationMountOptions;
-import com.pulumi.policypacks.aws.datasync.NfsLocationOnPremConfig;
+import com.pulumi.policypacks.aws.datasync.outputs.NfsLocationMountOptions;
+import com.pulumi.policypacks.aws.datasync.outputs.NfsLocationOnPremConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/nfsLocation:NfsLocation")
-public final class NfsLocation extends com.pulumi.resources.PolicyResource {
+public final class NfsLocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NfsLocation.arn");
+    }
 
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      * 
      */
-    public NfsLocationMountOptions mountOptions;
+    private @Nullable UndeferrableValue<NfsLocationMountOptions> mountOptions;
 
-
+    public @Nullable NfsLocationMountOptions mountOptions() {
+        if (mountOptions == null) return null;
+        return mountOptions.getValue("NfsLocation.mountOptions");
+    }
 
     /**
      * Configuration block containing information for connecting to the NFS File System.
      * 
      */
-    public NfsLocationOnPremConfig onPremConfig;
+    private UndeferrableValue<NfsLocationOnPremConfig> onPremConfig;
 
-
+    public NfsLocationOnPremConfig onPremConfig() {
+        if (onPremConfig == null) return null;
+        return onPremConfig.getValue("NfsLocation.onPremConfig");
+    }
 
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      * 
      */
-    public String serverHostname;
+    private UndeferrableValue<String> serverHostname;
 
-
+    public String serverHostname() {
+        if (serverHostname == null) return null;
+        return serverHostname.getValue("NfsLocation.serverHostname");
+    }
 
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("NfsLocation.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NfsLocation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,12 +89,18 @@ public final class NfsLocation extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NfsLocation.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("NfsLocation.uri");
+    }
 
 }

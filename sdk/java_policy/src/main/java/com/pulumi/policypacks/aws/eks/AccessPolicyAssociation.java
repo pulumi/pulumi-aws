@@ -3,60 +3,79 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.AccessPolicyAssociationAccessScope;
+import com.pulumi.policypacks.aws.eks.outputs.AccessPolicyAssociationAccessScope;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:eks/accessPolicyAssociation:AccessPolicyAssociation")
-public final class AccessPolicyAssociation extends com.pulumi.resources.PolicyResource {
+public final class AccessPolicyAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The configuration block to determine the scope of the access. See `access_scope` Block below.
      * 
      */
-    public AccessPolicyAssociationAccessScope accessScope;
+    private UndeferrableValue<AccessPolicyAssociationAccessScope> accessScope;
 
-
+    public AccessPolicyAssociationAccessScope accessScope() {
+        if (accessScope == null) return null;
+        return accessScope.getValue("AccessPolicyAssociation.accessScope");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      * 
      */
-    public String associatedAt;
+    private UndeferrableValue<String> associatedAt;
 
-
+    public String associatedAt() {
+        if (associatedAt == null) return null;
+        return associatedAt.getValue("AccessPolicyAssociation.associatedAt");
+    }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("AccessPolicyAssociation.clusterName");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
      * 
      */
-    public String modifiedAt;
+    private UndeferrableValue<String> modifiedAt;
 
-
+    public String modifiedAt() {
+        if (modifiedAt == null) return null;
+        return modifiedAt.getValue("AccessPolicyAssociation.modifiedAt");
+    }
 
     /**
      * The ARN of the access policy that you&#39;re associating.
      * 
      */
-    public String policyArn;
+    private UndeferrableValue<String> policyArn;
 
-
+    public String policyArn() {
+        if (policyArn == null) return null;
+        return policyArn.getValue("AccessPolicyAssociation.policyArn");
+    }
 
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
-    public String principalArn;
+    private UndeferrableValue<String> principalArn;
 
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("AccessPolicyAssociation.principalArn");
+    }
 
 }

@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")
-public final class ResolverDnsSecConfig extends com.pulumi.resources.PolicyResource {
+public final class ResolverDnsSecConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN for a configuration for DNSSEC validation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverDnsSecConfig.arn");
+    }
 
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ResolverDnsSecConfig.ownerId");
+    }
 
     /**
      * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ResolverDnsSecConfig.resourceId");
+    }
 
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      * 
      */
-    public String validationStatus;
+    private UndeferrableValue<String> validationStatus;
 
-
+    public String validationStatus() {
+        if (validationStatus == null) return null;
+        return validationStatus.getValue("ResolverDnsSecConfig.validationStatus");
+    }
 
 }

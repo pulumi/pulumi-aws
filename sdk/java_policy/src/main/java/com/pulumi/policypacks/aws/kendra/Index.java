@@ -3,125 +3,166 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.IndexCapacityUnits;
-import com.pulumi.policypacks.aws.kendra.IndexDocumentMetadataConfigurationUpdate;
-import com.pulumi.policypacks.aws.kendra.IndexIndexStatistic;
-import com.pulumi.policypacks.aws.kendra.IndexServerSideEncryptionConfiguration;
-import com.pulumi.policypacks.aws.kendra.IndexUserGroupResolutionConfiguration;
-import com.pulumi.policypacks.aws.kendra.IndexUserTokenConfigurations;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexCapacityUnits;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdate;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexIndexStatistic;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexServerSideEncryptionConfiguration;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexUserGroupResolutionConfiguration;
+import com.pulumi.policypacks.aws.kendra.outputs.IndexUserTokenConfigurations;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/index:Index")
-public final class Index extends com.pulumi.resources.PolicyResource {
+public final class Index extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Index.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Index.arn");
+    }
 
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
-    public IndexCapacityUnits capacityUnits;
+    private UndeferrableValue<IndexCapacityUnits> capacityUnits;
 
-
+    public IndexCapacityUnits capacityUnits() {
+        if (capacityUnits == null) return null;
+        return capacityUnits.getValue("Index.capacityUnits");
+    }
 
     /**
      * The Unix datetime that the index was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Index.createdAt");
+    }
 
     /**
      * The description of the Index.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Index.description");
+    }
 
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
-    public List<IndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates;
+    private UndeferrableValue<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
 
-
+    public List<IndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates() {
+        if (documentMetadataConfigurationUpdates == null) return null;
+        return documentMetadataConfigurationUpdates.getValue("Index.documentMetadataConfigurationUpdates");
+    }
 
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
-    public String edition;
+    private @Nullable UndeferrableValue<String> edition;
 
-
+    public @Nullable String edition() {
+        if (edition == null) return null;
+        return edition.getValue("Index.edition");
+    }
 
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    public String errorMessage;
+    private UndeferrableValue<String> errorMessage;
 
-
+    public String errorMessage() {
+        if (errorMessage == null) return null;
+        return errorMessage.getValue("Index.errorMessage");
+    }
 
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
-    public List<IndexIndexStatistic> indexStatistics;
+    private UndeferrableValue<List<IndexIndexStatistic>> indexStatistics;
 
-
+    public List<IndexIndexStatistic> indexStatistics() {
+        if (indexStatistics == null) return null;
+        return indexStatistics.getValue("Index.indexStatistics");
+    }
 
     /**
      * Specifies the name of the Index.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Index.name");
+    }
 
     /**
      * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Index.roleArn");
+    }
 
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
-    public IndexServerSideEncryptionConfiguration serverSideEncryptionConfiguration;
+    private @Nullable UndeferrableValue<IndexServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
-
+    public @Nullable IndexServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
+        if (serverSideEncryptionConfiguration == null) return null;
+        return serverSideEncryptionConfiguration.getValue("Index.serverSideEncryptionConfiguration");
+    }
 
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Index.status");
+    }
 
     /**
      * Tags to apply to the Index. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Index.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,40 +172,55 @@ public final class Index extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Index.tagsAll");
+    }
 
     /**
      * The Unix datetime that the index was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("Index.updatedAt");
+    }
 
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
-    public String userContextPolicy;
+    private @Nullable UndeferrableValue<String> userContextPolicy;
 
-
+    public @Nullable String userContextPolicy() {
+        if (userContextPolicy == null) return null;
+        return userContextPolicy.getValue("Index.userContextPolicy");
+    }
 
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
-    public IndexUserGroupResolutionConfiguration userGroupResolutionConfiguration;
+    private @Nullable UndeferrableValue<IndexUserGroupResolutionConfiguration> userGroupResolutionConfiguration;
 
-
+    public @Nullable IndexUserGroupResolutionConfiguration userGroupResolutionConfiguration() {
+        if (userGroupResolutionConfiguration == null) return null;
+        return userGroupResolutionConfiguration.getValue("Index.userGroupResolutionConfiguration");
+    }
 
     /**
      * A block that specifies the user token configuration. Detailed below.
      * 
      */
-    public IndexUserTokenConfigurations userTokenConfigurations;
+    private @Nullable UndeferrableValue<IndexUserTokenConfigurations> userTokenConfigurations;
 
-
+    public @Nullable IndexUserTokenConfigurations userTokenConfigurations() {
+        if (userTokenConfigurations == null) return null;
+        return userTokenConfigurations.getValue("Index.userTokenConfigurations");
+    }
 
 }

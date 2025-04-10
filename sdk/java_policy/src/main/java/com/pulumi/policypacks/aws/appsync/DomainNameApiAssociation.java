@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")
-public final class DomainNameApiAssociation extends com.pulumi.resources.PolicyResource {
+public final class DomainNameApiAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API ID.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("DomainNameApiAssociation.apiId");
+    }
 
     /**
      * Appsync domain name.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainNameApiAssociation.domainName");
+    }
 
 }

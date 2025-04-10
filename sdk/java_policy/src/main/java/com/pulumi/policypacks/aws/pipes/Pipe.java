@@ -3,121 +3,162 @@
 
 package com.pulumi.policypacks.aws.pipes;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.pipes.PipeEnrichmentParameters;
-import com.pulumi.policypacks.aws.pipes.PipeLogConfiguration;
-import com.pulumi.policypacks.aws.pipes.PipeSourceParameters;
-import com.pulumi.policypacks.aws.pipes.PipeTargetParameters;
+import com.pulumi.policypacks.aws.pipes.outputs.PipeEnrichmentParameters;
+import com.pulumi.policypacks.aws.pipes.outputs.PipeLogConfiguration;
+import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParameters;
+import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParameters;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pipes/pipe:Pipe")
-public final class Pipe extends com.pulumi.resources.PolicyResource {
+public final class Pipe extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of this pipe.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Pipe.arn");
+    }
 
     /**
      * A description of the pipe. At most 512 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Pipe.description");
+    }
 
     /**
      * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
-    public String desiredState;
+    private @Nullable UndeferrableValue<String> desiredState;
 
-
+    public @Nullable String desiredState() {
+        if (desiredState == null) return null;
+        return desiredState.getValue("Pipe.desiredState");
+    }
 
     /**
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      * 
      */
-    public String enrichment;
+    private @Nullable UndeferrableValue<String> enrichment;
 
-
+    public @Nullable String enrichment() {
+        if (enrichment == null) return null;
+        return enrichment.getValue("Pipe.enrichment");
+    }
 
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      * 
      */
-    public PipeEnrichmentParameters enrichmentParameters;
+    private @Nullable UndeferrableValue<PipeEnrichmentParameters> enrichmentParameters;
 
-
+    public @Nullable PipeEnrichmentParameters enrichmentParameters() {
+        if (enrichmentParameters == null) return null;
+        return enrichmentParameters.getValue("Pipe.enrichmentParameters");
+    }
 
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      * 
      */
-    public String kmsKeyIdentifier;
+    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
 
-
+    public @Nullable String kmsKeyIdentifier() {
+        if (kmsKeyIdentifier == null) return null;
+        return kmsKeyIdentifier.getValue("Pipe.kmsKeyIdentifier");
+    }
 
     /**
      * Logging configuration settings for the pipe. Detailed below.
      * 
      */
-    public PipeLogConfiguration logConfiguration;
+    private @Nullable UndeferrableValue<PipeLogConfiguration> logConfiguration;
 
-
+    public @Nullable PipeLogConfiguration logConfiguration() {
+        if (logConfiguration == null) return null;
+        return logConfiguration.getValue("Pipe.logConfiguration");
+    }
 
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Pipe.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Pipe.namePrefix");
+    }
 
     /**
      * ARN of the role that allows the pipe to send data to the target.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Pipe.roleArn");
+    }
 
     /**
      * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
-    public String source;
+    private UndeferrableValue<String> source;
 
-
+    public String source() {
+        if (source == null) return null;
+        return source.getValue("Pipe.source");
+    }
 
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      * 
      */
-    public PipeSourceParameters sourceParameters;
+    private UndeferrableValue<PipeSourceParameters> sourceParameters;
 
-
+    public PipeSourceParameters sourceParameters() {
+        if (sourceParameters == null) return null;
+        return sourceParameters.getValue("Pipe.sourceParameters");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Pipe.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,9 +168,12 @@ public final class Pipe extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Pipe.tagsAll");
+    }
 
     /**
      * Target resource of the pipe (typically an ARN).
@@ -137,16 +181,22 @@ public final class Pipe extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String target;
+    private UndeferrableValue<String> target;
 
-
+    public String target() {
+        if (target == null) return null;
+        return target.getValue("Pipe.target");
+    }
 
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      * 
      */
-    public PipeTargetParameters targetParameters;
+    private @Nullable UndeferrableValue<PipeTargetParameters> targetParameters;
 
-
+    public @Nullable PipeTargetParameters targetParameters() {
+        if (targetParameters == null) return null;
+        return targetParameters.getValue("Pipe.targetParameters");
+    }
 
 }

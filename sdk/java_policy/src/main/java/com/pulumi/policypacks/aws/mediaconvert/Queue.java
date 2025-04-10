@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.mediaconvert;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mediaconvert.QueueReservationPlanSettings;
+import com.pulumi.policypacks.aws.mediaconvert.outputs.QueueReservationPlanSettings;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mediaconvert/queue:Queue")
-public final class Queue extends com.pulumi.resources.PolicyResource {
+public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Arn of the queue
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Queue.arn");
+    }
 
     /**
      * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      * 
      */
-    public Integer concurrentJobs;
+    private UndeferrableValue<Integer> concurrentJobs;
 
-
+    public Integer concurrentJobs() {
+        if (concurrentJobs == null) return null;
+        return concurrentJobs.getValue("Queue.concurrentJobs");
+    }
 
     /**
      * A description of the queue
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Queue.description");
+    }
 
     /**
      * A unique identifier describing the queue
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Queue.name");
+    }
 
     /**
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      * 
      */
-    public String pricingPlan;
+    private @Nullable UndeferrableValue<String> pricingPlan;
 
-
+    public @Nullable String pricingPlan() {
+        if (pricingPlan == null) return null;
+        return pricingPlan.getValue("Queue.pricingPlan");
+    }
 
     /**
      * A detail pricing plan of the  reserved queue. See below.
      * 
      */
-    public QueueReservationPlanSettings reservationPlanSettings;
+    private UndeferrableValue<QueueReservationPlanSettings> reservationPlanSettings;
 
-
+    public QueueReservationPlanSettings reservationPlanSettings() {
+        if (reservationPlanSettings == null) return null;
+        return reservationPlanSettings.getValue("Queue.reservationPlanSettings");
+    }
 
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("Queue.status");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Queue.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class Queue extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Queue.tagsAll");
+    }
 
 }

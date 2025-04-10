@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/identityProvider:IdentityProvider")
-public final class IdentityProvider extends com.pulumi.resources.PolicyResource {
+public final class IdentityProvider extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      * 
      */
-    public Map<String,String> attributeMapping;
+    private UndeferrableValue<Map<String,String>> attributeMapping;
 
-
+    public Map<String,String> attributeMapping() {
+        if (attributeMapping == null) return null;
+        return attributeMapping.getValue("IdentityProvider.attributeMapping");
+    }
 
     /**
      * The list of identity providers.
      * 
      */
-    public List<String> idpIdentifiers;
+    private @Nullable UndeferrableValue<List<String>> idpIdentifiers;
 
-
+    public @Nullable List<String> idpIdentifiers() {
+        if (idpIdentifiers == null) return null;
+        return idpIdentifiers.getValue("IdentityProvider.idpIdentifiers");
+    }
 
     /**
      * The map of identity details, such as access token
      * 
      */
-    public Map<String,String> providerDetails;
+    private UndeferrableValue<Map<String,String>> providerDetails;
 
-
+    public Map<String,String> providerDetails() {
+        if (providerDetails == null) return null;
+        return providerDetails.getValue("IdentityProvider.providerDetails");
+    }
 
     /**
      * The provider name
      * 
      */
-    public String providerName;
+    private UndeferrableValue<String> providerName;
 
-
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("IdentityProvider.providerName");
+    }
 
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      * 
      */
-    public String providerType;
+    private UndeferrableValue<String> providerType;
 
-
+    public String providerType() {
+        if (providerType == null) return null;
+        return providerType.getValue("IdentityProvider.providerType");
+    }
 
     /**
      * The user pool id
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("IdentityProvider.userPoolId");
+    }
 
 }

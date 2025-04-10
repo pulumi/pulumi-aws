@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codeartifact.RepositoryExternalConnections;
-import com.pulumi.policypacks.aws.codeartifact.RepositoryUpstream;
+import com.pulumi.policypacks.aws.codeartifact.outputs.RepositoryExternalConnections;
+import com.pulumi.policypacks.aws.codeartifact.outputs.RepositoryUpstream;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codeartifact/repository:Repository")
-public final class Repository extends com.pulumi.resources.PolicyResource {
+public final class Repository extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The account number of the AWS account that manages the repository.
      * 
      */
-    public String administratorAccount;
+    private UndeferrableValue<String> administratorAccount;
 
-
+    public String administratorAccount() {
+        if (administratorAccount == null) return null;
+        return administratorAccount.getValue("Repository.administratorAccount");
+    }
 
     /**
      * The ARN of the repository.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Repository.arn");
+    }
 
     /**
      * The description of the repository.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Repository.description");
+    }
 
     /**
      * The domain that contains the created repository.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Repository.domain");
+    }
 
     /**
      * The account number of the AWS account that owns the domain.
      * 
      */
-    public String domainOwner;
+    private UndeferrableValue<String> domainOwner;
 
-
+    public String domainOwner() {
+        if (domainOwner == null) return null;
+        return domainOwner.getValue("Repository.domainOwner");
+    }
 
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      * 
      */
-    public RepositoryExternalConnections externalConnections;
+    private @Nullable UndeferrableValue<RepositoryExternalConnections> externalConnections;
 
-
+    public @Nullable RepositoryExternalConnections externalConnections() {
+        if (externalConnections == null) return null;
+        return externalConnections.getValue("Repository.externalConnections");
+    }
 
     /**
      * The name of the repository to create.
      * 
      */
-    public String repository;
+    private UndeferrableValue<String> repository;
 
-
+    public String repository() {
+        if (repository == null) return null;
+        return repository.getValue("Repository.repository");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Repository.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -86,16 +112,22 @@ public final class Repository extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Repository.tagsAll");
+    }
 
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      * 
      */
-    public List<RepositoryUpstream> upstreams;
+    private @Nullable UndeferrableValue<List<RepositoryUpstream>> upstreams;
 
-
+    public @Nullable List<RepositoryUpstream> upstreams() {
+        if (upstreams == null) return null;
+        return upstreams.getValue("Repository.upstreams");
+    }
 
 }

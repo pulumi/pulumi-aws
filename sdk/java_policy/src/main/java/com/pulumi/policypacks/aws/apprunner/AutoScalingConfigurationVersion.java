@@ -3,95 +3,130 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")
-public final class AutoScalingConfigurationVersion extends com.pulumi.resources.PolicyResource {
+public final class AutoScalingConfigurationVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of this auto scaling configuration version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AutoScalingConfigurationVersion.arn");
+    }
 
     /**
      * Name of the auto scaling configuration.
      * 
      */
-    public String autoScalingConfigurationName;
+    private UndeferrableValue<String> autoScalingConfigurationName;
 
-
+    public String autoScalingConfigurationName() {
+        if (autoScalingConfigurationName == null) return null;
+        return autoScalingConfigurationName.getValue("AutoScalingConfigurationVersion.autoScalingConfigurationName");
+    }
 
     /**
      * The revision of this auto scaling configuration.
      * 
      */
-    public Integer autoScalingConfigurationRevision;
+    private UndeferrableValue<Integer> autoScalingConfigurationRevision;
 
+    public Integer autoScalingConfigurationRevision() {
+        if (autoScalingConfigurationRevision == null) return null;
+        return autoScalingConfigurationRevision.getValue("AutoScalingConfigurationVersion.autoScalingConfigurationRevision");
+    }
 
+    private UndeferrableValue<Boolean> hasAssociatedService;
 
-    public Boolean hasAssociatedService;
+    public Boolean hasAssociatedService() {
+        if (hasAssociatedService == null) return null;
+        return hasAssociatedService.getValue("AutoScalingConfigurationVersion.hasAssociatedService");
+    }
 
+    private UndeferrableValue<Boolean> isDefault;
 
-
-    public Boolean isDefault;
-
-
+    public Boolean isDefault() {
+        if (isDefault == null) return null;
+        return isDefault.getValue("AutoScalingConfigurationVersion.isDefault");
+    }
 
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
      */
-    public Boolean latest;
+    private UndeferrableValue<Boolean> latest;
 
-
+    public Boolean latest() {
+        if (latest == null) return null;
+        return latest.getValue("AutoScalingConfigurationVersion.latest");
+    }
 
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
-    public Integer maxConcurrency;
+    private @Nullable UndeferrableValue<Integer> maxConcurrency;
 
-
+    public @Nullable Integer maxConcurrency() {
+        if (maxConcurrency == null) return null;
+        return maxConcurrency.getValue("AutoScalingConfigurationVersion.maxConcurrency");
+    }
 
     /**
      * Maximal number of instances that App Runner provisions for your service.
      * 
      */
-    public Integer maxSize;
+    private @Nullable UndeferrableValue<Integer> maxSize;
 
-
+    public @Nullable Integer maxSize() {
+        if (maxSize == null) return null;
+        return maxSize.getValue("AutoScalingConfigurationVersion.maxSize");
+    }
 
     /**
      * Minimal number of instances that App Runner provisions for your service.
      * 
      */
-    public Integer minSize;
+    private @Nullable UndeferrableValue<Integer> minSize;
 
-
+    public @Nullable Integer minSize() {
+        if (minSize == null) return null;
+        return minSize.getValue("AutoScalingConfigurationVersion.minSize");
+    }
 
     /**
      * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("AutoScalingConfigurationVersion.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AutoScalingConfigurationVersion.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -101,8 +136,11 @@ public final class AutoScalingConfigurationVersion extends com.pulumi.resources.
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AutoScalingConfigurationVersion.tagsAll");
+    }
 
 }

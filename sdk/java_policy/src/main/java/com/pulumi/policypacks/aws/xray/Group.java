@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.xray;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.xray.GroupInsightsConfiguration;
+import com.pulumi.policypacks.aws.xray.outputs.GroupInsightsConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:xray/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Group.arn");
+    }
 
     /**
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      * 
      */
-    public String filterExpression;
+    private UndeferrableValue<String> filterExpression;
 
-
+    public String filterExpression() {
+        if (filterExpression == null) return null;
+        return filterExpression.getValue("Group.filterExpression");
+    }
 
     /**
      * The name of the group.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("Group.groupName");
+    }
 
     /**
      * Configuration options for enabling insights.
      * 
      */
-    public GroupInsightsConfiguration insightsConfiguration;
+    private UndeferrableValue<GroupInsightsConfiguration> insightsConfiguration;
 
-
+    public GroupInsightsConfiguration insightsConfiguration() {
+        if (insightsConfiguration == null) return null;
+        return insightsConfiguration.getValue("Group.insightsConfiguration");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Group.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Group.tagsAll");
+    }
 
 }

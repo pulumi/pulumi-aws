@@ -3,92 +3,123 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:securityhub/standardsControl:StandardsControl")
-public final class StandardsControl extends com.pulumi.resources.PolicyResource {
+public final class StandardsControl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The identifier of the security standard control.
      * 
      */
-    public String controlId;
+    private UndeferrableValue<String> controlId;
 
-
+    public String controlId() {
+        if (controlId == null) return null;
+        return controlId.getValue("StandardsControl.controlId");
+    }
 
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
      * 
      */
-    public String controlStatus;
+    private UndeferrableValue<String> controlStatus;
 
-
+    public String controlStatus() {
+        if (controlStatus == null) return null;
+        return controlStatus.getValue("StandardsControl.controlStatus");
+    }
 
     /**
      * The date and time that the status of the security standard control was most recently updated.
      * 
      */
-    public String controlStatusUpdatedAt;
+    private UndeferrableValue<String> controlStatusUpdatedAt;
 
-
+    public String controlStatusUpdatedAt() {
+        if (controlStatusUpdatedAt == null) return null;
+        return controlStatusUpdatedAt.getValue("StandardsControl.controlStatusUpdatedAt");
+    }
 
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("StandardsControl.description");
+    }
 
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
-    public String disabledReason;
+    private UndeferrableValue<String> disabledReason;
 
-
+    public String disabledReason() {
+        if (disabledReason == null) return null;
+        return disabledReason.getValue("StandardsControl.disabledReason");
+    }
 
     /**
      * The list of requirements that are related to this control.
      * 
      */
-    public List<String> relatedRequirements;
+    private UndeferrableValue<List<String>> relatedRequirements;
 
-
+    public List<String> relatedRequirements() {
+        if (relatedRequirements == null) return null;
+        return relatedRequirements.getValue("StandardsControl.relatedRequirements");
+    }
 
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      * 
      */
-    public String remediationUrl;
+    private UndeferrableValue<String> remediationUrl;
 
-
+    public String remediationUrl() {
+        if (remediationUrl == null) return null;
+        return remediationUrl.getValue("StandardsControl.remediationUrl");
+    }
 
     /**
      * The severity of findings generated from this security standard control.
      * 
      */
-    public String severityRating;
+    private UndeferrableValue<String> severityRating;
 
-
+    public String severityRating() {
+        if (severityRating == null) return null;
+        return severityRating.getValue("StandardsControl.severityRating");
+    }
 
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
-    public String standardsControlArn;
+    private UndeferrableValue<String> standardsControlArn;
 
-
+    public String standardsControlArn() {
+        if (standardsControlArn == null) return null;
+        return standardsControlArn.getValue("StandardsControl.standardsControlArn");
+    }
 
     /**
      * The standard control title.
      * 
      */
-    public String title;
+    private UndeferrableValue<String> title;
 
-
+    public String title() {
+        if (title == null) return null;
+        return title.getValue("StandardsControl.title");
+    }
 
 }

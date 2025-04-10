@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/domainName:DomainName")
-public final class DomainName extends com.pulumi.resources.PolicyResource {
+public final class DomainName extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Domain name that AppSync provides.
      * 
      */
-    public String appsyncDomainName;
+    private UndeferrableValue<String> appsyncDomainName;
 
-
+    public String appsyncDomainName() {
+        if (appsyncDomainName == null) return null;
+        return appsyncDomainName.getValue("DomainName.appsyncDomainName");
+    }
 
     /**
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("DomainName.certificateArn");
+    }
 
     /**
      * A description of the Domain Name.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DomainName.description");
+    }
 
     /**
      * Domain name.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainName.domainName");
+    }
 
     /**
      * ID of your Amazon Route 53 hosted zone.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("DomainName.hostedZoneId");
+    }
 
 }

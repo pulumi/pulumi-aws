@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logStream:LogStream")
-public final class LogStream extends com.pulumi.resources.PolicyResource {
+public final class LogStream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogStream.arn");
+    }
 
     /**
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("LogStream.logGroupName");
+    }
 
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogStream.name");
+    }
 
 }

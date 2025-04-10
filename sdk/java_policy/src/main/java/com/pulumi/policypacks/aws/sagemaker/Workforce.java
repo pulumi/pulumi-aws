@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.WorkforceCognitoConfig;
-import com.pulumi.policypacks.aws.sagemaker.WorkforceOidcConfig;
-import com.pulumi.policypacks.aws.sagemaker.WorkforceSourceIpConfig;
-import com.pulumi.policypacks.aws.sagemaker.WorkforceWorkforceVpcConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceCognitoConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceOidcConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceSourceIpConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceWorkforceVpcConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/workforce:Workforce")
-public final class Workforce extends com.pulumi.resources.PolicyResource {
+public final class Workforce extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workforce.arn");
+    }
 
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
      * 
      */
-    public WorkforceCognitoConfig cognitoConfig;
+    private @Nullable UndeferrableValue<WorkforceCognitoConfig> cognitoConfig;
 
-
+    public @Nullable WorkforceCognitoConfig cognitoConfig() {
+        if (cognitoConfig == null) return null;
+        return cognitoConfig.getValue("Workforce.cognitoConfig");
+    }
 
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
      * 
      */
-    public WorkforceOidcConfig oidcConfig;
+    private @Nullable UndeferrableValue<WorkforceOidcConfig> oidcConfig;
 
-
+    public @Nullable WorkforceOidcConfig oidcConfig() {
+        if (oidcConfig == null) return null;
+        return oidcConfig.getValue("Workforce.oidcConfig");
+    }
 
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
      * 
      */
-    public WorkforceSourceIpConfig sourceIpConfig;
+    private UndeferrableValue<WorkforceSourceIpConfig> sourceIpConfig;
 
-
+    public WorkforceSourceIpConfig sourceIpConfig() {
+        if (sourceIpConfig == null) return null;
+        return sourceIpConfig.getValue("Workforce.sourceIpConfig");
+    }
 
     /**
      * The subdomain for your OIDC Identity Provider.
      * 
      */
-    public String subdomain;
+    private UndeferrableValue<String> subdomain;
 
-
+    public String subdomain() {
+        if (subdomain == null) return null;
+        return subdomain.getValue("Workforce.subdomain");
+    }
 
     /**
      * The name of the Workforce (must be unique).
      * 
      */
-    public String workforceName;
+    private UndeferrableValue<String> workforceName;
 
-
+    public String workforceName() {
+        if (workforceName == null) return null;
+        return workforceName.getValue("Workforce.workforceName");
+    }
 
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      * 
      */
-    public WorkforceWorkforceVpcConfig workforceVpcConfig;
+    private @Nullable UndeferrableValue<WorkforceWorkforceVpcConfig> workforceVpcConfig;
 
-
+    public @Nullable WorkforceWorkforceVpcConfig workforceVpcConfig() {
+        if (workforceVpcConfig == null) return null;
+        return workforceVpcConfig.getValue("Workforce.workforceVpcConfig");
+    }
 
 }

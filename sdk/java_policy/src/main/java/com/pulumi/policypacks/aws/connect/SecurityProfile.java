@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/securityProfile:SecurityProfile")
-public final class SecurityProfile extends com.pulumi.resources.PolicyResource {
+public final class SecurityProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Security Profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SecurityProfile.arn");
+    }
 
     /**
      * Specifies the description of the Security Profile.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SecurityProfile.description");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("SecurityProfile.instanceId");
+    }
 
     /**
      * Specifies the name of the Security Profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SecurityProfile.name");
+    }
 
     /**
      * The organization resource identifier for the security profile.
      * 
      */
-    public String organizationResourceId;
+    private UndeferrableValue<String> organizationResourceId;
 
-
+    public String organizationResourceId() {
+        if (organizationResourceId == null) return null;
+        return organizationResourceId.getValue("SecurityProfile.organizationResourceId");
+    }
 
     /**
      * Specifies a list of permissions assigned to the security profile.
      * 
      */
-    public List<String> permissions;
+    private @Nullable UndeferrableValue<List<String>> permissions;
 
-
+    public @Nullable List<String> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("SecurityProfile.permissions");
+    }
 
     /**
      * The identifier for the Security Profile.
      * 
      */
-    public String securityProfileId;
+    private UndeferrableValue<String> securityProfileId;
 
-
+    public String securityProfileId() {
+        if (securityProfileId == null) return null;
+        return securityProfileId.getValue("SecurityProfile.securityProfileId");
+    }
 
     /**
      * Tags to apply to the Security Profile. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SecurityProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class SecurityProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SecurityProfile.tagsAll");
+    }
 
 }

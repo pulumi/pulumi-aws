@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.LogDeliveryS3DeliveryConfiguration;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.LogDeliveryS3DeliveryConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDelivery:LogDelivery")
-public final class LogDelivery extends com.pulumi.resources.PolicyResource {
+public final class LogDelivery extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the delivery.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogDelivery.arn");
+    }
 
     /**
      * The ARN of the delivery destination to use for this delivery.
      * 
      */
-    public String deliveryDestinationArn;
+    private UndeferrableValue<String> deliveryDestinationArn;
 
-
+    public String deliveryDestinationArn() {
+        if (deliveryDestinationArn == null) return null;
+        return deliveryDestinationArn.getValue("LogDelivery.deliveryDestinationArn");
+    }
 
     /**
      * The name of the delivery source to use for this delivery.
      * 
      */
-    public String deliverySourceName;
+    private UndeferrableValue<String> deliverySourceName;
 
-
+    public String deliverySourceName() {
+        if (deliverySourceName == null) return null;
+        return deliverySourceName.getValue("LogDelivery.deliverySourceName");
+    }
 
     /**
      * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
      * 
      */
-    public String fieldDelimiter;
+    private UndeferrableValue<String> fieldDelimiter;
 
-
+    public String fieldDelimiter() {
+        if (fieldDelimiter == null) return null;
+        return fieldDelimiter.getValue("LogDelivery.fieldDelimiter");
+    }
 
     /**
      * The list of record fields to be delivered to the destination, in order.
      * 
      */
-    public List<String> recordFields;
+    private UndeferrableValue<List<String>> recordFields;
 
-
+    public List<String> recordFields() {
+        if (recordFields == null) return null;
+        return recordFields.getValue("LogDelivery.recordFields");
+    }
 
     /**
      * Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
      * 
      */
-    public List<LogDeliveryS3DeliveryConfiguration> s3DeliveryConfigurations;
+    private UndeferrableValue<List<LogDeliveryS3DeliveryConfiguration>> s3DeliveryConfigurations;
 
-
+    public List<LogDeliveryS3DeliveryConfiguration> s3DeliveryConfigurations() {
+        if (s3DeliveryConfigurations == null) return null;
+        return s3DeliveryConfigurations.getValue("LogDelivery.s3DeliveryConfigurations");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogDelivery.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class LogDelivery extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogDelivery.tagsAll");
+    }
 
 }

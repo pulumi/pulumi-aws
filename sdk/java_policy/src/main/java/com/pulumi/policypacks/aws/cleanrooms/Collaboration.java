@@ -3,49 +3,63 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cleanrooms.CollaborationDataEncryptionMetadata;
-import com.pulumi.policypacks.aws.cleanrooms.CollaborationMember;
+import com.pulumi.policypacks.aws.cleanrooms.outputs.CollaborationDataEncryptionMetadata;
+import com.pulumi.policypacks.aws.cleanrooms.outputs.CollaborationMember;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cleanrooms/collaboration:Collaboration")
-public final class Collaboration extends com.pulumi.resources.PolicyResource {
+public final class Collaboration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The arn of the collaboration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Collaboration.arn");
+    }
 
     /**
      * The date and time the collaboration was created.
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("Collaboration.createTime");
+    }
 
     /**
      * The name for the member record for the collaboration creator.
      * 
      */
-    public String creatorDisplayName;
+    private UndeferrableValue<String> creatorDisplayName;
 
-
+    public String creatorDisplayName() {
+        if (creatorDisplayName == null) return null;
+        return creatorDisplayName.getValue("Collaboration.creatorDisplayName");
+    }
 
     /**
      * The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
-    public List<String> creatorMemberAbilities;
+    private UndeferrableValue<List<String>> creatorMemberAbilities;
 
-
+    public List<String> creatorMemberAbilities() {
+        if (creatorMemberAbilities == null) return null;
+        return creatorMemberAbilities.getValue("Collaboration.creatorMemberAbilities");
+    }
 
     /**
      * a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
@@ -59,17 +73,23 @@ public final class Collaboration extends com.pulumi.resources.PolicyResource {
      *   or cryptographically processed (false).
      * 
      */
-    public CollaborationDataEncryptionMetadata dataEncryptionMetadata;
+    private @Nullable UndeferrableValue<CollaborationDataEncryptionMetadata> dataEncryptionMetadata;
 
-
+    public @Nullable CollaborationDataEncryptionMetadata dataEncryptionMetadata() {
+        if (dataEncryptionMetadata == null) return null;
+        return dataEncryptionMetadata.getValue("Collaboration.dataEncryptionMetadata");
+    }
 
     /**
      * A description for a collaboration.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Collaboration.description");
+    }
 
     /**
      * Additional members of the collaboration which will be invited to join the collaboration.
@@ -78,34 +98,46 @@ public final class Collaboration extends com.pulumi.resources.PolicyResource {
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
-    public List<CollaborationMember> members;
+    private @Nullable UndeferrableValue<List<CollaborationMember>> members;
 
-
+    public @Nullable List<CollaborationMember> members() {
+        if (members == null) return null;
+        return members.getValue("Collaboration.members");
+    }
 
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Collaboration.name");
+    }
 
     /**
      * Determines if members of the collaboration can enable query logs within their own.
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      */
-    public String queryLogStatus;
+    private UndeferrableValue<String> queryLogStatus;
 
-
+    public String queryLogStatus() {
+        if (queryLogStatus == null) return null;
+        return queryLogStatus.getValue("Collaboration.queryLogStatus");
+    }
 
     /**
      * Key value pairs which tag the collaboration.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Collaboration.tags");
+    }
 
     /**
      * @deprecated
@@ -113,12 +145,18 @@ public final class Collaboration extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Collaboration.tagsAll");
+    }
 
+    private UndeferrableValue<String> updateTime;
 
-    public String updateTime;
-
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("Collaboration.updateTime");
+    }
 
 }

@@ -3,74 +3,97 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.MetricAlarmMetricQuery;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.MetricAlarmMetricQuery;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/metricAlarm:MetricAlarm")
-public final class MetricAlarm extends com.pulumi.resources.PolicyResource {
+public final class MetricAlarm extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether or not actions should be executed during any changes to the alarm&#39;s state. Defaults to `true`.
      * 
      */
-    public Boolean actionsEnabled;
+    private @Nullable UndeferrableValue<Boolean> actionsEnabled;
 
-
+    public @Nullable Boolean actionsEnabled() {
+        if (actionsEnabled == null) return null;
+        return actionsEnabled.getValue("MetricAlarm.actionsEnabled");
+    }
 
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public List<String> alarmActions;
+    private @Nullable UndeferrableValue<List<String>> alarmActions;
 
-
+    public @Nullable List<String> alarmActions() {
+        if (alarmActions == null) return null;
+        return alarmActions.getValue("MetricAlarm.alarmActions");
+    }
 
     /**
      * The description for the alarm.
      * 
      */
-    public String alarmDescription;
+    private @Nullable UndeferrableValue<String> alarmDescription;
 
-
+    public @Nullable String alarmDescription() {
+        if (alarmDescription == null) return null;
+        return alarmDescription.getValue("MetricAlarm.alarmDescription");
+    }
 
     /**
      * The ARN of the CloudWatch Metric Alarm.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MetricAlarm.arn");
+    }
 
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      * 
      */
-    public String comparisonOperator;
+    private UndeferrableValue<String> comparisonOperator;
 
-
+    public String comparisonOperator() {
+        if (comparisonOperator == null) return null;
+        return comparisonOperator.getValue("MetricAlarm.comparisonOperator");
+    }
 
     /**
      * The number of datapoints that must be breaching to trigger the alarm.
      * 
      */
-    public Integer datapointsToAlarm;
+    private @Nullable UndeferrableValue<Integer> datapointsToAlarm;
 
-
+    public @Nullable Integer datapointsToAlarm() {
+        if (datapointsToAlarm == null) return null;
+        return datapointsToAlarm.getValue("MetricAlarm.datapointsToAlarm");
+    }
 
     /**
      * The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    public Map<String,String> dimensions;
+    private @Nullable UndeferrableValue<Map<String,String>> dimensions;
 
-
+    public @Nullable Map<String,String> dimensions() {
+        if (dimensions == null) return null;
+        return dimensions.getValue("MetricAlarm.dimensions");
+    }
 
     /**
      * Used only for alarms based on percentiles.
@@ -79,93 +102,126 @@ public final class MetricAlarm extends com.pulumi.resources.PolicyResource {
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
-    public String evaluateLowSampleCountPercentiles;
+    private UndeferrableValue<String> evaluateLowSampleCountPercentiles;
 
-
+    public String evaluateLowSampleCountPercentiles() {
+        if (evaluateLowSampleCountPercentiles == null) return null;
+        return evaluateLowSampleCountPercentiles.getValue("MetricAlarm.evaluateLowSampleCountPercentiles");
+    }
 
     /**
      * The number of periods over which data is compared to the specified threshold.
      * 
      */
-    public Integer evaluationPeriods;
+    private UndeferrableValue<Integer> evaluationPeriods;
 
-
+    public Integer evaluationPeriods() {
+        if (evaluationPeriods == null) return null;
+        return evaluationPeriods.getValue("MetricAlarm.evaluationPeriods");
+    }
 
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      * 
      */
-    public String extendedStatistic;
+    private @Nullable UndeferrableValue<String> extendedStatistic;
 
-
+    public @Nullable String extendedStatistic() {
+        if (extendedStatistic == null) return null;
+        return extendedStatistic.getValue("MetricAlarm.extendedStatistic");
+    }
 
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public List<String> insufficientDataActions;
+    private @Nullable UndeferrableValue<List<String>> insufficientDataActions;
 
-
+    public @Nullable List<String> insufficientDataActions() {
+        if (insufficientDataActions == null) return null;
+        return insufficientDataActions.getValue("MetricAlarm.insufficientDataActions");
+    }
 
     /**
      * The name for the alarm&#39;s associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    public String metricName;
+    private @Nullable UndeferrableValue<String> metricName;
 
-
+    public @Nullable String metricName() {
+        if (metricName == null) return null;
+        return metricName.getValue("MetricAlarm.metricName");
+    }
 
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      * 
      */
-    public List<MetricAlarmMetricQuery> metricQueries;
+    private @Nullable UndeferrableValue<List<MetricAlarmMetricQuery>> metricQueries;
 
-
+    public @Nullable List<MetricAlarmMetricQuery> metricQueries() {
+        if (metricQueries == null) return null;
+        return metricQueries.getValue("MetricAlarm.metricQueries");
+    }
 
     /**
      * The descriptive name for the alarm. This name must be unique within the user&#39;s AWS account
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MetricAlarm.name");
+    }
 
     /**
      * The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    public String namespace;
+    private @Nullable UndeferrableValue<String> namespace;
 
-
+    public @Nullable String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("MetricAlarm.namespace");
+    }
 
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    public List<String> okActions;
+    private @Nullable UndeferrableValue<List<String>> okActions;
 
-
+    public @Nullable List<String> okActions() {
+        if (okActions == null) return null;
+        return okActions.getValue("MetricAlarm.okActions");
+    }
 
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
-    public Integer period;
+    private @Nullable UndeferrableValue<Integer> period;
 
-
+    public @Nullable Integer period() {
+        if (period == null) return null;
+        return period.getValue("MetricAlarm.period");
+    }
 
     /**
      * The statistic to apply to the alarm&#39;s associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      * 
      */
-    public String statistic;
+    private @Nullable UndeferrableValue<String> statistic;
 
-
+    public @Nullable String statistic() {
+        if (statistic == null) return null;
+        return statistic.getValue("MetricAlarm.statistic");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,9 +229,12 @@ public final class MetricAlarm extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MetricAlarm.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -185,40 +244,55 @@ public final class MetricAlarm extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MetricAlarm.tagsAll");
+    }
 
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      * 
      */
-    public Double threshold;
+    private @Nullable UndeferrableValue<Double> threshold;
 
-
+    public @Nullable Double threshold() {
+        if (threshold == null) return null;
+        return threshold.getValue("MetricAlarm.threshold");
+    }
 
     /**
      * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
      * 
      */
-    public String thresholdMetricId;
+    private @Nullable UndeferrableValue<String> thresholdMetricId;
 
-
+    public @Nullable String thresholdMetricId() {
+        if (thresholdMetricId == null) return null;
+        return thresholdMetricId.getValue("MetricAlarm.thresholdMetricId");
+    }
 
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      * 
      */
-    public String treatMissingData;
+    private @Nullable UndeferrableValue<String> treatMissingData;
 
-
+    public @Nullable String treatMissingData() {
+        if (treatMissingData == null) return null;
+        return treatMissingData.getValue("MetricAlarm.treatMissingData");
+    }
 
     /**
      * The unit for the alarm&#39;s associated metric.
      * 
      */
-    public String unit;
+    private @Nullable UndeferrableValue<String> unit;
 
-
+    public @Nullable String unit() {
+        if (unit == null) return null;
+        return unit.getValue("MetricAlarm.unit");
+    }
 
 }

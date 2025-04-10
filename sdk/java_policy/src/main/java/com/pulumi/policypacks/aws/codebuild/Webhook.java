@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codebuild.WebhookFilterGroup;
-import com.pulumi.policypacks.aws.codebuild.WebhookScopeConfiguration;
+import com.pulumi.policypacks.aws.codebuild.outputs.WebhookFilterGroup;
+import com.pulumi.policypacks.aws.codebuild.outputs.WebhookScopeConfiguration;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codebuild/webhook:Webhook")
-public final class Webhook extends com.pulumi.resources.PolicyResource {
+public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
      * 
      */
-    public String branchFilter;
+    private @Nullable UndeferrableValue<String> branchFilter;
 
-
+    public @Nullable String branchFilter() {
+        if (branchFilter == null) return null;
+        return branchFilter.getValue("Webhook.branchFilter");
+    }
 
     /**
      * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
      * 
      */
-    public String buildType;
+    private @Nullable UndeferrableValue<String> buildType;
 
-
+    public @Nullable String buildType() {
+        if (buildType == null) return null;
+        return buildType.getValue("Webhook.buildType");
+    }
 
     /**
      * Information about the webhook&#39;s trigger. Filter group blocks are documented below.
      * 
      */
-    public List<WebhookFilterGroup> filterGroups;
+    private @Nullable UndeferrableValue<List<WebhookFilterGroup>> filterGroups;
 
-
+    public @Nullable List<WebhookFilterGroup> filterGroups() {
+        if (filterGroups == null) return null;
+        return filterGroups.getValue("Webhook.filterGroups");
+    }
 
     /**
      * The CodeBuild endpoint where webhook events are sent.
      * 
      */
-    public String payloadUrl;
+    private UndeferrableValue<String> payloadUrl;
 
-
+    public String payloadUrl() {
+        if (payloadUrl == null) return null;
+        return payloadUrl.getValue("Webhook.payloadUrl");
+    }
 
     /**
      * The name of the build project.
      * 
      */
-    public String projectName;
+    private UndeferrableValue<String> projectName;
 
-
+    public String projectName() {
+        if (projectName == null) return null;
+        return projectName.getValue("Webhook.projectName");
+    }
 
     /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      * 
      */
-    public WebhookScopeConfiguration scopeConfiguration;
+    private @Nullable UndeferrableValue<WebhookScopeConfiguration> scopeConfiguration;
 
-
+    public @Nullable WebhookScopeConfiguration scopeConfiguration() {
+        if (scopeConfiguration == null) return null;
+        return scopeConfiguration.getValue("Webhook.scopeConfiguration");
+    }
 
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      * 
      */
-    public String secret;
+    private UndeferrableValue<String> secret;
 
-
+    public String secret() {
+        if (secret == null) return null;
+        return secret.getValue("Webhook.secret");
+    }
 
     /**
      * The URL to the webhook.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Webhook.url");
+    }
 
 }

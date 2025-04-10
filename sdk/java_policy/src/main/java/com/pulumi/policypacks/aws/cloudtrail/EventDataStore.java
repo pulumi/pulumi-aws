@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudtrail.EventDataStoreAdvancedEventSelector;
+import com.pulumi.policypacks.aws.cloudtrail.outputs.EventDataStoreAdvancedEventSelector;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudtrail/eventDataStore:EventDataStore")
-public final class EventDataStore extends com.pulumi.resources.PolicyResource {
+public final class EventDataStore extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      * 
      */
-    public List<EventDataStoreAdvancedEventSelector> advancedEventSelectors;
+    private UndeferrableValue<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
 
-
+    public List<EventDataStoreAdvancedEventSelector> advancedEventSelectors() {
+        if (advancedEventSelectors == null) return null;
+        return advancedEventSelectors.getValue("EventDataStore.advancedEventSelectors");
+    }
 
     /**
      * ARN of the event data store.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventDataStore.arn");
+    }
 
     /**
      * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
      * 
      */
-    public String billingMode;
+    private @Nullable UndeferrableValue<String> billingMode;
 
-
+    public @Nullable String billingMode() {
+        if (billingMode == null) return null;
+        return billingMode.getValue("EventDataStore.billingMode");
+    }
 
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("EventDataStore.kmsKeyId");
+    }
 
     /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      * 
      */
-    public Boolean multiRegionEnabled;
+    private @Nullable UndeferrableValue<Boolean> multiRegionEnabled;
 
-
+    public @Nullable Boolean multiRegionEnabled() {
+        if (multiRegionEnabled == null) return null;
+        return multiRegionEnabled.getValue("EventDataStore.multiRegionEnabled");
+    }
 
     /**
      * The name of the event data store.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventDataStore.name");
+    }
 
     /**
      * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
      * 
      */
-    public Boolean organizationEnabled;
+    private @Nullable UndeferrableValue<Boolean> organizationEnabled;
 
-
+    public @Nullable Boolean organizationEnabled() {
+        if (organizationEnabled == null) return null;
+        return organizationEnabled.getValue("EventDataStore.organizationEnabled");
+    }
 
     /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      * 
      */
-    public Integer retentionPeriod;
+    private @Nullable UndeferrableValue<Integer> retentionPeriod;
 
-
+    public @Nullable Integer retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("EventDataStore.retentionPeriod");
+    }
 
     /**
      * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
      * 
      */
-    public String suspend;
+    private @Nullable UndeferrableValue<String> suspend;
 
-
+    public @Nullable String suspend() {
+        if (suspend == null) return null;
+        return suspend.getValue("EventDataStore.suspend");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventDataStore.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,16 +135,22 @@ public final class EventDataStore extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventDataStore.tagsAll");
+    }
 
     /**
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
      * 
      */
-    public Boolean terminationProtectionEnabled;
+    private @Nullable UndeferrableValue<Boolean> terminationProtectionEnabled;
 
-
+    public @Nullable Boolean terminationProtectionEnabled() {
+        if (terminationProtectionEnabled == null) return null;
+        return terminationProtectionEnabled.getValue("EventDataStore.terminationProtectionEnabled");
+    }
 
 }

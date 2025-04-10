@@ -3,56 +3,76 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.PackagePackageSource;
+import com.pulumi.policypacks.aws.opensearch.outputs.PackagePackageSource;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/package:Package")
-public final class Package extends com.pulumi.resources.PolicyResource {
+public final class Package extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The current version of the package.
      * 
      */
-    public String availablePackageVersion;
+    private UndeferrableValue<String> availablePackageVersion;
 
-
+    public String availablePackageVersion() {
+        if (availablePackageVersion == null) return null;
+        return availablePackageVersion.getValue("Package.availablePackageVersion");
+    }
 
     /**
      * Description of the package.
      * 
      */
-    public String packageDescription;
+    private @Nullable UndeferrableValue<String> packageDescription;
 
+    public @Nullable String packageDescription() {
+        if (packageDescription == null) return null;
+        return packageDescription.getValue("Package.packageDescription");
+    }
 
+    private UndeferrableValue<String> packageId;
 
-    public String packageId;
-
-
+    public String packageId() {
+        if (packageId == null) return null;
+        return packageId.getValue("Package.packageId");
+    }
 
     /**
      * Unique name for the package.
      * 
      */
-    public String packageName;
+    private UndeferrableValue<String> packageName;
 
-
+    public String packageName() {
+        if (packageName == null) return null;
+        return packageName.getValue("Package.packageName");
+    }
 
     /**
      * Configuration block for the package source options.
      * 
      */
-    public PackagePackageSource packageSource;
+    private UndeferrableValue<PackagePackageSource> packageSource;
 
-
+    public PackagePackageSource packageSource() {
+        if (packageSource == null) return null;
+        return packageSource.getValue("Package.packageSource");
+    }
 
     /**
      * The type of package.
      * 
      */
-    public String packageType;
+    private UndeferrableValue<String> packageType;
 
-
+    public String packageType() {
+        if (packageType == null) return null;
+        return packageType.getValue("Package.packageType");
+    }
 
 }

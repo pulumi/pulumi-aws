@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.efs.BackupPolicyBackupPolicy;
+import com.pulumi.policypacks.aws.efs.outputs.BackupPolicyBackupPolicy;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:efs/backupPolicy:BackupPolicy")
-public final class BackupPolicy extends com.pulumi.resources.PolicyResource {
+public final class BackupPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A backup_policy object (documented below).
      * 
      */
-    public BackupPolicyBackupPolicy backupPolicy;
+    private UndeferrableValue<BackupPolicyBackupPolicy> backupPolicy;
 
-
+    public BackupPolicyBackupPolicy backupPolicy() {
+        if (backupPolicy == null) return null;
+        return backupPolicy.getValue("BackupPolicy.backupPolicy");
+    }
 
     /**
      * The ID of the EFS file system.
      * 
      */
-    public String fileSystemId;
+    private UndeferrableValue<String> fileSystemId;
 
-
+    public String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("BackupPolicy.fileSystemId");
+    }
 
 }

@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/keyPolicy:KeyPolicy")
-public final class KeyPolicy extends com.pulumi.resources.PolicyResource {
+public final class KeyPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -17,17 +19,23 @@ public final class KeyPolicy extends com.pulumi.resources.PolicyResource {
      * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
      * 
      */
-    public Boolean bypassPolicyLockoutSafetyCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
+        if (bypassPolicyLockoutSafetyCheck == null) return null;
+        return bypassPolicyLockoutSafetyCheck.getValue("KeyPolicy.bypassPolicyLockoutSafetyCheck");
+    }
 
     /**
      * The ID of the KMS Key to attach the policy.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("KeyPolicy.keyId");
+    }
 
     /**
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
@@ -35,8 +43,11 @@ public final class KeyPolicy extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("KeyPolicy.policy");
+    }
 
 }

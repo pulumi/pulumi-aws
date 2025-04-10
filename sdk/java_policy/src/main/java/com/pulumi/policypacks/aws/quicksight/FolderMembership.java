@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:quicksight/folderMembership:FolderMembership")
-public final class FolderMembership extends com.pulumi.resources.PolicyResource {
+public final class FolderMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("FolderMembership.awsAccountId");
+    }
 
     /**
      * Identifier for the folder.
      * 
      */
-    public String folderId;
+    private UndeferrableValue<String> folderId;
 
-
+    public String folderId() {
+        if (folderId == null) return null;
+        return folderId.getValue("FolderMembership.folderId");
+    }
 
     /**
      * ID of the asset (the dashboard, analysis, or dataset).
      * 
      */
-    public String memberId;
+    private UndeferrableValue<String> memberId;
 
-
+    public String memberId() {
+        if (memberId == null) return null;
+        return memberId.getValue("FolderMembership.memberId");
+    }
 
     /**
      * Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -40,8 +50,11 @@ public final class FolderMembership extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String memberType;
+    private UndeferrableValue<String> memberType;
 
-
+    public String memberType() {
+        if (memberType == null) return null;
+        return memberType.getValue("FolderMembership.memberType");
+    }
 
 }

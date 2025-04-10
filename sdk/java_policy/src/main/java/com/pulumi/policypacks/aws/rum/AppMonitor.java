@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.rum;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rum.AppMonitorAppMonitorConfiguration;
-import com.pulumi.policypacks.aws.rum.AppMonitorCustomEvents;
+import com.pulumi.policypacks.aws.rum.outputs.AppMonitorAppMonitorConfiguration;
+import com.pulumi.policypacks.aws.rum.outputs.AppMonitorCustomEvents;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rum/appMonitor:AppMonitor")
-public final class AppMonitor extends com.pulumi.resources.PolicyResource {
+public final class AppMonitor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * configuration data for the app monitor. See app_monitor_configuration below.
      * 
      */
-    public AppMonitorAppMonitorConfiguration appMonitorConfiguration;
+    private UndeferrableValue<AppMonitorAppMonitorConfiguration> appMonitorConfiguration;
 
-
+    public AppMonitorAppMonitorConfiguration appMonitorConfiguration() {
+        if (appMonitorConfiguration == null) return null;
+        return appMonitorConfiguration.getValue("AppMonitor.appMonitorConfiguration");
+    }
 
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      * 
      */
-    public String appMonitorId;
+    private UndeferrableValue<String> appMonitorId;
 
-
+    public String appMonitorId() {
+        if (appMonitorId == null) return null;
+        return appMonitorId.getValue("AppMonitor.appMonitorId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AppMonitor.arn");
+    }
 
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
      * 
      */
-    public AppMonitorCustomEvents customEvents;
+    private UndeferrableValue<AppMonitorCustomEvents> customEvents;
 
-
+    public AppMonitorCustomEvents customEvents() {
+        if (customEvents == null) return null;
+        return customEvents.getValue("AppMonitor.customEvents");
+    }
 
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
-    public Boolean cwLogEnabled;
+    private @Nullable UndeferrableValue<Boolean> cwLogEnabled;
 
-
+    public @Nullable Boolean cwLogEnabled() {
+        if (cwLogEnabled == null) return null;
+        return cwLogEnabled.getValue("AppMonitor.cwLogEnabled");
+    }
 
     /**
      * The name of the log group where the copies are stored.
      * 
      */
-    public String cwLogGroup;
+    private UndeferrableValue<String> cwLogGroup;
 
-
+    public String cwLogGroup() {
+        if (cwLogGroup == null) return null;
+        return cwLogGroup.getValue("AppMonitor.cwLogGroup");
+    }
 
     /**
      * The top-level internet domain name for which your application has administrative authority.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("AppMonitor.domain");
+    }
 
     /**
      * The name of the log stream.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AppMonitor.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AppMonitor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class AppMonitor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AppMonitor.tagsAll");
+    }
 
 }

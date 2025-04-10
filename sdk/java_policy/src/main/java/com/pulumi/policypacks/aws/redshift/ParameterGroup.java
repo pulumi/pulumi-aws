@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshift.ParameterGroupParameter;
+import com.pulumi.policypacks.aws.redshift.outputs.ParameterGroupParameter;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/parameterGroup:ParameterGroup")
-public final class ParameterGroup extends com.pulumi.resources.PolicyResource {
+public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of parameter group
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ParameterGroup.arn");
+    }
 
     /**
      * The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ParameterGroup.description");
+    }
 
     /**
      * The family of the Redshift parameter group.
      * 
      */
-    public String family;
+    private UndeferrableValue<String> family;
 
-
+    public String family() {
+        if (family == null) return null;
+        return family.getValue("ParameterGroup.family");
+    }
 
     /**
      * The name of the Redshift parameter.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ParameterGroup.name");
+    }
 
     /**
      * A list of Redshift parameters to apply.
      * 
      */
-    public List<ParameterGroupParameter> parameters;
+    private @Nullable UndeferrableValue<List<ParameterGroupParameter>> parameters;
 
-
+    public @Nullable List<ParameterGroupParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("ParameterGroup.parameters");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -59,9 +76,12 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResource {
      * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ParameterGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,8 +91,11 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ParameterGroup.tagsAll");
+    }
 
 }

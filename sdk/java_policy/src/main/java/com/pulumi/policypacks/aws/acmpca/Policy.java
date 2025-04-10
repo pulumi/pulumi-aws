@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:acmpca/policy:Policy")
-public final class Policy extends com.pulumi.resources.PolicyResource {
+public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * JSON-formatted IAM policy to attach to the specified private CA resource.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Policy.policy");
+    }
 
     /**
      * ARN of the private CA to associate with the policy.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("Policy.resourceArn");
+    }
 
 }

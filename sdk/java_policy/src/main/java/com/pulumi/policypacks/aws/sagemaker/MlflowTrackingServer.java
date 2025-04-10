@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer")
-public final class MlflowTrackingServer extends com.pulumi.resources.PolicyResource {
+public final class MlflowTrackingServer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MlflowTrackingServer.arn");
+    }
 
     /**
      * The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
      * 
      */
-    public String artifactStoreUri;
+    private UndeferrableValue<String> artifactStoreUri;
 
-
+    public String artifactStoreUri() {
+        if (artifactStoreUri == null) return null;
+        return artifactStoreUri.getValue("MlflowTrackingServer.artifactStoreUri");
+    }
 
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team.
      * 
      */
-    public Boolean automaticModelRegistration;
+    private @Nullable UndeferrableValue<Boolean> automaticModelRegistration;
 
-
+    public @Nullable Boolean automaticModelRegistration() {
+        if (automaticModelRegistration == null) return null;
+        return automaticModelRegistration.getValue("MlflowTrackingServer.automaticModelRegistration");
+    }
 
     /**
      * The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
      * 
      */
-    public String mlflowVersion;
+    private UndeferrableValue<String> mlflowVersion;
 
-
+    public String mlflowVersion() {
+        if (mlflowVersion == null) return null;
+        return mlflowVersion.getValue("MlflowTrackingServer.mlflowVersion");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("MlflowTrackingServer.roleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MlflowTrackingServer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,40 +88,55 @@ public final class MlflowTrackingServer extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MlflowTrackingServer.tagsAll");
+    }
 
     /**
      * A unique string identifying the tracking server name. This string is part of the tracking server ARN.
      * 
      */
-    public String trackingServerName;
+    private UndeferrableValue<String> trackingServerName;
 
-
+    public String trackingServerName() {
+        if (trackingServerName == null) return null;
+        return trackingServerName.getValue("MlflowTrackingServer.trackingServerName");
+    }
 
     /**
      * The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
      * 
      */
-    public String trackingServerSize;
+    private @Nullable UndeferrableValue<String> trackingServerSize;
 
-
+    public @Nullable String trackingServerSize() {
+        if (trackingServerSize == null) return null;
+        return trackingServerSize.getValue("MlflowTrackingServer.trackingServerSize");
+    }
 
     /**
      * The URL to connect to the MLflow user interface for the described tracking server.
      * 
      */
-    public String trackingServerUrl;
+    private UndeferrableValue<String> trackingServerUrl;
 
-
+    public String trackingServerUrl() {
+        if (trackingServerUrl == null) return null;
+        return trackingServerUrl.getValue("MlflowTrackingServer.trackingServerUrl");
+    }
 
     /**
      * The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
      * 
      */
-    public String weeklyMaintenanceWindowStart;
+    private UndeferrableValue<String> weeklyMaintenanceWindowStart;
 
-
+    public String weeklyMaintenanceWindowStart() {
+        if (weeklyMaintenanceWindowStart == null) return null;
+        return weeklyMaintenanceWindowStart.getValue("MlflowTrackingServer.weeklyMaintenanceWindowStart");
+    }
 
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -10,22 +11,28 @@ import java.util.Map;
 
 
 @PolicyResourceType(type="aws:backup/regionSettings:RegionSettings")
-public final class RegionSettings extends com.pulumi.resources.PolicyResource {
+public final class RegionSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
-    public Map<String,Boolean> resourceTypeManagementPreference;
+    private UndeferrableValue<Map<String,Boolean>> resourceTypeManagementPreference;
 
-
+    public Map<String,Boolean> resourceTypeManagementPreference() {
+        if (resourceTypeManagementPreference == null) return null;
+        return resourceTypeManagementPreference.getValue("RegionSettings.resourceTypeManagementPreference");
+    }
 
     /**
      * A map of services along with the opt-in preferences for the Region.
      * 
      */
-    public Map<String,Boolean> resourceTypeOptInPreference;
+    private UndeferrableValue<Map<String,Boolean>> resourceTypeOptInPreference;
 
-
+    public Map<String,Boolean> resourceTypeOptInPreference() {
+        if (resourceTypeOptInPreference == null) return null;
+        return resourceTypeOptInPreference.getValue("RegionSettings.resourceTypeOptInPreference");
+    }
 
 }

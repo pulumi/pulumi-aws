@@ -3,61 +3,90 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssmincidents.ResponsePlanAction;
-import com.pulumi.policypacks.aws.ssmincidents.ResponsePlanIncidentTemplate;
-import com.pulumi.policypacks.aws.ssmincidents.ResponsePlanIntegration;
+import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanAction;
+import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanIncidentTemplate;
+import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanIntegration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssmincidents/responsePlan:ResponsePlan")
-public final class ResponsePlan extends com.pulumi.resources.PolicyResource {
+public final class ResponsePlan extends com.pulumi.resources.PolicyResourceOutput {
 
-    public ResponsePlanAction action;
+    private @Nullable UndeferrableValue<ResponsePlanAction> action;
 
-
+    public @Nullable ResponsePlanAction action() {
+        if (action == null) return null;
+        return action.getValue("ResponsePlan.action");
+    }
 
     /**
      * The ARN of the response plan.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResponsePlan.arn");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> chatChannels;
 
-    public List<String> chatChannels;
+    public @Nullable List<String> chatChannels() {
+        if (chatChannels == null) return null;
+        return chatChannels.getValue("ResponsePlan.chatChannels");
+    }
 
+    private @Nullable UndeferrableValue<String> displayName;
 
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("ResponsePlan.displayName");
+    }
 
-    public String displayName;
+    private @Nullable UndeferrableValue<List<String>> engagements;
 
+    public @Nullable List<String> engagements() {
+        if (engagements == null) return null;
+        return engagements.getValue("ResponsePlan.engagements");
+    }
 
+    private UndeferrableValue<ResponsePlanIncidentTemplate> incidentTemplate;
 
-    public List<String> engagements;
+    public ResponsePlanIncidentTemplate incidentTemplate() {
+        if (incidentTemplate == null) return null;
+        return incidentTemplate.getValue("ResponsePlan.incidentTemplate");
+    }
 
+    private @Nullable UndeferrableValue<ResponsePlanIntegration> integration;
 
-
-    public ResponsePlanIncidentTemplate incidentTemplate;
-
-
-
-    public ResponsePlanIntegration integration;
-
-
+    public @Nullable ResponsePlanIntegration integration() {
+        if (integration == null) return null;
+        return integration.getValue("ResponsePlan.integration");
+    }
 
     /**
      * The name of the response plan.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResponsePlan.name");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResponsePlan.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,8 +96,11 @@ public final class ResponsePlan extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResponsePlan.tagsAll");
+    }
 
 }

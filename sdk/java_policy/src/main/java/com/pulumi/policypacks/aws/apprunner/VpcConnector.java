@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/vpcConnector:VpcConnector")
-public final class VpcConnector extends com.pulumi.resources.PolicyResource {
+public final class VpcConnector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of VPC connector.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcConnector.arn");
+    }
 
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("VpcConnector.securityGroups");
+    }
 
     /**
      * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("VpcConnector.status");
+    }
 
     /**
      * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
-    public List<String> subnets;
+    private UndeferrableValue<List<String>> subnets;
 
-
+    public List<String> subnets() {
+        if (subnets == null) return null;
+        return subnets.getValue("VpcConnector.subnets");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcConnector.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,24 +78,33 @@ public final class VpcConnector extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcConnector.tagsAll");
+    }
 
     /**
      * Name for the VPC connector.
      * 
      */
-    public String vpcConnectorName;
+    private UndeferrableValue<String> vpcConnectorName;
 
-
+    public String vpcConnectorName() {
+        if (vpcConnectorName == null) return null;
+        return vpcConnectorName.getValue("VpcConnector.vpcConnectorName");
+    }
 
     /**
      * The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
-    public Integer vpcConnectorRevision;
+    private UndeferrableValue<Integer> vpcConnectorRevision;
 
-
+    public Integer vpcConnectorRevision() {
+        if (vpcConnectorRevision == null) return null;
+        return vpcConnectorRevision.getValue("VpcConnector.vpcConnectorRevision");
+    }
 
 }

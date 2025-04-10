@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/deployment:Deployment")
-public final class Deployment extends com.pulumi.resources.PolicyResource {
+public final class Deployment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Deployment.apiId");
+    }
 
     /**
      * Whether the deployment was automatically released.
      * 
      */
-    public Boolean autoDeployed;
+    private UndeferrableValue<Boolean> autoDeployed;
 
-
+    public Boolean autoDeployed() {
+        if (autoDeployed == null) return null;
+        return autoDeployed.getValue("Deployment.autoDeployed");
+    }
 
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Deployment.description");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Deployment.triggers");
+    }
 
 }

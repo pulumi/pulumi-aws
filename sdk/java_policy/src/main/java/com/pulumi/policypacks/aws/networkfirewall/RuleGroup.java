@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkfirewall.RuleGroupEncryptionConfiguration;
-import com.pulumi.policypacks.aws.networkfirewall.RuleGroupRuleGroup;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupEncryptionConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroup;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkfirewall/ruleGroup:RuleGroup")
-public final class RuleGroup extends com.pulumi.resources.PolicyResource {
+public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that identifies the rule group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RuleGroup.arn");
+    }
 
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      * 
      */
-    public Integer capacity;
+    private UndeferrableValue<Integer> capacity;
 
-
+    public Integer capacity() {
+        if (capacity == null) return null;
+        return capacity.getValue("RuleGroup.capacity");
+    }
 
     /**
      * A friendly description of the rule group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("RuleGroup.description");
+    }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    public RuleGroupEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<RuleGroupEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable RuleGroupEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("RuleGroup.encryptionConfiguration");
+    }
 
     /**
      * A friendly name of the rule group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RuleGroup.name");
+    }
 
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      * 
      */
-    public RuleGroupRuleGroup ruleGroup;
+    private UndeferrableValue<RuleGroupRuleGroup> ruleGroup;
 
-
+    public RuleGroupRuleGroup ruleGroup() {
+        if (ruleGroup == null) return null;
+        return ruleGroup.getValue("RuleGroup.ruleGroup");
+    }
 
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
      * 
      */
-    public String rules;
+    private @Nullable UndeferrableValue<String> rules;
 
-
+    public @Nullable String rules() {
+        if (rules == null) return null;
+        return rules.getValue("RuleGroup.rules");
+    }
 
     /**
      * A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RuleGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -86,24 +112,33 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RuleGroup.tagsAll");
+    }
 
     /**
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("RuleGroup.type");
+    }
 
     /**
      * A string token used when updating the rule group.
      * 
      */
-    public String updateToken;
+    private UndeferrableValue<String> updateToken;
 
-
+    public String updateToken() {
+        if (updateToken == null) return null;
+        return updateToken.getValue("RuleGroup.updateToken");
+    }
 
 }

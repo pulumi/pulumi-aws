@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/natGateway:NatGateway")
-public final class NatGateway extends com.pulumi.resources.PolicyResource {
+public final class NatGateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
-    public String allocationId;
+    private @Nullable UndeferrableValue<String> allocationId;
 
-
+    public @Nullable String allocationId() {
+        if (allocationId == null) return null;
+        return allocationId.getValue("NatGateway.allocationId");
+    }
 
     /**
      * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("NatGateway.associationId");
+    }
 
     /**
      * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
-    public String connectivityType;
+    private @Nullable UndeferrableValue<String> connectivityType;
 
-
+    public @Nullable String connectivityType() {
+        if (connectivityType == null) return null;
+        return connectivityType.getValue("NatGateway.connectivityType");
+    }
 
     /**
      * The ID of the network interface associated with the NAT Gateway.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("NatGateway.networkInterfaceId");
+    }
 
     /**
      * The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
-    public String privateIp;
+    private UndeferrableValue<String> privateIp;
 
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("NatGateway.privateIp");
+    }
 
     /**
      * The Elastic IP address associated with the NAT Gateway.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("NatGateway.publicIp");
+    }
 
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      * 
      */
-    public List<String> secondaryAllocationIds;
+    private @Nullable UndeferrableValue<List<String>> secondaryAllocationIds;
 
-
+    public @Nullable List<String> secondaryAllocationIds() {
+        if (secondaryAllocationIds == null) return null;
+        return secondaryAllocationIds.getValue("NatGateway.secondaryAllocationIds");
+    }
 
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      * 
      */
-    public Integer secondaryPrivateIpAddressCount;
+    private UndeferrableValue<Integer> secondaryPrivateIpAddressCount;
 
-
+    public Integer secondaryPrivateIpAddressCount() {
+        if (secondaryPrivateIpAddressCount == null) return null;
+        return secondaryPrivateIpAddressCount.getValue("NatGateway.secondaryPrivateIpAddressCount");
+    }
 
     /**
      * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
      * 
      */
-    public List<String> secondaryPrivateIpAddresses;
+    private UndeferrableValue<List<String>> secondaryPrivateIpAddresses;
 
-
+    public List<String> secondaryPrivateIpAddresses() {
+        if (secondaryPrivateIpAddresses == null) return null;
+        return secondaryPrivateIpAddresses.getValue("NatGateway.secondaryPrivateIpAddresses");
+    }
 
     /**
      * The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("NatGateway.subnetId");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NatGateway.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -109,8 +144,11 @@ public final class NatGateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NatGateway.tagsAll");
+    }
 
 }

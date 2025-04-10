@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary;
+import com.pulumi.policypacks.aws.ssoadmin.outputs.PermissionsBoundaryAttachmentPermissionsBoundary;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")
-public final class PermissionsBoundaryAttachment extends com.pulumi.resources.PolicyResource {
+public final class PermissionsBoundaryAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("PermissionsBoundaryAttachment.instanceArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    public String permissionSetArn;
+    private UndeferrableValue<String> permissionSetArn;
 
-
+    public String permissionSetArn() {
+        if (permissionSetArn == null) return null;
+        return permissionSetArn.getValue("PermissionsBoundaryAttachment.permissionSetArn");
+    }
 
     /**
      * The permissions boundary policy. See below.
      * 
      */
-    public PermissionsBoundaryAttachmentPermissionsBoundary permissionsBoundary;
+    private UndeferrableValue<PermissionsBoundaryAttachmentPermissionsBoundary> permissionsBoundary;
 
-
+    public PermissionsBoundaryAttachmentPermissionsBoundary permissionsBoundary() {
+        if (permissionsBoundary == null) return null;
+        return permissionsBoundary.getValue("PermissionsBoundaryAttachment.permissionsBoundary");
+    }
 
 }

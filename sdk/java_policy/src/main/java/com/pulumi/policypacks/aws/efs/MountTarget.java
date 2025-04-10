@@ -3,102 +3,136 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:efs/mountTarget:MountTarget")
-public final class MountTarget extends com.pulumi.resources.PolicyResource {
+public final class MountTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    public String availabilityZoneId;
+    private UndeferrableValue<String> availabilityZoneId;
 
-
+    public String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("MountTarget.availabilityZoneId");
+    }
 
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    public String availabilityZoneName;
+    private UndeferrableValue<String> availabilityZoneName;
 
-
+    public String availabilityZoneName() {
+        if (availabilityZoneName == null) return null;
+        return availabilityZoneName.getValue("MountTarget.availabilityZoneName");
+    }
 
     /**
      * The DNS name for the EFS file system.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("MountTarget.dnsName");
+    }
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String fileSystemArn;
+    private UndeferrableValue<String> fileSystemArn;
 
-
+    public String fileSystemArn() {
+        if (fileSystemArn == null) return null;
+        return fileSystemArn.getValue("MountTarget.fileSystemArn");
+    }
 
     /**
      * The ID of the file system for which the mount target is intended.
      * 
      */
-    public String fileSystemId;
+    private UndeferrableValue<String> fileSystemId;
 
-
+    public String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("MountTarget.fileSystemId");
+    }
 
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("MountTarget.ipAddress");
+    }
 
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    public String mountTargetDnsName;
+    private UndeferrableValue<String> mountTargetDnsName;
 
-
+    public String mountTargetDnsName() {
+        if (mountTargetDnsName == null) return null;
+        return mountTargetDnsName.getValue("MountTarget.mountTargetDnsName");
+    }
 
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("MountTarget.networkInterfaceId");
+    }
 
     /**
      * AWS account ID that owns the resource.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("MountTarget.ownerId");
+    }
 
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("MountTarget.securityGroups");
+    }
 
     /**
      * The ID of the subnet to add the mount target in.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("MountTarget.subnetId");
+    }
 
 }

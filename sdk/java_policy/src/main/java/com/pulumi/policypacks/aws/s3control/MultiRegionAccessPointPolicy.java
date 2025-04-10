@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3control.MultiRegionAccessPointPolicyDetails;
+import com.pulumi.policypacks.aws.s3control.outputs.MultiRegionAccessPointPolicyDetails;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")
-public final class MultiRegionAccessPointPolicy extends com.pulumi.resources.PolicyResource {
+public final class MultiRegionAccessPointPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("MultiRegionAccessPointPolicy.accountId");
+    }
 
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    public MultiRegionAccessPointPolicyDetails details;
+    private UndeferrableValue<MultiRegionAccessPointPolicyDetails> details;
 
-
+    public MultiRegionAccessPointPolicyDetails details() {
+        if (details == null) return null;
+        return details.getValue("MultiRegionAccessPointPolicy.details");
+    }
 
     /**
      * The last established policy for the Multi-Region Access Point.
      * 
      */
-    public String established;
+    private UndeferrableValue<String> established;
 
-
+    public String established() {
+        if (established == null) return null;
+        return established.getValue("MultiRegionAccessPointPolicy.established");
+    }
 
     /**
      * The proposed policy for the Multi-Region Access Point.
      * 
      */
-    public String proposed;
+    private UndeferrableValue<String> proposed;
 
-
+    public String proposed() {
+        if (proposed == null) return null;
+        return proposed.getValue("MultiRegionAccessPointPolicy.proposed");
+    }
 
 }

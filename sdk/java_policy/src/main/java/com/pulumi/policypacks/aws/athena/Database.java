@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.athena.DatabaseAclConfiguration;
-import com.pulumi.policypacks.aws.athena.DatabaseEncryptionConfiguration;
+import com.pulumi.policypacks.aws.athena.outputs.DatabaseAclConfiguration;
+import com.pulumi.policypacks.aws.athena.outputs.DatabaseEncryptionConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/database:Database")
-public final class Database extends com.pulumi.resources.PolicyResource {
+public final class Database extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
-    public DatabaseAclConfiguration aclConfiguration;
+    private @Nullable UndeferrableValue<DatabaseAclConfiguration> aclConfiguration;
 
-
+    public @Nullable DatabaseAclConfiguration aclConfiguration() {
+        if (aclConfiguration == null) return null;
+        return aclConfiguration.getValue("Database.aclConfiguration");
+    }
 
     /**
      * Name of S3 bucket to save the results of the query execution.
      * 
      */
-    public String bucket;
+    private @Nullable UndeferrableValue<String> bucket;
 
-
+    public @Nullable String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("Database.bucket");
+    }
 
     /**
      * Description of the database.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("Database.comment");
+    }
 
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
-    public DatabaseEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<DatabaseEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable DatabaseEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("Database.encryptionConfiguration");
+    }
 
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("Database.expectedBucketOwner");
+    }
 
     /**
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Database.forceDestroy");
+    }
 
     /**
      * Name of the database to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Database.name");
+    }
 
     /**
      * Key-value map of custom metadata properties for the database definition.
      * 
      */
-    public Map<String,String> properties;
+    private @Nullable UndeferrableValue<Map<String,String>> properties;
 
-
+    public @Nullable Map<String,String> properties() {
+        if (properties == null) return null;
+        return properties.getValue("Database.properties");
+    }
 
 }

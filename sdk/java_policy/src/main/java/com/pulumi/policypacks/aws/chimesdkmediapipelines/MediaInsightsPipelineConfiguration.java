@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement;
-import com.pulumi.policypacks.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration;
+import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElement;
+import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")
-public final class MediaInsightsPipelineConfiguration extends com.pulumi.resources.PolicyResource {
+public final class MediaInsightsPipelineConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Media Insights Pipeline Configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MediaInsightsPipelineConfiguration.arn");
+    }
 
     /**
      * Collection of processors and sinks to transform media and deliver data.
      * 
      */
-    public List<MediaInsightsPipelineConfigurationElement> elements;
+    private UndeferrableValue<List<MediaInsightsPipelineConfigurationElement>> elements;
 
-
+    public List<MediaInsightsPipelineConfigurationElement> elements() {
+        if (elements == null) return null;
+        return elements.getValue("MediaInsightsPipelineConfiguration.elements");
+    }
 
     /**
      * Configuration name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MediaInsightsPipelineConfiguration.name");
+    }
 
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      * 
      */
-    public MediaInsightsPipelineConfigurationRealTimeAlertConfiguration realTimeAlertConfiguration;
+    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfiguration> realTimeAlertConfiguration;
 
-
+    public @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfiguration realTimeAlertConfiguration() {
+        if (realTimeAlertConfiguration == null) return null;
+        return realTimeAlertConfiguration.getValue("MediaInsightsPipelineConfiguration.realTimeAlertConfiguration");
+    }
 
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      * 
      */
-    public String resourceAccessRoleArn;
+    private UndeferrableValue<String> resourceAccessRoleArn;
 
-
+    public String resourceAccessRoleArn() {
+        if (resourceAccessRoleArn == null) return null;
+        return resourceAccessRoleArn.getValue("MediaInsightsPipelineConfiguration.resourceAccessRoleArn");
+    }
 
     /**
      * Key-value map of tags for the resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MediaInsightsPipelineConfiguration.tags");
+    }
 
     /**
      * @deprecated
@@ -68,8 +88,11 @@ public final class MediaInsightsPipelineConfiguration extends com.pulumi.resourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MediaInsightsPipelineConfiguration.tagsAll");
+    }
 
 }

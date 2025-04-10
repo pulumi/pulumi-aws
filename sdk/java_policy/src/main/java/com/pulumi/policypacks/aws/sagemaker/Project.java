@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.ProjectServiceCatalogProvisioningDetails;
+import com.pulumi.policypacks.aws.sagemaker.outputs.ProjectServiceCatalogProvisioningDetails;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Project.arn");
+    }
 
     /**
      * A description for the project.
      * 
      */
-    public String projectDescription;
+    private @Nullable UndeferrableValue<String> projectDescription;
 
-
+    public @Nullable String projectDescription() {
+        if (projectDescription == null) return null;
+        return projectDescription.getValue("Project.projectDescription");
+    }
 
     /**
      * The ID of the project.
      * 
      */
-    public String projectId;
+    private UndeferrableValue<String> projectId;
 
-
+    public String projectId() {
+        if (projectId == null) return null;
+        return projectId.getValue("Project.projectId");
+    }
 
     /**
      * The name of the Project.
      * 
      */
-    public String projectName;
+    private UndeferrableValue<String> projectName;
 
-
+    public String projectName() {
+        if (projectName == null) return null;
+        return projectName.getValue("Project.projectName");
+    }
 
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */
-    public ProjectServiceCatalogProvisioningDetails serviceCatalogProvisioningDetails;
+    private UndeferrableValue<ProjectServiceCatalogProvisioningDetails> serviceCatalogProvisioningDetails;
 
-
+    public ProjectServiceCatalogProvisioningDetails serviceCatalogProvisioningDetails() {
+        if (serviceCatalogProvisioningDetails == null) return null;
+        return serviceCatalogProvisioningDetails.getValue("Project.serviceCatalogProvisioningDetails");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Project.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Project.tagsAll");
+    }
 
 }

@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/apiCache:ApiCache")
-public final class ApiCache extends com.pulumi.resources.PolicyResource {
+public final class ApiCache extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
      * 
      */
-    public String apiCachingBehavior;
+    private UndeferrableValue<String> apiCachingBehavior;
 
-
+    public String apiCachingBehavior() {
+        if (apiCachingBehavior == null) return null;
+        return apiCachingBehavior.getValue("ApiCache.apiCachingBehavior");
+    }
 
     /**
      * GraphQL API ID.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("ApiCache.apiId");
+    }
 
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      * 
      */
-    public Boolean atRestEncryptionEnabled;
+    private @Nullable UndeferrableValue<Boolean> atRestEncryptionEnabled;
 
-
+    public @Nullable Boolean atRestEncryptionEnabled() {
+        if (atRestEncryptionEnabled == null) return null;
+        return atRestEncryptionEnabled.getValue("ApiCache.atRestEncryptionEnabled");
+    }
 
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      * 
      */
-    public Boolean transitEncryptionEnabled;
+    private @Nullable UndeferrableValue<Boolean> transitEncryptionEnabled;
 
-
+    public @Nullable Boolean transitEncryptionEnabled() {
+        if (transitEncryptionEnabled == null) return null;
+        return transitEncryptionEnabled.getValue("ApiCache.transitEncryptionEnabled");
+    }
 
     /**
      * TTL in seconds for cache entries.
      * 
      */
-    public Integer ttl;
+    private UndeferrableValue<Integer> ttl;
 
-
+    public Integer ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("ApiCache.ttl");
+    }
 
     /**
      * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ApiCache.type");
+    }
 
 }

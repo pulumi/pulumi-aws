@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.DeploymentCanarySettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.DeploymentCanarySettings;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/deployment:Deployment")
-public final class Deployment extends com.pulumi.resources.PolicyResource {
+public final class Deployment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Input configuration for the canary deployment when the deployment is a canary release deployment.
@@ -22,25 +24,34 @@ public final class Deployment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public DeploymentCanarySettings canarySettings;
+    private @Nullable UndeferrableValue<DeploymentCanarySettings> canarySettings;
 
-
+    public @Nullable DeploymentCanarySettings canarySettings() {
+        if (canarySettings == null) return null;
+        return canarySettings.getValue("Deployment.canarySettings");
+    }
 
     /**
      * Creation date of the deployment
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Deployment.createdDate");
+    }
 
     /**
      * Description of the deployment
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Deployment.description");
+    }
 
     /**
      * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
@@ -48,26 +59,35 @@ public final class Deployment extends com.pulumi.resources.PolicyResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    public String executionArn;
+    private UndeferrableValue<String> executionArn;
 
-
+    public String executionArn() {
+        if (executionArn == null) return null;
+        return executionArn.getValue("Deployment.executionArn");
+    }
 
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    public String invokeUrl;
+    private UndeferrableValue<String> invokeUrl;
 
-
+    public String invokeUrl() {
+        if (invokeUrl == null) return null;
+        return invokeUrl.getValue("Deployment.invokeUrl");
+    }
 
     /**
      * REST API identifier.
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Deployment.restApi");
+    }
 
     /**
      * Description to set on the stage managed by the `stage_name` argument.
@@ -78,9 +98,12 @@ public final class Deployment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public String stageDescription;
+    private @Nullable UndeferrableValue<String> stageDescription;
 
-
+    public @Nullable String stageDescription() {
+        if (stageDescription == null) return null;
+        return stageDescription.getValue("Deployment.stageDescription");
+    }
 
     /**
      * Name of the stage to create with this deployment.
@@ -92,24 +115,33 @@ public final class Deployment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-    public String stageName;
+    private @Nullable UndeferrableValue<String> stageName;
 
-
+    public @Nullable String stageName() {
+        if (stageName == null) return null;
+        return stageName.getValue("Deployment.stageName");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Deployment.triggers");
+    }
 
     /**
      * Map to set on the stage managed by the `stage_name` argument.
      * 
      */
-    public Map<String,String> variables;
+    private @Nullable UndeferrableValue<Map<String,String>> variables;
 
-
+    public @Nullable Map<String,String> variables() {
+        if (variables == null) return null;
+        return variables.getValue("Deployment.variables");
+    }
 
 }

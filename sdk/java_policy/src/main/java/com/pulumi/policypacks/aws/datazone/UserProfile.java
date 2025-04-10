@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.UserProfileDetail;
-import com.pulumi.policypacks.aws.datazone.UserProfileTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.UserProfileDetail;
+import com.pulumi.policypacks.aws.datazone.outputs.UserProfileTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/userProfile:UserProfile")
-public final class UserProfile extends com.pulumi.resources.PolicyResource {
+public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Details about the user profile.
      * 
      */
-    public List<UserProfileDetail> details;
+    private UndeferrableValue<List<UserProfileDetail>> details;
 
-
+    public List<UserProfileDetail> details() {
+        if (details == null) return null;
+        return details.getValue("UserProfile.details");
+    }
 
     /**
      * The domain identifier.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("UserProfile.domainIdentifier");
+    }
 
     /**
      * The user profile status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("UserProfile.status");
+    }
 
+    private @Nullable UndeferrableValue<UserProfileTimeouts> timeouts;
 
-    public UserProfileTimeouts timeouts;
-
-
+    public @Nullable UserProfileTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("UserProfile.timeouts");
+    }
 
     /**
      * The user profile type.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("UserProfile.type");
+    }
 
     /**
      * The user identifier.
@@ -55,16 +72,22 @@ public final class UserProfile extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userIdentifier;
+    private UndeferrableValue<String> userIdentifier;
 
-
+    public String userIdentifier() {
+        if (userIdentifier == null) return null;
+        return userIdentifier.getValue("UserProfile.userIdentifier");
+    }
 
     /**
      * The user type.
      * 
      */
-    public String userType;
+    private UndeferrableValue<String> userType;
 
-
+    public String userType() {
+        if (userType == null) return null;
+        return userType.getValue("UserProfile.userType");
+    }
 
 }

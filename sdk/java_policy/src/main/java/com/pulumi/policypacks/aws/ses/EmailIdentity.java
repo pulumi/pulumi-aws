@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/emailIdentity:EmailIdentity")
-public final class EmailIdentity extends com.pulumi.resources.PolicyResource {
+public final class EmailIdentity extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the email identity.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EmailIdentity.arn");
+    }
 
     /**
      * The email address to assign to SES.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("EmailIdentity.email");
+    }
 
 }

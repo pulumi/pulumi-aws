@@ -3,123 +3,164 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.OpenZfsVolumeNfsExports;
-import com.pulumi.policypacks.aws.fsx.OpenZfsVolumeOriginSnapshot;
-import com.pulumi.policypacks.aws.fsx.OpenZfsVolumeUserAndGroupQuota;
+import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsVolumeNfsExports;
+import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsVolumeOriginSnapshot;
+import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsVolumeUserAndGroupQuota;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/openZfsVolume:OpenZfsVolume")
-public final class OpenZfsVolume extends com.pulumi.resources.PolicyResource {
+public final class OpenZfsVolume extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OpenZfsVolume.arn");
+    }
 
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
-    public Boolean copyTagsToSnapshots;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshots;
 
-
+    public @Nullable Boolean copyTagsToSnapshots() {
+        if (copyTagsToSnapshots == null) return null;
+        return copyTagsToSnapshots.getValue("OpenZfsVolume.copyTagsToSnapshots");
+    }
 
     /**
      * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
-    public String dataCompressionType;
+    private @Nullable UndeferrableValue<String> dataCompressionType;
 
-
+    public @Nullable String dataCompressionType() {
+        if (dataCompressionType == null) return null;
+        return dataCompressionType.getValue("OpenZfsVolume.dataCompressionType");
+    }
 
     /**
      * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
      * 
      */
-    public String deleteVolumeOptions;
+    private @Nullable UndeferrableValue<String> deleteVolumeOptions;
 
-
+    public @Nullable String deleteVolumeOptions() {
+        if (deleteVolumeOptions == null) return null;
+        return deleteVolumeOptions.getValue("OpenZfsVolume.deleteVolumeOptions");
+    }
 
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OpenZfsVolume.name");
+    }
 
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
      * 
      */
-    public OpenZfsVolumeNfsExports nfsExports;
+    private @Nullable UndeferrableValue<OpenZfsVolumeNfsExports> nfsExports;
 
-
+    public @Nullable OpenZfsVolumeNfsExports nfsExports() {
+        if (nfsExports == null) return null;
+        return nfsExports.getValue("OpenZfsVolume.nfsExports");
+    }
 
     /**
      * Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
      * 
      */
-    public OpenZfsVolumeOriginSnapshot originSnapshot;
+    private @Nullable UndeferrableValue<OpenZfsVolumeOriginSnapshot> originSnapshot;
 
-
+    public @Nullable OpenZfsVolumeOriginSnapshot originSnapshot() {
+        if (originSnapshot == null) return null;
+        return originSnapshot.getValue("OpenZfsVolume.originSnapshot");
+    }
 
     /**
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
-    public String parentVolumeId;
+    private UndeferrableValue<String> parentVolumeId;
 
-
+    public String parentVolumeId() {
+        if (parentVolumeId == null) return null;
+        return parentVolumeId.getValue("OpenZfsVolume.parentVolumeId");
+    }
 
     /**
      * specifies whether the volume is read-only. Default is false.
      * 
      */
-    public Boolean readOnly;
+    private UndeferrableValue<Boolean> readOnly;
 
-
+    public Boolean readOnly() {
+        if (readOnly == null) return null;
+        return readOnly.getValue("OpenZfsVolume.readOnly");
+    }
 
     /**
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
-    public Integer recordSizeKib;
+    private @Nullable UndeferrableValue<Integer> recordSizeKib;
 
-
+    public @Nullable Integer recordSizeKib() {
+        if (recordSizeKib == null) return null;
+        return recordSizeKib.getValue("OpenZfsVolume.recordSizeKib");
+    }
 
     /**
      * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
-    public Integer storageCapacityQuotaGib;
+    private UndeferrableValue<Integer> storageCapacityQuotaGib;
 
-
+    public Integer storageCapacityQuotaGib() {
+        if (storageCapacityQuotaGib == null) return null;
+        return storageCapacityQuotaGib.getValue("OpenZfsVolume.storageCapacityQuotaGib");
+    }
 
     /**
      * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
-    public Integer storageCapacityReservationGib;
+    private UndeferrableValue<Integer> storageCapacityReservationGib;
 
-
+    public Integer storageCapacityReservationGib() {
+        if (storageCapacityReservationGib == null) return null;
+        return storageCapacityReservationGib.getValue("OpenZfsVolume.storageCapacityReservationGib");
+    }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OpenZfsVolume.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -129,20 +170,29 @@ public final class OpenZfsVolume extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OpenZfsVolume.tagsAll");
+    }
 
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
      * 
      */
-    public List<OpenZfsVolumeUserAndGroupQuota> userAndGroupQuotas;
+    private UndeferrableValue<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
+    public List<OpenZfsVolumeUserAndGroupQuota> userAndGroupQuotas() {
+        if (userAndGroupQuotas == null) return null;
+        return userAndGroupQuotas.getValue("OpenZfsVolume.userAndGroupQuotas");
+    }
 
+    private @Nullable UndeferrableValue<String> volumeType;
 
-    public String volumeType;
-
-
+    public @Nullable String volumeType() {
+        if (volumeType == null) return null;
+        return volumeType.getValue("OpenZfsVolume.volumeType");
+    }
 
 }

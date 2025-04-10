@@ -3,36 +3,44 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.CatalogTableOpenTableFormatInput;
-import com.pulumi.policypacks.aws.glue.CatalogTablePartitionIndex;
-import com.pulumi.policypacks.aws.glue.CatalogTablePartitionKey;
-import com.pulumi.policypacks.aws.glue.CatalogTableStorageDescriptor;
-import com.pulumi.policypacks.aws.glue.CatalogTableTargetTable;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTableOpenTableFormatInput;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTablePartitionIndex;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTablePartitionKey;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTableStorageDescriptor;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogTableTargetTable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/catalogTable:CatalogTable")
-public final class CatalogTable extends com.pulumi.resources.PolicyResource {
+public final class CatalogTable extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Glue Table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CatalogTable.arn");
+    }
 
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("CatalogTable.catalogId");
+    }
 
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -40,112 +48,154 @@ public final class CatalogTable extends com.pulumi.resources.PolicyResource {
      * The follow arguments are optional:
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("CatalogTable.databaseName");
+    }
 
     /**
      * Description of the table.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CatalogTable.description");
+    }
 
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CatalogTable.name");
+    }
 
     /**
      * Configuration block for open table formats. See `open_table_format_input` below.
      * 
      */
-    public CatalogTableOpenTableFormatInput openTableFormatInput;
+    private @Nullable UndeferrableValue<CatalogTableOpenTableFormatInput> openTableFormatInput;
 
-
+    public @Nullable CatalogTableOpenTableFormatInput openTableFormatInput() {
+        if (openTableFormatInput == null) return null;
+        return openTableFormatInput.getValue("CatalogTable.openTableFormatInput");
+    }
 
     /**
      * Owner of the table.
      * 
      */
-    public String owner;
+    private @Nullable UndeferrableValue<String> owner;
 
-
+    public @Nullable String owner() {
+        if (owner == null) return null;
+        return owner.getValue("CatalogTable.owner");
+    }
 
     /**
      * Properties associated with this table, as a list of key-value pairs.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("CatalogTable.parameters");
+    }
 
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
-    public List<CatalogTablePartitionIndex> partitionIndices;
+    private UndeferrableValue<List<CatalogTablePartitionIndex>> partitionIndices;
 
-
+    public List<CatalogTablePartitionIndex> partitionIndices() {
+        if (partitionIndices == null) return null;
+        return partitionIndices.getValue("CatalogTable.partitionIndices");
+    }
 
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
      * 
      */
-    public List<CatalogTablePartitionKey> partitionKeys;
+    private @Nullable UndeferrableValue<List<CatalogTablePartitionKey>> partitionKeys;
 
-
+    public @Nullable List<CatalogTablePartitionKey> partitionKeys() {
+        if (partitionKeys == null) return null;
+        return partitionKeys.getValue("CatalogTable.partitionKeys");
+    }
 
     /**
      * Retention time for this table.
      * 
      */
-    public Integer retention;
+    private @Nullable UndeferrableValue<Integer> retention;
 
-
+    public @Nullable Integer retention() {
+        if (retention == null) return null;
+        return retention.getValue("CatalogTable.retention");
+    }
 
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
      * 
      */
-    public CatalogTableStorageDescriptor storageDescriptor;
+    private @Nullable UndeferrableValue<CatalogTableStorageDescriptor> storageDescriptor;
 
-
+    public @Nullable CatalogTableStorageDescriptor storageDescriptor() {
+        if (storageDescriptor == null) return null;
+        return storageDescriptor.getValue("CatalogTable.storageDescriptor");
+    }
 
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    public String tableType;
+    private @Nullable UndeferrableValue<String> tableType;
 
-
+    public @Nullable String tableType() {
+        if (tableType == null) return null;
+        return tableType.getValue("CatalogTable.tableType");
+    }
 
     /**
      * Configuration block of a target table for resource linking. See `target_table` below.
      * 
      */
-    public CatalogTableTargetTable targetTable;
+    private @Nullable UndeferrableValue<CatalogTableTargetTable> targetTable;
 
-
+    public @Nullable CatalogTableTargetTable targetTable() {
+        if (targetTable == null) return null;
+        return targetTable.getValue("CatalogTable.targetTable");
+    }
 
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
-    public String viewExpandedText;
+    private @Nullable UndeferrableValue<String> viewExpandedText;
 
-
+    public @Nullable String viewExpandedText() {
+        if (viewExpandedText == null) return null;
+        return viewExpandedText.getValue("CatalogTable.viewExpandedText");
+    }
 
     /**
      * If the table is a view, the original text of the view; otherwise null.
      * 
      */
-    public String viewOriginalText;
+    private @Nullable UndeferrableValue<String> viewOriginalText;
 
-
+    public @Nullable String viewOriginalText() {
+        if (viewOriginalText == null) return null;
+        return viewOriginalText.getValue("CatalogTable.viewOriginalText");
+    }
 
 }

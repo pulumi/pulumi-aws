@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:guardduty/inviteAccepter:InviteAccepter")
-public final class InviteAccepter extends com.pulumi.resources.PolicyResource {
+public final class InviteAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The detector ID of the member GuardDuty account.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("InviteAccepter.detectorId");
+    }
 
     /**
      * AWS account ID for primary account.
      * 
      */
-    public String masterAccountId;
+    private UndeferrableValue<String> masterAccountId;
 
-
+    public String masterAccountId() {
+        if (masterAccountId == null) return null;
+        return masterAccountId.getValue("InviteAccepter.masterAccountId");
+    }
 
 }

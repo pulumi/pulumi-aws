@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53recoveryreadiness.ResourceSetResource;
+import com.pulumi.policypacks.aws.route53recoveryreadiness.outputs.ResourceSetResource;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53recoveryreadiness/resourceSet:ResourceSet")
-public final class ResourceSet extends com.pulumi.resources.PolicyResource {
+public final class ResourceSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the resource set
      * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceSet.arn");
+    }
 
     /**
      * Unique name describing the resource set.
      * 
      */
-    public String resourceSetName;
+    private UndeferrableValue<String> resourceSetName;
 
-
+    public String resourceSetName() {
+        if (resourceSetName == null) return null;
+        return resourceSetName.getValue("ResourceSet.resourceSetName");
+    }
 
     /**
      * Type of the resources in the resource set.
      * 
      */
-    public String resourceSetType;
+    private UndeferrableValue<String> resourceSetType;
 
-
+    public String resourceSetType() {
+        if (resourceSetType == null) return null;
+        return resourceSetType.getValue("ResourceSet.resourceSetType");
+    }
 
     /**
      * List of resources to add to this resource set. See below.
@@ -44,17 +55,23 @@ public final class ResourceSet extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<ResourceSetResource> resources;
+    private UndeferrableValue<List<ResourceSetResource>> resources;
 
-
+    public List<ResourceSetResource> resources() {
+        if (resources == null) return null;
+        return resources.getValue("ResourceSet.resources");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceSet.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -64,8 +81,11 @@ public final class ResourceSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResourceSet.tagsAll");
+    }
 
 }

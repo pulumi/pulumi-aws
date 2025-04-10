@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.BillingGroupMetadata;
-import com.pulumi.policypacks.aws.iot.BillingGroupProperties;
+import com.pulumi.policypacks.aws.iot.outputs.BillingGroupMetadata;
+import com.pulumi.policypacks.aws.iot.outputs.BillingGroupProperties;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/billingGroup:BillingGroup")
-public final class BillingGroup extends com.pulumi.resources.PolicyResource {
+public final class BillingGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Billing Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("BillingGroup.arn");
+    }
 
+    private UndeferrableValue<List<BillingGroupMetadata>> metadatas;
 
-    public List<BillingGroupMetadata> metadatas;
-
-
+    public List<BillingGroupMetadata> metadatas() {
+        if (metadatas == null) return null;
+        return metadatas.getValue("BillingGroup.metadatas");
+    }
 
     /**
      * The name of the Billing Group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("BillingGroup.name");
+    }
 
     /**
      * The Billing Group properties. Defined below.
      * 
      */
-    public BillingGroupProperties properties;
+    private @Nullable UndeferrableValue<BillingGroupProperties> properties;
 
-
+    public @Nullable BillingGroupProperties properties() {
+        if (properties == null) return null;
+        return properties.getValue("BillingGroup.properties");
+    }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("BillingGroup.tags");
+    }
 
     /**
      * @deprecated
@@ -57,16 +74,22 @@ public final class BillingGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("BillingGroup.tagsAll");
+    }
 
     /**
      * The current version of the Billing Group record in the registry.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("BillingGroup.version");
+    }
 
 }

@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kinesis/videoStream:VideoStream")
-public final class VideoStream extends com.pulumi.resources.PolicyResource {
+public final class VideoStream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VideoStream.arn");
+    }
 
     /**
      * A time stamp that indicates when the stream was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("VideoStream.creationTime");
+    }
 
     /**
      * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
-    public Integer dataRetentionInHours;
+    private @Nullable UndeferrableValue<Integer> dataRetentionInHours;
 
-
+    public @Nullable Integer dataRetentionInHours() {
+        if (dataRetentionInHours == null) return null;
+        return dataRetentionInHours.getValue("VideoStream.dataRetentionInHours");
+    }
 
     /**
      * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
-    public String deviceName;
+    private @Nullable UndeferrableValue<String> deviceName;
 
-
+    public @Nullable String deviceName() {
+        if (deviceName == null) return null;
+        return deviceName.getValue("VideoStream.deviceName");
+    }
 
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("VideoStream.kmsKeyId");
+    }
 
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
-    public String mediaType;
+    private @Nullable UndeferrableValue<String> mediaType;
 
-
+    public @Nullable String mediaType() {
+        if (mediaType == null) return null;
+        return mediaType.getValue("VideoStream.mediaType");
+    }
 
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VideoStream.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VideoStream.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,16 +111,22 @@ public final class VideoStream extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VideoStream.tagsAll");
+    }
 
     /**
      * The version of the stream.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("VideoStream.version");
+    }
 
 }

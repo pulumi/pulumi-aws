@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/hsmConfiguration:HsmConfiguration")
-public final class HsmConfiguration extends com.pulumi.resources.PolicyResource {
+public final class HsmConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HsmConfiguration.arn");
+    }
 
     /**
      * A text description of the HSM configuration to be created.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("HsmConfiguration.description");
+    }
 
     /**
      * The identifier to be assigned to the new Amazon Redshift HSM configuration.
      * 
      */
-    public String hsmConfigurationIdentifier;
+    private UndeferrableValue<String> hsmConfigurationIdentifier;
 
-
+    public String hsmConfigurationIdentifier() {
+        if (hsmConfigurationIdentifier == null) return null;
+        return hsmConfigurationIdentifier.getValue("HsmConfiguration.hsmConfigurationIdentifier");
+    }
 
     /**
      * The IP address that the Amazon Redshift cluster must use to access the HSM.
      * 
      */
-    public String hsmIpAddress;
+    private UndeferrableValue<String> hsmIpAddress;
 
-
+    public String hsmIpAddress() {
+        if (hsmIpAddress == null) return null;
+        return hsmIpAddress.getValue("HsmConfiguration.hsmIpAddress");
+    }
 
     /**
      * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
      * 
      */
-    public String hsmPartitionName;
+    private UndeferrableValue<String> hsmPartitionName;
 
-
+    public String hsmPartitionName() {
+        if (hsmPartitionName == null) return null;
+        return hsmPartitionName.getValue("HsmConfiguration.hsmPartitionName");
+    }
 
     /**
      * The password required to access the HSM partition.
      * 
      */
-    public String hsmPartitionPassword;
+    private UndeferrableValue<String> hsmPartitionPassword;
 
-
+    public String hsmPartitionPassword() {
+        if (hsmPartitionPassword == null) return null;
+        return hsmPartitionPassword.getValue("HsmConfiguration.hsmPartitionPassword");
+    }
 
     /**
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      * 
      */
-    public String hsmServerPublicCertificate;
+    private UndeferrableValue<String> hsmServerPublicCertificate;
 
-
+    public String hsmServerPublicCertificate() {
+        if (hsmServerPublicCertificate == null) return null;
+        return hsmServerPublicCertificate.getValue("HsmConfiguration.hsmServerPublicCertificate");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HsmConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,8 +109,11 @@ public final class HsmConfiguration extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HsmConfiguration.tagsAll");
+    }
 
 }

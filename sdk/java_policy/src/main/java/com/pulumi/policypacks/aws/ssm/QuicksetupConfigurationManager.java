@@ -3,41 +3,52 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.QuicksetupConfigurationManagerConfigurationDefinition;
-import com.pulumi.policypacks.aws.ssm.QuicksetupConfigurationManagerStatusSummary;
-import com.pulumi.policypacks.aws.ssm.QuicksetupConfigurationManagerTimeouts;
+import com.pulumi.policypacks.aws.ssm.outputs.QuicksetupConfigurationManagerConfigurationDefinition;
+import com.pulumi.policypacks.aws.ssm.outputs.QuicksetupConfigurationManagerStatusSummary;
+import com.pulumi.policypacks.aws.ssm.outputs.QuicksetupConfigurationManagerTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")
-public final class QuicksetupConfigurationManager extends com.pulumi.resources.PolicyResource {
+public final class QuicksetupConfigurationManager extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
      * 
      */
-    public QuicksetupConfigurationManagerConfigurationDefinition configurationDefinition;
+    private @Nullable UndeferrableValue<QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
 
-
+    public @Nullable QuicksetupConfigurationManagerConfigurationDefinition configurationDefinition() {
+        if (configurationDefinition == null) return null;
+        return configurationDefinition.getValue("QuicksetupConfigurationManager.configurationDefinition");
+    }
 
     /**
      * Description of the configuration manager.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("QuicksetupConfigurationManager.description");
+    }
 
     /**
      * ARN of the Configuration Manager.
      * 
      */
-    public String managerArn;
+    private UndeferrableValue<String> managerArn;
 
-
+    public String managerArn() {
+        if (managerArn == null) return null;
+        return managerArn.getValue("QuicksetupConfigurationManager.managerArn");
+    }
 
     /**
      * Configuration manager name.
@@ -45,25 +56,34 @@ public final class QuicksetupConfigurationManager extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("QuicksetupConfigurationManager.name");
+    }
 
     /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
      * 
      */
-    public List<QuicksetupConfigurationManagerStatusSummary> statusSummaries;
+    private UndeferrableValue<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries;
 
-
+    public List<QuicksetupConfigurationManagerStatusSummary> statusSummaries() {
+        if (statusSummaries == null) return null;
+        return statusSummaries.getValue("QuicksetupConfigurationManager.statusSummaries");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("QuicksetupConfigurationManager.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -73,12 +93,18 @@ public final class QuicksetupConfigurationManager extends com.pulumi.resources.P
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("QuicksetupConfigurationManager.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<QuicksetupConfigurationManagerTimeouts> timeouts;
 
-    public QuicksetupConfigurationManagerTimeouts timeouts;
-
-
+    public @Nullable QuicksetupConfigurationManagerTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("QuicksetupConfigurationManager.timeouts");
+    }
 
 }

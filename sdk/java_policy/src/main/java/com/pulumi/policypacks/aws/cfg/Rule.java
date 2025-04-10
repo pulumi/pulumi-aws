@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.RuleEvaluationMode;
-import com.pulumi.policypacks.aws.cfg.RuleScope;
-import com.pulumi.policypacks.aws.cfg.RuleSource;
+import com.pulumi.policypacks.aws.cfg.outputs.RuleEvaluationMode;
+import com.pulumi.policypacks.aws.cfg.outputs.RuleScope;
+import com.pulumi.policypacks.aws.cfg.outputs.RuleSource;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/rule:Rule")
-public final class Rule extends com.pulumi.resources.PolicyResource {
+public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the config rule
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Rule.arn");
+    }
 
     /**
      * Description of the rule
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Rule.description");
+    }
 
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      * 
      */
-    public List<RuleEvaluationMode> evaluationModes;
+    private UndeferrableValue<List<RuleEvaluationMode>> evaluationModes;
 
-
+    public List<RuleEvaluationMode> evaluationModes() {
+        if (evaluationModes == null) return null;
+        return evaluationModes.getValue("Rule.evaluationModes");
+    }
 
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      * 
      */
-    public String inputParameters;
+    private @Nullable UndeferrableValue<String> inputParameters;
 
-
+    public @Nullable String inputParameters() {
+        if (inputParameters == null) return null;
+        return inputParameters.getValue("Rule.inputParameters");
+    }
 
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
-    public String maximumExecutionFrequency;
+    private @Nullable UndeferrableValue<String> maximumExecutionFrequency;
 
-
+    public @Nullable String maximumExecutionFrequency() {
+        if (maximumExecutionFrequency == null) return null;
+        return maximumExecutionFrequency.getValue("Rule.maximumExecutionFrequency");
+    }
 
     /**
      * The name of the rule
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Rule.name");
+    }
 
     /**
      * The ID of the config rule
      * 
      */
-    public String ruleId;
+    private UndeferrableValue<String> ruleId;
 
-
+    public String ruleId() {
+        if (ruleId == null) return null;
+        return ruleId.getValue("Rule.ruleId");
+    }
 
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
-    public RuleScope scope;
+    private @Nullable UndeferrableValue<RuleScope> scope;
 
-
+    public @Nullable RuleScope scope() {
+        if (scope == null) return null;
+        return scope.getValue("Rule.scope");
+    }
 
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
-    public RuleSource source;
+    private UndeferrableValue<RuleSource> source;
 
-
+    public RuleSource source() {
+        if (source == null) return null;
+        return source.getValue("Rule.source");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Rule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,8 +135,11 @@ public final class Rule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Rule.tagsAll");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")
-public final class VpnGatewayAttachment extends com.pulumi.resources.PolicyResource {
+public final class VpnGatewayAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpnGatewayAttachment.vpcId");
+    }
 
     /**
      * The ID of the Virtual Private Gateway.
      * 
      */
-    public String vpnGatewayId;
+    private UndeferrableValue<String> vpnGatewayId;
 
-
+    public String vpnGatewayId() {
+        if (vpnGatewayId == null) return null;
+        return vpnGatewayId.getValue("VpnGatewayAttachment.vpnGatewayId");
+    }
 
 }

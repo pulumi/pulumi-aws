@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssmcontacts/contact:Contact")
-public final class Contact extends com.pulumi.resources.PolicyResource {
+public final class Contact extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("Contact.alias");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Contact.arn");
+    }
 
     /**
      * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
-    public String displayName;
+    private @Nullable UndeferrableValue<String> displayName;
 
-
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Contact.displayName");
+    }
 
     /**
      * Map of tags to assign to the resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Contact.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,9 +65,12 @@ public final class Contact extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Contact.tagsAll");
+    }
 
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
@@ -62,8 +79,11 @@ public final class Contact extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Contact.type");
+    }
 
 }

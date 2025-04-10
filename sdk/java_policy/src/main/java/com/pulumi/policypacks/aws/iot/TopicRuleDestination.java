@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.TopicRuleDestinationVpcConfiguration;
+import com.pulumi.policypacks.aws.iot.outputs.TopicRuleDestinationVpcConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/topicRuleDestination:TopicRuleDestination")
-public final class TopicRuleDestination extends com.pulumi.resources.PolicyResource {
+public final class TopicRuleDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the topic rule destination
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TopicRuleDestination.arn");
+    }
 
     /**
      * Whether or not to enable the destination. Default: `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("TopicRuleDestination.enabled");
+    }
 
     /**
      * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
-    public TopicRuleDestinationVpcConfiguration vpcConfiguration;
+    private UndeferrableValue<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
 
-
+    public TopicRuleDestinationVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("TopicRuleDestination.vpcConfiguration");
+    }
 
 }

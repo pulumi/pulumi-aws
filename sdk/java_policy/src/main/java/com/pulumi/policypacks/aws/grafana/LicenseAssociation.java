@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:grafana/licenseAssociation:LicenseAssociation")
-public final class LicenseAssociation extends com.pulumi.resources.PolicyResource {
+public final class LicenseAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
-    public String freeTrialExpiration;
+    private UndeferrableValue<String> freeTrialExpiration;
 
-
+    public String freeTrialExpiration() {
+        if (freeTrialExpiration == null) return null;
+        return freeTrialExpiration.getValue("LicenseAssociation.freeTrialExpiration");
+    }
 
     /**
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
-    public String grafanaToken;
+    private @Nullable UndeferrableValue<String> grafanaToken;
 
-
+    public @Nullable String grafanaToken() {
+        if (grafanaToken == null) return null;
+        return grafanaToken.getValue("LicenseAssociation.grafanaToken");
+    }
 
     /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
-    public String licenseExpiration;
+    private UndeferrableValue<String> licenseExpiration;
 
-
+    public String licenseExpiration() {
+        if (licenseExpiration == null) return null;
+        return licenseExpiration.getValue("LicenseAssociation.licenseExpiration");
+    }
 
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
-    public String licenseType;
+    private UndeferrableValue<String> licenseType;
 
-
+    public String licenseType() {
+        if (licenseType == null) return null;
+        return licenseType.getValue("LicenseAssociation.licenseType");
+    }
 
     /**
      * The workspace id.
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("LicenseAssociation.workspaceId");
+    }
 
 }

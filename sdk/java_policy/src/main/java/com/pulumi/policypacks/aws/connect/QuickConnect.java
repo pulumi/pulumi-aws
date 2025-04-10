@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.QuickConnectQuickConnectConfig;
+import com.pulumi.policypacks.aws.connect.outputs.QuickConnectQuickConnectConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/quickConnect:QuickConnect")
-public final class QuickConnect extends com.pulumi.resources.PolicyResource {
+public final class QuickConnect extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Quick Connect.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("QuickConnect.arn");
+    }
 
     /**
      * Specifies the description of the Quick Connect.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("QuickConnect.description");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("QuickConnect.instanceId");
+    }
 
     /**
      * Specifies the name of the Quick Connect.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("QuickConnect.name");
+    }
 
     /**
      * A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
      * 
      */
-    public QuickConnectQuickConnectConfig quickConnectConfig;
+    private UndeferrableValue<QuickConnectQuickConnectConfig> quickConnectConfig;
 
-
+    public QuickConnectQuickConnectConfig quickConnectConfig() {
+        if (quickConnectConfig == null) return null;
+        return quickConnectConfig.getValue("QuickConnect.quickConnectConfig");
+    }
 
     /**
      * The identifier for the Quick Connect.
      * 
      */
-    public String quickConnectId;
+    private UndeferrableValue<String> quickConnectId;
 
-
+    public String quickConnectId() {
+        if (quickConnectId == null) return null;
+        return quickConnectId.getValue("QuickConnect.quickConnectId");
+    }
 
     /**
      * Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("QuickConnect.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class QuickConnect extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("QuickConnect.tagsAll");
+    }
 
 }

@@ -3,50 +3,64 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lb.ListenerDefaultAction;
-import com.pulumi.policypacks.aws.lb.ListenerMutualAuthentication;
+import com.pulumi.policypacks.aws.lb.outputs.ListenerDefaultAction;
+import com.pulumi.policypacks.aws.lb.outputs.ListenerMutualAuthentication;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/listener:Listener")
-public final class Listener extends com.pulumi.resources.PolicyResource {
+public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
      * 
      */
-    public String alpnPolicy;
+    private @Nullable UndeferrableValue<String> alpnPolicy;
 
-
+    public @Nullable String alpnPolicy() {
+        if (alpnPolicy == null) return null;
+        return alpnPolicy.getValue("Listener.alpnPolicy");
+    }
 
     /**
      * ARN of the listener (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Listener.arn");
+    }
 
     /**
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
      * 
      */
-    public String certificateArn;
+    private @Nullable UndeferrableValue<String> certificateArn;
 
-
+    public @Nullable String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("Listener.certificateArn");
+    }
 
     /**
      * Configuration block for default actions. See below.
      * 
      */
-    public List<ListenerDefaultAction> defaultActions;
+    private UndeferrableValue<List<ListenerDefaultAction>> defaultActions;
 
-
+    public List<ListenerDefaultAction> defaultActions() {
+        if (defaultActions == null) return null;
+        return defaultActions.getValue("Listener.defaultActions");
+    }
 
     /**
      * ARN of the load balancer.
@@ -54,193 +68,265 @@ public final class Listener extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String loadBalancerArn;
+    private UndeferrableValue<String> loadBalancerArn;
 
-
+    public String loadBalancerArn() {
+        if (loadBalancerArn == null) return null;
+        return loadBalancerArn.getValue("Listener.loadBalancerArn");
+    }
 
     /**
      * The mutual authentication configuration information. See below.
      * 
      */
-    public ListenerMutualAuthentication mutualAuthentication;
+    private UndeferrableValue<ListenerMutualAuthentication> mutualAuthentication;
 
-
+    public ListenerMutualAuthentication mutualAuthentication() {
+        if (mutualAuthentication == null) return null;
+        return mutualAuthentication.getValue("Listener.mutualAuthentication");
+    }
 
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("Listener.port");
+    }
 
     /**
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Listener.protocol");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertIssuerHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertIssuerHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertIssuerHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertLeafHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertLeafHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertLeafHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertLeafHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertSubjectHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertSubjectHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertSubjectHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
 
-
+    public String routingHttpRequestXAmznMtlsClientcertValidityHeaderName() {
+        if (routingHttpRequestXAmznMtlsClientcertValidityHeaderName == null) return null;
+        return routingHttpRequestXAmznMtlsClientcertValidityHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertValidityHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznTlsCipherSuiteHeaderName;
 
-
+    public String routingHttpRequestXAmznTlsCipherSuiteHeaderName() {
+        if (routingHttpRequestXAmznTlsCipherSuiteHeaderName == null) return null;
+        return routingHttpRequestXAmznTlsCipherSuiteHeaderName.getValue("Listener.routingHttpRequestXAmznTlsCipherSuiteHeaderName");
+    }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    public String routingHttpRequestXAmznTlsVersionHeaderName;
+    private UndeferrableValue<String> routingHttpRequestXAmznTlsVersionHeaderName;
 
-
+    public String routingHttpRequestXAmznTlsVersionHeaderName() {
+        if (routingHttpRequestXAmznTlsVersionHeaderName == null) return null;
+        return routingHttpRequestXAmznTlsVersionHeaderName.getValue("Listener.routingHttpRequestXAmznTlsVersionHeaderName");
+    }
 
     /**
      * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
      * 
      */
-    public String routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlAllowCredentialsHeaderValue;
 
-
+    public String routingHttpResponseAccessControlAllowCredentialsHeaderValue() {
+        if (routingHttpResponseAccessControlAllowCredentialsHeaderValue == null) return null;
+        return routingHttpResponseAccessControlAllowCredentialsHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowCredentialsHeaderValue");
+    }
 
     /**
      * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
      * 
      */
-    public String routingHttpResponseAccessControlAllowHeadersHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlAllowHeadersHeaderValue;
 
-
+    public String routingHttpResponseAccessControlAllowHeadersHeaderValue() {
+        if (routingHttpResponseAccessControlAllowHeadersHeaderValue == null) return null;
+        return routingHttpResponseAccessControlAllowHeadersHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowHeadersHeaderValue");
+    }
 
     /**
      * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
      * 
      */
-    public String routingHttpResponseAccessControlAllowMethodsHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlAllowMethodsHeaderValue;
 
-
+    public String routingHttpResponseAccessControlAllowMethodsHeaderValue() {
+        if (routingHttpResponseAccessControlAllowMethodsHeaderValue == null) return null;
+        return routingHttpResponseAccessControlAllowMethodsHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowMethodsHeaderValue");
+    }
 
     /**
      * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
      * 
      */
-    public String routingHttpResponseAccessControlAllowOriginHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlAllowOriginHeaderValue;
 
-
+    public String routingHttpResponseAccessControlAllowOriginHeaderValue() {
+        if (routingHttpResponseAccessControlAllowOriginHeaderValue == null) return null;
+        return routingHttpResponseAccessControlAllowOriginHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowOriginHeaderValue");
+    }
 
     /**
      * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
      * 
      */
-    public String routingHttpResponseAccessControlExposeHeadersHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlExposeHeadersHeaderValue;
 
-
+    public String routingHttpResponseAccessControlExposeHeadersHeaderValue() {
+        if (routingHttpResponseAccessControlExposeHeadersHeaderValue == null) return null;
+        return routingHttpResponseAccessControlExposeHeadersHeaderValue.getValue("Listener.routingHttpResponseAccessControlExposeHeadersHeaderValue");
+    }
 
     /**
      * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
      * 
      */
-    public String routingHttpResponseAccessControlMaxAgeHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseAccessControlMaxAgeHeaderValue;
 
-
+    public String routingHttpResponseAccessControlMaxAgeHeaderValue() {
+        if (routingHttpResponseAccessControlMaxAgeHeaderValue == null) return null;
+        return routingHttpResponseAccessControlMaxAgeHeaderValue.getValue("Listener.routingHttpResponseAccessControlMaxAgeHeaderValue");
+    }
 
     /**
      * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
      * 
      */
-    public String routingHttpResponseContentSecurityPolicyHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseContentSecurityPolicyHeaderValue;
 
-
+    public String routingHttpResponseContentSecurityPolicyHeaderValue() {
+        if (routingHttpResponseContentSecurityPolicyHeaderValue == null) return null;
+        return routingHttpResponseContentSecurityPolicyHeaderValue.getValue("Listener.routingHttpResponseContentSecurityPolicyHeaderValue");
+    }
 
     /**
      * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
      * 
      */
-    public Boolean routingHttpResponseServerEnabled;
+    private UndeferrableValue<Boolean> routingHttpResponseServerEnabled;
 
-
+    public Boolean routingHttpResponseServerEnabled() {
+        if (routingHttpResponseServerEnabled == null) return null;
+        return routingHttpResponseServerEnabled.getValue("Listener.routingHttpResponseServerEnabled");
+    }
 
     /**
      * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
      * 
      */
-    public String routingHttpResponseStrictTransportSecurityHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseStrictTransportSecurityHeaderValue;
 
-
+    public String routingHttpResponseStrictTransportSecurityHeaderValue() {
+        if (routingHttpResponseStrictTransportSecurityHeaderValue == null) return null;
+        return routingHttpResponseStrictTransportSecurityHeaderValue.getValue("Listener.routingHttpResponseStrictTransportSecurityHeaderValue");
+    }
 
     /**
      * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
      * 
      */
-    public String routingHttpResponseXContentTypeOptionsHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseXContentTypeOptionsHeaderValue;
 
-
+    public String routingHttpResponseXContentTypeOptionsHeaderValue() {
+        if (routingHttpResponseXContentTypeOptionsHeaderValue == null) return null;
+        return routingHttpResponseXContentTypeOptionsHeaderValue.getValue("Listener.routingHttpResponseXContentTypeOptionsHeaderValue");
+    }
 
     /**
      * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
      * 
      */
-    public String routingHttpResponseXFrameOptionsHeaderValue;
+    private UndeferrableValue<String> routingHttpResponseXFrameOptionsHeaderValue;
 
-
+    public String routingHttpResponseXFrameOptionsHeaderValue() {
+        if (routingHttpResponseXFrameOptionsHeaderValue == null) return null;
+        return routingHttpResponseXFrameOptionsHeaderValue.getValue("Listener.routingHttpResponseXFrameOptionsHeaderValue");
+    }
 
     /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
-    public String sslPolicy;
+    private UndeferrableValue<String> sslPolicy;
 
-
+    public String sslPolicy() {
+        if (sslPolicy == null) return null;
+        return sslPolicy.getValue("Listener.sslPolicy");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,9 +334,12 @@ public final class Listener extends com.pulumi.resources.PolicyResource {
      * &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Listener.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -260,16 +349,22 @@ public final class Listener extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Listener.tagsAll");
+    }
 
     /**
      * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
      * 
      */
-    public Integer tcpIdleTimeoutSeconds;
+    private UndeferrableValue<Integer> tcpIdleTimeoutSeconds;
 
-
+    public Integer tcpIdleTimeoutSeconds() {
+        if (tcpIdleTimeoutSeconds == null) return null;
+        return tcpIdleTimeoutSeconds.getValue("Listener.tcpIdleTimeoutSeconds");
+    }
 
 }

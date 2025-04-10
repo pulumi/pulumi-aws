@@ -3,8 +3,9 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.servicequotas.ServiceQuotaUsageMetric;
+import com.pulumi.policypacks.aws.servicequotas.outputs.ServiceQuotaUsageMetric;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -12,86 +13,119 @@ import java.util.List;
 
 
 @PolicyResourceType(type="aws:servicequotas/serviceQuota:ServiceQuota")
-public final class ServiceQuota extends com.pulumi.resources.PolicyResource {
+public final class ServiceQuota extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the service quota can be increased.
      * 
      */
-    public Boolean adjustable;
+    private UndeferrableValue<Boolean> adjustable;
 
-
+    public Boolean adjustable() {
+        if (adjustable == null) return null;
+        return adjustable.getValue("ServiceQuota.adjustable");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the service quota.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServiceQuota.arn");
+    }
 
     /**
      * Default value of the service quota.
      * 
      */
-    public Double defaultValue;
+    private UndeferrableValue<Double> defaultValue;
 
-
+    public Double defaultValue() {
+        if (defaultValue == null) return null;
+        return defaultValue.getValue("ServiceQuota.defaultValue");
+    }
 
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      * 
      */
-    public String quotaCode;
+    private UndeferrableValue<String> quotaCode;
 
-
+    public String quotaCode() {
+        if (quotaCode == null) return null;
+        return quotaCode.getValue("ServiceQuota.quotaCode");
+    }
 
     /**
      * Name of the quota.
      * 
      */
-    public String quotaName;
+    private UndeferrableValue<String> quotaName;
 
+    public String quotaName() {
+        if (quotaName == null) return null;
+        return quotaName.getValue("ServiceQuota.quotaName");
+    }
 
+    private UndeferrableValue<String> requestId;
 
-    public String requestId;
+    public String requestId() {
+        if (requestId == null) return null;
+        return requestId.getValue("ServiceQuota.requestId");
+    }
 
+    private UndeferrableValue<String> requestStatus;
 
-
-    public String requestStatus;
-
-
+    public String requestStatus() {
+        if (requestStatus == null) return null;
+        return requestStatus.getValue("ServiceQuota.requestStatus");
+    }
 
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
-    public String serviceCode;
+    private UndeferrableValue<String> serviceCode;
 
-
+    public String serviceCode() {
+        if (serviceCode == null) return null;
+        return serviceCode.getValue("ServiceQuota.serviceCode");
+    }
 
     /**
      * Name of the service.
      * 
      */
-    public String serviceName;
+    private UndeferrableValue<String> serviceName;
 
-
+    public String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("ServiceQuota.serviceName");
+    }
 
     /**
      * Information about the measurement.
      * 
      */
-    public List<ServiceQuotaUsageMetric> usageMetrics;
+    private UndeferrableValue<List<ServiceQuotaUsageMetric>> usageMetrics;
 
-
+    public List<ServiceQuotaUsageMetric> usageMetrics() {
+        if (usageMetrics == null) return null;
+        return usageMetrics.getValue("ServiceQuota.usageMetrics");
+    }
 
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      * 
      */
-    public Double value;
+    private UndeferrableValue<Double> value;
 
-
+    public Double value() {
+        if (value == null) return null;
+        return value.getValue("ServiceQuota.value");
+    }
 
 }

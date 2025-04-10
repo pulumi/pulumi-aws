@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.controltower;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.controltower.ControlTowerControlParameter;
+import com.pulumi.policypacks.aws.controltower.outputs.ControlTowerControlParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:controltower/controlTowerControl:ControlTowerControl")
-public final class ControlTowerControl extends com.pulumi.resources.PolicyResource {
+public final class ControlTowerControl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the EnabledControl resource.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ControlTowerControl.arn");
+    }
 
     /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      * 
      */
-    public String controlIdentifier;
+    private UndeferrableValue<String> controlIdentifier;
 
-
+    public String controlIdentifier() {
+        if (controlIdentifier == null) return null;
+        return controlIdentifier.getValue("ControlTowerControl.controlIdentifier");
+    }
 
     /**
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      * 
      */
-    public List<ControlTowerControlParameter> parameters;
+    private @Nullable UndeferrableValue<List<ControlTowerControlParameter>> parameters;
 
-
+    public @Nullable List<ControlTowerControlParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("ControlTowerControl.parameters");
+    }
 
     /**
      * The ARN of the organizational unit.
@@ -42,8 +53,11 @@ public final class ControlTowerControl extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String targetIdentifier;
+    private UndeferrableValue<String> targetIdentifier;
 
-
+    public String targetIdentifier() {
+        if (targetIdentifier == null) return null;
+        return targetIdentifier.getValue("ControlTowerControl.targetIdentifier");
+    }
 
 }

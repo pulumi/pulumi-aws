@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ebs.FastSnapshotRestoreTimeouts;
+import com.pulumi.policypacks.aws.ebs.outputs.FastSnapshotRestoreTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ebs/fastSnapshotRestore:FastSnapshotRestore")
-public final class FastSnapshotRestore extends com.pulumi.resources.PolicyResource {
+public final class FastSnapshotRestore extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Availability zone in which to enable fast snapshot restores.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("FastSnapshotRestore.availabilityZone");
+    }
 
     /**
      * ID of the snapshot.
      * 
      */
-    public String snapshotId;
+    private UndeferrableValue<String> snapshotId;
 
-
+    public String snapshotId() {
+        if (snapshotId == null) return null;
+        return snapshotId.getValue("FastSnapshotRestore.snapshotId");
+    }
 
     /**
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("FastSnapshotRestore.state");
+    }
 
+    private @Nullable UndeferrableValue<FastSnapshotRestoreTimeouts> timeouts;
 
-    public FastSnapshotRestoreTimeouts timeouts;
-
-
+    public @Nullable FastSnapshotRestoreTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("FastSnapshotRestore.timeouts");
+    }
 
 }

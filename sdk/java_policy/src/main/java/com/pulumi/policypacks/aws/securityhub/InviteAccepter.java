@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/inviteAccepter:InviteAccepter")
-public final class InviteAccepter extends com.pulumi.resources.PolicyResource {
+public final class InviteAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the invitation.
      * 
      */
-    public String invitationId;
+    private UndeferrableValue<String> invitationId;
 
-
+    public String invitationId() {
+        if (invitationId == null) return null;
+        return invitationId.getValue("InviteAccepter.invitationId");
+    }
 
     /**
      * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
      * 
      */
-    public String masterId;
+    private UndeferrableValue<String> masterId;
 
-
+    public String masterId() {
+        if (masterId == null) return null;
+        return masterId.getValue("InviteAccepter.masterId");
+    }
 
 }

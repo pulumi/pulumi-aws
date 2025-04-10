@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")
-public final class VpcIpamPreviewNextCidr extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamPreviewNextCidr extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The previewed CIDR from the pool.
      * 
      */
-    public String cidr;
+    private UndeferrableValue<String> cidr;
 
-
+    public String cidr() {
+        if (cidr == null) return null;
+        return cidr.getValue("VpcIpamPreviewNextCidr.cidr");
+    }
 
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      * 
      */
-    public List<String> disallowedCidrs;
+    private @Nullable UndeferrableValue<List<String>> disallowedCidrs;
 
-
+    public @Nullable List<String> disallowedCidrs() {
+        if (disallowedCidrs == null) return null;
+        return disallowedCidrs.getValue("VpcIpamPreviewNextCidr.disallowedCidrs");
+    }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    public String ipamPoolId;
+    private UndeferrableValue<String> ipamPoolId;
 
-
+    public String ipamPoolId() {
+        if (ipamPoolId == null) return null;
+        return ipamPoolId.getValue("VpcIpamPreviewNextCidr.ipamPoolId");
+    }
 
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
-    public Integer netmaskLength;
+    private @Nullable UndeferrableValue<Integer> netmaskLength;
 
-
+    public @Nullable Integer netmaskLength() {
+        if (netmaskLength == null) return null;
+        return netmaskLength.getValue("VpcIpamPreviewNextCidr.netmaskLength");
+    }
 
 }

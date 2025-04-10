@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")
-public final class PermissionSetInlinePolicy extends com.pulumi.resources.PolicyResource {
+public final class PermissionSetInlinePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IAM inline policy to attach to a Permission Set.
      * 
      */
-    public String inlinePolicy;
+    private UndeferrableValue<String> inlinePolicy;
 
-
+    public String inlinePolicy() {
+        if (inlinePolicy == null) return null;
+        return inlinePolicy.getValue("PermissionSetInlinePolicy.inlinePolicy");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("PermissionSetInlinePolicy.instanceArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    public String permissionSetArn;
+    private UndeferrableValue<String> permissionSetArn;
 
-
+    public String permissionSetArn() {
+        if (permissionSetArn == null) return null;
+        return permissionSetArn.getValue("PermissionSetInlinePolicy.permissionSetArn");
+    }
 
 }

@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafv2.WebAclLoggingConfigurationLoggingFilter;
-import com.pulumi.policypacks.aws.wafv2.WebAclLoggingConfigurationRedactedField;
+import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilter;
+import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationRedactedField;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
-public final class WebAclLoggingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class WebAclLoggingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
-    public List<String> logDestinationConfigs;
+    private UndeferrableValue<List<String>> logDestinationConfigs;
 
-
+    public List<String> logDestinationConfigs() {
+        if (logDestinationConfigs == null) return null;
+        return logDestinationConfigs.getValue("WebAclLoggingConfiguration.logDestinationConfigs");
+    }
 
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      * 
      */
-    public WebAclLoggingConfigurationLoggingFilter loggingFilter;
+    private @Nullable UndeferrableValue<WebAclLoggingConfigurationLoggingFilter> loggingFilter;
 
-
+    public @Nullable WebAclLoggingConfigurationLoggingFilter loggingFilter() {
+        if (loggingFilter == null) return null;
+        return loggingFilter.getValue("WebAclLoggingConfiguration.loggingFilter");
+    }
 
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
-    public List<WebAclLoggingConfigurationRedactedField> redactedFields;
+    private @Nullable UndeferrableValue<List<WebAclLoggingConfigurationRedactedField>> redactedFields;
 
-
+    public @Nullable List<WebAclLoggingConfigurationRedactedField> redactedFields() {
+        if (redactedFields == null) return null;
+        return redactedFields.getValue("WebAclLoggingConfiguration.redactedFields");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("WebAclLoggingConfiguration.resourceArn");
+    }
 
 }

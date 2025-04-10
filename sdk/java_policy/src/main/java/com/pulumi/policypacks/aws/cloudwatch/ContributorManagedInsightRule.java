@@ -3,41 +3,58 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")
-public final class ContributorManagedInsightRule extends com.pulumi.resources.PolicyResource {
+public final class ContributorManagedInsightRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Contributor Managed Insight Rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContributorManagedInsightRule.arn");
+    }
 
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ContributorManagedInsightRule.resourceArn");
+    }
 
+    private UndeferrableValue<String> ruleName;
 
-    public String ruleName;
+    public String ruleName() {
+        if (ruleName == null) return null;
+        return ruleName.getValue("ContributorManagedInsightRule.ruleName");
+    }
 
+    private UndeferrableValue<String> state;
 
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ContributorManagedInsightRule.state");
+    }
 
-    public String state;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
-
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContributorManagedInsightRule.tags");
+    }
 
     /**
      * @deprecated
@@ -45,9 +62,12 @@ public final class ContributorManagedInsightRule extends com.pulumi.resources.Po
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContributorManagedInsightRule.tagsAll");
+    }
 
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
@@ -55,8 +75,11 @@ public final class ContributorManagedInsightRule extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    public String templateName;
+    private UndeferrableValue<String> templateName;
 
-
+    public String templateName() {
+        if (templateName == null) return null;
+        return templateName.getValue("ContributorManagedInsightRule.templateName");
+    }
 
 }

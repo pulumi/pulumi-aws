@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/routeTableAssociation:RouteTableAssociation")
-public final class RouteTableAssociation extends com.pulumi.resources.PolicyResource {
+public final class RouteTableAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The gateway ID to create an association. Conflicts with `subnet_id`.
      * 
      */
-    public String gatewayId;
+    private @Nullable UndeferrableValue<String> gatewayId;
 
-
+    public @Nullable String gatewayId() {
+        if (gatewayId == null) return null;
+        return gatewayId.getValue("RouteTableAssociation.gatewayId");
+    }
 
     /**
      * The ID of the routing table to associate with.
      * 
      */
-    public String routeTableId;
+    private UndeferrableValue<String> routeTableId;
 
-
+    public String routeTableId() {
+        if (routeTableId == null) return null;
+        return routeTableId.getValue("RouteTableAssociation.routeTableId");
+    }
 
     /**
      * The subnet ID to create an association. Conflicts with `gateway_id`.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("RouteTableAssociation.subnetId");
+    }
 
 }

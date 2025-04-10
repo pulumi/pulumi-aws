@@ -3,177 +3,236 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupAlarmConfiguration;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupAutoRollbackConfiguration;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfig;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupDeploymentStyle;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupEc2TagFilter;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupEc2TagSet;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupEcsService;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupLoadBalancerInfo;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentGroupTriggerConfiguration;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupAlarmConfiguration;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupAutoRollbackConfiguration;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupBlueGreenDeploymentConfig;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupDeploymentStyle;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupEc2TagFilter;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupEc2TagSet;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupEcsService;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfo;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupOnPremisesInstanceTagFilter;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupTriggerConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codedeploy/deploymentGroup:DeploymentGroup")
-public final class DeploymentGroup extends com.pulumi.resources.PolicyResource {
+public final class DeploymentGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      * 
      */
-    public DeploymentGroupAlarmConfiguration alarmConfiguration;
+    private @Nullable UndeferrableValue<DeploymentGroupAlarmConfiguration> alarmConfiguration;
 
-
+    public @Nullable DeploymentGroupAlarmConfiguration alarmConfiguration() {
+        if (alarmConfiguration == null) return null;
+        return alarmConfiguration.getValue("DeploymentGroup.alarmConfiguration");
+    }
 
     /**
      * The name of the application.
      * 
      */
-    public String appName;
+    private UndeferrableValue<String> appName;
 
-
+    public String appName() {
+        if (appName == null) return null;
+        return appName.getValue("DeploymentGroup.appName");
+    }
 
     /**
      * The ARN of the CodeDeploy deployment group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DeploymentGroup.arn");
+    }
 
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      * 
      */
-    public DeploymentGroupAutoRollbackConfiguration autoRollbackConfiguration;
+    private @Nullable UndeferrableValue<DeploymentGroupAutoRollbackConfiguration> autoRollbackConfiguration;
 
-
+    public @Nullable DeploymentGroupAutoRollbackConfiguration autoRollbackConfiguration() {
+        if (autoRollbackConfiguration == null) return null;
+        return autoRollbackConfiguration.getValue("DeploymentGroup.autoRollbackConfiguration");
+    }
 
     /**
      * Autoscaling groups associated with the deployment group.
      * 
      */
-    public List<String> autoscalingGroups;
+    private @Nullable UndeferrableValue<List<String>> autoscalingGroups;
 
-
+    public @Nullable List<String> autoscalingGroups() {
+        if (autoscalingGroups == null) return null;
+        return autoscalingGroups.getValue("DeploymentGroup.autoscalingGroups");
+    }
 
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      * 
      */
-    public DeploymentGroupBlueGreenDeploymentConfig blueGreenDeploymentConfig;
+    private UndeferrableValue<DeploymentGroupBlueGreenDeploymentConfig> blueGreenDeploymentConfig;
 
-
+    public DeploymentGroupBlueGreenDeploymentConfig blueGreenDeploymentConfig() {
+        if (blueGreenDeploymentConfig == null) return null;
+        return blueGreenDeploymentConfig.getValue("DeploymentGroup.blueGreenDeploymentConfig");
+    }
 
     /**
      * The destination platform type for the deployment.
      * 
      */
-    public String computePlatform;
+    private UndeferrableValue<String> computePlatform;
 
-
+    public String computePlatform() {
+        if (computePlatform == null) return null;
+        return computePlatform.getValue("DeploymentGroup.computePlatform");
+    }
 
     /**
      * The name of the group&#39;s deployment config. The default is &#34;CodeDeployDefault.OneAtATime&#34;.
      * 
      */
-    public String deploymentConfigName;
+    private @Nullable UndeferrableValue<String> deploymentConfigName;
 
-
+    public @Nullable String deploymentConfigName() {
+        if (deploymentConfigName == null) return null;
+        return deploymentConfigName.getValue("DeploymentGroup.deploymentConfigName");
+    }
 
     /**
      * The ID of the CodeDeploy deployment group.
      * 
      */
-    public String deploymentGroupId;
+    private UndeferrableValue<String> deploymentGroupId;
 
-
+    public String deploymentGroupId() {
+        if (deploymentGroupId == null) return null;
+        return deploymentGroupId.getValue("DeploymentGroup.deploymentGroupId");
+    }
 
     /**
      * The name of the deployment group.
      * 
      */
-    public String deploymentGroupName;
+    private UndeferrableValue<String> deploymentGroupName;
 
-
+    public String deploymentGroupName() {
+        if (deploymentGroupName == null) return null;
+        return deploymentGroupName.getValue("DeploymentGroup.deploymentGroupName");
+    }
 
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      * 
      */
-    public DeploymentGroupDeploymentStyle deploymentStyle;
+    private @Nullable UndeferrableValue<DeploymentGroupDeploymentStyle> deploymentStyle;
 
-
+    public @Nullable DeploymentGroupDeploymentStyle deploymentStyle() {
+        if (deploymentStyle == null) return null;
+        return deploymentStyle.getValue("DeploymentGroup.deploymentStyle");
+    }
 
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      * 
      */
-    public List<DeploymentGroupEc2TagFilter> ec2TagFilters;
+    private @Nullable UndeferrableValue<List<DeploymentGroupEc2TagFilter>> ec2TagFilters;
 
-
+    public @Nullable List<DeploymentGroupEc2TagFilter> ec2TagFilters() {
+        if (ec2TagFilters == null) return null;
+        return ec2TagFilters.getValue("DeploymentGroup.ec2TagFilters");
+    }
 
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      * 
      */
-    public List<DeploymentGroupEc2TagSet> ec2TagSets;
+    private @Nullable UndeferrableValue<List<DeploymentGroupEc2TagSet>> ec2TagSets;
 
-
+    public @Nullable List<DeploymentGroupEc2TagSet> ec2TagSets() {
+        if (ec2TagSets == null) return null;
+        return ec2TagSets.getValue("DeploymentGroup.ec2TagSets");
+    }
 
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      * 
      */
-    public DeploymentGroupEcsService ecsService;
+    private @Nullable UndeferrableValue<DeploymentGroupEcsService> ecsService;
 
-
+    public @Nullable DeploymentGroupEcsService ecsService() {
+        if (ecsService == null) return null;
+        return ecsService.getValue("DeploymentGroup.ecsService");
+    }
 
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      * 
      */
-    public DeploymentGroupLoadBalancerInfo loadBalancerInfo;
+    private @Nullable UndeferrableValue<DeploymentGroupLoadBalancerInfo> loadBalancerInfo;
 
-
+    public @Nullable DeploymentGroupLoadBalancerInfo loadBalancerInfo() {
+        if (loadBalancerInfo == null) return null;
+        return loadBalancerInfo.getValue("DeploymentGroup.loadBalancerInfo");
+    }
 
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      * 
      */
-    public List<DeploymentGroupOnPremisesInstanceTagFilter> onPremisesInstanceTagFilters;
+    private @Nullable UndeferrableValue<List<DeploymentGroupOnPremisesInstanceTagFilter>> onPremisesInstanceTagFilters;
 
-
+    public @Nullable List<DeploymentGroupOnPremisesInstanceTagFilter> onPremisesInstanceTagFilters() {
+        if (onPremisesInstanceTagFilters == null) return null;
+        return onPremisesInstanceTagFilters.getValue("DeploymentGroup.onPremisesInstanceTagFilters");
+    }
 
     /**
      * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
      * 
      */
-    public String outdatedInstancesStrategy;
+    private @Nullable UndeferrableValue<String> outdatedInstancesStrategy;
 
-
+    public @Nullable String outdatedInstancesStrategy() {
+        if (outdatedInstancesStrategy == null) return null;
+        return outdatedInstancesStrategy.getValue("DeploymentGroup.outdatedInstancesStrategy");
+    }
 
     /**
      * The service role ARN that allows deployments.
      * 
      */
-    public String serviceRoleArn;
+    private UndeferrableValue<String> serviceRoleArn;
 
-
+    public String serviceRoleArn() {
+        if (serviceRoleArn == null) return null;
+        return serviceRoleArn.getValue("DeploymentGroup.serviceRoleArn");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DeploymentGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -183,24 +242,33 @@ public final class DeploymentGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DeploymentGroup.tagsAll");
+    }
 
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      * 
      */
-    public Boolean terminationHookEnabled;
+    private @Nullable UndeferrableValue<Boolean> terminationHookEnabled;
 
-
+    public @Nullable Boolean terminationHookEnabled() {
+        if (terminationHookEnabled == null) return null;
+        return terminationHookEnabled.getValue("DeploymentGroup.terminationHookEnabled");
+    }
 
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      * 
      */
-    public List<DeploymentGroupTriggerConfiguration> triggerConfigurations;
+    private @Nullable UndeferrableValue<List<DeploymentGroupTriggerConfiguration>> triggerConfigurations;
 
-
+    public @Nullable List<DeploymentGroupTriggerConfiguration> triggerConfigurations() {
+        if (triggerConfigurations == null) return null;
+        return triggerConfigurations.getValue("DeploymentGroup.triggerConfigurations");
+    }
 
 }

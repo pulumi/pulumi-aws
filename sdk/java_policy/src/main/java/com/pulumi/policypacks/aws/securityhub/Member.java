@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/member:Member")
-public final class Member extends com.pulumi.resources.PolicyResource {
+public final class Member extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the member AWS account.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Member.accountId");
+    }
 
     /**
      * The email of the member AWS account.
      * 
      */
-    public String email;
+    private @Nullable UndeferrableValue<String> email;
 
-
+    public @Nullable String email() {
+        if (email == null) return null;
+        return email.getValue("Member.email");
+    }
 
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      * 
      */
-    public Boolean invite;
+    private @Nullable UndeferrableValue<Boolean> invite;
 
-
+    public @Nullable Boolean invite() {
+        if (invite == null) return null;
+        return invite.getValue("Member.invite");
+    }
 
     /**
      * The ID of the master Security Hub AWS account.
      * 
      */
-    public String masterId;
+    private UndeferrableValue<String> masterId;
 
-
+    public String masterId() {
+        if (masterId == null) return null;
+        return masterId.getValue("Member.masterId");
+    }
 
     /**
      * The status of the member account relationship.
      * 
      */
-    public String memberStatus;
+    private UndeferrableValue<String> memberStatus;
 
-
+    public String memberStatus() {
+        if (memberStatus == null) return null;
+        return memberStatus.getValue("Member.memberStatus");
+    }
 
 }

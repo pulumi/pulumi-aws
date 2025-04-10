@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:quicksight/templateAlias:TemplateAlias")
-public final class TemplateAlias extends com.pulumi.resources.PolicyResource {
+public final class TemplateAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Display name of the template alias.
      * 
      */
-    public String aliasName;
+    private UndeferrableValue<String> aliasName;
 
-
+    public String aliasName() {
+        if (aliasName == null) return null;
+        return aliasName.getValue("TemplateAlias.aliasName");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the template alias.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TemplateAlias.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("TemplateAlias.awsAccountId");
+    }
 
     /**
      * ID of the template.
      * 
      */
-    public String templateId;
+    private UndeferrableValue<String> templateId;
 
-
+    public String templateId() {
+        if (templateId == null) return null;
+        return templateId.getValue("TemplateAlias.templateId");
+    }
 
     /**
      * Version number of the template.
@@ -49,8 +62,11 @@ public final class TemplateAlias extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer templateVersionNumber;
+    private UndeferrableValue<Integer> templateVersionNumber;
 
-
+    public Integer templateVersionNumber() {
+        if (templateVersionNumber == null) return null;
+        return templateVersionNumber.getValue("TemplateAlias.templateVersionNumber");
+    }
 
 }

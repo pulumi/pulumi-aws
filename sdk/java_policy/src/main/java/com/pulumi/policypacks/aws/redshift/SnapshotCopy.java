@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/snapshotCopy:SnapshotCopy")
-public final class SnapshotCopy extends com.pulumi.resources.PolicyResource {
+public final class SnapshotCopy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the source cluster.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("SnapshotCopy.clusterIdentifier");
+    }
 
     /**
      * AWS Region to copy snapshots to.
@@ -25,32 +30,44 @@ public final class SnapshotCopy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String destinationRegion;
+    private UndeferrableValue<String> destinationRegion;
 
-
+    public String destinationRegion() {
+        if (destinationRegion == null) return null;
+        return destinationRegion.getValue("SnapshotCopy.destinationRegion");
+    }
 
     /**
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      * 
      */
-    public Integer manualSnapshotRetentionPeriod;
+    private UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
 
-
+    public Integer manualSnapshotRetentionPeriod() {
+        if (manualSnapshotRetentionPeriod == null) return null;
+        return manualSnapshotRetentionPeriod.getValue("SnapshotCopy.manualSnapshotRetentionPeriod");
+    }
 
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      * 
      */
-    public Integer retentionPeriod;
+    private UndeferrableValue<Integer> retentionPeriod;
 
-
+    public Integer retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("SnapshotCopy.retentionPeriod");
+    }
 
     /**
      * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      * 
      */
-    public String snapshotCopyGrantName;
+    private @Nullable UndeferrableValue<String> snapshotCopyGrantName;
 
-
+    public @Nullable String snapshotCopyGrantName() {
+        if (snapshotCopyGrantName == null) return null;
+        return snapshotCopyGrantName.getValue("SnapshotCopy.snapshotCopyGrantName");
+    }
 
 }

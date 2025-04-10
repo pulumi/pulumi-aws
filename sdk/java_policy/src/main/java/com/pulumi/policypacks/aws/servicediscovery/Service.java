@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.servicediscovery.ServiceDnsConfig;
-import com.pulumi.policypacks.aws.servicediscovery.ServiceHealthCheckConfig;
-import com.pulumi.policypacks.aws.servicediscovery.ServiceHealthCheckCustomConfig;
+import com.pulumi.policypacks.aws.servicediscovery.outputs.ServiceDnsConfig;
+import com.pulumi.policypacks.aws.servicediscovery.outputs.ServiceHealthCheckConfig;
+import com.pulumi.policypacks.aws.servicediscovery.outputs.ServiceHealthCheckCustomConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicediscovery/service:Service")
-public final class Service extends com.pulumi.resources.PolicyResource {
+public final class Service extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Service.arn");
+    }
 
     /**
      * The description of the service.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Service.description");
+    }
 
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
-    public ServiceDnsConfig dnsConfig;
+    private @Nullable UndeferrableValue<ServiceDnsConfig> dnsConfig;
 
-
+    public @Nullable ServiceDnsConfig dnsConfig() {
+        if (dnsConfig == null) return null;
+        return dnsConfig.getValue("Service.dnsConfig");
+    }
 
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Service.forceDestroy");
+    }
 
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
-    public ServiceHealthCheckConfig healthCheckConfig;
+    private @Nullable UndeferrableValue<ServiceHealthCheckConfig> healthCheckConfig;
 
-
+    public @Nullable ServiceHealthCheckConfig healthCheckConfig() {
+        if (healthCheckConfig == null) return null;
+        return healthCheckConfig.getValue("Service.healthCheckConfig");
+    }
 
     /**
      * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
-    public ServiceHealthCheckCustomConfig healthCheckCustomConfig;
+    private @Nullable UndeferrableValue<ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
-
+    public @Nullable ServiceHealthCheckCustomConfig healthCheckCustomConfig() {
+        if (healthCheckCustomConfig == null) return null;
+        return healthCheckCustomConfig.getValue("Service.healthCheckCustomConfig");
+    }
 
     /**
      * The name of the service.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Service.name");
+    }
 
     /**
      * The ID of the namespace that you want to use to create the service.
      * 
      */
-    public String namespaceId;
+    private UndeferrableValue<String> namespaceId;
 
-
+    public String namespaceId() {
+        if (namespaceId == null) return null;
+        return namespaceId.getValue("Service.namespaceId");
+    }
 
     /**
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Service.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,16 +124,22 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Service.tagsAll");
+    }
 
     /**
      * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Service.type");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/lbAttachment:LbAttachment")
-public final class LbAttachment extends com.pulumi.resources.PolicyResource {
+public final class LbAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the instance to attach to the load balancer.
      * 
      */
-    public String instanceName;
+    private UndeferrableValue<String> instanceName;
 
-
+    public String instanceName() {
+        if (instanceName == null) return null;
+        return instanceName.getValue("LbAttachment.instanceName");
+    }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    public String lbName;
+    private UndeferrableValue<String> lbName;
 
-
+    public String lbName() {
+        if (lbName == null) return null;
+        return lbName.getValue("LbAttachment.lbName");
+    }
 
 }

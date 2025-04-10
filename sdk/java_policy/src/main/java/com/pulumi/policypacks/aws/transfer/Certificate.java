@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An date when the certificate becomes active
      * 
      */
-    public String activeDate;
+    private UndeferrableValue<String> activeDate;
 
-
+    public String activeDate() {
+        if (activeDate == null) return null;
+        return activeDate.getValue("Certificate.activeDate");
+    }
 
     /**
      * The ARN of the certificate
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Certificate.arn");
+    }
 
     /**
      * The valid certificate file required for the transfer.
      * 
      */
-    public String certificate;
+    private UndeferrableValue<String> certificate;
 
-
+    public String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("Certificate.certificate");
+    }
 
     /**
      * The optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
-    public String certificateChain;
+    private @Nullable UndeferrableValue<String> certificateChain;
 
-
+    public @Nullable String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("Certificate.certificateChain");
+    }
 
     /**
      * The unique identifier for the AS2 certificate
      * 
      */
-    public String certificateId;
+    private UndeferrableValue<String> certificateId;
 
-
+    public String certificateId() {
+        if (certificateId == null) return null;
+        return certificateId.getValue("Certificate.certificateId");
+    }
 
     /**
      * A short description that helps identify the certificate.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Certificate.description");
+    }
 
     /**
      * An date when the certificate becomes inactive
      * 
      */
-    public String inactiveDate;
+    private UndeferrableValue<String> inactiveDate;
 
-
+    public String inactiveDate() {
+        if (inactiveDate == null) return null;
+        return inactiveDate.getValue("Certificate.inactiveDate");
+    }
 
     /**
      * The private key associated with the certificate being imported.
      * 
      */
-    public String privateKey;
+    private @Nullable UndeferrableValue<String> privateKey;
 
-
+    public @Nullable String privateKey() {
+        if (privateKey == null) return null;
+        return privateKey.getValue("Certificate.privateKey");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Certificate.tags");
+    }
 
     /**
      * @deprecated
@@ -89,16 +118,22 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Certificate.tagsAll");
+    }
 
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
-    public String usage;
+    private UndeferrableValue<String> usage;
 
-
+    public String usage() {
+        if (usage == null) return null;
+        return usage.getValue("Certificate.usage");
+    }
 
 }

@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.servicecatalog.ProductProvisioningArtifactParameters;
+import com.pulumi.policypacks.aws.servicecatalog.outputs.ProductProvisioningArtifactParameters;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/product:Product")
-public final class Product extends com.pulumi.resources.PolicyResource {
+public final class Product extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("Product.acceptLanguage");
+    }
 
     /**
      * ARN of the product.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Product.arn");
+    }
 
     /**
      * Time when the product was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Product.createdTime");
+    }
 
     /**
      * Description of the product.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Product.description");
+    }
 
     /**
      * Distributor (i.e., vendor) of the product.
      * 
      */
-    public String distributor;
+    private UndeferrableValue<String> distributor;
 
-
+    public String distributor() {
+        if (distributor == null) return null;
+        return distributor.getValue("Product.distributor");
+    }
 
     /**
      * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      * 
      */
-    public Boolean hasDefaultPath;
+    private UndeferrableValue<Boolean> hasDefaultPath;
 
-
+    public Boolean hasDefaultPath() {
+        if (hasDefaultPath == null) return null;
+        return hasDefaultPath.getValue("Product.hasDefaultPath");
+    }
 
     /**
      * Name of the product.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Product.name");
+    }
 
     /**
      * Owner of the product.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Product.owner");
+    }
 
     /**
      * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
-    public ProductProvisioningArtifactParameters provisioningArtifactParameters;
+    private UndeferrableValue<ProductProvisioningArtifactParameters> provisioningArtifactParameters;
 
-
+    public ProductProvisioningArtifactParameters provisioningArtifactParameters() {
+        if (provisioningArtifactParameters == null) return null;
+        return provisioningArtifactParameters.getValue("Product.provisioningArtifactParameters");
+    }
 
     /**
      * Status of the product.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Product.status");
+    }
 
     /**
      * Support information about the product.
      * 
      */
-    public String supportDescription;
+    private UndeferrableValue<String> supportDescription;
 
-
+    public String supportDescription() {
+        if (supportDescription == null) return null;
+        return supportDescription.getValue("Product.supportDescription");
+    }
 
     /**
      * Contact email for product support.
      * 
      */
-    public String supportEmail;
+    private UndeferrableValue<String> supportEmail;
 
-
+    public String supportEmail() {
+        if (supportEmail == null) return null;
+        return supportEmail.getValue("Product.supportEmail");
+    }
 
     /**
      * Contact URL for product support.
      * 
      */
-    public String supportUrl;
+    private UndeferrableValue<String> supportUrl;
 
-
+    public String supportUrl() {
+        if (supportUrl == null) return null;
+        return supportUrl.getValue("Product.supportUrl");
+    }
 
     /**
      * Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Product.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -133,9 +177,12 @@ public final class Product extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Product.tagsAll");
+    }
 
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
@@ -143,8 +190,11 @@ public final class Product extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Product.type");
+    }
 
 }

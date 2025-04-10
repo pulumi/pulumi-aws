@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")
-public final class DelegatedAdminAccount extends com.pulumi.resources.PolicyResource {
+public final class DelegatedAdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Account to enable as delegated admin account.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("DelegatedAdminAccount.accountId");
+    }
 
     /**
      * Status of this delegated admin account.
      * 
      */
-    public String relationshipStatus;
+    private UndeferrableValue<String> relationshipStatus;
 
-
+    public String relationshipStatus() {
+        if (relationshipStatus == null) return null;
+        return relationshipStatus.getValue("DelegatedAdminAccount.relationshipStatus");
+    }
 
 }

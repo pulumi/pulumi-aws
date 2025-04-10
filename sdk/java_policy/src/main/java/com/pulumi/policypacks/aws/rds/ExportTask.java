@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ExportTaskTimeouts;
+import com.pulumi.policypacks.aws.rds.outputs.ExportTaskTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/exportTask:ExportTask")
-public final class ExportTask extends com.pulumi.resources.PolicyResource {
+public final class ExportTask extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      * 
      */
-    public List<String> exportOnlies;
+    private @Nullable UndeferrableValue<List<String>> exportOnlies;
 
-
+    public @Nullable List<String> exportOnlies() {
+        if (exportOnlies == null) return null;
+        return exportOnlies.getValue("ExportTask.exportOnlies");
+    }
 
     /**
      * Unique identifier for the snapshot export task.
      * 
      */
-    public String exportTaskIdentifier;
+    private UndeferrableValue<String> exportTaskIdentifier;
 
-
+    public String exportTaskIdentifier() {
+        if (exportTaskIdentifier == null) return null;
+        return exportTaskIdentifier.getValue("ExportTask.exportTaskIdentifier");
+    }
 
     /**
      * Reason the export failed, if it failed.
      * 
      */
-    public String failureCause;
+    private UndeferrableValue<String> failureCause;
 
-
+    public String failureCause() {
+        if (failureCause == null) return null;
+        return failureCause.getValue("ExportTask.failureCause");
+    }
 
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("ExportTask.iamRoleArn");
+    }
 
     /**
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ExportTask.kmsKeyId");
+    }
 
     /**
      * Progress of the snapshot export task as a percentage.
      * 
      */
-    public Integer percentProgress;
+    private UndeferrableValue<Integer> percentProgress;
 
-
+    public Integer percentProgress() {
+        if (percentProgress == null) return null;
+        return percentProgress.getValue("ExportTask.percentProgress");
+    }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      * 
      */
-    public String s3BucketName;
+    private UndeferrableValue<String> s3BucketName;
 
-
+    public String s3BucketName() {
+        if (s3BucketName == null) return null;
+        return s3BucketName.getValue("ExportTask.s3BucketName");
+    }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    public String s3Prefix;
+    private UndeferrableValue<String> s3Prefix;
 
-
+    public String s3Prefix() {
+        if (s3Prefix == null) return null;
+        return s3Prefix.getValue("ExportTask.s3Prefix");
+    }
 
     /**
      * Time that the snapshot was created.
      * 
      */
-    public String snapshotTime;
+    private UndeferrableValue<String> snapshotTime;
 
-
+    public String snapshotTime() {
+        if (snapshotTime == null) return null;
+        return snapshotTime.getValue("ExportTask.snapshotTime");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
@@ -91,52 +120,73 @@ public final class ExportTask extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String sourceArn;
+    private UndeferrableValue<String> sourceArn;
 
-
+    public String sourceArn() {
+        if (sourceArn == null) return null;
+        return sourceArn.getValue("ExportTask.sourceArn");
+    }
 
     /**
      * Type of source for the export.
      * 
      */
-    public String sourceType;
+    private UndeferrableValue<String> sourceType;
 
-
+    public String sourceType() {
+        if (sourceType == null) return null;
+        return sourceType.getValue("ExportTask.sourceType");
+    }
 
     /**
      * Status of the export task.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ExportTask.status");
+    }
 
     /**
      * Time that the snapshot export task completed.
      * 
      */
-    public String taskEndTime;
+    private UndeferrableValue<String> taskEndTime;
 
-
+    public String taskEndTime() {
+        if (taskEndTime == null) return null;
+        return taskEndTime.getValue("ExportTask.taskEndTime");
+    }
 
     /**
      * Time that the snapshot export task started.
      * 
      */
-    public String taskStartTime;
+    private UndeferrableValue<String> taskStartTime;
 
+    public String taskStartTime() {
+        if (taskStartTime == null) return null;
+        return taskStartTime.getValue("ExportTask.taskStartTime");
+    }
 
+    private @Nullable UndeferrableValue<ExportTaskTimeouts> timeouts;
 
-    public ExportTaskTimeouts timeouts;
-
-
+    public @Nullable ExportTaskTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ExportTask.timeouts");
+    }
 
     /**
      * Warning about the snapshot export task, if any.
      * 
      */
-    public String warningMessage;
+    private UndeferrableValue<String> warningMessage;
 
-
+    public String warningMessage() {
+        if (warningMessage == null) return null;
+        return warningMessage.getValue("ExportTask.warningMessage");
+    }
 
 }

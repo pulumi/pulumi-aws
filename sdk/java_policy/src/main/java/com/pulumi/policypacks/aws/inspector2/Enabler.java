@@ -3,22 +3,26 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:inspector2/enabler:Enabler")
-public final class Enabler extends com.pulumi.resources.PolicyResource {
+public final class Enabler extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of account IDs.
      * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
-    public List<String> accountIds;
+    private UndeferrableValue<List<String>> accountIds;
 
-
+    public List<String> accountIds() {
+        if (accountIds == null) return null;
+        return accountIds.getValue("Enabler.accountIds");
+    }
 
     /**
      * Type of resources to scan.
@@ -26,8 +30,11 @@ public final class Enabler extends com.pulumi.resources.PolicyResource {
      * At least one item is required.
      * 
      */
-    public List<String> resourceTypes;
+    private UndeferrableValue<List<String>> resourceTypes;
 
-
+    public List<String> resourceTypes() {
+        if (resourceTypes == null) return null;
+        return resourceTypes.getValue("Enabler.resourceTypes");
+    }
 
 }

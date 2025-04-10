@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecr/repositoryPolicy:RepositoryPolicy")
-public final class RepositoryPolicy extends com.pulumi.resources.PolicyResource {
+public final class RepositoryPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("RepositoryPolicy.policy");
+    }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("RepositoryPolicy.registryId");
+    }
 
     /**
      * Name of the repository to apply the policy.
      * 
      */
-    public String repository;
+    private UndeferrableValue<String> repository;
 
-
+    public String repository() {
+        if (repository == null) return null;
+        return repository.getValue("RepositoryPolicy.repository");
+    }
 
 }

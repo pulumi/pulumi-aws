@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig;
-import com.pulumi.policypacks.aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigContentTypeProfileConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigQueryArgProfileConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")
-public final class FieldLevelEncryptionConfig extends com.pulumi.resources.PolicyResource {
+public final class FieldLevelEncryptionConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Field Level Encryption Config ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FieldLevelEncryptionConfig.arn");
+    }
 
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      * 
      */
-    public String callerReference;
+    private UndeferrableValue<String> callerReference;
 
-
+    public String callerReference() {
+        if (callerReference == null) return null;
+        return callerReference.getValue("FieldLevelEncryptionConfig.callerReference");
+    }
 
     /**
      * An optional comment about the Field Level Encryption Config.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("FieldLevelEncryptionConfig.comment");
+    }
 
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
      * 
      */
-    public FieldLevelEncryptionConfigContentTypeProfileConfig contentTypeProfileConfig;
+    private UndeferrableValue<FieldLevelEncryptionConfigContentTypeProfileConfig> contentTypeProfileConfig;
 
-
+    public FieldLevelEncryptionConfigContentTypeProfileConfig contentTypeProfileConfig() {
+        if (contentTypeProfileConfig == null) return null;
+        return contentTypeProfileConfig.getValue("FieldLevelEncryptionConfig.contentTypeProfileConfig");
+    }
 
     /**
      * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("FieldLevelEncryptionConfig.etag");
+    }
 
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
      * 
      */
-    public FieldLevelEncryptionConfigQueryArgProfileConfig queryArgProfileConfig;
+    private UndeferrableValue<FieldLevelEncryptionConfigQueryArgProfileConfig> queryArgProfileConfig;
 
-
+    public FieldLevelEncryptionConfigQueryArgProfileConfig queryArgProfileConfig() {
+        if (queryArgProfileConfig == null) return null;
+        return queryArgProfileConfig.getValue("FieldLevelEncryptionConfig.queryArgProfileConfig");
+    }
 
 }

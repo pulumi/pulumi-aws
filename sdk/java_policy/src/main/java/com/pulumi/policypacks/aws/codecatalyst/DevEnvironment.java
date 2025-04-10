@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codecatalyst.DevEnvironmentIdes;
-import com.pulumi.policypacks.aws.codecatalyst.DevEnvironmentPersistentStorage;
-import com.pulumi.policypacks.aws.codecatalyst.DevEnvironmentRepository;
+import com.pulumi.policypacks.aws.codecatalyst.outputs.DevEnvironmentIdes;
+import com.pulumi.policypacks.aws.codecatalyst.outputs.DevEnvironmentPersistentStorage;
+import com.pulumi.policypacks.aws.codecatalyst.outputs.DevEnvironmentRepository;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codecatalyst/devEnvironment:DevEnvironment")
-public final class DevEnvironment extends com.pulumi.resources.PolicyResource {
+public final class DevEnvironment extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String alias;
+    private @Nullable UndeferrableValue<String> alias;
 
-
+    public @Nullable String alias() {
+        if (alias == null) return null;
+        return alias.getValue("DevEnvironment.alias");
+    }
 
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      * 
      */
-    public DevEnvironmentIdes ides;
+    private UndeferrableValue<DevEnvironmentIdes> ides;
 
-
+    public DevEnvironmentIdes ides() {
+        if (ides == null) return null;
+        return ides.getValue("DevEnvironment.ides");
+    }
 
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      * 
      */
-    public Integer inactivityTimeoutMinutes;
+    private @Nullable UndeferrableValue<Integer> inactivityTimeoutMinutes;
 
-
+    public @Nullable Integer inactivityTimeoutMinutes() {
+        if (inactivityTimeoutMinutes == null) return null;
+        return inactivityTimeoutMinutes.getValue("DevEnvironment.inactivityTimeoutMinutes");
+    }
 
     /**
      * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
@@ -41,40 +52,55 @@ public final class DevEnvironment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("DevEnvironment.instanceType");
+    }
 
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      * 
      */
-    public DevEnvironmentPersistentStorage persistentStorage;
+    private UndeferrableValue<DevEnvironmentPersistentStorage> persistentStorage;
 
-
+    public DevEnvironmentPersistentStorage persistentStorage() {
+        if (persistentStorage == null) return null;
+        return persistentStorage.getValue("DevEnvironment.persistentStorage");
+    }
 
     /**
      * The name of the project in the space.
      * 
      */
-    public String projectName;
+    private UndeferrableValue<String> projectName;
 
-
+    public String projectName() {
+        if (projectName == null) return null;
+        return projectName.getValue("DevEnvironment.projectName");
+    }
 
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      * 
      */
-    public List<DevEnvironmentRepository> repositories;
+    private @Nullable UndeferrableValue<List<DevEnvironmentRepository>> repositories;
 
-
+    public @Nullable List<DevEnvironmentRepository> repositories() {
+        if (repositories == null) return null;
+        return repositories.getValue("DevEnvironment.repositories");
+    }
 
     /**
      * The name of the space.
      * 
      */
-    public String spaceName;
+    private UndeferrableValue<String> spaceName;
 
-
+    public String spaceName() {
+        if (spaceName == null) return null;
+        return spaceName.getValue("DevEnvironment.spaceName");
+    }
 
 }

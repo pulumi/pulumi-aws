@@ -3,76 +3,102 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.FunctionUrlCors;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionUrlCors;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/functionUrl:FunctionUrl")
-public final class FunctionUrl extends com.pulumi.resources.PolicyResource {
+public final class FunctionUrl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
      * 
      */
-    public String authorizationType;
+    private UndeferrableValue<String> authorizationType;
 
-
+    public String authorizationType() {
+        if (authorizationType == null) return null;
+        return authorizationType.getValue("FunctionUrl.authorizationType");
+    }
 
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      * 
      */
-    public FunctionUrlCors cors;
+    private @Nullable UndeferrableValue<FunctionUrlCors> cors;
 
-
+    public @Nullable FunctionUrlCors cors() {
+        if (cors == null) return null;
+        return cors.getValue("FunctionUrl.cors");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the function.
      * 
      */
-    public String functionArn;
+    private UndeferrableValue<String> functionArn;
 
-
+    public String functionArn() {
+        if (functionArn == null) return null;
+        return functionArn.getValue("FunctionUrl.functionArn");
+    }
 
     /**
      * The name (or ARN) of the Lambda function.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("FunctionUrl.functionName");
+    }
 
     /**
      * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
-    public String functionUrl;
+    private UndeferrableValue<String> functionUrl;
 
-
+    public String functionUrl() {
+        if (functionUrl == null) return null;
+        return functionUrl.getValue("FunctionUrl.functionUrl");
+    }
 
     /**
      * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
      * 
      */
-    public String invokeMode;
+    private @Nullable UndeferrableValue<String> invokeMode;
 
-
+    public @Nullable String invokeMode() {
+        if (invokeMode == null) return null;
+        return invokeMode.getValue("FunctionUrl.invokeMode");
+    }
 
     /**
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */
-    public String qualifier;
+    private @Nullable UndeferrableValue<String> qualifier;
 
-
+    public @Nullable String qualifier() {
+        if (qualifier == null) return null;
+        return qualifier.getValue("FunctionUrl.qualifier");
+    }
 
     /**
      * A generated ID for the endpoint.
      * 
      */
-    public String urlId;
+    private UndeferrableValue<String> urlId;
 
-
+    public String urlId() {
+        if (urlId == null) return null;
+        return urlId.getValue("FunctionUrl.urlId");
+    }
 
 }

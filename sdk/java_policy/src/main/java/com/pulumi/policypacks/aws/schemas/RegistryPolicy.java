@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:schemas/registryPolicy:RegistryPolicy")
-public final class RegistryPolicy extends com.pulumi.resources.PolicyResource {
+public final class RegistryPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Resource Policy for EventBridge Schema Registry
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("RegistryPolicy.policy");
+    }
 
     /**
      * Name of EventBridge Schema Registry
      * 
      */
-    public String registryName;
+    private UndeferrableValue<String> registryName;
 
-
+    public String registryName() {
+        if (registryName == null) return null;
+        return registryName.getValue("RegistryPolicy.registryName");
+    }
 
 }

@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/protectionGroup:ProtectionGroup")
-public final class ProtectionGroup extends com.pulumi.resources.PolicyResource {
+public final class ProtectionGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
      * 
      */
-    public String aggregation;
+    private UndeferrableValue<String> aggregation;
 
-
+    public String aggregation() {
+        if (aggregation == null) return null;
+        return aggregation.getValue("ProtectionGroup.aggregation");
+    }
 
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
-    public List<String> members;
+    private @Nullable UndeferrableValue<List<String>> members;
 
-
+    public @Nullable List<String> members() {
+        if (members == null) return null;
+        return members.getValue("ProtectionGroup.members");
+    }
 
     /**
      * The criteria to use to choose the protected resources for inclusion in the group.
      * 
      */
-    public String pattern;
+    private UndeferrableValue<String> pattern;
 
-
+    public String pattern() {
+        if (pattern == null) return null;
+        return pattern.getValue("ProtectionGroup.pattern");
+    }
 
     /**
      * The ARN (Amazon Resource Name) of the protection group.
      * 
      */
-    public String protectionGroupArn;
+    private UndeferrableValue<String> protectionGroupArn;
 
-
+    public String protectionGroupArn() {
+        if (protectionGroupArn == null) return null;
+        return protectionGroupArn.getValue("ProtectionGroup.protectionGroupArn");
+    }
 
     /**
      * The name of the protection group.
      * 
      */
-    public String protectionGroupId;
+    private UndeferrableValue<String> protectionGroupId;
 
-
+    public String protectionGroupId() {
+        if (protectionGroupId == null) return null;
+        return protectionGroupId.getValue("ProtectionGroup.protectionGroupId");
+    }
 
     /**
      * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
      * 
      */
-    public String resourceType;
+    private @Nullable UndeferrableValue<String> resourceType;
 
-
+    public @Nullable String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("ProtectionGroup.resourceType");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProtectionGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class ProtectionGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProtectionGroup.tagsAll");
+    }
 
 }

@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.ContainerServiceDeploymentVersionContainer;
-import com.pulumi.policypacks.aws.lightsail.ContainerServiceDeploymentVersionPublicEndpoint;
+import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServiceDeploymentVersionContainer;
+import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServiceDeploymentVersionPublicEndpoint;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")
-public final class ContainerServiceDeploymentVersion extends com.pulumi.resources.PolicyResource {
+public final class ContainerServiceDeploymentVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      * 
      */
-    public List<ContainerServiceDeploymentVersionContainer> containers;
+    private UndeferrableValue<List<ContainerServiceDeploymentVersionContainer>> containers;
 
-
+    public List<ContainerServiceDeploymentVersionContainer> containers() {
+        if (containers == null) return null;
+        return containers.getValue("ContainerServiceDeploymentVersion.containers");
+    }
 
     /**
      * The timestamp when the deployment was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("ContainerServiceDeploymentVersion.createdAt");
+    }
 
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      * 
      */
-    public ContainerServiceDeploymentVersionPublicEndpoint publicEndpoint;
+    private @Nullable UndeferrableValue<ContainerServiceDeploymentVersionPublicEndpoint> publicEndpoint;
 
-
+    public @Nullable ContainerServiceDeploymentVersionPublicEndpoint publicEndpoint() {
+        if (publicEndpoint == null) return null;
+        return publicEndpoint.getValue("ContainerServiceDeploymentVersion.publicEndpoint");
+    }
 
     /**
      * The name for the container service.
      * 
      */
-    public String serviceName;
+    private UndeferrableValue<String> serviceName;
 
-
+    public String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("ContainerServiceDeploymentVersion.serviceName");
+    }
 
     /**
      * The current state of the container service.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ContainerServiceDeploymentVersion.state");
+    }
 
     /**
      * The version number of the deployment.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("ContainerServiceDeploymentVersion.version");
+    }
 
 }

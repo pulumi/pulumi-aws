@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.waf.XssMatchSetXssMatchTuple;
+import com.pulumi.policypacks.aws.waf.outputs.XssMatchSetXssMatchTuple;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/xssMatchSet:XssMatchSet")
-public final class XssMatchSet extends com.pulumi.resources.PolicyResource {
+public final class XssMatchSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("XssMatchSet.arn");
+    }
 
     /**
      * The name or description of the SizeConstraintSet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("XssMatchSet.name");
+    }
 
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      * 
      */
-    public List<XssMatchSetXssMatchTuple> xssMatchTuples;
+    private @Nullable UndeferrableValue<List<XssMatchSetXssMatchTuple>> xssMatchTuples;
 
-
+    public @Nullable List<XssMatchSetXssMatchTuple> xssMatchTuples() {
+        if (xssMatchTuples == null) return null;
+        return xssMatchTuples.getValue("XssMatchSet.xssMatchTuples");
+    }
 
 }

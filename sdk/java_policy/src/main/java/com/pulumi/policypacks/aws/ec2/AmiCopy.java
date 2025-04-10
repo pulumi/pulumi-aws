@@ -3,238 +3,333 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.AmiCopyEbsBlockDevice;
-import com.pulumi.policypacks.aws.ec2.AmiCopyEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.AmiCopyEbsBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.AmiCopyEphemeralBlockDevice;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/amiCopy:AmiCopy")
-public final class AmiCopy extends com.pulumi.resources.PolicyResource {
+public final class AmiCopy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
-    public String architecture;
+    private UndeferrableValue<String> architecture;
 
-
+    public String architecture() {
+        if (architecture == null) return null;
+        return architecture.getValue("AmiCopy.architecture");
+    }
 
     /**
      * ARN of the AMI.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AmiCopy.arn");
+    }
 
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public String bootMode;
+    private UndeferrableValue<String> bootMode;
 
-
+    public String bootMode() {
+        if (bootMode == null) return null;
+        return bootMode.getValue("AmiCopy.bootMode");
+    }
 
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String deprecationTime;
+    private @Nullable UndeferrableValue<String> deprecationTime;
 
-
+    public @Nullable String deprecationTime() {
+        if (deprecationTime == null) return null;
+        return deprecationTime.getValue("AmiCopy.deprecationTime");
+    }
 
     /**
      * Longer, human-readable description for the AMI.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AmiCopy.description");
+    }
 
     /**
      * ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
-    public String destinationOutpostArn;
+    private @Nullable UndeferrableValue<String> destinationOutpostArn;
 
-
+    public @Nullable String destinationOutpostArn() {
+        if (destinationOutpostArn == null) return null;
+        return destinationOutpostArn.getValue("AmiCopy.destinationOutpostArn");
+    }
 
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    public List<AmiCopyEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<AmiCopyEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<AmiCopyEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("AmiCopy.ebsBlockDevices");
+    }
 
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    public Boolean enaSupport;
+    private UndeferrableValue<Boolean> enaSupport;
 
-
+    public Boolean enaSupport() {
+        if (enaSupport == null) return null;
+        return enaSupport.getValue("AmiCopy.enaSupport");
+    }
 
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
-    public Boolean encrypted;
+    private @Nullable UndeferrableValue<Boolean> encrypted;
 
-
+    public @Nullable Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("AmiCopy.encrypted");
+    }
 
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    public List<AmiCopyEphemeralBlockDevice> ephemeralBlockDevices;
+    private UndeferrableValue<List<AmiCopyEphemeralBlockDevice>> ephemeralBlockDevices;
 
+    public List<AmiCopyEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("AmiCopy.ephemeralBlockDevices");
+    }
 
+    private UndeferrableValue<String> hypervisor;
 
-    public String hypervisor;
-
-
+    public String hypervisor() {
+        if (hypervisor == null) return null;
+        return hypervisor.getValue("AmiCopy.hypervisor");
+    }
 
     /**
      * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    public String imageLocation;
+    private UndeferrableValue<String> imageLocation;
 
+    public String imageLocation() {
+        if (imageLocation == null) return null;
+        return imageLocation.getValue("AmiCopy.imageLocation");
+    }
 
+    private UndeferrableValue<String> imageOwnerAlias;
 
-    public String imageOwnerAlias;
+    public String imageOwnerAlias() {
+        if (imageOwnerAlias == null) return null;
+        return imageOwnerAlias.getValue("AmiCopy.imageOwnerAlias");
+    }
 
+    private UndeferrableValue<String> imageType;
 
-
-    public String imageType;
-
-
+    public String imageType() {
+        if (imageType == null) return null;
+        return imageType.getValue("AmiCopy.imageType");
+    }
 
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    public String imdsSupport;
+    private UndeferrableValue<String> imdsSupport;
 
-
+    public String imdsSupport() {
+        if (imdsSupport == null) return null;
+        return imdsSupport.getValue("AmiCopy.imdsSupport");
+    }
 
     /**
      * ID of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      * 
      */
-    public String kernelId;
+    private UndeferrableValue<String> kernelId;
 
-
+    public String kernelId() {
+        if (kernelId == null) return null;
+        return kernelId.getValue("AmiCopy.kernelId");
+    }
 
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("AmiCopy.kmsKeyId");
+    }
 
     /**
      * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      * 
      */
-    public String lastLaunchedTime;
+    private UndeferrableValue<String> lastLaunchedTime;
 
+    public String lastLaunchedTime() {
+        if (lastLaunchedTime == null) return null;
+        return lastLaunchedTime.getValue("AmiCopy.lastLaunchedTime");
+    }
 
+    private UndeferrableValue<Boolean> manageEbsSnapshots;
 
-    public Boolean manageEbsSnapshots;
-
-
+    public Boolean manageEbsSnapshots() {
+        if (manageEbsSnapshots == null) return null;
+        return manageEbsSnapshots.getValue("AmiCopy.manageEbsSnapshots");
+    }
 
     /**
      * Region-unique name for the AMI.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AmiCopy.name");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("AmiCopy.ownerId");
+    }
 
+    private UndeferrableValue<String> platform;
 
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("AmiCopy.platform");
+    }
 
-    public String platform;
+    private UndeferrableValue<String> platformDetails;
 
+    public String platformDetails() {
+        if (platformDetails == null) return null;
+        return platformDetails.getValue("AmiCopy.platformDetails");
+    }
 
+    private UndeferrableValue<Boolean> public_;
 
-    public String platformDetails;
-
-
-
-    public Boolean public_;
-
-
+    public Boolean public_() {
+        if (public_ == null) return null;
+        return public_.getValue("AmiCopy.public_");
+    }
 
     /**
      * ID of an initrd image (ARI) that will be used when booting the
      * created instances.
      * 
      */
-    public String ramdiskId;
+    private UndeferrableValue<String> ramdiskId;
 
-
+    public String ramdiskId() {
+        if (ramdiskId == null) return null;
+        return ramdiskId.getValue("AmiCopy.ramdiskId");
+    }
 
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    public String rootDeviceName;
+    private UndeferrableValue<String> rootDeviceName;
 
+    public String rootDeviceName() {
+        if (rootDeviceName == null) return null;
+        return rootDeviceName.getValue("AmiCopy.rootDeviceName");
+    }
 
+    private UndeferrableValue<String> rootSnapshotId;
 
-    public String rootSnapshotId;
-
-
+    public String rootSnapshotId() {
+        if (rootSnapshotId == null) return null;
+        return rootSnapshotId.getValue("AmiCopy.rootSnapshotId");
+    }
 
     /**
      * Id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      * 
      */
-    public String sourceAmiId;
+    private UndeferrableValue<String> sourceAmiId;
 
-
+    public String sourceAmiId() {
+        if (sourceAmiId == null) return null;
+        return sourceAmiId.getValue("AmiCopy.sourceAmiId");
+    }
 
     /**
      * Region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
-    public String sourceAmiRegion;
+    private UndeferrableValue<String> sourceAmiRegion;
 
-
+    public String sourceAmiRegion() {
+        if (sourceAmiRegion == null) return null;
+        return sourceAmiRegion.getValue("AmiCopy.sourceAmiRegion");
+    }
 
     /**
      * When set to &#34;simple&#34; (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      * 
      */
-    public String sriovNetSupport;
+    private UndeferrableValue<String> sriovNetSupport;
 
-
+    public String sriovNetSupport() {
+        if (sriovNetSupport == null) return null;
+        return sriovNetSupport.getValue("AmiCopy.sriovNetSupport");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AmiCopy.tags");
+    }
 
     /**
      * @deprecated
@@ -242,29 +337,41 @@ public final class AmiCopy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AmiCopy.tagsAll");
+    }
 
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    public String tpmSupport;
+    private UndeferrableValue<String> tpmSupport;
 
-
+    public String tpmSupport() {
+        if (tpmSupport == null) return null;
+        return tpmSupport.getValue("AmiCopy.tpmSupport");
+    }
 
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      * 
      */
-    public String uefiData;
+    private UndeferrableValue<String> uefiData;
 
+    public String uefiData() {
+        if (uefiData == null) return null;
+        return uefiData.getValue("AmiCopy.uefiData");
+    }
 
+    private UndeferrableValue<String> usageOperation;
 
-    public String usageOperation;
-
-
+    public String usageOperation() {
+        if (usageOperation == null) return null;
+        return usageOperation.getValue("AmiCopy.usageOperation");
+    }
 
     /**
      * Keyword to choose what virtualization mode created instances
@@ -272,8 +379,11 @@ public final class AmiCopy extends com.pulumi.resources.PolicyResource {
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    public String virtualizationType;
+    private UndeferrableValue<String> virtualizationType;
 
-
+    public String virtualizationType() {
+        if (virtualizationType == null) return null;
+        return virtualizationType.getValue("AmiCopy.virtualizationType");
+    }
 
 }

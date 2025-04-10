@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:autoscaling/attachment:Attachment")
-public final class Attachment extends com.pulumi.resources.PolicyResource {
+public final class Attachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of ASG to associate with the ELB.
      * 
      */
-    public String autoscalingGroupName;
+    private UndeferrableValue<String> autoscalingGroupName;
 
-
+    public String autoscalingGroupName() {
+        if (autoscalingGroupName == null) return null;
+        return autoscalingGroupName.getValue("Attachment.autoscalingGroupName");
+    }
 
     /**
      * Name of the ELB.
      * 
      */
-    public String elb;
+    private @Nullable UndeferrableValue<String> elb;
 
-
+    public @Nullable String elb() {
+        if (elb == null) return null;
+        return elb.getValue("Attachment.elb");
+    }
 
     /**
      * ARN of a load balancer target group.
      * 
      */
-    public String lbTargetGroupArn;
+    private @Nullable UndeferrableValue<String> lbTargetGroupArn;
 
-
+    public @Nullable String lbTargetGroupArn() {
+        if (lbTargetGroupArn == null) return null;
+        return lbTargetGroupArn.getValue("Attachment.lbTargetGroupArn");
+    }
 
 }

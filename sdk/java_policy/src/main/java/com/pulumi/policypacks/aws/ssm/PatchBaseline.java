@@ -3,82 +3,108 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.PatchBaselineApprovalRule;
-import com.pulumi.policypacks.aws.ssm.PatchBaselineGlobalFilter;
-import com.pulumi.policypacks.aws.ssm.PatchBaselineSource;
+import com.pulumi.policypacks.aws.ssm.outputs.PatchBaselineApprovalRule;
+import com.pulumi.policypacks.aws.ssm.outputs.PatchBaselineGlobalFilter;
+import com.pulumi.policypacks.aws.ssm.outputs.PatchBaselineSource;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/patchBaseline:PatchBaseline")
-public final class PatchBaseline extends com.pulumi.resources.PolicyResource {
+public final class PatchBaseline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
-    public List<PatchBaselineApprovalRule> approvalRules;
+    private @Nullable UndeferrableValue<List<PatchBaselineApprovalRule>> approvalRules;
 
-
+    public @Nullable List<PatchBaselineApprovalRule> approvalRules() {
+        if (approvalRules == null) return null;
+        return approvalRules.getValue("PatchBaseline.approvalRules");
+    }
 
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
-    public List<String> approvedPatches;
+    private @Nullable UndeferrableValue<List<String>> approvedPatches;
 
-
+    public @Nullable List<String> approvedPatches() {
+        if (approvedPatches == null) return null;
+        return approvedPatches.getValue("PatchBaseline.approvedPatches");
+    }
 
     /**
      * Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
-    public String approvedPatchesComplianceLevel;
+    private @Nullable UndeferrableValue<String> approvedPatchesComplianceLevel;
 
-
+    public @Nullable String approvedPatchesComplianceLevel() {
+        if (approvedPatchesComplianceLevel == null) return null;
+        return approvedPatchesComplianceLevel.getValue("PatchBaseline.approvedPatchesComplianceLevel");
+    }
 
     /**
      * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
-    public Boolean approvedPatchesEnableNonSecurity;
+    private @Nullable UndeferrableValue<Boolean> approvedPatchesEnableNonSecurity;
 
-
+    public @Nullable Boolean approvedPatchesEnableNonSecurity() {
+        if (approvedPatchesEnableNonSecurity == null) return null;
+        return approvedPatchesEnableNonSecurity.getValue("PatchBaseline.approvedPatchesEnableNonSecurity");
+    }
 
     /**
      * ARN of the baseline.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PatchBaseline.arn");
+    }
 
     /**
      * Description of the patch baseline.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PatchBaseline.description");
+    }
 
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
-    public List<PatchBaselineGlobalFilter> globalFilters;
+    private @Nullable UndeferrableValue<List<PatchBaselineGlobalFilter>> globalFilters;
 
-
+    public @Nullable List<PatchBaselineGlobalFilter> globalFilters() {
+        if (globalFilters == null) return null;
+        return globalFilters.getValue("PatchBaseline.globalFilters");
+    }
 
     /**
      * JSON definition of the baseline.
      * 
      */
-    public String json;
+    private UndeferrableValue<String> json;
 
-
+    public String json() {
+        if (json == null) return null;
+        return json.getValue("PatchBaseline.json");
+    }
 
     /**
      * Name of the patch baseline.
@@ -86,49 +112,67 @@ public final class PatchBaseline extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PatchBaseline.name");
+    }
 
     /**
      * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
-    public String operatingSystem;
+    private @Nullable UndeferrableValue<String> operatingSystem;
 
-
+    public @Nullable String operatingSystem() {
+        if (operatingSystem == null) return null;
+        return operatingSystem.getValue("PatchBaseline.operatingSystem");
+    }
 
     /**
      * List of rejected patches.
      * 
      */
-    public List<String> rejectedPatches;
+    private @Nullable UndeferrableValue<List<String>> rejectedPatches;
 
-
+    public @Nullable List<String> rejectedPatches() {
+        if (rejectedPatches == null) return null;
+        return rejectedPatches.getValue("PatchBaseline.rejectedPatches");
+    }
 
     /**
      * Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
-    public String rejectedPatchesAction;
+    private UndeferrableValue<String> rejectedPatchesAction;
 
-
+    public String rejectedPatchesAction() {
+        if (rejectedPatchesAction == null) return null;
+        return rejectedPatchesAction.getValue("PatchBaseline.rejectedPatchesAction");
+    }
 
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
-    public List<PatchBaselineSource> sources;
+    private @Nullable UndeferrableValue<List<PatchBaselineSource>> sources;
 
-
+    public @Nullable List<PatchBaselineSource> sources() {
+        if (sources == null) return null;
+        return sources.getValue("PatchBaseline.sources");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PatchBaseline.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -138,8 +182,11 @@ public final class PatchBaseline extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PatchBaseline.tagsAll");
+    }
 
 }

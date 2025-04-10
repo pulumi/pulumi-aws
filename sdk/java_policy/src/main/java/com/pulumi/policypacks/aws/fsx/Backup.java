@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/backup:Backup")
-public final class Backup extends com.pulumi.resources.PolicyResource {
+public final class Backup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the backup.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Backup.arn");
+    }
 
     /**
      * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
-    public String fileSystemId;
+    private @Nullable UndeferrableValue<String> fileSystemId;
 
-
+    public @Nullable String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("Backup.fileSystemId");
+    }
 
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Backup.kmsKeyId");
+    }
 
     /**
      * AWS account identifier that created the file system.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("Backup.ownerId");
+    }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Backup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,24 +76,33 @@ public final class Backup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Backup.tagsAll");
+    }
 
     /**
      * The type of the file system backup.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Backup.type");
+    }
 
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
-    public String volumeId;
+    private @Nullable UndeferrableValue<String> volumeId;
 
-
+    public @Nullable String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("Backup.volumeId");
+    }
 
 }

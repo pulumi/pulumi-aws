@@ -3,76 +3,101 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")
-public final class WorkspaceServiceAccountToken extends com.pulumi.resources.PolicyResource {
+public final class WorkspaceServiceAccountToken extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies when the service account token was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("WorkspaceServiceAccountToken.createdAt");
+    }
 
     /**
      * Specifies when the service account token will expire.
      * 
      */
-    public String expiresAt;
+    private UndeferrableValue<String> expiresAt;
 
-
+    public String expiresAt() {
+        if (expiresAt == null) return null;
+        return expiresAt.getValue("WorkspaceServiceAccountToken.expiresAt");
+    }
 
     /**
      * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("WorkspaceServiceAccountToken.key");
+    }
 
     /**
      * A name for the token to create. The name must be unique within the workspace.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("WorkspaceServiceAccountToken.name");
+    }
 
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      * 
      */
-    public Integer secondsToLive;
+    private UndeferrableValue<Integer> secondsToLive;
 
-
+    public Integer secondsToLive() {
+        if (secondsToLive == null) return null;
+        return secondsToLive.getValue("WorkspaceServiceAccountToken.secondsToLive");
+    }
 
     /**
      * The ID of the service account for which to create a token.
      * 
      */
-    public String serviceAccountId;
+    private UndeferrableValue<String> serviceAccountId;
 
-
+    public String serviceAccountId() {
+        if (serviceAccountId == null) return null;
+        return serviceAccountId.getValue("WorkspaceServiceAccountToken.serviceAccountId");
+    }
 
     /**
      * Identifier of the service account token in the given Grafana workspace.
      * 
      */
-    public String serviceAccountTokenId;
+    private UndeferrableValue<String> serviceAccountTokenId;
 
-
+    public String serviceAccountTokenId() {
+        if (serviceAccountTokenId == null) return null;
+        return serviceAccountTokenId.getValue("WorkspaceServiceAccountToken.serviceAccountTokenId");
+    }
 
     /**
      * The Grafana workspace with which the service account token is associated.
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("WorkspaceServiceAccountToken.workspaceId");
+    }
 
 }

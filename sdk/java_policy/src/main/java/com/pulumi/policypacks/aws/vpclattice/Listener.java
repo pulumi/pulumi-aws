@@ -3,100 +3,135 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ListenerDefaultAction;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerDefaultAction;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/listener:Listener")
-public final class Listener extends com.pulumi.resources.PolicyResource {
+public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the listener.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Listener.arn");
+    }
 
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Listener.createdAt");
+    }
 
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      * 
      */
-    public ListenerDefaultAction defaultAction;
+    private UndeferrableValue<ListenerDefaultAction> defaultAction;
 
+    public ListenerDefaultAction defaultAction() {
+        if (defaultAction == null) return null;
+        return defaultAction.getValue("Listener.defaultAction");
+    }
 
+    private UndeferrableValue<String> lastUpdatedAt;
 
-    public String lastUpdatedAt;
-
-
+    public String lastUpdatedAt() {
+        if (lastUpdatedAt == null) return null;
+        return lastUpdatedAt.getValue("Listener.lastUpdatedAt");
+    }
 
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      * 
      */
-    public String listenerId;
+    private UndeferrableValue<String> listenerId;
 
-
+    public String listenerId() {
+        if (listenerId == null) return null;
+        return listenerId.getValue("Listener.listenerId");
+    }
 
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Listener.name");
+    }
 
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Listener.port");
+    }
 
     /**
      * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Listener.protocol");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * 
      */
-    public String serviceArn;
+    private UndeferrableValue<String> serviceArn;
 
-
+    public String serviceArn() {
+        if (serviceArn == null) return null;
+        return serviceArn.getValue("Listener.serviceArn");
+    }
 
     /**
      * ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
      * 
      */
-    public String serviceIdentifier;
+    private UndeferrableValue<String> serviceIdentifier;
 
-
+    public String serviceIdentifier() {
+        if (serviceIdentifier == null) return null;
+        return serviceIdentifier.getValue("Listener.serviceIdentifier");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Listener.tags");
+    }
 
     /**
      * @deprecated
@@ -104,8 +139,11 @@ public final class Listener extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Listener.tagsAll");
+    }
 
 }

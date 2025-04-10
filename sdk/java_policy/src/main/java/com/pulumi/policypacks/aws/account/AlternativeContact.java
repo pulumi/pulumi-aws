@@ -3,59 +3,79 @@
 
 package com.pulumi.policypacks.aws.account;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:account/alternativeContact:AlternativeContact")
-public final class AlternativeContact extends com.pulumi.resources.PolicyResource {
+public final class AlternativeContact extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
-    public String accountId;
+    private @Nullable UndeferrableValue<String> accountId;
 
-
+    public @Nullable String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AlternativeContact.accountId");
+    }
 
     /**
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
-    public String alternateContactType;
+    private UndeferrableValue<String> alternateContactType;
 
-
+    public String alternateContactType() {
+        if (alternateContactType == null) return null;
+        return alternateContactType.getValue("AlternativeContact.alternateContactType");
+    }
 
     /**
      * An email address for the alternate contact.
      * 
      */
-    public String emailAddress;
+    private UndeferrableValue<String> emailAddress;
 
-
+    public String emailAddress() {
+        if (emailAddress == null) return null;
+        return emailAddress.getValue("AlternativeContact.emailAddress");
+    }
 
     /**
      * Name of the alternate contact.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AlternativeContact.name");
+    }
 
     /**
      * Phone number for the alternate contact.
      * 
      */
-    public String phoneNumber;
+    private UndeferrableValue<String> phoneNumber;
 
-
+    public String phoneNumber() {
+        if (phoneNumber == null) return null;
+        return phoneNumber.getValue("AlternativeContact.phoneNumber");
+    }
 
     /**
      * Title for the alternate contact.
      * 
      */
-    public String title;
+    private UndeferrableValue<String> title;
 
-
+    public String title() {
+        if (title == null) return null;
+        return title.getValue("AlternativeContact.title");
+    }
 
 }

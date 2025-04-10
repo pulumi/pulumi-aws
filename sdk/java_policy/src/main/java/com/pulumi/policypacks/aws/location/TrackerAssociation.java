@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.location;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:location/trackerAssociation:TrackerAssociation")
-public final class TrackerAssociation extends com.pulumi.resources.PolicyResource {
+public final class TrackerAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    public String consumerArn;
+    private UndeferrableValue<String> consumerArn;
 
-
+    public String consumerArn() {
+        if (consumerArn == null) return null;
+        return consumerArn.getValue("TrackerAssociation.consumerArn");
+    }
 
     /**
      * The name of the tracker resource to be associated with a geofence collection.
      * 
      */
-    public String trackerName;
+    private UndeferrableValue<String> trackerName;
 
-
+    public String trackerName() {
+        if (trackerName == null) return null;
+        return trackerName.getValue("TrackerAssociation.trackerName");
+    }
 
 }

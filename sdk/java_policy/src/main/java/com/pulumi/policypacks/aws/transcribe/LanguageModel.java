@@ -3,58 +3,78 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transcribe.LanguageModelInputDataConfig;
+import com.pulumi.policypacks.aws.transcribe.outputs.LanguageModelInputDataConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transcribe/languageModel:LanguageModel")
-public final class LanguageModel extends com.pulumi.resources.PolicyResource {
+public final class LanguageModel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the LanguageModel.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LanguageModel.arn");
+    }
 
     /**
      * Name of reference base model.
      * 
      */
-    public String baseModelName;
+    private UndeferrableValue<String> baseModelName;
 
-
+    public String baseModelName() {
+        if (baseModelName == null) return null;
+        return baseModelName.getValue("LanguageModel.baseModelName");
+    }
 
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      * 
      */
-    public LanguageModelInputDataConfig inputDataConfig;
+    private UndeferrableValue<LanguageModelInputDataConfig> inputDataConfig;
 
-
+    public LanguageModelInputDataConfig inputDataConfig() {
+        if (inputDataConfig == null) return null;
+        return inputDataConfig.getValue("LanguageModel.inputDataConfig");
+    }
 
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("LanguageModel.languageCode");
+    }
 
     /**
      * The model name.
      * 
      */
-    public String modelName;
+    private UndeferrableValue<String> modelName;
 
+    public String modelName() {
+        if (modelName == null) return null;
+        return modelName.getValue("LanguageModel.modelName");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LanguageModel.tags");
+    }
 
     /**
      * @deprecated
@@ -62,8 +82,11 @@ public final class LanguageModel extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LanguageModel.tagsAll");
+    }
 
 }

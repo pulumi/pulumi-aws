@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/replicationInstance:ReplicationInstance")
-public final class ReplicationInstance extends com.pulumi.resources.PolicyResource {
+public final class ReplicationInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("ReplicationInstance.allocatedStorage");
+    }
 
     /**
      * Indicates that major version upgrades are allowed.
      * 
      */
-    public Boolean allowMajorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
 
-
+    public @Nullable Boolean allowMajorVersionUpgrade() {
+        if (allowMajorVersionUpgrade == null) return null;
+        return allowMajorVersionUpgrade.getValue("ReplicationInstance.allowMajorVersionUpgrade");
+    }
 
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("ReplicationInstance.applyImmediately");
+    }
 
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("ReplicationInstance.autoMinorVersionUpgrade");
+    }
 
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("ReplicationInstance.availabilityZone");
+    }
 
     /**
      * The engine version number of the replication instance.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ReplicationInstance.engineVersion");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("ReplicationInstance.kmsKeyArn");
+    }
 
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
-    public Boolean multiAz;
+    private UndeferrableValue<Boolean> multiAz;
 
-
+    public Boolean multiAz() {
+        if (multiAz == null) return null;
+        return multiAz.getValue("ReplicationInstance.multiAz");
+    }
 
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("ReplicationInstance.networkType");
+    }
 
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -95,33 +124,45 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * - Constraints: Minimum 30-minute window.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("ReplicationInstance.preferredMaintenanceWindow");
+    }
 
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    public Boolean publiclyAccessible;
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("ReplicationInstance.publiclyAccessible");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    public String replicationInstanceArn;
+    private UndeferrableValue<String> replicationInstanceArn;
 
-
+    public String replicationInstanceArn() {
+        if (replicationInstanceArn == null) return null;
+        return replicationInstanceArn.getValue("ReplicationInstance.replicationInstanceArn");
+    }
 
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      * 
      */
-    public String replicationInstanceClass;
+    private UndeferrableValue<String> replicationInstanceClass;
 
-
+    public String replicationInstanceClass() {
+        if (replicationInstanceClass == null) return null;
+        return replicationInstanceClass.getValue("ReplicationInstance.replicationInstanceClass");
+    }
 
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
@@ -132,41 +173,56 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * - Cannot contain two consecutive hyphens.
      * 
      */
-    public String replicationInstanceId;
+    private UndeferrableValue<String> replicationInstanceId;
 
-
+    public String replicationInstanceId() {
+        if (replicationInstanceId == null) return null;
+        return replicationInstanceId.getValue("ReplicationInstance.replicationInstanceId");
+    }
 
     /**
      * A list of the private IP addresses of the replication instance.
      * 
      */
-    public List<String> replicationInstancePrivateIps;
+    private UndeferrableValue<List<String>> replicationInstancePrivateIps;
 
-
+    public List<String> replicationInstancePrivateIps() {
+        if (replicationInstancePrivateIps == null) return null;
+        return replicationInstancePrivateIps.getValue("ReplicationInstance.replicationInstancePrivateIps");
+    }
 
     /**
      * A list of the public IP addresses of the replication instance.
      * 
      */
-    public List<String> replicationInstancePublicIps;
+    private UndeferrableValue<List<String>> replicationInstancePublicIps;
 
-
+    public List<String> replicationInstancePublicIps() {
+        if (replicationInstancePublicIps == null) return null;
+        return replicationInstancePublicIps.getValue("ReplicationInstance.replicationInstancePublicIps");
+    }
 
     /**
      * A subnet group to associate with the replication instance.
      * 
      */
-    public String replicationSubnetGroupId;
+    private UndeferrableValue<String> replicationSubnetGroupId;
 
-
+    public String replicationSubnetGroupId() {
+        if (replicationSubnetGroupId == null) return null;
+        return replicationSubnetGroupId.getValue("ReplicationInstance.replicationSubnetGroupId");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationInstance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -176,16 +232,22 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationInstance.tagsAll");
+    }
 
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("ReplicationInstance.vpcSecurityGroupIds");
+    }
 
 }

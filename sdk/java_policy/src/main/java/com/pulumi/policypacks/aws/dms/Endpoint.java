@@ -3,103 +3,135 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dms.EndpointElasticsearchSettings;
-import com.pulumi.policypacks.aws.dms.EndpointKafkaSettings;
-import com.pulumi.policypacks.aws.dms.EndpointKinesisSettings;
-import com.pulumi.policypacks.aws.dms.EndpointMongodbSettings;
-import com.pulumi.policypacks.aws.dms.EndpointPostgresSettings;
-import com.pulumi.policypacks.aws.dms.EndpointRedisSettings;
-import com.pulumi.policypacks.aws.dms.EndpointRedshiftSettings;
-import com.pulumi.policypacks.aws.dms.EndpointS3Settings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointElasticsearchSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointKafkaSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointKinesisSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointMongodbSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointPostgresSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointRedisSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointRedshiftSettings;
+import com.pulumi.policypacks.aws.dms.outputs.EndpointS3Settings;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/endpoint:Endpoint")
-public final class Endpoint extends com.pulumi.resources.PolicyResource {
+public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN for the certificate.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("Endpoint.certificateArn");
+    }
 
     /**
      * Name of the endpoint database.
      * 
      */
-    public String databaseName;
+    private @Nullable UndeferrableValue<String> databaseName;
 
-
+    public @Nullable String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Endpoint.databaseName");
+    }
 
     /**
      * Configuration block for OpenSearch settings. See below.
      * 
      */
-    public EndpointElasticsearchSettings elasticsearchSettings;
+    private @Nullable UndeferrableValue<EndpointElasticsearchSettings> elasticsearchSettings;
 
-
+    public @Nullable EndpointElasticsearchSettings elasticsearchSettings() {
+        if (elasticsearchSettings == null) return null;
+        return elasticsearchSettings.getValue("Endpoint.elasticsearchSettings");
+    }
 
     /**
      * ARN for the endpoint.
      * 
      */
-    public String endpointArn;
+    private UndeferrableValue<String> endpointArn;
 
-
+    public String endpointArn() {
+        if (endpointArn == null) return null;
+        return endpointArn.getValue("Endpoint.endpointArn");
+    }
 
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      * 
      */
-    public String endpointId;
+    private UndeferrableValue<String> endpointId;
 
-
+    public String endpointId() {
+        if (endpointId == null) return null;
+        return endpointId.getValue("Endpoint.endpointId");
+    }
 
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      * 
      */
-    public String endpointType;
+    private UndeferrableValue<String> endpointType;
 
-
+    public String endpointType() {
+        if (endpointType == null) return null;
+        return endpointType.getValue("Endpoint.endpointType");
+    }
 
     /**
      * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      * 
      */
-    public String engineName;
+    private UndeferrableValue<String> engineName;
 
-
+    public String engineName() {
+        if (engineName == null) return null;
+        return engineName.getValue("Endpoint.engineName");
+    }
 
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      * 
      */
-    public String extraConnectionAttributes;
+    private UndeferrableValue<String> extraConnectionAttributes;
 
-
+    public String extraConnectionAttributes() {
+        if (extraConnectionAttributes == null) return null;
+        return extraConnectionAttributes.getValue("Endpoint.extraConnectionAttributes");
+    }
 
     /**
      * Configuration block for Kafka settings. See below.
      * 
      */
-    public EndpointKafkaSettings kafkaSettings;
+    private @Nullable UndeferrableValue<EndpointKafkaSettings> kafkaSettings;
 
-
+    public @Nullable EndpointKafkaSettings kafkaSettings() {
+        if (kafkaSettings == null) return null;
+        return kafkaSettings.getValue("Endpoint.kafkaSettings");
+    }
 
     /**
      * Configuration block for Kinesis settings. See below.
      * 
      */
-    public EndpointKinesisSettings kinesisSettings;
+    private @Nullable UndeferrableValue<EndpointKinesisSettings> kinesisSettings;
 
-
+    public @Nullable EndpointKinesisSettings kinesisSettings() {
+        if (kinesisSettings == null) return null;
+        return kinesisSettings.getValue("Endpoint.kinesisSettings");
+    }
 
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
@@ -107,65 +139,92 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Endpoint.kmsKeyArn");
+    }
 
     /**
      * Configuration block for MongoDB settings. See below.
      * 
      */
-    public EndpointMongodbSettings mongodbSettings;
+    private @Nullable UndeferrableValue<EndpointMongodbSettings> mongodbSettings;
 
-
+    public @Nullable EndpointMongodbSettings mongodbSettings() {
+        if (mongodbSettings == null) return null;
+        return mongodbSettings.getValue("Endpoint.mongodbSettings");
+    }
 
     /**
      * Password to be used to login to the endpoint database.
      * 
      */
-    public String password;
+    private @Nullable UndeferrableValue<String> password;
 
+    public @Nullable String password() {
+        if (password == null) return null;
+        return password.getValue("Endpoint.password");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> pauseReplicationTasks;
 
-    public Boolean pauseReplicationTasks;
-
-
+    public @Nullable Boolean pauseReplicationTasks() {
+        if (pauseReplicationTasks == null) return null;
+        return pauseReplicationTasks.getValue("Endpoint.pauseReplicationTasks");
+    }
 
     /**
      * Port used by the endpoint database.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("Endpoint.port");
+    }
 
     /**
      * Configuration block for Postgres settings. See below.
      * 
      */
-    public EndpointPostgresSettings postgresSettings;
+    private @Nullable UndeferrableValue<EndpointPostgresSettings> postgresSettings;
 
+    public @Nullable EndpointPostgresSettings postgresSettings() {
+        if (postgresSettings == null) return null;
+        return postgresSettings.getValue("Endpoint.postgresSettings");
+    }
 
+    private @Nullable UndeferrableValue<EndpointRedisSettings> redisSettings;
 
-    public EndpointRedisSettings redisSettings;
-
-
+    public @Nullable EndpointRedisSettings redisSettings() {
+        if (redisSettings == null) return null;
+        return redisSettings.getValue("Endpoint.redisSettings");
+    }
 
     /**
      * Configuration block for Redshift settings. See below.
      * 
      */
-    public EndpointRedshiftSettings redshiftSettings;
+    private UndeferrableValue<EndpointRedshiftSettings> redshiftSettings;
 
-
+    public EndpointRedshiftSettings redshiftSettings() {
+        if (redshiftSettings == null) return null;
+        return redshiftSettings.getValue("Endpoint.redshiftSettings");
+    }
 
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      * 
      */
-    public EndpointS3Settings s3Settings;
+    private @Nullable UndeferrableValue<EndpointS3Settings> s3Settings;
 
-
+    public @Nullable EndpointS3Settings s3Settings() {
+        if (s3Settings == null) return null;
+        return s3Settings.getValue("Endpoint.s3Settings");
+    }
 
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
@@ -173,49 +232,67 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can&#39;t specify both.
      * 
      */
-    public String secretsManagerAccessRoleArn;
+    private @Nullable UndeferrableValue<String> secretsManagerAccessRoleArn;
 
-
+    public @Nullable String secretsManagerAccessRoleArn() {
+        if (secretsManagerAccessRoleArn == null) return null;
+        return secretsManagerAccessRoleArn.getValue("Endpoint.secretsManagerAccessRoleArn");
+    }
 
     /**
      * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      * 
      */
-    public String secretsManagerArn;
+    private @Nullable UndeferrableValue<String> secretsManagerArn;
 
-
+    public @Nullable String secretsManagerArn() {
+        if (secretsManagerArn == null) return null;
+        return secretsManagerArn.getValue("Endpoint.secretsManagerArn");
+    }
 
     /**
      * Host name of the server.
      * 
      */
-    public String serverName;
+    private @Nullable UndeferrableValue<String> serverName;
 
-
+    public @Nullable String serverName() {
+        if (serverName == null) return null;
+        return serverName.getValue("Endpoint.serverName");
+    }
 
     /**
      * ARN used by the service access IAM role for dynamodb endpoints.
      * 
      */
-    public String serviceAccessRole;
+    private @Nullable UndeferrableValue<String> serviceAccessRole;
 
-
+    public @Nullable String serviceAccessRole() {
+        if (serviceAccessRole == null) return null;
+        return serviceAccessRole.getValue("Endpoint.serviceAccessRole");
+    }
 
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      * 
      */
-    public String sslMode;
+    private UndeferrableValue<String> sslMode;
 
-
+    public String sslMode() {
+        if (sslMode == null) return null;
+        return sslMode.getValue("Endpoint.sslMode");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Endpoint.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,16 +302,22 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Endpoint.tagsAll");
+    }
 
     /**
      * User name to be used to login to the endpoint database.
      * 
      */
-    public String username;
+    private @Nullable UndeferrableValue<String> username;
 
-
+    public @Nullable String username() {
+        if (username == null) return null;
+        return username.getValue("Endpoint.username");
+    }
 
 }

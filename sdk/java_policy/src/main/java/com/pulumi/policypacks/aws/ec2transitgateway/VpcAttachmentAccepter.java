@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter")
-public final class VpcAttachmentAccepter extends com.pulumi.resources.PolicyResource {
+public final class VpcAttachmentAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public String applianceModeSupport;
+    private UndeferrableValue<String> applianceModeSupport;
 
-
+    public String applianceModeSupport() {
+        if (applianceModeSupport == null) return null;
+        return applianceModeSupport.getValue("VpcAttachmentAccepter.applianceModeSupport");
+    }
 
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public String dnsSupport;
+    private UndeferrableValue<String> dnsSupport;
 
-
+    public String dnsSupport() {
+        if (dnsSupport == null) return null;
+        return dnsSupport.getValue("VpcAttachmentAccepter.dnsSupport");
+    }
 
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public String ipv6Support;
+    private UndeferrableValue<String> ipv6Support;
 
-
+    public String ipv6Support() {
+        if (ipv6Support == null) return null;
+        return ipv6Support.getValue("VpcAttachmentAccepter.ipv6Support");
+    }
 
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    public String securityGroupReferencingSupport;
+    private UndeferrableValue<String> securityGroupReferencingSupport;
 
-
+    public String securityGroupReferencingSupport() {
+        if (securityGroupReferencingSupport == null) return null;
+        return securityGroupReferencingSupport.getValue("VpcAttachmentAccepter.securityGroupReferencingSupport");
+    }
 
     /**
      * Identifiers of EC2 Subnets.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("VpcAttachmentAccepter.subnetIds");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcAttachmentAccepter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,56 +89,77 @@ public final class VpcAttachmentAccepter extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcAttachmentAccepter.tagsAll");
+    }
 
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("VpcAttachmentAccepter.transitGatewayAttachmentId");
+    }
 
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      * 
      */
-    public Boolean transitGatewayDefaultRouteTableAssociation;
+    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTableAssociation;
 
-
+    public @Nullable Boolean transitGatewayDefaultRouteTableAssociation() {
+        if (transitGatewayDefaultRouteTableAssociation == null) return null;
+        return transitGatewayDefaultRouteTableAssociation.getValue("VpcAttachmentAccepter.transitGatewayDefaultRouteTableAssociation");
+    }
 
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      * 
      */
-    public Boolean transitGatewayDefaultRouteTablePropagation;
+    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTablePropagation;
 
-
+    public @Nullable Boolean transitGatewayDefaultRouteTablePropagation() {
+        if (transitGatewayDefaultRouteTablePropagation == null) return null;
+        return transitGatewayDefaultRouteTablePropagation.getValue("VpcAttachmentAccepter.transitGatewayDefaultRouteTablePropagation");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("VpcAttachmentAccepter.transitGatewayId");
+    }
 
     /**
      * Identifier of EC2 VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcAttachmentAccepter.vpcId");
+    }
 
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      * 
      */
-    public String vpcOwnerId;
+    private UndeferrableValue<String> vpcOwnerId;
 
-
+    public String vpcOwnerId() {
+        if (vpcOwnerId == null) return null;
+        return vpcOwnerId.getValue("VpcAttachmentAccepter.vpcOwnerId");
+    }
 
 }

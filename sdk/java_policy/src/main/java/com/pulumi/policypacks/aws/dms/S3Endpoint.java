@@ -3,375 +3,512 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/s3Endpoint:S3Endpoint")
-public final class S3Endpoint extends com.pulumi.resources.PolicyResource {
+public final class S3Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to add column name information to the .csv output file. Default is `false`.
      * 
      */
-    public Boolean addColumnName;
+    private @Nullable UndeferrableValue<Boolean> addColumnName;
 
-
+    public @Nullable Boolean addColumnName() {
+        if (addColumnName == null) return null;
+        return addColumnName.getValue("S3Endpoint.addColumnName");
+    }
 
     /**
      * Whether to add padding. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    public Boolean addTrailingPaddingCharacter;
+    private @Nullable UndeferrableValue<Boolean> addTrailingPaddingCharacter;
 
-
+    public @Nullable Boolean addTrailingPaddingCharacter() {
+        if (addTrailingPaddingCharacter == null) return null;
+        return addTrailingPaddingCharacter.getValue("S3Endpoint.addTrailingPaddingCharacter");
+    }
 
     /**
      * S3 object prefix.
      * 
      */
-    public String bucketFolder;
+    private @Nullable UndeferrableValue<String> bucketFolder;
 
-
+    public @Nullable String bucketFolder() {
+        if (bucketFolder == null) return null;
+        return bucketFolder.getValue("S3Endpoint.bucketFolder");
+    }
 
     /**
      * S3 bucket name.
      * 
      */
-    public String bucketName;
+    private UndeferrableValue<String> bucketName;
 
-
+    public String bucketName() {
+        if (bucketName == null) return null;
+        return bucketName.getValue("S3Endpoint.bucketName");
+    }
 
     /**
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      * 
      */
-    public String cannedAclForObjects;
+    private @Nullable UndeferrableValue<String> cannedAclForObjects;
 
-
+    public @Nullable String cannedAclForObjects() {
+        if (cannedAclForObjects == null) return null;
+        return cannedAclForObjects.getValue("S3Endpoint.cannedAclForObjects");
+    }
 
     /**
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    public Boolean cdcInsertsAndUpdates;
+    private @Nullable UndeferrableValue<Boolean> cdcInsertsAndUpdates;
 
-
+    public @Nullable Boolean cdcInsertsAndUpdates() {
+        if (cdcInsertsAndUpdates == null) return null;
+        return cdcInsertsAndUpdates.getValue("S3Endpoint.cdcInsertsAndUpdates");
+    }
 
     /**
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    public Boolean cdcInsertsOnly;
+    private @Nullable UndeferrableValue<Boolean> cdcInsertsOnly;
 
-
+    public @Nullable Boolean cdcInsertsOnly() {
+        if (cdcInsertsOnly == null) return null;
+        return cdcInsertsOnly.getValue("S3Endpoint.cdcInsertsOnly");
+    }
 
     /**
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
      * 
      */
-    public Integer cdcMaxBatchInterval;
+    private @Nullable UndeferrableValue<Integer> cdcMaxBatchInterval;
 
-
+    public @Nullable Integer cdcMaxBatchInterval() {
+        if (cdcMaxBatchInterval == null) return null;
+        return cdcMaxBatchInterval.getValue("S3Endpoint.cdcMaxBatchInterval");
+    }
 
     /**
      * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      * 
      */
-    public Integer cdcMinFileSize;
+    private @Nullable UndeferrableValue<Integer> cdcMinFileSize;
 
-
+    public @Nullable Integer cdcMinFileSize() {
+        if (cdcMinFileSize == null) return null;
+        return cdcMinFileSize.getValue("S3Endpoint.cdcMinFileSize");
+    }
 
     /**
      * Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
      * 
      */
-    public String cdcPath;
+    private @Nullable UndeferrableValue<String> cdcPath;
 
-
+    public @Nullable String cdcPath() {
+        if (cdcPath == null) return null;
+        return cdcPath.getValue("S3Endpoint.cdcPath");
+    }
 
     /**
      * ARN for the certificate.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("S3Endpoint.certificateArn");
+    }
 
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      * 
      */
-    public String compressionType;
+    private @Nullable UndeferrableValue<String> compressionType;
 
-
+    public @Nullable String compressionType() {
+        if (compressionType == null) return null;
+        return compressionType.getValue("S3Endpoint.compressionType");
+    }
 
     /**
      * Delimiter used to separate columns in the source files. Default is `,`.
      * 
      */
-    public String csvDelimiter;
+    private @Nullable UndeferrableValue<String> csvDelimiter;
 
-
+    public @Nullable String csvDelimiter() {
+        if (csvDelimiter == null) return null;
+        return csvDelimiter.getValue("S3Endpoint.csvDelimiter");
+    }
 
     /**
      * Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
      * 
      */
-    public String csvNoSupValue;
+    private @Nullable UndeferrableValue<String> csvNoSupValue;
 
-
+    public @Nullable String csvNoSupValue() {
+        if (csvNoSupValue == null) return null;
+        return csvNoSupValue.getValue("S3Endpoint.csvNoSupValue");
+    }
 
     /**
      * String to as null when writing to the target. (AWS default is `NULL`.)
      * 
      */
-    public String csvNullValue;
+    private @Nullable UndeferrableValue<String> csvNullValue;
 
-
+    public @Nullable String csvNullValue() {
+        if (csvNullValue == null) return null;
+        return csvNullValue.getValue("S3Endpoint.csvNullValue");
+    }
 
     /**
      * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
      * 
      */
-    public String csvRowDelimiter;
+    private @Nullable UndeferrableValue<String> csvRowDelimiter;
 
-
+    public @Nullable String csvRowDelimiter() {
+        if (csvRowDelimiter == null) return null;
+        return csvRowDelimiter.getValue("S3Endpoint.csvRowDelimiter");
+    }
 
     /**
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
      * 
      */
-    public String dataFormat;
+    private @Nullable UndeferrableValue<String> dataFormat;
 
-
+    public @Nullable String dataFormat() {
+        if (dataFormat == null) return null;
+        return dataFormat.getValue("S3Endpoint.dataFormat");
+    }
 
     /**
      * Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */
-    public Integer dataPageSize;
+    private @Nullable UndeferrableValue<Integer> dataPageSize;
 
-
+    public @Nullable Integer dataPageSize() {
+        if (dataPageSize == null) return null;
+        return dataPageSize.getValue("S3Endpoint.dataPageSize");
+    }
 
     /**
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
      * 
      */
-    public String datePartitionDelimiter;
+    private @Nullable UndeferrableValue<String> datePartitionDelimiter;
 
-
+    public @Nullable String datePartitionDelimiter() {
+        if (datePartitionDelimiter == null) return null;
+        return datePartitionDelimiter.getValue("S3Endpoint.datePartitionDelimiter");
+    }
 
     /**
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    public Boolean datePartitionEnabled;
+    private @Nullable UndeferrableValue<Boolean> datePartitionEnabled;
 
-
+    public @Nullable Boolean datePartitionEnabled() {
+        if (datePartitionEnabled == null) return null;
+        return datePartitionEnabled.getValue("S3Endpoint.datePartitionEnabled");
+    }
 
     /**
      * Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      * 
      */
-    public String datePartitionSequence;
+    private @Nullable UndeferrableValue<String> datePartitionSequence;
 
-
+    public @Nullable String datePartitionSequence() {
+        if (datePartitionSequence == null) return null;
+        return datePartitionSequence.getValue("S3Endpoint.datePartitionSequence");
+    }
 
     /**
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
      * 
      */
-    public String datePartitionTimezone;
+    private @Nullable UndeferrableValue<String> datePartitionTimezone;
 
-
+    public @Nullable String datePartitionTimezone() {
+        if (datePartitionTimezone == null) return null;
+        return datePartitionTimezone.getValue("S3Endpoint.datePartitionTimezone");
+    }
 
     /**
      * Undocumented argument for use as directed by AWS Support.
      * 
      */
-    public Boolean detachTargetOnLobLookupFailureParquet;
+    private @Nullable UndeferrableValue<Boolean> detachTargetOnLobLookupFailureParquet;
 
-
+    public @Nullable Boolean detachTargetOnLobLookupFailureParquet() {
+        if (detachTargetOnLobLookupFailureParquet == null) return null;
+        return detachTargetOnLobLookupFailureParquet.getValue("S3Endpoint.detachTargetOnLobLookupFailureParquet");
+    }
 
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */
-    public Integer dictPageSizeLimit;
+    private @Nullable UndeferrableValue<Integer> dictPageSizeLimit;
 
-
+    public @Nullable Integer dictPageSizeLimit() {
+        if (dictPageSizeLimit == null) return null;
+        return dictPageSizeLimit.getValue("S3Endpoint.dictPageSizeLimit");
+    }
 
     /**
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      * 
      */
-    public Boolean enableStatistics;
+    private @Nullable UndeferrableValue<Boolean> enableStatistics;
 
-
+    public @Nullable Boolean enableStatistics() {
+        if (enableStatistics == null) return null;
+        return enableStatistics.getValue("S3Endpoint.enableStatistics");
+    }
 
     /**
      * Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
      * 
      */
-    public String encodingType;
+    private @Nullable UndeferrableValue<String> encodingType;
 
-
+    public @Nullable String encodingType() {
+        if (encodingType == null) return null;
+        return encodingType.getValue("S3Endpoint.encodingType");
+    }
 
     /**
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      * 
      */
-    public String encryptionMode;
+    private @Nullable UndeferrableValue<String> encryptionMode;
 
-
+    public @Nullable String encryptionMode() {
+        if (encryptionMode == null) return null;
+        return encryptionMode.getValue("S3Endpoint.encryptionMode");
+    }
 
     /**
      * ARN for the endpoint.
      * 
      */
-    public String endpointArn;
+    private UndeferrableValue<String> endpointArn;
 
-
+    public String endpointArn() {
+        if (endpointArn == null) return null;
+        return endpointArn.getValue("S3Endpoint.endpointArn");
+    }
 
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      * 
      */
-    public String endpointId;
+    private UndeferrableValue<String> endpointId;
 
-
+    public String endpointId() {
+        if (endpointId == null) return null;
+        return endpointId.getValue("S3Endpoint.endpointId");
+    }
 
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      * 
      */
-    public String endpointType;
+    private UndeferrableValue<String> endpointType;
 
-
+    public String endpointType() {
+        if (endpointType == null) return null;
+        return endpointType.getValue("S3Endpoint.endpointType");
+    }
 
     /**
      * Expanded name for the engine name.
      * 
      */
-    public String engineDisplayName;
+    private UndeferrableValue<String> engineDisplayName;
 
-
+    public String engineDisplayName() {
+        if (engineDisplayName == null) return null;
+        return engineDisplayName.getValue("S3Endpoint.engineDisplayName");
+    }
 
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("S3Endpoint.expectedBucketOwner");
+    }
 
     /**
      * Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      * 
      */
-    public String externalId;
+    private UndeferrableValue<String> externalId;
 
-
+    public String externalId() {
+        if (externalId == null) return null;
+        return externalId.getValue("S3Endpoint.externalId");
+    }
 
     /**
      * JSON document that describes how AWS DMS should interpret the data.
      * 
      */
-    public String externalTableDefinition;
+    private @Nullable UndeferrableValue<String> externalTableDefinition;
 
-
+    public @Nullable String externalTableDefinition() {
+        if (externalTableDefinition == null) return null;
+        return externalTableDefinition.getValue("S3Endpoint.externalTableDefinition");
+    }
 
     /**
      * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
      * 
      */
-    public Boolean glueCatalogGeneration;
+    private @Nullable UndeferrableValue<Boolean> glueCatalogGeneration;
 
-
+    public @Nullable Boolean glueCatalogGeneration() {
+        if (glueCatalogGeneration == null) return null;
+        return glueCatalogGeneration.getValue("S3Endpoint.glueCatalogGeneration");
+    }
 
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      * 
      */
-    public Integer ignoreHeaderRows;
+    private @Nullable UndeferrableValue<Integer> ignoreHeaderRows;
 
-
+    public @Nullable Integer ignoreHeaderRows() {
+        if (ignoreHeaderRows == null) return null;
+        return ignoreHeaderRows.getValue("S3Endpoint.ignoreHeaderRows");
+    }
 
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
-    public Boolean includeOpForFullLoad;
+    private @Nullable UndeferrableValue<Boolean> includeOpForFullLoad;
 
-
+    public @Nullable Boolean includeOpForFullLoad() {
+        if (includeOpForFullLoad == null) return null;
+        return includeOpForFullLoad.getValue("S3Endpoint.includeOpForFullLoad");
+    }
 
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("S3Endpoint.kmsKeyArn");
+    }
 
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      * 
      */
-    public Integer maxFileSize;
+    private @Nullable UndeferrableValue<Integer> maxFileSize;
 
-
+    public @Nullable Integer maxFileSize() {
+        if (maxFileSize == null) return null;
+        return maxFileSize.getValue("S3Endpoint.maxFileSize");
+    }
 
     /**
      * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    public Boolean parquetTimestampInMillisecond;
+    private @Nullable UndeferrableValue<Boolean> parquetTimestampInMillisecond;
 
-
+    public @Nullable Boolean parquetTimestampInMillisecond() {
+        if (parquetTimestampInMillisecond == null) return null;
+        return parquetTimestampInMillisecond.getValue("S3Endpoint.parquetTimestampInMillisecond");
+    }
 
     /**
      * Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
      * 
      */
-    public String parquetVersion;
+    private @Nullable UndeferrableValue<String> parquetVersion;
 
-
+    public @Nullable String parquetVersion() {
+        if (parquetVersion == null) return null;
+        return parquetVersion.getValue("S3Endpoint.parquetVersion");
+    }
 
     /**
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    public Boolean preserveTransactions;
+    private @Nullable UndeferrableValue<Boolean> preserveTransactions;
 
-
+    public @Nullable Boolean preserveTransactions() {
+        if (preserveTransactions == null) return null;
+        return preserveTransactions.getValue("S3Endpoint.preserveTransactions");
+    }
 
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      * 
      */
-    public Boolean rfc4180;
+    private @Nullable UndeferrableValue<Boolean> rfc4180;
 
-
+    public @Nullable Boolean rfc4180() {
+        if (rfc4180 == null) return null;
+        return rfc4180.getValue("S3Endpoint.rfc4180");
+    }
 
     /**
      * Number of rows in a row group. (AWS default is `10000`.)
      * 
      */
-    public Integer rowGroupLength;
+    private @Nullable UndeferrableValue<Integer> rowGroupLength;
 
-
+    public @Nullable Integer rowGroupLength() {
+        if (rowGroupLength == null) return null;
+        return rowGroupLength.getValue("S3Endpoint.rowGroupLength");
+    }
 
     /**
      * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
      * 
      */
-    public String serverSideEncryptionKmsKeyId;
+    private @Nullable UndeferrableValue<String> serverSideEncryptionKmsKeyId;
 
-
+    public @Nullable String serverSideEncryptionKmsKeyId() {
+        if (serverSideEncryptionKmsKeyId == null) return null;
+        return serverSideEncryptionKmsKeyId.getValue("S3Endpoint.serverSideEncryptionKmsKeyId");
+    }
 
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
@@ -379,33 +516,45 @@ public final class S3Endpoint extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String serviceAccessRoleArn;
+    private UndeferrableValue<String> serviceAccessRoleArn;
 
-
+    public String serviceAccessRoleArn() {
+        if (serviceAccessRoleArn == null) return null;
+        return serviceAccessRoleArn.getValue("S3Endpoint.serviceAccessRoleArn");
+    }
 
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      * 
      */
-    public String sslMode;
+    private UndeferrableValue<String> sslMode;
 
-
+    public String sslMode() {
+        if (sslMode == null) return null;
+        return sslMode.getValue("S3Endpoint.sslMode");
+    }
 
     /**
      * Status of the endpoint.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("S3Endpoint.status");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("S3Endpoint.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -415,32 +564,44 @@ public final class S3Endpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("S3Endpoint.tagsAll");
+    }
 
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      * 
      */
-    public String timestampColumnName;
+    private @Nullable UndeferrableValue<String> timestampColumnName;
 
-
+    public @Nullable String timestampColumnName() {
+        if (timestampColumnName == null) return null;
+        return timestampColumnName.getValue("S3Endpoint.timestampColumnName");
+    }
 
     /**
      * Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
      * 
      */
-    public Boolean useCsvNoSupValue;
+    private @Nullable UndeferrableValue<Boolean> useCsvNoSupValue;
 
-
+    public @Nullable Boolean useCsvNoSupValue() {
+        if (useCsvNoSupValue == null) return null;
+        return useCsvNoSupValue.getValue("S3Endpoint.useCsvNoSupValue");
+    }
 
     /**
      * When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      * 
      */
-    public Boolean useTaskStartTimeForFullLoadTimestamp;
+    private @Nullable UndeferrableValue<Boolean> useTaskStartTimeForFullLoadTimestamp;
 
-
+    public @Nullable Boolean useTaskStartTimeForFullLoadTimestamp() {
+        if (useTaskStartTimeForFullLoadTimestamp == null) return null;
+        return useTaskStartTimeForFullLoadTimestamp.getValue("S3Endpoint.useTaskStartTimeForFullLoadTimestamp");
+    }
 
 }

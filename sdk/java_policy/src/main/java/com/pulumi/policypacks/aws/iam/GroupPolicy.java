@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/groupPolicy:GroupPolicy")
-public final class GroupPolicy extends com.pulumi.resources.PolicyResource {
+public final class GroupPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IAM group to attach to the policy.
      * 
      */
-    public String group;
+    private UndeferrableValue<String> group;
 
-
+    public String group() {
+        if (group == null) return null;
+        return group.getValue("GroupPolicy.group");
+    }
 
     /**
      * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GroupPolicy.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("GroupPolicy.namePrefix");
+    }
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("GroupPolicy.policy");
+    }
 
 }

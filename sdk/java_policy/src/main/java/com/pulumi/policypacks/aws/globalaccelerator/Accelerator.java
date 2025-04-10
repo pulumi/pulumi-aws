@@ -3,57 +3,74 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.AcceleratorAttributes;
-import com.pulumi.policypacks.aws.globalaccelerator.AcceleratorIpSet;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.AcceleratorAttributes;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.AcceleratorIpSet;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/accelerator:Accelerator")
-public final class Accelerator extends com.pulumi.resources.PolicyResource {
+public final class Accelerator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the accelerator.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Accelerator.arn");
+    }
 
     /**
      * The attributes of the accelerator. Fields documented below.
      * 
      */
-    public AcceleratorAttributes attributes;
+    private @Nullable UndeferrableValue<AcceleratorAttributes> attributes;
 
-
+    public @Nullable AcceleratorAttributes attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("Accelerator.attributes");
+    }
 
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("Accelerator.dnsName");
+    }
 
     /**
      * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
-    public String dualStackDnsName;
+    private UndeferrableValue<String> dualStackDnsName;
 
-
+    public String dualStackDnsName() {
+        if (dualStackDnsName == null) return null;
+        return dualStackDnsName.getValue("Accelerator.dualStackDnsName");
+    }
 
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Accelerator.enabled");
+    }
 
     /**
      * -  The Global Accelerator Route 53 zone ID that can be used to
@@ -61,49 +78,67 @@ public final class Accelerator extends com.pulumi.resources.PolicyResource {
      *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Accelerator.hostedZoneId");
+    }
 
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
-    public String ipAddressType;
+    private @Nullable UndeferrableValue<String> ipAddressType;
 
-
+    public @Nullable String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("Accelerator.ipAddressType");
+    }
 
     /**
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
-    public List<String> ipAddresses;
+    private @Nullable UndeferrableValue<List<String>> ipAddresses;
 
-
+    public @Nullable List<String> ipAddresses() {
+        if (ipAddresses == null) return null;
+        return ipAddresses.getValue("Accelerator.ipAddresses");
+    }
 
     /**
      * IP address set associated with the accelerator.
      * 
      */
-    public List<AcceleratorIpSet> ipSets;
+    private UndeferrableValue<List<AcceleratorIpSet>> ipSets;
 
-
+    public List<AcceleratorIpSet> ipSets() {
+        if (ipSets == null) return null;
+        return ipSets.getValue("Accelerator.ipSets");
+    }
 
     /**
      * The name of the accelerator.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Accelerator.name");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Accelerator.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -113,8 +148,11 @@ public final class Accelerator extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Accelerator.tagsAll");
+    }
 
 }

@@ -3,149 +3,202 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudformation.CloudFormationTypeLoggingConfig;
+import com.pulumi.policypacks.aws.cloudformation.outputs.CloudFormationTypeLoggingConfig;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudformation/cloudFormationType:CloudFormationType")
-public final class CloudFormationType extends com.pulumi.resources.PolicyResource {
+public final class CloudFormationType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CloudFormationType.arn");
+    }
 
     /**
      * Identifier of the CloudFormation Type default version.
      * 
      */
-    public String defaultVersionId;
+    private UndeferrableValue<String> defaultVersionId;
 
-
+    public String defaultVersionId() {
+        if (defaultVersionId == null) return null;
+        return defaultVersionId.getValue("CloudFormationType.defaultVersionId");
+    }
 
     /**
      * Deprecation status of the version.
      * 
      */
-    public String deprecatedStatus;
+    private UndeferrableValue<String> deprecatedStatus;
 
-
+    public String deprecatedStatus() {
+        if (deprecatedStatus == null) return null;
+        return deprecatedStatus.getValue("CloudFormationType.deprecatedStatus");
+    }
 
     /**
      * Description of the version.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("CloudFormationType.description");
+    }
 
     /**
      * URL of the documentation for the CloudFormation Type.
      * 
      */
-    public String documentationUrl;
+    private UndeferrableValue<String> documentationUrl;
 
-
+    public String documentationUrl() {
+        if (documentationUrl == null) return null;
+        return documentationUrl.getValue("CloudFormationType.documentationUrl");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      * 
      */
-    public String executionRoleArn;
+    private @Nullable UndeferrableValue<String> executionRoleArn;
 
-
+    public @Nullable String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("CloudFormationType.executionRoleArn");
+    }
 
     /**
      * Whether the CloudFormation Type version is the default version.
      * 
      */
-    public Boolean isDefaultVersion;
+    private UndeferrableValue<Boolean> isDefaultVersion;
 
-
+    public Boolean isDefaultVersion() {
+        if (isDefaultVersion == null) return null;
+        return isDefaultVersion.getValue("CloudFormationType.isDefaultVersion");
+    }
 
     /**
      * Configuration block containing logging configuration.
      * 
      */
-    public CloudFormationTypeLoggingConfig loggingConfig;
+    private @Nullable UndeferrableValue<CloudFormationTypeLoggingConfig> loggingConfig;
 
-
+    public @Nullable CloudFormationTypeLoggingConfig loggingConfig() {
+        if (loggingConfig == null) return null;
+        return loggingConfig.getValue("CloudFormationType.loggingConfig");
+    }
 
     /**
      * Provisioning behavior of the CloudFormation Type.
      * 
      */
-    public String provisioningType;
+    private UndeferrableValue<String> provisioningType;
 
-
+    public String provisioningType() {
+        if (provisioningType == null) return null;
+        return provisioningType.getValue("CloudFormationType.provisioningType");
+    }
 
     /**
      * JSON document of the CloudFormation Type schema.
      * 
      */
-    public String schema;
+    private UndeferrableValue<String> schema;
 
-
+    public String schema() {
+        if (schema == null) return null;
+        return schema.getValue("CloudFormationType.schema");
+    }
 
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      * 
      */
-    public String schemaHandlerPackage;
+    private UndeferrableValue<String> schemaHandlerPackage;
 
-
+    public String schemaHandlerPackage() {
+        if (schemaHandlerPackage == null) return null;
+        return schemaHandlerPackage.getValue("CloudFormationType.schemaHandlerPackage");
+    }
 
     /**
      * URL of the source code for the CloudFormation Type.
      * 
      */
-    public String sourceUrl;
+    private UndeferrableValue<String> sourceUrl;
 
-
+    public String sourceUrl() {
+        if (sourceUrl == null) return null;
+        return sourceUrl.getValue("CloudFormationType.sourceUrl");
+    }
 
     /**
      * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("CloudFormationType.type");
+    }
 
     /**
      * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
      * 
      */
-    public String typeArn;
+    private UndeferrableValue<String> typeArn;
 
-
+    public String typeArn() {
+        if (typeArn == null) return null;
+        return typeArn.getValue("CloudFormationType.typeArn");
+    }
 
     /**
      * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
      * 
      */
-    public String typeName;
+    private UndeferrableValue<String> typeName;
 
-
+    public String typeName() {
+        if (typeName == null) return null;
+        return typeName.getValue("CloudFormationType.typeName");
+    }
 
     /**
      * (Optional) Identifier of the CloudFormation Type version.
      * 
      */
-    public String versionId;
+    private UndeferrableValue<String> versionId;
 
-
+    public String versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("CloudFormationType.versionId");
+    }
 
     /**
      * Scope of the CloudFormation Type.
      * 
      */
-    public String visibility;
+    private UndeferrableValue<String> visibility;
 
-
+    public String visibility() {
+        if (visibility == null) return null;
+        return visibility.getValue("CloudFormationType.visibility");
+    }
 
 }

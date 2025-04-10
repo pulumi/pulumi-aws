@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.timestreamwrite.TableMagneticStoreWriteProperties;
-import com.pulumi.policypacks.aws.timestreamwrite.TableRetentionProperties;
-import com.pulumi.policypacks.aws.timestreamwrite.TableSchema;
+import com.pulumi.policypacks.aws.timestreamwrite.outputs.TableMagneticStoreWriteProperties;
+import com.pulumi.policypacks.aws.timestreamwrite.outputs.TableRetentionProperties;
+import com.pulumi.policypacks.aws.timestreamwrite.outputs.TableSchema;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:timestreamwrite/table:Table")
-public final class Table extends com.pulumi.resources.PolicyResource {
+public final class Table extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN that uniquely identifies this table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Table.arn");
+    }
 
     /**
      * The name of the Timestream database.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Table.databaseName");
+    }
 
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      * 
      */
-    public TableMagneticStoreWriteProperties magneticStoreWriteProperties;
+    private UndeferrableValue<TableMagneticStoreWriteProperties> magneticStoreWriteProperties;
 
-
+    public TableMagneticStoreWriteProperties magneticStoreWriteProperties() {
+        if (magneticStoreWriteProperties == null) return null;
+        return magneticStoreWriteProperties.getValue("Table.magneticStoreWriteProperties");
+    }
 
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
-    public TableRetentionProperties retentionProperties;
+    private UndeferrableValue<TableRetentionProperties> retentionProperties;
 
-
+    public TableRetentionProperties retentionProperties() {
+        if (retentionProperties == null) return null;
+        return retentionProperties.getValue("Table.retentionProperties");
+    }
 
     /**
      * The schema of the table. See Schema below for more details.
      * 
      */
-    public TableSchema schema;
+    private UndeferrableValue<TableSchema> schema;
 
-
+    public TableSchema schema() {
+        if (schema == null) return null;
+        return schema.getValue("Table.schema");
+    }
 
     /**
      * The name of the Timestream table.
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("Table.tableName");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Table.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,8 +101,11 @@ public final class Table extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Table.tagsAll");
+    }
 
 }

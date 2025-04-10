@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appconfig.EventIntegrationEventFilter;
+import com.pulumi.policypacks.aws.appconfig.outputs.EventIntegrationEventFilter;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/eventIntegration:EventIntegration")
-public final class EventIntegration extends com.pulumi.resources.PolicyResource {
+public final class EventIntegration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Event Integration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventIntegration.arn");
+    }
 
     /**
      * Description of the Event Integration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EventIntegration.description");
+    }
 
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
-    public EventIntegrationEventFilter eventFilter;
+    private UndeferrableValue<EventIntegrationEventFilter> eventFilter;
 
-
+    public EventIntegrationEventFilter eventFilter() {
+        if (eventFilter == null) return null;
+        return eventFilter.getValue("EventIntegration.eventFilter");
+    }
 
     /**
      * EventBridge bus.
      * 
      */
-    public String eventbridgeBus;
+    private UndeferrableValue<String> eventbridgeBus;
 
-
+    public String eventbridgeBus() {
+        if (eventbridgeBus == null) return null;
+        return eventbridgeBus.getValue("EventIntegration.eventbridgeBus");
+    }
 
     /**
      * Name of the Event Integration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventIntegration.name");
+    }
 
     /**
      * Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventIntegration.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class EventIntegration extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventIntegration.tagsAll");
+    }
 
 }

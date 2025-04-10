@@ -3,111 +3,149 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ebs/volume:Volume")
-public final class Volume extends com.pulumi.resources.PolicyResource {
+public final class Volume extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Volume.arn");
+    }
 
     /**
      * Availability zone where the EBS volume will exist.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Volume.availabilityZone");
+    }
 
     /**
      * Timestamp when volume creation was initiated.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("Volume.createTime");
+    }
 
     /**
      * If true, the disk will be encrypted.
      * 
      */
-    public Boolean encrypted;
+    private UndeferrableValue<Boolean> encrypted;
 
-
+    public Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("Volume.encrypted");
+    }
 
     /**
      * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
      * 
      */
-    public Boolean finalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> finalSnapshot;
 
-
+    public @Nullable Boolean finalSnapshot() {
+        if (finalSnapshot == null) return null;
+        return finalSnapshot.getValue("Volume.finalSnapshot");
+    }
 
     /**
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
-    public Integer iops;
+    private UndeferrableValue<Integer> iops;
 
-
+    public Integer iops() {
+        if (iops == null) return null;
+        return iops.getValue("Volume.iops");
+    }
 
     /**
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Volume.kmsKeyId");
+    }
 
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      * 
      */
-    public Boolean multiAttachEnabled;
+    private @Nullable UndeferrableValue<Boolean> multiAttachEnabled;
 
-
+    public @Nullable Boolean multiAttachEnabled() {
+        if (multiAttachEnabled == null) return null;
+        return multiAttachEnabled.getValue("Volume.multiAttachEnabled");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    public String outpostArn;
+    private @Nullable UndeferrableValue<String> outpostArn;
 
-
+    public @Nullable String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("Volume.outpostArn");
+    }
 
     /**
      * Size of the drive in GiBs.
      * 
      */
-    public Integer size;
+    private UndeferrableValue<Integer> size;
 
-
+    public Integer size() {
+        if (size == null) return null;
+        return size.getValue("Volume.size");
+    }
 
     /**
      * A snapshot to base the EBS volume off of.
      * 
      */
-    public String snapshotId;
+    private UndeferrableValue<String> snapshotId;
 
-
+    public String snapshotId() {
+        if (snapshotId == null) return null;
+        return snapshotId.getValue("Volume.snapshotId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Volume.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,17 +155,23 @@ public final class Volume extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Volume.tagsAll");
+    }
 
     /**
      * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
-    public Integer throughput;
+    private UndeferrableValue<Integer> throughput;
 
-
+    public Integer throughput() {
+        if (throughput == null) return null;
+        return throughput.getValue("Volume.throughput");
+    }
 
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -135,8 +179,11 @@ public final class Volume extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Volume.type");
+    }
 
 }

@@ -3,109 +3,144 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudformation/stack:Stack")
-public final class Stack extends com.pulumi.resources.PolicyResource {
+public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      * 
      */
-    public List<String> capabilities;
+    private @Nullable UndeferrableValue<List<String>> capabilities;
 
-
+    public @Nullable List<String> capabilities() {
+        if (capabilities == null) return null;
+        return capabilities.getValue("Stack.capabilities");
+    }
 
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `on_failure`.
      * 
      */
-    public Boolean disableRollback;
+    private @Nullable UndeferrableValue<Boolean> disableRollback;
 
-
+    public @Nullable Boolean disableRollback() {
+        if (disableRollback == null) return null;
+        return disableRollback.getValue("Stack.disableRollback");
+    }
 
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don&#39;t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      * 
      */
-    public String iamRoleArn;
+    private @Nullable UndeferrableValue<String> iamRoleArn;
 
-
+    public @Nullable String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("Stack.iamRoleArn");
+    }
 
     /**
      * Stack name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Stack.name");
+    }
 
     /**
      * A list of SNS topic ARNs to publish stack related events.
      * 
      */
-    public List<String> notificationArns;
+    private @Nullable UndeferrableValue<List<String>> notificationArns;
 
-
+    public @Nullable List<String> notificationArns() {
+        if (notificationArns == null) return null;
+        return notificationArns.getValue("Stack.notificationArns");
+    }
 
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      * 
      */
-    public String onFailure;
+    private @Nullable UndeferrableValue<String> onFailure;
 
-
+    public @Nullable String onFailure() {
+        if (onFailure == null) return null;
+        return onFailure.getValue("Stack.onFailure");
+    }
 
     /**
      * A map of outputs from the stack.
      * 
      */
-    public Map<String,String> outputs;
+    private UndeferrableValue<Map<String,String>> outputs;
 
-
+    public Map<String,String> outputs() {
+        if (outputs == null) return null;
+        return outputs.getValue("Stack.outputs");
+    }
 
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    public Map<String,String> parameters;
+    private UndeferrableValue<Map<String,String>> parameters;
 
-
+    public Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Stack.parameters");
+    }
 
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      * 
      */
-    public String policyBody;
+    private UndeferrableValue<String> policyBody;
 
-
+    public String policyBody() {
+        if (policyBody == null) return null;
+        return policyBody.getValue("Stack.policyBody");
+    }
 
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policy_body`.
      * 
      */
-    public String policyUrl;
+    private @Nullable UndeferrableValue<String> policyUrl;
 
-
+    public @Nullable String policyUrl() {
+        if (policyUrl == null) return null;
+        return policyUrl.getValue("Stack.policyUrl");
+    }
 
     /**
      * Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stack.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -115,32 +150,44 @@ public final class Stack extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stack.tagsAll");
+    }
 
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      * 
      */
-    public String templateBody;
+    private UndeferrableValue<String> templateBody;
 
-
+    public String templateBody() {
+        if (templateBody == null) return null;
+        return templateBody.getValue("Stack.templateBody");
+    }
 
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      * 
      */
-    public String templateUrl;
+    private @Nullable UndeferrableValue<String> templateUrl;
 
-
+    public @Nullable String templateUrl() {
+        if (templateUrl == null) return null;
+        return templateUrl.getValue("Stack.templateUrl");
+    }
 
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      * 
      */
-    public Integer timeoutInMinutes;
+    private @Nullable UndeferrableValue<Integer> timeoutInMinutes;
 
-
+    public @Nullable Integer timeoutInMinutes() {
+        if (timeoutInMinutes == null) return null;
+        return timeoutInMinutes.getValue("Stack.timeoutInMinutes");
+    }
 
 }

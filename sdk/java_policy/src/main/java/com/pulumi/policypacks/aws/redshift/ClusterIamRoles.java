@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:redshift/clusterIamRoles:ClusterIamRoles")
-public final class ClusterIamRoles extends com.pulumi.resources.PolicyResource {
+public final class ClusterIamRoles extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the Redshift Cluster IAM Roles.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterIamRoles.clusterIdentifier");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    public String defaultIamRoleArn;
+    private UndeferrableValue<String> defaultIamRoleArn;
 
-
+    public String defaultIamRoleArn() {
+        if (defaultIamRoleArn == null) return null;
+        return defaultIamRoleArn.getValue("ClusterIamRoles.defaultIamRoleArn");
+    }
 
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    public List<String> iamRoleArns;
+    private UndeferrableValue<List<String>> iamRoleArns;
 
-
+    public List<String> iamRoleArns() {
+        if (iamRoleArns == null) return null;
+        return iamRoleArns.getValue("ClusterIamRoles.iamRoleArns");
+    }
 
 }

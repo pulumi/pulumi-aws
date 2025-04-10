@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.acmpca.CertificateValidity;
+import com.pulumi.policypacks.aws.acmpca.outputs.CertificateValidity;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:acmpca/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
      * 
      */
-    public String apiPassthrough;
+    private @Nullable UndeferrableValue<String> apiPassthrough;
 
-
+    public @Nullable String apiPassthrough() {
+        if (apiPassthrough == null) return null;
+        return apiPassthrough.getValue("Certificate.apiPassthrough");
+    }
 
     /**
      * ARN of the certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Certificate.arn");
+    }
 
     /**
      * PEM-encoded certificate value.
      * 
      */
-    public String certificate;
+    private UndeferrableValue<String> certificate;
 
-
+    public String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("Certificate.certificate");
+    }
 
     /**
      * ARN of the certificate authority.
      * 
      */
-    public String certificateAuthorityArn;
+    private UndeferrableValue<String> certificateAuthorityArn;
 
-
+    public String certificateAuthorityArn() {
+        if (certificateAuthorityArn == null) return null;
+        return certificateAuthorityArn.getValue("Certificate.certificateAuthorityArn");
+    }
 
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    public String certificateChain;
+    private UndeferrableValue<String> certificateChain;
 
-
+    public String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("Certificate.certificateChain");
+    }
 
     /**
      * Certificate Signing Request in PEM format.
      * 
      */
-    public String certificateSigningRequest;
+    private UndeferrableValue<String> certificateSigningRequest;
 
-
+    public String certificateSigningRequest() {
+        if (certificateSigningRequest == null) return null;
+        return certificateSigningRequest.getValue("Certificate.certificateSigningRequest");
+    }
 
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
-    public String signingAlgorithm;
+    private UndeferrableValue<String> signingAlgorithm;
 
-
+    public String signingAlgorithm() {
+        if (signingAlgorithm == null) return null;
+        return signingAlgorithm.getValue("Certificate.signingAlgorithm");
+    }
 
     /**
      * Template to use when issuing a certificate.
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
-    public String templateArn;
+    private @Nullable UndeferrableValue<String> templateArn;
 
-
+    public @Nullable String templateArn() {
+        if (templateArn == null) return null;
+        return templateArn.getValue("Certificate.templateArn");
+    }
 
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      * 
      */
-    public CertificateValidity validity;
+    private UndeferrableValue<CertificateValidity> validity;
 
-
+    public CertificateValidity validity() {
+        if (validity == null) return null;
+        return validity.getValue("Certificate.validity");
+    }
 
 }

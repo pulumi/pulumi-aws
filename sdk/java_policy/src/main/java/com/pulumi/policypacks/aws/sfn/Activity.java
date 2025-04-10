@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sfn.ActivityEncryptionConfiguration;
+import com.pulumi.policypacks.aws.sfn.outputs.ActivityEncryptionConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sfn/activity:Activity")
-public final class Activity extends com.pulumi.resources.PolicyResource {
+public final class Activity extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The date the activity was created.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("Activity.creationDate");
+    }
 
     /**
      * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
-    public ActivityEncryptionConfiguration encryptionConfiguration;
+    private UndeferrableValue<ActivityEncryptionConfiguration> encryptionConfiguration;
 
-
+    public ActivityEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("Activity.encryptionConfiguration");
+    }
 
     /**
      * The name of the activity to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Activity.name");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Activity.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class Activity extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Activity.tagsAll");
+    }
 
 }

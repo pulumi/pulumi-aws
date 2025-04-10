@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.oam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:oam/sink:Sink")
-public final class Sink extends com.pulumi.resources.PolicyResource {
+public final class Sink extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Sink.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Sink.arn");
+    }
 
     /**
      * Name for the sink.
@@ -25,25 +30,34 @@ public final class Sink extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Sink.name");
+    }
 
     /**
      * ID string that AWS generated as part of the sink ARN.
      * 
      */
-    public String sinkId;
+    private UndeferrableValue<String> sinkId;
 
-
+    public String sinkId() {
+        if (sinkId == null) return null;
+        return sinkId.getValue("Sink.sinkId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Sink.tags");
+    }
 
     /**
      * @deprecated
@@ -51,8 +65,11 @@ public final class Sink extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Sink.tagsAll");
+    }
 
 }

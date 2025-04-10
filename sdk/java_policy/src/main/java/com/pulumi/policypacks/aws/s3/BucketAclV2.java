@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketAclV2AccessControlPolicy;
+import com.pulumi.policypacks.aws.s3.outputs.BucketAclV2AccessControlPolicy;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketAclV2:BucketAclV2")
-public final class BucketAclV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketAclV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
-    public BucketAclV2AccessControlPolicy accessControlPolicy;
+    private UndeferrableValue<BucketAclV2AccessControlPolicy> accessControlPolicy;
 
-
+    public BucketAclV2AccessControlPolicy accessControlPolicy() {
+        if (accessControlPolicy == null) return null;
+        return accessControlPolicy.getValue("BucketAclV2.accessControlPolicy");
+    }
 
     /**
      * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
-    public String acl;
+    private @Nullable UndeferrableValue<String> acl;
 
-
+    public @Nullable String acl() {
+        if (acl == null) return null;
+        return acl.getValue("BucketAclV2.acl");
+    }
 
     /**
      * Bucket to which to apply the ACL.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketAclV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketAclV2.expectedBucketOwner");
+    }
 
 }

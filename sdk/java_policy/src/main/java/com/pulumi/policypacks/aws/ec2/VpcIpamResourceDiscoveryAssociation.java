@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")
-public final class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpamResourceDiscoveryAssociation.arn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
-    public String ipamArn;
+    private UndeferrableValue<String> ipamArn;
 
-
+    public String ipamArn() {
+        if (ipamArn == null) return null;
+        return ipamArn.getValue("VpcIpamResourceDiscoveryAssociation.ipamArn");
+    }
 
     /**
      * The ID of the IPAM to associate.
      * 
      */
-    public String ipamId;
+    private UndeferrableValue<String> ipamId;
 
-
+    public String ipamId() {
+        if (ipamId == null) return null;
+        return ipamId.getValue("VpcIpamResourceDiscoveryAssociation.ipamId");
+    }
 
     /**
      * The home region of the IPAM.
      * 
      */
-    public String ipamRegion;
+    private UndeferrableValue<String> ipamRegion;
 
-
+    public String ipamRegion() {
+        if (ipamRegion == null) return null;
+        return ipamRegion.getValue("VpcIpamResourceDiscoveryAssociation.ipamRegion");
+    }
 
     /**
      * The ID of the Resource Discovery to associate.
      * 
      */
-    public String ipamResourceDiscoveryId;
+    private UndeferrableValue<String> ipamResourceDiscoveryId;
 
-
+    public String ipamResourceDiscoveryId() {
+        if (ipamResourceDiscoveryId == null) return null;
+        return ipamResourceDiscoveryId.getValue("VpcIpamResourceDiscoveryAssociation.ipamResourceDiscoveryId");
+    }
 
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
-    public Boolean isDefault;
+    private UndeferrableValue<Boolean> isDefault;
 
-
+    public Boolean isDefault() {
+        if (isDefault == null) return null;
+        return isDefault.getValue("VpcIpamResourceDiscoveryAssociation.isDefault");
+    }
 
     /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("VpcIpamResourceDiscoveryAssociation.ownerId");
+    }
 
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcIpamResourceDiscoveryAssociation.state");
+    }
 
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIpamResourceDiscoveryAssociation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIpamResourceDiscoveryAssociation.tagsAll");
+    }
 
 }

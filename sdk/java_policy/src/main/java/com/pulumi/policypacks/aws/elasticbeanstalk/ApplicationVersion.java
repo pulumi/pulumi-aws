@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticbeanstalk/applicationVersion:ApplicationVersion")
-public final class ApplicationVersion extends com.pulumi.resources.PolicyResource {
+public final class ApplicationVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Beanstalk Application the version is associated with.
      * 
      */
-    public String application;
+    private UndeferrableValue<String> application;
 
-
+    public String application() {
+        if (application == null) return null;
+        return application.getValue("ApplicationVersion.application");
+    }
 
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ApplicationVersion.arn");
+    }
 
     /**
      * S3 bucket that contains the Application Version source bundle.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("ApplicationVersion.bucket");
+    }
 
     /**
      * Short description of the Application Version.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ApplicationVersion.description");
+    }
 
     /**
      * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("ApplicationVersion.forceDelete");
+    }
 
     /**
      * S3 object that is the Application Version source bundle.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("ApplicationVersion.key");
+    }
 
     /**
      * Unique name for the this Application Version.
@@ -66,25 +86,34 @@ public final class ApplicationVersion extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ApplicationVersion.name");
+    }
 
     /**
      * Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
      * 
      */
-    public Boolean process;
+    private @Nullable UndeferrableValue<Boolean> process;
 
-
+    public @Nullable Boolean process() {
+        if (process == null) return null;
+        return process.getValue("ApplicationVersion.process");
+    }
 
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ApplicationVersion.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class ApplicationVersion extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ApplicationVersion.tagsAll");
+    }
 
 }

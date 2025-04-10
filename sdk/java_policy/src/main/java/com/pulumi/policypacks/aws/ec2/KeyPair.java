@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/keyPair:KeyPair")
-public final class KeyPair extends com.pulumi.resources.PolicyResource {
+public final class KeyPair extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The key pair ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KeyPair.arn");
+    }
 
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
-    public String fingerprint;
+    private UndeferrableValue<String> fingerprint;
 
-
+    public String fingerprint() {
+        if (fingerprint == null) return null;
+        return fingerprint.getValue("KeyPair.fingerprint");
+    }
 
     /**
      * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    public String keyName;
+    private UndeferrableValue<String> keyName;
 
-
+    public String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("KeyPair.keyName");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    public String keyNamePrefix;
+    private UndeferrableValue<String> keyNamePrefix;
 
-
+    public String keyNamePrefix() {
+        if (keyNamePrefix == null) return null;
+        return keyNamePrefix.getValue("KeyPair.keyNamePrefix");
+    }
 
     /**
      * The key pair ID.
      * 
      */
-    public String keyPairId;
+    private UndeferrableValue<String> keyPairId;
 
-
+    public String keyPairId() {
+        if (keyPairId == null) return null;
+        return keyPairId.getValue("KeyPair.keyPairId");
+    }
 
     /**
      * The type of key pair.
      * 
      */
-    public String keyType;
+    private UndeferrableValue<String> keyType;
 
-
+    public String keyType() {
+        if (keyType == null) return null;
+        return keyType.getValue("KeyPair.keyType");
+    }
 
     /**
      * The public key material.
      * 
      */
-    public String publicKey;
+    private UndeferrableValue<String> publicKey;
 
-
+    public String publicKey() {
+        if (publicKey == null) return null;
+        return publicKey.getValue("KeyPair.publicKey");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KeyPair.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,8 +109,11 @@ public final class KeyPair extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KeyPair.tagsAll");
+    }
 
 }

@@ -3,60 +3,77 @@
 
 package com.pulumi.policypacks.aws.acm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.acm.CertificateDomainValidationOption;
-import com.pulumi.policypacks.aws.acm.CertificateOptions;
-import com.pulumi.policypacks.aws.acm.CertificateRenewalSummary;
-import com.pulumi.policypacks.aws.acm.CertificateValidationOption;
+import com.pulumi.policypacks.aws.acm.outputs.CertificateDomainValidationOption;
+import com.pulumi.policypacks.aws.acm.outputs.CertificateOptions;
+import com.pulumi.policypacks.aws.acm.outputs.CertificateRenewalSummary;
+import com.pulumi.policypacks.aws.acm.outputs.CertificateValidationOption;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:acm/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the certificate
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Certificate.arn");
+    }
 
     /**
      * ARN of an ACM PCA
      * 
      */
-    public String certificateAuthorityArn;
+    private @Nullable UndeferrableValue<String> certificateAuthorityArn;
 
-
+    public @Nullable String certificateAuthorityArn() {
+        if (certificateAuthorityArn == null) return null;
+        return certificateAuthorityArn.getValue("Certificate.certificateAuthorityArn");
+    }
 
     /**
      * Certificate&#39;s PEM-formatted public key
      * 
      */
-    public String certificateBody;
+    private @Nullable UndeferrableValue<String> certificateBody;
 
-
+    public @Nullable String certificateBody() {
+        if (certificateBody == null) return null;
+        return certificateBody.getValue("Certificate.certificateBody");
+    }
 
     /**
      * Certificate&#39;s PEM-formatted chain
      * * Creating a private CA issued certificate
      * 
      */
-    public String certificateChain;
+    private @Nullable UndeferrableValue<String> certificateChain;
 
-
+    public @Nullable String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("Certificate.certificateChain");
+    }
 
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Certificate.domainName");
+    }
 
     /**
      * Set of domain validation objects which can be used to complete certificate validation.
@@ -64,9 +81,12 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * Only set if `DNS`-validation was used.
      * 
      */
-    public List<CertificateDomainValidationOption> domainValidationOptions;
+    private UndeferrableValue<List<CertificateDomainValidationOption>> domainValidationOptions;
 
-
+    public List<CertificateDomainValidationOption> domainValidationOptions() {
+        if (domainValidationOptions == null) return null;
+        return domainValidationOptions.getValue("Certificate.domainValidationOptions");
+    }
 
     /**
      * Amount of time to start automatic renewal process before expiration.
@@ -76,98 +96,134 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * or a string such as `2160h`.
      * 
      */
-    public String earlyRenewalDuration;
+    private @Nullable UndeferrableValue<String> earlyRenewalDuration;
 
-
+    public @Nullable String earlyRenewalDuration() {
+        if (earlyRenewalDuration == null) return null;
+        return earlyRenewalDuration.getValue("Certificate.earlyRenewalDuration");
+    }
 
     /**
      * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
      * 
      */
-    public String keyAlgorithm;
+    private UndeferrableValue<String> keyAlgorithm;
 
-
+    public String keyAlgorithm() {
+        if (keyAlgorithm == null) return null;
+        return keyAlgorithm.getValue("Certificate.keyAlgorithm");
+    }
 
     /**
      * Expiration date and time of the certificate.
      * 
      */
-    public String notAfter;
+    private UndeferrableValue<String> notAfter;
 
-
+    public String notAfter() {
+        if (notAfter == null) return null;
+        return notAfter.getValue("Certificate.notAfter");
+    }
 
     /**
      * Start of the validity period of the certificate.
      * 
      */
-    public String notBefore;
+    private UndeferrableValue<String> notBefore;
 
-
+    public String notBefore() {
+        if (notBefore == null) return null;
+        return notBefore.getValue("Certificate.notBefore");
+    }
 
     /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
-    public CertificateOptions options;
+    private UndeferrableValue<CertificateOptions> options;
 
-
+    public CertificateOptions options() {
+        if (options == null) return null;
+        return options.getValue("Certificate.options");
+    }
 
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
      * 
      */
-    public Boolean pendingRenewal;
+    private UndeferrableValue<Boolean> pendingRenewal;
 
-
+    public Boolean pendingRenewal() {
+        if (pendingRenewal == null) return null;
+        return pendingRenewal.getValue("Certificate.pendingRenewal");
+    }
 
     /**
      * Certificate&#39;s PEM-formatted private key
      * 
      */
-    public String privateKey;
+    private @Nullable UndeferrableValue<String> privateKey;
 
-
+    public @Nullable String privateKey() {
+        if (privateKey == null) return null;
+        return privateKey.getValue("Certificate.privateKey");
+    }
 
     /**
      * Whether the certificate is eligible for managed renewal.
      * 
      */
-    public String renewalEligibility;
+    private UndeferrableValue<String> renewalEligibility;
 
-
+    public String renewalEligibility() {
+        if (renewalEligibility == null) return null;
+        return renewalEligibility.getValue("Certificate.renewalEligibility");
+    }
 
     /**
      * Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      * 
      */
-    public List<CertificateRenewalSummary> renewalSummaries;
+    private UndeferrableValue<List<CertificateRenewalSummary>> renewalSummaries;
 
-
+    public List<CertificateRenewalSummary> renewalSummaries() {
+        if (renewalSummaries == null) return null;
+        return renewalSummaries.getValue("Certificate.renewalSummaries");
+    }
 
     /**
      * Status of the certificate.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Certificate.status");
+    }
 
     /**
      * Set of domains that should be SANs in the issued certificate.
      * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
-    public List<String> subjectAlternativeNames;
+    private UndeferrableValue<List<String>> subjectAlternativeNames;
 
-
+    public List<String> subjectAlternativeNames() {
+        if (subjectAlternativeNames == null) return null;
+        return subjectAlternativeNames.getValue("Certificate.subjectAlternativeNames");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Certificate.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -177,41 +233,56 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Certificate.tagsAll");
+    }
 
     /**
      * Source of the certificate.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Certificate.type");
+    }
 
     /**
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
-    public List<String> validationEmails;
+    private UndeferrableValue<List<String>> validationEmails;
 
-
+    public List<String> validationEmails() {
+        if (validationEmails == null) return null;
+        return validationEmails.getValue("Certificate.validationEmails");
+    }
 
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
-    public String validationMethod;
+    private UndeferrableValue<String> validationMethod;
 
-
+    public String validationMethod() {
+        if (validationMethod == null) return null;
+        return validationMethod.getValue("Certificate.validationMethod");
+    }
 
     /**
      * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
      * * Importing an existing certificate
      * 
      */
-    public List<CertificateValidationOption> validationOptions;
+    private @Nullable UndeferrableValue<List<CertificateValidationOption>> validationOptions;
 
-
+    public @Nullable List<CertificateValidationOption> validationOptions() {
+        if (validationOptions == null) return null;
+        return validationOptions.getValue("Certificate.validationOptions");
+    }
 
 }

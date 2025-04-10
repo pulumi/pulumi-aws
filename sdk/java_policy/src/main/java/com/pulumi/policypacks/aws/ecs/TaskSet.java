@@ -3,140 +3,187 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.TaskSetCapacityProviderStrategy;
-import com.pulumi.policypacks.aws.ecs.TaskSetLoadBalancer;
-import com.pulumi.policypacks.aws.ecs.TaskSetNetworkConfiguration;
-import com.pulumi.policypacks.aws.ecs.TaskSetScale;
-import com.pulumi.policypacks.aws.ecs.TaskSetServiceRegistries;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskSetCapacityProviderStrategy;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskSetLoadBalancer;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskSetNetworkConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskSetScale;
+import com.pulumi.policypacks.aws.ecs.outputs.TaskSetServiceRegistries;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/taskSet:TaskSet")
-public final class TaskSet extends com.pulumi.resources.PolicyResource {
+public final class TaskSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TaskSet.arn");
+    }
 
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      * 
      */
-    public List<TaskSetCapacityProviderStrategy> capacityProviderStrategies;
+    private @Nullable UndeferrableValue<List<TaskSetCapacityProviderStrategy>> capacityProviderStrategies;
 
-
+    public @Nullable List<TaskSetCapacityProviderStrategy> capacityProviderStrategies() {
+        if (capacityProviderStrategies == null) return null;
+        return capacityProviderStrategies.getValue("TaskSet.capacityProviderStrategies");
+    }
 
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
-    public String cluster;
+    private UndeferrableValue<String> cluster;
 
-
+    public String cluster() {
+        if (cluster == null) return null;
+        return cluster.getValue("TaskSet.cluster");
+    }
 
     /**
      * The external ID associated with the task set.
      * 
      */
-    public String externalId;
+    private UndeferrableValue<String> externalId;
 
-
+    public String externalId() {
+        if (externalId == null) return null;
+        return externalId.getValue("TaskSet.externalId");
+    }
 
     /**
      * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("TaskSet.forceDelete");
+    }
 
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    public String launchType;
+    private UndeferrableValue<String> launchType;
 
-
+    public String launchType() {
+        if (launchType == null) return null;
+        return launchType.getValue("TaskSet.launchType");
+    }
 
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      * 
      */
-    public List<TaskSetLoadBalancer> loadBalancers;
+    private @Nullable UndeferrableValue<List<TaskSetLoadBalancer>> loadBalancers;
 
-
+    public @Nullable List<TaskSetLoadBalancer> loadBalancers() {
+        if (loadBalancers == null) return null;
+        return loadBalancers.getValue("TaskSet.loadBalancers");
+    }
 
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      * 
      */
-    public TaskSetNetworkConfiguration networkConfiguration;
+    private @Nullable UndeferrableValue<TaskSetNetworkConfiguration> networkConfiguration;
 
-
+    public @Nullable TaskSetNetworkConfiguration networkConfiguration() {
+        if (networkConfiguration == null) return null;
+        return networkConfiguration.getValue("TaskSet.networkConfiguration");
+    }
 
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    public String platformVersion;
+    private UndeferrableValue<String> platformVersion;
 
-
+    public String platformVersion() {
+        if (platformVersion == null) return null;
+        return platformVersion.getValue("TaskSet.platformVersion");
+    }
 
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
-    public TaskSetScale scale;
+    private UndeferrableValue<TaskSetScale> scale;
 
-
+    public TaskSetScale scale() {
+        if (scale == null) return null;
+        return scale.getValue("TaskSet.scale");
+    }
 
     /**
      * The short name or ARN of the ECS service.
      * 
      */
-    public String service;
+    private UndeferrableValue<String> service;
 
-
+    public String service() {
+        if (service == null) return null;
+        return service.getValue("TaskSet.service");
+    }
 
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
      * 
      */
-    public TaskSetServiceRegistries serviceRegistries;
+    private @Nullable UndeferrableValue<TaskSetServiceRegistries> serviceRegistries;
 
-
+    public @Nullable TaskSetServiceRegistries serviceRegistries() {
+        if (serviceRegistries == null) return null;
+        return serviceRegistries.getValue("TaskSet.serviceRegistries");
+    }
 
     /**
      * The stability status. This indicates whether the task set has reached a steady state.
      * 
      */
-    public String stabilityStatus;
+    private UndeferrableValue<String> stabilityStatus;
 
-
+    public String stabilityStatus() {
+        if (stabilityStatus == null) return null;
+        return stabilityStatus.getValue("TaskSet.stabilityStatus");
+    }
 
     /**
      * The status of the task set.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("TaskSet.status");
+    }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TaskSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -146,9 +193,12 @@ public final class TaskSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TaskSet.tagsAll");
+    }
 
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
@@ -156,32 +206,44 @@ public final class TaskSet extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String taskDefinition;
+    private UndeferrableValue<String> taskDefinition;
 
-
+    public String taskDefinition() {
+        if (taskDefinition == null) return null;
+        return taskDefinition.getValue("TaskSet.taskDefinition");
+    }
 
     /**
      * The ID of the task set.
      * 
      */
-    public String taskSetId;
+    private UndeferrableValue<String> taskSetId;
 
-
+    public String taskSetId() {
+        if (taskSetId == null) return null;
+        return taskSetId.getValue("TaskSet.taskSetId");
+    }
 
     /**
      * Whether the provider should wait until the task set has reached `STEADY_STATE`.
      * 
      */
-    public Boolean waitUntilStable;
+    private @Nullable UndeferrableValue<Boolean> waitUntilStable;
 
-
+    public @Nullable Boolean waitUntilStable() {
+        if (waitUntilStable == null) return null;
+        return waitUntilStable.getValue("TaskSet.waitUntilStable");
+    }
 
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
      * 
      */
-    public String waitUntilStableTimeout;
+    private @Nullable UndeferrableValue<String> waitUntilStableTimeout;
 
-
+    public @Nullable String waitUntilStableTimeout() {
+        if (waitUntilStableTimeout == null) return null;
+        return waitUntilStableTimeout.getValue("TaskSet.waitUntilStableTimeout");
+    }
 
 }

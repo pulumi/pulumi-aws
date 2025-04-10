@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/bucketAccessKey:BucketAccessKey")
-public final class BucketAccessKey extends com.pulumi.resources.PolicyResource {
+public final class BucketAccessKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the access key.
      * 
      */
-    public String accessKeyId;
+    private UndeferrableValue<String> accessKeyId;
 
-
+    public String accessKeyId() {
+        if (accessKeyId == null) return null;
+        return accessKeyId.getValue("BucketAccessKey.accessKeyId");
+    }
 
     /**
      * The name of the bucket that the new access key will belong to, and grant access to.
      * 
      */
-    public String bucketName;
+    private UndeferrableValue<String> bucketName;
 
-
+    public String bucketName() {
+        if (bucketName == null) return null;
+        return bucketName.getValue("BucketAccessKey.bucketName");
+    }
 
     /**
      * The timestamp when the access key was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("BucketAccessKey.createdAt");
+    }
 
     /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
-    public String secretAccessKey;
+    private UndeferrableValue<String> secretAccessKey;
 
-
+    public String secretAccessKey() {
+        if (secretAccessKey == null) return null;
+        return secretAccessKey.getValue("BucketAccessKey.secretAccessKey");
+    }
 
     /**
      * The status of the access key.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("BucketAccessKey.status");
+    }
 
 }

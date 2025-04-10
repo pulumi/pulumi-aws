@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntities;
+import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionProfileEncryptionEntities;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")
-public final class FieldLevelEncryptionProfile extends com.pulumi.resources.PolicyResource {
+public final class FieldLevelEncryptionProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Field Level Encryption Profile ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FieldLevelEncryptionProfile.arn");
+    }
 
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      * 
      */
-    public String callerReference;
+    private UndeferrableValue<String> callerReference;
 
-
+    public String callerReference() {
+        if (callerReference == null) return null;
+        return callerReference.getValue("FieldLevelEncryptionProfile.callerReference");
+    }
 
     /**
      * An optional comment about the Field Level Encryption Profile.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("FieldLevelEncryptionProfile.comment");
+    }
 
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      * 
      */
-    public FieldLevelEncryptionProfileEncryptionEntities encryptionEntities;
+    private UndeferrableValue<FieldLevelEncryptionProfileEncryptionEntities> encryptionEntities;
 
-
+    public FieldLevelEncryptionProfileEncryptionEntities encryptionEntities() {
+        if (encryptionEntities == null) return null;
+        return encryptionEntities.getValue("FieldLevelEncryptionProfile.encryptionEntities");
+    }
 
     /**
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("FieldLevelEncryptionProfile.etag");
+    }
 
     /**
      * The name of the Field Level Encryption Profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FieldLevelEncryptionProfile.name");
+    }
 
 }

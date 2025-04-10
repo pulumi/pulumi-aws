@@ -3,74 +3,97 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.auditmanager.AssessmentAssessmentReportsDestination;
-import com.pulumi.policypacks.aws.auditmanager.AssessmentRole;
-import com.pulumi.policypacks.aws.auditmanager.AssessmentRolesAll;
-import com.pulumi.policypacks.aws.auditmanager.AssessmentScope;
+import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentAssessmentReportsDestination;
+import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentRole;
+import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentRolesAll;
+import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentScope;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/assessment:Assessment")
-public final class Assessment extends com.pulumi.resources.PolicyResource {
+public final class Assessment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the assessment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Assessment.arn");
+    }
 
     /**
      * Assessment report storage destination configuration. See `assessment_reports_destination` below.
      * 
      */
-    public AssessmentAssessmentReportsDestination assessmentReportsDestination;
+    private @Nullable UndeferrableValue<AssessmentAssessmentReportsDestination> assessmentReportsDestination;
 
-
+    public @Nullable AssessmentAssessmentReportsDestination assessmentReportsDestination() {
+        if (assessmentReportsDestination == null) return null;
+        return assessmentReportsDestination.getValue("Assessment.assessmentReportsDestination");
+    }
 
     /**
      * Description of the assessment.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Assessment.description");
+    }
 
     /**
      * Unique identifier of the framework the assessment will be created from.
      * 
      */
-    public String frameworkId;
+    private UndeferrableValue<String> frameworkId;
 
-
+    public String frameworkId() {
+        if (frameworkId == null) return null;
+        return frameworkId.getValue("Assessment.frameworkId");
+    }
 
     /**
      * Name of the assessment.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Assessment.name");
+    }
 
     /**
      * List of roles for the assessment. See `roles` below.
      * 
      */
-    public List<AssessmentRole> roles;
+    private UndeferrableValue<List<AssessmentRole>> roles;
 
-
+    public List<AssessmentRole> roles() {
+        if (roles == null) return null;
+        return roles.getValue("Assessment.roles");
+    }
 
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      * 
      */
-    public List<AssessmentRolesAll> rolesAlls;
+    private UndeferrableValue<List<AssessmentRolesAll>> rolesAlls;
 
-
+    public List<AssessmentRolesAll> rolesAlls() {
+        if (rolesAlls == null) return null;
+        return rolesAlls.getValue("Assessment.rolesAlls");
+    }
 
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -78,25 +101,34 @@ public final class Assessment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public AssessmentScope scope;
+    private @Nullable UndeferrableValue<AssessmentScope> scope;
 
-
+    public @Nullable AssessmentScope scope() {
+        if (scope == null) return null;
+        return scope.getValue("Assessment.scope");
+    }
 
     /**
      * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Assessment.status");
+    }
 
     /**
      * A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Assessment.tags");
+    }
 
     /**
      * @deprecated
@@ -104,8 +136,11 @@ public final class Assessment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Assessment.tagsAll");
+    }
 
 }

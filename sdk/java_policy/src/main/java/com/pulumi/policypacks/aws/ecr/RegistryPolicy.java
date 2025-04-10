@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecr/registryPolicy:RegistryPolicy")
-public final class RegistryPolicy extends com.pulumi.resources.PolicyResource {
+public final class RegistryPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("RegistryPolicy.policy");
+    }
 
     /**
      * The registry ID where the registry was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("RegistryPolicy.registryId");
+    }
 
 }

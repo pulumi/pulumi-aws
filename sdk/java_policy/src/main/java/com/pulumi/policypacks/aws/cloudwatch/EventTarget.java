@@ -3,147 +3,194 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetAppsyncTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetBatchTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetDeadLetterConfig;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetEcsTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetHttpTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetInputTransformer;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetKinesisTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetRedshiftTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetRetryPolicy;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetRunCommandTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetSagemakerPipelineTarget;
-import com.pulumi.policypacks.aws.cloudwatch.EventTargetSqsTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetAppsyncTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetBatchTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetDeadLetterConfig;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetEcsTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetHttpTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetInputTransformer;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetKinesisTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetRedshiftTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetRetryPolicy;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetRunCommandTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetSagemakerPipelineTarget;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetSqsTarget;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventTarget:EventTarget")
-public final class EventTarget extends com.pulumi.resources.PolicyResource {
+public final class EventTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetAppsyncTarget appsyncTarget;
+    private @Nullable UndeferrableValue<EventTargetAppsyncTarget> appsyncTarget;
 
-
+    public @Nullable EventTargetAppsyncTarget appsyncTarget() {
+        if (appsyncTarget == null) return null;
+        return appsyncTarget.getValue("EventTarget.appsyncTarget");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the target.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventTarget.arn");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetBatchTarget batchTarget;
+    private @Nullable UndeferrableValue<EventTargetBatchTarget> batchTarget;
 
-
+    public @Nullable EventTargetBatchTarget batchTarget() {
+        if (batchTarget == null) return null;
+        return batchTarget.getValue("EventTarget.batchTarget");
+    }
 
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetDeadLetterConfig deadLetterConfig;
+    private @Nullable UndeferrableValue<EventTargetDeadLetterConfig> deadLetterConfig;
 
-
+    public @Nullable EventTargetDeadLetterConfig deadLetterConfig() {
+        if (deadLetterConfig == null) return null;
+        return deadLetterConfig.getValue("EventTarget.deadLetterConfig");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetEcsTarget ecsTarget;
+    private @Nullable UndeferrableValue<EventTargetEcsTarget> ecsTarget;
 
-
+    public @Nullable EventTargetEcsTarget ecsTarget() {
+        if (ecsTarget == null) return null;
+        return ecsTarget.getValue("EventTarget.ecsTarget");
+    }
 
     /**
      * The name or ARN of the event bus to associate with the rule.
      * If you omit this, the `default` event bus is used.
      * 
      */
-    public String eventBusName;
+    private @Nullable UndeferrableValue<String> eventBusName;
 
-
+    public @Nullable String eventBusName() {
+        if (eventBusName == null) return null;
+        return eventBusName.getValue("EventTarget.eventBusName");
+    }
 
     /**
      * Used to delete managed rules created by AWS. Defaults to `false`.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("EventTarget.forceDestroy");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      * 
      */
-    public EventTargetHttpTarget httpTarget;
+    private @Nullable UndeferrableValue<EventTargetHttpTarget> httpTarget;
 
-
+    public @Nullable EventTargetHttpTarget httpTarget() {
+        if (httpTarget == null) return null;
+        return httpTarget.getValue("EventTarget.httpTarget");
+    }
 
     /**
      * Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
      * 
      */
-    public String input;
+    private @Nullable UndeferrableValue<String> input;
 
-
+    public @Nullable String input() {
+        if (input == null) return null;
+        return input.getValue("EventTarget.input");
+    }
 
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
      * 
      */
-    public String inputPath;
+    private @Nullable UndeferrableValue<String> inputPath;
 
-
+    public @Nullable String inputPath() {
+        if (inputPath == null) return null;
+        return inputPath.getValue("EventTarget.inputPath");
+    }
 
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
      * 
      */
-    public EventTargetInputTransformer inputTransformer;
+    private @Nullable UndeferrableValue<EventTargetInputTransformer> inputTransformer;
 
-
+    public @Nullable EventTargetInputTransformer inputTransformer() {
+        if (inputTransformer == null) return null;
+        return inputTransformer.getValue("EventTarget.inputTransformer");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetKinesisTarget kinesisTarget;
+    private @Nullable UndeferrableValue<EventTargetKinesisTarget> kinesisTarget;
 
-
+    public @Nullable EventTargetKinesisTarget kinesisTarget() {
+        if (kinesisTarget == null) return null;
+        return kinesisTarget.getValue("EventTarget.kinesisTarget");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetRedshiftTarget redshiftTarget;
+    private @Nullable UndeferrableValue<EventTargetRedshiftTarget> redshiftTarget;
 
-
+    public @Nullable EventTargetRedshiftTarget redshiftTarget() {
+        if (redshiftTarget == null) return null;
+        return redshiftTarget.getValue("EventTarget.redshiftTarget");
+    }
 
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetRetryPolicy retryPolicy;
+    private @Nullable UndeferrableValue<EventTargetRetryPolicy> retryPolicy;
 
-
+    public @Nullable EventTargetRetryPolicy retryPolicy() {
+        if (retryPolicy == null) return null;
+        return retryPolicy.getValue("EventTarget.retryPolicy");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("EventTarget.roleArn");
+    }
 
     /**
      * The name of the rule you want to add targets to.
@@ -151,40 +198,55 @@ public final class EventTarget extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String rule;
+    private UndeferrableValue<String> rule;
 
-
+    public String rule() {
+        if (rule == null) return null;
+        return rule.getValue("EventTarget.rule");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      * 
      */
-    public List<EventTargetRunCommandTarget> runCommandTargets;
+    private @Nullable UndeferrableValue<List<EventTargetRunCommandTarget>> runCommandTargets;
 
-
+    public @Nullable List<EventTargetRunCommandTarget> runCommandTargets() {
+        if (runCommandTargets == null) return null;
+        return runCommandTargets.getValue("EventTarget.runCommandTargets");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetSagemakerPipelineTarget sagemakerPipelineTarget;
+    private @Nullable UndeferrableValue<EventTargetSagemakerPipelineTarget> sagemakerPipelineTarget;
 
-
+    public @Nullable EventTargetSagemakerPipelineTarget sagemakerPipelineTarget() {
+        if (sagemakerPipelineTarget == null) return null;
+        return sagemakerPipelineTarget.getValue("EventTarget.sagemakerPipelineTarget");
+    }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      * 
      */
-    public EventTargetSqsTarget sqsTarget;
+    private @Nullable UndeferrableValue<EventTargetSqsTarget> sqsTarget;
 
-
+    public @Nullable EventTargetSqsTarget sqsTarget() {
+        if (sqsTarget == null) return null;
+        return sqsTarget.getValue("EventTarget.sqsTarget");
+    }
 
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("EventTarget.targetId");
+    }
 
 }

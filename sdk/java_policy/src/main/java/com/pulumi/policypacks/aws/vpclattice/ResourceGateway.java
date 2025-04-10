@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ResourceGatewayTimeouts;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ResourceGatewayTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/resourceGateway:ResourceGateway")
-public final class ResourceGateway extends com.pulumi.resources.PolicyResource {
+public final class ResourceGateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the resource gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceGateway.arn");
+    }
 
     /**
      * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
      * 
      */
-    public String ipAddressType;
+    private UndeferrableValue<String> ipAddressType;
 
-
+    public String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("ResourceGateway.ipAddressType");
+    }
 
     /**
      * Name of the resource gateway.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResourceGateway.name");
+    }
 
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ResourceGateway.securityGroupIds");
+    }
 
     /**
      * Status of the resource gateway.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ResourceGateway.status");
+    }
 
     /**
      * IDs of the VPC subnets in which to create the resource gateway.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("ResourceGateway.subnetIds");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceGateway.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,13 +100,19 @@ public final class ResourceGateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResourceGateway.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ResourceGatewayTimeouts> timeouts;
 
-    public ResourceGatewayTimeouts timeouts;
-
-
+    public @Nullable ResourceGatewayTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ResourceGateway.timeouts");
+    }
 
     /**
      * ID of the VPC for the resource gateway.
@@ -91,8 +120,11 @@ public final class ResourceGateway extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ResourceGateway.vpcId");
+    }
 
 }

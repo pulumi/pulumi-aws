@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.MaintenanceWindowTargetTarget;
+import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTargetTarget;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")
-public final class MaintenanceWindowTarget extends com.pulumi.resources.PolicyResource {
+public final class MaintenanceWindowTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The description of the maintenance window target.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MaintenanceWindowTarget.description");
+    }
 
     /**
      * The name of the maintenance window target.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MaintenanceWindowTarget.name");
+    }
 
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      * 
      */
-    public String ownerInformation;
+    private @Nullable UndeferrableValue<String> ownerInformation;
 
-
+    public @Nullable String ownerInformation() {
+        if (ownerInformation == null) return null;
+        return ownerInformation.getValue("MaintenanceWindowTarget.ownerInformation");
+    }
 
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("MaintenanceWindowTarget.resourceType");
+    }
 
     /**
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      * 
      */
-    public List<MaintenanceWindowTargetTarget> targets;
+    private UndeferrableValue<List<MaintenanceWindowTargetTarget>> targets;
 
-
+    public List<MaintenanceWindowTargetTarget> targets() {
+        if (targets == null) return null;
+        return targets.getValue("MaintenanceWindowTarget.targets");
+    }
 
     /**
      * The Id of the maintenance window to register the target with.
      * 
      */
-    public String windowId;
+    private UndeferrableValue<String> windowId;
 
-
+    public String windowId() {
+        if (windowId == null) return null;
+        return windowId.getValue("MaintenanceWindowTarget.windowId");
+    }
 
 }

@@ -3,59 +3,79 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2clientvpn/route:Route")
-public final class Route extends com.pulumi.resources.PolicyResource {
+public final class Route extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Client VPN endpoint.
      * 
      */
-    public String clientVpnEndpointId;
+    private UndeferrableValue<String> clientVpnEndpointId;
 
-
+    public String clientVpnEndpointId() {
+        if (clientVpnEndpointId == null) return null;
+        return clientVpnEndpointId.getValue("Route.clientVpnEndpointId");
+    }
 
     /**
      * A brief description of the route.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Route.description");
+    }
 
     /**
      * The IPv4 address range, in CIDR notation, of the route destination.
      * 
      */
-    public String destinationCidrBlock;
+    private UndeferrableValue<String> destinationCidrBlock;
 
-
+    public String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("Route.destinationCidrBlock");
+    }
 
     /**
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      * 
      */
-    public String origin;
+    private UndeferrableValue<String> origin;
 
-
+    public String origin() {
+        if (origin == null) return null;
+        return origin.getValue("Route.origin");
+    }
 
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      * 
      */
-    public String targetVpcSubnetId;
+    private UndeferrableValue<String> targetVpcSubnetId;
 
-
+    public String targetVpcSubnetId() {
+        if (targetVpcSubnetId == null) return null;
+        return targetVpcSubnetId.getValue("Route.targetVpcSubnetId");
+    }
 
     /**
      * The type of the route.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Route.type");
+    }
 
 }

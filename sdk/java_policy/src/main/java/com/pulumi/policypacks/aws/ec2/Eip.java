@@ -3,171 +3,233 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/eip:Eip")
-public final class Eip extends com.pulumi.resources.PolicyResource {
+public final class Eip extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      * 
      */
-    public String address;
+    private @Nullable UndeferrableValue<String> address;
 
-
+    public @Nullable String address() {
+        if (address == null) return null;
+        return address.getValue("Eip.address");
+    }
 
     /**
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      * 
      */
-    public String allocationId;
+    private UndeferrableValue<String> allocationId;
 
+    public String allocationId() {
+        if (allocationId == null) return null;
+        return allocationId.getValue("Eip.allocationId");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Eip.arn");
+    }
 
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
-    public String associateWithPrivateIp;
+    private @Nullable UndeferrableValue<String> associateWithPrivateIp;
 
-
+    public @Nullable String associateWithPrivateIp() {
+        if (associateWithPrivateIp == null) return null;
+        return associateWithPrivateIp.getValue("Eip.associateWithPrivateIp");
+    }
 
     /**
      * ID representing the association of the address with an instance in a VPC.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("Eip.associationId");
+    }
 
     /**
      * Carrier IP address.
      * 
      */
-    public String carrierIp;
+    private UndeferrableValue<String> carrierIp;
 
-
+    public String carrierIp() {
+        if (carrierIp == null) return null;
+        return carrierIp.getValue("Eip.carrierIp");
+    }
 
     /**
      * Customer owned IP.
      * 
      */
-    public String customerOwnedIp;
+    private UndeferrableValue<String> customerOwnedIp;
 
-
+    public String customerOwnedIp() {
+        if (customerOwnedIp == null) return null;
+        return customerOwnedIp.getValue("Eip.customerOwnedIp");
+    }
 
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      * 
      */
-    public String customerOwnedIpv4Pool;
+    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
 
-
+    public @Nullable String customerOwnedIpv4Pool() {
+        if (customerOwnedIpv4Pool == null) return null;
+        return customerOwnedIpv4Pool.getValue("Eip.customerOwnedIpv4Pool");
+    }
 
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Eip.domain");
+    }
 
     /**
      * EC2 instance ID.
      * 
      */
-    public String instance;
+    private UndeferrableValue<String> instance;
 
-
+    public String instance() {
+        if (instance == null) return null;
+        return instance.getValue("Eip.instance");
+    }
 
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
      * 
      */
-    public String ipamPoolId;
+    private UndeferrableValue<String> ipamPoolId;
 
-
+    public String ipamPoolId() {
+        if (ipamPoolId == null) return null;
+        return ipamPoolId.getValue("Eip.ipamPoolId");
+    }
 
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
-    public String networkBorderGroup;
+    private UndeferrableValue<String> networkBorderGroup;
 
-
+    public String networkBorderGroup() {
+        if (networkBorderGroup == null) return null;
+        return networkBorderGroup.getValue("Eip.networkBorderGroup");
+    }
 
     /**
      * Network interface ID to associate with.
      * 
      */
-    public String networkInterface;
+    private UndeferrableValue<String> networkInterface;
 
-
+    public String networkInterface() {
+        if (networkInterface == null) return null;
+        return networkInterface.getValue("Eip.networkInterface");
+    }
 
     /**
      * The Private DNS associated with the Elastic IP address (if in VPC).
      * 
      */
-    public String privateDns;
+    private UndeferrableValue<String> privateDns;
 
-
+    public String privateDns() {
+        if (privateDns == null) return null;
+        return privateDns.getValue("Eip.privateDns");
+    }
 
     /**
      * Contains the private IP address (if in VPC).
      * 
      */
-    public String privateIp;
+    private UndeferrableValue<String> privateIp;
 
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("Eip.privateIp");
+    }
 
     /**
      * The DNS pointer (PTR) record for the IP address.
      * 
      */
-    public String ptrRecord;
+    private UndeferrableValue<String> ptrRecord;
 
-
+    public String ptrRecord() {
+        if (ptrRecord == null) return null;
+        return ptrRecord.getValue("Eip.ptrRecord");
+    }
 
     /**
      * Public DNS associated with the Elastic IP address.
      * 
      */
-    public String publicDns;
+    private UndeferrableValue<String> publicDns;
 
-
+    public String publicDns() {
+        if (publicDns == null) return null;
+        return publicDns.getValue("Eip.publicDns");
+    }
 
     /**
      * Contains the public IP address.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("Eip.publicIp");
+    }
 
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      * 
      */
-    public String publicIpv4Pool;
+    private UndeferrableValue<String> publicIpv4Pool;
 
-
+    public String publicIpv4Pool() {
+        if (publicIpv4Pool == null) return null;
+        return publicIpv4Pool.getValue("Eip.publicIpv4Pool");
+    }
 
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Eip.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -177,9 +239,12 @@ public final class Eip extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Eip.tagsAll");
+    }
 
     /**
      * Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -195,8 +260,11 @@ public final class Eip extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* vpc is deprecated. Use domain instead. */
-    public Boolean vpc;
+    private UndeferrableValue<Boolean> vpc;
 
-
+    public Boolean vpc() {
+        if (vpc == null) return null;
+        return vpc.getValue("Eip.vpc");
+    }
 
 }

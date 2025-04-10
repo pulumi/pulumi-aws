@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/accountAlias:AccountAlias")
-public final class AccountAlias extends com.pulumi.resources.PolicyResource {
+public final class AccountAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The account alias
      * 
      */
-    public String accountAlias;
+    private UndeferrableValue<String> accountAlias;
 
-
+    public String accountAlias() {
+        if (accountAlias == null) return null;
+        return accountAlias.getValue("AccountAlias.accountAlias");
+    }
 
 }

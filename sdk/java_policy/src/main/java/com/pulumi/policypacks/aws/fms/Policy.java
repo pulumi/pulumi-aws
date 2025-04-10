@@ -3,138 +3,188 @@
 
 package com.pulumi.policypacks.aws.fms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fms.PolicyExcludeMap;
-import com.pulumi.policypacks.aws.fms.PolicyIncludeMap;
-import com.pulumi.policypacks.aws.fms.PolicySecurityServicePolicyData;
+import com.pulumi.policypacks.aws.fms.outputs.PolicyExcludeMap;
+import com.pulumi.policypacks.aws.fms.outputs.PolicyIncludeMap;
+import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyData;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fms/policy:Policy")
-public final class Policy extends com.pulumi.resources.PolicyResource {
+public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Policy.arn");
+    }
 
     /**
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      * 
      */
-    public Boolean deleteAllPolicyResources;
+    private @Nullable UndeferrableValue<Boolean> deleteAllPolicyResources;
 
-
+    public @Nullable Boolean deleteAllPolicyResources() {
+        if (deleteAllPolicyResources == null) return null;
+        return deleteAllPolicyResources.getValue("Policy.deleteAllPolicyResources");
+    }
 
     /**
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      * 
      */
-    public Boolean deleteUnusedFmManagedResources;
+    private @Nullable UndeferrableValue<Boolean> deleteUnusedFmManagedResources;
 
-
+    public @Nullable Boolean deleteUnusedFmManagedResources() {
+        if (deleteUnusedFmManagedResources == null) return null;
+        return deleteUnusedFmManagedResources.getValue("Policy.deleteUnusedFmManagedResources");
+    }
 
     /**
      * The description of the AWS Network Firewall firewall policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Policy.description");
+    }
 
     /**
      * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
-    public PolicyExcludeMap excludeMap;
+    private @Nullable UndeferrableValue<PolicyExcludeMap> excludeMap;
 
-
+    public @Nullable PolicyExcludeMap excludeMap() {
+        if (excludeMap == null) return null;
+        return excludeMap.getValue("Policy.excludeMap");
+    }
 
     /**
      * A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
      * 
      */
-    public Boolean excludeResourceTags;
+    private UndeferrableValue<Boolean> excludeResourceTags;
 
-
+    public Boolean excludeResourceTags() {
+        if (excludeResourceTags == null) return null;
+        return excludeResourceTags.getValue("Policy.excludeResourceTags");
+    }
 
     /**
      * A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
-    public PolicyIncludeMap includeMap;
+    private @Nullable UndeferrableValue<PolicyIncludeMap> includeMap;
 
-
+    public @Nullable PolicyIncludeMap includeMap() {
+        if (includeMap == null) return null;
+        return includeMap.getValue("Policy.includeMap");
+    }
 
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Policy.name");
+    }
 
     /**
      * A unique identifier for each update to the policy.
      * 
      */
-    public String policyUpdateToken;
+    private UndeferrableValue<String> policyUpdateToken;
 
-
+    public String policyUpdateToken() {
+        if (policyUpdateToken == null) return null;
+        return policyUpdateToken.getValue("Policy.policyUpdateToken");
+    }
 
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      * 
      */
-    public Boolean remediationEnabled;
+    private @Nullable UndeferrableValue<Boolean> remediationEnabled;
 
+    public @Nullable Boolean remediationEnabled() {
+        if (remediationEnabled == null) return null;
+        return remediationEnabled.getValue("Policy.remediationEnabled");
+    }
 
+    private UndeferrableValue<List<String>> resourceSetIds;
 
-    public List<String> resourceSetIds;
-
-
+    public List<String> resourceSetIds() {
+        if (resourceSetIds == null) return null;
+        return resourceSetIds.getValue("Policy.resourceSetIds");
+    }
 
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
      */
-    public Map<String,String> resourceTags;
+    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
 
-
+    public @Nullable Map<String,String> resourceTags() {
+        if (resourceTags == null) return null;
+        return resourceTags.getValue("Policy.resourceTags");
+    }
 
     /**
      * A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("Policy.resourceType");
+    }
 
     /**
      * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
-    public List<String> resourceTypeLists;
+    private UndeferrableValue<List<String>> resourceTypeLists;
 
-
+    public List<String> resourceTypeLists() {
+        if (resourceTypeLists == null) return null;
+        return resourceTypeLists.getValue("Policy.resourceTypeLists");
+    }
 
     /**
      * The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
-    public PolicySecurityServicePolicyData securityServicePolicyData;
+    private UndeferrableValue<PolicySecurityServicePolicyData> securityServicePolicyData;
 
-
+    public PolicySecurityServicePolicyData securityServicePolicyData() {
+        if (securityServicePolicyData == null) return null;
+        return securityServicePolicyData.getValue("Policy.securityServicePolicyData");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Policy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -144,8 +194,11 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Policy.tagsAll");
+    }
 
 }

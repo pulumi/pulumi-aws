@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:codebuild/resourcePolicy:ResourcePolicy")
-public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ResourcePolicy.policy");
+    }
 
     /**
      * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ResourcePolicy.resourceArn");
+    }
 
 }

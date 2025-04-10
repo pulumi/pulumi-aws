@@ -3,82 +3,111 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.PartitionStorageDescriptor;
+import com.pulumi.policypacks.aws.glue.outputs.PartitionStorageDescriptor;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/partition:Partition")
-public final class Partition extends com.pulumi.resources.PolicyResource {
+public final class Partition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("Partition.catalogId");
+    }
 
     /**
      * The time at which the partition was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("Partition.creationTime");
+    }
 
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Partition.databaseName");
+    }
 
     /**
      * The last time at which the partition was accessed.
      * 
      */
-    public String lastAccessedTime;
+    private UndeferrableValue<String> lastAccessedTime;
 
-
+    public String lastAccessedTime() {
+        if (lastAccessedTime == null) return null;
+        return lastAccessedTime.getValue("Partition.lastAccessedTime");
+    }
 
     /**
      * The last time at which column statistics were computed for this partition.
      * 
      */
-    public String lastAnalyzedTime;
+    private UndeferrableValue<String> lastAnalyzedTime;
 
-
+    public String lastAnalyzedTime() {
+        if (lastAnalyzedTime == null) return null;
+        return lastAnalyzedTime.getValue("Partition.lastAnalyzedTime");
+    }
 
     /**
      * Properties associated with this table, as a list of key-value pairs.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Partition.parameters");
+    }
 
     /**
      * The values that define the partition.
      * 
      */
-    public List<String> partitionValues;
+    private UndeferrableValue<List<String>> partitionValues;
 
-
+    public List<String> partitionValues() {
+        if (partitionValues == null) return null;
+        return partitionValues.getValue("Partition.partitionValues");
+    }
 
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
-    public PartitionStorageDescriptor storageDescriptor;
+    private @Nullable UndeferrableValue<PartitionStorageDescriptor> storageDescriptor;
 
+    public @Nullable PartitionStorageDescriptor storageDescriptor() {
+        if (storageDescriptor == null) return null;
+        return storageDescriptor.getValue("Partition.storageDescriptor");
+    }
 
+    private UndeferrableValue<String> tableName;
 
-    public String tableName;
-
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("Partition.tableName");
+    }
 
 }

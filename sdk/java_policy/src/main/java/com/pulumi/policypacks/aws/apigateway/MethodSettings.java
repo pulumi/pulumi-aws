@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.MethodSettingsSettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.MethodSettingsSettings;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:apigateway/methodSettings:MethodSettings")
-public final class MethodSettings extends com.pulumi.resources.PolicyResource {
+public final class MethodSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
      * 
      */
-    public String methodPath;
+    private UndeferrableValue<String> methodPath;
 
-
+    public String methodPath() {
+        if (methodPath == null) return null;
+        return methodPath.getValue("MethodSettings.methodPath");
+    }
 
     /**
      * ID of the REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("MethodSettings.restApi");
+    }
 
     /**
      * Settings block, see below.
      * 
      */
-    public MethodSettingsSettings settings;
+    private UndeferrableValue<MethodSettingsSettings> settings;
 
-
+    public MethodSettingsSettings settings() {
+        if (settings == null) return null;
+        return settings.getValue("MethodSettings.settings");
+    }
 
     /**
      * Name of the stage
      * 
      */
-    public String stageName;
+    private UndeferrableValue<String> stageName;
 
-
+    public String stageName() {
+        if (stageName == null) return null;
+        return stageName.getValue("MethodSettings.stageName");
+    }
 
 }

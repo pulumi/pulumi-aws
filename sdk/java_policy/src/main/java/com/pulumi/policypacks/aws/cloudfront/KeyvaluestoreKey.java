@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")
-public final class KeyvaluestoreKey extends com.pulumi.resources.PolicyResource {
+public final class KeyvaluestoreKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Key to put.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("KeyvaluestoreKey.key");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
-    public String keyValueStoreArn;
+    private UndeferrableValue<String> keyValueStoreArn;
 
-
+    public String keyValueStoreArn() {
+        if (keyValueStoreArn == null) return null;
+        return keyValueStoreArn.getValue("KeyvaluestoreKey.keyValueStoreArn");
+    }
 
     /**
      * Total size of the Key Value Store in bytes.
      * 
      */
-    public Integer totalSizeInBytes;
+    private UndeferrableValue<Integer> totalSizeInBytes;
 
-
+    public Integer totalSizeInBytes() {
+        if (totalSizeInBytes == null) return null;
+        return totalSizeInBytes.getValue("KeyvaluestoreKey.totalSizeInBytes");
+    }
 
     /**
      * Value to put.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("KeyvaluestoreKey.value");
+    }
 
 }

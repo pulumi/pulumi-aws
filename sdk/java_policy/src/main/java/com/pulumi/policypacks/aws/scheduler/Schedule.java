@@ -3,110 +3,148 @@
 
 package com.pulumi.policypacks.aws.scheduler;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.scheduler.ScheduleFlexibleTimeWindow;
-import com.pulumi.policypacks.aws.scheduler.ScheduleTarget;
+import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleFlexibleTimeWindow;
+import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTarget;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:scheduler/schedule:Schedule")
-public final class Schedule extends com.pulumi.resources.PolicyResource {
+public final class Schedule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the schedule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Schedule.arn");
+    }
 
     /**
      * Brief description of the schedule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Schedule.description");
+    }
 
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule&#39;s recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    public String endDate;
+    private @Nullable UndeferrableValue<String> endDate;
 
-
+    public @Nullable String endDate() {
+        if (endDate == null) return null;
+        return endDate.getValue("Schedule.endDate");
+    }
 
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      * 
      */
-    public ScheduleFlexibleTimeWindow flexibleTimeWindow;
+    private UndeferrableValue<ScheduleFlexibleTimeWindow> flexibleTimeWindow;
 
-
+    public ScheduleFlexibleTimeWindow flexibleTimeWindow() {
+        if (flexibleTimeWindow == null) return null;
+        return flexibleTimeWindow.getValue("Schedule.flexibleTimeWindow");
+    }
 
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("Schedule.groupName");
+    }
 
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Schedule.kmsKeyArn");
+    }
 
     /**
      * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Schedule.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Schedule.namePrefix");
+    }
 
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      * 
      */
-    public String scheduleExpression;
+    private UndeferrableValue<String> scheduleExpression;
 
-
+    public String scheduleExpression() {
+        if (scheduleExpression == null) return null;
+        return scheduleExpression.getValue("Schedule.scheduleExpression");
+    }
 
     /**
      * Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
      * 
      */
-    public String scheduleExpressionTimezone;
+    private @Nullable UndeferrableValue<String> scheduleExpressionTimezone;
 
-
+    public @Nullable String scheduleExpressionTimezone() {
+        if (scheduleExpressionTimezone == null) return null;
+        return scheduleExpressionTimezone.getValue("Schedule.scheduleExpressionTimezone");
+    }
 
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule&#39;s recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    public String startDate;
+    private @Nullable UndeferrableValue<String> startDate;
 
-
+    public @Nullable String startDate() {
+        if (startDate == null) return null;
+        return startDate.getValue("Schedule.startDate");
+    }
 
     /**
      * Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("Schedule.state");
+    }
 
     /**
      * Configures the target of the schedule. Detailed below.
@@ -114,8 +152,11 @@ public final class Schedule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ScheduleTarget target;
+    private UndeferrableValue<ScheduleTarget> target;
 
-
+    public ScheduleTarget target() {
+        if (target == null) return null;
+        return target.getValue("Schedule.target");
+    }
 
 }

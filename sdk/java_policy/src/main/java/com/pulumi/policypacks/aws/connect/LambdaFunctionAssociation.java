@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")
-public final class LambdaFunctionAssociation extends com.pulumi.resources.PolicyResource {
+public final class LambdaFunctionAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
-    public String functionArn;
+    private UndeferrableValue<String> functionArn;
 
-
+    public String functionArn() {
+        if (functionArn == null) return null;
+        return functionArn.getValue("LambdaFunctionAssociation.functionArn");
+    }
 
     /**
      * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("LambdaFunctionAssociation.instanceId");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")
-public final class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resources.PolicyResource {
+public final class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the network interface to attach to.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("NetworkInterfaceSecurityGroupAttachment.networkInterfaceId");
+    }
 
     /**
      * The ID of the security group.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("NetworkInterfaceSecurityGroupAttachment.securityGroupId");
+    }
 
 }

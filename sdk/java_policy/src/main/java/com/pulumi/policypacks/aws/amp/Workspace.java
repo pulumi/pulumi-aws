@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.amp;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.amp.WorkspaceLoggingConfiguration;
+import com.pulumi.policypacks.aws.amp.outputs.WorkspaceLoggingConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amp/workspace:Workspace")
-public final class Workspace extends com.pulumi.resources.PolicyResource {
+public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
-    public String alias;
+    private @Nullable UndeferrableValue<String> alias;
 
-
+    public @Nullable String alias() {
+        if (alias == null) return null;
+        return alias.getValue("Workspace.alias");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the workspace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workspace.arn");
+    }
 
     /**
      * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Workspace.kmsKeyArn");
+    }
 
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      * 
      */
-    public WorkspaceLoggingConfiguration loggingConfiguration;
+    private @Nullable UndeferrableValue<WorkspaceLoggingConfiguration> loggingConfiguration;
 
-
+    public @Nullable WorkspaceLoggingConfiguration loggingConfiguration() {
+        if (loggingConfiguration == null) return null;
+        return loggingConfiguration.getValue("Workspace.loggingConfiguration");
+    }
 
     /**
      * Prometheus endpoint available for this workspace.
      * 
      */
-    public String prometheusEndpoint;
+    private UndeferrableValue<String> prometheusEndpoint;
 
-
+    public String prometheusEndpoint() {
+        if (prometheusEndpoint == null) return null;
+        return prometheusEndpoint.getValue("Workspace.prometheusEndpoint");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workspace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class Workspace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workspace.tagsAll");
+    }
 
 }

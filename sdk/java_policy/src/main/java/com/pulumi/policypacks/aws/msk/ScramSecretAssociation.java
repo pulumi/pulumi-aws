@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:msk/scramSecretAssociation:ScramSecretAssociation")
-public final class ScramSecretAssociation extends com.pulumi.resources.PolicyResource {
+public final class ScramSecretAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    public String clusterArn;
+    private UndeferrableValue<String> clusterArn;
 
-
+    public String clusterArn() {
+        if (clusterArn == null) return null;
+        return clusterArn.getValue("ScramSecretAssociation.clusterArn");
+    }
 
     /**
      * List of AWS Secrets Manager secret ARNs.
      * 
      */
-    public List<String> secretArnLists;
+    private UndeferrableValue<List<String>> secretArnLists;
 
-
+    public List<String> secretArnLists() {
+        if (secretArnLists == null) return null;
+        return secretArnLists.getValue("ScramSecretAssociation.secretArnLists");
+    }
 
 }

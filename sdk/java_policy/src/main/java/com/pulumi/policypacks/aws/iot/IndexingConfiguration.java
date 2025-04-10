@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.IndexingConfigurationThingGroupIndexingConfiguration;
-import com.pulumi.policypacks.aws.iot.IndexingConfigurationThingIndexingConfiguration;
+import com.pulumi.policypacks.aws.iot.outputs.IndexingConfigurationThingGroupIndexingConfiguration;
+import com.pulumi.policypacks.aws.iot.outputs.IndexingConfigurationThingIndexingConfiguration;
 
 
 @PolicyResourceType(type="aws:iot/indexingConfiguration:IndexingConfiguration")
-public final class IndexingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class IndexingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Thing group indexing configuration. See below.
      * 
      */
-    public IndexingConfigurationThingGroupIndexingConfiguration thingGroupIndexingConfiguration;
+    private UndeferrableValue<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
 
-
+    public IndexingConfigurationThingGroupIndexingConfiguration thingGroupIndexingConfiguration() {
+        if (thingGroupIndexingConfiguration == null) return null;
+        return thingGroupIndexingConfiguration.getValue("IndexingConfiguration.thingGroupIndexingConfiguration");
+    }
 
     /**
      * Thing indexing configuration. See below.
      * 
      */
-    public IndexingConfigurationThingIndexingConfiguration thingIndexingConfiguration;
+    private UndeferrableValue<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
 
-
+    public IndexingConfigurationThingIndexingConfiguration thingIndexingConfiguration() {
+        if (thingIndexingConfiguration == null) return null;
+        return thingIndexingConfiguration.getValue("IndexingConfiguration.thingIndexingConfiguration");
+    }
 
 }

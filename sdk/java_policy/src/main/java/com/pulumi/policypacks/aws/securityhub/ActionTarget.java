@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/actionTarget:ActionTarget")
-public final class ActionTarget extends com.pulumi.resources.PolicyResource {
+public final class ActionTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Security Hub custom action target.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ActionTarget.arn");
+    }
 
     /**
      * The name of the custom action target.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ActionTarget.description");
+    }
 
     /**
      * The ID for the custom action target.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("ActionTarget.identifier");
+    }
 
     /**
      * The description for the custom action target.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ActionTarget.name");
+    }
 
 }

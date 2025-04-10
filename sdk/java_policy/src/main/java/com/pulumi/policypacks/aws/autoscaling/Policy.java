@@ -3,50 +3,64 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.autoscaling.PolicyPredictiveScalingConfiguration;
-import com.pulumi.policypacks.aws.autoscaling.PolicyStepAdjustment;
-import com.pulumi.policypacks.aws.autoscaling.PolicyTargetTrackingConfiguration;
+import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyPredictiveScalingConfiguration;
+import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyStepAdjustment;
+import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:autoscaling/policy:Policy")
-public final class Policy extends com.pulumi.resources.PolicyResource {
+public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
-    public String adjustmentType;
+    private @Nullable UndeferrableValue<String> adjustmentType;
 
-
+    public @Nullable String adjustmentType() {
+        if (adjustmentType == null) return null;
+        return adjustmentType.getValue("Policy.adjustmentType");
+    }
 
     /**
      * ARN assigned by AWS to the scaling policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Policy.arn");
+    }
 
     /**
      * Name of the autoscaling group.
      * 
      */
-    public String autoscalingGroupName;
+    private UndeferrableValue<String> autoscalingGroupName;
 
-
+    public String autoscalingGroupName() {
+        if (autoscalingGroupName == null) return null;
+        return autoscalingGroupName.getValue("Policy.autoscalingGroupName");
+    }
 
     /**
      * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
-    public Integer cooldown;
+    private @Nullable UndeferrableValue<Integer> cooldown;
 
-
+    public @Nullable Integer cooldown() {
+        if (cooldown == null) return null;
+        return cooldown.getValue("Policy.cooldown");
+    }
 
     /**
      * Whether the scaling policy is enabled or disabled. Default: `true`.
@@ -54,25 +68,34 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Policy.enabled");
+    }
 
     /**
      * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
-    public Integer estimatedInstanceWarmup;
+    private @Nullable UndeferrableValue<Integer> estimatedInstanceWarmup;
 
-
+    public @Nullable Integer estimatedInstanceWarmup() {
+        if (estimatedInstanceWarmup == null) return null;
+        return estimatedInstanceWarmup.getValue("Policy.estimatedInstanceWarmup");
+    }
 
     /**
      * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
-    public String metricAggregationType;
+    private UndeferrableValue<String> metricAggregationType;
 
-
+    public String metricAggregationType() {
+        if (metricAggregationType == null) return null;
+        return metricAggregationType.getValue("Policy.metricAggregationType");
+    }
 
     /**
      * Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -80,33 +103,45 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
      */
-    public Integer minAdjustmentMagnitude;
+    private @Nullable UndeferrableValue<Integer> minAdjustmentMagnitude;
 
-
+    public @Nullable Integer minAdjustmentMagnitude() {
+        if (minAdjustmentMagnitude == null) return null;
+        return minAdjustmentMagnitude.getValue("Policy.minAdjustmentMagnitude");
+    }
 
     /**
      * Name of the policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Policy.name");
+    }
 
     /**
      * Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
-    public String policyType;
+    private @Nullable UndeferrableValue<String> policyType;
 
-
+    public @Nullable String policyType() {
+        if (policyType == null) return null;
+        return policyType.getValue("Policy.policyType");
+    }
 
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
-    public PolicyPredictiveScalingConfiguration predictiveScalingConfiguration;
+    private @Nullable UndeferrableValue<PolicyPredictiveScalingConfiguration> predictiveScalingConfiguration;
 
-
+    public @Nullable PolicyPredictiveScalingConfiguration predictiveScalingConfiguration() {
+        if (predictiveScalingConfiguration == null) return null;
+        return predictiveScalingConfiguration.getValue("Policy.predictiveScalingConfiguration");
+    }
 
     /**
      * Number of members by which to
@@ -114,9 +149,12 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * up. A negative value scales down.
      * 
      */
-    public Integer scalingAdjustment;
+    private @Nullable UndeferrableValue<Integer> scalingAdjustment;
 
-
+    public @Nullable Integer scalingAdjustment() {
+        if (scalingAdjustment == null) return null;
+        return scalingAdjustment.getValue("Policy.scalingAdjustment");
+    }
 
     /**
      * Set of adjustments that manage
@@ -169,9 +207,12 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * The following fields are available in step adjustments:
      * 
      */
-    public List<PolicyStepAdjustment> stepAdjustments;
+    private @Nullable UndeferrableValue<List<PolicyStepAdjustment>> stepAdjustments;
 
-
+    public @Nullable List<PolicyStepAdjustment> stepAdjustments() {
+        if (stepAdjustments == null) return null;
+        return stepAdjustments.getValue("Policy.stepAdjustments");
+    }
 
     /**
      * Target tracking policy. These have the following structure:
@@ -219,8 +260,11 @@ public final class Policy extends com.pulumi.resources.PolicyResource {
      * The following fields are available in target tracking configuration:
      * 
      */
-    public PolicyTargetTrackingConfiguration targetTrackingConfiguration;
+    private @Nullable UndeferrableValue<PolicyTargetTrackingConfiguration> targetTrackingConfiguration;
 
-
+    public @Nullable PolicyTargetTrackingConfiguration targetTrackingConfiguration() {
+        if (targetTrackingConfiguration == null) return null;
+        return targetTrackingConfiguration.getValue("Policy.targetTrackingConfiguration");
+    }
 
 }

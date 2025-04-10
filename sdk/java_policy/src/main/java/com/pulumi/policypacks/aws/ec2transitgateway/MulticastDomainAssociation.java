@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")
-public final class MulticastDomainAssociation extends com.pulumi.resources.PolicyResource {
+public final class MulticastDomainAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the subnet to associate with the transit gateway multicast domain.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("MulticastDomainAssociation.subnetId");
+    }
 
     /**
      * The ID of the transit gateway attachment.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("MulticastDomainAssociation.transitGatewayAttachmentId");
+    }
 
     /**
      * The ID of the transit gateway multicast domain.
      * 
      */
-    public String transitGatewayMulticastDomainId;
+    private UndeferrableValue<String> transitGatewayMulticastDomainId;
 
-
+    public String transitGatewayMulticastDomainId() {
+        if (transitGatewayMulticastDomainId == null) return null;
+        return transitGatewayMulticastDomainId.getValue("MulticastDomainAssociation.transitGatewayMulticastDomainId");
+    }
 
 }

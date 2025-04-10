@@ -3,129 +3,173 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudformation.StackSetAutoDeployment;
-import com.pulumi.policypacks.aws.cloudformation.StackSetManagedExecution;
-import com.pulumi.policypacks.aws.cloudformation.StackSetOperationPreferences;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackSetAutoDeployment;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackSetManagedExecution;
+import com.pulumi.policypacks.aws.cloudformation.outputs.StackSetOperationPreferences;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudformation/stackSet:StackSet")
-public final class StackSet extends com.pulumi.resources.PolicyResource {
+public final class StackSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      * 
      */
-    public String administrationRoleArn;
+    private @Nullable UndeferrableValue<String> administrationRoleArn;
 
-
+    public @Nullable String administrationRoleArn() {
+        if (administrationRoleArn == null) return null;
+        return administrationRoleArn.getValue("StackSet.administrationRoleArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the StackSet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StackSet.arn");
+    }
 
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    public StackSetAutoDeployment autoDeployment;
+    private @Nullable UndeferrableValue<StackSetAutoDeployment> autoDeployment;
 
-
+    public @Nullable StackSetAutoDeployment autoDeployment() {
+        if (autoDeployment == null) return null;
+        return autoDeployment.getValue("StackSet.autoDeployment");
+    }
 
     /**
      * Specifies whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    public String callAs;
+    private @Nullable UndeferrableValue<String> callAs;
 
-
+    public @Nullable String callAs() {
+        if (callAs == null) return null;
+        return callAs.getValue("StackSet.callAs");
+    }
 
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      * 
      */
-    public List<String> capabilities;
+    private @Nullable UndeferrableValue<List<String>> capabilities;
 
-
+    public @Nullable List<String> capabilities() {
+        if (capabilities == null) return null;
+        return capabilities.getValue("StackSet.capabilities");
+    }
 
     /**
      * Description of the StackSet.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("StackSet.description");
+    }
 
     /**
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    public String executionRoleName;
+    private UndeferrableValue<String> executionRoleName;
 
-
+    public String executionRoleName() {
+        if (executionRoleName == null) return null;
+        return executionRoleName.getValue("StackSet.executionRoleName");
+    }
 
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      * 
      */
-    public StackSetManagedExecution managedExecution;
+    private @Nullable UndeferrableValue<StackSetManagedExecution> managedExecution;
 
-
+    public @Nullable StackSetManagedExecution managedExecution() {
+        if (managedExecution == null) return null;
+        return managedExecution.getValue("StackSet.managedExecution");
+    }
 
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StackSet.name");
+    }
 
     /**
      * Preferences for how AWS CloudFormation performs a stack set update.
      * 
      */
-    public StackSetOperationPreferences operationPreferences;
+    private @Nullable UndeferrableValue<StackSetOperationPreferences> operationPreferences;
 
-
+    public @Nullable StackSetOperationPreferences operationPreferences() {
+        if (operationPreferences == null) return null;
+        return operationPreferences.getValue("StackSet.operationPreferences");
+    }
 
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("StackSet.parameters");
+    }
 
     /**
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      * 
      */
-    public String permissionModel;
+    private @Nullable UndeferrableValue<String> permissionModel;
 
-
+    public @Nullable String permissionModel() {
+        if (permissionModel == null) return null;
+        return permissionModel.getValue("StackSet.permissionModel");
+    }
 
     /**
      * Unique identifier of the StackSet.
      * 
      */
-    public String stackSetId;
+    private UndeferrableValue<String> stackSetId;
 
-
+    public String stackSetId() {
+        if (stackSetId == null) return null;
+        return stackSetId.getValue("StackSet.stackSetId");
+    }
 
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StackSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -135,24 +179,33 @@ public final class StackSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StackSet.tagsAll");
+    }
 
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
      * 
      */
-    public String templateBody;
+    private UndeferrableValue<String> templateBody;
 
-
+    public String templateBody() {
+        if (templateBody == null) return null;
+        return templateBody.getValue("StackSet.templateBody");
+    }
 
     /**
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
      * 
      */
-    public String templateUrl;
+    private @Nullable UndeferrableValue<String> templateUrl;
 
-
+    public @Nullable String templateUrl() {
+        if (templateUrl == null) return null;
+        return templateUrl.getValue("StackSet.templateUrl");
+    }
 
 }

@@ -3,42 +3,53 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.AddonPodIdentityAssociation;
+import com.pulumi.policypacks.aws.eks.outputs.AddonPodIdentityAssociation;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/addon:Addon")
-public final class Addon extends com.pulumi.resources.PolicyResource {
+public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the EKS add-on. The name must match one of
      * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    public String addonName;
+    private UndeferrableValue<String> addonName;
 
-
+    public String addonName() {
+        if (addonName == null) return null;
+        return addonName.getValue("Addon.addonName");
+    }
 
     /**
      * The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    public String addonVersion;
+    private UndeferrableValue<String> addonVersion;
 
-
+    public String addonVersion() {
+        if (addonVersion == null) return null;
+        return addonVersion.getValue("Addon.addonVersion");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Addon.arn");
+    }
 
     /**
      * Name of the EKS Cluster.
@@ -46,49 +57,67 @@ public final class Addon extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("Addon.clusterName");
+    }
 
     /**
      * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
-    public String configurationValues;
+    private UndeferrableValue<String> configurationValues;
 
-
+    public String configurationValues() {
+        if (configurationValues == null) return null;
+        return configurationValues.getValue("Addon.configurationValues");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Addon.createdAt");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    public String modifiedAt;
+    private UndeferrableValue<String> modifiedAt;
 
-
+    public String modifiedAt() {
+        if (modifiedAt == null) return null;
+        return modifiedAt.getValue("Addon.modifiedAt");
+    }
 
     /**
      * Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
      * 
      */
-    public List<AddonPodIdentityAssociation> podIdentityAssociations;
+    private @Nullable UndeferrableValue<List<AddonPodIdentityAssociation>> podIdentityAssociations;
 
-
+    public @Nullable List<AddonPodIdentityAssociation> podIdentityAssociations() {
+        if (podIdentityAssociations == null) return null;
+        return podIdentityAssociations.getValue("Addon.podIdentityAssociations");
+    }
 
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      * 
      */
-    public Boolean preserve;
+    private @Nullable UndeferrableValue<Boolean> preserve;
 
-
+    public @Nullable Boolean preserve() {
+        if (preserve == null) return null;
+        return preserve.getValue("Addon.preserve");
+    }
 
     /**
      * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -98,25 +127,34 @@ public final class Addon extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
-    public String resolveConflicts;
+    private @Nullable UndeferrableValue<String> resolveConflicts;
 
-
+    public @Nullable String resolveConflicts() {
+        if (resolveConflicts == null) return null;
+        return resolveConflicts.getValue("Addon.resolveConflicts");
+    }
 
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
      * 
      */
-    public String resolveConflictsOnCreate;
+    private @Nullable UndeferrableValue<String> resolveConflictsOnCreate;
 
-
+    public @Nullable String resolveConflictsOnCreate() {
+        if (resolveConflictsOnCreate == null) return null;
+        return resolveConflictsOnCreate.getValue("Addon.resolveConflictsOnCreate");
+    }
 
     /**
      * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
-    public String resolveConflictsOnUpdate;
+    private @Nullable UndeferrableValue<String> resolveConflictsOnUpdate;
 
-
+    public @Nullable String resolveConflictsOnUpdate() {
+        if (resolveConflictsOnUpdate == null) return null;
+        return resolveConflictsOnUpdate.getValue("Addon.resolveConflictsOnUpdate");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of an
@@ -132,17 +170,23 @@ public final class Addon extends com.pulumi.resources.PolicyResource {
      * in the Amazon EKS User Guide.
      * 
      */
-    public String serviceAccountRoleArn;
+    private @Nullable UndeferrableValue<String> serviceAccountRoleArn;
 
-
+    public @Nullable String serviceAccountRoleArn() {
+        if (serviceAccountRoleArn == null) return null;
+        return serviceAccountRoleArn.getValue("Addon.serviceAccountRoleArn");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Addon.tags");
+    }
 
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -152,8 +196,11 @@ public final class Addon extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Addon.tagsAll");
+    }
 
 }

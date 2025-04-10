@@ -3,96 +3,131 @@
 
 package com.pulumi.policypacks.aws.detective;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:detective/member:Member")
-public final class Member extends com.pulumi.resources.PolicyResource {
+public final class Member extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID for the account.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Member.accountId");
+    }
 
     /**
      * AWS account ID for the administrator account.
      * 
      */
-    public String administratorId;
+    private UndeferrableValue<String> administratorId;
 
-
+    public String administratorId() {
+        if (administratorId == null) return null;
+        return administratorId.getValue("Member.administratorId");
+    }
 
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      * 
      */
-    public Boolean disableEmailNotification;
+    private @Nullable UndeferrableValue<Boolean> disableEmailNotification;
 
+    public @Nullable Boolean disableEmailNotification() {
+        if (disableEmailNotification == null) return null;
+        return disableEmailNotification.getValue("Member.disableEmailNotification");
+    }
 
+    private UndeferrableValue<String> disabledReason;
 
-    public String disabledReason;
-
-
+    public String disabledReason() {
+        if (disabledReason == null) return null;
+        return disabledReason.getValue("Member.disabledReason");
+    }
 
     /**
      * Email address for the account.
      * 
      */
-    public String emailAddress;
+    private UndeferrableValue<String> emailAddress;
 
-
+    public String emailAddress() {
+        if (emailAddress == null) return null;
+        return emailAddress.getValue("Member.emailAddress");
+    }
 
     /**
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      * 
      */
-    public String graphArn;
+    private UndeferrableValue<String> graphArn;
 
-
+    public String graphArn() {
+        if (graphArn == null) return null;
+        return graphArn.getValue("Member.graphArn");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      * 
      */
-    public String invitedTime;
+    private UndeferrableValue<String> invitedTime;
 
-
+    public String invitedTime() {
+        if (invitedTime == null) return null;
+        return invitedTime.getValue("Member.invitedTime");
+    }
 
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      * 
      */
-    public String message;
+    private @Nullable UndeferrableValue<String> message;
 
-
+    public @Nullable String message() {
+        if (message == null) return null;
+        return message.getValue("Member.message");
+    }
 
     /**
      * Current membership status of the member account.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Member.status");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
      * 
      */
-    public String updatedTime;
+    private UndeferrableValue<String> updatedTime;
 
-
+    public String updatedTime() {
+        if (updatedTime == null) return null;
+        return updatedTime.getValue("Member.updatedTime");
+    }
 
     /**
      * Data volume in bytes per day for the member account.
      * 
      */
-    public String volumeUsageInBytes;
+    private UndeferrableValue<String> volumeUsageInBytes;
 
-
+    public String volumeUsageInBytes() {
+        if (volumeUsageInBytes == null) return null;
+        return volumeUsageInBytes.getValue("Member.volumeUsageInBytes");
+    }
 
 }

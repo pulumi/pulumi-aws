@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.DeviceAwsLocation;
-import com.pulumi.policypacks.aws.networkmanager.DeviceLocation;
+import com.pulumi.policypacks.aws.networkmanager.outputs.DeviceAwsLocation;
+import com.pulumi.policypacks.aws.networkmanager.outputs.DeviceLocation;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/device:Device")
-public final class Device extends com.pulumi.resources.PolicyResource {
+public final class Device extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the device.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Device.arn");
+    }
 
     /**
      * The AWS location of the device. Documented below.
      * 
      */
-    public DeviceAwsLocation awsLocation;
+    private @Nullable UndeferrableValue<DeviceAwsLocation> awsLocation;
 
-
+    public @Nullable DeviceAwsLocation awsLocation() {
+        if (awsLocation == null) return null;
+        return awsLocation.getValue("Device.awsLocation");
+    }
 
     /**
      * A description of the device.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Device.description");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("Device.globalNetworkId");
+    }
 
     /**
      * The location of the device. Documented below.
      * 
      */
-    public DeviceLocation location;
+    private @Nullable UndeferrableValue<DeviceLocation> location;
 
-
+    public @Nullable DeviceLocation location() {
+        if (location == null) return null;
+        return location.getValue("Device.location");
+    }
 
     /**
      * The model of device.
      * 
      */
-    public String model;
+    private @Nullable UndeferrableValue<String> model;
 
-
+    public @Nullable String model() {
+        if (model == null) return null;
+        return model.getValue("Device.model");
+    }
 
     /**
      * The serial number of the device.
      * 
      */
-    public String serialNumber;
+    private @Nullable UndeferrableValue<String> serialNumber;
 
-
+    public @Nullable String serialNumber() {
+        if (serialNumber == null) return null;
+        return serialNumber.getValue("Device.serialNumber");
+    }
 
     /**
      * The ID of the site.
      * 
      */
-    public String siteId;
+    private @Nullable UndeferrableValue<String> siteId;
 
-
+    public @Nullable String siteId() {
+        if (siteId == null) return null;
+        return siteId.getValue("Device.siteId");
+    }
 
     /**
      * Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Device.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,24 +122,33 @@ public final class Device extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Device.tagsAll");
+    }
 
     /**
      * The type of device.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Device.type");
+    }
 
     /**
      * The vendor of the device.
      * 
      */
-    public String vendor;
+    private @Nullable UndeferrableValue<String> vendor;
 
-
+    public @Nullable String vendor() {
+        if (vendor == null) return null;
+        return vendor.getValue("Device.vendor");
+    }
 
 }

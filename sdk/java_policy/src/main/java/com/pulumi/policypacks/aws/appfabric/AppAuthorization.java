@@ -3,82 +3,111 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationCredential;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationTenant;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationTimeouts;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationCredential;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationTenant;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appfabric/appAuthorization:AppAuthorization")
-public final class AppAuthorization extends com.pulumi.resources.PolicyResource {
+public final class AppAuthorization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
      * 
      */
-    public String app;
+    private UndeferrableValue<String> app;
 
-
+    public String app() {
+        if (app == null) return null;
+        return app.getValue("AppAuthorization.app");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    public String appBundleArn;
+    private UndeferrableValue<String> appBundleArn;
 
-
+    public String appBundleArn() {
+        if (appBundleArn == null) return null;
+        return appBundleArn.getValue("AppAuthorization.appBundleArn");
+    }
 
     /**
      * ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AppAuthorization.arn");
+    }
 
     /**
      * The authorization type for the app authorization valid values are oauth2 and apiKey.
      * 
      */
-    public String authType;
+    private UndeferrableValue<String> authType;
 
-
+    public String authType() {
+        if (authType == null) return null;
+        return authType.getValue("AppAuthorization.authType");
+    }
 
     /**
      * The application URL for the OAuth flow.
      * 
      */
-    public String authUrl;
+    private UndeferrableValue<String> authUrl;
 
+    public String authUrl() {
+        if (authUrl == null) return null;
+        return authUrl.getValue("AppAuthorization.authUrl");
+    }
 
+    private UndeferrableValue<String> createdAt;
 
-    public String createdAt;
-
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("AppAuthorization.createdAt");
+    }
 
     /**
      * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      * 
      */
-    public AppAuthorizationCredential credential;
+    private @Nullable UndeferrableValue<AppAuthorizationCredential> credential;
 
-
+    public @Nullable AppAuthorizationCredential credential() {
+        if (credential == null) return null;
+        return credential.getValue("AppAuthorization.credential");
+    }
 
     /**
      * The user persona of the app authorization.
      * 
      */
-    public String persona;
+    private UndeferrableValue<String> persona;
 
+    public String persona() {
+        if (persona == null) return null;
+        return persona.getValue("AppAuthorization.persona");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AppAuthorization.tags");
+    }
 
     /**
      * @deprecated
@@ -86,24 +115,36 @@ public final class AppAuthorization extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AppAuthorization.tagsAll");
+    }
 
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    public List<AppAuthorizationTenant> tenants;
+    private @Nullable UndeferrableValue<List<AppAuthorizationTenant>> tenants;
 
+    public @Nullable List<AppAuthorizationTenant> tenants() {
+        if (tenants == null) return null;
+        return tenants.getValue("AppAuthorization.tenants");
+    }
 
+    private @Nullable UndeferrableValue<AppAuthorizationTimeouts> timeouts;
 
-    public AppAuthorizationTimeouts timeouts;
+    public @Nullable AppAuthorizationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AppAuthorization.timeouts");
+    }
 
+    private UndeferrableValue<String> updatedAt;
 
-
-    public String updatedAt;
-
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("AppAuthorization.updatedAt");
+    }
 
 }

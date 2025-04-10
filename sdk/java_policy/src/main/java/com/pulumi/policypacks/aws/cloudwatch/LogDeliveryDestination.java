@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.LogDeliveryDestinationDeliveryDestinationConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination")
-public final class LogDeliveryDestination extends com.pulumi.resources.PolicyResource {
+public final class LogDeliveryDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the delivery destination.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogDeliveryDestination.arn");
+    }
 
     /**
      * The AWS resource that will receive the logs.
      * 
      */
-    public LogDeliveryDestinationDeliveryDestinationConfiguration deliveryDestinationConfiguration;
+    private @Nullable UndeferrableValue<LogDeliveryDestinationDeliveryDestinationConfiguration> deliveryDestinationConfiguration;
 
-
+    public @Nullable LogDeliveryDestinationDeliveryDestinationConfiguration deliveryDestinationConfiguration() {
+        if (deliveryDestinationConfiguration == null) return null;
+        return deliveryDestinationConfiguration.getValue("LogDeliveryDestination.deliveryDestinationConfiguration");
+    }
 
     /**
      * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
      * 
      */
-    public String deliveryDestinationType;
+    private UndeferrableValue<String> deliveryDestinationType;
 
-
+    public String deliveryDestinationType() {
+        if (deliveryDestinationType == null) return null;
+        return deliveryDestinationType.getValue("LogDeliveryDestination.deliveryDestinationType");
+    }
 
     /**
      * The name for this delivery destination.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogDeliveryDestination.name");
+    }
 
     /**
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      * 
      */
-    public String outputFormat;
+    private @Nullable UndeferrableValue<String> outputFormat;
 
-
+    public @Nullable String outputFormat() {
+        if (outputFormat == null) return null;
+        return outputFormat.getValue("LogDeliveryDestination.outputFormat");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogDeliveryDestination.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class LogDeliveryDestination extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogDeliveryDestination.tagsAll");
+    }
 
 }

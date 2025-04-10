@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.dlm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dlm.LifecyclePolicyPolicyDetails;
+import com.pulumi.policypacks.aws.dlm.outputs.LifecyclePolicyPolicyDetails;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dlm/lifecyclePolicy:LifecyclePolicy")
-public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
+public final class LifecyclePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LifecyclePolicy.arn");
+    }
 
     /**
      * A description for the DLM lifecycle policy.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("LifecyclePolicy.description");
+    }
 
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("LifecyclePolicy.executionRoleArn");
+    }
 
     /**
      * See the `policy_details` configuration block. Max of 1.
      * 
      */
-    public LifecyclePolicyPolicyDetails policyDetails;
+    private UndeferrableValue<LifecyclePolicyPolicyDetails> policyDetails;
 
-
+    public LifecyclePolicyPolicyDetails policyDetails() {
+        if (policyDetails == null) return null;
+        return policyDetails.getValue("LifecyclePolicy.policyDetails");
+    }
 
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("LifecyclePolicy.state");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LifecyclePolicy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class LifecyclePolicy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LifecyclePolicy.tagsAll");
+    }
 
 }

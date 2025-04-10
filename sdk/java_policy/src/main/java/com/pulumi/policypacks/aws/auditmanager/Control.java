@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.auditmanager.ControlControlMappingSource;
+import com.pulumi.policypacks.aws.auditmanager.outputs.ControlControlMappingSource;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/control:Control")
-public final class Control extends com.pulumi.resources.PolicyResource {
+public final class Control extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Recommended actions to carry out if the control isn&#39;t fulfilled.
      * 
      */
-    public String actionPlanInstructions;
+    private @Nullable UndeferrableValue<String> actionPlanInstructions;
 
-
+    public @Nullable String actionPlanInstructions() {
+        if (actionPlanInstructions == null) return null;
+        return actionPlanInstructions.getValue("Control.actionPlanInstructions");
+    }
 
     /**
      * Title of the action plan for remediating the control.
      * 
      */
-    public String actionPlanTitle;
+    private @Nullable UndeferrableValue<String> actionPlanTitle;
 
-
+    public @Nullable String actionPlanTitle() {
+        if (actionPlanTitle == null) return null;
+        return actionPlanTitle.getValue("Control.actionPlanTitle");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the control.
      * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Control.arn");
+    }
 
     /**
      * Data mapping sources. See `control_mapping_sources` below.
@@ -44,33 +55,45 @@ public final class Control extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<ControlControlMappingSource> controlMappingSources;
+    private @Nullable UndeferrableValue<List<ControlControlMappingSource>> controlMappingSources;
 
-
+    public @Nullable List<ControlControlMappingSource> controlMappingSources() {
+        if (controlMappingSources == null) return null;
+        return controlMappingSources.getValue("Control.controlMappingSources");
+    }
 
     /**
      * Description of the control.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Control.description");
+    }
 
     /**
      * Name of the control.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Control.name");
+    }
 
     /**
      * A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Control.tags");
+    }
 
     /**
      * @deprecated
@@ -78,24 +101,33 @@ public final class Control extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Control.tagsAll");
+    }
 
     /**
      * Steps to follow to determine if the control is satisfied.
      * 
      */
-    public String testingInformation;
+    private @Nullable UndeferrableValue<String> testingInformation;
 
-
+    public @Nullable String testingInformation() {
+        if (testingInformation == null) return null;
+        return testingInformation.getValue("Control.testingInformation");
+    }
 
     /**
      * Type of control, such as a custom control or a standard control.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Control.type");
+    }
 
 }

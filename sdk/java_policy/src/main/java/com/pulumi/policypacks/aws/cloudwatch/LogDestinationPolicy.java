@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")
-public final class LogDestinationPolicy extends com.pulumi.resources.PolicyResource {
+public final class LogDestinationPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    public String accessPolicy;
+    private UndeferrableValue<String> accessPolicy;
 
-
+    public String accessPolicy() {
+        if (accessPolicy == null) return null;
+        return accessPolicy.getValue("LogDestinationPolicy.accessPolicy");
+    }
 
     /**
      * A name for the subscription filter
      * 
      */
-    public String destinationName;
+    private UndeferrableValue<String> destinationName;
 
-
+    public String destinationName() {
+        if (destinationName == null) return null;
+        return destinationName.getValue("LogDestinationPolicy.destinationName");
+    }
 
     /**
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      * 
      */
-    public Boolean forceUpdate;
+    private @Nullable UndeferrableValue<Boolean> forceUpdate;
 
-
+    public @Nullable Boolean forceUpdate() {
+        if (forceUpdate == null) return null;
+        return forceUpdate.getValue("LogDestinationPolicy.forceUpdate");
+    }
 
 }

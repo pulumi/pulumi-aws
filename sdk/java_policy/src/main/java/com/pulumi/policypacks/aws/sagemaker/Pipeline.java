@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.PipelineParallelismConfiguration;
-import com.pulumi.policypacks.aws.sagemaker.PipelinePipelineDefinitionS3Location;
+import com.pulumi.policypacks.aws.sagemaker.outputs.PipelineParallelismConfiguration;
+import com.pulumi.policypacks.aws.sagemaker.outputs.PipelinePipelineDefinitionS3Location;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/pipeline:Pipeline")
-public final class Pipeline extends com.pulumi.resources.PolicyResource {
+public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Pipeline.arn");
+    }
 
     /**
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      * 
      */
-    public PipelineParallelismConfiguration parallelismConfiguration;
+    private @Nullable UndeferrableValue<PipelineParallelismConfiguration> parallelismConfiguration;
 
-
+    public @Nullable PipelineParallelismConfiguration parallelismConfiguration() {
+        if (parallelismConfiguration == null) return null;
+        return parallelismConfiguration.getValue("Pipeline.parallelismConfiguration");
+    }
 
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      * 
      */
-    public String pipelineDefinition;
+    private @Nullable UndeferrableValue<String> pipelineDefinition;
 
-
+    public @Nullable String pipelineDefinition() {
+        if (pipelineDefinition == null) return null;
+        return pipelineDefinition.getValue("Pipeline.pipelineDefinition");
+    }
 
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      * 
      */
-    public PipelinePipelineDefinitionS3Location pipelineDefinitionS3Location;
+    private @Nullable UndeferrableValue<PipelinePipelineDefinitionS3Location> pipelineDefinitionS3Location;
 
-
+    public @Nullable PipelinePipelineDefinitionS3Location pipelineDefinitionS3Location() {
+        if (pipelineDefinitionS3Location == null) return null;
+        return pipelineDefinitionS3Location.getValue("Pipeline.pipelineDefinitionS3Location");
+    }
 
     /**
      * A description of the pipeline.
      * 
      */
-    public String pipelineDescription;
+    private @Nullable UndeferrableValue<String> pipelineDescription;
 
-
+    public @Nullable String pipelineDescription() {
+        if (pipelineDescription == null) return null;
+        return pipelineDescription.getValue("Pipeline.pipelineDescription");
+    }
 
     /**
      * The display name of the pipeline.
      * 
      */
-    public String pipelineDisplayName;
+    private UndeferrableValue<String> pipelineDisplayName;
 
-
+    public String pipelineDisplayName() {
+        if (pipelineDisplayName == null) return null;
+        return pipelineDisplayName.getValue("Pipeline.pipelineDisplayName");
+    }
 
     /**
      * The name of the pipeline.
      * 
      */
-    public String pipelineName;
+    private UndeferrableValue<String> pipelineName;
 
-
+    public String pipelineName() {
+        if (pipelineName == null) return null;
+        return pipelineName.getValue("Pipeline.pipelineName");
+    }
 
     /**
      * The ARN of the IAM role the pipeline will execute as.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Pipeline.roleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Pipeline.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,8 +122,11 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Pipeline.tagsAll");
+    }
 
 }

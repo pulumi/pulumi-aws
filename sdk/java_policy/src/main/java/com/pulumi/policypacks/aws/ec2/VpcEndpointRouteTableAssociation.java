@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")
-public final class VpcEndpointRouteTableAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointRouteTableAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      * 
      */
-    public String routeTableId;
+    private UndeferrableValue<String> routeTableId;
 
-
+    public String routeTableId() {
+        if (routeTableId == null) return null;
+        return routeTableId.getValue("VpcEndpointRouteTableAssociation.routeTableId");
+    }
 
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("VpcEndpointRouteTableAssociation.vpcEndpointId");
+    }
 
 }

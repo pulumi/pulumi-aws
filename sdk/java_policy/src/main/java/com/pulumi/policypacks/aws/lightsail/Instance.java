@@ -3,34 +3,42 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.InstanceAddOn;
+import com.pulumi.policypacks.aws.lightsail.outputs.InstanceAddOn;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The add-on configuration for the instance. Detailed below.
      * 
      */
-    public InstanceAddOn addOn;
+    private @Nullable UndeferrableValue<InstanceAddOn> addOn;
 
-
+    public @Nullable InstanceAddOn addOn() {
+        if (addOn == null) return null;
+        return addOn.getValue("Instance.addOn");
+    }
 
     /**
      * The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Instance.arn");
+    }
 
     /**
      * The Availability Zone in which to create your instance. A
@@ -38,9 +46,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Instance.availabilityZone");
+    }
 
     /**
      * The ID for a virtual private server image. A list of available
@@ -48,9 +59,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
-    public String blueprintId;
+    private UndeferrableValue<String> blueprintId;
 
-
+    public String blueprintId() {
+        if (blueprintId == null) return null;
+        return blueprintId.getValue("Instance.blueprintId");
+    }
 
     /**
      * The bundle of specification information. A list of available
@@ -58,98 +72,134 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
-    public String bundleId;
+    private UndeferrableValue<String> bundleId;
 
-
+    public String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("Instance.bundleId");
+    }
 
     /**
      * The number of vCPUs the instance has.
      * 
      */
-    public Integer cpuCount;
+    private UndeferrableValue<Integer> cpuCount;
 
-
+    public Integer cpuCount() {
+        if (cpuCount == null) return null;
+        return cpuCount.getValue("Instance.cpuCount");
+    }
 
     /**
      * The timestamp when the instance was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Instance.createdAt");
+    }
 
     /**
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
-    public String ipAddressType;
+    private @Nullable UndeferrableValue<String> ipAddressType;
 
-
+    public @Nullable String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("Instance.ipAddressType");
+    }
 
     /**
      * List of IPv6 addresses for the Lightsail instance.
      * 
      */
-    public List<String> ipv6Addresses;
+    private UndeferrableValue<List<String>> ipv6Addresses;
 
-
+    public List<String> ipv6Addresses() {
+        if (ipv6Addresses == null) return null;
+        return ipv6Addresses.getValue("Instance.ipv6Addresses");
+    }
 
     /**
      * A Boolean value indicating whether this instance has a static IP assigned to it.
      * 
      */
-    public Boolean isStaticIp;
+    private UndeferrableValue<Boolean> isStaticIp;
 
-
+    public Boolean isStaticIp() {
+        if (isStaticIp == null) return null;
+        return isStaticIp.getValue("Instance.isStaticIp");
+    }
 
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      * 
      */
-    public String keyPairName;
+    private @Nullable UndeferrableValue<String> keyPairName;
 
-
+    public @Nullable String keyPairName() {
+        if (keyPairName == null) return null;
+        return keyPairName.getValue("Instance.keyPairName");
+    }
 
     /**
      * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Instance.name");
+    }
 
     /**
      * The private IP address of the instance.
      * 
      */
-    public String privateIpAddress;
+    private UndeferrableValue<String> privateIpAddress;
 
-
+    public String privateIpAddress() {
+        if (privateIpAddress == null) return null;
+        return privateIpAddress.getValue("Instance.privateIpAddress");
+    }
 
     /**
      * The public IP address of the instance.
      * 
      */
-    public String publicIpAddress;
+    private UndeferrableValue<String> publicIpAddress;
 
-
+    public String publicIpAddress() {
+        if (publicIpAddress == null) return null;
+        return publicIpAddress.getValue("Instance.publicIpAddress");
+    }
 
     /**
      * The amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
-    public Double ramSize;
+    private UndeferrableValue<Double> ramSize;
 
-
+    public Double ramSize() {
+        if (ramSize == null) return null;
+        return ramSize.getValue("Instance.ramSize");
+    }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Instance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -159,24 +209,33 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Instance.tagsAll");
+    }
 
     /**
      * Single lined launch script as a string to configure server with additional user data
      * 
      */
-    public String userData;
+    private @Nullable UndeferrableValue<String> userData;
 
-
+    public @Nullable String userData() {
+        if (userData == null) return null;
+        return userData.getValue("Instance.userData");
+    }
 
     /**
      * The user name for connecting to the instance (e.g., ec2-user).
      * 
      */
-    public String username;
+    private UndeferrableValue<String> username;
 
-
+    public String username() {
+        if (username == null) return null;
+        return username.getValue("Instance.username");
+    }
 
 }

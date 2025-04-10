@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration;
-import com.pulumi.policypacks.aws.fsx.OntapStorageVirtualMachineEndpoint;
+import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineEndpoint;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")
-public final class OntapStorageVirtualMachine extends com.pulumi.resources.PolicyResource {
+public final class OntapStorageVirtualMachine extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      * 
      */
-    public OntapStorageVirtualMachineActiveDirectoryConfiguration activeDirectoryConfiguration;
+    private @Nullable UndeferrableValue<OntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfiguration;
 
-
+    public @Nullable OntapStorageVirtualMachineActiveDirectoryConfiguration activeDirectoryConfiguration() {
+        if (activeDirectoryConfiguration == null) return null;
+        return activeDirectoryConfiguration.getValue("OntapStorageVirtualMachine.activeDirectoryConfiguration");
+    }
 
     /**
      * Amazon Resource Name of the storage virtual machine.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OntapStorageVirtualMachine.arn");
+    }
 
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    public List<OntapStorageVirtualMachineEndpoint> endpoints;
+    private UndeferrableValue<List<OntapStorageVirtualMachineEndpoint>> endpoints;
 
-
+    public List<OntapStorageVirtualMachineEndpoint> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("OntapStorageVirtualMachine.endpoints");
+    }
 
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
-    public String fileSystemId;
+    private UndeferrableValue<String> fileSystemId;
 
-
+    public String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("OntapStorageVirtualMachine.fileSystemId");
+    }
 
     /**
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OntapStorageVirtualMachine.name");
+    }
 
     /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
-    public String rootVolumeSecurityStyle;
+    private @Nullable UndeferrableValue<String> rootVolumeSecurityStyle;
 
-
+    public @Nullable String rootVolumeSecurityStyle() {
+        if (rootVolumeSecurityStyle == null) return null;
+        return rootVolumeSecurityStyle.getValue("OntapStorageVirtualMachine.rootVolumeSecurityStyle");
+    }
 
     /**
      * Describes the SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
-    public String subtype;
+    private UndeferrableValue<String> subtype;
 
-
+    public String subtype() {
+        if (subtype == null) return null;
+        return subtype.getValue("OntapStorageVirtualMachine.subtype");
+    }
 
     /**
      * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
-    public String svmAdminPassword;
+    private @Nullable UndeferrableValue<String> svmAdminPassword;
 
-
+    public @Nullable String svmAdminPassword() {
+        if (svmAdminPassword == null) return null;
+        return svmAdminPassword.getValue("OntapStorageVirtualMachine.svmAdminPassword");
+    }
 
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OntapStorageVirtualMachine.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,16 +123,22 @@ public final class OntapStorageVirtualMachine extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OntapStorageVirtualMachine.tagsAll");
+    }
 
     /**
      * The SVM&#39;s UUID (universally unique identifier).
      * 
      */
-    public String uuid;
+    private UndeferrableValue<String> uuid;
 
-
+    public String uuid() {
+        if (uuid == null) return null;
+        return uuid.getValue("OntapStorageVirtualMachine.uuid");
+    }
 
 }

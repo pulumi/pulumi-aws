@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")
-public final class PrincipalPortfolioAssociation extends com.pulumi.resources.PolicyResource {
+public final class PrincipalPortfolioAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("PrincipalPortfolioAssociation.acceptLanguage");
+    }
 
     /**
      * Portfolio identifier.
      * 
      */
-    public String portfolioId;
+    private UndeferrableValue<String> portfolioId;
 
-
+    public String portfolioId() {
+        if (portfolioId == null) return null;
+        return portfolioId.getValue("PrincipalPortfolioAssociation.portfolioId");
+    }
 
     /**
      * Principal ARN.
@@ -32,16 +40,22 @@ public final class PrincipalPortfolioAssociation extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    public String principalArn;
+    private UndeferrableValue<String> principalArn;
 
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("PrincipalPortfolioAssociation.principalArn");
+    }
 
     /**
      * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
-    public String principalType;
+    private @Nullable UndeferrableValue<String> principalType;
 
-
+    public @Nullable String principalType() {
+        if (principalType == null) return null;
+        return principalType.getValue("PrincipalPortfolioAssociation.principalType");
+    }
 
 }

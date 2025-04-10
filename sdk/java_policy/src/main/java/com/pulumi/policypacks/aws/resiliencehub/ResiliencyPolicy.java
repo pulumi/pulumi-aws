@@ -3,48 +3,62 @@
 
 package com.pulumi.policypacks.aws.resiliencehub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.resiliencehub.ResiliencyPolicyPolicy;
-import com.pulumi.policypacks.aws.resiliencehub.ResiliencyPolicyTimeouts;
+import com.pulumi.policypacks.aws.resiliencehub.outputs.ResiliencyPolicyPolicy;
+import com.pulumi.policypacks.aws.resiliencehub.outputs.ResiliencyPolicyTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy")
-public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResource {
+public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Resiliency Policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResiliencyPolicy.arn");
+    }
 
     /**
      * Data Location Constraint of the Policy.
      * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
      * 
      */
-    public String dataLocationConstraint;
+    private UndeferrableValue<String> dataLocationConstraint;
 
-
+    public String dataLocationConstraint() {
+        if (dataLocationConstraint == null) return null;
+        return dataLocationConstraint.getValue("ResiliencyPolicy.dataLocationConstraint");
+    }
 
     /**
      * Description of Resiliency Policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ResiliencyPolicy.description");
+    }
 
     /**
      * Estimated Cost Tier of the Resiliency Policy.
      * 
      */
-    public String estimatedCostTier;
+    private UndeferrableValue<String> estimatedCostTier;
 
-
+    public String estimatedCostTier() {
+        if (estimatedCostTier == null) return null;
+        return estimatedCostTier.getValue("ResiliencyPolicy.estimatedCostTier");
+    }
 
     /**
      * Name of Resiliency Policy.
@@ -52,9 +66,12 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResource 
      * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResiliencyPolicy.name");
+    }
 
     /**
      * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
@@ -62,17 +79,23 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public ResiliencyPolicyPolicy policy;
+    private @Nullable UndeferrableValue<ResiliencyPolicyPolicy> policy;
 
-
+    public @Nullable ResiliencyPolicyPolicy policy() {
+        if (policy == null) return null;
+        return policy.getValue("ResiliencyPolicy.policy");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResiliencyPolicy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -82,21 +105,30 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResiliencyPolicy.tagsAll");
+    }
 
     /**
      * Resiliency Policy Tier.
      * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
      * 
      */
-    public String tier;
+    private UndeferrableValue<String> tier;
 
+    public String tier() {
+        if (tier == null) return null;
+        return tier.getValue("ResiliencyPolicy.tier");
+    }
 
+    private @Nullable UndeferrableValue<ResiliencyPolicyTimeouts> timeouts;
 
-    public ResiliencyPolicyTimeouts timeouts;
-
-
+    public @Nullable ResiliencyPolicyTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ResiliencyPolicy.timeouts");
+    }
 
 }

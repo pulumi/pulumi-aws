@@ -3,206 +3,277 @@
 
 package com.pulumi.policypacks.aws.mq;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mq.BrokerConfiguration;
-import com.pulumi.policypacks.aws.mq.BrokerEncryptionOptions;
-import com.pulumi.policypacks.aws.mq.BrokerInstance;
-import com.pulumi.policypacks.aws.mq.BrokerLdapServerMetadata;
-import com.pulumi.policypacks.aws.mq.BrokerLogs;
-import com.pulumi.policypacks.aws.mq.BrokerMaintenanceWindowStartTime;
-import com.pulumi.policypacks.aws.mq.BrokerUser;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerConfiguration;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerEncryptionOptions;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerInstance;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerLdapServerMetadata;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerLogs;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerMaintenanceWindowStartTime;
+import com.pulumi.policypacks.aws.mq.outputs.BrokerUser;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mq/broker:Broker")
-public final class Broker extends com.pulumi.resources.PolicyResource {
+public final class Broker extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Broker.applyImmediately");
+    }
 
     /**
      * ARN of the broker.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Broker.arn");
+    }
 
     /**
      * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    public String authenticationStrategy;
+    private UndeferrableValue<String> authenticationStrategy;
 
-
+    public String authenticationStrategy() {
+        if (authenticationStrategy == null) return null;
+        return authenticationStrategy.getValue("Broker.authenticationStrategy");
+    }
 
     /**
      * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public @Nullable Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("Broker.autoMinorVersionUpgrade");
+    }
 
     /**
      * Name of the broker.
      * 
      */
-    public String brokerName;
+    private UndeferrableValue<String> brokerName;
 
-
+    public String brokerName() {
+        if (brokerName == null) return null;
+        return brokerName.getValue("Broker.brokerName");
+    }
 
     /**
      * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
-    public BrokerConfiguration configuration;
+    private UndeferrableValue<BrokerConfiguration> configuration;
 
-
+    public BrokerConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Broker.configuration");
+    }
 
     /**
      * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
      * 
      */
-    public String dataReplicationMode;
+    private UndeferrableValue<String> dataReplicationMode;
 
-
+    public String dataReplicationMode() {
+        if (dataReplicationMode == null) return null;
+        return dataReplicationMode.getValue("Broker.dataReplicationMode");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
      * 
      */
-    public String dataReplicationPrimaryBrokerArn;
+    private @Nullable UndeferrableValue<String> dataReplicationPrimaryBrokerArn;
 
-
+    public @Nullable String dataReplicationPrimaryBrokerArn() {
+        if (dataReplicationPrimaryBrokerArn == null) return null;
+        return dataReplicationPrimaryBrokerArn.getValue("Broker.dataReplicationPrimaryBrokerArn");
+    }
 
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      * 
      */
-    public String deploymentMode;
+    private @Nullable UndeferrableValue<String> deploymentMode;
 
-
+    public @Nullable String deploymentMode() {
+        if (deploymentMode == null) return null;
+        return deploymentMode.getValue("Broker.deploymentMode");
+    }
 
     /**
      * Configuration block containing encryption options. Detailed below.
      * 
      */
-    public BrokerEncryptionOptions encryptionOptions;
+    private @Nullable UndeferrableValue<BrokerEncryptionOptions> encryptionOptions;
 
-
+    public @Nullable BrokerEncryptionOptions encryptionOptions() {
+        if (encryptionOptions == null) return null;
+        return encryptionOptions.getValue("Broker.encryptionOptions");
+    }
 
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    public String engineType;
+    private UndeferrableValue<String> engineType;
 
-
+    public String engineType() {
+        if (engineType == null) return null;
+        return engineType.getValue("Broker.engineType");
+    }
 
     /**
      * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Broker.engineVersion");
+    }
 
     /**
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
      */
-    public String hostInstanceType;
+    private UndeferrableValue<String> hostInstanceType;
 
-
+    public String hostInstanceType() {
+        if (hostInstanceType == null) return null;
+        return hostInstanceType.getValue("Broker.hostInstanceType");
+    }
 
     /**
      * List of information about allocated brokers (both active &amp; standby).
      * 
      */
-    public List<BrokerInstance> instances;
+    private UndeferrableValue<List<BrokerInstance>> instances;
 
-
+    public List<BrokerInstance> instances() {
+        if (instances == null) return null;
+        return instances.getValue("Broker.instances");
+    }
 
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      * 
      */
-    public BrokerLdapServerMetadata ldapServerMetadata;
+    private @Nullable UndeferrableValue<BrokerLdapServerMetadata> ldapServerMetadata;
 
-
+    public @Nullable BrokerLdapServerMetadata ldapServerMetadata() {
+        if (ldapServerMetadata == null) return null;
+        return ldapServerMetadata.getValue("Broker.ldapServerMetadata");
+    }
 
     /**
      * Configuration block for the logging configuration of the broker. Detailed below.
      * 
      */
-    public BrokerLogs logs;
+    private @Nullable UndeferrableValue<BrokerLogs> logs;
 
-
+    public @Nullable BrokerLogs logs() {
+        if (logs == null) return null;
+        return logs.getValue("Broker.logs");
+    }
 
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      * 
      */
-    public BrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
+    private UndeferrableValue<BrokerMaintenanceWindowStartTime> maintenanceWindowStartTime;
 
-
+    public BrokerMaintenanceWindowStartTime maintenanceWindowStartTime() {
+        if (maintenanceWindowStartTime == null) return null;
+        return maintenanceWindowStartTime.getValue("Broker.maintenanceWindowStartTime");
+    }
 
     /**
      * (Optional) The data replication mode that will be applied after reboot.
      * 
      */
-    public String pendingDataReplicationMode;
+    private UndeferrableValue<String> pendingDataReplicationMode;
 
-
+    public String pendingDataReplicationMode() {
+        if (pendingDataReplicationMode == null) return null;
+        return pendingDataReplicationMode.getValue("Broker.pendingDataReplicationMode");
+    }
 
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Broker.publiclyAccessible");
+    }
 
     /**
      * List of security group IDs assigned to the broker.
      * 
      */
-    public List<String> securityGroups;
+    private @Nullable UndeferrableValue<List<String>> securityGroups;
 
-
+    public @Nullable List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("Broker.securityGroups");
+    }
 
     /**
      * Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Broker.storageType");
+    }
 
     /**
      * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Broker.subnetIds");
+    }
 
     /**
      * Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Broker.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -212,9 +283,12 @@ public final class Broker extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Broker.tagsAll");
+    }
 
     /**
      * Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
@@ -222,8 +296,11 @@ public final class Broker extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<BrokerUser> users;
+    private UndeferrableValue<List<BrokerUser>> users;
 
-
+    public List<BrokerUser> users() {
+        if (users == null) return null;
+        return users.getValue("Broker.users");
+    }
 
 }

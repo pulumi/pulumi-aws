@@ -3,50 +3,67 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketLifecycleConfigurationV2Rule;
-import com.pulumi.policypacks.aws.s3.BucketLifecycleConfigurationV2Timeouts;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2Rule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2Timeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")
-public final class BucketLifecycleConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketLifecycleConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketLifecycleConfigurationV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    public String expectedBucketOwner;
+    private UndeferrableValue<String> expectedBucketOwner;
 
-
+    public String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketLifecycleConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
-    public List<BucketLifecycleConfigurationV2Rule> rules;
+    private @Nullable UndeferrableValue<List<BucketLifecycleConfigurationV2Rule>> rules;
 
+    public @Nullable List<BucketLifecycleConfigurationV2Rule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("BucketLifecycleConfigurationV2.rules");
+    }
 
+    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2Timeouts> timeouts;
 
-    public BucketLifecycleConfigurationV2Timeouts timeouts;
-
-
+    public @Nullable BucketLifecycleConfigurationV2Timeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("BucketLifecycleConfigurationV2.timeouts");
+    }
 
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
      * 
      */
-    public String transitionDefaultMinimumObjectSize;
+    private UndeferrableValue<String> transitionDefaultMinimumObjectSize;
 
-
+    public String transitionDefaultMinimumObjectSize() {
+        if (transitionDefaultMinimumObjectSize == null) return null;
+        return transitionDefaultMinimumObjectSize.getValue("BucketLifecycleConfigurationV2.transitionDefaultMinimumObjectSize");
+    }
 
 }

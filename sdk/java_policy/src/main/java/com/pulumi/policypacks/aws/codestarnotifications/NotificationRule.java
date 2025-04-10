@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.codestarnotifications;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codestarnotifications.NotificationRuleTarget;
+import com.pulumi.policypacks.aws.codestarnotifications.outputs.NotificationRuleTarget;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codestarnotifications/notificationRule:NotificationRule")
-public final class NotificationRule extends com.pulumi.resources.PolicyResource {
+public final class NotificationRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The codestar notification rule ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NotificationRule.arn");
+    }
 
     /**
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      * 
      */
-    public String detailType;
+    private UndeferrableValue<String> detailType;
 
-
+    public String detailType() {
+        if (detailType == null) return null;
+        return detailType.getValue("NotificationRule.detailType");
+    }
 
     /**
      * A list of event types associated with this notification rule.
      * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
      * 
      */
-    public List<String> eventTypeIds;
+    private UndeferrableValue<List<String>> eventTypeIds;
 
-
+    public List<String> eventTypeIds() {
+        if (eventTypeIds == null) return null;
+        return eventTypeIds.getValue("NotificationRule.eventTypeIds");
+    }
 
     /**
      * The name of notification rule.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("NotificationRule.name");
+    }
 
     /**
      * The ARN of the resource to associate with the notification rule.
      * 
      */
-    public String resource;
+    private UndeferrableValue<String> resource;
 
-
+    public String resource() {
+        if (resource == null) return null;
+        return resource.getValue("NotificationRule.resource");
+    }
 
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("NotificationRule.status");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NotificationRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,16 +101,22 @@ public final class NotificationRule extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NotificationRule.tagsAll");
+    }
 
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      * 
      */
-    public List<NotificationRuleTarget> targets;
+    private @Nullable UndeferrableValue<List<NotificationRuleTarget>> targets;
 
-
+    public @Nullable List<NotificationRuleTarget> targets() {
+        if (targets == null) return null;
+        return targets.getValue("NotificationRule.targets");
+    }
 
 }

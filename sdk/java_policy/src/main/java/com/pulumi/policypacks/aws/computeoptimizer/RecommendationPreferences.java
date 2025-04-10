@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.computeoptimizer.RecommendationPreferencesExternalMetricsPreference;
-import com.pulumi.policypacks.aws.computeoptimizer.RecommendationPreferencesPreferredResource;
-import com.pulumi.policypacks.aws.computeoptimizer.RecommendationPreferencesScope;
-import com.pulumi.policypacks.aws.computeoptimizer.RecommendationPreferencesUtilizationPreference;
+import com.pulumi.policypacks.aws.computeoptimizer.outputs.RecommendationPreferencesExternalMetricsPreference;
+import com.pulumi.policypacks.aws.computeoptimizer.outputs.RecommendationPreferencesPreferredResource;
+import com.pulumi.policypacks.aws.computeoptimizer.outputs.RecommendationPreferencesScope;
+import com.pulumi.policypacks.aws.computeoptimizer.outputs.RecommendationPreferencesUtilizationPreference;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")
-public final class RecommendationPreferences extends com.pulumi.resources.PolicyResource {
+public final class RecommendationPreferences extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
      * 
      */
-    public String enhancedInfrastructureMetrics;
+    private @Nullable UndeferrableValue<String> enhancedInfrastructureMetrics;
 
-
+    public @Nullable String enhancedInfrastructureMetrics() {
+        if (enhancedInfrastructureMetrics == null) return null;
+        return enhancedInfrastructureMetrics.getValue("RecommendationPreferences.enhancedInfrastructureMetrics");
+    }
 
     /**
      * The provider of the external metrics recommendation preference. See External Metrics Preference below.
      * 
      */
-    public RecommendationPreferencesExternalMetricsPreference externalMetricsPreference;
+    private @Nullable UndeferrableValue<RecommendationPreferencesExternalMetricsPreference> externalMetricsPreference;
 
-
+    public @Nullable RecommendationPreferencesExternalMetricsPreference externalMetricsPreference() {
+        if (externalMetricsPreference == null) return null;
+        return externalMetricsPreference.getValue("RecommendationPreferences.externalMetricsPreference");
+    }
 
     /**
      * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
      * 
      */
-    public String inferredWorkloadTypes;
+    private @Nullable UndeferrableValue<String> inferredWorkloadTypes;
 
-
+    public @Nullable String inferredWorkloadTypes() {
+        if (inferredWorkloadTypes == null) return null;
+        return inferredWorkloadTypes.getValue("RecommendationPreferences.inferredWorkloadTypes");
+    }
 
     /**
      * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
      * 
      */
-    public String lookBackPeriod;
+    private UndeferrableValue<String> lookBackPeriod;
 
-
+    public String lookBackPeriod() {
+        if (lookBackPeriod == null) return null;
+        return lookBackPeriod.getValue("RecommendationPreferences.lookBackPeriod");
+    }
 
     /**
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      * 
      */
-    public List<RecommendationPreferencesPreferredResource> preferredResources;
+    private @Nullable UndeferrableValue<List<RecommendationPreferencesPreferredResource>> preferredResources;
 
-
+    public @Nullable List<RecommendationPreferencesPreferredResource> preferredResources() {
+        if (preferredResources == null) return null;
+        return preferredResources.getValue("RecommendationPreferences.preferredResources");
+    }
 
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("RecommendationPreferences.resourceType");
+    }
 
     /**
      * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
      * 
      */
-    public String savingsEstimationMode;
+    private @Nullable UndeferrableValue<String> savingsEstimationMode;
 
-
+    public @Nullable String savingsEstimationMode() {
+        if (savingsEstimationMode == null) return null;
+        return savingsEstimationMode.getValue("RecommendationPreferences.savingsEstimationMode");
+    }
 
     /**
      * The scope of the recommendation preferences. See Scope below.
      * 
      */
-    public RecommendationPreferencesScope scope;
+    private @Nullable UndeferrableValue<RecommendationPreferencesScope> scope;
 
-
+    public @Nullable RecommendationPreferencesScope scope() {
+        if (scope == null) return null;
+        return scope.getValue("RecommendationPreferences.scope");
+    }
 
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      * 
      */
-    public List<RecommendationPreferencesUtilizationPreference> utilizationPreferences;
+    private @Nullable UndeferrableValue<List<RecommendationPreferencesUtilizationPreference>> utilizationPreferences;
 
-
+    public @Nullable List<RecommendationPreferencesUtilizationPreference> utilizationPreferences() {
+        if (utilizationPreferences == null) return null;
+        return utilizationPreferences.getValue("RecommendationPreferences.utilizationPreferences");
+    }
 
 }

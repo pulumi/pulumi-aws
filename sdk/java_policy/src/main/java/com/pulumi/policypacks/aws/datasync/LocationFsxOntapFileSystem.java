@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.LocationFsxOntapFileSystemProtocol;
+import com.pulumi.policypacks.aws.datasync.outputs.LocationFsxOntapFileSystemProtocol;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem")
-public final class LocationFsxOntapFileSystem extends com.pulumi.resources.PolicyResource {
+public final class LocationFsxOntapFileSystem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the DataSync Location for the FSx Ontap File System.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationFsxOntapFileSystem.arn");
+    }
 
+    private UndeferrableValue<String> creationTime;
 
-    public String creationTime;
-
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("LocationFsxOntapFileSystem.creationTime");
+    }
 
     /**
      * ARN of the FSx Ontap File System.
      * 
      */
-    public String fsxFilesystemArn;
+    private UndeferrableValue<String> fsxFilesystemArn;
 
-
+    public String fsxFilesystemArn() {
+        if (fsxFilesystemArn == null) return null;
+        return fsxFilesystemArn.getValue("LocationFsxOntapFileSystem.fsxFilesystemArn");
+    }
 
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      * 
      */
-    public LocationFsxOntapFileSystemProtocol protocol;
+    private UndeferrableValue<LocationFsxOntapFileSystemProtocol> protocol;
 
-
+    public LocationFsxOntapFileSystemProtocol protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("LocationFsxOntapFileSystem.protocol");
+    }
 
     /**
      * The security groups that provide access to your file system&#39;s preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
@@ -47,9 +61,12 @@ public final class LocationFsxOntapFileSystem extends com.pulumi.resources.Polic
      * * Server Message Block (SMB): TCP port 445
      * 
      */
-    public List<String> securityGroupArns;
+    private UndeferrableValue<List<String>> securityGroupArns;
 
-
+    public List<String> securityGroupArns() {
+        if (securityGroupArns == null) return null;
+        return securityGroupArns.getValue("LocationFsxOntapFileSystem.securityGroupArns");
+    }
 
     /**
      * The ARN of the SVM in your file system where you want to copy data to of from.
@@ -57,25 +74,34 @@ public final class LocationFsxOntapFileSystem extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    public String storageVirtualMachineArn;
+    private UndeferrableValue<String> storageVirtualMachineArn;
 
-
+    public String storageVirtualMachineArn() {
+        if (storageVirtualMachineArn == null) return null;
+        return storageVirtualMachineArn.getValue("LocationFsxOntapFileSystem.storageVirtualMachineArn");
+    }
 
     /**
      * Path to the file share in the SVM where you&#39;ll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationFsxOntapFileSystem.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationFsxOntapFileSystem.tags");
+    }
 
     /**
      * @deprecated
@@ -83,16 +109,22 @@ public final class LocationFsxOntapFileSystem extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationFsxOntapFileSystem.tagsAll");
+    }
 
     /**
      * URI of the FSx ONTAP file system location
      * 
      */
-    public String uri;
+    private UndeferrableValue<String> uri;
 
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationFsxOntapFileSystem.uri");
+    }
 
 }

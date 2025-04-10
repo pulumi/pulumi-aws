@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.accessanalyzer.ArchiveRuleFilter;
+import com.pulumi.policypacks.aws.accessanalyzer.outputs.ArchiveRuleFilter;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:accessanalyzer/archiveRule:ArchiveRule")
-public final class ArchiveRule extends com.pulumi.resources.PolicyResource {
+public final class ArchiveRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Analyzer name.
      * 
      */
-    public String analyzerName;
+    private UndeferrableValue<String> analyzerName;
 
-
+    public String analyzerName() {
+        if (analyzerName == null) return null;
+        return analyzerName.getValue("ArchiveRule.analyzerName");
+    }
 
     /**
      * Filter criteria for the archive rule. See Filter for more details.
      * 
      */
-    public List<ArchiveRuleFilter> filters;
+    private UndeferrableValue<List<ArchiveRuleFilter>> filters;
 
-
+    public List<ArchiveRuleFilter> filters() {
+        if (filters == null) return null;
+        return filters.getValue("ArchiveRule.filters");
+    }
 
     /**
      * Rule name.
      * 
      */
-    public String ruleName;
+    private UndeferrableValue<String> ruleName;
 
-
+    public String ruleName() {
+        if (ruleName == null) return null;
+        return ruleName.getValue("ArchiveRule.ruleName");
+    }
 
 }

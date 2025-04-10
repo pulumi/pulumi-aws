@@ -3,110 +3,148 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emr/studio:Studio")
-public final class Studio extends com.pulumi.resources.PolicyResource {
+public final class Studio extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the studio.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Studio.arn");
+    }
 
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
      * 
      */
-    public String authMode;
+    private UndeferrableValue<String> authMode;
 
-
+    public String authMode() {
+        if (authMode == null) return null;
+        return authMode.getValue("Studio.authMode");
+    }
 
     /**
      * The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
      * 
      */
-    public String defaultS3Location;
+    private UndeferrableValue<String> defaultS3Location;
 
-
+    public String defaultS3Location() {
+        if (defaultS3Location == null) return null;
+        return defaultS3Location.getValue("Studio.defaultS3Location");
+    }
 
     /**
      * A detailed description of the Amazon EMR Studio.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Studio.description");
+    }
 
     /**
      * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
      * 
      */
-    public String encryptionKeyArn;
+    private @Nullable UndeferrableValue<String> encryptionKeyArn;
 
-
+    public @Nullable String encryptionKeyArn() {
+        if (encryptionKeyArn == null) return null;
+        return encryptionKeyArn.getValue("Studio.encryptionKeyArn");
+    }
 
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
      * 
      */
-    public String engineSecurityGroupId;
+    private UndeferrableValue<String> engineSecurityGroupId;
 
-
+    public String engineSecurityGroupId() {
+        if (engineSecurityGroupId == null) return null;
+        return engineSecurityGroupId.getValue("Studio.engineSecurityGroupId");
+    }
 
     /**
      * The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
      * 
      */
-    public String idpAuthUrl;
+    private @Nullable UndeferrableValue<String> idpAuthUrl;
 
-
+    public @Nullable String idpAuthUrl() {
+        if (idpAuthUrl == null) return null;
+        return idpAuthUrl.getValue("Studio.idpAuthUrl");
+    }
 
     /**
      * The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
      * 
      */
-    public String idpRelayStateParameterName;
+    private @Nullable UndeferrableValue<String> idpRelayStateParameterName;
 
-
+    public @Nullable String idpRelayStateParameterName() {
+        if (idpRelayStateParameterName == null) return null;
+        return idpRelayStateParameterName.getValue("Studio.idpRelayStateParameterName");
+    }
 
     /**
      * A descriptive name for the Amazon EMR Studio.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Studio.name");
+    }
 
     /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("Studio.serviceRole");
+    }
 
     /**
      * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Studio.subnetIds");
+    }
 
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Studio.tags");
+    }
 
     /**
      * @deprecated
@@ -114,33 +152,45 @@ public final class Studio extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Studio.tagsAll");
+    }
 
     /**
      * The unique access URL of the Amazon EMR Studio.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Studio.url");
+    }
 
     /**
      * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      * 
      */
-    public String userRole;
+    private @Nullable UndeferrableValue<String> userRole;
 
-
+    public @Nullable String userRole() {
+        if (userRole == null) return null;
+        return userRole.getValue("Studio.userRole");
+    }
 
     /**
      * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Studio.vpcId");
+    }
 
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
@@ -148,8 +198,11 @@ public final class Studio extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String workspaceSecurityGroupId;
+    private UndeferrableValue<String> workspaceSecurityGroupId;
 
-
+    public String workspaceSecurityGroupId() {
+        if (workspaceSecurityGroupId == null) return null;
+        return workspaceSecurityGroupId.getValue("Studio.workspaceSecurityGroupId");
+    }
 
 }

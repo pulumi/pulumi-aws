@@ -3,121 +3,162 @@
 
 package com.pulumi.policypacks.aws.budgets;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.budgets.BudgetActionActionThreshold;
-import com.pulumi.policypacks.aws.budgets.BudgetActionDefinition;
-import com.pulumi.policypacks.aws.budgets.BudgetActionSubscriber;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionActionThreshold;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionDefinition;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionSubscriber;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:budgets/budgetAction:BudgetAction")
-public final class BudgetAction extends com.pulumi.resources.PolicyResource {
+public final class BudgetAction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("BudgetAction.accountId");
+    }
 
     /**
      * The id of the budget action.
      * 
      */
-    public String actionId;
+    private UndeferrableValue<String> actionId;
 
-
+    public String actionId() {
+        if (actionId == null) return null;
+        return actionId.getValue("BudgetAction.actionId");
+    }
 
     /**
      * The trigger threshold of the action. See Action Threshold.
      * 
      */
-    public BudgetActionActionThreshold actionThreshold;
+    private UndeferrableValue<BudgetActionActionThreshold> actionThreshold;
 
-
+    public BudgetActionActionThreshold actionThreshold() {
+        if (actionThreshold == null) return null;
+        return actionThreshold.getValue("BudgetAction.actionThreshold");
+    }
 
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
-    public String actionType;
+    private UndeferrableValue<String> actionType;
 
-
+    public String actionType() {
+        if (actionType == null) return null;
+        return actionType.getValue("BudgetAction.actionType");
+    }
 
     /**
      * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
-    public String approvalModel;
+    private UndeferrableValue<String> approvalModel;
 
-
+    public String approvalModel() {
+        if (approvalModel == null) return null;
+        return approvalModel.getValue("BudgetAction.approvalModel");
+    }
 
     /**
      * The ARN of the budget action.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("BudgetAction.arn");
+    }
 
     /**
      * The name of a budget.
      * 
      */
-    public String budgetName;
+    private UndeferrableValue<String> budgetName;
 
-
+    public String budgetName() {
+        if (budgetName == null) return null;
+        return budgetName.getValue("BudgetAction.budgetName");
+    }
 
     /**
      * Specifies all of the type-specific parameters. See Definition.
      * 
      */
-    public BudgetActionDefinition definition;
+    private UndeferrableValue<BudgetActionDefinition> definition;
 
-
+    public BudgetActionDefinition definition() {
+        if (definition == null) return null;
+        return definition.getValue("BudgetAction.definition");
+    }
 
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("BudgetAction.executionRoleArn");
+    }
 
     /**
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
-    public String notificationType;
+    private UndeferrableValue<String> notificationType;
 
-
+    public String notificationType() {
+        if (notificationType == null) return null;
+        return notificationType.getValue("BudgetAction.notificationType");
+    }
 
     /**
      * The status of the budget action.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("BudgetAction.status");
+    }
 
     /**
      * A list of subscribers. See Subscriber.
      * 
      */
-    public List<BudgetActionSubscriber> subscribers;
+    private UndeferrableValue<List<BudgetActionSubscriber>> subscribers;
 
-
+    public List<BudgetActionSubscriber> subscribers() {
+        if (subscribers == null) return null;
+        return subscribers.getValue("BudgetAction.subscribers");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("BudgetAction.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,8 +168,11 @@ public final class BudgetAction extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("BudgetAction.tagsAll");
+    }
 
 }

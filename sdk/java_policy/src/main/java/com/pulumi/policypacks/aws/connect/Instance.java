@@ -3,135 +3,182 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Instance.arn");
+    }
 
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      * 
      */
-    public Boolean autoResolveBestVoicesEnabled;
+    private @Nullable UndeferrableValue<Boolean> autoResolveBestVoicesEnabled;
 
-
+    public @Nullable Boolean autoResolveBestVoicesEnabled() {
+        if (autoResolveBestVoicesEnabled == null) return null;
+        return autoResolveBestVoicesEnabled.getValue("Instance.autoResolveBestVoicesEnabled");
+    }
 
     /**
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      * 
      */
-    public Boolean contactFlowLogsEnabled;
+    private @Nullable UndeferrableValue<Boolean> contactFlowLogsEnabled;
 
-
+    public @Nullable Boolean contactFlowLogsEnabled() {
+        if (contactFlowLogsEnabled == null) return null;
+        return contactFlowLogsEnabled.getValue("Instance.contactFlowLogsEnabled");
+    }
 
     /**
      * Specifies whether contact lens is enabled. Defaults to `true`.
      * 
      */
-    public Boolean contactLensEnabled;
+    private @Nullable UndeferrableValue<Boolean> contactLensEnabled;
 
-
+    public @Nullable Boolean contactLensEnabled() {
+        if (contactLensEnabled == null) return null;
+        return contactLensEnabled.getValue("Instance.contactLensEnabled");
+    }
 
     /**
      * When the instance was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Instance.createdTime");
+    }
 
     /**
      * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
      * 
      */
-    public String directoryId;
+    private @Nullable UndeferrableValue<String> directoryId;
 
-
+    public @Nullable String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("Instance.directoryId");
+    }
 
     /**
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      * 
      */
-    public Boolean earlyMediaEnabled;
+    private @Nullable UndeferrableValue<Boolean> earlyMediaEnabled;
 
-
+    public @Nullable Boolean earlyMediaEnabled() {
+        if (earlyMediaEnabled == null) return null;
+        return earlyMediaEnabled.getValue("Instance.earlyMediaEnabled");
+    }
 
     /**
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      * 
      */
-    public String identityManagementType;
+    private UndeferrableValue<String> identityManagementType;
 
-
+    public String identityManagementType() {
+        if (identityManagementType == null) return null;
+        return identityManagementType.getValue("Instance.identityManagementType");
+    }
 
     /**
      * Specifies whether inbound calls are enabled.
      * 
      */
-    public Boolean inboundCallsEnabled;
+    private UndeferrableValue<Boolean> inboundCallsEnabled;
 
-
+    public Boolean inboundCallsEnabled() {
+        if (inboundCallsEnabled == null) return null;
+        return inboundCallsEnabled.getValue("Instance.inboundCallsEnabled");
+    }
 
     /**
      * Specifies the name of the instance. Required if `directory_id` not specified.
      * 
      */
-    public String instanceAlias;
+    private @Nullable UndeferrableValue<String> instanceAlias;
 
-
+    public @Nullable String instanceAlias() {
+        if (instanceAlias == null) return null;
+        return instanceAlias.getValue("Instance.instanceAlias");
+    }
 
     /**
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      * 
      */
-    public Boolean multiPartyConferenceEnabled;
+    private @Nullable UndeferrableValue<Boolean> multiPartyConferenceEnabled;
 
-
+    public @Nullable Boolean multiPartyConferenceEnabled() {
+        if (multiPartyConferenceEnabled == null) return null;
+        return multiPartyConferenceEnabled.getValue("Instance.multiPartyConferenceEnabled");
+    }
 
     /**
      * Specifies whether outbound calls are enabled.
      * 
      */
-    public Boolean outboundCallsEnabled;
+    private UndeferrableValue<Boolean> outboundCallsEnabled;
 
-
+    public Boolean outboundCallsEnabled() {
+        if (outboundCallsEnabled == null) return null;
+        return outboundCallsEnabled.getValue("Instance.outboundCallsEnabled");
+    }
 
     /**
      * The service role of the instance.
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("Instance.serviceRole");
+    }
 
     /**
      * The state of the instance.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Instance.status");
+    }
 
     /**
      * Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Instance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -141,8 +188,11 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Instance.tagsAll");
+    }
 
 }

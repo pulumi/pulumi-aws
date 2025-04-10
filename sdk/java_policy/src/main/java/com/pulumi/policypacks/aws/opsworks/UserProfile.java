@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/userProfile:UserProfile")
-public final class UserProfile extends com.pulumi.resources.PolicyResource {
+public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      * 
      */
-    public Boolean allowSelfManagement;
+    private @Nullable UndeferrableValue<Boolean> allowSelfManagement;
 
-
+    public @Nullable Boolean allowSelfManagement() {
+        if (allowSelfManagement == null) return null;
+        return allowSelfManagement.getValue("UserProfile.allowSelfManagement");
+    }
 
     /**
      * The users public key
      * 
      */
-    public String sshPublicKey;
+    private @Nullable UndeferrableValue<String> sshPublicKey;
 
-
+    public @Nullable String sshPublicKey() {
+        if (sshPublicKey == null) return null;
+        return sshPublicKey.getValue("UserProfile.sshPublicKey");
+    }
 
     /**
      * The ssh username, with witch this user wants to log in
      * 
      */
-    public String sshUsername;
+    private UndeferrableValue<String> sshUsername;
 
-
+    public String sshUsername() {
+        if (sshUsername == null) return null;
+        return sshUsername.getValue("UserProfile.sshUsername");
+    }
 
     /**
      * The user&#39;s IAM ARN
      * 
      */
-    public String userArn;
+    private UndeferrableValue<String> userArn;
 
-
+    public String userArn() {
+        if (userArn == null) return null;
+        return userArn.getValue("UserProfile.userArn");
+    }
 
 }

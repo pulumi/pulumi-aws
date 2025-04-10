@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.detective;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:detective/invitationAccepter:InvitationAccepter")
-public final class InvitationAccepter extends com.pulumi.resources.PolicyResource {
+public final class InvitationAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the behavior graph that the member account is accepting the invitation for.
      * 
      */
-    public String graphArn;
+    private UndeferrableValue<String> graphArn;
 
-
+    public String graphArn() {
+        if (graphArn == null) return null;
+        return graphArn.getValue("InvitationAccepter.graphArn");
+    }
 
 }

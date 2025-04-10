@@ -3,12 +3,14 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")
-public final class HostedZoneDnsSec extends com.pulumi.resources.PolicyResource {
+public final class HostedZoneDnsSec extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the Route 53 Hosted Zone.
@@ -16,16 +18,22 @@ public final class HostedZoneDnsSec extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("HostedZoneDnsSec.hostedZoneId");
+    }
 
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      * 
      */
-    public String signingStatus;
+    private @Nullable UndeferrableValue<String> signingStatus;
 
-
+    public @Nullable String signingStatus() {
+        if (signingStatus == null) return null;
+        return signingStatus.getValue("HostedZoneDnsSec.signingStatus");
+    }
 
 }

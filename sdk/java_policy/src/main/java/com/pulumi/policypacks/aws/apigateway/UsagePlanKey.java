@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:apigateway/usagePlanKey:UsagePlanKey")
-public final class UsagePlanKey extends com.pulumi.resources.PolicyResource {
+public final class UsagePlanKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the API key resource.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("UsagePlanKey.keyId");
+    }
 
     /**
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
-    public String keyType;
+    private UndeferrableValue<String> keyType;
 
-
+    public String keyType() {
+        if (keyType == null) return null;
+        return keyType.getValue("UsagePlanKey.keyType");
+    }
 
     /**
      * Name of a usage plan key.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UsagePlanKey.name");
+    }
 
     /**
      * Id of the usage plan resource representing to associate the key to.
      * 
      */
-    public String usagePlanId;
+    private UndeferrableValue<String> usagePlanId;
 
-
+    public String usagePlanId() {
+        if (usagePlanId == null) return null;
+        return usagePlanId.getValue("UsagePlanKey.usagePlanId");
+    }
 
     /**
      * Value of a usage plan key.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("UsagePlanKey.value");
+    }
 
 }

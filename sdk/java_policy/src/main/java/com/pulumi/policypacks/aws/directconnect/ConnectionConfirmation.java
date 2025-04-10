@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directconnect/connectionConfirmation:ConnectionConfirmation")
-public final class ConnectionConfirmation extends com.pulumi.resources.PolicyResource {
+public final class ConnectionConfirmation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the hosted connection.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("ConnectionConfirmation.connectionId");
+    }
 
 }

@@ -3,23 +3,30 @@
 
 package com.pulumi.policypacks.aws.sqs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sqs/queuePolicy:QueuePolicy")
-public final class QueuePolicy extends com.pulumi.resources.PolicyResource {
+public final class QueuePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("QueuePolicy.policy");
+    }
 
     /**
      * URL of the SQS Queue to which to attach the policy.
      * 
      */
-    public String queueUrl;
+    private UndeferrableValue<String> queueUrl;
 
-
+    public String queueUrl() {
+        if (queueUrl == null) return null;
+        return queueUrl.getValue("QueuePolicy.queueUrl");
+    }
 
 }

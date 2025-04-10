@@ -3,13 +3,14 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.efs.ReplicationConfigurationDestination;
+import com.pulumi.policypacks.aws.efs.outputs.ReplicationConfigurationDestination;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:efs/replicationConfiguration:ReplicationConfiguration")
-public final class ReplicationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class ReplicationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * When the replication configuration was created.
@@ -17,48 +18,66 @@ public final class ReplicationConfiguration extends com.pulumi.resources.PolicyR
      * * `destination[0].status` - The status of the replication.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("ReplicationConfiguration.creationTime");
+    }
 
     /**
      * A destination configuration block (documented below).
      * 
      */
-    public ReplicationConfigurationDestination destination;
+    private UndeferrableValue<ReplicationConfigurationDestination> destination;
 
-
+    public ReplicationConfigurationDestination destination() {
+        if (destination == null) return null;
+        return destination.getValue("ReplicationConfiguration.destination");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      * 
      */
-    public String originalSourceFileSystemArn;
+    private UndeferrableValue<String> originalSourceFileSystemArn;
 
-
+    public String originalSourceFileSystemArn() {
+        if (originalSourceFileSystemArn == null) return null;
+        return originalSourceFileSystemArn.getValue("ReplicationConfiguration.originalSourceFileSystemArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */
-    public String sourceFileSystemArn;
+    private UndeferrableValue<String> sourceFileSystemArn;
 
-
+    public String sourceFileSystemArn() {
+        if (sourceFileSystemArn == null) return null;
+        return sourceFileSystemArn.getValue("ReplicationConfiguration.sourceFileSystemArn");
+    }
 
     /**
      * The ID of the file system that is to be replicated.
      * 
      */
-    public String sourceFileSystemId;
+    private UndeferrableValue<String> sourceFileSystemId;
 
-
+    public String sourceFileSystemId() {
+        if (sourceFileSystemId == null) return null;
+        return sourceFileSystemId.getValue("ReplicationConfiguration.sourceFileSystemId");
+    }
 
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
      * 
      */
-    public String sourceFileSystemRegion;
+    private UndeferrableValue<String> sourceFileSystemRegion;
 
-
+    public String sourceFileSystemRegion() {
+        if (sourceFileSystemRegion == null) return null;
+        return sourceFileSystemRegion.getValue("ReplicationConfiguration.sourceFileSystemRegion");
+    }
 
 }

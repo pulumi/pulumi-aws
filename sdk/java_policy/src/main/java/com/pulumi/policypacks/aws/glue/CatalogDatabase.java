@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.CatalogDatabaseCreateTableDefaultPermission;
-import com.pulumi.policypacks.aws.glue.CatalogDatabaseFederatedDatabase;
-import com.pulumi.policypacks.aws.glue.CatalogDatabaseTargetDatabase;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogDatabaseCreateTableDefaultPermission;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogDatabaseFederatedDatabase;
+import com.pulumi.policypacks.aws.glue.outputs.CatalogDatabaseTargetDatabase;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/catalogDatabase:CatalogDatabase")
-public final class CatalogDatabase extends com.pulumi.resources.PolicyResource {
+public final class CatalogDatabase extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Glue Catalog Database.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CatalogDatabase.arn");
+    }
 
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("CatalogDatabase.catalogId");
+    }
 
     /**
      * Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
      * 
      */
-    public List<CatalogDatabaseCreateTableDefaultPermission> createTableDefaultPermissions;
+    private UndeferrableValue<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
 
-
+    public List<CatalogDatabaseCreateTableDefaultPermission> createTableDefaultPermissions() {
+        if (createTableDefaultPermissions == null) return null;
+        return createTableDefaultPermissions.getValue("CatalogDatabase.createTableDefaultPermissions");
+    }
 
     /**
      * Description of the database.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CatalogDatabase.description");
+    }
 
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
      * 
      */
-    public CatalogDatabaseFederatedDatabase federatedDatabase;
+    private @Nullable UndeferrableValue<CatalogDatabaseFederatedDatabase> federatedDatabase;
 
-
+    public @Nullable CatalogDatabaseFederatedDatabase federatedDatabase() {
+        if (federatedDatabase == null) return null;
+        return federatedDatabase.getValue("CatalogDatabase.federatedDatabase");
+    }
 
     /**
      * Location of the database (for example, an HDFS path).
      * 
      */
-    public String locationUri;
+    private UndeferrableValue<String> locationUri;
 
-
+    public String locationUri() {
+        if (locationUri == null) return null;
+        return locationUri.getValue("CatalogDatabase.locationUri");
+    }
 
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CatalogDatabase.name");
+    }
 
     /**
      * List of key-value pairs that define parameters and properties of the database.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("CatalogDatabase.parameters");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CatalogDatabase.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,16 +124,22 @@ public final class CatalogDatabase extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CatalogDatabase.tagsAll");
+    }
 
     /**
      * Configuration block for a target database for resource linking. See `target_database` below.
      * 
      */
-    public CatalogDatabaseTargetDatabase targetDatabase;
+    private @Nullable UndeferrableValue<CatalogDatabaseTargetDatabase> targetDatabase;
 
-
+    public @Nullable CatalogDatabaseTargetDatabase targetDatabase() {
+        if (targetDatabase == null) return null;
+        return targetDatabase.getValue("CatalogDatabase.targetDatabase");
+    }
 
 }

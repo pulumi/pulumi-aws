@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.InventoryDestination;
-import com.pulumi.policypacks.aws.s3.InventoryFilter;
-import com.pulumi.policypacks.aws.s3.InventorySchedule;
+import com.pulumi.policypacks.aws.s3.outputs.InventoryDestination;
+import com.pulumi.policypacks.aws.s3.outputs.InventoryFilter;
+import com.pulumi.policypacks.aws.s3.outputs.InventorySchedule;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/inventory:Inventory")
-public final class Inventory extends com.pulumi.resources.PolicyResource {
+public final class Inventory extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the source bucket that inventory lists the objects for.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("Inventory.bucket");
+    }
 
     /**
      * Contains information about where to publish the inventory results (documented below).
      * 
      */
-    public InventoryDestination destination;
+    private UndeferrableValue<InventoryDestination> destination;
 
-
+    public InventoryDestination destination() {
+        if (destination == null) return null;
+        return destination.getValue("Inventory.destination");
+    }
 
     /**
      * Specifies whether the inventory is enabled or disabled.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Inventory.enabled");
+    }
 
     /**
      * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
-    public InventoryFilter filter;
+    private @Nullable UndeferrableValue<InventoryFilter> filter;
 
-
+    public @Nullable InventoryFilter filter() {
+        if (filter == null) return null;
+        return filter.getValue("Inventory.filter");
+    }
 
     /**
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      * 
      */
-    public String includedObjectVersions;
+    private UndeferrableValue<String> includedObjectVersions;
 
-
+    public String includedObjectVersions() {
+        if (includedObjectVersions == null) return null;
+        return includedObjectVersions.getValue("Inventory.includedObjectVersions");
+    }
 
     /**
      * Unique identifier of the inventory configuration for the bucket.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Inventory.name");
+    }
 
     /**
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      * 
      */
-    public List<String> optionalFields;
+    private @Nullable UndeferrableValue<List<String>> optionalFields;
 
-
+    public @Nullable List<String> optionalFields() {
+        if (optionalFields == null) return null;
+        return optionalFields.getValue("Inventory.optionalFields");
+    }
 
     /**
      * Specifies the schedule for generating inventory results (documented below).
      * 
      */
-    public InventorySchedule schedule;
+    private UndeferrableValue<InventorySchedule> schedule;
 
-
+    public InventorySchedule schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("Inventory.schedule");
+    }
 
 }

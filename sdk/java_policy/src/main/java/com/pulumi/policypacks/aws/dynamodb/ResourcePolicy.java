@@ -3,21 +3,25 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:dynamodb/resourcePolicy:ResourcePolicy")
-public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
      * 
      */
-    public Boolean confirmRemoveSelfResourceAccess;
+    private UndeferrableValue<Boolean> confirmRemoveSelfResourceAccess;
 
-
+    public Boolean confirmRemoveSelfResourceAccess() {
+        if (confirmRemoveSelfResourceAccess == null) return null;
+        return confirmRemoveSelfResourceAccess.getValue("ResourcePolicy.confirmRemoveSelfResourceAccess");
+    }
 
     /**
      * n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
@@ -25,24 +29,33 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ResourcePolicy.policy");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ResourcePolicy.resourceArn");
+    }
 
     /**
      * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
      * 
      */
-    public String revisionId;
+    private UndeferrableValue<String> revisionId;
 
-
+    public String revisionId() {
+        if (revisionId == null) return null;
+        return revisionId.getValue("ResourcePolicy.revisionId");
+    }
 
 }

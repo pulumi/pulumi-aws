@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/contributorInsightRule:ContributorInsightRule")
-public final class ContributorInsightRule extends com.pulumi.resources.PolicyResource {
+public final class ContributorInsightRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Contributor Insight Rule.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ContributorInsightRule.resourceArn");
+    }
 
     /**
      * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
      * 
      */
-    public String ruleDefinition;
+    private UndeferrableValue<String> ruleDefinition;
 
-
+    public String ruleDefinition() {
+        if (ruleDefinition == null) return null;
+        return ruleDefinition.getValue("ContributorInsightRule.ruleDefinition");
+    }
 
     /**
      * Unique name of the rule.
@@ -33,21 +41,30 @@ public final class ContributorInsightRule extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    public String ruleName;
+    private UndeferrableValue<String> ruleName;
 
-
+    public String ruleName() {
+        if (ruleName == null) return null;
+        return ruleName.getValue("ContributorInsightRule.ruleName");
+    }
 
     /**
      * State of the rule. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    public String ruleState;
+    private @Nullable UndeferrableValue<String> ruleState;
 
+    public @Nullable String ruleState() {
+        if (ruleState == null) return null;
+        return ruleState.getValue("ContributorInsightRule.ruleState");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContributorInsightRule.tags");
+    }
 
     /**
      * @deprecated
@@ -55,8 +72,11 @@ public final class ContributorInsightRule extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContributorInsightRule.tagsAll");
+    }
 
 }

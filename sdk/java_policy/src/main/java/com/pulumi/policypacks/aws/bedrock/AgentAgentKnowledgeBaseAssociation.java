@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentKnowledgeBaseAssociationTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentKnowledgeBaseAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")
-public final class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.PolicyResource {
+public final class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
-    public String agentId;
+    private UndeferrableValue<String> agentId;
 
-
+    public String agentId() {
+        if (agentId == null) return null;
+        return agentId.getValue("AgentAgentKnowledgeBaseAssociation.agentId");
+    }
 
     /**
      * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
-    public String agentVersion;
+    private UndeferrableValue<String> agentVersion;
 
-
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("AgentAgentKnowledgeBaseAssociation.agentVersion");
+    }
 
     /**
      * Description of what the agent should use the knowledge base for.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("AgentAgentKnowledgeBaseAssociation.description");
+    }
 
     /**
      * Unique identifier of the knowledge base to associate with the agent.
      * 
      */
-    public String knowledgeBaseId;
+    private UndeferrableValue<String> knowledgeBaseId;
 
-
+    public String knowledgeBaseId() {
+        if (knowledgeBaseId == null) return null;
+        return knowledgeBaseId.getValue("AgentAgentKnowledgeBaseAssociation.knowledgeBaseId");
+    }
 
     /**
      * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
@@ -49,12 +63,18 @@ public final class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resourc
      * The following arguments are optional:
      * 
      */
-    public String knowledgeBaseState;
+    private UndeferrableValue<String> knowledgeBaseState;
 
+    public String knowledgeBaseState() {
+        if (knowledgeBaseState == null) return null;
+        return knowledgeBaseState.getValue("AgentAgentKnowledgeBaseAssociation.knowledgeBaseState");
+    }
 
+    private @Nullable UndeferrableValue<AgentAgentKnowledgeBaseAssociationTimeouts> timeouts;
 
-    public AgentAgentKnowledgeBaseAssociationTimeouts timeouts;
-
-
+    public @Nullable AgentAgentKnowledgeBaseAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentAgentKnowledgeBaseAssociation.timeouts");
+    }
 
 }

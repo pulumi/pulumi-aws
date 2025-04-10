@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/vocabulary:Vocabulary")
-public final class Vocabulary extends com.pulumi.resources.PolicyResource {
+public final class Vocabulary extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the vocabulary.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Vocabulary.arn");
+    }
 
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("Vocabulary.content");
+    }
 
     /**
      * The reason why the custom vocabulary was not created.
      * 
      */
-    public String failureReason;
+    private UndeferrableValue<String> failureReason;
 
-
+    public String failureReason() {
+        if (failureReason == null) return null;
+        return failureReason.getValue("Vocabulary.failureReason");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("Vocabulary.instanceId");
+    }
 
     /**
      * The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("Vocabulary.languageCode");
+    }
 
     /**
      * The timestamp when the custom vocabulary was last modified.
      * 
      */
-    public String lastModifiedTime;
+    private UndeferrableValue<String> lastModifiedTime;
 
-
+    public String lastModifiedTime() {
+        if (lastModifiedTime == null) return null;
+        return lastModifiedTime.getValue("Vocabulary.lastModifiedTime");
+    }
 
     /**
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Vocabulary.name");
+    }
 
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Vocabulary.state");
+    }
 
     /**
      * Tags to apply to the vocabulary. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Vocabulary.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,16 +121,22 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Vocabulary.tagsAll");
+    }
 
     /**
      * The identifier of the custom vocabulary.
      * 
      */
-    public String vocabularyId;
+    private UndeferrableValue<String> vocabularyId;
 
-
+    public String vocabularyId() {
+        if (vocabularyId == null) return null;
+        return vocabularyId.getValue("Vocabulary.vocabularyId");
+    }
 
 }

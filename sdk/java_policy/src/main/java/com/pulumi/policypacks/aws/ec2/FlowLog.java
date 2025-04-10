@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.FlowLogDestinationOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.FlowLogDestinationOptions;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/flowLog:FlowLog")
-public final class FlowLog extends com.pulumi.resources.PolicyResource {
+public final class FlowLog extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Flow Log.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FlowLog.arn");
+    }
 
     /**
      * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      * 
      */
-    public String deliverCrossAccountRole;
+    private @Nullable UndeferrableValue<String> deliverCrossAccountRole;
 
-
+    public @Nullable String deliverCrossAccountRole() {
+        if (deliverCrossAccountRole == null) return null;
+        return deliverCrossAccountRole.getValue("FlowLog.deliverCrossAccountRole");
+    }
 
     /**
      * Describes the destination options for a flow log. More details below.
      * 
      */
-    public FlowLogDestinationOptions destinationOptions;
+    private @Nullable UndeferrableValue<FlowLogDestinationOptions> destinationOptions;
 
-
+    public @Nullable FlowLogDestinationOptions destinationOptions() {
+        if (destinationOptions == null) return null;
+        return destinationOptions.getValue("FlowLog.destinationOptions");
+    }
 
     /**
      * Elastic Network Interface ID to attach to
      * 
      */
-    public String eniId;
+    private @Nullable UndeferrableValue<String> eniId;
 
-
+    public @Nullable String eniId() {
+        if (eniId == null) return null;
+        return eniId.getValue("FlowLog.eniId");
+    }
 
     /**
      * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
      * 
      */
-    public String iamRoleArn;
+    private @Nullable UndeferrableValue<String> iamRoleArn;
 
-
+    public @Nullable String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("FlowLog.iamRoleArn");
+    }
 
     /**
      * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
-    public String logDestination;
+    private UndeferrableValue<String> logDestination;
 
-
+    public String logDestination() {
+        if (logDestination == null) return null;
+        return logDestination.getValue("FlowLog.logDestination");
+    }
 
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
-    public String logDestinationType;
+    private @Nullable UndeferrableValue<String> logDestinationType;
 
-
+    public @Nullable String logDestinationType() {
+        if (logDestinationType == null) return null;
+        return logDestinationType.getValue("FlowLog.logDestinationType");
+    }
 
     /**
      * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
-    public String logFormat;
+    private UndeferrableValue<String> logFormat;
 
-
+    public String logFormat() {
+        if (logFormat == null) return null;
+        return logFormat.getValue("FlowLog.logFormat");
+    }
 
     /**
      * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
@@ -85,9 +111,12 @@ public final class FlowLog extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("FlowLog.logGroupName");
+    }
 
     /**
      * The maximum interval of time
@@ -96,25 +125,34 @@ public final class FlowLog extends com.pulumi.resources.PolicyResource {
      * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
-    public Integer maxAggregationInterval;
+    private @Nullable UndeferrableValue<Integer> maxAggregationInterval;
 
-
+    public @Nullable Integer maxAggregationInterval() {
+        if (maxAggregationInterval == null) return null;
+        return maxAggregationInterval.getValue("FlowLog.maxAggregationInterval");
+    }
 
     /**
      * Subnet ID to attach to
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("FlowLog.subnetId");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FlowLog.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -124,40 +162,55 @@ public final class FlowLog extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FlowLog.tagsAll");
+    }
 
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    public String trafficType;
+    private @Nullable UndeferrableValue<String> trafficType;
 
-
+    public @Nullable String trafficType() {
+        if (trafficType == null) return null;
+        return trafficType.getValue("FlowLog.trafficType");
+    }
 
     /**
      * Transit Gateway Attachment ID to attach to
      * 
      */
-    public String transitGatewayAttachmentId;
+    private @Nullable UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public @Nullable String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("FlowLog.transitGatewayAttachmentId");
+    }
 
     /**
      * Transit Gateway ID to attach to
      * 
      */
-    public String transitGatewayId;
+    private @Nullable UndeferrableValue<String> transitGatewayId;
 
-
+    public @Nullable String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("FlowLog.transitGatewayId");
+    }
 
     /**
      * VPC ID to attach to
      * 
      */
-    public String vpcId;
+    private @Nullable UndeferrableValue<String> vpcId;
 
-
+    public @Nullable String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("FlowLog.vpcId");
+    }
 
 }

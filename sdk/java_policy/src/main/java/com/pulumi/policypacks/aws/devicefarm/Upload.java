@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/upload:Upload")
-public final class Upload extends com.pulumi.resources.PolicyResource {
+public final class Upload extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this upload.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Upload.arn");
+    }
 
     /**
      * The upload&#39;s category.
      * 
      */
-    public String category;
+    private UndeferrableValue<String> category;
 
-
+    public String category() {
+        if (category == null) return null;
+        return category.getValue("Upload.category");
+    }
 
     /**
      * The upload&#39;s content type (for example, application/octet-stream).
      * 
      */
-    public String contentType;
+    private @Nullable UndeferrableValue<String> contentType;
 
-
+    public @Nullable String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("Upload.contentType");
+    }
 
     /**
      * The upload&#39;s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
      * 
      */
-    public String metadata;
+    private UndeferrableValue<String> metadata;
 
-
+    public String metadata() {
+        if (metadata == null) return null;
+        return metadata.getValue("Upload.metadata");
+    }
 
     /**
      * The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Upload.name");
+    }
 
     /**
      * The ARN of the project for the upload.
      * 
      */
-    public String projectArn;
+    private UndeferrableValue<String> projectArn;
 
-
+    public String projectArn() {
+        if (projectArn == null) return null;
+        return projectArn.getValue("Upload.projectArn");
+    }
 
     /**
      * The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Upload.type");
+    }
 
     /**
      * The presigned Amazon S3 URL that was used to store a file using a PUT request.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Upload.url");
+    }
 
 }

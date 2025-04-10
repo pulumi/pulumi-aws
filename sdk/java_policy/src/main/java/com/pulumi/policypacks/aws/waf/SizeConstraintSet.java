@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.waf.SizeConstraintSetSizeConstraint;
+import com.pulumi.policypacks.aws.waf.outputs.SizeConstraintSetSizeConstraint;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/sizeConstraintSet:SizeConstraintSet")
-public final class SizeConstraintSet extends com.pulumi.resources.PolicyResource {
+public final class SizeConstraintSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SizeConstraintSet.arn");
+    }
 
     /**
      * Name or description of the Size Constraint Set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SizeConstraintSet.name");
+    }
 
     /**
      * Parts of web requests that you want to inspect the size of.
      * 
      */
-    public List<SizeConstraintSetSizeConstraint> sizeConstraints;
+    private @Nullable UndeferrableValue<List<SizeConstraintSetSizeConstraint>> sizeConstraints;
 
-
+    public @Nullable List<SizeConstraintSetSizeConstraint> sizeConstraints() {
+        if (sizeConstraints == null) return null;
+        return sizeConstraints.getValue("SizeConstraintSet.sizeConstraints");
+    }
 
 }

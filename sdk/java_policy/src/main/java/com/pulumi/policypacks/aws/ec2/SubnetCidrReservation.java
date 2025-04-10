@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/subnetCidrReservation:SubnetCidrReservation")
-public final class SubnetCidrReservation extends com.pulumi.resources.PolicyResource {
+public final class SubnetCidrReservation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CIDR block for the reservation.
      * 
      */
-    public String cidrBlock;
+    private UndeferrableValue<String> cidrBlock;
 
-
+    public String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("SubnetCidrReservation.cidrBlock");
+    }
 
     /**
      * A brief description of the reservation.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SubnetCidrReservation.description");
+    }
 
     /**
      * ID of the AWS account that owns this CIDR reservation.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("SubnetCidrReservation.ownerId");
+    }
 
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      * 
      */
-    public String reservationType;
+    private UndeferrableValue<String> reservationType;
 
-
+    public String reservationType() {
+        if (reservationType == null) return null;
+        return reservationType.getValue("SubnetCidrReservation.reservationType");
+    }
 
     /**
      * The ID of the subnet to create the reservation for.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("SubnetCidrReservation.subnetId");
+    }
 
 }

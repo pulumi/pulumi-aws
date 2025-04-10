@@ -3,91 +3,123 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.neptune.GlobalClusterGlobalClusterMember;
+import com.pulumi.policypacks.aws.neptune.outputs.GlobalClusterGlobalClusterMember;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:neptune/globalCluster:GlobalCluster")
-public final class GlobalCluster extends com.pulumi.resources.PolicyResource {
+public final class GlobalCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Global Cluster Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GlobalCluster.arn");
+    }
 
     /**
      * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("GlobalCluster.deletionProtection");
+    }
 
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("GlobalCluster.engine");
+    }
 
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
      * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("GlobalCluster.engineVersion");
+    }
 
     /**
      * The global cluster identifier.
      * 
      */
-    public String globalClusterIdentifier;
+    private UndeferrableValue<String> globalClusterIdentifier;
 
-
+    public String globalClusterIdentifier() {
+        if (globalClusterIdentifier == null) return null;
+        return globalClusterIdentifier.getValue("GlobalCluster.globalClusterIdentifier");
+    }
 
     /**
      * Set of objects containing Global Cluster members.
      * 
      */
-    public List<GlobalClusterGlobalClusterMember> globalClusterMembers;
+    private UndeferrableValue<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
 
-
+    public List<GlobalClusterGlobalClusterMember> globalClusterMembers() {
+        if (globalClusterMembers == null) return null;
+        return globalClusterMembers.getValue("GlobalCluster.globalClusterMembers");
+    }
 
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
-    public String globalClusterResourceId;
+    private UndeferrableValue<String> globalClusterResourceId;
 
-
+    public String globalClusterResourceId() {
+        if (globalClusterResourceId == null) return null;
+        return globalClusterResourceId.getValue("GlobalCluster.globalClusterResourceId");
+    }
 
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      * 
      */
-    public String sourceDbClusterIdentifier;
+    private UndeferrableValue<String> sourceDbClusterIdentifier;
 
+    public String sourceDbClusterIdentifier() {
+        if (sourceDbClusterIdentifier == null) return null;
+        return sourceDbClusterIdentifier.getValue("GlobalCluster.sourceDbClusterIdentifier");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("GlobalCluster.status");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("GlobalCluster.storageEncrypted");
+    }
 
 }

@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/rolePolicy:RolePolicy")
-public final class RolePolicy extends com.pulumi.resources.PolicyResource {
+public final class RolePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the role policy. If omitted, this provider will
      * assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RolePolicy.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("RolePolicy.namePrefix");
+    }
 
     /**
      * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("RolePolicy.policy");
+    }
 
     /**
      * The name of the IAM role to attach to the policy.
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("RolePolicy.role");
+    }
 
 }

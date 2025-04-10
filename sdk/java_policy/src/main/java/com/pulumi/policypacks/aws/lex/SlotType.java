@@ -3,49 +3,63 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.SlotTypeEnumerationValue;
+import com.pulumi.policypacks.aws.lex.outputs.SlotTypeEnumerationValue;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/slotType:SlotType")
-public final class SlotType extends com.pulumi.resources.PolicyResource {
+public final class SlotType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Checksum identifying the version of the slot type that was created. The checksum is
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    public String checksum;
+    private UndeferrableValue<String> checksum;
 
-
+    public String checksum() {
+        if (checksum == null) return null;
+        return checksum.getValue("SlotType.checksum");
+    }
 
     /**
      * Determines if a new slot type version is created when the initial resource is created and on each
      * update. Defaults to `false`.
      * 
      */
-    public Boolean createVersion;
+    private @Nullable UndeferrableValue<Boolean> createVersion;
 
-
+    public @Nullable Boolean createVersion() {
+        if (createVersion == null) return null;
+        return createVersion.getValue("SlotType.createVersion");
+    }
 
     /**
      * The date when the slot type version was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("SlotType.createdDate");
+    }
 
     /**
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SlotType.description");
+    }
 
     /**
      * A list of EnumerationValue objects that defines the values that
@@ -54,25 +68,34 @@ public final class SlotType extends com.pulumi.resources.PolicyResource {
      * documented under enumeration_value.
      * 
      */
-    public List<SlotTypeEnumerationValue> enumerationValues;
+    private UndeferrableValue<List<SlotTypeEnumerationValue>> enumerationValues;
 
-
+    public List<SlotTypeEnumerationValue> enumerationValues() {
+        if (enumerationValues == null) return null;
+        return enumerationValues.getValue("SlotType.enumerationValues");
+    }
 
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("SlotType.lastUpdatedDate");
+    }
 
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SlotType.name");
+    }
 
     /**
      * Determines the slot resolution strategy that Amazon Lex
@@ -81,16 +104,22 @@ public final class SlotType extends com.pulumi.resources.PolicyResource {
      * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      * 
      */
-    public String valueSelectionStrategy;
+    private @Nullable UndeferrableValue<String> valueSelectionStrategy;
 
-
+    public @Nullable String valueSelectionStrategy() {
+        if (valueSelectionStrategy == null) return null;
+        return valueSelectionStrategy.getValue("SlotType.valueSelectionStrategy");
+    }
 
     /**
      * The version of the slot type.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("SlotType.version");
+    }
 
 }

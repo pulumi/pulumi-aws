@@ -3,20 +3,24 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")
-public final class AccountSuppressionAttributes extends com.pulumi.resources.PolicyResource {
+public final class AccountSuppressionAttributes extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      * 
      */
-    public List<String> suppressedReasons;
+    private UndeferrableValue<List<String>> suppressedReasons;
 
-
+    public List<String> suppressedReasons() {
+        if (suppressedReasons == null) return null;
+        return suppressedReasons.getValue("AccountSuppressionAttributes.suppressedReasons");
+    }
 
 }

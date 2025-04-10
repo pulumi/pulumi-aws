@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")
-public final class AppregistryAttributeGroupAssociation extends com.pulumi.resources.PolicyResource {
+public final class AppregistryAttributeGroupAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the application.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("AppregistryAttributeGroupAssociation.applicationId");
+    }
 
     /**
      * ID of the attribute group to associate with the application.
      * 
      */
-    public String attributeGroupId;
+    private UndeferrableValue<String> attributeGroupId;
 
-
+    public String attributeGroupId() {
+        if (attributeGroupId == null) return null;
+        return attributeGroupId.getValue("AppregistryAttributeGroupAssociation.attributeGroupId");
+    }
 
 }

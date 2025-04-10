@@ -3,130 +3,174 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.directoryservice.DirectoryConnectSettings;
-import com.pulumi.policypacks.aws.directoryservice.DirectoryVpcSettings;
+import com.pulumi.policypacks.aws.directoryservice.outputs.DirectoryConnectSettings;
+import com.pulumi.policypacks.aws.directoryservice.outputs.DirectoryVpcSettings;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directoryservice/directory:Directory")
-public final class Directory extends com.pulumi.resources.PolicyResource {
+public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      * 
      */
-    public String accessUrl;
+    private UndeferrableValue<String> accessUrl;
 
-
+    public String accessUrl() {
+        if (accessUrl == null) return null;
+        return accessUrl.getValue("Directory.accessUrl");
+    }
 
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("Directory.alias");
+    }
 
     /**
      * Connector related information about the directory. Fields documented below.
      * 
      */
-    public DirectoryConnectSettings connectSettings;
+    private @Nullable UndeferrableValue<DirectoryConnectSettings> connectSettings;
 
-
+    public @Nullable DirectoryConnectSettings connectSettings() {
+        if (connectSettings == null) return null;
+        return connectSettings.getValue("Directory.connectSettings");
+    }
 
     /**
      * A textual description for the directory.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Directory.description");
+    }
 
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      * 
      */
-    public Integer desiredNumberOfDomainControllers;
+    private UndeferrableValue<Integer> desiredNumberOfDomainControllers;
 
-
+    public Integer desiredNumberOfDomainControllers() {
+        if (desiredNumberOfDomainControllers == null) return null;
+        return desiredNumberOfDomainControllers.getValue("Directory.desiredNumberOfDomainControllers");
+    }
 
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      * 
      */
-    public List<String> dnsIpAddresses;
+    private UndeferrableValue<List<String>> dnsIpAddresses;
 
-
+    public List<String> dnsIpAddresses() {
+        if (dnsIpAddresses == null) return null;
+        return dnsIpAddresses.getValue("Directory.dnsIpAddresses");
+    }
 
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
-    public String edition;
+    private UndeferrableValue<String> edition;
 
-
+    public String edition() {
+        if (edition == null) return null;
+        return edition.getValue("Directory.edition");
+    }
 
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      * 
      */
-    public Boolean enableSso;
+    private @Nullable UndeferrableValue<Boolean> enableSso;
 
-
+    public @Nullable Boolean enableSso() {
+        if (enableSso == null) return null;
+        return enableSso.getValue("Directory.enableSso");
+    }
 
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Directory.name");
+    }
 
     /**
      * The password for the directory administrator or connector user.
      * 
      */
-    public String password;
+    private UndeferrableValue<String> password;
 
-
+    public String password() {
+        if (password == null) return null;
+        return password.getValue("Directory.password");
+    }
 
     /**
      * The ID of the security group created by the directory.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("Directory.securityGroupId");
+    }
 
     /**
      * The short name of the directory, such as `CORP`.
      * 
      */
-    public String shortName;
+    private UndeferrableValue<String> shortName;
 
-
+    public String shortName() {
+        if (shortName == null) return null;
+        return shortName.getValue("Directory.shortName");
+    }
 
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
-    public String size;
+    private UndeferrableValue<String> size;
 
-
+    public String size() {
+        if (size == null) return null;
+        return size.getValue("Directory.size");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Directory.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -136,24 +180,33 @@ public final class Directory extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Directory.tagsAll");
+    }
 
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Directory.type");
+    }
 
     /**
      * VPC related information about the directory. Fields documented below.
      * 
      */
-    public DirectoryVpcSettings vpcSettings;
+    private @Nullable UndeferrableValue<DirectoryVpcSettings> vpcSettings;
 
-
+    public @Nullable DirectoryVpcSettings vpcSettings() {
+        if (vpcSettings == null) return null;
+        return vpcSettings.getValue("Directory.vpcSettings");
+    }
 
 }

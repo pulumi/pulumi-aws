@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.SpaceOwnershipSettings;
-import com.pulumi.policypacks.aws.sagemaker.SpaceSpaceSettings;
-import com.pulumi.policypacks.aws.sagemaker.SpaceSpaceSharingSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceOwnershipSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettings;
+import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSharingSettings;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/space:Space")
-public final class Space extends com.pulumi.resources.PolicyResource {
+public final class Space extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The space&#39;s Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Space.arn");
+    }
 
     /**
      * The ID of the associated Domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("Space.domainId");
+    }
 
     /**
      * The ID of the space&#39;s profile in the Amazon Elastic File System volume.
      * 
      */
-    public String homeEfsFileSystemUid;
+    private UndeferrableValue<String> homeEfsFileSystemUid;
 
-
+    public String homeEfsFileSystemUid() {
+        if (homeEfsFileSystemUid == null) return null;
+        return homeEfsFileSystemUid.getValue("Space.homeEfsFileSystemUid");
+    }
 
     /**
      * A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
-    public SpaceOwnershipSettings ownershipSettings;
+    private @Nullable UndeferrableValue<SpaceOwnershipSettings> ownershipSettings;
 
-
+    public @Nullable SpaceOwnershipSettings ownershipSettings() {
+        if (ownershipSettings == null) return null;
+        return ownershipSettings.getValue("Space.ownershipSettings");
+    }
 
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
-    public String spaceDisplayName;
+    private @Nullable UndeferrableValue<String> spaceDisplayName;
 
-
+    public @Nullable String spaceDisplayName() {
+        if (spaceDisplayName == null) return null;
+        return spaceDisplayName.getValue("Space.spaceDisplayName");
+    }
 
     /**
      * The name of the space.
      * 
      */
-    public String spaceName;
+    private UndeferrableValue<String> spaceName;
 
-
+    public String spaceName() {
+        if (spaceName == null) return null;
+        return spaceName.getValue("Space.spaceName");
+    }
 
     /**
      * A collection of space settings. See `space_settings` Block below.
      * 
      */
-    public SpaceSpaceSettings spaceSettings;
+    private @Nullable UndeferrableValue<SpaceSpaceSettings> spaceSettings;
 
-
+    public @Nullable SpaceSpaceSettings spaceSettings() {
+        if (spaceSettings == null) return null;
+        return spaceSettings.getValue("Space.spaceSettings");
+    }
 
     /**
      * A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
-    public SpaceSpaceSharingSettings spaceSharingSettings;
+    private @Nullable UndeferrableValue<SpaceSpaceSharingSettings> spaceSharingSettings;
 
-
+    public @Nullable SpaceSpaceSharingSettings spaceSharingSettings() {
+        if (spaceSharingSettings == null) return null;
+        return spaceSharingSettings.getValue("Space.spaceSharingSettings");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Space.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,16 +123,22 @@ public final class Space extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Space.tagsAll");
+    }
 
     /**
      * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Space.url");
+    }
 
 }

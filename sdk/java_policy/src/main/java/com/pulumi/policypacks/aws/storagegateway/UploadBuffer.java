@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:storagegateway/uploadBuffer:UploadBuffer")
-public final class UploadBuffer extends com.pulumi.resources.PolicyResource {
+public final class UploadBuffer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      * 
      */
-    public String diskId;
+    private UndeferrableValue<String> diskId;
 
-
+    public String diskId() {
+        if (diskId == null) return null;
+        return diskId.getValue("UploadBuffer.diskId");
+    }
 
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      * 
      */
-    public String diskPath;
+    private UndeferrableValue<String> diskPath;
 
-
+    public String diskPath() {
+        if (diskPath == null) return null;
+        return diskPath.getValue("UploadBuffer.diskPath");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    public String gatewayArn;
+    private UndeferrableValue<String> gatewayArn;
 
-
+    public String gatewayArn() {
+        if (gatewayArn == null) return null;
+        return gatewayArn.getValue("UploadBuffer.gatewayArn");
+    }
 
 }

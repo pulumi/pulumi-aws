@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/connect:Connect")
-public final class Connect extends com.pulumi.resources.PolicyResource {
+public final class Connect extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
-    public String protocol;
+    private @Nullable UndeferrableValue<String> protocol;
 
-
+    public @Nullable String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("Connect.protocol");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connect.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -36,40 +44,55 @@ public final class Connect extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connect.tagsAll");
+    }
 
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Boolean transitGatewayDefaultRouteTableAssociation;
+    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTableAssociation;
 
-
+    public @Nullable Boolean transitGatewayDefaultRouteTableAssociation() {
+        if (transitGatewayDefaultRouteTableAssociation == null) return null;
+        return transitGatewayDefaultRouteTableAssociation.getValue("Connect.transitGatewayDefaultRouteTableAssociation");
+    }
 
     /**
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    public Boolean transitGatewayDefaultRouteTablePropagation;
+    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTablePropagation;
 
-
+    public @Nullable Boolean transitGatewayDefaultRouteTablePropagation() {
+        if (transitGatewayDefaultRouteTablePropagation == null) return null;
+        return transitGatewayDefaultRouteTablePropagation.getValue("Connect.transitGatewayDefaultRouteTablePropagation");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("Connect.transitGatewayId");
+    }
 
     /**
      * The underlaying VPC attachment
      * 
      */
-    public String transportAttachmentId;
+    private UndeferrableValue<String> transportAttachmentId;
 
-
+    public String transportAttachmentId() {
+        if (transportAttachmentId == null) return null;
+        return transportAttachmentId.getValue("Connect.transportAttachmentId");
+    }
 
 }

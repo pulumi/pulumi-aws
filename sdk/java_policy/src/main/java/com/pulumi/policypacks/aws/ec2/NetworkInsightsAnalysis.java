@@ -3,59 +3,76 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.NetworkInsightsAnalysisAlternatePathHint;
-import com.pulumi.policypacks.aws.ec2.NetworkInsightsAnalysisExplanation;
-import com.pulumi.policypacks.aws.ec2.NetworkInsightsAnalysisForwardPathComponent;
-import com.pulumi.policypacks.aws.ec2.NetworkInsightsAnalysisReturnPathComponent;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisAlternatePathHint;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanation;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisForwardPathComponent;
+import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisReturnPathComponent;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")
-public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyResource {
+public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Potential intermediate components of a feasible path. Described below.
      * 
      */
-    public List<NetworkInsightsAnalysisAlternatePathHint> alternatePathHints;
+    private UndeferrableValue<List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints;
 
-
+    public List<NetworkInsightsAnalysisAlternatePathHint> alternatePathHints() {
+        if (alternatePathHints == null) return null;
+        return alternatePathHints.getValue("NetworkInsightsAnalysis.alternatePathHints");
+    }
 
     /**
      * ARN of the Network Insights Analysis.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NetworkInsightsAnalysis.arn");
+    }
 
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      * 
      */
-    public List<NetworkInsightsAnalysisExplanation> explanations;
+    private UndeferrableValue<List<NetworkInsightsAnalysisExplanation>> explanations;
 
-
+    public List<NetworkInsightsAnalysisExplanation> explanations() {
+        if (explanations == null) return null;
+        return explanations.getValue("NetworkInsightsAnalysis.explanations");
+    }
 
     /**
      * A list of ARNs for resources the path must traverse.
      * 
      */
-    public List<String> filterInArns;
+    private @Nullable UndeferrableValue<List<String>> filterInArns;
 
-
+    public @Nullable List<String> filterInArns() {
+        if (filterInArns == null) return null;
+        return filterInArns.getValue("NetworkInsightsAnalysis.filterInArns");
+    }
 
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    public List<NetworkInsightsAnalysisForwardPathComponent> forwardPathComponents;
+    private UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents;
 
-
+    public List<NetworkInsightsAnalysisForwardPathComponent> forwardPathComponents() {
+        if (forwardPathComponents == null) return null;
+        return forwardPathComponents.getValue("NetworkInsightsAnalysis.forwardPathComponents");
+    }
 
     /**
      * ID of the Network Insights Path to run an analysis on.
@@ -63,57 +80,78 @@ public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    public String networkInsightsPathId;
+    private UndeferrableValue<String> networkInsightsPathId;
 
-
+    public String networkInsightsPathId() {
+        if (networkInsightsPathId == null) return null;
+        return networkInsightsPathId.getValue("NetworkInsightsAnalysis.networkInsightsPathId");
+    }
 
     /**
      * Set to `true` if the destination was reachable.
      * 
      */
-    public Boolean pathFound;
+    private UndeferrableValue<Boolean> pathFound;
 
-
+    public Boolean pathFound() {
+        if (pathFound == null) return null;
+        return pathFound.getValue("NetworkInsightsAnalysis.pathFound");
+    }
 
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    public List<NetworkInsightsAnalysisReturnPathComponent> returnPathComponents;
+    private UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents;
 
-
+    public List<NetworkInsightsAnalysisReturnPathComponent> returnPathComponents() {
+        if (returnPathComponents == null) return null;
+        return returnPathComponents.getValue("NetworkInsightsAnalysis.returnPathComponents");
+    }
 
     /**
      * The date/time the analysis was started.
      * 
      */
-    public String startDate;
+    private UndeferrableValue<String> startDate;
 
-
+    public String startDate() {
+        if (startDate == null) return null;
+        return startDate.getValue("NetworkInsightsAnalysis.startDate");
+    }
 
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("NetworkInsightsAnalysis.status");
+    }
 
     /**
      * A message to provide more context when the `status` is `failed`.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
-
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("NetworkInsightsAnalysis.statusMessage");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NetworkInsightsAnalysis.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,24 +161,33 @@ public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NetworkInsightsAnalysis.tagsAll");
+    }
 
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    public Boolean waitForCompletion;
+    private @Nullable UndeferrableValue<Boolean> waitForCompletion;
 
-
+    public @Nullable Boolean waitForCompletion() {
+        if (waitForCompletion == null) return null;
+        return waitForCompletion.getValue("NetworkInsightsAnalysis.waitForCompletion");
+    }
 
     /**
      * The warning message.
      * 
      */
-    public String warningMessage;
+    private UndeferrableValue<String> warningMessage;
 
-
+    public String warningMessage() {
+        if (warningMessage == null) return null;
+        return warningMessage.getValue("NetworkInsightsAnalysis.warningMessage");
+    }
 
 }

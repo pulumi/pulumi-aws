@@ -3,114 +3,152 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appstream.ImageBuilderAccessEndpoint;
-import com.pulumi.policypacks.aws.appstream.ImageBuilderDomainJoinInfo;
-import com.pulumi.policypacks.aws.appstream.ImageBuilderVpcConfig;
+import com.pulumi.policypacks.aws.appstream.outputs.ImageBuilderAccessEndpoint;
+import com.pulumi.policypacks.aws.appstream.outputs.ImageBuilderDomainJoinInfo;
+import com.pulumi.policypacks.aws.appstream.outputs.ImageBuilderVpcConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appstream/imageBuilder:ImageBuilder")
-public final class ImageBuilder extends com.pulumi.resources.PolicyResource {
+public final class ImageBuilder extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      * 
      */
-    public List<ImageBuilderAccessEndpoint> accessEndpoints;
+    private @Nullable UndeferrableValue<List<ImageBuilderAccessEndpoint>> accessEndpoints;
 
-
+    public @Nullable List<ImageBuilderAccessEndpoint> accessEndpoints() {
+        if (accessEndpoints == null) return null;
+        return accessEndpoints.getValue("ImageBuilder.accessEndpoints");
+    }
 
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      * 
      */
-    public String appstreamAgentVersion;
+    private UndeferrableValue<String> appstreamAgentVersion;
 
-
+    public String appstreamAgentVersion() {
+        if (appstreamAgentVersion == null) return null;
+        return appstreamAgentVersion.getValue("ImageBuilder.appstreamAgentVersion");
+    }
 
     /**
      * ARN of the appstream image builder.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ImageBuilder.arn");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("ImageBuilder.createdTime");
+    }
 
     /**
      * Description to display.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ImageBuilder.description");
+    }
 
     /**
      * Human-readable friendly name for the AppStream image builder.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("ImageBuilder.displayName");
+    }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      * 
      */
-    public ImageBuilderDomainJoinInfo domainJoinInfo;
+    private UndeferrableValue<ImageBuilderDomainJoinInfo> domainJoinInfo;
 
-
+    public ImageBuilderDomainJoinInfo domainJoinInfo() {
+        if (domainJoinInfo == null) return null;
+        return domainJoinInfo.getValue("ImageBuilder.domainJoinInfo");
+    }
 
     /**
      * Enables or disables default internet access for the image builder.
      * 
      */
-    public Boolean enableDefaultInternetAccess;
+    private UndeferrableValue<Boolean> enableDefaultInternetAccess;
 
-
+    public Boolean enableDefaultInternetAccess() {
+        if (enableDefaultInternetAccess == null) return null;
+        return enableDefaultInternetAccess.getValue("ImageBuilder.enableDefaultInternetAccess");
+    }
 
     /**
      * ARN of the IAM role to apply to the image builder.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("ImageBuilder.iamRoleArn");
+    }
 
     /**
      * ARN of the public, private, or shared image to use.
      * 
      */
-    public String imageArn;
+    private UndeferrableValue<String> imageArn;
 
-
+    public String imageArn() {
+        if (imageArn == null) return null;
+        return imageArn.getValue("ImageBuilder.imageArn");
+    }
 
     /**
      * Name of the image used to create the image builder.
      * 
      */
-    public String imageName;
+    private UndeferrableValue<String> imageName;
 
-
+    public String imageName() {
+        if (imageName == null) return null;
+        return imageName.getValue("ImageBuilder.imageName");
+    }
 
     /**
      * Instance type to use when launching the image builder.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("ImageBuilder.instanceType");
+    }
 
     /**
      * Unique name for the image builder.
@@ -118,25 +156,34 @@ public final class ImageBuilder extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ImageBuilder.name");
+    }
 
     /**
      * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ImageBuilder.state");
+    }
 
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ImageBuilder.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -146,16 +193,22 @@ public final class ImageBuilder extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ImageBuilder.tagsAll");
+    }
 
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    public ImageBuilderVpcConfig vpcConfig;
+    private UndeferrableValue<ImageBuilderVpcConfig> vpcConfig;
 
-
+    public ImageBuilderVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("ImageBuilder.vpcConfig");
+    }
 
 }

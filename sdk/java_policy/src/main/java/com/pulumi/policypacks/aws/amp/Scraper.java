@@ -3,65 +3,85 @@
 
 package com.pulumi.policypacks.aws.amp;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.amp.ScraperDestination;
-import com.pulumi.policypacks.aws.amp.ScraperRoleConfiguration;
-import com.pulumi.policypacks.aws.amp.ScraperSource;
-import com.pulumi.policypacks.aws.amp.ScraperTimeouts;
+import com.pulumi.policypacks.aws.amp.outputs.ScraperDestination;
+import com.pulumi.policypacks.aws.amp.outputs.ScraperRoleConfiguration;
+import com.pulumi.policypacks.aws.amp.outputs.ScraperSource;
+import com.pulumi.policypacks.aws.amp.outputs.ScraperTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amp/scraper:Scraper")
-public final class Scraper extends com.pulumi.resources.PolicyResource {
+public final class Scraper extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
-    public String alias;
+    private @Nullable UndeferrableValue<String> alias;
 
-
+    public @Nullable String alias() {
+        if (alias == null) return null;
+        return alias.getValue("Scraper.alias");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the new scraper.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Scraper.arn");
+    }
 
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      * 
      */
-    public ScraperDestination destination;
+    private @Nullable UndeferrableValue<ScraperDestination> destination;
 
-
+    public @Nullable ScraperDestination destination() {
+        if (destination == null) return null;
+        return destination.getValue("Scraper.destination");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Scraper.roleArn");
+    }
 
     /**
      * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
      * 
      */
-    public ScraperRoleConfiguration roleConfiguration;
+    private @Nullable UndeferrableValue<ScraperRoleConfiguration> roleConfiguration;
 
-
+    public @Nullable ScraperRoleConfiguration roleConfiguration() {
+        if (roleConfiguration == null) return null;
+        return roleConfiguration.getValue("Scraper.roleConfiguration");
+    }
 
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
-    public String scrapeConfiguration;
+    private UndeferrableValue<String> scrapeConfiguration;
 
-
+    public String scrapeConfiguration() {
+        if (scrapeConfiguration == null) return null;
+        return scrapeConfiguration.getValue("Scraper.scrapeConfiguration");
+    }
 
     /**
      * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -69,13 +89,19 @@ public final class Scraper extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ScraperSource source;
+    private @Nullable UndeferrableValue<ScraperSource> source;
 
+    public @Nullable ScraperSource source() {
+        if (source == null) return null;
+        return source.getValue("Scraper.source");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Scraper.tags");
+    }
 
     /**
      * @deprecated
@@ -83,12 +109,18 @@ public final class Scraper extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Scraper.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ScraperTimeouts> timeouts;
 
-    public ScraperTimeouts timeouts;
-
-
+    public @Nullable ScraperTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Scraper.timeouts");
+    }
 
 }

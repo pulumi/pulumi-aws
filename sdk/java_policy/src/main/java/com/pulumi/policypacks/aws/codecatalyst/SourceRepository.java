@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codecatalyst/sourceRepository:SourceRepository")
-public final class SourceRepository extends com.pulumi.resources.PolicyResource {
+public final class SourceRepository extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SourceRepository.description");
+    }
 
     /**
      * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SourceRepository.name");
+    }
 
     /**
      * The name of the project in the CodeCatalyst space.
@@ -32,16 +40,22 @@ public final class SourceRepository extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String projectName;
+    private UndeferrableValue<String> projectName;
 
-
+    public String projectName() {
+        if (projectName == null) return null;
+        return projectName.getValue("SourceRepository.projectName");
+    }
 
     /**
      * The name of the CodeCatalyst space.
      * 
      */
-    public String spaceName;
+    private UndeferrableValue<String> spaceName;
 
-
+    public String spaceName() {
+        if (spaceName == null) return null;
+        return spaceName.getValue("SourceRepository.spaceName");
+    }
 
 }

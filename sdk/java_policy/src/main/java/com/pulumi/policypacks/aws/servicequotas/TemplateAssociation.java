@@ -3,24 +3,32 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicequotas/templateAssociation:TemplateAssociation")
-public final class TemplateAssociation extends com.pulumi.resources.PolicyResource {
+public final class TemplateAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("TemplateAssociation.skipDestroy");
+    }
 
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("TemplateAssociation.status");
+    }
 
 }

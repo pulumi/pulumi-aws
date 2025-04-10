@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appconfig.EnvironmentMonitor;
+import com.pulumi.policypacks.aws.appconfig.outputs.EnvironmentMonitor;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/environment:Environment")
-public final class Environment extends com.pulumi.resources.PolicyResource {
+public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AppConfig application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("Environment.applicationId");
+    }
 
     /**
      * ARN of the AppConfig Environment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Environment.arn");
+    }
 
     /**
      * Description of the environment. Can be at most 1024 characters.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Environment.description");
+    }
 
     /**
      * AppConfig environment ID.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("Environment.environmentId");
+    }
 
     /**
      * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
      * 
      */
-    public List<EnvironmentMonitor> monitors;
+    private @Nullable UndeferrableValue<List<EnvironmentMonitor>> monitors;
 
-
+    public @Nullable List<EnvironmentMonitor> monitors() {
+        if (monitors == null) return null;
+        return monitors.getValue("Environment.monitors");
+    }
 
     /**
      * Name for the environment. Must be between 1 and 64 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Environment.name");
+    }
 
     /**
      * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Environment.state");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Environment.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -86,8 +112,11 @@ public final class Environment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Environment.tagsAll");
+    }
 
 }

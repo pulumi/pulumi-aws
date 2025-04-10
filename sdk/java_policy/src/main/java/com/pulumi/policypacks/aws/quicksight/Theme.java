@@ -3,41 +3,52 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.ThemeConfiguration;
-import com.pulumi.policypacks.aws.quicksight.ThemePermission;
+import com.pulumi.policypacks.aws.quicksight.outputs.ThemeConfiguration;
+import com.pulumi.policypacks.aws.quicksight.outputs.ThemePermission;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/theme:Theme")
-public final class Theme extends com.pulumi.resources.PolicyResource {
+public final class Theme extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the theme.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Theme.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Theme.awsAccountId");
+    }
 
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
-    public String baseThemeId;
+    private UndeferrableValue<String> baseThemeId;
 
-
+    public String baseThemeId() {
+        if (baseThemeId == null) return null;
+        return baseThemeId.getValue("Theme.baseThemeId");
+    }
 
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
@@ -45,57 +56,78 @@ public final class Theme extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ThemeConfiguration configuration;
+    private @Nullable UndeferrableValue<ThemeConfiguration> configuration;
 
-
+    public @Nullable ThemeConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Theme.configuration");
+    }
 
     /**
      * The time that the theme was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Theme.createdTime");
+    }
 
     /**
      * The time that the theme was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Theme.lastUpdatedTime");
+    }
 
     /**
      * Display name of the theme.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Theme.name");
+    }
 
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
-    public List<ThemePermission> permissions;
+    private @Nullable UndeferrableValue<List<ThemePermission>> permissions;
 
-
+    public @Nullable List<ThemePermission> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Theme.permissions");
+    }
 
     /**
      * The theme creation status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Theme.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Theme.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -105,32 +137,44 @@ public final class Theme extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Theme.tagsAll");
+    }
 
     /**
      * Identifier of the theme.
      * 
      */
-    public String themeId;
+    private UndeferrableValue<String> themeId;
 
-
+    public String themeId() {
+        if (themeId == null) return null;
+        return themeId.getValue("Theme.themeId");
+    }
 
     /**
      * A description of the current theme version being created/updated.
      * 
      */
-    public String versionDescription;
+    private @Nullable UndeferrableValue<String> versionDescription;
 
-
+    public @Nullable String versionDescription() {
+        if (versionDescription == null) return null;
+        return versionDescription.getValue("Theme.versionDescription");
+    }
 
     /**
      * The version number of the theme version.
      * 
      */
-    public Integer versionNumber;
+    private UndeferrableValue<Integer> versionNumber;
 
-
+    public Integer versionNumber() {
+        if (versionNumber == null) return null;
+        return versionNumber.getValue("Theme.versionNumber");
+    }
 
 }

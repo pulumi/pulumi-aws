@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.GameSessionQueuePlayerLatencyPolicy;
+import com.pulumi.policypacks.aws.gamelift.outputs.GameSessionQueuePlayerLatencyPolicy;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/gameSessionQueue:GameSessionQueue")
-public final class GameSessionQueue extends com.pulumi.resources.PolicyResource {
+public final class GameSessionQueue extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Game Session Queue ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GameSessionQueue.arn");
+    }
 
     /**
      * Information to be added to all events that are related to this game session queue.
      * 
      */
-    public String customEventData;
+    private @Nullable UndeferrableValue<String> customEventData;
 
-
+    public @Nullable String customEventData() {
+        if (customEventData == null) return null;
+        return customEventData.getValue("GameSessionQueue.customEventData");
+    }
 
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      * 
      */
-    public List<String> destinations;
+    private @Nullable UndeferrableValue<List<String>> destinations;
 
-
+    public @Nullable List<String> destinations() {
+        if (destinations == null) return null;
+        return destinations.getValue("GameSessionQueue.destinations");
+    }
 
     /**
      * Name of the session queue.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GameSessionQueue.name");
+    }
 
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
-    public String notificationTarget;
+    private @Nullable UndeferrableValue<String> notificationTarget;
 
-
+    public @Nullable String notificationTarget() {
+        if (notificationTarget == null) return null;
+        return notificationTarget.getValue("GameSessionQueue.notificationTarget");
+    }
 
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      * 
      */
-    public List<GameSessionQueuePlayerLatencyPolicy> playerLatencyPolicies;
+    private @Nullable UndeferrableValue<List<GameSessionQueuePlayerLatencyPolicy>> playerLatencyPolicies;
 
-
+    public @Nullable List<GameSessionQueuePlayerLatencyPolicy> playerLatencyPolicies() {
+        if (playerLatencyPolicies == null) return null;
+        return playerLatencyPolicies.getValue("GameSessionQueue.playerLatencyPolicies");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GameSessionQueue.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,16 +101,22 @@ public final class GameSessionQueue extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GameSessionQueue.tagsAll");
+    }
 
     /**
      * Maximum time a game session request can remain in the queue.
      * 
      */
-    public Integer timeoutInSeconds;
+    private @Nullable UndeferrableValue<Integer> timeoutInSeconds;
 
-
+    public @Nullable Integer timeoutInSeconds() {
+        if (timeoutInSeconds == null) return null;
+        return timeoutInSeconds.getValue("GameSessionQueue.timeoutInSeconds");
+    }
 
 }

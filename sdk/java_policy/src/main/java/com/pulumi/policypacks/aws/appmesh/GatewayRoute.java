@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appmesh.GatewayRouteSpec;
+import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpec;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appmesh/gatewayRoute:GatewayRoute")
-public final class GatewayRoute extends com.pulumi.resources.PolicyResource {
+public final class GatewayRoute extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the gateway route.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GatewayRoute.arn");
+    }
 
     /**
      * Creation date of the gateway route.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("GatewayRoute.createdDate");
+    }
 
     /**
      * Last update date of the gateway route.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("GatewayRoute.lastUpdatedDate");
+    }
 
     /**
      * Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
-    public String meshName;
+    private UndeferrableValue<String> meshName;
 
-
+    public String meshName() {
+        if (meshName == null) return null;
+        return meshName.getValue("GatewayRoute.meshName");
+    }
 
     /**
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public String meshOwner;
+    private UndeferrableValue<String> meshOwner;
 
-
+    public String meshOwner() {
+        if (meshOwner == null) return null;
+        return meshOwner.getValue("GatewayRoute.meshOwner");
+    }
 
     /**
      * Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GatewayRoute.name");
+    }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("GatewayRoute.resourceOwner");
+    }
 
     /**
      * Gateway route specification to apply.
      * 
      */
-    public GatewayRouteSpec spec;
+    private UndeferrableValue<GatewayRouteSpec> spec;
 
-
+    public GatewayRouteSpec spec() {
+        if (spec == null) return null;
+        return spec.getValue("GatewayRoute.spec");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GatewayRoute.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,16 +121,22 @@ public final class GatewayRoute extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GatewayRoute.tagsAll");
+    }
 
     /**
      * Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
      * 
      */
-    public String virtualGatewayName;
+    private UndeferrableValue<String> virtualGatewayName;
 
-
+    public String virtualGatewayName() {
+        if (virtualGatewayName == null) return null;
+        return virtualGatewayName.getValue("GatewayRoute.virtualGatewayName");
+    }
 
 }

@@ -3,90 +3,119 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.servicecatalog.ProvisionedProductOutput;
-import com.pulumi.policypacks.aws.servicecatalog.ProvisionedProductProvisioningParameter;
-import com.pulumi.policypacks.aws.servicecatalog.ProvisionedProductStackSetProvisioningPreferences;
+import com.pulumi.policypacks.aws.servicecatalog.outputs.ProvisionedProductOutput;
+import com.pulumi.policypacks.aws.servicecatalog.outputs.ProvisionedProductProvisioningParameter;
+import com.pulumi.policypacks.aws.servicecatalog.outputs.ProvisionedProductStackSetProvisioningPreferences;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/provisionedProduct:ProvisionedProduct")
-public final class ProvisionedProduct extends com.pulumi.resources.PolicyResource {
+public final class ProvisionedProduct extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("ProvisionedProduct.acceptLanguage");
+    }
 
     /**
      * ARN of the provisioned product.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProvisionedProduct.arn");
+    }
 
     /**
      * Set of CloudWatch dashboards that were created when provisioning the product.
      * 
      */
-    public List<String> cloudwatchDashboardNames;
+    private UndeferrableValue<List<String>> cloudwatchDashboardNames;
 
-
+    public List<String> cloudwatchDashboardNames() {
+        if (cloudwatchDashboardNames == null) return null;
+        return cloudwatchDashboardNames.getValue("ProvisionedProduct.cloudwatchDashboardNames");
+    }
 
     /**
      * Time when the provisioned product was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("ProvisionedProduct.createdTime");
+    }
 
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      * 
      */
-    public Boolean ignoreErrors;
+    private @Nullable UndeferrableValue<Boolean> ignoreErrors;
 
-
+    public @Nullable Boolean ignoreErrors() {
+        if (ignoreErrors == null) return null;
+        return ignoreErrors.getValue("ProvisionedProduct.ignoreErrors");
+    }
 
     /**
      * Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      * 
      */
-    public String lastProvisioningRecordId;
+    private UndeferrableValue<String> lastProvisioningRecordId;
 
-
+    public String lastProvisioningRecordId() {
+        if (lastProvisioningRecordId == null) return null;
+        return lastProvisioningRecordId.getValue("ProvisionedProduct.lastProvisioningRecordId");
+    }
 
     /**
      * Record identifier of the last request performed on this provisioned product.
      * 
      */
-    public String lastRecordId;
+    private UndeferrableValue<String> lastRecordId;
 
-
+    public String lastRecordId() {
+        if (lastRecordId == null) return null;
+        return lastRecordId.getValue("ProvisionedProduct.lastRecordId");
+    }
 
     /**
      * Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      * 
      */
-    public String lastSuccessfulProvisioningRecordId;
+    private UndeferrableValue<String> lastSuccessfulProvisioningRecordId;
 
-
+    public String lastSuccessfulProvisioningRecordId() {
+        if (lastSuccessfulProvisioningRecordId == null) return null;
+        return lastSuccessfulProvisioningRecordId.getValue("ProvisionedProduct.lastSuccessfulProvisioningRecordId");
+    }
 
     /**
      * ARN of the launch role associated with the provisioned product.
      * 
      */
-    public String launchRoleArn;
+    private UndeferrableValue<String> launchRoleArn;
 
-
+    public String launchRoleArn() {
+        if (launchRoleArn == null) return null;
+        return launchRoleArn.getValue("ProvisionedProduct.launchRoleArn");
+    }
 
     /**
      * User-friendly name of the provisioned product.
@@ -94,121 +123,166 @@ public final class ProvisionedProduct extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProvisionedProduct.name");
+    }
 
     /**
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      * 
      */
-    public List<String> notificationArns;
+    private @Nullable UndeferrableValue<List<String>> notificationArns;
 
-
+    public @Nullable List<String> notificationArns() {
+        if (notificationArns == null) return null;
+        return notificationArns.getValue("ProvisionedProduct.notificationArns");
+    }
 
     /**
      * The set of outputs for the product created.
      * 
      */
-    public List<ProvisionedProductOutput> outputs;
+    private UndeferrableValue<List<ProvisionedProductOutput>> outputs;
 
-
+    public List<ProvisionedProductOutput> outputs() {
+        if (outputs == null) return null;
+        return outputs.getValue("ProvisionedProduct.outputs");
+    }
 
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
      * 
      */
-    public String pathId;
+    private UndeferrableValue<String> pathId;
 
-
+    public String pathId() {
+        if (pathId == null) return null;
+        return pathId.getValue("ProvisionedProduct.pathId");
+    }
 
     /**
      * Name of the path. You must provide `path_id` or `path_name`, but not both.
      * 
      */
-    public String pathName;
+    private @Nullable UndeferrableValue<String> pathName;
 
-
+    public @Nullable String pathName() {
+        if (pathName == null) return null;
+        return pathName.getValue("ProvisionedProduct.pathName");
+    }
 
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
      * 
      */
-    public String productId;
+    private UndeferrableValue<String> productId;
 
-
+    public String productId() {
+        if (productId == null) return null;
+        return productId.getValue("ProvisionedProduct.productId");
+    }
 
     /**
      * Name of the product. You must provide `product_id` or `product_name`, but not both.
      * 
      */
-    public String productName;
+    private @Nullable UndeferrableValue<String> productName;
 
-
+    public @Nullable String productName() {
+        if (productName == null) return null;
+        return productName.getValue("ProvisionedProduct.productName");
+    }
 
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
      * 
      */
-    public String provisioningArtifactId;
+    private UndeferrableValue<String> provisioningArtifactId;
 
-
+    public String provisioningArtifactId() {
+        if (provisioningArtifactId == null) return null;
+        return provisioningArtifactId.getValue("ProvisionedProduct.provisioningArtifactId");
+    }
 
     /**
      * Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
      * 
      */
-    public String provisioningArtifactName;
+    private @Nullable UndeferrableValue<String> provisioningArtifactName;
 
-
+    public @Nullable String provisioningArtifactName() {
+        if (provisioningArtifactName == null) return null;
+        return provisioningArtifactName.getValue("ProvisionedProduct.provisioningArtifactName");
+    }
 
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
-    public List<ProvisionedProductProvisioningParameter> provisioningParameters;
+    private @Nullable UndeferrableValue<List<ProvisionedProductProvisioningParameter>> provisioningParameters;
 
-
+    public @Nullable List<ProvisionedProductProvisioningParameter> provisioningParameters() {
+        if (provisioningParameters == null) return null;
+        return provisioningParameters.getValue("ProvisionedProduct.provisioningParameters");
+    }
 
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      * 
      */
-    public Boolean retainPhysicalResources;
+    private @Nullable UndeferrableValue<Boolean> retainPhysicalResources;
 
-
+    public @Nullable Boolean retainPhysicalResources() {
+        if (retainPhysicalResources == null) return null;
+        return retainPhysicalResources.getValue("ProvisionedProduct.retainPhysicalResources");
+    }
 
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
-    public ProvisionedProductStackSetProvisioningPreferences stackSetProvisioningPreferences;
+    private @Nullable UndeferrableValue<ProvisionedProductStackSetProvisioningPreferences> stackSetProvisioningPreferences;
 
-
+    public @Nullable ProvisionedProductStackSetProvisioningPreferences stackSetProvisioningPreferences() {
+        if (stackSetProvisioningPreferences == null) return null;
+        return stackSetProvisioningPreferences.getValue("ProvisionedProduct.stackSetProvisioningPreferences");
+    }
 
     /**
      * Current status of the provisioned product. See meanings below.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ProvisionedProduct.status");
+    }
 
     /**
      * Current status message of the provisioned product.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
-
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("ProvisionedProduct.statusMessage");
+    }
 
     /**
      * Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProvisionedProduct.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -218,16 +292,22 @@ public final class ProvisionedProduct extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProvisionedProduct.tagsAll");
+    }
 
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ProvisionedProduct.type");
+    }
 
 }

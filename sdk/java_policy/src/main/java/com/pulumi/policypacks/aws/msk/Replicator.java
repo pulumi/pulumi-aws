@@ -3,76 +3,102 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.msk.ReplicatorKafkaCluster;
-import com.pulumi.policypacks.aws.msk.ReplicatorReplicationInfoList;
+import com.pulumi.policypacks.aws.msk.outputs.ReplicatorKafkaCluster;
+import com.pulumi.policypacks.aws.msk.outputs.ReplicatorReplicationInfoList;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:msk/replicator:Replicator")
-public final class Replicator extends com.pulumi.resources.PolicyResource {
+public final class Replicator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Replicator.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Replicator.arn");
+    }
 
+    private UndeferrableValue<String> currentVersion;
 
-    public String currentVersion;
-
-
+    public String currentVersion() {
+        if (currentVersion == null) return null;
+        return currentVersion.getValue("Replicator.currentVersion");
+    }
 
     /**
      * A summary description of the replicator.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Replicator.description");
+    }
 
     /**
      * A list of Kafka clusters which are targets of the replicator.
      * 
      */
-    public List<ReplicatorKafkaCluster> kafkaClusters;
+    private UndeferrableValue<List<ReplicatorKafkaCluster>> kafkaClusters;
 
-
+    public List<ReplicatorKafkaCluster> kafkaClusters() {
+        if (kafkaClusters == null) return null;
+        return kafkaClusters.getValue("Replicator.kafkaClusters");
+    }
 
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      * 
      */
-    public ReplicatorReplicationInfoList replicationInfoList;
+    private UndeferrableValue<ReplicatorReplicationInfoList> replicationInfoList;
 
-
+    public ReplicatorReplicationInfoList replicationInfoList() {
+        if (replicationInfoList == null) return null;
+        return replicationInfoList.getValue("Replicator.replicationInfoList");
+    }
 
     /**
      * The name of the replicator.
      * 
      */
-    public String replicatorName;
+    private UndeferrableValue<String> replicatorName;
 
-
+    public String replicatorName() {
+        if (replicatorName == null) return null;
+        return replicatorName.getValue("Replicator.replicatorName");
+    }
 
     /**
      * The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
-    public String serviceExecutionRoleArn;
+    private UndeferrableValue<String> serviceExecutionRoleArn;
 
-
+    public String serviceExecutionRoleArn() {
+        if (serviceExecutionRoleArn == null) return null;
+        return serviceExecutionRoleArn.getValue("Replicator.serviceExecutionRoleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Replicator.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -82,8 +108,11 @@ public final class Replicator extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Replicator.tagsAll");
+    }
 
 }

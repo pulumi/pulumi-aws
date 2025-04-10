@@ -3,15 +3,17 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/transitGateway:TransitGateway")
-public final class TransitGateway extends com.pulumi.resources.PolicyResource {
+public final class TransitGateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -19,105 +21,144 @@ public final class TransitGateway extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
      * 
      */
-    public Integer amazonSideAsn;
+    private @Nullable UndeferrableValue<Integer> amazonSideAsn;
 
-
+    public @Nullable Integer amazonSideAsn() {
+        if (amazonSideAsn == null) return null;
+        return amazonSideAsn.getValue("TransitGateway.amazonSideAsn");
+    }
 
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TransitGateway.arn");
+    }
 
     /**
      * Identifier of the default association route table
      * 
      */
-    public String associationDefaultRouteTableId;
+    private UndeferrableValue<String> associationDefaultRouteTableId;
 
-
+    public String associationDefaultRouteTableId() {
+        if (associationDefaultRouteTableId == null) return null;
+        return associationDefaultRouteTableId.getValue("TransitGateway.associationDefaultRouteTableId");
+    }
 
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    public String autoAcceptSharedAttachments;
+    private @Nullable UndeferrableValue<String> autoAcceptSharedAttachments;
 
-
+    public @Nullable String autoAcceptSharedAttachments() {
+        if (autoAcceptSharedAttachments == null) return null;
+        return autoAcceptSharedAttachments.getValue("TransitGateway.autoAcceptSharedAttachments");
+    }
 
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    public String defaultRouteTableAssociation;
+    private @Nullable UndeferrableValue<String> defaultRouteTableAssociation;
 
-
+    public @Nullable String defaultRouteTableAssociation() {
+        if (defaultRouteTableAssociation == null) return null;
+        return defaultRouteTableAssociation.getValue("TransitGateway.defaultRouteTableAssociation");
+    }
 
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    public String defaultRouteTablePropagation;
+    private @Nullable UndeferrableValue<String> defaultRouteTablePropagation;
 
-
+    public @Nullable String defaultRouteTablePropagation() {
+        if (defaultRouteTablePropagation == null) return null;
+        return defaultRouteTablePropagation.getValue("TransitGateway.defaultRouteTablePropagation");
+    }
 
     /**
      * Description of the EC2 Transit Gateway.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TransitGateway.description");
+    }
 
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    public String dnsSupport;
+    private @Nullable UndeferrableValue<String> dnsSupport;
 
-
+    public @Nullable String dnsSupport() {
+        if (dnsSupport == null) return null;
+        return dnsSupport.getValue("TransitGateway.dnsSupport");
+    }
 
     /**
      * Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    public String multicastSupport;
+    private @Nullable UndeferrableValue<String> multicastSupport;
 
-
+    public @Nullable String multicastSupport() {
+        if (multicastSupport == null) return null;
+        return multicastSupport.getValue("TransitGateway.multicastSupport");
+    }
 
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("TransitGateway.ownerId");
+    }
 
     /**
      * Identifier of the default propagation route table
      * 
      */
-    public String propagationDefaultRouteTableId;
+    private UndeferrableValue<String> propagationDefaultRouteTableId;
 
-
+    public String propagationDefaultRouteTableId() {
+        if (propagationDefaultRouteTableId == null) return null;
+        return propagationDefaultRouteTableId.getValue("TransitGateway.propagationDefaultRouteTableId");
+    }
 
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    public String securityGroupReferencingSupport;
+    private @Nullable UndeferrableValue<String> securityGroupReferencingSupport;
 
-
+    public @Nullable String securityGroupReferencingSupport() {
+        if (securityGroupReferencingSupport == null) return null;
+        return securityGroupReferencingSupport.getValue("TransitGateway.securityGroupReferencingSupport");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TransitGateway.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,24 +168,33 @@ public final class TransitGateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TransitGateway.tagsAll");
+    }
 
     /**
      * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
      * 
      */
-    public List<String> transitGatewayCidrBlocks;
+    private @Nullable UndeferrableValue<List<String>> transitGatewayCidrBlocks;
 
-
+    public @Nullable List<String> transitGatewayCidrBlocks() {
+        if (transitGatewayCidrBlocks == null) return null;
+        return transitGatewayCidrBlocks.getValue("TransitGateway.transitGatewayCidrBlocks");
+    }
 
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    public String vpnEcmpSupport;
+    private @Nullable UndeferrableValue<String> vpnEcmpSupport;
 
-
+    public @Nullable String vpnEcmpSupport() {
+        if (vpnEcmpSupport == null) return null;
+        return vpnEcmpSupport.getValue("TransitGateway.vpnEcmpSupport");
+    }
 
 }

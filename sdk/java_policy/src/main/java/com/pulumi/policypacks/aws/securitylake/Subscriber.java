@@ -3,120 +3,161 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securitylake.SubscriberSource;
-import com.pulumi.policypacks.aws.securitylake.SubscriberSubscriberIdentity;
-import com.pulumi.policypacks.aws.securitylake.SubscriberTimeouts;
+import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberSource;
+import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberSubscriberIdentity;
+import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securitylake/subscriber:Subscriber")
-public final class Subscriber extends com.pulumi.resources.PolicyResource {
+public final class Subscriber extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon S3 or Lake Formation access type.
      * 
      */
-    public String accessType;
+    private UndeferrableValue<String> accessType;
 
-
+    public String accessType() {
+        if (accessType == null) return null;
+        return accessType.getValue("Subscriber.accessType");
+    }
 
     /**
      * ARN of the Data Lake.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Subscriber.arn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
-    public String resourceShareArn;
+    private UndeferrableValue<String> resourceShareArn;
 
-
+    public String resourceShareArn() {
+        if (resourceShareArn == null) return null;
+        return resourceShareArn.getValue("Subscriber.resourceShareArn");
+    }
 
     /**
      * The name of the resource share.
      * 
      */
-    public String resourceShareName;
+    private UndeferrableValue<String> resourceShareName;
 
-
+    public String resourceShareName() {
+        if (resourceShareName == null) return null;
+        return resourceShareName.getValue("Subscriber.resourceShareName");
+    }
 
     /**
      * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Subscriber.roleArn");
+    }
 
     /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      * 
      */
-    public String s3BucketArn;
+    private UndeferrableValue<String> s3BucketArn;
 
-
+    public String s3BucketArn() {
+        if (s3BucketArn == null) return null;
+        return s3BucketArn.getValue("Subscriber.s3BucketArn");
+    }
 
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public SubscriberSource source;
+    private @Nullable UndeferrableValue<SubscriberSource> source;
 
-
+    public @Nullable SubscriberSource source() {
+        if (source == null) return null;
+        return source.getValue("Subscriber.source");
+    }
 
     /**
      * The description for your subscriber account in Security Lake.
      * 
      */
-    public String subscriberDescription;
+    private @Nullable UndeferrableValue<String> subscriberDescription;
 
-
+    public @Nullable String subscriberDescription() {
+        if (subscriberDescription == null) return null;
+        return subscriberDescription.getValue("Subscriber.subscriberDescription");
+    }
 
     /**
      * The subscriber endpoint to which exception messages are posted.
      * 
      */
-    public String subscriberEndpoint;
+    private UndeferrableValue<String> subscriberEndpoint;
 
-
+    public String subscriberEndpoint() {
+        if (subscriberEndpoint == null) return null;
+        return subscriberEndpoint.getValue("Subscriber.subscriberEndpoint");
+    }
 
     /**
      * The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
-    public SubscriberSubscriberIdentity subscriberIdentity;
+    private @Nullable UndeferrableValue<SubscriberSubscriberIdentity> subscriberIdentity;
 
-
+    public @Nullable SubscriberSubscriberIdentity subscriberIdentity() {
+        if (subscriberIdentity == null) return null;
+        return subscriberIdentity.getValue("Subscriber.subscriberIdentity");
+    }
 
     /**
      * The name of your Security Lake subscriber account.
      * 
      */
-    public String subscriberName;
+    private @Nullable UndeferrableValue<String> subscriberName;
 
-
+    public @Nullable String subscriberName() {
+        if (subscriberName == null) return null;
+        return subscriberName.getValue("Subscriber.subscriberName");
+    }
 
     /**
      * The subscriber status of the Amazon Security Lake subscriber account.
      * 
      */
-    public String subscriberStatus;
+    private UndeferrableValue<String> subscriberStatus;
 
-
+    public String subscriberStatus() {
+        if (subscriberStatus == null) return null;
+        return subscriberStatus.getValue("Subscriber.subscriberStatus");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Subscriber.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -126,12 +167,18 @@ public final class Subscriber extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Subscriber.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<SubscriberTimeouts> timeouts;
 
-    public SubscriberTimeouts timeouts;
-
-
+    public @Nullable SubscriberTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Subscriber.timeouts");
+    }
 
 }

@@ -3,23 +3,31 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/defaultSubnet:DefaultSubnet")
-public final class DefaultSubnet extends com.pulumi.resources.PolicyResource {
+public final class DefaultSubnet extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DefaultSubnet.arn");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> assignIpv6AddressOnCreation;
 
-    public Boolean assignIpv6AddressOnCreation;
-
-
+    public @Nullable Boolean assignIpv6AddressOnCreation() {
+        if (assignIpv6AddressOnCreation == null) return null;
+        return assignIpv6AddressOnCreation.getValue("DefaultSubnet.assignIpv6AddressOnCreation");
+    }
 
     /**
      * is required
@@ -29,93 +37,150 @@ public final class DefaultSubnet extends com.pulumi.resources.PolicyResource {
      * This resource supports the following additional arguments:
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("DefaultSubnet.availabilityZone");
+    }
 
     /**
      * The AZ ID of the subnet
      * 
      */
-    public String availabilityZoneId;
+    private UndeferrableValue<String> availabilityZoneId;
 
-
+    public String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("DefaultSubnet.availabilityZoneId");
+    }
 
     /**
      * The IPv4 CIDR block assigned to the subnet
      * 
      */
-    public String cidrBlock;
+    private UndeferrableValue<String> cidrBlock;
 
+    public String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("DefaultSubnet.cidrBlock");
+    }
 
+    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
 
-    public String customerOwnedIpv4Pool;
+    public @Nullable String customerOwnedIpv4Pool() {
+        if (customerOwnedIpv4Pool == null) return null;
+        return customerOwnedIpv4Pool.getValue("DefaultSubnet.customerOwnedIpv4Pool");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> enableDns64;
 
+    public @Nullable Boolean enableDns64() {
+        if (enableDns64 == null) return null;
+        return enableDns64.getValue("DefaultSubnet.enableDns64");
+    }
 
-    public Boolean enableDns64;
+    private UndeferrableValue<Integer> enableLniAtDeviceIndex;
 
+    public Integer enableLniAtDeviceIndex() {
+        if (enableLniAtDeviceIndex == null) return null;
+        return enableLniAtDeviceIndex.getValue("DefaultSubnet.enableLniAtDeviceIndex");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsARecordOnLaunch;
 
-    public Integer enableLniAtDeviceIndex;
+    public @Nullable Boolean enableResourceNameDnsARecordOnLaunch() {
+        if (enableResourceNameDnsARecordOnLaunch == null) return null;
+        return enableResourceNameDnsARecordOnLaunch.getValue("DefaultSubnet.enableResourceNameDnsARecordOnLaunch");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsAaaaRecordOnLaunch;
 
+    public @Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch() {
+        if (enableResourceNameDnsAaaaRecordOnLaunch == null) return null;
+        return enableResourceNameDnsAaaaRecordOnLaunch.getValue("DefaultSubnet.enableResourceNameDnsAaaaRecordOnLaunch");
+    }
 
-    public Boolean enableResourceNameDnsARecordOnLaunch;
+    private UndeferrableValue<Boolean> existingDefaultSubnet;
 
-
-
-    public Boolean enableResourceNameDnsAaaaRecordOnLaunch;
-
-
-
-    public Boolean existingDefaultSubnet;
-
-
+    public Boolean existingDefaultSubnet() {
+        if (existingDefaultSubnet == null) return null;
+        return existingDefaultSubnet.getValue("DefaultSubnet.existingDefaultSubnet");
+    }
 
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("DefaultSubnet.forceDestroy");
+    }
 
+    private UndeferrableValue<String> ipv6CidrBlock;
 
-    public String ipv6CidrBlock;
+    public String ipv6CidrBlock() {
+        if (ipv6CidrBlock == null) return null;
+        return ipv6CidrBlock.getValue("DefaultSubnet.ipv6CidrBlock");
+    }
 
+    private UndeferrableValue<String> ipv6CidrBlockAssociationId;
 
+    public String ipv6CidrBlockAssociationId() {
+        if (ipv6CidrBlockAssociationId == null) return null;
+        return ipv6CidrBlockAssociationId.getValue("DefaultSubnet.ipv6CidrBlockAssociationId");
+    }
 
-    public String ipv6CidrBlockAssociationId;
+    private @Nullable UndeferrableValue<Boolean> ipv6Native;
 
+    public @Nullable Boolean ipv6Native() {
+        if (ipv6Native == null) return null;
+        return ipv6Native.getValue("DefaultSubnet.ipv6Native");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> mapCustomerOwnedIpOnLaunch;
 
-    public Boolean ipv6Native;
+    public @Nullable Boolean mapCustomerOwnedIpOnLaunch() {
+        if (mapCustomerOwnedIpOnLaunch == null) return null;
+        return mapCustomerOwnedIpOnLaunch.getValue("DefaultSubnet.mapCustomerOwnedIpOnLaunch");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> mapPublicIpOnLaunch;
 
+    public @Nullable Boolean mapPublicIpOnLaunch() {
+        if (mapPublicIpOnLaunch == null) return null;
+        return mapPublicIpOnLaunch.getValue("DefaultSubnet.mapPublicIpOnLaunch");
+    }
 
-    public Boolean mapCustomerOwnedIpOnLaunch;
+    private UndeferrableValue<String> outpostArn;
 
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("DefaultSubnet.outpostArn");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public Boolean mapPublicIpOnLaunch;
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DefaultSubnet.ownerId");
+    }
 
+    private UndeferrableValue<String> privateDnsHostnameTypeOnLaunch;
 
+    public String privateDnsHostnameTypeOnLaunch() {
+        if (privateDnsHostnameTypeOnLaunch == null) return null;
+        return privateDnsHostnameTypeOnLaunch.getValue("DefaultSubnet.privateDnsHostnameTypeOnLaunch");
+    }
 
-    public String outpostArn;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
-
-    public String ownerId;
-
-
-
-    public String privateDnsHostnameTypeOnLaunch;
-
-
-
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DefaultSubnet.tags");
+    }
 
     /**
      * @deprecated
@@ -123,16 +188,22 @@ public final class DefaultSubnet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DefaultSubnet.tagsAll");
+    }
 
     /**
      * The ID of the VPC the subnet is in
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("DefaultSubnet.vpcId");
+    }
 
 }

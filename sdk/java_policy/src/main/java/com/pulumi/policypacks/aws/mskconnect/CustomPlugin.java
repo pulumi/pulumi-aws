@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.mskconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mskconnect.CustomPluginLocation;
+import com.pulumi.policypacks.aws.mskconnect.outputs.CustomPluginLocation;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mskconnect/customPlugin:CustomPlugin")
-public final class CustomPlugin extends com.pulumi.resources.PolicyResource {
+public final class CustomPlugin extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * the Amazon Resource Name (ARN) of the custom plugin.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomPlugin.arn");
+    }
 
     /**
      * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("CustomPlugin.contentType");
+    }
 
     /**
      * A summary description of the custom plugin.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CustomPlugin.description");
+    }
 
     /**
      * an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    public Integer latestRevision;
+    private UndeferrableValue<Integer> latestRevision;
 
-
+    public Integer latestRevision() {
+        if (latestRevision == null) return null;
+        return latestRevision.getValue("CustomPlugin.latestRevision");
+    }
 
     /**
      * Information about the location of a custom plugin. See `location` Block for details.
      * 
      */
-    public CustomPluginLocation location;
+    private UndeferrableValue<CustomPluginLocation> location;
 
-
+    public CustomPluginLocation location() {
+        if (location == null) return null;
+        return location.getValue("CustomPlugin.location");
+    }
 
     /**
      * The name of the custom plugin..
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CustomPlugin.name");
+    }
 
     /**
      * the state of the custom plugin.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("CustomPlugin.state");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -75,9 +98,12 @@ public final class CustomPlugin extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomPlugin.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,8 +113,11 @@ public final class CustomPlugin extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomPlugin.tagsAll");
+    }
 
 }

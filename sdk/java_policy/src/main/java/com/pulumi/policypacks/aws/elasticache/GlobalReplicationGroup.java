@@ -3,49 +3,63 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.GlobalReplicationGroupGlobalNodeGroup;
+import com.pulumi.policypacks.aws.elasticache.outputs.GlobalReplicationGroupGlobalNodeGroup;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")
-public final class GlobalReplicationGroup extends com.pulumi.resources.PolicyResource {
+public final class GlobalReplicationGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the ElastiCache Global Replication Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GlobalReplicationGroup.arn");
+    }
 
     /**
      * A flag that indicate whether the encryption at rest is enabled.
      * 
      */
-    public Boolean atRestEncryptionEnabled;
+    private UndeferrableValue<Boolean> atRestEncryptionEnabled;
 
-
+    public Boolean atRestEncryptionEnabled() {
+        if (atRestEncryptionEnabled == null) return null;
+        return atRestEncryptionEnabled.getValue("GlobalReplicationGroup.atRestEncryptionEnabled");
+    }
 
     /**
      * A flag that indicate whether AuthToken (password) is enabled.
      * 
      */
-    public Boolean authTokenEnabled;
+    private UndeferrableValue<Boolean> authTokenEnabled;
 
-
+    public Boolean authTokenEnabled() {
+        if (authTokenEnabled == null) return null;
+        return authTokenEnabled.getValue("GlobalReplicationGroup.authTokenEnabled");
+    }
 
     /**
      * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      * 
      */
-    public Boolean automaticFailoverEnabled;
+    private UndeferrableValue<Boolean> automaticFailoverEnabled;
 
-
+    public Boolean automaticFailoverEnabled() {
+        if (automaticFailoverEnabled == null) return null;
+        return automaticFailoverEnabled.getValue("GlobalReplicationGroup.automaticFailoverEnabled");
+    }
 
     /**
      * The instance class used.
@@ -54,25 +68,34 @@ public final class GlobalReplicationGroup extends com.pulumi.resources.PolicyRes
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
-    public String cacheNodeType;
+    private UndeferrableValue<String> cacheNodeType;
 
-
+    public String cacheNodeType() {
+        if (cacheNodeType == null) return null;
+        return cacheNodeType.getValue("GlobalReplicationGroup.cacheNodeType");
+    }
 
     /**
      * Indicates whether the Global Datastore is cluster enabled.
      * 
      */
-    public Boolean clusterEnabled;
+    private UndeferrableValue<Boolean> clusterEnabled;
 
-
+    public Boolean clusterEnabled() {
+        if (clusterEnabled == null) return null;
+        return clusterEnabled.getValue("GlobalReplicationGroup.clusterEnabled");
+    }
 
     /**
      * The name of the cache engine to be used for the clusters in this global replication group.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("GlobalReplicationGroup.engine");
+    }
 
     /**
      * Redis version to use for the Global Replication Group.
@@ -85,58 +108,79 @@ public final class GlobalReplicationGroup extends com.pulumi.resources.PolicyRes
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("GlobalReplicationGroup.engineVersion");
+    }
 
     /**
      * The full version number of the cache engine running on the members of this global replication group.
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("GlobalReplicationGroup.engineVersionActual");
+    }
 
     /**
      * Set of node groups (shards) on the global replication group.
      * Has the values:
      * 
      */
-    public List<GlobalReplicationGroupGlobalNodeGroup> globalNodeGroups;
+    private UndeferrableValue<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups;
 
-
+    public List<GlobalReplicationGroupGlobalNodeGroup> globalNodeGroups() {
+        if (globalNodeGroups == null) return null;
+        return globalNodeGroups.getValue("GlobalReplicationGroup.globalNodeGroups");
+    }
 
     /**
      * A user-created description for the global replication group.
      * 
      */
-    public String globalReplicationGroupDescription;
+    private @Nullable UndeferrableValue<String> globalReplicationGroupDescription;
 
-
+    public @Nullable String globalReplicationGroupDescription() {
+        if (globalReplicationGroupDescription == null) return null;
+        return globalReplicationGroupDescription.getValue("GlobalReplicationGroup.globalReplicationGroupDescription");
+    }
 
     /**
      * The full ID of the global replication group.
      * 
      */
-    public String globalReplicationGroupId;
+    private UndeferrableValue<String> globalReplicationGroupId;
 
-
+    public String globalReplicationGroupId() {
+        if (globalReplicationGroupId == null) return null;
+        return globalReplicationGroupId.getValue("GlobalReplicationGroup.globalReplicationGroupId");
+    }
 
     /**
      * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
      * 
      */
-    public String globalReplicationGroupIdSuffix;
+    private UndeferrableValue<String> globalReplicationGroupIdSuffix;
 
-
+    public String globalReplicationGroupIdSuffix() {
+        if (globalReplicationGroupIdSuffix == null) return null;
+        return globalReplicationGroupIdSuffix.getValue("GlobalReplicationGroup.globalReplicationGroupIdSuffix");
+    }
 
     /**
      * The number of node groups (shards) on the global replication group.
      * 
      */
-    public Integer numNodeGroups;
+    private UndeferrableValue<Integer> numNodeGroups;
 
-
+    public Integer numNodeGroups() {
+        if (numNodeGroups == null) return null;
+        return numNodeGroups.getValue("GlobalReplicationGroup.numNodeGroups");
+    }
 
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -145,24 +189,33 @@ public final class GlobalReplicationGroup extends com.pulumi.resources.PolicyRes
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
-    public String parameterGroupName;
+    private @Nullable UndeferrableValue<String> parameterGroupName;
 
-
+    public @Nullable String parameterGroupName() {
+        if (parameterGroupName == null) return null;
+        return parameterGroupName.getValue("GlobalReplicationGroup.parameterGroupName");
+    }
 
     /**
      * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
      * 
      */
-    public String primaryReplicationGroupId;
+    private UndeferrableValue<String> primaryReplicationGroupId;
 
-
+    public String primaryReplicationGroupId() {
+        if (primaryReplicationGroupId == null) return null;
+        return primaryReplicationGroupId.getValue("GlobalReplicationGroup.primaryReplicationGroupId");
+    }
 
     /**
      * A flag that indicates whether the encryption in transit is enabled.
      * 
      */
-    public Boolean transitEncryptionEnabled;
+    private UndeferrableValue<Boolean> transitEncryptionEnabled;
 
-
+    public Boolean transitEncryptionEnabled() {
+        if (transitEncryptionEnabled == null) return null;
+        return transitEncryptionEnabled.getValue("GlobalReplicationGroup.transitEncryptionEnabled");
+    }
 
 }

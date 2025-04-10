@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")
-public final class MatchmakingRuleSet extends com.pulumi.resources.PolicyResource {
+public final class MatchmakingRuleSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Rule Set ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MatchmakingRuleSet.arn");
+    }
 
     /**
      * Name of the matchmaking rule set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MatchmakingRuleSet.name");
+    }
 
     /**
      * JSON encoded string containing rule set data.
      * 
      */
-    public String ruleSetBody;
+    private UndeferrableValue<String> ruleSetBody;
 
+    public String ruleSetBody() {
+        if (ruleSetBody == null) return null;
+        return ruleSetBody.getValue("MatchmakingRuleSet.ruleSetBody");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MatchmakingRuleSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -47,8 +61,11 @@ public final class MatchmakingRuleSet extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MatchmakingRuleSet.tagsAll");
+    }
 
 }

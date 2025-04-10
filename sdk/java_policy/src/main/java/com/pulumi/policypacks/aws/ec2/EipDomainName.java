@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.EipDomainNameTimeouts;
+import com.pulumi.policypacks.aws.ec2.outputs.EipDomainNameTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/eipDomainName:EipDomainName")
-public final class EipDomainName extends com.pulumi.resources.PolicyResource {
+public final class EipDomainName extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The allocation ID.
      * 
      */
-    public String allocationId;
+    private UndeferrableValue<String> allocationId;
 
-
+    public String allocationId() {
+        if (allocationId == null) return null;
+        return allocationId.getValue("EipDomainName.allocationId");
+    }
 
     /**
      * The domain name to modify for the IP address.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("EipDomainName.domainName");
+    }
 
     /**
      * The DNS pointer (PTR) record for the IP address.
      * 
      */
-    public String ptrRecord;
+    private UndeferrableValue<String> ptrRecord;
 
+    public String ptrRecord() {
+        if (ptrRecord == null) return null;
+        return ptrRecord.getValue("EipDomainName.ptrRecord");
+    }
 
+    private @Nullable UndeferrableValue<EipDomainNameTimeouts> timeouts;
 
-    public EipDomainNameTimeouts timeouts;
-
-
+    public @Nullable EipDomainNameTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("EipDomainName.timeouts");
+    }
 
 }

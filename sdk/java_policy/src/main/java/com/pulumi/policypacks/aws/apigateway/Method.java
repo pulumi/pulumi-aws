@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/method:Method")
-public final class Method extends com.pulumi.resources.PolicyResource {
+public final class Method extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specify if the method requires an API key
      * 
      */
-    public Boolean apiKeyRequired;
+    private @Nullable UndeferrableValue<Boolean> apiKeyRequired;
 
-
+    public @Nullable Boolean apiKeyRequired() {
+        if (apiKeyRequired == null) return null;
+        return apiKeyRequired.getValue("Method.apiKeyRequired");
+    }
 
     /**
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
-    public String authorization;
+    private UndeferrableValue<String> authorization;
 
-
+    public String authorization() {
+        if (authorization == null) return null;
+        return authorization.getValue("Method.authorization");
+    }
 
     /**
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
-    public List<String> authorizationScopes;
+    private @Nullable UndeferrableValue<List<String>> authorizationScopes;
 
-
+    public @Nullable List<String> authorizationScopes() {
+        if (authorizationScopes == null) return null;
+        return authorizationScopes.getValue("Method.authorizationScopes");
+    }
 
     /**
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
-    public String authorizerId;
+    private @Nullable UndeferrableValue<String> authorizerId;
 
-
+    public @Nullable String authorizerId() {
+        if (authorizerId == null) return null;
+        return authorizerId.getValue("Method.authorizerId");
+    }
 
     /**
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
-    public String httpMethod;
+    private UndeferrableValue<String> httpMethod;
 
-
+    public String httpMethod() {
+        if (httpMethod == null) return null;
+        return httpMethod.getValue("Method.httpMethod");
+    }
 
     /**
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
-    public String operationName;
+    private @Nullable UndeferrableValue<String> operationName;
 
-
+    public @Nullable String operationName() {
+        if (operationName == null) return null;
+        return operationName.getValue("Method.operationName");
+    }
 
     /**
      * Map of the API models used for the request&#39;s content type
@@ -67,41 +87,56 @@ public final class Method extends com.pulumi.resources.PolicyResource {
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
      */
-    public Map<String,String> requestModels;
+    private @Nullable UndeferrableValue<Map<String,String>> requestModels;
 
-
+    public @Nullable Map<String,String> requestModels() {
+        if (requestModels == null) return null;
+        return requestModels.getValue("Method.requestModels");
+    }
 
     /**
      * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
-    public Map<String,Boolean> requestParameters;
+    private @Nullable UndeferrableValue<Map<String,Boolean>> requestParameters;
 
-
+    public @Nullable Map<String,Boolean> requestParameters() {
+        if (requestParameters == null) return null;
+        return requestParameters.getValue("Method.requestParameters");
+    }
 
     /**
      * ID of a `aws.apigateway.RequestValidator`
      * 
      */
-    public String requestValidatorId;
+    private @Nullable UndeferrableValue<String> requestValidatorId;
 
-
+    public @Nullable String requestValidatorId() {
+        if (requestValidatorId == null) return null;
+        return requestValidatorId.getValue("Method.requestValidatorId");
+    }
 
     /**
      * API resource ID
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("Method.resourceId");
+    }
 
     /**
      * ID of the associated REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Method.restApi");
+    }
 
 }

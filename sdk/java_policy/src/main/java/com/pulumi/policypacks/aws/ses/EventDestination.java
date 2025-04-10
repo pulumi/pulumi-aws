@@ -3,73 +3,96 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ses.EventDestinationCloudwatchDestination;
-import com.pulumi.policypacks.aws.ses.EventDestinationKinesisDestination;
-import com.pulumi.policypacks.aws.ses.EventDestinationSnsDestination;
+import com.pulumi.policypacks.aws.ses.outputs.EventDestinationCloudwatchDestination;
+import com.pulumi.policypacks.aws.ses.outputs.EventDestinationKinesisDestination;
+import com.pulumi.policypacks.aws.ses.outputs.EventDestinationSnsDestination;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ses/eventDestination:EventDestination")
-public final class EventDestination extends com.pulumi.resources.PolicyResource {
+public final class EventDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The SES event destination ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventDestination.arn");
+    }
 
     /**
      * CloudWatch destination for the events
      * 
      */
-    public List<EventDestinationCloudwatchDestination> cloudwatchDestinations;
+    private @Nullable UndeferrableValue<List<EventDestinationCloudwatchDestination>> cloudwatchDestinations;
 
-
+    public @Nullable List<EventDestinationCloudwatchDestination> cloudwatchDestinations() {
+        if (cloudwatchDestinations == null) return null;
+        return cloudwatchDestinations.getValue("EventDestination.cloudwatchDestinations");
+    }
 
     /**
      * The name of the configuration set
      * 
      */
-    public String configurationSetName;
+    private UndeferrableValue<String> configurationSetName;
 
-
+    public String configurationSetName() {
+        if (configurationSetName == null) return null;
+        return configurationSetName.getValue("EventDestination.configurationSetName");
+    }
 
     /**
      * If true, the event destination will be enabled
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EventDestination.enabled");
+    }
 
     /**
      * Send the events to a kinesis firehose destination
      * 
      */
-    public EventDestinationKinesisDestination kinesisDestination;
+    private @Nullable UndeferrableValue<EventDestinationKinesisDestination> kinesisDestination;
 
-
+    public @Nullable EventDestinationKinesisDestination kinesisDestination() {
+        if (kinesisDestination == null) return null;
+        return kinesisDestination.getValue("EventDestination.kinesisDestination");
+    }
 
     /**
      * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
-    public List<String> matchingTypes;
+    private UndeferrableValue<List<String>> matchingTypes;
 
-
+    public List<String> matchingTypes() {
+        if (matchingTypes == null) return null;
+        return matchingTypes.getValue("EventDestination.matchingTypes");
+    }
 
     /**
      * The name of the event destination
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventDestination.name");
+    }
 
     /**
      * Send the events to an SNS Topic destination
@@ -77,8 +100,11 @@ public final class EventDestination extends com.pulumi.resources.PolicyResource 
      * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
      * 
      */
-    public EventDestinationSnsDestination snsDestination;
+    private @Nullable UndeferrableValue<EventDestinationSnsDestination> snsDestination;
 
-
+    public @Nullable EventDestinationSnsDestination snsDestination() {
+        if (snsDestination == null) return null;
+        return snsDestination.getValue("EventDestination.snsDestination");
+    }
 
 }

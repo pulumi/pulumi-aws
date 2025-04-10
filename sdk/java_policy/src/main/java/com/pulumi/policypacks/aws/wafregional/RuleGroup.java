@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafregional.RuleGroupActivatedRule;
+import com.pulumi.policypacks.aws.wafregional.outputs.RuleGroupActivatedRule;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafregional/ruleGroup:RuleGroup")
-public final class RuleGroup extends com.pulumi.resources.PolicyResource {
+public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of activated rules, see below
      * 
      */
-    public List<RuleGroupActivatedRule> activatedRules;
+    private @Nullable UndeferrableValue<List<RuleGroupActivatedRule>> activatedRules;
 
-
+    public @Nullable List<RuleGroupActivatedRule> activatedRules() {
+        if (activatedRules == null) return null;
+        return activatedRules.getValue("RuleGroup.activatedRules");
+    }
 
     /**
      * The ARN of the WAF Regional Rule Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RuleGroup.arn");
+    }
 
     /**
      * A friendly name for the metrics from the rule group
      * 
      */
-    public String metricName;
+    private UndeferrableValue<String> metricName;
 
-
+    public String metricName() {
+        if (metricName == null) return null;
+        return metricName.getValue("RuleGroup.metricName");
+    }
 
     /**
      * A friendly name of the rule group
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RuleGroup.name");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RuleGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RuleGroup.tagsAll");
+    }
 
 }

@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkfirewall.FirewallPolicyEncryptionConfiguration;
-import com.pulumi.policypacks.aws.networkfirewall.FirewallPolicyFirewallPolicy;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyEncryptionConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicy;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkfirewall/firewallPolicy:FirewallPolicy")
-public final class FirewallPolicy extends com.pulumi.resources.PolicyResource {
+public final class FirewallPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FirewallPolicy.arn");
+    }
 
     /**
      * A friendly description of the firewall policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("FirewallPolicy.description");
+    }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    public FirewallPolicyEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<FirewallPolicyEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable FirewallPolicyEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("FirewallPolicy.encryptionConfiguration");
+    }
 
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      * 
      */
-    public FirewallPolicyFirewallPolicy firewallPolicy;
+    private UndeferrableValue<FirewallPolicyFirewallPolicy> firewallPolicy;
 
-
+    public FirewallPolicyFirewallPolicy firewallPolicy() {
+        if (firewallPolicy == null) return null;
+        return firewallPolicy.getValue("FirewallPolicy.firewallPolicy");
+    }
 
     /**
      * A friendly name of the firewall policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FirewallPolicy.name");
+    }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FirewallPolicy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,16 +89,22 @@ public final class FirewallPolicy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FirewallPolicy.tagsAll");
+    }
 
     /**
      * A string token used when updating a firewall policy.
      * 
      */
-    public String updateToken;
+    private UndeferrableValue<String> updateToken;
 
-
+    public String updateToken() {
+        if (updateToken == null) return null;
+        return updateToken.getValue("FirewallPolicy.updateToken");
+    }
 
 }

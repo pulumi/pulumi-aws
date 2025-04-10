@@ -3,19 +3,21 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.SpotFleetRequestLaunchSpecification;
-import com.pulumi.policypacks.aws.ec2.SpotFleetRequestLaunchTemplateConfig;
-import com.pulumi.policypacks.aws.ec2.SpotFleetRequestSpotMaintenanceStrategies;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfig;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestSpotMaintenanceStrategies;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/spotFleetRequest:SpotFleetRequest")
-public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource {
+public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates how to allocate the target capacity across
@@ -23,21 +25,30 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * `lowestPrice`.
      * 
      */
-    public String allocationStrategy;
+    private @Nullable UndeferrableValue<String> allocationStrategy;
 
+    public @Nullable String allocationStrategy() {
+        if (allocationStrategy == null) return null;
+        return allocationStrategy.getValue("SpotFleetRequest.allocationStrategy");
+    }
 
+    private UndeferrableValue<String> clientToken;
 
-    public String clientToken;
-
-
+    public String clientToken() {
+        if (clientToken == null) return null;
+        return clientToken.getValue("SpotFleetRequest.clientToken");
+    }
 
     /**
      * Reserved.
      * 
      */
-    public String context;
+    private @Nullable UndeferrableValue<String> context;
 
-
+    public @Nullable String context() {
+        if (context == null) return null;
+        return context.getValue("SpotFleetRequest.context");
+    }
 
     /**
      * Indicates whether running Spot
@@ -45,18 +56,24 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * request is decreased below the current size of the Spot fleet.
      * 
      */
-    public String excessCapacityTerminationPolicy;
+    private @Nullable UndeferrableValue<String> excessCapacityTerminationPolicy;
 
-
+    public @Nullable String excessCapacityTerminationPolicy() {
+        if (excessCapacityTerminationPolicy == null) return null;
+        return excessCapacityTerminationPolicy.getValue("SpotFleetRequest.excessCapacityTerminationPolicy");
+    }
 
     /**
      * The type of fleet request. Indicates whether the Spot Fleet only requests the target
      * capacity or also attempts to maintain it. Default is `maintain`.
      * 
      */
-    public String fleetType;
+    private @Nullable UndeferrableValue<String> fleetType;
 
-
+    public @Nullable String fleetType() {
+        if (fleetType == null) return null;
+        return fleetType.getValue("SpotFleetRequest.fleetType");
+    }
 
     /**
      * Grants the Spot fleet permission to terminate
@@ -65,9 +82,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * terminateInstancesWithExpiration.
      * 
      */
-    public String iamFleetRole;
+    private UndeferrableValue<String> iamFleetRole;
 
-
+    public String iamFleetRole() {
+        if (iamFleetRole == null) return null;
+        return iamFleetRole.getValue("SpotFleetRequest.iamFleetRole");
+    }
 
     /**
      * Indicates whether a Spot
@@ -75,9 +95,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * `terminate`.
      * 
      */
-    public String instanceInterruptionBehaviour;
+    private @Nullable UndeferrableValue<String> instanceInterruptionBehaviour;
 
-
+    public @Nullable String instanceInterruptionBehaviour() {
+        if (instanceInterruptionBehaviour == null) return null;
+        return instanceInterruptionBehaviour.getValue("SpotFleetRequest.instanceInterruptionBehaviour");
+    }
 
     /**
      * The number of Spot pools across which to allocate your target Spot capacity.
@@ -86,9 +109,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * the number of Spot pools that you specify.
      * 
      */
-    public Integer instancePoolsToUseCount;
+    private @Nullable UndeferrableValue<Integer> instancePoolsToUseCount;
 
-
+    public @Nullable Integer instancePoolsToUseCount() {
+        if (instancePoolsToUseCount == null) return null;
+        return instancePoolsToUseCount.getValue("SpotFleetRequest.instancePoolsToUseCount");
+    }
 
     /**
      * Used to define the launch configuration of the
@@ -102,89 +128,122 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      * 
      */
-    public List<SpotFleetRequestLaunchSpecification> launchSpecifications;
+    private @Nullable UndeferrableValue<List<SpotFleetRequestLaunchSpecification>> launchSpecifications;
 
-
+    public @Nullable List<SpotFleetRequestLaunchSpecification> launchSpecifications() {
+        if (launchSpecifications == null) return null;
+        return launchSpecifications.getValue("SpotFleetRequest.launchSpecifications");
+    }
 
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
      * 
      */
-    public List<SpotFleetRequestLaunchTemplateConfig> launchTemplateConfigs;
+    private @Nullable UndeferrableValue<List<SpotFleetRequestLaunchTemplateConfig>> launchTemplateConfigs;
 
-
+    public @Nullable List<SpotFleetRequestLaunchTemplateConfig> launchTemplateConfigs() {
+        if (launchTemplateConfigs == null) return null;
+        return launchTemplateConfigs.getValue("SpotFleetRequest.launchTemplateConfigs");
+    }
 
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      * 
      */
-    public List<String> loadBalancers;
+    private UndeferrableValue<List<String>> loadBalancers;
 
-
+    public List<String> loadBalancers() {
+        if (loadBalancers == null) return null;
+        return loadBalancers.getValue("SpotFleetRequest.loadBalancers");
+    }
 
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      * 
      */
-    public String onDemandAllocationStrategy;
+    private @Nullable UndeferrableValue<String> onDemandAllocationStrategy;
 
-
+    public @Nullable String onDemandAllocationStrategy() {
+        if (onDemandAllocationStrategy == null) return null;
+        return onDemandAllocationStrategy.getValue("SpotFleetRequest.onDemandAllocationStrategy");
+    }
 
     /**
      * The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay. When the maximum amount you&#39;re willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      * 
      */
-    public String onDemandMaxTotalPrice;
+    private @Nullable UndeferrableValue<String> onDemandMaxTotalPrice;
 
-
+    public @Nullable String onDemandMaxTotalPrice() {
+        if (onDemandMaxTotalPrice == null) return null;
+        return onDemandMaxTotalPrice.getValue("SpotFleetRequest.onDemandMaxTotalPrice");
+    }
 
     /**
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      * 
      */
-    public Integer onDemandTargetCapacity;
+    private @Nullable UndeferrableValue<Integer> onDemandTargetCapacity;
 
-
+    public @Nullable Integer onDemandTargetCapacity() {
+        if (onDemandTargetCapacity == null) return null;
+        return onDemandTargetCapacity.getValue("SpotFleetRequest.onDemandTargetCapacity");
+    }
 
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      * 
      */
-    public Boolean replaceUnhealthyInstances;
+    private @Nullable UndeferrableValue<Boolean> replaceUnhealthyInstances;
 
-
+    public @Nullable Boolean replaceUnhealthyInstances() {
+        if (replaceUnhealthyInstances == null) return null;
+        return replaceUnhealthyInstances.getValue("SpotFleetRequest.replaceUnhealthyInstances");
+    }
 
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      * 
      */
-    public SpotFleetRequestSpotMaintenanceStrategies spotMaintenanceStrategies;
+    private @Nullable UndeferrableValue<SpotFleetRequestSpotMaintenanceStrategies> spotMaintenanceStrategies;
 
-
+    public @Nullable SpotFleetRequestSpotMaintenanceStrategies spotMaintenanceStrategies() {
+        if (spotMaintenanceStrategies == null) return null;
+        return spotMaintenanceStrategies.getValue("SpotFleetRequest.spotMaintenanceStrategies");
+    }
 
     /**
      * The maximum bid price per unit hour.
      * 
      */
-    public String spotPrice;
+    private @Nullable UndeferrableValue<String> spotPrice;
 
-
+    public @Nullable String spotPrice() {
+        if (spotPrice == null) return null;
+        return spotPrice.getValue("SpotFleetRequest.spotPrice");
+    }
 
     /**
      * The state of the Spot fleet request.
      * 
      */
-    public String spotRequestState;
+    private UndeferrableValue<String> spotRequestState;
 
-
+    public String spotRequestState() {
+        if (spotRequestState == null) return null;
+        return spotRequestState.getValue("SpotFleetRequest.spotRequestState");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SpotFleetRequest.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -194,9 +253,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SpotFleetRequest.tagsAll");
+    }
 
     /**
      * The number of units to request. You can choose to set the
@@ -204,25 +266,34 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * important to your application workload, such as vCPUs, memory, or I/O.
      * 
      */
-    public Integer targetCapacity;
+    private UndeferrableValue<Integer> targetCapacity;
 
-
+    public Integer targetCapacity() {
+        if (targetCapacity == null) return null;
+        return targetCapacity.getValue("SpotFleetRequest.targetCapacity");
+    }
 
     /**
      * The unit for the target capacity. This can only be done with `instance_requirements` defined
      * 
      */
-    public String targetCapacityUnitType;
+    private @Nullable UndeferrableValue<String> targetCapacityUnitType;
 
-
+    public @Nullable String targetCapacityUnitType() {
+        if (targetCapacityUnitType == null) return null;
+        return targetCapacityUnitType.getValue("SpotFleetRequest.targetCapacityUnitType");
+    }
 
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */
-    public List<String> targetGroupArns;
+    private UndeferrableValue<List<String>> targetGroupArns;
 
-
+    public List<String> targetGroupArns() {
+        if (targetGroupArns == null) return null;
+        return targetGroupArns.getValue("SpotFleetRequest.targetGroupArns");
+    }
 
     /**
      * Indicates whether running Spot
@@ -230,34 +301,46 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
      * 
      */
-    public String terminateInstancesOnDelete;
+    private @Nullable UndeferrableValue<String> terminateInstancesOnDelete;
 
-
+    public @Nullable String terminateInstancesOnDelete() {
+        if (terminateInstancesOnDelete == null) return null;
+        return terminateInstancesOnDelete.getValue("SpotFleetRequest.terminateInstancesOnDelete");
+    }
 
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      * 
      */
-    public Boolean terminateInstancesWithExpiration;
+    private @Nullable UndeferrableValue<Boolean> terminateInstancesWithExpiration;
 
-
+    public @Nullable Boolean terminateInstancesWithExpiration() {
+        if (terminateInstancesWithExpiration == null) return null;
+        return terminateInstancesWithExpiration.getValue("SpotFleetRequest.terminateInstancesWithExpiration");
+    }
 
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    public String validFrom;
+    private @Nullable UndeferrableValue<String> validFrom;
 
-
+    public @Nullable String validFrom() {
+        if (validFrom == null) return null;
+        return validFrom.getValue("SpotFleetRequest.validFrom");
+    }
 
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      * 
      */
-    public String validUntil;
+    private @Nullable UndeferrableValue<String> validUntil;
 
-
+    public @Nullable String validUntil() {
+        if (validUntil == null) return null;
+        return validUntil.getValue("SpotFleetRequest.validUntil");
+    }
 
     /**
      * If set, this provider will
@@ -265,8 +348,11 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResource 
      * timeout of 10m is reached.
      * 
      */
-    public Boolean waitForFulfillment;
+    private @Nullable UndeferrableValue<Boolean> waitForFulfillment;
 
-
+    public @Nullable Boolean waitForFulfillment() {
+        if (waitForFulfillment == null) return null;
+        return waitForFulfillment.getValue("SpotFleetRequest.waitForFulfillment");
+    }
 
 }

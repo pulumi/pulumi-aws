@@ -3,207 +3,290 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.JavaAppLayerCloudwatchConfiguration;
-import com.pulumi.policypacks.aws.opsworks.JavaAppLayerEbsVolume;
-import com.pulumi.policypacks.aws.opsworks.JavaAppLayerLoadBasedAutoScaling;
+import com.pulumi.policypacks.aws.opsworks.outputs.JavaAppLayerCloudwatchConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.JavaAppLayerEbsVolume;
+import com.pulumi.policypacks.aws.opsworks.outputs.JavaAppLayerLoadBasedAutoScaling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/javaAppLayer:JavaAppLayer")
-public final class JavaAppLayer extends com.pulumi.resources.PolicyResource {
+public final class JavaAppLayer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Keyword for the application container to use. Defaults to &#34;tomcat&#34;.
      * 
      */
-    public String appServer;
+    private @Nullable UndeferrableValue<String> appServer;
 
-
+    public @Nullable String appServer() {
+        if (appServer == null) return null;
+        return appServer.getValue("JavaAppLayer.appServer");
+    }
 
     /**
      * Version of the selected application container to use. Defaults to &#34;7&#34;.
      * 
      */
-    public String appServerVersion;
+    private @Nullable UndeferrableValue<String> appServerVersion;
 
-
+    public @Nullable String appServerVersion() {
+        if (appServerVersion == null) return null;
+        return appServerVersion.getValue("JavaAppLayer.appServerVersion");
+    }
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("JavaAppLayer.arn");
+    }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignElasticIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
 
-
+    public @Nullable Boolean autoAssignElasticIps() {
+        if (autoAssignElasticIps == null) return null;
+        return autoAssignElasticIps.getValue("JavaAppLayer.autoAssignElasticIps");
+    }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignPublicIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
 
-
+    public @Nullable Boolean autoAssignPublicIps() {
+        if (autoAssignPublicIps == null) return null;
+        return autoAssignPublicIps.getValue("JavaAppLayer.autoAssignPublicIps");
+    }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    public Boolean autoHealing;
+    private @Nullable UndeferrableValue<Boolean> autoHealing;
 
+    public @Nullable Boolean autoHealing() {
+        if (autoHealing == null) return null;
+        return autoHealing.getValue("JavaAppLayer.autoHealing");
+    }
 
+    private @Nullable UndeferrableValue<JavaAppLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
-    public JavaAppLayerCloudwatchConfiguration cloudwatchConfiguration;
+    public @Nullable JavaAppLayerCloudwatchConfiguration cloudwatchConfiguration() {
+        if (cloudwatchConfiguration == null) return null;
+        return cloudwatchConfiguration.getValue("JavaAppLayer.cloudwatchConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
 
+    public @Nullable List<String> customConfigureRecipes() {
+        if (customConfigureRecipes == null) return null;
+        return customConfigureRecipes.getValue("JavaAppLayer.customConfigureRecipes");
+    }
 
-    public List<String> customConfigureRecipes;
+    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
 
-
-
-    public List<String> customDeployRecipes;
-
-
+    public @Nullable List<String> customDeployRecipes() {
+        if (customDeployRecipes == null) return null;
+        return customDeployRecipes.getValue("JavaAppLayer.customDeployRecipes");
+    }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    public String customInstanceProfileArn;
+    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
 
-
+    public @Nullable String customInstanceProfileArn() {
+        if (customInstanceProfileArn == null) return null;
+        return customInstanceProfileArn.getValue("JavaAppLayer.customInstanceProfileArn");
+    }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    public String customJson;
+    private @Nullable UndeferrableValue<String> customJson;
 
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("JavaAppLayer.customJson");
+    }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    public List<String> customSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
 
+    public @Nullable List<String> customSecurityGroupIds() {
+        if (customSecurityGroupIds == null) return null;
+        return customSecurityGroupIds.getValue("JavaAppLayer.customSecurityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
 
-    public List<String> customSetupRecipes;
+    public @Nullable List<String> customSetupRecipes() {
+        if (customSetupRecipes == null) return null;
+        return customSetupRecipes.getValue("JavaAppLayer.customSetupRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
 
+    public @Nullable List<String> customShutdownRecipes() {
+        if (customShutdownRecipes == null) return null;
+        return customShutdownRecipes.getValue("JavaAppLayer.customShutdownRecipes");
+    }
 
-    public List<String> customShutdownRecipes;
+    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
 
-
-
-    public List<String> customUndeployRecipes;
-
-
+    public @Nullable List<String> customUndeployRecipes() {
+        if (customUndeployRecipes == null) return null;
+        return customUndeployRecipes.getValue("JavaAppLayer.customUndeployRecipes");
+    }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    public Boolean drainElbOnShutdown;
+    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
 
-
+    public @Nullable Boolean drainElbOnShutdown() {
+        if (drainElbOnShutdown == null) return null;
+        return drainElbOnShutdown.getValue("JavaAppLayer.drainElbOnShutdown");
+    }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public List<JavaAppLayerEbsVolume> ebsVolumes;
+    private UndeferrableValue<List<JavaAppLayerEbsVolume>> ebsVolumes;
 
-
+    public List<JavaAppLayerEbsVolume> ebsVolumes() {
+        if (ebsVolumes == null) return null;
+        return ebsVolumes.getValue("JavaAppLayer.ebsVolumes");
+    }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    public String elasticLoadBalancer;
+    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
 
-
+    public @Nullable String elasticLoadBalancer() {
+        if (elasticLoadBalancer == null) return null;
+        return elasticLoadBalancer.getValue("JavaAppLayer.elasticLoadBalancer");
+    }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("JavaAppLayer.installUpdatesOnBoot");
+    }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    public Integer instanceShutdownTimeout;
+    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
 
-
+    public @Nullable Integer instanceShutdownTimeout() {
+        if (instanceShutdownTimeout == null) return null;
+        return instanceShutdownTimeout.getValue("JavaAppLayer.instanceShutdownTimeout");
+    }
 
     /**
      * Options to set for the JVM.
      * 
      */
-    public String jvmOptions;
+    private @Nullable UndeferrableValue<String> jvmOptions;
 
-
+    public @Nullable String jvmOptions() {
+        if (jvmOptions == null) return null;
+        return jvmOptions.getValue("JavaAppLayer.jvmOptions");
+    }
 
     /**
      * Keyword for the type of JVM to use. Defaults to `openjdk`.
      * 
      */
-    public String jvmType;
+    private @Nullable UndeferrableValue<String> jvmType;
 
-
+    public @Nullable String jvmType() {
+        if (jvmType == null) return null;
+        return jvmType.getValue("JavaAppLayer.jvmType");
+    }
 
     /**
      * Version of JVM to use. Defaults to &#34;7&#34;.
      * 
      */
-    public String jvmVersion;
+    private @Nullable UndeferrableValue<String> jvmVersion;
 
+    public @Nullable String jvmVersion() {
+        if (jvmVersion == null) return null;
+        return jvmVersion.getValue("JavaAppLayer.jvmVersion");
+    }
 
+    private UndeferrableValue<JavaAppLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-    public JavaAppLayerLoadBasedAutoScaling loadBasedAutoScaling;
-
-
+    public JavaAppLayerLoadBasedAutoScaling loadBasedAutoScaling() {
+        if (loadBasedAutoScaling == null) return null;
+        return loadBasedAutoScaling.getValue("JavaAppLayer.loadBasedAutoScaling");
+    }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("JavaAppLayer.name");
+    }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("JavaAppLayer.stackId");
+    }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    public List<String> systemPackages;
+    private @Nullable UndeferrableValue<List<String>> systemPackages;
 
-
+    public @Nullable List<String> systemPackages() {
+        if (systemPackages == null) return null;
+        return systemPackages.getValue("JavaAppLayer.systemPackages");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -213,9 +296,12 @@ public final class JavaAppLayer extends com.pulumi.resources.PolicyResource {
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("JavaAppLayer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,16 +311,22 @@ public final class JavaAppLayer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("JavaAppLayer.tagsAll");
+    }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    public Boolean useEbsOptimizedInstances;
+    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
 
-
+    public @Nullable Boolean useEbsOptimizedInstances() {
+        if (useEbsOptimizedInstances == null) return null;
+        return useEbsOptimizedInstances.getValue("JavaAppLayer.useEbsOptimizedInstances");
+    }
 
 }

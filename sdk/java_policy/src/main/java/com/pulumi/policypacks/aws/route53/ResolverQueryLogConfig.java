@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")
-public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyResource {
+public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverQueryLogConfig.arn");
+    }
 
     /**
      * The ARN of the resource that you want Route 53 Resolver to send query logs.
      * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
      * 
      */
-    public String destinationArn;
+    private UndeferrableValue<String> destinationArn;
 
-
+    public String destinationArn() {
+        if (destinationArn == null) return null;
+        return destinationArn.getValue("ResolverQueryLogConfig.destinationArn");
+    }
 
     /**
      * The name of the Route 53 Resolver query logging configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverQueryLogConfig.name");
+    }
 
     /**
      * The AWS account ID of the account that created the query logging configuration.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ResolverQueryLogConfig.ownerId");
+    }
 
     /**
      * An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
@@ -50,17 +64,23 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    public String shareStatus;
+    private UndeferrableValue<String> shareStatus;
 
-
+    public String shareStatus() {
+        if (shareStatus == null) return null;
+        return shareStatus.getValue("ResolverQueryLogConfig.shareStatus");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResolverQueryLogConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,8 +90,11 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResolverQueryLogConfig.tagsAll");
+    }
 
 }

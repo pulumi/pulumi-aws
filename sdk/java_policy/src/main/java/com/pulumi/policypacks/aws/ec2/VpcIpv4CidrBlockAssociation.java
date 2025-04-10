@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")
-public final class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    public String cidrBlock;
+    private UndeferrableValue<String> cidrBlock;
 
-
+    public String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("VpcIpv4CidrBlockAssociation.cidrBlock");
+    }
 
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
-    public String ipv4IpamPoolId;
+    private @Nullable UndeferrableValue<String> ipv4IpamPoolId;
 
-
+    public @Nullable String ipv4IpamPoolId() {
+        if (ipv4IpamPoolId == null) return null;
+        return ipv4IpamPoolId.getValue("VpcIpv4CidrBlockAssociation.ipv4IpamPoolId");
+    }
 
     /**
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
      * 
      */
-    public Integer ipv4NetmaskLength;
+    private @Nullable UndeferrableValue<Integer> ipv4NetmaskLength;
 
-
+    public @Nullable Integer ipv4NetmaskLength() {
+        if (ipv4NetmaskLength == null) return null;
+        return ipv4NetmaskLength.getValue("VpcIpv4CidrBlockAssociation.ipv4NetmaskLength");
+    }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcIpv4CidrBlockAssociation.vpcId");
+    }
 
 }

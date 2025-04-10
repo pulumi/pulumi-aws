@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3control.ObjectLambdaAccessPointConfiguration;
+import com.pulumi.policypacks.aws.s3control.outputs.ObjectLambdaAccessPointConfiguration;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")
-public final class ObjectLambdaAccessPoint extends com.pulumi.resources.PolicyResource {
+public final class ObjectLambdaAccessPoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("ObjectLambdaAccessPoint.accountId");
+    }
 
     /**
      * Alias for the S3 Object Lambda Access Point.
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("ObjectLambdaAccessPoint.alias");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ObjectLambdaAccessPoint.arn");
+    }
 
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      * 
      */
-    public ObjectLambdaAccessPointConfiguration configuration;
+    private UndeferrableValue<ObjectLambdaAccessPointConfiguration> configuration;
 
-
+    public ObjectLambdaAccessPointConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("ObjectLambdaAccessPoint.configuration");
+    }
 
     /**
      * The name for this Object Lambda Access Point.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ObjectLambdaAccessPoint.name");
+    }
 
 }

@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.location;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.location.PlaceIndexDataSourceConfiguration;
+import com.pulumi.policypacks.aws.location.outputs.PlaceIndexDataSourceConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:location/placeIndex:PlaceIndex")
-public final class PlaceIndex extends com.pulumi.resources.PolicyResource {
+public final class PlaceIndex extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("PlaceIndex.createTime");
+    }
 
     /**
      * Specifies the geospatial data provider for the new place index.
      * 
      */
-    public String dataSource;
+    private UndeferrableValue<String> dataSource;
 
-
+    public String dataSource() {
+        if (dataSource == null) return null;
+        return dataSource.getValue("PlaceIndex.dataSource");
+    }
 
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      * 
      */
-    public PlaceIndexDataSourceConfiguration dataSourceConfiguration;
+    private UndeferrableValue<PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
 
-
+    public PlaceIndexDataSourceConfiguration dataSourceConfiguration() {
+        if (dataSourceConfiguration == null) return null;
+        return dataSourceConfiguration.getValue("PlaceIndex.dataSourceConfiguration");
+    }
 
     /**
      * The optional description for the place index resource.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PlaceIndex.description");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
-    public String indexArn;
+    private UndeferrableValue<String> indexArn;
 
-
+    public String indexArn() {
+        if (indexArn == null) return null;
+        return indexArn.getValue("PlaceIndex.indexArn");
+    }
 
     /**
      * The name of the place index resource.
@@ -58,17 +75,23 @@ public final class PlaceIndex extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String indexName;
+    private UndeferrableValue<String> indexName;
 
-
+    public String indexName() {
+        if (indexName == null) return null;
+        return indexName.getValue("PlaceIndex.indexName");
+    }
 
     /**
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PlaceIndex.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,16 +101,22 @@ public final class PlaceIndex extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PlaceIndex.tagsAll");
+    }
 
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("PlaceIndex.updateTime");
+    }
 
 }

@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/queryLog:QueryLog")
-public final class QueryLog extends com.pulumi.resources.PolicyResource {
+public final class QueryLog extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Query Logging Config.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("QueryLog.arn");
+    }
 
     /**
      * CloudWatch log group ARN to send query logs.
      * 
      */
-    public String cloudwatchLogGroupArn;
+    private UndeferrableValue<String> cloudwatchLogGroupArn;
 
-
+    public String cloudwatchLogGroupArn() {
+        if (cloudwatchLogGroupArn == null) return null;
+        return cloudwatchLogGroupArn.getValue("QueryLog.cloudwatchLogGroupArn");
+    }
 
     /**
      * Route53 hosted zone ID to enable query logs.
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("QueryLog.zoneId");
+    }
 
 }

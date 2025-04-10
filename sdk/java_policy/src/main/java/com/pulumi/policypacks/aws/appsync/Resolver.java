@@ -3,128 +3,172 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appsync.ResolverCachingConfig;
-import com.pulumi.policypacks.aws.appsync.ResolverPipelineConfig;
-import com.pulumi.policypacks.aws.appsync.ResolverRuntime;
-import com.pulumi.policypacks.aws.appsync.ResolverSyncConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.ResolverCachingConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.ResolverPipelineConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.ResolverRuntime;
+import com.pulumi.policypacks.aws.appsync.outputs.ResolverSyncConfig;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/resolver:Resolver")
-public final class Resolver extends com.pulumi.resources.PolicyResource {
+public final class Resolver extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API ID for the GraphQL API.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Resolver.apiId");
+    }
 
     /**
      * ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Resolver.arn");
+    }
 
     /**
      * The Caching Config. See Caching Config.
      * 
      */
-    public ResolverCachingConfig cachingConfig;
+    private @Nullable UndeferrableValue<ResolverCachingConfig> cachingConfig;
 
-
+    public @Nullable ResolverCachingConfig cachingConfig() {
+        if (cachingConfig == null) return null;
+        return cachingConfig.getValue("Resolver.cachingConfig");
+    }
 
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
-    public String code;
+    private @Nullable UndeferrableValue<String> code;
 
-
+    public @Nullable String code() {
+        if (code == null) return null;
+        return code.getValue("Resolver.code");
+    }
 
     /**
      * Data source name.
      * 
      */
-    public String dataSource;
+    private @Nullable UndeferrableValue<String> dataSource;
 
-
+    public @Nullable String dataSource() {
+        if (dataSource == null) return null;
+        return dataSource.getValue("Resolver.dataSource");
+    }
 
     /**
      * Field name from the schema defined in the GraphQL API.
      * 
      */
-    public String field;
+    private UndeferrableValue<String> field;
 
-
+    public String field() {
+        if (field == null) return null;
+        return field.getValue("Resolver.field");
+    }
 
     /**
      * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
-    public String kind;
+    private @Nullable UndeferrableValue<String> kind;
 
-
+    public @Nullable String kind() {
+        if (kind == null) return null;
+        return kind.getValue("Resolver.kind");
+    }
 
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
-    public Integer maxBatchSize;
+    private @Nullable UndeferrableValue<Integer> maxBatchSize;
 
-
+    public @Nullable Integer maxBatchSize() {
+        if (maxBatchSize == null) return null;
+        return maxBatchSize.getValue("Resolver.maxBatchSize");
+    }
 
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      * 
      */
-    public ResolverPipelineConfig pipelineConfig;
+    private @Nullable UndeferrableValue<ResolverPipelineConfig> pipelineConfig;
 
-
+    public @Nullable ResolverPipelineConfig pipelineConfig() {
+        if (pipelineConfig == null) return null;
+        return pipelineConfig.getValue("Resolver.pipelineConfig");
+    }
 
     /**
      * Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
-    public String requestTemplate;
+    private @Nullable UndeferrableValue<String> requestTemplate;
 
-
+    public @Nullable String requestTemplate() {
+        if (requestTemplate == null) return null;
+        return requestTemplate.getValue("Resolver.requestTemplate");
+    }
 
     /**
      * Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
-    public String responseTemplate;
+    private @Nullable UndeferrableValue<String> responseTemplate;
 
-
+    public @Nullable String responseTemplate() {
+        if (responseTemplate == null) return null;
+        return responseTemplate.getValue("Resolver.responseTemplate");
+    }
 
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
-    public ResolverRuntime runtime;
+    private @Nullable UndeferrableValue<ResolverRuntime> runtime;
 
-
+    public @Nullable ResolverRuntime runtime() {
+        if (runtime == null) return null;
+        return runtime.getValue("Resolver.runtime");
+    }
 
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      * 
      */
-    public ResolverSyncConfig syncConfig;
+    private @Nullable UndeferrableValue<ResolverSyncConfig> syncConfig;
 
-
+    public @Nullable ResolverSyncConfig syncConfig() {
+        if (syncConfig == null) return null;
+        return syncConfig.getValue("Resolver.syncConfig");
+    }
 
     /**
      * Type name from the schema defined in the GraphQL API.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Resolver.type");
+    }
 
 }

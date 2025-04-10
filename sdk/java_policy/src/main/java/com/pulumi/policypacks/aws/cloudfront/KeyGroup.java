@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/keyGroup:KeyGroup")
-public final class KeyGroup extends com.pulumi.resources.PolicyResource {
+public final class KeyGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A comment to describe the key group..
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("KeyGroup.comment");
+    }
 
     /**
      * The identifier for this version of the key group.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("KeyGroup.etag");
+    }
 
     /**
      * A list of the identifiers of the public keys in the key group.
      * 
      */
-    public List<String> items;
+    private UndeferrableValue<List<String>> items;
 
-
+    public List<String> items() {
+        if (items == null) return null;
+        return items.getValue("KeyGroup.items");
+    }
 
     /**
      * A name to identify the key group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KeyGroup.name");
+    }
 
 }

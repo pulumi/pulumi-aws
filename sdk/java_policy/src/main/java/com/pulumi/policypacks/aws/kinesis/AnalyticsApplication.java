@@ -3,127 +3,168 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptions;
-import com.pulumi.policypacks.aws.kinesis.AnalyticsApplicationInputs;
-import com.pulumi.policypacks.aws.kinesis.AnalyticsApplicationOutput;
-import com.pulumi.policypacks.aws.kinesis.AnalyticsApplicationReferenceDataSources;
+import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationCloudwatchLoggingOptions;
+import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputs;
+import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationOutput;
+import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSources;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kinesis/analyticsApplication:AnalyticsApplication")
-public final class AnalyticsApplication extends com.pulumi.resources.PolicyResource {
+public final class AnalyticsApplication extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AnalyticsApplication.arn");
+    }
 
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      * 
      */
-    public AnalyticsApplicationCloudwatchLoggingOptions cloudwatchLoggingOptions;
+    private @Nullable UndeferrableValue<AnalyticsApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
-
+    public @Nullable AnalyticsApplicationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
+        if (cloudwatchLoggingOptions == null) return null;
+        return cloudwatchLoggingOptions.getValue("AnalyticsApplication.cloudwatchLoggingOptions");
+    }
 
     /**
      * SQL Code to transform input data, and generate output.
      * 
      */
-    public String code;
+    private @Nullable UndeferrableValue<String> code;
 
-
+    public @Nullable String code() {
+        if (code == null) return null;
+        return code.getValue("AnalyticsApplication.code");
+    }
 
     /**
      * The Timestamp when the application version was created.
      * 
      */
-    public String createTimestamp;
+    private UndeferrableValue<String> createTimestamp;
 
-
+    public String createTimestamp() {
+        if (createTimestamp == null) return null;
+        return createTimestamp.getValue("AnalyticsApplication.createTimestamp");
+    }
 
     /**
      * Description of the application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AnalyticsApplication.description");
+    }
 
     /**
      * Input configuration of the application. See Inputs below for more details.
      * 
      */
-    public AnalyticsApplicationInputs inputs;
+    private @Nullable UndeferrableValue<AnalyticsApplicationInputs> inputs;
 
-
+    public @Nullable AnalyticsApplicationInputs inputs() {
+        if (inputs == null) return null;
+        return inputs.getValue("AnalyticsApplication.inputs");
+    }
 
     /**
      * The Timestamp when the application was last updated.
      * 
      */
-    public String lastUpdateTimestamp;
+    private UndeferrableValue<String> lastUpdateTimestamp;
 
-
+    public String lastUpdateTimestamp() {
+        if (lastUpdateTimestamp == null) return null;
+        return lastUpdateTimestamp.getValue("AnalyticsApplication.lastUpdateTimestamp");
+    }
 
     /**
      * Name of the Kinesis Analytics Application.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AnalyticsApplication.name");
+    }
 
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      * 
      */
-    public List<AnalyticsApplicationOutput> outputs;
+    private @Nullable UndeferrableValue<List<AnalyticsApplicationOutput>> outputs;
 
-
+    public @Nullable List<AnalyticsApplicationOutput> outputs() {
+        if (outputs == null) return null;
+        return outputs.getValue("AnalyticsApplication.outputs");
+    }
 
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      * 
      */
-    public AnalyticsApplicationReferenceDataSources referenceDataSources;
+    private @Nullable UndeferrableValue<AnalyticsApplicationReferenceDataSources> referenceDataSources;
 
-
+    public @Nullable AnalyticsApplicationReferenceDataSources referenceDataSources() {
+        if (referenceDataSources == null) return null;
+        return referenceDataSources.getValue("AnalyticsApplication.referenceDataSources");
+    }
 
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
      * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
      * 
      */
-    public Boolean startApplication;
+    private @Nullable UndeferrableValue<Boolean> startApplication;
 
-
+    public @Nullable Boolean startApplication() {
+        if (startApplication == null) return null;
+        return startApplication.getValue("AnalyticsApplication.startApplication");
+    }
 
     /**
      * The Status of the application.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("AnalyticsApplication.status");
+    }
 
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AnalyticsApplication.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -133,16 +174,22 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AnalyticsApplication.tagsAll");
+    }
 
     /**
      * The Version of the application.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("AnalyticsApplication.version");
+    }
 
 }

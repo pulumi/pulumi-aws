@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rolesanywhere/profile:Profile")
-public final class Profile extends com.pulumi.resources.PolicyResource {
+public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Profile
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Profile.arn");
+    }
 
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
-    public Integer durationSeconds;
+    private UndeferrableValue<Integer> durationSeconds;
 
-
+    public Integer durationSeconds() {
+        if (durationSeconds == null) return null;
+        return durationSeconds.getValue("Profile.durationSeconds");
+    }
 
     /**
      * Whether or not the Profile is enabled.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Profile.enabled");
+    }
 
     /**
      * A list of managed policy ARNs that apply to the vended session credentials.
      * 
      */
-    public List<String> managedPolicyArns;
+    private @Nullable UndeferrableValue<List<String>> managedPolicyArns;
 
-
+    public @Nullable List<String> managedPolicyArns() {
+        if (managedPolicyArns == null) return null;
+        return managedPolicyArns.getValue("Profile.managedPolicyArns");
+    }
 
     /**
      * The name of the Profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Profile.name");
+    }
 
     /**
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      * 
      */
-    public Boolean requireInstanceProperties;
+    private @Nullable UndeferrableValue<Boolean> requireInstanceProperties;
 
-
+    public @Nullable Boolean requireInstanceProperties() {
+        if (requireInstanceProperties == null) return null;
+        return requireInstanceProperties.getValue("Profile.requireInstanceProperties");
+    }
 
     /**
      * A list of IAM roles that this profile can assume
      * 
      */
-    public List<String> roleArns;
+    private @Nullable UndeferrableValue<List<String>> roleArns;
 
-
+    public @Nullable List<String> roleArns() {
+        if (roleArns == null) return null;
+        return roleArns.getValue("Profile.roleArns");
+    }
 
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      * 
      */
-    public String sessionPolicy;
+    private @Nullable UndeferrableValue<String> sessionPolicy;
 
-
+    public @Nullable String sessionPolicy() {
+        if (sessionPolicy == null) return null;
+        return sessionPolicy.getValue("Profile.sessionPolicy");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Profile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class Profile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Profile.tagsAll");
+    }
 
 }

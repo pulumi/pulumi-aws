@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2clientvpn/authorizationRule:AuthorizationRule")
-public final class AuthorizationRule extends com.pulumi.resources.PolicyResource {
+public final class AuthorizationRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    public String accessGroupId;
+    private @Nullable UndeferrableValue<String> accessGroupId;
 
-
+    public @Nullable String accessGroupId() {
+        if (accessGroupId == null) return null;
+        return accessGroupId.getValue("AuthorizationRule.accessGroupId");
+    }
 
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    public Boolean authorizeAllGroups;
+    private @Nullable UndeferrableValue<Boolean> authorizeAllGroups;
 
-
+    public @Nullable Boolean authorizeAllGroups() {
+        if (authorizeAllGroups == null) return null;
+        return authorizeAllGroups.getValue("AuthorizationRule.authorizeAllGroups");
+    }
 
     /**
      * The ID of the Client VPN endpoint.
      * 
      */
-    public String clientVpnEndpointId;
+    private UndeferrableValue<String> clientVpnEndpointId;
 
-
+    public String clientVpnEndpointId() {
+        if (clientVpnEndpointId == null) return null;
+        return clientVpnEndpointId.getValue("AuthorizationRule.clientVpnEndpointId");
+    }
 
     /**
      * A brief description of the authorization rule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AuthorizationRule.description");
+    }
 
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
-    public String targetNetworkCidr;
+    private UndeferrableValue<String> targetNetworkCidr;
 
-
+    public String targetNetworkCidr() {
+        if (targetNetworkCidr == null) return null;
+        return targetNetworkCidr.getValue("AuthorizationRule.targetNetworkCidr");
+    }
 
 }

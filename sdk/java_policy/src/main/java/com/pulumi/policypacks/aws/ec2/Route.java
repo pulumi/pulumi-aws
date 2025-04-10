@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/route:Route")
-public final class Route extends com.pulumi.resources.PolicyResource {
+public final class Route extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
      * 
      */
-    public String carrierGatewayId;
+    private @Nullable UndeferrableValue<String> carrierGatewayId;
 
-
+    public @Nullable String carrierGatewayId() {
+        if (carrierGatewayId == null) return null;
+        return carrierGatewayId.getValue("Route.carrierGatewayId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of a core network.
      * 
      */
-    public String coreNetworkArn;
+    private @Nullable UndeferrableValue<String> coreNetworkArn;
 
-
+    public @Nullable String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("Route.coreNetworkArn");
+    }
 
     /**
      * The destination CIDR block.
      * 
      */
-    public String destinationCidrBlock;
+    private @Nullable UndeferrableValue<String> destinationCidrBlock;
 
-
+    public @Nullable String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("Route.destinationCidrBlock");
+    }
 
     /**
      * The destination IPv6 CIDR block.
      * 
      */
-    public String destinationIpv6CidrBlock;
+    private @Nullable UndeferrableValue<String> destinationIpv6CidrBlock;
 
-
+    public @Nullable String destinationIpv6CidrBlock() {
+        if (destinationIpv6CidrBlock == null) return null;
+        return destinationIpv6CidrBlock.getValue("Route.destinationIpv6CidrBlock");
+    }
 
     /**
      * The ID of a managed prefix list destination.
@@ -48,73 +62,100 @@ public final class Route extends com.pulumi.resources.PolicyResource {
      * One of the following target arguments must be supplied:
      * 
      */
-    public String destinationPrefixListId;
+    private @Nullable UndeferrableValue<String> destinationPrefixListId;
 
-
+    public @Nullable String destinationPrefixListId() {
+        if (destinationPrefixListId == null) return null;
+        return destinationPrefixListId.getValue("Route.destinationPrefixListId");
+    }
 
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      * 
      */
-    public String egressOnlyGatewayId;
+    private @Nullable UndeferrableValue<String> egressOnlyGatewayId;
 
-
+    public @Nullable String egressOnlyGatewayId() {
+        if (egressOnlyGatewayId == null) return null;
+        return egressOnlyGatewayId.getValue("Route.egressOnlyGatewayId");
+    }
 
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      * 
      */
-    public String gatewayId;
+    private @Nullable UndeferrableValue<String> gatewayId;
 
-
+    public @Nullable String gatewayId() {
+        if (gatewayId == null) return null;
+        return gatewayId.getValue("Route.gatewayId");
+    }
 
     /**
      * Identifier of an EC2 instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("Route.instanceId");
+    }
 
     /**
      * The AWS account ID of the owner of the EC2 instance.
      * 
      */
-    public String instanceOwnerId;
+    private UndeferrableValue<String> instanceOwnerId;
 
-
+    public String instanceOwnerId() {
+        if (instanceOwnerId == null) return null;
+        return instanceOwnerId.getValue("Route.instanceOwnerId");
+    }
 
     /**
      * Identifier of a Outpost local gateway.
      * 
      */
-    public String localGatewayId;
+    private @Nullable UndeferrableValue<String> localGatewayId;
 
-
+    public @Nullable String localGatewayId() {
+        if (localGatewayId == null) return null;
+        return localGatewayId.getValue("Route.localGatewayId");
+    }
 
     /**
      * Identifier of a VPC NAT gateway.
      * 
      */
-    public String natGatewayId;
+    private @Nullable UndeferrableValue<String> natGatewayId;
 
-
+    public @Nullable String natGatewayId() {
+        if (natGatewayId == null) return null;
+        return natGatewayId.getValue("Route.natGatewayId");
+    }
 
     /**
      * Identifier of an EC2 network interface.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("Route.networkInterfaceId");
+    }
 
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */
-    public String origin;
+    private UndeferrableValue<String> origin;
 
-
+    public String origin() {
+        if (origin == null) return null;
+        return origin.getValue("Route.origin");
+    }
 
     /**
      * The ID of the routing table.
@@ -122,33 +163,45 @@ public final class Route extends com.pulumi.resources.PolicyResource {
      * One of the following destination arguments must be supplied:
      * 
      */
-    public String routeTableId;
+    private UndeferrableValue<String> routeTableId;
 
-
+    public String routeTableId() {
+        if (routeTableId == null) return null;
+        return routeTableId.getValue("Route.routeTableId");
+    }
 
     /**
      * The state of the route - `active` or `blackhole`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Route.state");
+    }
 
     /**
      * Identifier of an EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private @Nullable UndeferrableValue<String> transitGatewayId;
 
-
+    public @Nullable String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("Route.transitGatewayId");
+    }
 
     /**
      * Identifier of a VPC Endpoint.
      * 
      */
-    public String vpcEndpointId;
+    private @Nullable UndeferrableValue<String> vpcEndpointId;
 
-
+    public @Nullable String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("Route.vpcEndpointId");
+    }
 
     /**
      * Identifier of a VPC peering connection.
@@ -156,8 +209,11 @@ public final class Route extends com.pulumi.resources.PolicyResource {
      * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
-    public String vpcPeeringConnectionId;
+    private @Nullable UndeferrableValue<String> vpcPeeringConnectionId;
 
-
+    public @Nullable String vpcPeeringConnectionId() {
+        if (vpcPeeringConnectionId == null) return null;
+        return vpcPeeringConnectionId.getValue("Route.vpcPeeringConnectionId");
+    }
 
 }

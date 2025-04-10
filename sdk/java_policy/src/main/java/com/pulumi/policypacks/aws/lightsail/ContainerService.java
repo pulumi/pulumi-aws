@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.ContainerServicePrivateRegistryAccess;
-import com.pulumi.policypacks.aws.lightsail.ContainerServicePublicDomainNames;
+import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServicePrivateRegistryAccess;
+import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServicePublicDomainNames;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/containerService:ContainerService")
-public final class ContainerService extends com.pulumi.resources.PolicyResource {
+public final class ContainerService extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the container service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContainerService.arn");
+    }
 
     /**
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("ContainerService.availabilityZone");
+    }
 
+    private UndeferrableValue<String> createdAt;
 
-    public String createdAt;
-
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("ContainerService.createdAt");
+    }
 
     /**
      * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
      * 
      */
-    public Boolean isDisabled;
+    private @Nullable UndeferrableValue<Boolean> isDisabled;
 
-
+    public @Nullable Boolean isDisabled() {
+        if (isDisabled == null) return null;
+        return isDisabled.getValue("ContainerService.isDisabled");
+    }
 
     /**
      * The name for the container service. Names must be of length 1 to 63, and be
      * unique within each AWS Region in your Lightsail account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ContainerService.name");
+    }
 
     /**
      * The power specification for the container service. The power specifies the amount of memory,
@@ -58,17 +75,23 @@ public final class ContainerService extends com.pulumi.resources.PolicyResource 
      * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
-    public String power;
+    private UndeferrableValue<String> power;
 
-
+    public String power() {
+        if (power == null) return null;
+        return power.getValue("ContainerService.power");
+    }
 
     /**
      * The ID of the power of the container service.
      * 
      */
-    public String powerId;
+    private UndeferrableValue<String> powerId;
 
-
+    public String powerId() {
+        if (powerId == null) return null;
+        return powerId.getValue("ContainerService.powerId");
+    }
 
     /**
      * The principal ARN of the container service. The principal ARN can be used to create a trust
@@ -76,26 +99,35 @@ public final class ContainerService extends com.pulumi.resources.PolicyResource 
      * service permission to access resources in your standard AWS account.
      * 
      */
-    public String principalArn;
+    private UndeferrableValue<String> principalArn;
 
-
+    public String principalArn() {
+        if (principalArn == null) return null;
+        return principalArn.getValue("ContainerService.principalArn");
+    }
 
     /**
      * The private domain name of the container service. The private domain name is accessible only
      * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
-    public String privateDomainName;
+    private UndeferrableValue<String> privateDomainName;
 
-
+    public String privateDomainName() {
+        if (privateDomainName == null) return null;
+        return privateDomainName.getValue("ContainerService.privateDomainName");
+    }
 
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      * 
      */
-    public ContainerServicePrivateRegistryAccess privateRegistryAccess;
+    private UndeferrableValue<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
 
-
+    public ContainerServicePrivateRegistryAccess privateRegistryAccess() {
+        if (privateRegistryAccess == null) return null;
+        return privateRegistryAccess.getValue("ContainerService.privateRegistryAccess");
+    }
 
     /**
      * The public domain names to use with the container service, such as example.com
@@ -105,34 +137,46 @@ public final class ContainerService extends com.pulumi.resources.PolicyResource 
      * Defined below.
      * 
      */
-    public ContainerServicePublicDomainNames publicDomainNames;
+    private @Nullable UndeferrableValue<ContainerServicePublicDomainNames> publicDomainNames;
 
-
+    public @Nullable ContainerServicePublicDomainNames publicDomainNames() {
+        if (publicDomainNames == null) return null;
+        return publicDomainNames.getValue("ContainerService.publicDomainNames");
+    }
 
     /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("ContainerService.resourceType");
+    }
 
     /**
      * The scale specification for the container service. The scale specifies the allocated compute
      * nodes of the container service.
      * 
      */
-    public Integer scale;
+    private UndeferrableValue<Integer> scale;
 
-
+    public Integer scale() {
+        if (scale == null) return null;
+        return scale.getValue("ContainerService.scale");
+    }
 
     /**
      * The current state of the container service.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ContainerService.state");
+    }
 
     /**
      * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -141,9 +185,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResource 
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContainerService.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider
@@ -154,17 +201,23 @@ public final class ContainerService extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContainerService.tagsAll");
+    }
 
     /**
      * The publicly accessible URL of the container service. If no public endpoint is specified in the
      * currentDeployment, this URL returns a 404 response.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("ContainerService.url");
+    }
 
 }

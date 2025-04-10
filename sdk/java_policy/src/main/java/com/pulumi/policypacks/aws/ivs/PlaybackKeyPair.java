@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ivs/playbackKeyPair:PlaybackKeyPair")
-public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResource {
+public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Playback Key Pair.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PlaybackKeyPair.arn");
+    }
 
     /**
      * Key-pair identifier.
      * 
      */
-    public String fingerprint;
+    private UndeferrableValue<String> fingerprint;
 
-
+    public String fingerprint() {
+        if (fingerprint == null) return null;
+        return fingerprint.getValue("PlaybackKeyPair.fingerprint");
+    }
 
     /**
      * Playback Key Pair name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PlaybackKeyPair.name");
+    }
 
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
@@ -41,17 +52,23 @@ public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String publicKey;
+    private UndeferrableValue<String> publicKey;
 
-
+    public String publicKey() {
+        if (publicKey == null) return null;
+        return publicKey.getValue("PlaybackKeyPair.publicKey");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PlaybackKeyPair.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PlaybackKeyPair.tagsAll");
+    }
 
 }

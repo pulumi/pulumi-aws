@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketMetricFilter;
+import com.pulumi.policypacks.aws.s3.outputs.BucketMetricFilter;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketMetric:BucketMetric")
-public final class BucketMetric extends com.pulumi.resources.PolicyResource {
+public final class BucketMetric extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket to put metric configuration.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketMetric.bucket");
+    }
 
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      * 
      */
-    public BucketMetricFilter filter;
+    private @Nullable UndeferrableValue<BucketMetricFilter> filter;
 
-
+    public @Nullable BucketMetricFilter filter() {
+        if (filter == null) return null;
+        return filter.getValue("BucketMetric.filter");
+    }
 
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("BucketMetric.name");
+    }
 
 }

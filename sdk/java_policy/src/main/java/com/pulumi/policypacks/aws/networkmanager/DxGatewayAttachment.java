@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.DxGatewayAttachmentTimeouts;
+import com.pulumi.policypacks.aws.networkmanager.outputs.DxGatewayAttachmentTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")
-public final class DxGatewayAttachment extends com.pulumi.resources.PolicyResource {
+public final class DxGatewayAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DxGatewayAttachment.arn");
+    }
 
     /**
      * Policy rule number associated with the attachment.
      * 
      */
-    public Integer attachmentPolicyRuleNumber;
+    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
 
-
+    public Integer attachmentPolicyRuleNumber() {
+        if (attachmentPolicyRuleNumber == null) return null;
+        return attachmentPolicyRuleNumber.getValue("DxGatewayAttachment.attachmentPolicyRuleNumber");
+    }
 
     /**
      * Type of attachment.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("DxGatewayAttachment.attachmentType");
+    }
 
     /**
      * ARN of the core network for the attachment.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("DxGatewayAttachment.coreNetworkArn");
+    }
 
     /**
      * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("DxGatewayAttachment.coreNetworkId");
+    }
 
     /**
      * ARN of the Direct Connect gateway attachment.
      * 
      */
-    public String directConnectGatewayArn;
+    private UndeferrableValue<String> directConnectGatewayArn;
 
-
+    public String directConnectGatewayArn() {
+        if (directConnectGatewayArn == null) return null;
+        return directConnectGatewayArn.getValue("DxGatewayAttachment.directConnectGatewayArn");
+    }
 
     /**
      * One or more core network edge locations to associate with the Direct Connect gateway attachment.
@@ -64,41 +84,56 @@ public final class DxGatewayAttachment extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public List<String> edgeLocations;
+    private UndeferrableValue<List<String>> edgeLocations;
 
-
+    public List<String> edgeLocations() {
+        if (edgeLocations == null) return null;
+        return edgeLocations.getValue("DxGatewayAttachment.edgeLocations");
+    }
 
     /**
      * ID of the attachment account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("DxGatewayAttachment.ownerAccountId");
+    }
 
     /**
      * Name of the segment attachment.
      * 
      */
-    public String segmentName;
+    private UndeferrableValue<String> segmentName;
 
-
+    public String segmentName() {
+        if (segmentName == null) return null;
+        return segmentName.getValue("DxGatewayAttachment.segmentName");
+    }
 
     /**
      * State of the attachment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("DxGatewayAttachment.state");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DxGatewayAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,12 +143,18 @@ public final class DxGatewayAttachment extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DxGatewayAttachment.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<DxGatewayAttachmentTimeouts> timeouts;
 
-    public DxGatewayAttachmentTimeouts timeouts;
-
-
+    public @Nullable DxGatewayAttachmentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DxGatewayAttachment.timeouts");
+    }
 
 }

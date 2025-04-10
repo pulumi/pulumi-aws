@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")
-public final class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.PolicyResource {
+public final class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN (Amazon Resource Name) of the firewall rule group association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverFirewallRuleGroupAssociation.arn");
+    }
 
     /**
      * The unique identifier of the firewall rule group.
      * 
      */
-    public String firewallRuleGroupId;
+    private UndeferrableValue<String> firewallRuleGroupId;
 
-
+    public String firewallRuleGroupId() {
+        if (firewallRuleGroupId == null) return null;
+        return firewallRuleGroupId.getValue("ResolverFirewallRuleGroupAssociation.firewallRuleGroupId");
+    }
 
     /**
      * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public String mutationProtection;
+    private UndeferrableValue<String> mutationProtection;
 
-
+    public String mutationProtection() {
+        if (mutationProtection == null) return null;
+        return mutationProtection.getValue("ResolverFirewallRuleGroupAssociation.mutationProtection");
+    }
 
     /**
      * A name that lets you identify the rule group association, to manage and use it.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverFirewallRuleGroupAssociation.name");
+    }
 
     /**
      * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
      * 
      */
-    public Integer priority;
+    private UndeferrableValue<Integer> priority;
 
-
+    public Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("ResolverFirewallRuleGroupAssociation.priority");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResolverFirewallRuleGroupAssociation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,16 +88,22 @@ public final class ResolverFirewallRuleGroupAssociation extends com.pulumi.resou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResolverFirewallRuleGroupAssociation.tagsAll");
+    }
 
     /**
      * The unique identifier of the VPC that you want to associate with the rule group.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ResolverFirewallRuleGroupAssociation.vpcId");
+    }
 
 }

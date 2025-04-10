@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN assigned by AWS for this group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Group.arn");
+    }
 
     /**
      * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Group.name");
+    }
 
     /**
      * Path in which to create the group.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("Group.path");
+    }
 
     /**
      * The [unique ID][1] assigned by AWS.
      * 
      */
-    public String uniqueId;
+    private UndeferrableValue<String> uniqueId;
 
-
+    public String uniqueId() {
+        if (uniqueId == null) return null;
+        return uniqueId.getValue("Group.uniqueId");
+    }
 
 }

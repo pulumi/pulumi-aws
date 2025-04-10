@@ -3,84 +3,112 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter")
-public final class LicenseGrantAccepter extends com.pulumi.resources.PolicyResource {
+public final class LicenseGrantAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of the allowed operations for the grant.
      * 
      */
-    public List<String> allowedOperations;
+    private UndeferrableValue<List<String>> allowedOperations;
 
-
+    public List<String> allowedOperations() {
+        if (allowedOperations == null) return null;
+        return allowedOperations.getValue("LicenseGrantAccepter.allowedOperations");
+    }
 
     /**
      * The ARN of the grant to accept.
      * 
      */
-    public String grantArn;
+    private UndeferrableValue<String> grantArn;
 
-
+    public String grantArn() {
+        if (grantArn == null) return null;
+        return grantArn.getValue("LicenseGrantAccepter.grantArn");
+    }
 
     /**
      * The home region for the license.
      * 
      */
-    public String homeRegion;
+    private UndeferrableValue<String> homeRegion;
 
-
+    public String homeRegion() {
+        if (homeRegion == null) return null;
+        return homeRegion.getValue("LicenseGrantAccepter.homeRegion");
+    }
 
     /**
      * The ARN of the license for the grant.
      * 
      */
-    public String licenseArn;
+    private UndeferrableValue<String> licenseArn;
 
-
+    public String licenseArn() {
+        if (licenseArn == null) return null;
+        return licenseArn.getValue("LicenseGrantAccepter.licenseArn");
+    }
 
     /**
      * The Name of the grant.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LicenseGrantAccepter.name");
+    }
 
     /**
      * The parent ARN.
      * 
      */
-    public String parentArn;
+    private UndeferrableValue<String> parentArn;
 
-
+    public String parentArn() {
+        if (parentArn == null) return null;
+        return parentArn.getValue("LicenseGrantAccepter.parentArn");
+    }
 
     /**
      * The target account for the grant.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("LicenseGrantAccepter.principal");
+    }
 
     /**
      * The grant status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("LicenseGrantAccepter.status");
+    }
 
     /**
      * The grant version.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("LicenseGrantAccepter.version");
+    }
 
 }

@@ -3,24 +3,29 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elb.SslNegotiationPolicyAttribute;
+import com.pulumi.policypacks.aws.elb.outputs.SslNegotiationPolicyAttribute;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")
-public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResource {
+public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      * 
      */
-    public List<SslNegotiationPolicyAttribute> attributes;
+    private @Nullable UndeferrableValue<List<SslNegotiationPolicyAttribute>> attributes;
 
-
+    public @Nullable List<SslNegotiationPolicyAttribute> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("SslNegotiationPolicy.attributes");
+    }
 
     /**
      * The load balancer port to which the policy
@@ -28,26 +33,35 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * balancer.
      * 
      */
-    public Integer lbPort;
+    private UndeferrableValue<Integer> lbPort;
 
-
+    public Integer lbPort() {
+        if (lbPort == null) return null;
+        return lbPort.getValue("SslNegotiationPolicy.lbPort");
+    }
 
     /**
      * The load balancer to which the policy
      * should be attached.
      * 
      */
-    public String loadBalancer;
+    private UndeferrableValue<String> loadBalancer;
 
-
+    public String loadBalancer() {
+        if (loadBalancer == null) return null;
+        return loadBalancer.getValue("SslNegotiationPolicy.loadBalancer");
+    }
 
     /**
      * The name of the SSL negotiation policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SslNegotiationPolicy.name");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -57,8 +71,11 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("SslNegotiationPolicy.triggers");
+    }
 
 }

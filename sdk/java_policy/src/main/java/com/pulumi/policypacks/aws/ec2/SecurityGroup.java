@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.SecurityGroupEgress;
-import com.pulumi.policypacks.aws.ec2.SecurityGroupIngress;
+import com.pulumi.policypacks.aws.ec2.outputs.SecurityGroupEgress;
+import com.pulumi.policypacks.aws.ec2.outputs.SecurityGroupIngress;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/securityGroup:SecurityGroup")
-public final class SecurityGroup extends com.pulumi.resources.PolicyResource {
+public final class SecurityGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the security group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SecurityGroup.arn");
+    }
 
     /**
      * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("SecurityGroup.description");
+    }
 
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    public List<SecurityGroupEgress> egress;
+    private UndeferrableValue<List<SecurityGroupEgress>> egress;
 
-
+    public List<SecurityGroupEgress> egress() {
+        if (egress == null) return null;
+        return egress.getValue("SecurityGroup.egress");
+    }
 
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    public List<SecurityGroupIngress> ingress;
+    private UndeferrableValue<List<SecurityGroupIngress>> ingress;
 
-
+    public List<SecurityGroupIngress> ingress() {
+        if (ingress == null) return null;
+        return ingress.getValue("SecurityGroup.ingress");
+    }
 
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SecurityGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("SecurityGroup.namePrefix");
+    }
 
     /**
      * Owner ID.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("SecurityGroup.ownerId");
+    }
 
     /**
      * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      * 
      */
-    public Boolean revokeRulesOnDelete;
+    private @Nullable UndeferrableValue<Boolean> revokeRulesOnDelete;
 
-
+    public @Nullable Boolean revokeRulesOnDelete() {
+        if (revokeRulesOnDelete == null) return null;
+        return revokeRulesOnDelete.getValue("SecurityGroup.revokeRulesOnDelete");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SecurityGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,16 +124,22 @@ public final class SecurityGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SecurityGroup.tagsAll");
+    }
 
     /**
      * VPC ID. Defaults to the region&#39;s default VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("SecurityGroup.vpcId");
+    }
 
 }

@@ -3,81 +3,110 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")
-public final class VpcIpamPoolCidrAllocation extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamPoolCidrAllocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CIDR you want to assign to the pool.
      * 
      */
-    public String cidr;
+    private UndeferrableValue<String> cidr;
 
-
+    public String cidr() {
+        if (cidr == null) return null;
+        return cidr.getValue("VpcIpamPoolCidrAllocation.cidr");
+    }
 
     /**
      * The description for the allocation.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("VpcIpamPoolCidrAllocation.description");
+    }
 
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      * 
      */
-    public List<String> disallowedCidrs;
+    private @Nullable UndeferrableValue<List<String>> disallowedCidrs;
 
+    public @Nullable List<String> disallowedCidrs() {
+        if (disallowedCidrs == null) return null;
+        return disallowedCidrs.getValue("VpcIpamPoolCidrAllocation.disallowedCidrs");
+    }
 
+    private UndeferrableValue<String> ipamPoolAllocationId;
 
-    public String ipamPoolAllocationId;
-
-
+    public String ipamPoolAllocationId() {
+        if (ipamPoolAllocationId == null) return null;
+        return ipamPoolAllocationId.getValue("VpcIpamPoolCidrAllocation.ipamPoolAllocationId");
+    }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    public String ipamPoolId;
+    private UndeferrableValue<String> ipamPoolId;
 
-
+    public String ipamPoolId() {
+        if (ipamPoolId == null) return null;
+        return ipamPoolId.getValue("VpcIpamPoolCidrAllocation.ipamPoolId");
+    }
 
     /**
      * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
-    public Integer netmaskLength;
+    private UndeferrableValue<Integer> netmaskLength;
 
-
+    public Integer netmaskLength() {
+        if (netmaskLength == null) return null;
+        return netmaskLength.getValue("VpcIpamPoolCidrAllocation.netmaskLength");
+    }
 
     /**
      * The ID of the resource.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("VpcIpamPoolCidrAllocation.resourceId");
+    }
 
     /**
      * The owner of the resource.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("VpcIpamPoolCidrAllocation.resourceOwner");
+    }
 
     /**
      * The type of the resource.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("VpcIpamPoolCidrAllocation.resourceType");
+    }
 
 }

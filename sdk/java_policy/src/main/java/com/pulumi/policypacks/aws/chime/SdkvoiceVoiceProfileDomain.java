@@ -3,50 +3,67 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration;
+import com.pulumi.policypacks.aws.chime.outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain")
-public final class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.PolicyResource {
+public final class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Voice Profile Domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SdkvoiceVoiceProfileDomain.arn");
+    }
 
     /**
      * Description of Voice Profile Domain.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SdkvoiceVoiceProfileDomain.description");
+    }
 
     /**
      * Name of Voice Profile Domain.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SdkvoiceVoiceProfileDomain.name");
+    }
 
     /**
      * Configuration for server side encryption.
      * 
      */
-    public SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration serverSideEncryptionConfiguration;
+    private UndeferrableValue<SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
+    public SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
+        if (serverSideEncryptionConfiguration == null) return null;
+        return serverSideEncryptionConfiguration.getValue("SdkvoiceVoiceProfileDomain.serverSideEncryptionConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SdkvoiceVoiceProfileDomain.tags");
+    }
 
     /**
      * @deprecated
@@ -54,8 +71,11 @@ public final class SdkvoiceVoiceProfileDomain extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SdkvoiceVoiceProfileDomain.tagsAll");
+    }
 
 }

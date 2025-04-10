@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.GameServerGroupAutoScalingPolicy;
-import com.pulumi.policypacks.aws.gamelift.GameServerGroupInstanceDefinition;
-import com.pulumi.policypacks.aws.gamelift.GameServerGroupLaunchTemplate;
+import com.pulumi.policypacks.aws.gamelift.outputs.GameServerGroupAutoScalingPolicy;
+import com.pulumi.policypacks.aws.gamelift.outputs.GameServerGroupInstanceDefinition;
+import com.pulumi.policypacks.aws.gamelift.outputs.GameServerGroupLaunchTemplate;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/gameServerGroup:GameServerGroup")
-public final class GameServerGroup extends com.pulumi.resources.PolicyResource {
+public final class GameServerGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the GameLift Game Server Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GameServerGroup.arn");
+    }
 
     /**
      * The ARN of the created EC2 Auto Scaling group.
      * 
      */
-    public String autoScalingGroupArn;
+    private UndeferrableValue<String> autoScalingGroupArn;
 
+    public String autoScalingGroupArn() {
+        if (autoScalingGroupArn == null) return null;
+        return autoScalingGroupArn.getValue("GameServerGroup.autoScalingGroupArn");
+    }
 
+    private @Nullable UndeferrableValue<GameServerGroupAutoScalingPolicy> autoScalingPolicy;
 
-    public GameServerGroupAutoScalingPolicy autoScalingPolicy;
-
-
+    public @Nullable GameServerGroupAutoScalingPolicy autoScalingPolicy() {
+        if (autoScalingPolicy == null) return null;
+        return autoScalingPolicy.getValue("GameServerGroup.autoScalingPolicy");
+    }
 
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
-    public String balancingStrategy;
+    private UndeferrableValue<String> balancingStrategy;
 
-
+    public String balancingStrategy() {
+        if (balancingStrategy == null) return null;
+        return balancingStrategy.getValue("GameServerGroup.balancingStrategy");
+    }
 
     /**
      * Name of the game server group.
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      * 
      */
-    public String gameServerGroupName;
+    private UndeferrableValue<String> gameServerGroupName;
 
-
+    public String gameServerGroupName() {
+        if (gameServerGroupName == null) return null;
+        return gameServerGroupName.getValue("GameServerGroup.gameServerGroupName");
+    }
 
     /**
      * Indicates whether instances in the game server group are protected from early termination.
@@ -63,51 +80,72 @@ public final class GameServerGroup extends com.pulumi.resources.PolicyResource {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
-    public String gameServerProtectionPolicy;
+    private UndeferrableValue<String> gameServerProtectionPolicy;
 
+    public String gameServerProtectionPolicy() {
+        if (gameServerProtectionPolicy == null) return null;
+        return gameServerProtectionPolicy.getValue("GameServerGroup.gameServerProtectionPolicy");
+    }
 
+    private UndeferrableValue<List<GameServerGroupInstanceDefinition>> instanceDefinitions;
 
-    public List<GameServerGroupInstanceDefinition> instanceDefinitions;
+    public List<GameServerGroupInstanceDefinition> instanceDefinitions() {
+        if (instanceDefinitions == null) return null;
+        return instanceDefinitions.getValue("GameServerGroup.instanceDefinitions");
+    }
 
+    private UndeferrableValue<GameServerGroupLaunchTemplate> launchTemplate;
 
-
-    public GameServerGroupLaunchTemplate launchTemplate;
-
-
+    public GameServerGroupLaunchTemplate launchTemplate() {
+        if (launchTemplate == null) return null;
+        return launchTemplate.getValue("GameServerGroup.launchTemplate");
+    }
 
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      * 
      */
-    public Integer maxSize;
+    private UndeferrableValue<Integer> maxSize;
 
-
+    public Integer maxSize() {
+        if (maxSize == null) return null;
+        return maxSize.getValue("GameServerGroup.maxSize");
+    }
 
     /**
      * The minimum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      * 
      */
-    public Integer minSize;
+    private UndeferrableValue<Integer> minSize;
 
-
+    public Integer minSize() {
+        if (minSize == null) return null;
+        return minSize.getValue("GameServerGroup.minSize");
+    }
 
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("GameServerGroup.roleArn");
+    }
 
     /**
      * Key-value map of resource tags
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GameServerGroup.tags");
+    }
 
     /**
      * @deprecated
@@ -115,17 +153,23 @@ public final class GameServerGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GameServerGroup.tagsAll");
+    }
 
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      * 
      */
-    public List<String> vpcSubnets;
+    private @Nullable UndeferrableValue<List<String>> vpcSubnets;
 
-
+    public @Nullable List<String> vpcSubnets() {
+        if (vpcSubnets == null) return null;
+        return vpcSubnets.getValue("GameServerGroup.vpcSubnets");
+    }
 
 }

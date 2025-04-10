@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.RemediationConfigurationExecutionControls;
-import com.pulumi.policypacks.aws.cfg.RemediationConfigurationParameter;
+import com.pulumi.policypacks.aws.cfg.outputs.RemediationConfigurationExecutionControls;
+import com.pulumi.policypacks.aws.cfg.outputs.RemediationConfigurationParameter;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/remediationConfiguration:RemediationConfiguration")
-public final class RemediationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class RemediationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Config Remediation Configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RemediationConfiguration.arn");
+    }
 
     /**
      * Remediation is triggered automatically if `true`.
      * 
      */
-    public Boolean automatic;
+    private @Nullable UndeferrableValue<Boolean> automatic;
 
-
+    public @Nullable Boolean automatic() {
+        if (automatic == null) return null;
+        return automatic.getValue("RemediationConfiguration.automatic");
+    }
 
     /**
      * Name of the AWS Config rule.
      * 
      */
-    public String configRuleName;
+    private UndeferrableValue<String> configRuleName;
 
-
+    public String configRuleName() {
+        if (configRuleName == null) return null;
+        return configRuleName.getValue("RemediationConfiguration.configRuleName");
+    }
 
     /**
      * Configuration block for execution controls. See below.
      * 
      */
-    public RemediationConfigurationExecutionControls executionControls;
+    private @Nullable UndeferrableValue<RemediationConfigurationExecutionControls> executionControls;
 
-
+    public @Nullable RemediationConfigurationExecutionControls executionControls() {
+        if (executionControls == null) return null;
+        return executionControls.getValue("RemediationConfiguration.executionControls");
+    }
 
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      * 
      */
-    public Integer maximumAutomaticAttempts;
+    private @Nullable UndeferrableValue<Integer> maximumAutomaticAttempts;
 
-
+    public @Nullable Integer maximumAutomaticAttempts() {
+        if (maximumAutomaticAttempts == null) return null;
+        return maximumAutomaticAttempts.getValue("RemediationConfiguration.maximumAutomaticAttempts");
+    }
 
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      * 
      */
-    public List<RemediationConfigurationParameter> parameters;
+    private @Nullable UndeferrableValue<List<RemediationConfigurationParameter>> parameters;
 
-
+    public @Nullable List<RemediationConfigurationParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("RemediationConfiguration.parameters");
+    }
 
     /**
      * Type of resource.
      * 
      */
-    public String resourceType;
+    private @Nullable UndeferrableValue<String> resourceType;
 
-
+    public @Nullable String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("RemediationConfiguration.resourceType");
+    }
 
     /**
      * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
      * 
      */
-    public Integer retryAttemptSeconds;
+    private @Nullable UndeferrableValue<Integer> retryAttemptSeconds;
 
-
+    public @Nullable Integer retryAttemptSeconds() {
+        if (retryAttemptSeconds == null) return null;
+        return retryAttemptSeconds.getValue("RemediationConfiguration.retryAttemptSeconds");
+    }
 
     /**
      * Target ID is the name of the public document.
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("RemediationConfiguration.targetId");
+    }
 
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
@@ -93,16 +122,22 @@ public final class RemediationConfiguration extends com.pulumi.resources.PolicyR
      * The following arguments are optional:
      * 
      */
-    public String targetType;
+    private UndeferrableValue<String> targetType;
 
-
+    public String targetType() {
+        if (targetType == null) return null;
+        return targetType.getValue("RemediationConfiguration.targetType");
+    }
 
     /**
      * Version of the target. For example, version of the SSM document
      * 
      */
-    public String targetVersion;
+    private @Nullable UndeferrableValue<String> targetVersion;
 
-
+    public @Nullable String targetVersion() {
+        if (targetVersion == null) return null;
+        return targetVersion.getValue("RemediationConfiguration.targetVersion");
+    }
 
 }

@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.dax;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dax.ParameterGroupParameter;
+import com.pulumi.policypacks.aws.dax.outputs.ParameterGroupParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dax/parameterGroup:ParameterGroup")
-public final class ParameterGroup extends com.pulumi.resources.PolicyResource {
+public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A description of the parameter group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ParameterGroup.description");
+    }
 
     /**
      * The name of the parameter group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ParameterGroup.name");
+    }
 
     /**
      * The parameters of the parameter group.
      * 
      */
-    public List<ParameterGroupParameter> parameters;
+    private UndeferrableValue<List<ParameterGroupParameter>> parameters;
 
-
+    public List<ParameterGroupParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("ParameterGroup.parameters");
+    }
 
 }

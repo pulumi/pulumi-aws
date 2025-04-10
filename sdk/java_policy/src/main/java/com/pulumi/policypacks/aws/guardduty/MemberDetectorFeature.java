@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.guardduty.MemberDetectorFeatureAdditionalConfiguration;
+import com.pulumi.policypacks.aws.guardduty.outputs.MemberDetectorFeatureAdditionalConfiguration;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/memberDetectorFeature:MemberDetectorFeature")
-public final class MemberDetectorFeature extends com.pulumi.resources.PolicyResource {
+public final class MemberDetectorFeature extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Member account ID to be updated.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("MemberDetectorFeature.accountId");
+    }
 
     /**
      * Additional feature configuration block. See below.
      * 
      */
-    public List<MemberDetectorFeatureAdditionalConfiguration> additionalConfigurations;
+    private @Nullable UndeferrableValue<List<MemberDetectorFeatureAdditionalConfiguration>> additionalConfigurations;
 
-
+    public @Nullable List<MemberDetectorFeatureAdditionalConfiguration> additionalConfigurations() {
+        if (additionalConfigurations == null) return null;
+        return additionalConfigurations.getValue("MemberDetectorFeature.additionalConfigurations");
+    }
 
     /**
      * Amazon GuardDuty detector ID.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("MemberDetectorFeature.detectorId");
+    }
 
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MemberDetectorFeature.name");
+    }
 
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("MemberDetectorFeature.status");
+    }
 
 }

@@ -3,60 +3,79 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/trafficPolicyInstance:TrafficPolicyInstance")
-public final class TrafficPolicyInstance extends com.pulumi.resources.PolicyResource {
+public final class TrafficPolicyInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the traffic policy instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficPolicyInstance.arn");
+    }
 
     /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("TrafficPolicyInstance.hostedZoneId");
+    }
 
     /**
      * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TrafficPolicyInstance.name");
+    }
 
     /**
      * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
      * 
      */
-    public String trafficPolicyId;
+    private UndeferrableValue<String> trafficPolicyId;
 
-
+    public String trafficPolicyId() {
+        if (trafficPolicyId == null) return null;
+        return trafficPolicyId.getValue("TrafficPolicyInstance.trafficPolicyId");
+    }
 
     /**
      * Version of the traffic policy
      * 
      */
-    public Integer trafficPolicyVersion;
+    private UndeferrableValue<Integer> trafficPolicyVersion;
 
-
+    public Integer trafficPolicyVersion() {
+        if (trafficPolicyVersion == null) return null;
+        return trafficPolicyVersion.getValue("TrafficPolicyInstance.trafficPolicyVersion");
+    }
 
     /**
      * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
      * 
      */
-    public Integer ttl;
+    private UndeferrableValue<Integer> ttl;
 
-
+    public Integer ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("TrafficPolicyInstance.ttl");
+    }
 
 }

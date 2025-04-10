@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedpermissions/policyTemplate:PolicyTemplate")
-public final class PolicyTemplate extends com.pulumi.resources.PolicyResource {
+public final class PolicyTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The date the Policy Store was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("PolicyTemplate.createdDate");
+    }
 
     /**
      * Provides a description for the policy template.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
-
-    /**
-     * The ID of the Policy Store.
-     * 
-     */
-    public String policyStoreId;
-
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PolicyTemplate.description");
+    }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    public String policyTemplateId;
+    private UndeferrableValue<String> policyStoreId;
 
+    public String policyStoreId() {
+        if (policyStoreId == null) return null;
+        return policyStoreId.getValue("PolicyTemplate.policyStoreId");
+    }
 
+    /**
+     * The ID of the Policy Store.
+     * 
+     */
+    private UndeferrableValue<String> policyTemplateId;
+
+    public String policyTemplateId() {
+        if (policyTemplateId == null) return null;
+        return policyTemplateId.getValue("PolicyTemplate.policyTemplateId");
+    }
 
     /**
      * Defines the content of the statement, written in Cedar policy language.
@@ -48,8 +62,11 @@ public final class PolicyTemplate extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String statement;
+    private UndeferrableValue<String> statement;
 
-
+    public String statement() {
+        if (statement == null) return null;
+        return statement.getValue("PolicyTemplate.statement");
+    }
 
 }

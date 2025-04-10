@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.AppResourceSpec;
+import com.pulumi.policypacks.aws.sagemaker.outputs.AppResourceSpec;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/app:App")
-public final class App extends com.pulumi.resources.PolicyResource {
+public final class App extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the app.
      * 
      */
-    public String appName;
+    private UndeferrableValue<String> appName;
 
-
+    public String appName() {
+        if (appName == null) return null;
+        return appName.getValue("App.appName");
+    }
 
     /**
      * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
-    public String appType;
+    private UndeferrableValue<String> appType;
 
-
+    public String appType() {
+        if (appType == null) return null;
+        return appType.getValue("App.appType");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the app.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("App.arn");
+    }
 
     /**
      * The domain ID.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("App.domainId");
+    }
 
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      * 
      */
-    public AppResourceSpec resourceSpec;
+    private UndeferrableValue<AppResourceSpec> resourceSpec;
 
-
+    public AppResourceSpec resourceSpec() {
+        if (resourceSpec == null) return null;
+        return resourceSpec.getValue("App.resourceSpec");
+    }
 
     /**
      * The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
-    public String spaceName;
+    private @Nullable UndeferrableValue<String> spaceName;
 
-
+    public @Nullable String spaceName() {
+        if (spaceName == null) return null;
+        return spaceName.getValue("App.spaceName");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("App.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,16 +99,22 @@ public final class App extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("App.tagsAll");
+    }
 
     /**
      * The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
-    public String userProfileName;
+    private @Nullable UndeferrableValue<String> userProfileName;
 
-
+    public @Nullable String userProfileName() {
+        if (userProfileName == null) return null;
+        return userProfileName.getValue("App.userProfileName");
+    }
 
 }

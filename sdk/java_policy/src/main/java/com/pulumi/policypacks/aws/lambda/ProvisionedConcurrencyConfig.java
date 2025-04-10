@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")
-public final class ProvisionedConcurrencyConfig extends com.pulumi.resources.PolicyResource {
+public final class ProvisionedConcurrencyConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("ProvisionedConcurrencyConfig.functionName");
+    }
 
     /**
      * Amount of capacity to allocate. Must be greater than or equal to `1`.
      * 
      */
-    public Integer provisionedConcurrentExecutions;
+    private UndeferrableValue<Integer> provisionedConcurrentExecutions;
 
-
+    public Integer provisionedConcurrentExecutions() {
+        if (provisionedConcurrentExecutions == null) return null;
+        return provisionedConcurrentExecutions.getValue("ProvisionedConcurrencyConfig.provisionedConcurrentExecutions");
+    }
 
     /**
      * Lambda Function version or Lambda Alias name.
@@ -34,16 +42,22 @@ public final class ProvisionedConcurrencyConfig extends com.pulumi.resources.Pol
      * The following arguments are optional:
      * 
      */
-    public String qualifier;
+    private UndeferrableValue<String> qualifier;
 
-
+    public String qualifier() {
+        if (qualifier == null) return null;
+        return qualifier.getValue("ProvisionedConcurrencyConfig.qualifier");
+    }
 
     /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("ProvisionedConcurrencyConfig.skipDestroy");
+    }
 
 }

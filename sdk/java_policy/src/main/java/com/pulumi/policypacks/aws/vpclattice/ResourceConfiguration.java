@@ -3,57 +3,74 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ResourceConfigurationResourceConfigurationDefinition;
-import com.pulumi.policypacks.aws.vpclattice.ResourceConfigurationTimeouts;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ResourceConfigurationResourceConfigurationDefinition;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ResourceConfigurationTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/resourceConfiguration:ResourceConfiguration")
-public final class ResourceConfiguration extends com.pulumi.resources.PolicyResource {
+public final class ResourceConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Allow or Deny the association of this resource to a shareable service network.
      * 
      */
-    public Boolean allowAssociationToShareableServiceNetwork;
+    private UndeferrableValue<Boolean> allowAssociationToShareableServiceNetwork;
 
-
+    public Boolean allowAssociationToShareableServiceNetwork() {
+        if (allowAssociationToShareableServiceNetwork == null) return null;
+        return allowAssociationToShareableServiceNetwork.getValue("ResourceConfiguration.allowAssociationToShareableServiceNetwork");
+    }
 
     /**
      * ARN of the resource gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceConfiguration.arn");
+    }
 
     /**
      * Name for the Resource Configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResourceConfiguration.name");
+    }
 
     /**
      * Port ranges to access the Resource either single port `80` or range `80-81` range.
      * 
      */
-    public List<String> portRanges;
+    private UndeferrableValue<List<String>> portRanges;
 
-
+    public List<String> portRanges() {
+        if (portRanges == null) return null;
+        return portRanges.getValue("ResourceConfiguration.portRanges");
+    }
 
     /**
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("ResourceConfiguration.protocol");
+    }
 
     /**
      * Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
@@ -61,33 +78,45 @@ public final class ResourceConfiguration extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public ResourceConfigurationResourceConfigurationDefinition resourceConfigurationDefinition;
+    private @Nullable UndeferrableValue<ResourceConfigurationResourceConfigurationDefinition> resourceConfigurationDefinition;
 
-
+    public @Nullable ResourceConfigurationResourceConfigurationDefinition resourceConfigurationDefinition() {
+        if (resourceConfigurationDefinition == null) return null;
+        return resourceConfigurationDefinition.getValue("ResourceConfiguration.resourceConfigurationDefinition");
+    }
 
     /**
      * ID of Resource Configuration where `type` is `CHILD`.
      * 
      */
-    public String resourceConfigurationGroupId;
+    private @Nullable UndeferrableValue<String> resourceConfigurationGroupId;
 
-
+    public @Nullable String resourceConfigurationGroupId() {
+        if (resourceConfigurationGroupId == null) return null;
+        return resourceConfigurationGroupId.getValue("ResourceConfiguration.resourceConfigurationGroupId");
+    }
 
     /**
      * ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
      * 
      */
-    public String resourceGatewayIdentifier;
+    private UndeferrableValue<String> resourceGatewayIdentifier;
 
-
+    public String resourceGatewayIdentifier() {
+        if (resourceGatewayIdentifier == null) return null;
+        return resourceGatewayIdentifier.getValue("ResourceConfiguration.resourceGatewayIdentifier");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceConfiguration.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -97,20 +126,29 @@ public final class ResourceConfiguration extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResourceConfiguration.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ResourceConfigurationTimeouts> timeouts;
 
-    public ResourceConfigurationTimeouts timeouts;
-
-
+    public @Nullable ResourceConfigurationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ResourceConfiguration.timeouts");
+    }
 
     /**
      * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ResourceConfiguration.type");
+    }
 
 }

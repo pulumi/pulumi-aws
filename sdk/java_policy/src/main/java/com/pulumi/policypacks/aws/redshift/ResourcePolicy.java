@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:redshift/resourcePolicy:ResourcePolicy")
-public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The content of the resource policy being updated.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ResourcePolicy.policy");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ResourcePolicy.resourceArn");
+    }
 
 }

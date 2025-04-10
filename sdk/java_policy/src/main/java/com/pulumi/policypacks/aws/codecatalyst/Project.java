@@ -3,20 +3,25 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codecatalyst/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Project.description");
+    }
 
     /**
      * The friendly name of the project that will be displayed to users.
@@ -24,24 +29,33 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Project.displayName");
+    }
 
     /**
      * The name of the project in the space.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * The name of the space.
      * 
      */
-    public String spaceName;
+    private UndeferrableValue<String> spaceName;
 
-
+    public String spaceName() {
+        if (spaceName == null) return null;
+        return spaceName.getValue("Project.spaceName");
+    }
 
 }

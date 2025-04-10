@@ -3,14 +3,15 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.guardduty.OrganizationConfigurationDatasources;
+import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationDatasources;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:guardduty/organizationConfiguration:OrganizationConfiguration")
-public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
@@ -20,32 +21,44 @@ public final class OrganizationConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-    public Boolean autoEnable;
+    private UndeferrableValue<Boolean> autoEnable;
 
-
+    public Boolean autoEnable() {
+        if (autoEnable == null) return null;
+        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+    }
 
     /**
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
-    public String autoEnableOrganizationMembers;
+    private UndeferrableValue<String> autoEnableOrganizationMembers;
 
-
+    public String autoEnableOrganizationMembers() {
+        if (autoEnableOrganizationMembers == null) return null;
+        return autoEnableOrganizationMembers.getValue("OrganizationConfiguration.autoEnableOrganizationMembers");
+    }
 
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
      */
-    public OrganizationConfigurationDatasources datasources;
+    private UndeferrableValue<OrganizationConfigurationDatasources> datasources;
 
-
+    public OrganizationConfigurationDatasources datasources() {
+        if (datasources == null) return null;
+        return datasources.getValue("OrganizationConfiguration.datasources");
+    }
 
     /**
      * The detector ID of the GuardDuty account.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("OrganizationConfiguration.detectorId");
+    }
 
 }

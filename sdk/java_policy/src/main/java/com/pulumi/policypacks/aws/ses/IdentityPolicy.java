@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/identityPolicy:IdentityPolicy")
-public final class IdentityPolicy extends com.pulumi.resources.PolicyResource {
+public final class IdentityPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      * 
      */
-    public String identity;
+    private UndeferrableValue<String> identity;
 
-
+    public String identity() {
+        if (identity == null) return null;
+        return identity.getValue("IdentityPolicy.identity");
+    }
 
     /**
      * Name of the policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("IdentityPolicy.name");
+    }
 
     /**
      * JSON string of the policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("IdentityPolicy.policy");
+    }
 
 }

@@ -3,47 +3,61 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.DistributionConfigurationDistribution;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistribution;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/distributionConfiguration:DistributionConfiguration")
-public final class DistributionConfiguration extends com.pulumi.resources.PolicyResource {
+public final class DistributionConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DistributionConfiguration.arn");
+    }
 
     /**
      * Date the distribution configuration was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("DistributionConfiguration.dateCreated");
+    }
 
     /**
      * Date the distribution configuration was updated.
      * 
      */
-    public String dateUpdated;
+    private UndeferrableValue<String> dateUpdated;
 
-
+    public String dateUpdated() {
+        if (dateUpdated == null) return null;
+        return dateUpdated.getValue("DistributionConfiguration.dateUpdated");
+    }
 
     /**
      * Description of the distribution configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DistributionConfiguration.description");
+    }
 
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
@@ -51,25 +65,34 @@ public final class DistributionConfiguration extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    public List<DistributionConfigurationDistribution> distributions;
+    private UndeferrableValue<List<DistributionConfigurationDistribution>> distributions;
 
-
+    public List<DistributionConfigurationDistribution> distributions() {
+        if (distributions == null) return null;
+        return distributions.getValue("DistributionConfiguration.distributions");
+    }
 
     /**
      * Name of the distribution configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DistributionConfiguration.name");
+    }
 
     /**
      * Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DistributionConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -79,8 +102,11 @@ public final class DistributionConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DistributionConfiguration.tagsAll");
+    }
 
 }

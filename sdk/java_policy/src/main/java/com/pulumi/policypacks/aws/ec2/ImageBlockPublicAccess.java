@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")
-public final class ImageBlockPublicAccess extends com.pulumi.resources.PolicyResource {
+public final class ImageBlockPublicAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ImageBlockPublicAccess.state");
+    }
 
 }

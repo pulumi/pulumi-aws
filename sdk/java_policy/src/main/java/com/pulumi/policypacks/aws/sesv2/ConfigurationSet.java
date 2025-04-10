@@ -3,75 +3,98 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetDeliveryOptions;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetReputationOptions;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetSendingOptions;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetSuppressionOptions;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetTrackingOptions;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetVdmOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetDeliveryOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetReputationOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetSendingOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetSuppressionOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetTrackingOptions;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetVdmOptions;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/configurationSet:ConfigurationSet")
-public final class ConfigurationSet extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Configuration Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConfigurationSet.arn");
+    }
 
     /**
      * The name of the configuration set.
      * 
      */
-    public String configurationSetName;
+    private UndeferrableValue<String> configurationSetName;
 
-
+    public String configurationSetName() {
+        if (configurationSetName == null) return null;
+        return configurationSetName.getValue("ConfigurationSet.configurationSetName");
+    }
 
     /**
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
      * 
      */
-    public ConfigurationSetDeliveryOptions deliveryOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetDeliveryOptions> deliveryOptions;
 
-
+    public @Nullable ConfigurationSetDeliveryOptions deliveryOptions() {
+        if (deliveryOptions == null) return null;
+        return deliveryOptions.getValue("ConfigurationSet.deliveryOptions");
+    }
 
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
      * 
      */
-    public ConfigurationSetReputationOptions reputationOptions;
+    private UndeferrableValue<ConfigurationSetReputationOptions> reputationOptions;
 
-
+    public ConfigurationSetReputationOptions reputationOptions() {
+        if (reputationOptions == null) return null;
+        return reputationOptions.getValue("ConfigurationSet.reputationOptions");
+    }
 
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
      * 
      */
-    public ConfigurationSetSendingOptions sendingOptions;
+    private UndeferrableValue<ConfigurationSetSendingOptions> sendingOptions;
 
-
+    public ConfigurationSetSendingOptions sendingOptions() {
+        if (sendingOptions == null) return null;
+        return sendingOptions.getValue("ConfigurationSet.sendingOptions");
+    }
 
     /**
      * An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
      * 
      */
-    public ConfigurationSetSuppressionOptions suppressionOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetSuppressionOptions> suppressionOptions;
 
-
+    public @Nullable ConfigurationSetSuppressionOptions suppressionOptions() {
+        if (suppressionOptions == null) return null;
+        return suppressionOptions.getValue("ConfigurationSet.suppressionOptions");
+    }
 
     /**
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConfigurationSet.tags");
+    }
 
     /**
      * @deprecated
@@ -79,24 +102,33 @@ public final class ConfigurationSet extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConfigurationSet.tagsAll");
+    }
 
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
      * 
      */
-    public ConfigurationSetTrackingOptions trackingOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetTrackingOptions> trackingOptions;
 
-
+    public @Nullable ConfigurationSetTrackingOptions trackingOptions() {
+        if (trackingOptions == null) return null;
+        return trackingOptions.getValue("ConfigurationSet.trackingOptions");
+    }
 
     /**
      * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
      * 
      */
-    public ConfigurationSetVdmOptions vdmOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetVdmOptions> vdmOptions;
 
-
+    public @Nullable ConfigurationSetVdmOptions vdmOptions() {
+        if (vdmOptions == null) return null;
+        return vdmOptions.getValue("ConfigurationSet.vdmOptions");
+    }
 
 }

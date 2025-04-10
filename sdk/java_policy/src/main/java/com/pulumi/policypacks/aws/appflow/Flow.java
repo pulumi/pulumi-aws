@@ -3,91 +3,120 @@
 
 package com.pulumi.policypacks.aws.appflow;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appflow.FlowDestinationFlowConfig;
-import com.pulumi.policypacks.aws.appflow.FlowMetadataCatalogConfig;
-import com.pulumi.policypacks.aws.appflow.FlowSourceFlowConfig;
-import com.pulumi.policypacks.aws.appflow.FlowTask;
-import com.pulumi.policypacks.aws.appflow.FlowTriggerConfig;
+import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfig;
+import com.pulumi.policypacks.aws.appflow.outputs.FlowMetadataCatalogConfig;
+import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfig;
+import com.pulumi.policypacks.aws.appflow.outputs.FlowTask;
+import com.pulumi.policypacks.aws.appflow.outputs.FlowTriggerConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appflow/flow:Flow")
-public final class Flow extends com.pulumi.resources.PolicyResource {
+public final class Flow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Flow&#39;s ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Flow.arn");
+    }
 
     /**
      * Description of the flow you want to create.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Flow.description");
+    }
 
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      * 
      */
-    public List<FlowDestinationFlowConfig> destinationFlowConfigs;
+    private UndeferrableValue<List<FlowDestinationFlowConfig>> destinationFlowConfigs;
 
-
+    public List<FlowDestinationFlowConfig> destinationFlowConfigs() {
+        if (destinationFlowConfigs == null) return null;
+        return destinationFlowConfigs.getValue("Flow.destinationFlowConfigs");
+    }
 
     /**
      * The current status of the flow.
      * 
      */
-    public String flowStatus;
+    private UndeferrableValue<String> flowStatus;
 
-
+    public String flowStatus() {
+        if (flowStatus == null) return null;
+        return flowStatus.getValue("Flow.flowStatus");
+    }
 
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    public String kmsArn;
+    private UndeferrableValue<String> kmsArn;
 
-
+    public String kmsArn() {
+        if (kmsArn == null) return null;
+        return kmsArn.getValue("Flow.kmsArn");
+    }
 
     /**
      * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
      * 
      */
-    public FlowMetadataCatalogConfig metadataCatalogConfig;
+    private UndeferrableValue<FlowMetadataCatalogConfig> metadataCatalogConfig;
 
-
+    public FlowMetadataCatalogConfig metadataCatalogConfig() {
+        if (metadataCatalogConfig == null) return null;
+        return metadataCatalogConfig.getValue("Flow.metadataCatalogConfig");
+    }
 
     /**
      * Name of the flow.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Flow.name");
+    }
 
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      * 
      */
-    public FlowSourceFlowConfig sourceFlowConfig;
+    private UndeferrableValue<FlowSourceFlowConfig> sourceFlowConfig;
 
-
+    public FlowSourceFlowConfig sourceFlowConfig() {
+        if (sourceFlowConfig == null) return null;
+        return sourceFlowConfig.getValue("Flow.sourceFlowConfig");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Flow.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -97,24 +126,33 @@ public final class Flow extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Flow.tagsAll");
+    }
 
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      * 
      */
-    public List<FlowTask> tasks;
+    private UndeferrableValue<List<FlowTask>> tasks;
 
-
+    public List<FlowTask> tasks() {
+        if (tasks == null) return null;
+        return tasks.getValue("Flow.tasks");
+    }
 
     /**
      * A Trigger that determine how and when the flow runs.
      * 
      */
-    public FlowTriggerConfig triggerConfig;
+    private UndeferrableValue<FlowTriggerConfig> triggerConfig;
 
-
+    public FlowTriggerConfig triggerConfig() {
+        if (triggerConfig == null) return null;
+        return triggerConfig.getValue("Flow.triggerConfig");
+    }
 
 }

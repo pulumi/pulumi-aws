@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/resolverRuleAssociation:ResolverRuleAssociation")
-public final class ResolverRuleAssociation extends com.pulumi.resources.PolicyResource {
+public final class ResolverRuleAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A name for the association that you&#39;re creating between a resolver rule and a VPC.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverRuleAssociation.name");
+    }
 
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      * 
      */
-    public String resolverRuleId;
+    private UndeferrableValue<String> resolverRuleId;
 
-
+    public String resolverRuleId() {
+        if (resolverRuleId == null) return null;
+        return resolverRuleId.getValue("ResolverRuleAssociation.resolverRuleId");
+    }
 
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ResolverRuleAssociation.vpcId");
+    }
 
 }

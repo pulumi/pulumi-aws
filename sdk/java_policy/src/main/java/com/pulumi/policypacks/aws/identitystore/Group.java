@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.identitystore.GroupExternalId;
+import com.pulumi.policypacks.aws.identitystore.outputs.GroupExternalId;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:identitystore/group:Group")
-public final class Group extends com.pulumi.resources.PolicyResource {
+public final class Group extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A string containing the description of the group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Group.description");
+    }
 
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Group.displayName");
+    }
 
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      * 
      */
-    public List<GroupExternalId> externalIds;
+    private UndeferrableValue<List<GroupExternalId>> externalIds;
 
-
+    public List<GroupExternalId> externalIds() {
+        if (externalIds == null) return null;
+        return externalIds.getValue("Group.externalIds");
+    }
 
     /**
      * The identifier of the newly created group in the identity store.
      * 
      */
-    public String groupId;
+    private UndeferrableValue<String> groupId;
 
-
+    public String groupId() {
+        if (groupId == null) return null;
+        return groupId.getValue("Group.groupId");
+    }
 
     /**
      * The globally unique identifier for the identity store.
@@ -50,8 +64,11 @@ public final class Group extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String identityStoreId;
+    private UndeferrableValue<String> identityStoreId;
 
-
+    public String identityStoreId() {
+        if (identityStoreId == null) return null;
+        return identityStoreId.getValue("Group.identityStoreId");
+    }
 
 }

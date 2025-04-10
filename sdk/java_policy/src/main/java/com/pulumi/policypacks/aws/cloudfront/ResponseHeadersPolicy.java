@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.ResponseHeadersPolicyCorsConfig;
-import com.pulumi.policypacks.aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfig;
-import com.pulumi.policypacks.aws.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig;
-import com.pulumi.policypacks.aws.cloudfront.ResponseHeadersPolicySecurityHeadersConfig;
-import com.pulumi.policypacks.aws.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCustomHeadersConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyRemoveHeadersConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicySecurityHeadersConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyServerTimingHeadersConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")
-public final class ResponseHeadersPolicy extends com.pulumi.resources.PolicyResource {
+public final class ResponseHeadersPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The response headers policy ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResponseHeadersPolicy.arn");
+    }
 
     /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("ResponseHeadersPolicy.comment");
+    }
 
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
-    public ResponseHeadersPolicyCorsConfig corsConfig;
+    private @Nullable UndeferrableValue<ResponseHeadersPolicyCorsConfig> corsConfig;
 
-
+    public @Nullable ResponseHeadersPolicyCorsConfig corsConfig() {
+        if (corsConfig == null) return null;
+        return corsConfig.getValue("ResponseHeadersPolicy.corsConfig");
+    }
 
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      * 
      */
-    public ResponseHeadersPolicyCustomHeadersConfig customHeadersConfig;
+    private @Nullable UndeferrableValue<ResponseHeadersPolicyCustomHeadersConfig> customHeadersConfig;
 
-
+    public @Nullable ResponseHeadersPolicyCustomHeadersConfig customHeadersConfig() {
+        if (customHeadersConfig == null) return null;
+        return customHeadersConfig.getValue("ResponseHeadersPolicy.customHeadersConfig");
+    }
 
     /**
      * The current version of the response headers policy.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("ResponseHeadersPolicy.etag");
+    }
 
     /**
      * A unique name to identify the response headers policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResponseHeadersPolicy.name");
+    }
 
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      * 
      */
-    public ResponseHeadersPolicyRemoveHeadersConfig removeHeadersConfig;
+    private @Nullable UndeferrableValue<ResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfig;
 
-
+    public @Nullable ResponseHeadersPolicyRemoveHeadersConfig removeHeadersConfig() {
+        if (removeHeadersConfig == null) return null;
+        return removeHeadersConfig.getValue("ResponseHeadersPolicy.removeHeadersConfig");
+    }
 
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
-    public ResponseHeadersPolicySecurityHeadersConfig securityHeadersConfig;
+    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfig;
 
-
+    public @Nullable ResponseHeadersPolicySecurityHeadersConfig securityHeadersConfig() {
+        if (securityHeadersConfig == null) return null;
+        return securityHeadersConfig.getValue("ResponseHeadersPolicy.securityHeadersConfig");
+    }
 
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
-    public ResponseHeadersPolicyServerTimingHeadersConfig serverTimingHeadersConfig;
+    private @Nullable UndeferrableValue<ResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfig;
 
-
+    public @Nullable ResponseHeadersPolicyServerTimingHeadersConfig serverTimingHeadersConfig() {
+        if (serverTimingHeadersConfig == null) return null;
+        return serverTimingHeadersConfig.getValue("ResponseHeadersPolicy.serverTimingHeadersConfig");
+    }
 
 }

@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.rum;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rum/metricsDestination:MetricsDestination")
-public final class MetricsDestination extends com.pulumi.resources.PolicyResource {
+public final class MetricsDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the CloudWatch RUM app monitor that will send the metrics.
      * 
      */
-    public String appMonitorName;
+    private UndeferrableValue<String> appMonitorName;
 
-
+    public String appMonitorName() {
+        if (appMonitorName == null) return null;
+        return appMonitorName.getValue("MetricsDestination.appMonitorName");
+    }
 
     /**
      * Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
      * 
      */
-    public String destination;
+    private UndeferrableValue<String> destination;
 
-
+    public String destination() {
+        if (destination == null) return null;
+        return destination.getValue("MetricsDestination.destination");
+    }
 
     /**
      * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
      * 
      */
-    public String destinationArn;
+    private @Nullable UndeferrableValue<String> destinationArn;
 
-
+    public @Nullable String destinationArn() {
+        if (destinationArn == null) return null;
+        return destinationArn.getValue("MetricsDestination.destinationArn");
+    }
 
     /**
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      * 
      */
-    public String iamRoleArn;
+    private @Nullable UndeferrableValue<String> iamRoleArn;
 
-
+    public @Nullable String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("MetricsDestination.iamRoleArn");
+    }
 
 }

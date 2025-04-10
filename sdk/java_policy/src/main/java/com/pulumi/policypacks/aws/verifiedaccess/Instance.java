@@ -3,68 +3,91 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedaccess.InstanceVerifiedAccessTrustProvider;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.InstanceVerifiedAccessTrustProvider;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The custom subdomain for the CIDR endpoints.
      * 
      */
-    public String cidrEndpointsCustomSubdomain;
+    private @Nullable UndeferrableValue<String> cidrEndpointsCustomSubdomain;
 
-
+    public @Nullable String cidrEndpointsCustomSubdomain() {
+        if (cidrEndpointsCustomSubdomain == null) return null;
+        return cidrEndpointsCustomSubdomain.getValue("Instance.cidrEndpointsCustomSubdomain");
+    }
 
     /**
      * The time that the Verified Access Instance was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("Instance.creationTime");
+    }
 
     /**
      * A description for the AWS Verified Access Instance.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Instance.description");
+    }
 
     /**
      * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
-    public Boolean fipsEnabled;
+    private @Nullable UndeferrableValue<Boolean> fipsEnabled;
 
-
+    public @Nullable Boolean fipsEnabled() {
+        if (fipsEnabled == null) return null;
+        return fipsEnabled.getValue("Instance.fipsEnabled");
+    }
 
     /**
      * The time that the Verified Access Instance was last updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Instance.lastUpdatedTime");
+    }
 
+    private UndeferrableValue<List<String>> nameServers;
 
-    public List<String> nameServers;
-
-
+    public List<String> nameServers() {
+        if (nameServers == null) return null;
+        return nameServers.getValue("Instance.nameServers");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Instance.tags");
+    }
 
     /**
      * @deprecated
@@ -72,16 +95,22 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Instance.tagsAll");
+    }
 
     /**
      * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
      * 
      */
-    public List<InstanceVerifiedAccessTrustProvider> verifiedAccessTrustProviders;
+    private UndeferrableValue<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
 
-
+    public List<InstanceVerifiedAccessTrustProvider> verifiedAccessTrustProviders() {
+        if (verifiedAccessTrustProviders == null) return null;
+        return verifiedAccessTrustProviders.getValue("Instance.verifiedAccessTrustProviders");
+    }
 
 }

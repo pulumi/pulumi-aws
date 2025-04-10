@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentConfigMinimumHealthyHosts;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentConfigTrafficRoutingConfig;
-import com.pulumi.policypacks.aws.codedeploy.DeploymentConfigZonalConfig;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentConfigMinimumHealthyHosts;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentConfigTrafficRoutingConfig;
+import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentConfigZonalConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codedeploy/deploymentConfig:DeploymentConfig")
-public final class DeploymentConfig extends com.pulumi.resources.PolicyResource {
+public final class DeploymentConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the deployment config.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DeploymentConfig.arn");
+    }
 
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 
      */
-    public String computePlatform;
+    private @Nullable UndeferrableValue<String> computePlatform;
 
-
+    public @Nullable String computePlatform() {
+        if (computePlatform == null) return null;
+        return computePlatform.getValue("DeploymentConfig.computePlatform");
+    }
 
     /**
      * The AWS Assigned deployment config id
      * 
      */
-    public String deploymentConfigId;
+    private UndeferrableValue<String> deploymentConfigId;
 
-
+    public String deploymentConfigId() {
+        if (deploymentConfigId == null) return null;
+        return deploymentConfigId.getValue("DeploymentConfig.deploymentConfigId");
+    }
 
     /**
      * The name of the deployment config.
      * 
      */
-    public String deploymentConfigName;
+    private UndeferrableValue<String> deploymentConfigName;
 
-
+    public String deploymentConfigName() {
+        if (deploymentConfigName == null) return null;
+        return deploymentConfigName.getValue("DeploymentConfig.deploymentConfigName");
+    }
 
     /**
      * A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
-    public DeploymentConfigMinimumHealthyHosts minimumHealthyHosts;
+    private @Nullable UndeferrableValue<DeploymentConfigMinimumHealthyHosts> minimumHealthyHosts;
 
-
+    public @Nullable DeploymentConfigMinimumHealthyHosts minimumHealthyHosts() {
+        if (minimumHealthyHosts == null) return null;
+        return minimumHealthyHosts.getValue("DeploymentConfig.minimumHealthyHosts");
+    }
 
     /**
      * A traffic_routing_config block. Traffic Routing Config is documented below.
      * 
      */
-    public DeploymentConfigTrafficRoutingConfig trafficRoutingConfig;
+    private @Nullable UndeferrableValue<DeploymentConfigTrafficRoutingConfig> trafficRoutingConfig;
 
-
+    public @Nullable DeploymentConfigTrafficRoutingConfig trafficRoutingConfig() {
+        if (trafficRoutingConfig == null) return null;
+        return trafficRoutingConfig.getValue("DeploymentConfig.trafficRoutingConfig");
+    }
 
     /**
      * A zonal_config block. Zonal Config is documented below.
      * 
      */
-    public DeploymentConfigZonalConfig zonalConfig;
+    private @Nullable UndeferrableValue<DeploymentConfigZonalConfig> zonalConfig;
 
-
+    public @Nullable DeploymentConfigZonalConfig zonalConfig() {
+        if (zonalConfig == null) return null;
+        return zonalConfig.getValue("DeploymentConfig.zonalConfig");
+    }
 
 }

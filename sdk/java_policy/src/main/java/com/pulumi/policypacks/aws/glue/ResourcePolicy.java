@@ -3,27 +3,35 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")
-public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
      * 
      */
-    public String enableHybrid;
+    private @Nullable UndeferrableValue<String> enableHybrid;
 
-
+    public @Nullable String enableHybrid() {
+        if (enableHybrid == null) return null;
+        return enableHybrid.getValue("ResourcePolicy.enableHybrid");
+    }
 
     /**
      * The policy to be applied to the aws glue data catalog.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ResourcePolicy.policy");
+    }
 
 }

@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:networkmanager/linkAssociation:LinkAssociation")
-public final class LinkAssociation extends com.pulumi.resources.PolicyResource {
+public final class LinkAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the device.
      * 
      */
-    public String deviceId;
+    private UndeferrableValue<String> deviceId;
 
-
+    public String deviceId() {
+        if (deviceId == null) return null;
+        return deviceId.getValue("LinkAssociation.deviceId");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("LinkAssociation.globalNetworkId");
+    }
 
     /**
      * The ID of the link.
      * 
      */
-    public String linkId;
+    private UndeferrableValue<String> linkId;
 
-
+    public String linkId() {
+        if (linkId == null) return null;
+        return linkId.getValue("LinkAssociation.linkId");
+    }
 
 }

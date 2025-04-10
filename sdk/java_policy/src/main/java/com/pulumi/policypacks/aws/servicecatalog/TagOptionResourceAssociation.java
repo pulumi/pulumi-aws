@@ -3,59 +3,78 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")
-public final class TagOptionResourceAssociation extends com.pulumi.resources.PolicyResource {
+public final class TagOptionResourceAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the resource.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("TagOptionResourceAssociation.resourceArn");
+    }
 
     /**
      * Creation time of the resource.
      * 
      */
-    public String resourceCreatedTime;
+    private UndeferrableValue<String> resourceCreatedTime;
 
-
+    public String resourceCreatedTime() {
+        if (resourceCreatedTime == null) return null;
+        return resourceCreatedTime.getValue("TagOptionResourceAssociation.resourceCreatedTime");
+    }
 
     /**
      * Description of the resource.
      * 
      */
-    public String resourceDescription;
+    private UndeferrableValue<String> resourceDescription;
 
-
+    public String resourceDescription() {
+        if (resourceDescription == null) return null;
+        return resourceDescription.getValue("TagOptionResourceAssociation.resourceDescription");
+    }
 
     /**
      * Resource identifier.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("TagOptionResourceAssociation.resourceId");
+    }
 
     /**
      * Description of the resource.
      * 
      */
-    public String resourceName;
+    private UndeferrableValue<String> resourceName;
 
-
+    public String resourceName() {
+        if (resourceName == null) return null;
+        return resourceName.getValue("TagOptionResourceAssociation.resourceName");
+    }
 
     /**
      * Tag Option identifier.
      * 
      */
-    public String tagOptionId;
+    private UndeferrableValue<String> tagOptionId;
 
-
+    public String tagOptionId() {
+        if (tagOptionId == null) return null;
+        return tagOptionId.getValue("TagOptionResourceAssociation.tagOptionId");
+    }
 
 }

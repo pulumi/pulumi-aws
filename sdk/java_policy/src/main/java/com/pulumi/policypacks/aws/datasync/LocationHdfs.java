@@ -3,145 +3,195 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.LocationHdfsNameNode;
-import com.pulumi.policypacks.aws.datasync.LocationHdfsQopConfiguration;
+import com.pulumi.policypacks.aws.datasync.outputs.LocationHdfsNameNode;
+import com.pulumi.policypacks.aws.datasync.outputs.LocationHdfsQopConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationHdfs:LocationHdfs")
-public final class LocationHdfs extends com.pulumi.resources.PolicyResource {
+public final class LocationHdfs extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public List<String> agentArns;
+    private UndeferrableValue<List<String>> agentArns;
 
-
+    public List<String> agentArns() {
+        if (agentArns == null) return null;
+        return agentArns.getValue("LocationHdfs.agentArns");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationHdfs.arn");
+    }
 
     /**
      * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
      * 
      */
-    public String authenticationType;
+    private @Nullable UndeferrableValue<String> authenticationType;
 
-
+    public @Nullable String authenticationType() {
+        if (authenticationType == null) return null;
+        return authenticationType.getValue("LocationHdfs.authenticationType");
+    }
 
     /**
      * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
      * 
      */
-    public Integer blockSize;
+    private @Nullable UndeferrableValue<Integer> blockSize;
 
-
+    public @Nullable Integer blockSize() {
+        if (blockSize == null) return null;
+        return blockSize.getValue("LocationHdfs.blockSize");
+    }
 
     /**
      * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
-    public String kerberosKeytab;
+    private @Nullable UndeferrableValue<String> kerberosKeytab;
 
-
+    public @Nullable String kerberosKeytab() {
+        if (kerberosKeytab == null) return null;
+        return kerberosKeytab.getValue("LocationHdfs.kerberosKeytab");
+    }
 
     /**
      * Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
      * 
      */
-    public String kerberosKeytabBase64;
+    private @Nullable UndeferrableValue<String> kerberosKeytabBase64;
 
-
+    public @Nullable String kerberosKeytabBase64() {
+        if (kerberosKeytabBase64 == null) return null;
+        return kerberosKeytabBase64.getValue("LocationHdfs.kerberosKeytabBase64");
+    }
 
     /**
      * The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
-    public String kerberosKrb5Conf;
+    private @Nullable UndeferrableValue<String> kerberosKrb5Conf;
 
-
+    public @Nullable String kerberosKrb5Conf() {
+        if (kerberosKrb5Conf == null) return null;
+        return kerberosKrb5Conf.getValue("LocationHdfs.kerberosKrb5Conf");
+    }
 
     /**
      * Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
      * 
      */
-    public String kerberosKrb5ConfBase64;
+    private @Nullable UndeferrableValue<String> kerberosKrb5ConfBase64;
 
-
+    public @Nullable String kerberosKrb5ConfBase64() {
+        if (kerberosKrb5ConfBase64 == null) return null;
+        return kerberosKrb5ConfBase64.getValue("LocationHdfs.kerberosKrb5ConfBase64");
+    }
 
     /**
      * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
      * 
      */
-    public String kerberosPrincipal;
+    private @Nullable UndeferrableValue<String> kerberosPrincipal;
 
-
+    public @Nullable String kerberosPrincipal() {
+        if (kerberosPrincipal == null) return null;
+        return kerberosPrincipal.getValue("LocationHdfs.kerberosPrincipal");
+    }
 
     /**
      * The URI of the HDFS cluster&#39;s Key Management Server (KMS).
      * 
      */
-    public String kmsKeyProviderUri;
+    private @Nullable UndeferrableValue<String> kmsKeyProviderUri;
 
-
+    public @Nullable String kmsKeyProviderUri() {
+        if (kmsKeyProviderUri == null) return null;
+        return kmsKeyProviderUri.getValue("LocationHdfs.kmsKeyProviderUri");
+    }
 
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      * 
      */
-    public List<LocationHdfsNameNode> nameNodes;
+    private UndeferrableValue<List<LocationHdfsNameNode>> nameNodes;
 
-
+    public List<LocationHdfsNameNode> nameNodes() {
+        if (nameNodes == null) return null;
+        return nameNodes.getValue("LocationHdfs.nameNodes");
+    }
 
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      * 
      */
-    public LocationHdfsQopConfiguration qopConfiguration;
+    private UndeferrableValue<LocationHdfsQopConfiguration> qopConfiguration;
 
-
+    public LocationHdfsQopConfiguration qopConfiguration() {
+        if (qopConfiguration == null) return null;
+        return qopConfiguration.getValue("LocationHdfs.qopConfiguration");
+    }
 
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      * 
      */
-    public Integer replicationFactor;
+    private @Nullable UndeferrableValue<Integer> replicationFactor;
 
-
+    public @Nullable Integer replicationFactor() {
+        if (replicationFactor == null) return null;
+        return replicationFactor.getValue("LocationHdfs.replicationFactor");
+    }
 
     /**
      * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
      * 
      */
-    public String simpleUser;
+    private @Nullable UndeferrableValue<String> simpleUser;
 
-
+    public @Nullable String simpleUser() {
+        if (simpleUser == null) return null;
+        return simpleUser.getValue("LocationHdfs.simpleUser");
+    }
 
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn&#39;t specified, it will default to /.
      * 
      */
-    public String subdirectory;
+    private @Nullable UndeferrableValue<String> subdirectory;
 
-
+    public @Nullable String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationHdfs.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationHdfs.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -151,12 +201,18 @@ public final class LocationHdfs extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationHdfs.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationHdfs.uri");
+    }
 
 }

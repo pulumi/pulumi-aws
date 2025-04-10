@@ -3,66 +3,89 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ProfilesProfileTimeouts;
+import com.pulumi.policypacks.aws.route53.outputs.ProfilesProfileTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/profilesProfile:ProfilesProfile")
-public final class ProfilesProfile extends com.pulumi.resources.PolicyResource {
+public final class ProfilesProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProfilesProfile.arn");
+    }
 
     /**
      * Name of the Profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProfilesProfile.name");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
-
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ProfilesProfile.ownerId");
+    }
 
     /**
      * Share status of the Profile.
      * 
      */
-    public String shareStatus;
+    private UndeferrableValue<String> shareStatus;
 
-
+    public String shareStatus() {
+        if (shareStatus == null) return null;
+        return shareStatus.getValue("ProfilesProfile.shareStatus");
+    }
 
     /**
      * Status of the Profile.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ProfilesProfile.status");
+    }
 
     /**
      * Status message of the Profile.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
-
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("ProfilesProfile.statusMessage");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProfilesProfile.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -72,12 +95,18 @@ public final class ProfilesProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProfilesProfile.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ProfilesProfileTimeouts> timeouts;
 
-    public ProfilesProfileTimeouts timeouts;
-
-
+    public @Nullable ProfilesProfileTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ProfilesProfile.timeouts");
+    }
 
 }

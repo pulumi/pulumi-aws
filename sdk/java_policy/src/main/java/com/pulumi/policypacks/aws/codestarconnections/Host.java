@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.codestarconnections;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codestarconnections.HostVpcConfiguration;
+import com.pulumi.policypacks.aws.codestarconnections.outputs.HostVpcConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codestarconnections/host:Host")
-public final class Host extends com.pulumi.resources.PolicyResource {
+public final class Host extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CodeStar Host ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Host.arn");
+    }
 
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Host.name");
+    }
 
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      * 
      */
-    public String providerEndpoint;
+    private UndeferrableValue<String> providerEndpoint;
 
-
+    public String providerEndpoint() {
+        if (providerEndpoint == null) return null;
+        return providerEndpoint.getValue("Host.providerEndpoint");
+    }
 
     /**
      * The name of the external provider where your third-party code repository is configured.
      * 
      */
-    public String providerType;
+    private UndeferrableValue<String> providerType;
 
-
+    public String providerType() {
+        if (providerType == null) return null;
+        return providerType.getValue("Host.providerType");
+    }
 
     /**
      * The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Host.status");
+    }
 
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      * 
      */
-    public HostVpcConfiguration vpcConfiguration;
+    private @Nullable UndeferrableValue<HostVpcConfiguration> vpcConfiguration;
 
-
+    public @Nullable HostVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("Host.vpcConfiguration");
+    }
 
 }

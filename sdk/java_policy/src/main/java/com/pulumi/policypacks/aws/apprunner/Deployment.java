@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apprunner.DeploymentTimeouts;
+import com.pulumi.policypacks.aws.apprunner.outputs.DeploymentTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/deployment:Deployment")
-public final class Deployment extends com.pulumi.resources.PolicyResource {
+public final class Deployment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The unique ID of the operation associated with deployment.
      * 
      */
-    public String operationId;
+    private UndeferrableValue<String> operationId;
 
-
+    public String operationId() {
+        if (operationId == null) return null;
+        return operationId.getValue("Deployment.operationId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
-    public String serviceArn;
+    private UndeferrableValue<String> serviceArn;
 
-
+    public String serviceArn() {
+        if (serviceArn == null) return null;
+        return serviceArn.getValue("Deployment.serviceArn");
+    }
 
     /**
      * The current status of the App Runner service deployment.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Deployment.status");
+    }
 
+    private @Nullable UndeferrableValue<DeploymentTimeouts> timeouts;
 
-    public DeploymentTimeouts timeouts;
-
-
+    public @Nullable DeploymentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Deployment.timeouts");
+    }
 
 }

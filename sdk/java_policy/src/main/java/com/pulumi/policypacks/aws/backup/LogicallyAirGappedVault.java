@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.LogicallyAirGappedVaultTimeouts;
+import com.pulumi.policypacks.aws.backup.outputs.LogicallyAirGappedVaultTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")
-public final class LogicallyAirGappedVault extends com.pulumi.resources.PolicyResource {
+public final class LogicallyAirGappedVault extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Logically Air Gapped Backup Vault.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LogicallyAirGappedVault.arn");
+    }
 
     /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */
-    public Integer maxRetentionDays;
+    private UndeferrableValue<Integer> maxRetentionDays;
 
-
+    public Integer maxRetentionDays() {
+        if (maxRetentionDays == null) return null;
+        return maxRetentionDays.getValue("LogicallyAirGappedVault.maxRetentionDays");
+    }
 
     /**
      * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */
-    public Integer minRetentionDays;
+    private UndeferrableValue<Integer> minRetentionDays;
 
-
+    public Integer minRetentionDays() {
+        if (minRetentionDays == null) return null;
+        return minRetentionDays.getValue("LogicallyAirGappedVault.minRetentionDays");
+    }
 
     /**
      * Name of the Logically Air Gapped Backup Vault to create.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogicallyAirGappedVault.name");
+    }
 
     /**
      * Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LogicallyAirGappedVault.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,12 +78,18 @@ public final class LogicallyAirGappedVault extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LogicallyAirGappedVault.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<LogicallyAirGappedVaultTimeouts> timeouts;
 
-    public LogicallyAirGappedVaultTimeouts timeouts;
-
-
+    public @Nullable LogicallyAirGappedVaultTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("LogicallyAirGappedVault.timeouts");
+    }
 
 }

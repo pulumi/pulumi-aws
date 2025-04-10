@@ -3,117 +3,155 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.CustomModelOutputDataConfig;
-import com.pulumi.policypacks.aws.bedrock.CustomModelTimeouts;
-import com.pulumi.policypacks.aws.bedrock.CustomModelTrainingDataConfig;
-import com.pulumi.policypacks.aws.bedrock.CustomModelTrainingMetric;
-import com.pulumi.policypacks.aws.bedrock.CustomModelValidationDataConfig;
-import com.pulumi.policypacks.aws.bedrock.CustomModelValidationMetric;
-import com.pulumi.policypacks.aws.bedrock.CustomModelVpcConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelOutputDataConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelTrainingDataConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelTrainingMetric;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelValidationDataConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelValidationMetric;
+import com.pulumi.policypacks.aws.bedrock.outputs.CustomModelVpcConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/customModel:CustomModel")
-public final class CustomModel extends com.pulumi.resources.PolicyResource {
+public final class CustomModel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the base model.
      * 
      */
-    public String baseModelIdentifier;
+    private UndeferrableValue<String> baseModelIdentifier;
 
-
+    public String baseModelIdentifier() {
+        if (baseModelIdentifier == null) return null;
+        return baseModelIdentifier.getValue("CustomModel.baseModelIdentifier");
+    }
 
     /**
      * The ARN of the output model.
      * 
      */
-    public String customModelArn;
+    private UndeferrableValue<String> customModelArn;
 
-
+    public String customModelArn() {
+        if (customModelArn == null) return null;
+        return customModelArn.getValue("CustomModel.customModelArn");
+    }
 
     /**
      * The custom model is encrypted at rest using this key. Specify the key ARN.
      * 
      */
-    public String customModelKmsKeyId;
+    private @Nullable UndeferrableValue<String> customModelKmsKeyId;
 
-
+    public @Nullable String customModelKmsKeyId() {
+        if (customModelKmsKeyId == null) return null;
+        return customModelKmsKeyId.getValue("CustomModel.customModelKmsKeyId");
+    }
 
     /**
      * Name for the custom model.
      * 
      */
-    public String customModelName;
+    private UndeferrableValue<String> customModelName;
 
-
+    public String customModelName() {
+        if (customModelName == null) return null;
+        return customModelName.getValue("CustomModel.customModelName");
+    }
 
     /**
      * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
-    public String customizationType;
+    private UndeferrableValue<String> customizationType;
 
-
+    public String customizationType() {
+        if (customizationType == null) return null;
+        return customizationType.getValue("CustomModel.customizationType");
+    }
 
     /**
      * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
      * 
      */
-    public Map<String,String> hyperparameters;
+    private UndeferrableValue<Map<String,String>> hyperparameters;
 
-
+    public Map<String,String> hyperparameters() {
+        if (hyperparameters == null) return null;
+        return hyperparameters.getValue("CustomModel.hyperparameters");
+    }
 
     /**
      * The ARN of the customization job.
      * 
      */
-    public String jobArn;
+    private UndeferrableValue<String> jobArn;
 
-
+    public String jobArn() {
+        if (jobArn == null) return null;
+        return jobArn.getValue("CustomModel.jobArn");
+    }
 
     /**
      * A name for the customization job.
      * 
      */
-    public String jobName;
+    private UndeferrableValue<String> jobName;
 
-
+    public String jobName() {
+        if (jobName == null) return null;
+        return jobName.getValue("CustomModel.jobName");
+    }
 
     /**
      * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      * 
      */
-    public String jobStatus;
+    private UndeferrableValue<String> jobStatus;
 
-
+    public String jobStatus() {
+        if (jobStatus == null) return null;
+        return jobStatus.getValue("CustomModel.jobStatus");
+    }
 
     /**
      * S3 location for the output data.
      * 
      */
-    public CustomModelOutputDataConfig outputDataConfig;
+    private @Nullable UndeferrableValue<CustomModelOutputDataConfig> outputDataConfig;
 
-
+    public @Nullable CustomModelOutputDataConfig outputDataConfig() {
+        if (outputDataConfig == null) return null;
+        return outputDataConfig.getValue("CustomModel.outputDataConfig");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("CustomModel.roleArn");
+    }
 
     /**
      * A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomModel.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,52 +161,73 @@ public final class CustomModel extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomModel.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<CustomModelTimeouts> timeouts;
 
-    public CustomModelTimeouts timeouts;
-
-
+    public @Nullable CustomModelTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("CustomModel.timeouts");
+    }
 
     /**
      * Information about the training dataset.
      * 
      */
-    public CustomModelTrainingDataConfig trainingDataConfig;
+    private @Nullable UndeferrableValue<CustomModelTrainingDataConfig> trainingDataConfig;
 
-
+    public @Nullable CustomModelTrainingDataConfig trainingDataConfig() {
+        if (trainingDataConfig == null) return null;
+        return trainingDataConfig.getValue("CustomModel.trainingDataConfig");
+    }
 
     /**
      * Metrics associated with the customization job.
      * 
      */
-    public List<CustomModelTrainingMetric> trainingMetrics;
+    private UndeferrableValue<List<CustomModelTrainingMetric>> trainingMetrics;
 
-
+    public List<CustomModelTrainingMetric> trainingMetrics() {
+        if (trainingMetrics == null) return null;
+        return trainingMetrics.getValue("CustomModel.trainingMetrics");
+    }
 
     /**
      * Information about the validation dataset.
      * 
      */
-    public CustomModelValidationDataConfig validationDataConfig;
+    private @Nullable UndeferrableValue<CustomModelValidationDataConfig> validationDataConfig;
 
-
+    public @Nullable CustomModelValidationDataConfig validationDataConfig() {
+        if (validationDataConfig == null) return null;
+        return validationDataConfig.getValue("CustomModel.validationDataConfig");
+    }
 
     /**
      * The loss metric for each validator that you provided.
      * 
      */
-    public List<CustomModelValidationMetric> validationMetrics;
+    private UndeferrableValue<List<CustomModelValidationMetric>> validationMetrics;
 
-
+    public List<CustomModelValidationMetric> validationMetrics() {
+        if (validationMetrics == null) return null;
+        return validationMetrics.getValue("CustomModel.validationMetrics");
+    }
 
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      * 
      */
-    public CustomModelVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<CustomModelVpcConfig> vpcConfig;
 
-
+    public @Nullable CustomModelVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("CustomModel.vpcConfig");
+    }
 
 }

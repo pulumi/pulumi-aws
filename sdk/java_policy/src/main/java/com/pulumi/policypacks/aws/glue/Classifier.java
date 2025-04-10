@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.ClassifierCsvClassifier;
-import com.pulumi.policypacks.aws.glue.ClassifierGrokClassifier;
-import com.pulumi.policypacks.aws.glue.ClassifierJsonClassifier;
-import com.pulumi.policypacks.aws.glue.ClassifierXmlClassifier;
+import com.pulumi.policypacks.aws.glue.outputs.ClassifierCsvClassifier;
+import com.pulumi.policypacks.aws.glue.outputs.ClassifierGrokClassifier;
+import com.pulumi.policypacks.aws.glue.outputs.ClassifierJsonClassifier;
+import com.pulumi.policypacks.aws.glue.outputs.ClassifierXmlClassifier;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/classifier:Classifier")
-public final class Classifier extends com.pulumi.resources.PolicyResource {
+public final class Classifier extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A classifier for CSV content. Defined below.
      * 
      */
-    public ClassifierCsvClassifier csvClassifier;
+    private @Nullable UndeferrableValue<ClassifierCsvClassifier> csvClassifier;
 
-
+    public @Nullable ClassifierCsvClassifier csvClassifier() {
+        if (csvClassifier == null) return null;
+        return csvClassifier.getValue("Classifier.csvClassifier");
+    }
 
     /**
      * A classifier that uses grok patterns. Defined below.
      * 
      */
-    public ClassifierGrokClassifier grokClassifier;
+    private @Nullable UndeferrableValue<ClassifierGrokClassifier> grokClassifier;
 
-
+    public @Nullable ClassifierGrokClassifier grokClassifier() {
+        if (grokClassifier == null) return null;
+        return grokClassifier.getValue("Classifier.grokClassifier");
+    }
 
     /**
      * A classifier for JSON content. Defined below.
      * 
      */
-    public ClassifierJsonClassifier jsonClassifier;
+    private @Nullable UndeferrableValue<ClassifierJsonClassifier> jsonClassifier;
 
-
+    public @Nullable ClassifierJsonClassifier jsonClassifier() {
+        if (jsonClassifier == null) return null;
+        return jsonClassifier.getValue("Classifier.jsonClassifier");
+    }
 
     /**
      * The name of the classifier.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Classifier.name");
+    }
 
     /**
      * A classifier for XML content. Defined below.
      * 
      */
-    public ClassifierXmlClassifier xmlClassifier;
+    private @Nullable UndeferrableValue<ClassifierXmlClassifier> xmlClassifier;
 
-
+    public @Nullable ClassifierXmlClassifier xmlClassifier() {
+        if (xmlClassifier == null) return null;
+        return xmlClassifier.getValue("Classifier.xmlClassifier");
+    }
 
 }

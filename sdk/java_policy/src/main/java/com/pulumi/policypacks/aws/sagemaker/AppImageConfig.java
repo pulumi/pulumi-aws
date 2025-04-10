@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.AppImageConfigCodeEditorAppImageConfig;
-import com.pulumi.policypacks.aws.sagemaker.AppImageConfigJupyterLabImageConfig;
-import com.pulumi.policypacks.aws.sagemaker.AppImageConfigKernelGatewayImageConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.AppImageConfigCodeEditorAppImageConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.AppImageConfigKernelGatewayImageConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/appImageConfig:AppImageConfig")
-public final class AppImageConfig extends com.pulumi.resources.PolicyResource {
+public final class AppImageConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the App Image Config.
      * 
      */
-    public String appImageConfigName;
+    private UndeferrableValue<String> appImageConfigName;
 
-
+    public String appImageConfigName() {
+        if (appImageConfigName == null) return null;
+        return appImageConfigName.getValue("AppImageConfig.appImageConfigName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AppImageConfig.arn");
+    }
 
     /**
      * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
      * 
      */
-    public AppImageConfigCodeEditorAppImageConfig codeEditorAppImageConfig;
+    private @Nullable UndeferrableValue<AppImageConfigCodeEditorAppImageConfig> codeEditorAppImageConfig;
 
-
+    public @Nullable AppImageConfigCodeEditorAppImageConfig codeEditorAppImageConfig() {
+        if (codeEditorAppImageConfig == null) return null;
+        return codeEditorAppImageConfig.getValue("AppImageConfig.codeEditorAppImageConfig");
+    }
 
     /**
      * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
      * 
      */
-    public AppImageConfigJupyterLabImageConfig jupyterLabImageConfig;
+    private @Nullable UndeferrableValue<AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
 
-
+    public @Nullable AppImageConfigJupyterLabImageConfig jupyterLabImageConfig() {
+        if (jupyterLabImageConfig == null) return null;
+        return jupyterLabImageConfig.getValue("AppImageConfig.jupyterLabImageConfig");
+    }
 
     /**
      * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
-    public AppImageConfigKernelGatewayImageConfig kernelGatewayImageConfig;
+    private @Nullable UndeferrableValue<AppImageConfigKernelGatewayImageConfig> kernelGatewayImageConfig;
 
-
+    public @Nullable AppImageConfigKernelGatewayImageConfig kernelGatewayImageConfig() {
+        if (kernelGatewayImageConfig == null) return null;
+        return kernelGatewayImageConfig.getValue("AppImageConfig.kernelGatewayImageConfig");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AppImageConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,8 +90,11 @@ public final class AppImageConfig extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AppImageConfig.tagsAll");
+    }
 
 }

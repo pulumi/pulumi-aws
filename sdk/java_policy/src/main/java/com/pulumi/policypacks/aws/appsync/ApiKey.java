@@ -3,47 +3,64 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/apiKey:ApiKey")
-public final class ApiKey extends com.pulumi.resources.PolicyResource {
+public final class ApiKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the associated AppSync API
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("ApiKey.apiId");
+    }
 
+    private UndeferrableValue<String> apiKeyId;
 
-    public String apiKeyId;
-
-
+    public String apiKeyId() {
+        if (apiKeyId == null) return null;
+        return apiKeyId.getValue("ApiKey.apiKeyId");
+    }
 
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ApiKey.description");
+    }
 
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      * 
      */
-    public String expires;
+    private @Nullable UndeferrableValue<String> expires;
 
-
+    public @Nullable String expires() {
+        if (expires == null) return null;
+        return expires.getValue("ApiKey.expires");
+    }
 
     /**
      * API key
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("ApiKey.key");
+    }
 
 }

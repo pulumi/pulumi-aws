@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/rolePoliciesExclusive:RolePoliciesExclusive")
-public final class RolePoliciesExclusive extends com.pulumi.resources.PolicyResource {
+public final class RolePoliciesExclusive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
      * 
      */
-    public List<String> policyNames;
+    private UndeferrableValue<List<String>> policyNames;
 
-
+    public List<String> policyNames() {
+        if (policyNames == null) return null;
+        return policyNames.getValue("RolePoliciesExclusive.policyNames");
+    }
 
     /**
      * IAM role name.
      * 
      */
-    public String roleName;
+    private UndeferrableValue<String> roleName;
 
-
+    public String roleName() {
+        if (roleName == null) return null;
+        return roleName.getValue("RolePoliciesExclusive.roleName");
+    }
 
 }

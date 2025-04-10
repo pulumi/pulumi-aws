@@ -3,175 +3,237 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/devEndpoint:DevEndpoint")
-public final class DevEndpoint extends com.pulumi.resources.PolicyResource {
+public final class DevEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A map of arguments used to configure the endpoint.
      * 
      */
-    public Map<String,String> arguments;
+    private @Nullable UndeferrableValue<Map<String,String>> arguments;
 
-
+    public @Nullable Map<String,String> arguments() {
+        if (arguments == null) return null;
+        return arguments.getValue("DevEndpoint.arguments");
+    }
 
     /**
      * The ARN of the endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DevEndpoint.arn");
+    }
 
     /**
      * The AWS availability zone where this endpoint is located.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("DevEndpoint.availabilityZone");
+    }
 
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      * 
      */
-    public String extraJarsS3Path;
+    private @Nullable UndeferrableValue<String> extraJarsS3Path;
 
-
+    public @Nullable String extraJarsS3Path() {
+        if (extraJarsS3Path == null) return null;
+        return extraJarsS3Path.getValue("DevEndpoint.extraJarsS3Path");
+    }
 
     /**
      * Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
      * 
      */
-    public String extraPythonLibsS3Path;
+    private @Nullable UndeferrableValue<String> extraPythonLibsS3Path;
 
-
+    public @Nullable String extraPythonLibsS3Path() {
+        if (extraPythonLibsS3Path == null) return null;
+        return extraPythonLibsS3Path.getValue("DevEndpoint.extraPythonLibsS3Path");
+    }
 
     /**
      * The reason for a current failure in this endpoint.
      * 
      */
-    public String failureReason;
+    private UndeferrableValue<String> failureReason;
 
-
+    public String failureReason() {
+        if (failureReason == null) return null;
+        return failureReason.getValue("DevEndpoint.failureReason");
+    }
 
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
-    public String glueVersion;
+    private @Nullable UndeferrableValue<String> glueVersion;
 
-
+    public @Nullable String glueVersion() {
+        if (glueVersion == null) return null;
+        return glueVersion.getValue("DevEndpoint.glueVersion");
+    }
 
     /**
      * The name of this endpoint. It must be unique in your account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DevEndpoint.name");
+    }
 
     /**
      * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
      * 
      */
-    public Integer numberOfNodes;
+    private @Nullable UndeferrableValue<Integer> numberOfNodes;
 
-
+    public @Nullable Integer numberOfNodes() {
+        if (numberOfNodes == null) return null;
+        return numberOfNodes.getValue("DevEndpoint.numberOfNodes");
+    }
 
     /**
      * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
-    public Integer numberOfWorkers;
+    private @Nullable UndeferrableValue<Integer> numberOfWorkers;
 
-
+    public @Nullable Integer numberOfWorkers() {
+        if (numberOfWorkers == null) return null;
+        return numberOfWorkers.getValue("DevEndpoint.numberOfWorkers");
+    }
 
     /**
      * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
-    public String privateAddress;
+    private UndeferrableValue<String> privateAddress;
 
-
+    public String privateAddress() {
+        if (privateAddress == null) return null;
+        return privateAddress.getValue("DevEndpoint.privateAddress");
+    }
 
     /**
      * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
-    public String publicAddress;
+    private UndeferrableValue<String> publicAddress;
 
-
+    public String publicAddress() {
+        if (publicAddress == null) return null;
+        return publicAddress.getValue("DevEndpoint.publicAddress");
+    }
 
     /**
      * The public key to be used by this endpoint for authentication.
      * 
      */
-    public String publicKey;
+    private @Nullable UndeferrableValue<String> publicKey;
 
-
+    public @Nullable String publicKey() {
+        if (publicKey == null) return null;
+        return publicKey.getValue("DevEndpoint.publicKey");
+    }
 
     /**
      * A list of public keys to be used by this endpoint for authentication.
      * 
      */
-    public List<String> publicKeys;
+    private @Nullable UndeferrableValue<List<String>> publicKeys;
 
-
+    public @Nullable List<String> publicKeys() {
+        if (publicKeys == null) return null;
+        return publicKeys.getValue("DevEndpoint.publicKeys");
+    }
 
     /**
      * The IAM role for this endpoint.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("DevEndpoint.roleArn");
+    }
 
     /**
      * The name of the Security Configuration structure to be used with this endpoint.
      * 
      */
-    public String securityConfiguration;
+    private @Nullable UndeferrableValue<String> securityConfiguration;
 
-
+    public @Nullable String securityConfiguration() {
+        if (securityConfiguration == null) return null;
+        return securityConfiguration.getValue("DevEndpoint.securityConfiguration");
+    }
 
     /**
      * Security group IDs for the security groups to be used by this endpoint.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("DevEndpoint.securityGroupIds");
+    }
 
     /**
      * The current status of this endpoint.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("DevEndpoint.status");
+    }
 
     /**
      * The subnet ID for the new endpoint to use.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("DevEndpoint.subnetId");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DevEndpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -181,40 +243,55 @@ public final class DevEndpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DevEndpoint.tagsAll");
+    }
 
     /**
      * he ID of the VPC used by this endpoint.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("DevEndpoint.vpcId");
+    }
 
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
-    public String workerType;
+    private @Nullable UndeferrableValue<String> workerType;
 
-
+    public @Nullable String workerType() {
+        if (workerType == null) return null;
+        return workerType.getValue("DevEndpoint.workerType");
+    }
 
     /**
      * The YARN endpoint address used by this endpoint.
      * 
      */
-    public String yarnEndpointAddress;
+    private UndeferrableValue<String> yarnEndpointAddress;
 
-
+    public String yarnEndpointAddress() {
+        if (yarnEndpointAddress == null) return null;
+        return yarnEndpointAddress.getValue("DevEndpoint.yarnEndpointAddress");
+    }
 
     /**
      * The Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
-    public Integer zeppelinRemoteSparkInterpreterPort;
+    private UndeferrableValue<Integer> zeppelinRemoteSparkInterpreterPort;
 
-
+    public Integer zeppelinRemoteSparkInterpreterPort() {
+        if (zeppelinRemoteSparkInterpreterPort == null) return null;
+        return zeppelinRemoteSparkInterpreterPort.getValue("DevEndpoint.zeppelinRemoteSparkInterpreterPort");
+    }
 
 }

@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.datapipeline;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datapipeline.PipelineDefinitionParameterObject;
-import com.pulumi.policypacks.aws.datapipeline.PipelineDefinitionParameterValue;
-import com.pulumi.policypacks.aws.datapipeline.PipelineDefinitionPipelineObject;
+import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionParameterObject;
+import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionParameterValue;
+import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionPipelineObject;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datapipeline/pipelineDefinition:PipelineDefinition")
-public final class PipelineDefinition extends com.pulumi.resources.PolicyResource {
+public final class PipelineDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      * 
      */
-    public List<PipelineDefinitionParameterObject> parameterObjects;
+    private @Nullable UndeferrableValue<List<PipelineDefinitionParameterObject>> parameterObjects;
 
-
+    public @Nullable List<PipelineDefinitionParameterObject> parameterObjects() {
+        if (parameterObjects == null) return null;
+        return parameterObjects.getValue("PipelineDefinition.parameterObjects");
+    }
 
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      * 
      */
-    public List<PipelineDefinitionParameterValue> parameterValues;
+    private @Nullable UndeferrableValue<List<PipelineDefinitionParameterValue>> parameterValues;
 
-
+    public @Nullable List<PipelineDefinitionParameterValue> parameterValues() {
+        if (parameterValues == null) return null;
+        return parameterValues.getValue("PipelineDefinition.parameterValues");
+    }
 
     /**
      * ID of the pipeline.
      * 
      */
-    public String pipelineId;
+    private UndeferrableValue<String> pipelineId;
 
-
+    public String pipelineId() {
+        if (pipelineId == null) return null;
+        return pipelineId.getValue("PipelineDefinition.pipelineId");
+    }
 
     /**
      * Configuration block for the objects that define the pipeline. See below
@@ -44,8 +55,11 @@ public final class PipelineDefinition extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public List<PipelineDefinitionPipelineObject> pipelineObjects;
+    private UndeferrableValue<List<PipelineDefinitionPipelineObject>> pipelineObjects;
 
-
+    public List<PipelineDefinitionPipelineObject> pipelineObjects() {
+        if (pipelineObjects == null) return null;
+        return pipelineObjects.getValue("PipelineDefinition.pipelineObjects");
+    }
 
 }

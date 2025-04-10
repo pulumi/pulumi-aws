@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.EventConnectionAuthParameters;
-import com.pulumi.policypacks.aws.cloudwatch.EventConnectionInvocationConnectivityParameters;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionAuthParameters;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionInvocationConnectivityParameters;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventConnection:EventConnection")
-public final class EventConnection extends com.pulumi.resources.PolicyResource {
+public final class EventConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventConnection.arn");
+    }
 
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      * 
      */
-    public EventConnectionAuthParameters authParameters;
+    private UndeferrableValue<EventConnectionAuthParameters> authParameters;
 
-
+    public EventConnectionAuthParameters authParameters() {
+        if (authParameters == null) return null;
+        return authParameters.getValue("EventConnection.authParameters");
+    }
 
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    public String authorizationType;
+    private UndeferrableValue<String> authorizationType;
 
-
+    public String authorizationType() {
+        if (authorizationType == null) return null;
+        return authorizationType.getValue("EventConnection.authorizationType");
+    }
 
     /**
      * Enter a description for the connection. Maximum of 512 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EventConnection.description");
+    }
 
     /**
      * The parameters to use for invoking a private API. Documented below.
      * 
      */
-    public EventConnectionInvocationConnectivityParameters invocationConnectivityParameters;
+    private @Nullable UndeferrableValue<EventConnectionInvocationConnectivityParameters> invocationConnectivityParameters;
 
-
+    public @Nullable EventConnectionInvocationConnectivityParameters invocationConnectivityParameters() {
+        if (invocationConnectivityParameters == null) return null;
+        return invocationConnectivityParameters.getValue("EventConnection.invocationConnectivityParameters");
+    }
 
     /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventConnection.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      * 
      */
-    public String secretArn;
+    private UndeferrableValue<String> secretArn;
 
-
+    public String secretArn() {
+        if (secretArn == null) return null;
+        return secretArn.getValue("EventConnection.secretArn");
+    }
 
 }

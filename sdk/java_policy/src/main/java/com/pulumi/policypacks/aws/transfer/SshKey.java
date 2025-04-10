@@ -3,39 +3,52 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:transfer/sshKey:SshKey")
-public final class SshKey extends com.pulumi.resources.PolicyResource {
+public final class SshKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The public key portion of an SSH key pair.
      * 
      */
-    public String body;
+    private UndeferrableValue<String> body;
 
-
+    public String body() {
+        if (body == null) return null;
+        return body.getValue("SshKey.body");
+    }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    public String serverId;
+    private UndeferrableValue<String> serverId;
 
+    public String serverId() {
+        if (serverId == null) return null;
+        return serverId.getValue("SshKey.serverId");
+    }
 
+    private UndeferrableValue<String> sshKeyId;
 
-    public String sshKeyId;
-
-
+    public String sshKeyId() {
+        if (sshKeyId == null) return null;
+        return sshKeyId.getValue("SshKey.sshKeyId");
+    }
 
     /**
      * The name of the user account that is assigned to one or more servers.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("SshKey.userName");
+    }
 
 }

@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.RecorderRecordingGroup;
-import com.pulumi.policypacks.aws.cfg.RecorderRecordingMode;
+import com.pulumi.policypacks.aws.cfg.outputs.RecorderRecordingGroup;
+import com.pulumi.policypacks.aws.cfg.outputs.RecorderRecordingMode;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cfg/recorder:Recorder")
-public final class Recorder extends com.pulumi.resources.PolicyResource {
+public final class Recorder extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Recorder.name");
+    }
 
     /**
      * Recording group - see below.
      * 
      */
-    public RecorderRecordingGroup recordingGroup;
+    private UndeferrableValue<RecorderRecordingGroup> recordingGroup;
 
-
+    public RecorderRecordingGroup recordingGroup() {
+        if (recordingGroup == null) return null;
+        return recordingGroup.getValue("Recorder.recordingGroup");
+    }
 
     /**
      * Recording mode - see below.
      * 
      */
-    public RecorderRecordingMode recordingMode;
+    private UndeferrableValue<RecorderRecordingMode> recordingMode;
 
-
+    public RecorderRecordingMode recordingMode() {
+        if (recordingMode == null) return null;
+        return recordingMode.getValue("Recorder.recordingMode");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Recorder.roleArn");
+    }
 
 }

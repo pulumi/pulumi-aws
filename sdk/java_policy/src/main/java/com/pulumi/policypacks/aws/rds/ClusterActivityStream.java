@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/clusterActivityStream:ClusterActivityStream")
-public final class ClusterActivityStream extends com.pulumi.resources.PolicyResource {
+public final class ClusterActivityStream extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
-    public Boolean engineNativeAuditFieldsIncluded;
+    private @Nullable UndeferrableValue<Boolean> engineNativeAuditFieldsIncluded;
 
-
+    public @Nullable Boolean engineNativeAuditFieldsIncluded() {
+        if (engineNativeAuditFieldsIncluded == null) return null;
+        return engineNativeAuditFieldsIncluded.getValue("ClusterActivityStream.engineNativeAuditFieldsIncluded");
+    }
 
     /**
      * The name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
-    public String kinesisStreamName;
+    private UndeferrableValue<String> kinesisStreamName;
 
-
+    public String kinesisStreamName() {
+        if (kinesisStreamName == null) return null;
+        return kinesisStreamName.getValue("ClusterActivityStream.kinesisStreamName");
+    }
 
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterActivityStream.kmsKeyId");
+    }
 
     /**
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
-    public String mode;
+    private UndeferrableValue<String> mode;
 
-
+    public String mode() {
+        if (mode == null) return null;
+        return mode.getValue("ClusterActivityStream.mode");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ClusterActivityStream.resourceArn");
+    }
 
 }

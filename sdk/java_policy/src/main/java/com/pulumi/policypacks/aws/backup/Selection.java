@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.SelectionCondition;
-import com.pulumi.policypacks.aws.backup.SelectionSelectionTag;
+import com.pulumi.policypacks.aws.backup.outputs.SelectionCondition;
+import com.pulumi.policypacks.aws.backup.outputs.SelectionSelectionTag;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/selection:Selection")
-public final class Selection extends com.pulumi.resources.PolicyResource {
+public final class Selection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
-    public List<SelectionCondition> conditions;
+    private UndeferrableValue<List<SelectionCondition>> conditions;
 
-
+    public List<SelectionCondition> conditions() {
+        if (conditions == null) return null;
+        return conditions.getValue("Selection.conditions");
+    }
 
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("Selection.iamRoleArn");
+    }
 
     /**
      * The display name of a resource selection document.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Selection.name");
+    }
 
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      * 
      */
-    public List<String> notResources;
+    private UndeferrableValue<List<String>> notResources;
 
-
+    public List<String> notResources() {
+        if (notResources == null) return null;
+        return notResources.getValue("Selection.notResources");
+    }
 
     /**
      * The backup plan ID to be associated with the selection of resources.
      * 
      */
-    public String planId;
+    private UndeferrableValue<String> planId;
 
-
+    public String planId() {
+        if (planId == null) return null;
+        return planId.getValue("Selection.planId");
+    }
 
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      * 
      */
-    public List<String> resources;
+    private @Nullable UndeferrableValue<List<String>> resources;
 
-
+    public @Nullable List<String> resources() {
+        if (resources == null) return null;
+        return resources.getValue("Selection.resources");
+    }
 
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
-    public List<SelectionSelectionTag> selectionTags;
+    private @Nullable UndeferrableValue<List<SelectionSelectionTag>> selectionTags;
 
-
+    public @Nullable List<SelectionSelectionTag> selectionTags() {
+        if (selectionTags == null) return null;
+        return selectionTags.getValue("Selection.selectionTags");
+    }
 
 }

@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.IntegrationTimeouts;
+import com.pulumi.policypacks.aws.rds.outputs.IntegrationTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/integration:Integration")
-public final class Integration extends com.pulumi.resources.PolicyResource {
+public final class Integration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of non-secret key–value pairs that contains additional contextual information about the data.
@@ -18,17 +20,23 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * You can only include this parameter if you specify the `kms_key_id` parameter.
      * 
      */
-    public Map<String,String> additionalEncryptionContext;
+    private @Nullable UndeferrableValue<Map<String,String>> additionalEncryptionContext;
 
-
+    public @Nullable Map<String,String> additionalEncryptionContext() {
+        if (additionalEncryptionContext == null) return null;
+        return additionalEncryptionContext.getValue("Integration.additionalEncryptionContext");
+    }
 
     /**
      * ARN of the Integration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Integration.arn");
+    }
 
     /**
      * Data filters for the integration.
@@ -38,17 +46,23 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
      * 
      */
-    public String dataFilter;
+    private UndeferrableValue<String> dataFilter;
 
-
+    public String dataFilter() {
+        if (dataFilter == null) return null;
+        return dataFilter.getValue("Integration.dataFilter");
+    }
 
     /**
      * Name of the integration.
      * 
      */
-    public String integrationName;
+    private UndeferrableValue<String> integrationName;
 
-
+    public String integrationName() {
+        if (integrationName == null) return null;
+        return integrationName.getValue("Integration.integrationName");
+    }
 
     /**
      * KMS key identifier for the key to use to encrypt the integration.
@@ -56,25 +70,34 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Integration.kmsKeyId");
+    }
 
     /**
      * ARN of the database to use as the source for replication.
      * 
      */
-    public String sourceArn;
+    private UndeferrableValue<String> sourceArn;
 
-
+    public String sourceArn() {
+        if (sourceArn == null) return null;
+        return sourceArn.getValue("Integration.sourceArn");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Integration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,9 +107,12 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Integration.tagsAll");
+    }
 
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
@@ -94,12 +120,18 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("Integration.targetArn");
+    }
 
+    private @Nullable UndeferrableValue<IntegrationTimeouts> timeouts;
 
-    public IntegrationTimeouts timeouts;
-
-
+    public @Nullable IntegrationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Integration.timeouts");
+    }
 
 }

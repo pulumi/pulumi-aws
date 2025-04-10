@@ -3,73 +3,96 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.IntegrationTlsConfig;
+import com.pulumi.policypacks.aws.apigateway.outputs.IntegrationTlsConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/integration:Integration")
-public final class Integration extends com.pulumi.resources.PolicyResource {
+public final class Integration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of cache key parameters for the integration.
      * 
      */
-    public List<String> cacheKeyParameters;
+    private @Nullable UndeferrableValue<List<String>> cacheKeyParameters;
 
-
+    public @Nullable List<String> cacheKeyParameters() {
+        if (cacheKeyParameters == null) return null;
+        return cacheKeyParameters.getValue("Integration.cacheKeyParameters");
+    }
 
     /**
      * Integration&#39;s cache namespace.
      * 
      */
-    public String cacheNamespace;
+    private UndeferrableValue<String> cacheNamespace;
 
-
+    public String cacheNamespace() {
+        if (cacheNamespace == null) return null;
+        return cacheNamespace.getValue("Integration.cacheNamespace");
+    }
 
     /**
      * ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
      * 
      */
-    public String connectionId;
+    private @Nullable UndeferrableValue<String> connectionId;
 
-
+    public @Nullable String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("Integration.connectionId");
+    }
 
     /**
      * Integration input&#39;s [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      * 
      */
-    public String connectionType;
+    private @Nullable UndeferrableValue<String> connectionType;
 
-
+    public @Nullable String connectionType() {
+        if (connectionType == null) return null;
+        return connectionType.getValue("Integration.connectionType");
+    }
 
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      * 
      */
-    public String contentHandling;
+    private @Nullable UndeferrableValue<String> contentHandling;
 
-
+    public @Nullable String contentHandling() {
+        if (contentHandling == null) return null;
+        return contentHandling.getValue("Integration.contentHandling");
+    }
 
     /**
      * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      * 
      */
-    public String credentials;
+    private @Nullable UndeferrableValue<String> credentials;
 
-
+    public @Nullable String credentials() {
+        if (credentials == null) return null;
+        return credentials.getValue("Integration.credentials");
+    }
 
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
      * 
      */
-    public String httpMethod;
+    private UndeferrableValue<String> httpMethod;
 
-
+    public String httpMethod() {
+        if (httpMethod == null) return null;
+        return httpMethod.getValue("Integration.httpMethod");
+    }
 
     /**
      * Integration HTTP method
@@ -79,74 +102,101 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      * 
      */
-    public String integrationHttpMethod;
+    private @Nullable UndeferrableValue<String> integrationHttpMethod;
 
-
+    public @Nullable String integrationHttpMethod() {
+        if (integrationHttpMethod == null) return null;
+        return integrationHttpMethod.getValue("Integration.integrationHttpMethod");
+    }
 
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
      * 
      */
-    public String passthroughBehavior;
+    private UndeferrableValue<String> passthroughBehavior;
 
-
+    public String passthroughBehavior() {
+        if (passthroughBehavior == null) return null;
+        return passthroughBehavior.getValue("Integration.passthroughBehavior");
+    }
 
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
-    public Map<String,String> requestParameters;
+    private @Nullable UndeferrableValue<Map<String,String>> requestParameters;
 
-
+    public @Nullable Map<String,String> requestParameters() {
+        if (requestParameters == null) return null;
+        return requestParameters.getValue("Integration.requestParameters");
+    }
 
     /**
      * Map of the integration&#39;s request templates.
      * 
      */
-    public Map<String,String> requestTemplates;
+    private @Nullable UndeferrableValue<Map<String,String>> requestTemplates;
 
-
+    public @Nullable Map<String,String> requestTemplates() {
+        if (requestTemplates == null) return null;
+        return requestTemplates.getValue("Integration.requestTemplates");
+    }
 
     /**
      * API resource ID.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("Integration.resourceId");
+    }
 
     /**
      * ID of the associated REST API.
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Integration.restApi");
+    }
 
     /**
      * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      * 
      */
-    public Integer timeoutMilliseconds;
+    private @Nullable UndeferrableValue<Integer> timeoutMilliseconds;
 
-
+    public @Nullable Integer timeoutMilliseconds() {
+        if (timeoutMilliseconds == null) return null;
+        return timeoutMilliseconds.getValue("Integration.timeoutMilliseconds");
+    }
 
     /**
      * TLS configuration. See below.
      * 
      */
-    public IntegrationTlsConfig tlsConfig;
+    private @Nullable UndeferrableValue<IntegrationTlsConfig> tlsConfig;
 
-
+    public @Nullable IntegrationTlsConfig tlsConfig() {
+        if (tlsConfig == null) return null;
+        return tlsConfig.getValue("Integration.tlsConfig");
+    }
 
     /**
      * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Integration.type");
+    }
 
     /**
      * Input&#39;s URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -154,8 +204,11 @@ public final class Integration extends com.pulumi.resources.PolicyResource {
      * e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      * 
      */
-    public String uri;
+    private @Nullable UndeferrableValue<String> uri;
 
-
+    public @Nullable String uri() {
+        if (uri == null) return null;
+        return uri.getValue("Integration.uri");
+    }
 
 }

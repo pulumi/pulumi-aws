@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appstream.DirectoryConfigServiceAccountCredentials;
+import com.pulumi.policypacks.aws.appstream.outputs.DirectoryConfigServiceAccountCredentials;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:appstream/directoryConfig:DirectoryConfig")
-public final class DirectoryConfig extends com.pulumi.resources.PolicyResource {
+public final class DirectoryConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("DirectoryConfig.createdTime");
+    }
 
     /**
      * Fully qualified name of the directory.
      * 
      */
-    public String directoryName;
+    private UndeferrableValue<String> directoryName;
 
-
+    public String directoryName() {
+        if (directoryName == null) return null;
+        return directoryName.getValue("DirectoryConfig.directoryName");
+    }
 
     /**
      * Distinguished names of the organizational units for computer accounts.
      * 
      */
-    public List<String> organizationalUnitDistinguishedNames;
+    private UndeferrableValue<List<String>> organizationalUnitDistinguishedNames;
 
-
+    public List<String> organizationalUnitDistinguishedNames() {
+        if (organizationalUnitDistinguishedNames == null) return null;
+        return organizationalUnitDistinguishedNames.getValue("DirectoryConfig.organizationalUnitDistinguishedNames");
+    }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
      * 
      */
-    public DirectoryConfigServiceAccountCredentials serviceAccountCredentials;
+    private UndeferrableValue<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
 
-
+    public DirectoryConfigServiceAccountCredentials serviceAccountCredentials() {
+        if (serviceAccountCredentials == null) return null;
+        return serviceAccountCredentials.getValue("DirectoryConfig.serviceAccountCredentials");
+    }
 
 }

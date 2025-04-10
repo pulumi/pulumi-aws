@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.ResourceDataSyncS3Destination;
+import com.pulumi.policypacks.aws.ssm.outputs.ResourceDataSyncS3Destination;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssm/resourceDataSync:ResourceDataSync")
-public final class ResourceDataSync extends com.pulumi.resources.PolicyResource {
+public final class ResourceDataSync extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name for the configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResourceDataSync.name");
+    }
 
     /**
      * Amazon S3 configuration details for the sync.
      * 
      */
-    public ResourceDataSyncS3Destination s3Destination;
+    private UndeferrableValue<ResourceDataSyncS3Destination> s3Destination;
 
-
+    public ResourceDataSyncS3Destination s3Destination() {
+        if (s3Destination == null) return null;
+        return s3Destination.getValue("ResourceDataSync.s3Destination");
+    }
 
 }

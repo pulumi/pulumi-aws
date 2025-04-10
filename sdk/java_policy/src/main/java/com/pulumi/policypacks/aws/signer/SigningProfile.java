@@ -3,89 +3,121 @@
 
 package com.pulumi.policypacks.aws.signer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.signer.SigningProfileRevocationRecord;
-import com.pulumi.policypacks.aws.signer.SigningProfileSignatureValidityPeriod;
-import com.pulumi.policypacks.aws.signer.SigningProfileSigningMaterial;
+import com.pulumi.policypacks.aws.signer.outputs.SigningProfileRevocationRecord;
+import com.pulumi.policypacks.aws.signer.outputs.SigningProfileSignatureValidityPeriod;
+import com.pulumi.policypacks.aws.signer.outputs.SigningProfileSigningMaterial;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:signer/signingProfile:SigningProfile")
-public final class SigningProfile extends com.pulumi.resources.PolicyResource {
+public final class SigningProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the signing profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SigningProfile.arn");
+    }
 
+    private UndeferrableValue<String> name;
 
-    public String name;
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SigningProfile.name");
+    }
 
+    private UndeferrableValue<String> namePrefix;
 
-
-    public String namePrefix;
-
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("SigningProfile.namePrefix");
+    }
 
     /**
      * A human-readable name for the signing platform associated with the signing profile.
      * 
      */
-    public String platformDisplayName;
+    private UndeferrableValue<String> platformDisplayName;
 
-
+    public String platformDisplayName() {
+        if (platformDisplayName == null) return null;
+        return platformDisplayName.getValue("SigningProfile.platformDisplayName");
+    }
 
     /**
      * The ID of the platform that is used by the target signing profile.
      * 
      */
-    public String platformId;
+    private UndeferrableValue<String> platformId;
 
-
+    public String platformId() {
+        if (platformId == null) return null;
+        return platformId.getValue("SigningProfile.platformId");
+    }
 
     /**
      * Revocation information for a signing profile. See `revocation_record` Block below for details.
      * 
      */
-    public List<SigningProfileRevocationRecord> revocationRecords;
+    private UndeferrableValue<List<SigningProfileRevocationRecord>> revocationRecords;
 
-
+    public List<SigningProfileRevocationRecord> revocationRecords() {
+        if (revocationRecords == null) return null;
+        return revocationRecords.getValue("SigningProfile.revocationRecords");
+    }
 
     /**
      * The validity period for a signing job. See `signature_validity_period` Block below for details.
      * 
      */
-    public SigningProfileSignatureValidityPeriod signatureValidityPeriod;
+    private UndeferrableValue<SigningProfileSignatureValidityPeriod> signatureValidityPeriod;
 
-
+    public SigningProfileSignatureValidityPeriod signatureValidityPeriod() {
+        if (signatureValidityPeriod == null) return null;
+        return signatureValidityPeriod.getValue("SigningProfile.signatureValidityPeriod");
+    }
 
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
      * 
      */
-    public SigningProfileSigningMaterial signingMaterial;
+    private UndeferrableValue<SigningProfileSigningMaterial> signingMaterial;
 
-
+    public SigningProfileSigningMaterial signingMaterial() {
+        if (signingMaterial == null) return null;
+        return signingMaterial.getValue("SigningProfile.signingMaterial");
+    }
 
     /**
      * The status of the target signing profile.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("SigningProfile.status");
+    }
 
     /**
      * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SigningProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,24 +127,33 @@ public final class SigningProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SigningProfile.tagsAll");
+    }
 
     /**
      * The current version of the signing profile.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("SigningProfile.version");
+    }
 
     /**
      * The signing profile ARN, including the profile version.
      * 
      */
-    public String versionArn;
+    private UndeferrableValue<String> versionArn;
 
-
+    public String versionArn() {
+        if (versionArn == null) return null;
+        return versionArn.getValue("SigningProfile.versionArn");
+    }
 
 }

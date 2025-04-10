@@ -3,53 +3,67 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ClusterMasterUserSecret;
-import com.pulumi.policypacks.aws.rds.ClusterRestoreToPointInTime;
-import com.pulumi.policypacks.aws.rds.ClusterS3Import;
-import com.pulumi.policypacks.aws.rds.ClusterScalingConfiguration;
-import com.pulumi.policypacks.aws.rds.ClusterServerlessv2ScalingConfiguration;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterMasterUserSecret;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterRestoreToPointInTime;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterS3Import;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterScalingConfiguration;
+import com.pulumi.policypacks.aws.rds.outputs.ClusterServerlessv2ScalingConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("Cluster.allocatedStorage");
+    }
 
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
      * 
      */
-    public Boolean allowMajorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
 
-
+    public @Nullable Boolean allowMajorVersionUpgrade() {
+        if (allowMajorVersionUpgrade == null) return null;
+        return allowMajorVersionUpgrade.getValue("Cluster.allowMajorVersionUpgrade");
+    }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Cluster.applyImmediately");
+    }
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
@@ -58,154 +72,211 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * A maximum of 3 AZs can be configured.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Cluster.availabilityZones");
+    }
 
     /**
      * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      * 
      */
-    public Integer backtrackWindow;
+    private @Nullable UndeferrableValue<Integer> backtrackWindow;
 
-
+    public @Nullable Integer backtrackWindow() {
+        if (backtrackWindow == null) return null;
+        return backtrackWindow.getValue("Cluster.backtrackWindow");
+    }
 
     /**
      * Days to retain backups for. Default `1`
      * 
      */
-    public Integer backupRetentionPeriod;
+    private UndeferrableValue<Integer> backupRetentionPeriod;
 
-
+    public Integer backupRetentionPeriod() {
+        if (backupRetentionPeriod == null) return null;
+        return backupRetentionPeriod.getValue("Cluster.backupRetentionPeriod");
+    }
 
     /**
      * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
      * 
      */
-    public String caCertificateIdentifier;
+    private UndeferrableValue<String> caCertificateIdentifier;
 
-
+    public String caCertificateIdentifier() {
+        if (caCertificateIdentifier == null) return null;
+        return caCertificateIdentifier.getValue("Cluster.caCertificateIdentifier");
+    }
 
     /**
      * Expiration date of the DB instance’s server certificate
      * 
      */
-    public String caCertificateValidTill;
+    private UndeferrableValue<String> caCertificateValidTill;
 
-
+    public String caCertificateValidTill() {
+        if (caCertificateValidTill == null) return null;
+        return caCertificateValidTill.getValue("Cluster.caCertificateValidTill");
+    }
 
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+    }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public String clusterIdentifierPrefix;
+    private UndeferrableValue<String> clusterIdentifierPrefix;
 
-
+    public String clusterIdentifierPrefix() {
+        if (clusterIdentifierPrefix == null) return null;
+        return clusterIdentifierPrefix.getValue("Cluster.clusterIdentifierPrefix");
+    }
 
     /**
      * List of RDS Instances that are a part of this cluster
      * 
      */
-    public List<String> clusterMembers;
+    private UndeferrableValue<List<String>> clusterMembers;
 
-
+    public List<String> clusterMembers() {
+        if (clusterMembers == null) return null;
+        return clusterMembers.getValue("Cluster.clusterMembers");
+    }
 
     /**
      * RDS Cluster Resource ID
      * 
      */
-    public String clusterResourceId;
+    private UndeferrableValue<String> clusterResourceId;
 
-
+    public String clusterResourceId() {
+        if (clusterResourceId == null) return null;
+        return clusterResourceId.getValue("Cluster.clusterResourceId");
+    }
 
     /**
      * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
      * 
      */
-    public String clusterScalabilityType;
+    private UndeferrableValue<String> clusterScalabilityType;
 
-
+    public String clusterScalabilityType() {
+        if (clusterScalabilityType == null) return null;
+        return clusterScalabilityType.getValue("Cluster.clusterScalabilityType");
+    }
 
     /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      * 
      */
-    public Boolean copyTagsToSnapshot;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
 
-
+    public @Nullable Boolean copyTagsToSnapshot() {
+        if (copyTagsToSnapshot == null) return null;
+        return copyTagsToSnapshot.getValue("Cluster.copyTagsToSnapshot");
+    }
 
     /**
      * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
      * 
      */
-    public String databaseInsightsMode;
+    private UndeferrableValue<String> databaseInsightsMode;
 
-
+    public String databaseInsightsMode() {
+        if (databaseInsightsMode == null) return null;
+        return databaseInsightsMode.getValue("Cluster.databaseInsightsMode");
+    }
 
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Cluster.databaseName");
+    }
 
     /**
      * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
-    public String dbClusterInstanceClass;
+    private @Nullable UndeferrableValue<String> dbClusterInstanceClass;
 
-
+    public @Nullable String dbClusterInstanceClass() {
+        if (dbClusterInstanceClass == null) return null;
+        return dbClusterInstanceClass.getValue("Cluster.dbClusterInstanceClass");
+    }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    public String dbClusterParameterGroupName;
+    private UndeferrableValue<String> dbClusterParameterGroupName;
 
-
+    public String dbClusterParameterGroupName() {
+        if (dbClusterParameterGroupName == null) return null;
+        return dbClusterParameterGroupName.getValue("Cluster.dbClusterParameterGroupName");
+    }
 
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
      * 
      */
-    public String dbInstanceParameterGroupName;
+    private @Nullable UndeferrableValue<String> dbInstanceParameterGroupName;
 
-
+    public @Nullable String dbInstanceParameterGroupName() {
+        if (dbInstanceParameterGroupName == null) return null;
+        return dbInstanceParameterGroupName.getValue("Cluster.dbInstanceParameterGroupName");
+    }
 
     /**
      * DB subnet group to associate with this DB cluster.
      * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
-    public String dbSubnetGroupName;
+    private UndeferrableValue<String> dbSubnetGroupName;
 
-
+    public String dbSubnetGroupName() {
+        if (dbSubnetGroupName == null) return null;
+        return dbSubnetGroupName.getValue("Cluster.dbSubnetGroupName");
+    }
 
     /**
      * For use with RDS Custom.
      * 
      */
-    public String dbSystemId;
+    private UndeferrableValue<String> dbSystemId;
 
-
+    public String dbSystemId() {
+        if (dbSystemId == null) return null;
+        return dbSystemId.getValue("Cluster.dbSystemId");
+    }
 
     /**
      * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
      * 
      */
-    public Boolean deleteAutomatedBackups;
+    private @Nullable UndeferrableValue<Boolean> deleteAutomatedBackups;
 
-
+    public @Nullable Boolean deleteAutomatedBackups() {
+        if (deleteAutomatedBackups == null) return null;
+        return deleteAutomatedBackups.getValue("Cluster.deleteAutomatedBackups");
+    }
 
     /**
      * If the DB cluster should have deletion protection enabled.
@@ -213,366 +284,504 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The default is `false`.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("Cluster.deletionProtection");
+    }
 
     /**
      * The ID of the Directory Service Active Directory domain to create the cluster in.
      * 
      */
-    public String domain;
+    private @Nullable UndeferrableValue<String> domain;
 
-
+    public @Nullable String domain() {
+        if (domain == null) return null;
+        return domain.getValue("Cluster.domain");
+    }
 
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service.
      * 
      */
-    public String domainIamRoleName;
+    private @Nullable UndeferrableValue<String> domainIamRoleName;
 
-
+    public @Nullable String domainIamRoleName() {
+        if (domainIamRoleName == null) return null;
+        return domainIamRoleName.getValue("Cluster.domainIamRoleName");
+    }
 
     /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
-    public Boolean enableGlobalWriteForwarding;
+    private @Nullable UndeferrableValue<Boolean> enableGlobalWriteForwarding;
 
-
+    public @Nullable Boolean enableGlobalWriteForwarding() {
+        if (enableGlobalWriteForwarding == null) return null;
+        return enableGlobalWriteForwarding.getValue("Cluster.enableGlobalWriteForwarding");
+    }
 
     /**
      * Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
-    public Boolean enableHttpEndpoint;
+    private @Nullable UndeferrableValue<Boolean> enableHttpEndpoint;
 
-
+    public @Nullable Boolean enableHttpEndpoint() {
+        if (enableHttpEndpoint == null) return null;
+        return enableHttpEndpoint.getValue("Cluster.enableHttpEndpoint");
+    }
 
     /**
      * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
      * 
      */
-    public Boolean enableLocalWriteForwarding;
+    private @Nullable UndeferrableValue<Boolean> enableLocalWriteForwarding;
 
-
+    public @Nullable Boolean enableLocalWriteForwarding() {
+        if (enableLocalWriteForwarding == null) return null;
+        return enableLocalWriteForwarding.getValue("Cluster.enableLocalWriteForwarding");
+    }
 
     /**
      * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
      * 
      */
-    public List<String> enabledCloudwatchLogsExports;
+    private @Nullable UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
 
-
+    public @Nullable List<String> enabledCloudwatchLogsExports() {
+        if (enabledCloudwatchLogsExports == null) return null;
+        return enabledCloudwatchLogsExports.getValue("Cluster.enabledCloudwatchLogsExports");
+    }
 
     /**
      * DNS address of the RDS instance
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Cluster.endpoint");
+    }
 
     /**
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Cluster.engine");
+    }
 
     /**
      * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    public String engineLifecycleSupport;
+    private UndeferrableValue<String> engineLifecycleSupport;
 
-
+    public String engineLifecycleSupport() {
+        if (engineLifecycleSupport == null) return null;
+        return engineLifecycleSupport.getValue("Cluster.engineLifecycleSupport");
+    }
 
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`&#34;&#34;`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
-    public String engineMode;
+    private @Nullable UndeferrableValue<String> engineMode;
 
-
+    public @Nullable String engineMode() {
+        if (engineMode == null) return null;
+        return engineMode.getValue("Cluster.engineMode");
+    }
 
     /**
      * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Cluster.engineVersion");
+    }
 
     /**
      * Running version of the database.
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("Cluster.engineVersionActual");
+    }
 
     /**
      * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+    }
 
     /**
      * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      * 
      */
-    public String globalClusterIdentifier;
+    private @Nullable UndeferrableValue<String> globalClusterIdentifier;
 
-
+    public @Nullable String globalClusterIdentifier() {
+        if (globalClusterIdentifier == null) return null;
+        return globalClusterIdentifier.getValue("Cluster.globalClusterIdentifier");
+    }
 
     /**
      * Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Cluster.hostedZoneId");
+    }
 
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
-    public Boolean iamDatabaseAuthenticationEnabled;
+    private @Nullable UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
 
-
+    public @Nullable Boolean iamDatabaseAuthenticationEnabled() {
+        if (iamDatabaseAuthenticationEnabled == null) return null;
+        return iamDatabaseAuthenticationEnabled.getValue("Cluster.iamDatabaseAuthenticationEnabled");
+    }
 
     /**
      * List of ARNs for the IAM roles to associate to the RDS Cluster.
      * 
      */
-    public List<String> iamRoles;
+    private UndeferrableValue<List<String>> iamRoles;
 
-
+    public List<String> iamRoles() {
+        if (iamRoles == null) return null;
+        return iamRoles.getValue("Cluster.iamRoles");
+    }
 
     /**
      * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      * 
      */
-    public Integer iops;
+    private @Nullable UndeferrableValue<Integer> iops;
 
-
+    public @Nullable Integer iops() {
+        if (iops == null) return null;
+        return iops.getValue("Cluster.iops");
+    }
 
     /**
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Cluster.kmsKeyId");
+    }
 
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
      * 
      */
-    public Boolean manageMasterUserPassword;
+    private @Nullable UndeferrableValue<Boolean> manageMasterUserPassword;
 
-
+    public @Nullable Boolean manageMasterUserPassword() {
+        if (manageMasterUserPassword == null) return null;
+        return manageMasterUserPassword.getValue("Cluster.manageMasterUserPassword");
+    }
 
     /**
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
-    public String masterPassword;
+    private @Nullable UndeferrableValue<String> masterPassword;
 
-
+    public @Nullable String masterPassword() {
+        if (masterPassword == null) return null;
+        return masterPassword.getValue("Cluster.masterPassword");
+    }
 
     /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    public String masterUserSecretKmsKeyId;
+    private UndeferrableValue<String> masterUserSecretKmsKeyId;
 
-
+    public String masterUserSecretKmsKeyId() {
+        if (masterUserSecretKmsKeyId == null) return null;
+        return masterUserSecretKmsKeyId.getValue("Cluster.masterUserSecretKmsKeyId");
+    }
 
     /**
      * Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
      * 
      */
-    public List<ClusterMasterUserSecret> masterUserSecrets;
+    private UndeferrableValue<List<ClusterMasterUserSecret>> masterUserSecrets;
 
-
+    public List<ClusterMasterUserSecret> masterUserSecrets() {
+        if (masterUserSecrets == null) return null;
+        return masterUserSecrets.getValue("Cluster.masterUserSecrets");
+    }
 
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      * 
      */
-    public String masterUsername;
+    private UndeferrableValue<String> masterUsername;
 
-
+    public String masterUsername() {
+        if (masterUsername == null) return null;
+        return masterUsername.getValue("Cluster.masterUsername");
+    }
 
     /**
      * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
-    public Integer monitoringInterval;
+    private UndeferrableValue<Integer> monitoringInterval;
 
-
+    public Integer monitoringInterval() {
+        if (monitoringInterval == null) return null;
+        return monitoringInterval.getValue("Cluster.monitoringInterval");
+    }
 
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
      * 
      */
-    public String monitoringRoleArn;
+    private UndeferrableValue<String> monitoringRoleArn;
 
-
+    public String monitoringRoleArn() {
+        if (monitoringRoleArn == null) return null;
+        return monitoringRoleArn.getValue("Cluster.monitoringRoleArn");
+    }
 
     /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("Cluster.networkType");
+    }
 
     /**
      * Enables Performance Insights.
      * 
      */
-    public Boolean performanceInsightsEnabled;
+    private @Nullable UndeferrableValue<Boolean> performanceInsightsEnabled;
 
-
+    public @Nullable Boolean performanceInsightsEnabled() {
+        if (performanceInsightsEnabled == null) return null;
+        return performanceInsightsEnabled.getValue("Cluster.performanceInsightsEnabled");
+    }
 
     /**
      * Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
      * 
      */
-    public String performanceInsightsKmsKeyId;
+    private UndeferrableValue<String> performanceInsightsKmsKeyId;
 
-
+    public String performanceInsightsKmsKeyId() {
+        if (performanceInsightsKmsKeyId == null) return null;
+        return performanceInsightsKmsKeyId.getValue("Cluster.performanceInsightsKmsKeyId");
+    }
 
     /**
      * Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
      * 
      */
-    public Integer performanceInsightsRetentionPeriod;
+    private UndeferrableValue<Integer> performanceInsightsRetentionPeriod;
 
-
+    public Integer performanceInsightsRetentionPeriod() {
+        if (performanceInsightsRetentionPeriod == null) return null;
+        return performanceInsightsRetentionPeriod.getValue("Cluster.performanceInsightsRetentionPeriod");
+    }
 
     /**
      * Port on which the DB accepts connections.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("Cluster.preferredBackupWindow");
+    }
 
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+    }
 
     /**
      * Read-only endpoint for the Aurora cluster, automatically
      * load-balanced across replicas
      * 
      */
-    public String readerEndpoint;
+    private UndeferrableValue<String> readerEndpoint;
 
-
+    public String readerEndpoint() {
+        if (readerEndpoint == null) return null;
+        return readerEndpoint.getValue("Cluster.readerEndpoint");
+    }
 
     /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      * 
      */
-    public String replicationSourceIdentifier;
+    private @Nullable UndeferrableValue<String> replicationSourceIdentifier;
 
-
+    public @Nullable String replicationSourceIdentifier() {
+        if (replicationSourceIdentifier == null) return null;
+        return replicationSourceIdentifier.getValue("Cluster.replicationSourceIdentifier");
+    }
 
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      * 
      */
-    public ClusterRestoreToPointInTime restoreToPointInTime;
+    private @Nullable UndeferrableValue<ClusterRestoreToPointInTime> restoreToPointInTime;
 
+    public @Nullable ClusterRestoreToPointInTime restoreToPointInTime() {
+        if (restoreToPointInTime == null) return null;
+        return restoreToPointInTime.getValue("Cluster.restoreToPointInTime");
+    }
 
+    private @Nullable UndeferrableValue<ClusterS3Import> s3Import;
 
-    public ClusterS3Import s3Import;
-
-
+    public @Nullable ClusterS3Import s3Import() {
+        if (s3Import == null) return null;
+        return s3Import.getValue("Cluster.s3Import");
+    }
 
     /**
      * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
      * 
      */
-    public ClusterScalingConfiguration scalingConfiguration;
+    private @Nullable UndeferrableValue<ClusterScalingConfiguration> scalingConfiguration;
 
-
+    public @Nullable ClusterScalingConfiguration scalingConfiguration() {
+        if (scalingConfiguration == null) return null;
+        return scalingConfiguration.getValue("Cluster.scalingConfiguration");
+    }
 
     /**
      * Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
      * 
      */
-    public ClusterServerlessv2ScalingConfiguration serverlessv2ScalingConfiguration;
+    private @Nullable UndeferrableValue<ClusterServerlessv2ScalingConfiguration> serverlessv2ScalingConfiguration;
 
-
+    public @Nullable ClusterServerlessv2ScalingConfiguration serverlessv2ScalingConfiguration() {
+        if (serverlessv2ScalingConfiguration == null) return null;
+        return serverlessv2ScalingConfiguration.getValue("Cluster.serverlessv2ScalingConfiguration");
+    }
 
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+    }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
-    public String snapshotIdentifier;
+    private @Nullable UndeferrableValue<String> snapshotIdentifier;
 
-
+    public @Nullable String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+    }
 
     /**
      * The source region for an encrypted replica DB cluster.
      * 
      */
-    public String sourceRegion;
+    private @Nullable UndeferrableValue<String> sourceRegion;
 
-
+    public @Nullable String sourceRegion() {
+        if (sourceRegion == null) return null;
+        return sourceRegion.getValue("Cluster.sourceRegion");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("Cluster.storageEncrypted");
+    }
 
     /**
      * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
-    public String storageType;
+    private UndeferrableValue<String> storageType;
 
-
+    public String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Cluster.storageType");
+    }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -582,16 +791,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * List of VPC security groups to associate with the Cluster
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+    }
 
 }

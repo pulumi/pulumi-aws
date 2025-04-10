@@ -3,64 +3,84 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ivs.RecordingConfigurationDestinationConfiguration;
-import com.pulumi.policypacks.aws.ivs.RecordingConfigurationThumbnailConfiguration;
+import com.pulumi.policypacks.aws.ivs.outputs.RecordingConfigurationDestinationConfiguration;
+import com.pulumi.policypacks.aws.ivs.outputs.RecordingConfigurationThumbnailConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ivs/recordingConfiguration:RecordingConfiguration")
-public final class RecordingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class RecordingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Recording Configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RecordingConfiguration.arn");
+    }
 
     /**
      * Object containing destination configuration for where recorded video will be stored.
      * 
      */
-    public RecordingConfigurationDestinationConfiguration destinationConfiguration;
+    private UndeferrableValue<RecordingConfigurationDestinationConfiguration> destinationConfiguration;
 
-
+    public RecordingConfigurationDestinationConfiguration destinationConfiguration() {
+        if (destinationConfiguration == null) return null;
+        return destinationConfiguration.getValue("RecordingConfiguration.destinationConfiguration");
+    }
 
     /**
      * Recording Configuration name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RecordingConfiguration.name");
+    }
 
     /**
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      * 
      */
-    public Integer recordingReconnectWindowSeconds;
+    private UndeferrableValue<Integer> recordingReconnectWindowSeconds;
 
-
+    public Integer recordingReconnectWindowSeconds() {
+        if (recordingReconnectWindowSeconds == null) return null;
+        return recordingReconnectWindowSeconds.getValue("RecordingConfiguration.recordingReconnectWindowSeconds");
+    }
 
     /**
      * The current state of the Recording Configuration.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("RecordingConfiguration.state");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RecordingConfiguration.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,16 +90,22 @@ public final class RecordingConfiguration extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RecordingConfiguration.tagsAll");
+    }
 
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      * 
      */
-    public RecordingConfigurationThumbnailConfiguration thumbnailConfiguration;
+    private UndeferrableValue<RecordingConfigurationThumbnailConfiguration> thumbnailConfiguration;
 
-
+    public RecordingConfigurationThumbnailConfiguration thumbnailConfiguration() {
+        if (thumbnailConfiguration == null) return null;
+        return thumbnailConfiguration.getValue("RecordingConfiguration.thumbnailConfiguration");
+    }
 
 }

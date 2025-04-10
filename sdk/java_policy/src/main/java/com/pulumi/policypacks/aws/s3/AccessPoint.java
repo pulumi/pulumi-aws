@@ -3,81 +3,107 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.AccessPointPublicAccessBlockConfiguration;
-import com.pulumi.policypacks.aws.s3.AccessPointVpcConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.AccessPointPublicAccessBlockConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.AccessPointVpcConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/accessPoint:AccessPoint")
-public final class AccessPoint extends com.pulumi.resources.PolicyResource {
+public final class AccessPoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AccessPoint.accountId");
+    }
 
     /**
      * Alias of the S3 Access Point.
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("AccessPoint.alias");
+    }
 
     /**
      * ARN of the S3 Access Point.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AccessPoint.arn");
+    }
 
     /**
      * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("AccessPoint.bucket");
+    }
 
     /**
      * AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
-    public String bucketAccountId;
+    private UndeferrableValue<String> bucketAccountId;
 
-
+    public String bucketAccountId() {
+        if (bucketAccountId == null) return null;
+        return bucketAccountId.getValue("AccessPoint.bucketAccountId");
+    }
 
     /**
      * DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("AccessPoint.domainName");
+    }
 
     /**
      * VPC endpoints for the S3 Access Point.
      * 
      */
-    public Map<String,String> endpoints;
+    private UndeferrableValue<Map<String,String>> endpoints;
 
-
+    public Map<String,String> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("AccessPoint.endpoints");
+    }
 
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    public Boolean hasPublicAccessPolicy;
+    private UndeferrableValue<Boolean> hasPublicAccessPolicy;
 
-
+    public Boolean hasPublicAccessPolicy() {
+        if (hasPublicAccessPolicy == null) return null;
+        return hasPublicAccessPolicy.getValue("AccessPoint.hasPublicAccessPolicy");
+    }
 
     /**
      * Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
@@ -85,40 +111,55 @@ public final class AccessPoint extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AccessPoint.name");
+    }
 
     /**
      * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      * 
      */
-    public String networkOrigin;
+    private UndeferrableValue<String> networkOrigin;
 
-
+    public String networkOrigin() {
+        if (networkOrigin == null) return null;
+        return networkOrigin.getValue("AccessPoint.networkOrigin");
+    }
 
     /**
      * Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("AccessPoint.policy");
+    }
 
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      * 
      */
-    public AccessPointPublicAccessBlockConfiguration publicAccessBlockConfiguration;
+    private @Nullable UndeferrableValue<AccessPointPublicAccessBlockConfiguration> publicAccessBlockConfiguration;
 
-
+    public @Nullable AccessPointPublicAccessBlockConfiguration publicAccessBlockConfiguration() {
+        if (publicAccessBlockConfiguration == null) return null;
+        return publicAccessBlockConfiguration.getValue("AccessPoint.publicAccessBlockConfiguration");
+    }
 
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      * 
      */
-    public AccessPointVpcConfiguration vpcConfiguration;
+    private @Nullable UndeferrableValue<AccessPointVpcConfiguration> vpcConfiguration;
 
-
+    public @Nullable AccessPointVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("AccessPoint.vpcConfiguration");
+    }
 
 }

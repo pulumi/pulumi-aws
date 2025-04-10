@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation")
-public final class ServiceNetworkVpcAssociation extends com.pulumi.resources.PolicyResource {
+public final class ServiceNetworkVpcAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServiceNetworkVpcAssociation.arn");
+    }
 
     /**
      * The account that created the association.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("ServiceNetworkVpcAssociation.createdBy");
+    }
 
     /**
      * The IDs of the security groups.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ServiceNetworkVpcAssociation.securityGroupIds");
+    }
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * The following arguments are optional:
      * 
      */
-    public String serviceNetworkIdentifier;
+    private UndeferrableValue<String> serviceNetworkIdentifier;
 
-
+    public String serviceNetworkIdentifier() {
+        if (serviceNetworkIdentifier == null) return null;
+        return serviceNetworkIdentifier.getValue("ServiceNetworkVpcAssociation.serviceNetworkIdentifier");
+    }
 
     /**
      * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ServiceNetworkVpcAssociation.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServiceNetworkVpcAssociation.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,16 +89,22 @@ public final class ServiceNetworkVpcAssociation extends com.pulumi.resources.Pol
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServiceNetworkVpcAssociation.tagsAll");
+    }
 
     /**
      * The ID of the VPC.
      * 
      */
-    public String vpcIdentifier;
+    private UndeferrableValue<String> vpcIdentifier;
 
-
+    public String vpcIdentifier() {
+        if (vpcIdentifier == null) return null;
+        return vpcIdentifier.getValue("ServiceNetworkVpcAssociation.vpcIdentifier");
+    }
 
 }

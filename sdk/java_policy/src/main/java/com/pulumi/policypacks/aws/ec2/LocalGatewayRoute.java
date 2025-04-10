@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/localGatewayRoute:LocalGatewayRoute")
-public final class LocalGatewayRoute extends com.pulumi.resources.PolicyResource {
+public final class LocalGatewayRoute extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      * 
      */
-    public String destinationCidrBlock;
+    private UndeferrableValue<String> destinationCidrBlock;
 
-
+    public String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("LocalGatewayRoute.destinationCidrBlock");
+    }
 
     /**
      * Identifier of EC2 Local Gateway Route Table.
      * 
      */
-    public String localGatewayRouteTableId;
+    private UndeferrableValue<String> localGatewayRouteTableId;
 
-
+    public String localGatewayRouteTableId() {
+        if (localGatewayRouteTableId == null) return null;
+        return localGatewayRouteTableId.getValue("LocalGatewayRoute.localGatewayRouteTableId");
+    }
 
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      * 
      */
-    public String localGatewayVirtualInterfaceGroupId;
+    private UndeferrableValue<String> localGatewayVirtualInterfaceGroupId;
 
-
+    public String localGatewayVirtualInterfaceGroupId() {
+        if (localGatewayVirtualInterfaceGroupId == null) return null;
+        return localGatewayVirtualInterfaceGroupId.getValue("LocalGatewayRoute.localGatewayVirtualInterfaceGroupId");
+    }
 
 }

@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/customerGateway:CustomerGateway")
-public final class CustomerGateway extends com.pulumi.resources.PolicyResource {
+public final class CustomerGateway extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the customer gateway.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomerGateway.arn");
+    }
 
     /**
      * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
-    public String bgpAsn;
+    private @Nullable UndeferrableValue<String> bgpAsn;
 
-
+    public @Nullable String bgpAsn() {
+        if (bgpAsn == null) return null;
+        return bgpAsn.getValue("CustomerGateway.bgpAsn");
+    }
 
     /**
      * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
      * 
      */
-    public String bgpAsnExtended;
+    private @Nullable UndeferrableValue<String> bgpAsnExtended;
 
-
+    public @Nullable String bgpAsnExtended() {
+        if (bgpAsnExtended == null) return null;
+        return bgpAsnExtended.getValue("CustomerGateway.bgpAsnExtended");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      * 
      */
-    public String certificateArn;
+    private @Nullable UndeferrableValue<String> certificateArn;
 
-
+    public @Nullable String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("CustomerGateway.certificateArn");
+    }
 
     /**
      * A name for the customer gateway device.
      * 
      */
-    public String deviceName;
+    private @Nullable UndeferrableValue<String> deviceName;
 
-
+    public @Nullable String deviceName() {
+        if (deviceName == null) return null;
+        return deviceName.getValue("CustomerGateway.deviceName");
+    }
 
     /**
      * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    public String ipAddress;
+    private @Nullable UndeferrableValue<String> ipAddress;
 
-
+    public @Nullable String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("CustomerGateway.ipAddress");
+    }
 
     /**
      * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomerGateway.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -75,17 +98,23 @@ public final class CustomerGateway extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomerGateway.tagsAll");
+    }
 
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("CustomerGateway.type");
+    }
 
 }

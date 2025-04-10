@@ -3,23 +3,30 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")
-public final class ModelPackageGroupPolicy extends com.pulumi.resources.PolicyResource {
+public final class ModelPackageGroupPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the model package group.
      * 
      */
-    public String modelPackageGroupName;
+    private UndeferrableValue<String> modelPackageGroupName;
 
+    public String modelPackageGroupName() {
+        if (modelPackageGroupName == null) return null;
+        return modelPackageGroupName.getValue("ModelPackageGroupPolicy.modelPackageGroupName");
+    }
 
+    private UndeferrableValue<String> resourcePolicy;
 
-    public String resourcePolicy;
-
-
+    public String resourcePolicy() {
+        if (resourcePolicy == null) return null;
+        return resourcePolicy.getValue("ModelPackageGroupPolicy.resourcePolicy");
+    }
 
 }

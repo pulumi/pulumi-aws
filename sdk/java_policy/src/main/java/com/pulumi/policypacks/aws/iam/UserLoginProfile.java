@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/userLoginProfile:UserLoginProfile")
-public final class UserLoginProfile extends com.pulumi.resources.PolicyResource {
+public final class UserLoginProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
      * 
      */
-    public String encryptedPassword;
+    private UndeferrableValue<String> encryptedPassword;
 
-
+    public String encryptedPassword() {
+        if (encryptedPassword == null) return null;
+        return encryptedPassword.getValue("UserLoginProfile.encryptedPassword");
+    }
 
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      * 
      */
-    public String keyFingerprint;
+    private UndeferrableValue<String> keyFingerprint;
 
-
+    public String keyFingerprint() {
+        if (keyFingerprint == null) return null;
+        return keyFingerprint.getValue("UserLoginProfile.keyFingerprint");
+    }
 
     /**
      * The plain text password, only available when `pgp_key` is not provided.
      * 
      */
-    public String password;
+    private UndeferrableValue<String> password;
 
-
+    public String password() {
+        if (password == null) return null;
+        return password.getValue("UserLoginProfile.password");
+    }
 
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      * 
      */
-    public Integer passwordLength;
+    private @Nullable UndeferrableValue<Integer> passwordLength;
 
-
+    public @Nullable Integer passwordLength() {
+        if (passwordLength == null) return null;
+        return passwordLength.getValue("UserLoginProfile.passwordLength");
+    }
 
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      * 
      */
-    public Boolean passwordResetRequired;
+    private UndeferrableValue<Boolean> passwordResetRequired;
 
-
+    public Boolean passwordResetRequired() {
+        if (passwordResetRequired == null) return null;
+        return passwordResetRequired.getValue("UserLoginProfile.passwordResetRequired");
+    }
 
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      * 
      */
-    public String pgpKey;
+    private @Nullable UndeferrableValue<String> pgpKey;
 
-
+    public @Nullable String pgpKey() {
+        if (pgpKey == null) return null;
+        return pgpKey.getValue("UserLoginProfile.pgpKey");
+    }
 
     /**
      * The IAM user&#39;s name.
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("UserLoginProfile.user");
+    }
 
 }

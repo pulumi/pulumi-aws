@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference;
+import com.pulumi.policypacks.aws.ssoadmin.outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")
-public final class CustomerManagedPolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class CustomerManagedPolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the name and path of a customer managed policy. See below.
      * 
      */
-    public CustomerManagedPolicyAttachmentCustomerManagedPolicyReference customerManagedPolicyReference;
+    private UndeferrableValue<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference;
 
-
+    public CustomerManagedPolicyAttachmentCustomerManagedPolicyReference customerManagedPolicyReference() {
+        if (customerManagedPolicyReference == null) return null;
+        return customerManagedPolicyReference.getValue("CustomerManagedPolicyAttachment.customerManagedPolicyReference");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("CustomerManagedPolicyAttachment.instanceArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    public String permissionSetArn;
+    private UndeferrableValue<String> permissionSetArn;
 
-
+    public String permissionSetArn() {
+        if (permissionSetArn == null) return null;
+        return permissionSetArn.getValue("CustomerManagedPolicyAttachment.permissionSetArn");
+    }
 
 }

@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:finspace/kxUser:KxUser")
-public final class KxUser extends com.pulumi.resources.PolicyResource {
+public final class KxUser extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) identifier of the KX user.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("KxUser.arn");
+    }
 
     /**
      * Unique identifier for the KX environment.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("KxUser.environmentId");
+    }
 
     /**
      * IAM role ARN to be associated with the user.
@@ -33,25 +41,34 @@ public final class KxUser extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String iamRole;
+    private UndeferrableValue<String> iamRole;
 
-
+    public String iamRole() {
+        if (iamRole == null) return null;
+        return iamRole.getValue("KxUser.iamRole");
+    }
 
     /**
      * A unique identifier for the user.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("KxUser.name");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("KxUser.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class KxUser extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("KxUser.tagsAll");
+    }
 
 }

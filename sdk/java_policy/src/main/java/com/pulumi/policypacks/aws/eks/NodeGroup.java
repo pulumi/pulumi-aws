@@ -3,167 +3,223 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.NodeGroupLaunchTemplate;
-import com.pulumi.policypacks.aws.eks.NodeGroupNodeRepairConfig;
-import com.pulumi.policypacks.aws.eks.NodeGroupRemoteAccess;
-import com.pulumi.policypacks.aws.eks.NodeGroupResource;
-import com.pulumi.policypacks.aws.eks.NodeGroupScalingConfig;
-import com.pulumi.policypacks.aws.eks.NodeGroupTaint;
-import com.pulumi.policypacks.aws.eks.NodeGroupUpdateConfig;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupLaunchTemplate;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupNodeRepairConfig;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupRemoteAccess;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupResource;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupScalingConfig;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupTaint;
+import com.pulumi.policypacks.aws.eks.outputs.NodeGroupUpdateConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/nodeGroup:NodeGroup")
-public final class NodeGroup extends com.pulumi.resources.PolicyResource {
+public final class NodeGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public String amiType;
+    private UndeferrableValue<String> amiType;
 
-
+    public String amiType() {
+        if (amiType == null) return null;
+        return amiType.getValue("NodeGroup.amiType");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NodeGroup.arn");
+    }
 
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public String capacityType;
+    private UndeferrableValue<String> capacityType;
 
-
+    public String capacityType() {
+        if (capacityType == null) return null;
+        return capacityType.getValue("NodeGroup.capacityType");
+    }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("NodeGroup.clusterName");
+    }
 
     /**
      * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public Integer diskSize;
+    private UndeferrableValue<Integer> diskSize;
 
-
+    public Integer diskSize() {
+        if (diskSize == null) return null;
+        return diskSize.getValue("NodeGroup.diskSize");
+    }
 
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      * 
      */
-    public Boolean forceUpdateVersion;
+    private @Nullable UndeferrableValue<Boolean> forceUpdateVersion;
 
-
+    public @Nullable Boolean forceUpdateVersion() {
+        if (forceUpdateVersion == null) return null;
+        return forceUpdateVersion.getValue("NodeGroup.forceUpdateVersion");
+    }
 
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public List<String> instanceTypes;
+    private UndeferrableValue<List<String>> instanceTypes;
 
-
+    public List<String> instanceTypes() {
+        if (instanceTypes == null) return null;
+        return instanceTypes.getValue("NodeGroup.instanceTypes");
+    }
 
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      * 
      */
-    public Map<String,String> labels;
+    private @Nullable UndeferrableValue<Map<String,String>> labels;
 
-
+    public @Nullable Map<String,String> labels() {
+        if (labels == null) return null;
+        return labels.getValue("NodeGroup.labels");
+    }
 
     /**
      * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
-    public NodeGroupLaunchTemplate launchTemplate;
+    private @Nullable UndeferrableValue<NodeGroupLaunchTemplate> launchTemplate;
 
-
+    public @Nullable NodeGroupLaunchTemplate launchTemplate() {
+        if (launchTemplate == null) return null;
+        return launchTemplate.getValue("NodeGroup.launchTemplate");
+    }
 
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
-    public String nodeGroupName;
+    private UndeferrableValue<String> nodeGroupName;
 
-
+    public String nodeGroupName() {
+        if (nodeGroupName == null) return null;
+        return nodeGroupName.getValue("NodeGroup.nodeGroupName");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
      * 
      */
-    public String nodeGroupNamePrefix;
+    private UndeferrableValue<String> nodeGroupNamePrefix;
 
-
+    public String nodeGroupNamePrefix() {
+        if (nodeGroupNamePrefix == null) return null;
+        return nodeGroupNamePrefix.getValue("NodeGroup.nodeGroupNamePrefix");
+    }
 
     /**
      * The node auto repair configuration for the node group. See `node_repair_config` below for details.
      * 
      */
-    public NodeGroupNodeRepairConfig nodeRepairConfig;
+    private UndeferrableValue<NodeGroupNodeRepairConfig> nodeRepairConfig;
 
-
+    public NodeGroupNodeRepairConfig nodeRepairConfig() {
+        if (nodeRepairConfig == null) return null;
+        return nodeRepairConfig.getValue("NodeGroup.nodeRepairConfig");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
-    public String nodeRoleArn;
+    private UndeferrableValue<String> nodeRoleArn;
 
-
+    public String nodeRoleArn() {
+        if (nodeRoleArn == null) return null;
+        return nodeRoleArn.getValue("NodeGroup.nodeRoleArn");
+    }
 
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      * 
      */
-    public String releaseVersion;
+    private UndeferrableValue<String> releaseVersion;
 
-
+    public String releaseVersion() {
+        if (releaseVersion == null) return null;
+        return releaseVersion.getValue("NodeGroup.releaseVersion");
+    }
 
     /**
      * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
-    public NodeGroupRemoteAccess remoteAccess;
+    private @Nullable UndeferrableValue<NodeGroupRemoteAccess> remoteAccess;
 
-
+    public @Nullable NodeGroupRemoteAccess remoteAccess() {
+        if (remoteAccess == null) return null;
+        return remoteAccess.getValue("NodeGroup.remoteAccess");
+    }
 
     /**
      * List of objects containing information about underlying resources.
      * 
      */
-    public List<NodeGroupResource> resources;
+    private UndeferrableValue<List<NodeGroupResource>> resources;
 
-
+    public List<NodeGroupResource> resources() {
+        if (resources == null) return null;
+        return resources.getValue("NodeGroup.resources");
+    }
 
     /**
      * Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
-    public NodeGroupScalingConfig scalingConfig;
+    private UndeferrableValue<NodeGroupScalingConfig> scalingConfig;
 
-
+    public NodeGroupScalingConfig scalingConfig() {
+        if (scalingConfig == null) return null;
+        return scalingConfig.getValue("NodeGroup.scalingConfig");
+    }
 
     /**
      * Status of the EKS Node Group.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("NodeGroup.status");
+    }
 
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -171,17 +227,23 @@ public final class NodeGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("NodeGroup.subnetIds");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NodeGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -191,32 +253,44 @@ public final class NodeGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NodeGroup.tagsAll");
+    }
 
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
-    public List<NodeGroupTaint> taints;
+    private @Nullable UndeferrableValue<List<NodeGroupTaint>> taints;
 
-
+    public @Nullable List<NodeGroupTaint> taints() {
+        if (taints == null) return null;
+        return taints.getValue("NodeGroup.taints");
+    }
 
     /**
      * Configuration block with update settings. See `update_config` below for details.
      * 
      */
-    public NodeGroupUpdateConfig updateConfig;
+    private UndeferrableValue<NodeGroupUpdateConfig> updateConfig;
 
-
+    public NodeGroupUpdateConfig updateConfig() {
+        if (updateConfig == null) return null;
+        return updateConfig.getValue("NodeGroup.updateConfig");
+    }
 
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("NodeGroup.version");
+    }
 
 }

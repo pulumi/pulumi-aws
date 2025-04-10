@@ -3,74 +3,97 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.AssociationOutputLocation;
-import com.pulumi.policypacks.aws.ssm.AssociationTarget;
+import com.pulumi.policypacks.aws.ssm.outputs.AssociationOutputLocation;
+import com.pulumi.policypacks.aws.ssm.outputs.AssociationTarget;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/association:Association")
-public final class Association extends com.pulumi.resources.PolicyResource {
+public final class Association extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      * 
      */
-    public Boolean applyOnlyAtCronInterval;
+    private @Nullable UndeferrableValue<Boolean> applyOnlyAtCronInterval;
 
-
+    public @Nullable Boolean applyOnlyAtCronInterval() {
+        if (applyOnlyAtCronInterval == null) return null;
+        return applyOnlyAtCronInterval.getValue("Association.applyOnlyAtCronInterval");
+    }
 
     /**
      * The ARN of the SSM association
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Association.arn");
+    }
 
     /**
      * The ID of the SSM association.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("Association.associationId");
+    }
 
     /**
      * The descriptive name for the association.
      * 
      */
-    public String associationName;
+    private @Nullable UndeferrableValue<String> associationName;
 
-
+    public @Nullable String associationName() {
+        if (associationName == null) return null;
+        return associationName.getValue("Association.associationName");
+    }
 
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      * 
      */
-    public String automationTargetParameterName;
+    private @Nullable UndeferrableValue<String> automationTargetParameterName;
 
-
+    public @Nullable String automationTargetParameterName() {
+        if (automationTargetParameterName == null) return null;
+        return automationTargetParameterName.getValue("Association.automationTargetParameterName");
+    }
 
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      * 
      */
-    public String complianceSeverity;
+    private @Nullable UndeferrableValue<String> complianceSeverity;
 
-
+    public @Nullable String complianceSeverity() {
+        if (complianceSeverity == null) return null;
+        return complianceSeverity.getValue("Association.complianceSeverity");
+    }
 
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      * 
      */
-    public String documentVersion;
+    private UndeferrableValue<String> documentVersion;
 
-
+    public String documentVersion() {
+        if (documentVersion == null) return null;
+        return documentVersion.getValue("Association.documentVersion");
+    }
 
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
@@ -80,73 +103,100 @@ public final class Association extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* instance_id is deprecated. Use targets instead. */
-    public String instanceId;
+    private @Nullable UndeferrableValue<String> instanceId;
 
-
+    public @Nullable String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("Association.instanceId");
+    }
 
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
-    public String maxConcurrency;
+    private @Nullable UndeferrableValue<String> maxConcurrency;
 
-
+    public @Nullable String maxConcurrency() {
+        if (maxConcurrency == null) return null;
+        return maxConcurrency.getValue("Association.maxConcurrency");
+    }
 
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
-    public String maxErrors;
+    private @Nullable UndeferrableValue<String> maxErrors;
 
-
+    public @Nullable String maxErrors() {
+        if (maxErrors == null) return null;
+        return maxErrors.getValue("Association.maxErrors");
+    }
 
     /**
      * The name of the SSM document to apply.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Association.name");
+    }
 
     /**
      * An output location block. Output Location is documented below.
      * 
      */
-    public AssociationOutputLocation outputLocation;
+    private @Nullable UndeferrableValue<AssociationOutputLocation> outputLocation;
 
-
+    public @Nullable AssociationOutputLocation outputLocation() {
+        if (outputLocation == null) return null;
+        return outputLocation.getValue("Association.outputLocation");
+    }
 
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      * 
      */
-    public Map<String,String> parameters;
+    private UndeferrableValue<Map<String,String>> parameters;
 
-
+    public Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Association.parameters");
+    }
 
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
-    public String scheduleExpression;
+    private @Nullable UndeferrableValue<String> scheduleExpression;
 
-
+    public @Nullable String scheduleExpression() {
+        if (scheduleExpression == null) return null;
+        return scheduleExpression.getValue("Association.scheduleExpression");
+    }
 
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      * 
      */
-    public String syncCompliance;
+    private @Nullable UndeferrableValue<String> syncCompliance;
 
-
+    public @Nullable String syncCompliance() {
+        if (syncCompliance == null) return null;
+        return syncCompliance.getValue("Association.syncCompliance");
+    }
 
     /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Association.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -156,17 +206,23 @@ public final class Association extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Association.tagsAll");
+    }
 
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
-    public List<AssociationTarget> targets;
+    private UndeferrableValue<List<AssociationTarget>> targets;
 
-
+    public List<AssociationTarget> targets() {
+        if (targets == null) return null;
+        return targets.getValue("Association.targets");
+    }
 
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -174,8 +230,11 @@ public final class Association extends com.pulumi.resources.PolicyResource {
      * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
      * 
      */
-    public Integer waitForSuccessTimeoutSeconds;
+    private @Nullable UndeferrableValue<Integer> waitForSuccessTimeoutSeconds;
 
-
+    public @Nullable Integer waitForSuccessTimeoutSeconds() {
+        if (waitForSuccessTimeoutSeconds == null) return null;
+        return waitForSuccessTimeoutSeconds.getValue("Association.waitForSuccessTimeoutSeconds");
+    }
 
 }

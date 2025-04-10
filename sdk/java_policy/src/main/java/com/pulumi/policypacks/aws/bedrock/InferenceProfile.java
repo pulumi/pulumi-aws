@@ -3,41 +3,52 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.InferenceProfileModel;
-import com.pulumi.policypacks.aws.bedrock.InferenceProfileModelSource;
-import com.pulumi.policypacks.aws.bedrock.InferenceProfileTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.InferenceProfileModel;
+import com.pulumi.policypacks.aws.bedrock.outputs.InferenceProfileModelSource;
+import com.pulumi.policypacks.aws.bedrock.outputs.InferenceProfileTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/inferenceProfile:InferenceProfile")
-public final class InferenceProfile extends com.pulumi.resources.PolicyResource {
+public final class InferenceProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the inference profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("InferenceProfile.arn");
+    }
 
     /**
      * The time at which the inference profile was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("InferenceProfile.createdAt");
+    }
 
     /**
      * The description of the inference profile.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("InferenceProfile.description");
+    }
 
     /**
      * The source of the model this inference profile will track metrics and cost for. See `model_source`.
@@ -45,41 +56,56 @@ public final class InferenceProfile extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public InferenceProfileModelSource modelSource;
+    private @Nullable UndeferrableValue<InferenceProfileModelSource> modelSource;
 
-
+    public @Nullable InferenceProfileModelSource modelSource() {
+        if (modelSource == null) return null;
+        return modelSource.getValue("InferenceProfile.modelSource");
+    }
 
     /**
      * A list of information about each model in the inference profile. See `models`.
      * 
      */
-    public List<InferenceProfileModel> models;
+    private UndeferrableValue<List<InferenceProfileModel>> models;
 
-
+    public List<InferenceProfileModel> models() {
+        if (models == null) return null;
+        return models.getValue("InferenceProfile.models");
+    }
 
     /**
      * The name of the inference profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InferenceProfile.name");
+    }
 
     /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("InferenceProfile.status");
+    }
 
     /**
      * Key-value mapping of resource tags for the inference profile.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("InferenceProfile.tags");
+    }
 
     /**
      * @deprecated
@@ -87,28 +113,40 @@ public final class InferenceProfile extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("InferenceProfile.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<InferenceProfileTimeouts> timeouts;
 
-    public InferenceProfileTimeouts timeouts;
-
-
+    public @Nullable InferenceProfileTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("InferenceProfile.timeouts");
+    }
 
     /**
      * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("InferenceProfile.type");
+    }
 
     /**
      * The time at which the inference profile was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("InferenceProfile.updatedAt");
+    }
 
 }

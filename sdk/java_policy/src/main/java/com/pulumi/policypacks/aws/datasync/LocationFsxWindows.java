@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationFsxWindows:LocationFsxWindows")
-public final class LocationFsxWindows extends com.pulumi.resources.PolicyResource {
+public final class LocationFsxWindows extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationFsxWindows.arn");
+    }
 
     /**
      * The time that the FSx for Windows location was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("LocationFsxWindows.creationTime");
+    }
 
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      * 
      */
-    public String domain;
+    private @Nullable UndeferrableValue<String> domain;
 
-
+    public @Nullable String domain() {
+        if (domain == null) return null;
+        return domain.getValue("LocationFsxWindows.domain");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      * 
      */
-    public String fsxFilesystemArn;
+    private UndeferrableValue<String> fsxFilesystemArn;
 
-
+    public String fsxFilesystemArn() {
+        if (fsxFilesystemArn == null) return null;
+        return fsxFilesystemArn.getValue("LocationFsxWindows.fsxFilesystemArn");
+    }
 
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    public String password;
+    private UndeferrableValue<String> password;
 
-
+    public String password() {
+        if (password == null) return null;
+        return password.getValue("LocationFsxWindows.password");
+    }
 
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
-    public List<String> securityGroupArns;
+    private UndeferrableValue<List<String>> securityGroupArns;
 
-
+    public List<String> securityGroupArns() {
+        if (securityGroupArns == null) return null;
+        return securityGroupArns.getValue("LocationFsxWindows.securityGroupArns");
+    }
 
     /**
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationFsxWindows.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationFsxWindows.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,24 +110,33 @@ public final class LocationFsxWindows extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationFsxWindows.tagsAll");
+    }
 
     /**
      * The URL of the FSx for Windows location that was described.
      * 
      */
-    public String uri;
+    private UndeferrableValue<String> uri;
 
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationFsxWindows.uri");
+    }
 
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("LocationFsxWindows.user");
+    }
 
 }

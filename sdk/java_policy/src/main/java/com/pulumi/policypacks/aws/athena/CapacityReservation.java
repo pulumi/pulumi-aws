@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.athena.CapacityReservationTimeouts;
+import com.pulumi.policypacks.aws.athena.outputs.CapacityReservationTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/capacityReservation:CapacityReservation")
-public final class CapacityReservation extends com.pulumi.resources.PolicyResource {
+public final class CapacityReservation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Number of data processing units currently allocated.
      * 
      */
-    public Integer allocatedDpus;
+    private UndeferrableValue<Integer> allocatedDpus;
 
-
+    public Integer allocatedDpus() {
+        if (allocatedDpus == null) return null;
+        return allocatedDpus.getValue("CapacityReservation.allocatedDpus");
+    }
 
     /**
      * ARN of the Capacity Reservation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CapacityReservation.arn");
+    }
 
     /**
      * Name of the capacity reservation.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CapacityReservation.name");
+    }
 
     /**
      * Status of the capacity reservation.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("CapacityReservation.status");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CapacityReservation.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,9 +78,12 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CapacityReservation.tagsAll");
+    }
 
     /**
      * Number of data processing units requested. Must be at least `24` units.
@@ -71,12 +91,18 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public Integer targetDpus;
+    private UndeferrableValue<Integer> targetDpus;
 
+    public Integer targetDpus() {
+        if (targetDpus == null) return null;
+        return targetDpus.getValue("CapacityReservation.targetDpus");
+    }
 
+    private @Nullable UndeferrableValue<CapacityReservationTimeouts> timeouts;
 
-    public CapacityReservationTimeouts timeouts;
-
-
+    public @Nullable CapacityReservationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("CapacityReservation.timeouts");
+    }
 
 }

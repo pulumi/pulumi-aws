@@ -3,24 +3,32 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lakeformation.DataCellsFilterTableData;
-import com.pulumi.policypacks.aws.lakeformation.DataCellsFilterTimeouts;
+import com.pulumi.policypacks.aws.lakeformation.outputs.DataCellsFilterTableData;
+import com.pulumi.policypacks.aws.lakeformation.outputs.DataCellsFilterTimeouts;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lakeformation/dataCellsFilter:DataCellsFilter")
-public final class DataCellsFilter extends com.pulumi.resources.PolicyResource {
+public final class DataCellsFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Information about the data cells filter. See Table Data below for details.
      * 
      */
-    public DataCellsFilterTableData tableData;
+    private @Nullable UndeferrableValue<DataCellsFilterTableData> tableData;
 
+    public @Nullable DataCellsFilterTableData tableData() {
+        if (tableData == null) return null;
+        return tableData.getValue("DataCellsFilter.tableData");
+    }
 
+    private @Nullable UndeferrableValue<DataCellsFilterTimeouts> timeouts;
 
-    public DataCellsFilterTimeouts timeouts;
-
-
+    public @Nullable DataCellsFilterTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DataCellsFilter.timeouts");
+    }
 
 }

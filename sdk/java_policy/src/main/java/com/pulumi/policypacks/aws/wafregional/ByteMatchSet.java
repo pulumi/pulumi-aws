@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafregional.ByteMatchSetByteMatchTuple;
+import com.pulumi.policypacks.aws.wafregional.outputs.ByteMatchSetByteMatchTuple;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafregional/byteMatchSet:ByteMatchSet")
-public final class ByteMatchSet extends com.pulumi.resources.PolicyResource {
+public final class ByteMatchSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      * 
      */
-    public List<ByteMatchSetByteMatchTuple> byteMatchTuples;
+    private @Nullable UndeferrableValue<List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
-
+    public @Nullable List<ByteMatchSetByteMatchTuple> byteMatchTuples() {
+        if (byteMatchTuples == null) return null;
+        return byteMatchTuples.getValue("ByteMatchSet.byteMatchTuples");
+    }
 
     /**
      * The name or description of the ByteMatchSet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ByteMatchSet.name");
+    }
 
 }

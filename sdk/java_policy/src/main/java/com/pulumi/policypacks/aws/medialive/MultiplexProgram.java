@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.medialive.MultiplexProgramMultiplexProgramSettings;
-import com.pulumi.policypacks.aws.medialive.MultiplexProgramTimeouts;
+import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettings;
+import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:medialive/multiplexProgram:MultiplexProgram")
-public final class MultiplexProgram extends com.pulumi.resources.PolicyResource {
+public final class MultiplexProgram extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Multiplex ID.
      * 
      */
-    public String multiplexId;
+    private UndeferrableValue<String> multiplexId;
 
-
+    public String multiplexId() {
+        if (multiplexId == null) return null;
+        return multiplexId.getValue("MultiplexProgram.multiplexId");
+    }
 
     /**
      * MultiplexProgram settings. See Multiplex Program Settings for more details.
@@ -26,20 +31,29 @@ public final class MultiplexProgram extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public MultiplexProgramMultiplexProgramSettings multiplexProgramSettings;
+    private @Nullable UndeferrableValue<MultiplexProgramMultiplexProgramSettings> multiplexProgramSettings;
 
-
+    public @Nullable MultiplexProgramMultiplexProgramSettings multiplexProgramSettings() {
+        if (multiplexProgramSettings == null) return null;
+        return multiplexProgramSettings.getValue("MultiplexProgram.multiplexProgramSettings");
+    }
 
     /**
      * Unique program name.
      * 
      */
-    public String programName;
+    private UndeferrableValue<String> programName;
 
+    public String programName() {
+        if (programName == null) return null;
+        return programName.getValue("MultiplexProgram.programName");
+    }
 
+    private @Nullable UndeferrableValue<MultiplexProgramTimeouts> timeouts;
 
-    public MultiplexProgramTimeouts timeouts;
-
-
+    public @Nullable MultiplexProgramTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("MultiplexProgram.timeouts");
+    }
 
 }

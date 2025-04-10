@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/receiptRuleSet:ReceiptRuleSet")
-public final class ReceiptRuleSet extends com.pulumi.resources.PolicyResource {
+public final class ReceiptRuleSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * SES receipt rule set ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReceiptRuleSet.arn");
+    }
 
     /**
      * Name of the rule set.
      * 
      */
-    public String ruleSetName;
+    private UndeferrableValue<String> ruleSetName;
 
-
+    public String ruleSetName() {
+        if (ruleSetName == null) return null;
+        return ruleSetName.getValue("ReceiptRuleSet.ruleSetName");
+    }
 
 }

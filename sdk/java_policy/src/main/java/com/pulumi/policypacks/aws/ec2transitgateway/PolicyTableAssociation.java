@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation")
-public final class PolicyTableAssociation extends com.pulumi.resources.PolicyResource {
+public final class PolicyTableAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the resource
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("PolicyTableAssociation.resourceId");
+    }
 
     /**
      * Type of the resource
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("PolicyTableAssociation.resourceType");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("PolicyTableAssociation.transitGatewayAttachmentId");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Policy Table.
      * 
      */
-    public String transitGatewayPolicyTableId;
+    private UndeferrableValue<String> transitGatewayPolicyTableId;
 
-
+    public String transitGatewayPolicyTableId() {
+        if (transitGatewayPolicyTableId == null) return null;
+        return transitGatewayPolicyTableId.getValue("PolicyTableAssociation.transitGatewayPolicyTableId");
+    }
 
 }

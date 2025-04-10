@@ -3,99 +3,134 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/eventSubscription:EventSubscription")
-public final class EventSubscription extends com.pulumi.resources.PolicyResource {
+public final class EventSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Redshift event notification subscription
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventSubscription.arn");
+    }
 
     /**
      * The AWS customer account associated with the Redshift event notification subscription
      * 
      */
-    public String customerAwsId;
+    private UndeferrableValue<String> customerAwsId;
 
-
+    public String customerAwsId() {
+        if (customerAwsId == null) return null;
+        return customerAwsId.getValue("EventSubscription.customerAwsId");
+    }
 
     /**
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EventSubscription.enabled");
+    }
 
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      * 
      */
-    public List<String> eventCategories;
+    private @Nullable UndeferrableValue<List<String>> eventCategories;
 
-
+    public @Nullable List<String> eventCategories() {
+        if (eventCategories == null) return null;
+        return eventCategories.getValue("EventSubscription.eventCategories");
+    }
 
     /**
      * The name of the Redshift event subscription.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventSubscription.name");
+    }
 
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      * 
      */
-    public String severity;
+    private @Nullable UndeferrableValue<String> severity;
 
-
+    public @Nullable String severity() {
+        if (severity == null) return null;
+        return severity.getValue("EventSubscription.severity");
+    }
 
     /**
      * The ARN of the SNS topic to send events to.
      * 
      */
-    public String snsTopicArn;
+    private UndeferrableValue<String> snsTopicArn;
 
-
+    public String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("EventSubscription.snsTopicArn");
+    }
 
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
      * 
      */
-    public List<String> sourceIds;
+    private @Nullable UndeferrableValue<List<String>> sourceIds;
 
-
+    public @Nullable List<String> sourceIds() {
+        if (sourceIds == null) return null;
+        return sourceIds.getValue("EventSubscription.sourceIds");
+    }
 
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      * 
      */
-    public String sourceType;
+    private @Nullable UndeferrableValue<String> sourceType;
 
+    public @Nullable String sourceType() {
+        if (sourceType == null) return null;
+        return sourceType.getValue("EventSubscription.sourceType");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("EventSubscription.status");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventSubscription.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -105,8 +140,11 @@ public final class EventSubscription extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventSubscription.tagsAll");
+    }
 
 }

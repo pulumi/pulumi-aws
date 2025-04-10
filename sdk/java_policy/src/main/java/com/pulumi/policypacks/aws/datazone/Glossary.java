@@ -3,32 +3,43 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/glossary:Glossary")
-public final class Glossary extends com.pulumi.resources.PolicyResource {
+public final class Glossary extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Description of the glossary. Must have a length between 0 and 4096.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Glossary.description");
+    }
 
+    private UndeferrableValue<String> domainIdentifier;
 
-    public String domainIdentifier;
-
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("Glossary.domainIdentifier");
+    }
 
     /**
      * Name of the glossary. Must have length between 1 and 256.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Glossary.name");
+    }
 
     /**
      * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
@@ -36,16 +47,22 @@ public final class Glossary extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String owningProjectIdentifier;
+    private UndeferrableValue<String> owningProjectIdentifier;
 
-
+    public String owningProjectIdentifier() {
+        if (owningProjectIdentifier == null) return null;
+        return owningProjectIdentifier.getValue("Glossary.owningProjectIdentifier");
+    }
 
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("Glossary.status");
+    }
 
 }

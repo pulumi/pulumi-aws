@@ -3,31 +3,39 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/eipAssociation:EipAssociation")
-public final class EipAssociation extends com.pulumi.resources.PolicyResource {
+public final class EipAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the associated Elastic IP.
      * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
-    public String allocationId;
+    private UndeferrableValue<String> allocationId;
 
-
+    public String allocationId() {
+        if (allocationId == null) return null;
+        return allocationId.getValue("EipAssociation.allocationId");
+    }
 
     /**
      * Whether to allow an Elastic IP address to be re-associated.
      * Defaults to `true`.
      * 
      */
-    public Boolean allowReassociation;
+    private @Nullable UndeferrableValue<Boolean> allowReassociation;
 
-
+    public @Nullable Boolean allowReassociation() {
+        if (allowReassociation == null) return null;
+        return allowReassociation.getValue("EipAssociation.allowReassociation");
+    }
 
     /**
      * ID of the instance.
@@ -35,9 +43,12 @@ public final class EipAssociation extends com.pulumi.resources.PolicyResource {
      * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("EipAssociation.instanceId");
+    }
 
     /**
      * ID of the network interface.
@@ -45,25 +56,34 @@ public final class EipAssociation extends com.pulumi.resources.PolicyResource {
      * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("EipAssociation.networkInterfaceId");
+    }
 
     /**
      * Primary or secondary private IP address to associate with the Elastic IP address.
      * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
-    public String privateIpAddress;
+    private UndeferrableValue<String> privateIpAddress;
 
-
+    public String privateIpAddress() {
+        if (privateIpAddress == null) return null;
+        return privateIpAddress.getValue("EipAssociation.privateIpAddress");
+    }
 
     /**
      * ) Address of the associated Elastic IP.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("EipAssociation.publicIp");
+    }
 
 }

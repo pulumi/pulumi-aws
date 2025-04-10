@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")
-public final class MulticastGroupMember extends com.pulumi.resources.PolicyResource {
+public final class MulticastGroupMember extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IP address assigned to the transit gateway multicast group.
      * 
      */
-    public String groupIpAddress;
+    private UndeferrableValue<String> groupIpAddress;
 
-
+    public String groupIpAddress() {
+        if (groupIpAddress == null) return null;
+        return groupIpAddress.getValue("MulticastGroupMember.groupIpAddress");
+    }
 
     /**
      * The group members&#39; network interface ID to register with the transit gateway multicast group.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("MulticastGroupMember.networkInterfaceId");
+    }
 
     /**
      * The ID of the transit gateway multicast domain.
      * 
      */
-    public String transitGatewayMulticastDomainId;
+    private UndeferrableValue<String> transitGatewayMulticastDomainId;
 
-
+    public String transitGatewayMulticastDomainId() {
+        if (transitGatewayMulticastDomainId == null) return null;
+        return transitGatewayMulticastDomainId.getValue("MulticastGroupMember.transitGatewayMulticastDomainId");
+    }
 
 }

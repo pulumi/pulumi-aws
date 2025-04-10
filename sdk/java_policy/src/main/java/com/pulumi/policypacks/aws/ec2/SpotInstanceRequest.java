@@ -3,56 +3,70 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestCapacityReservationSpecification;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestCpuOptions;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestCreditSpecification;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestEbsBlockDevice;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestEnclaveOptions;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestEphemeralBlockDevice;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestLaunchTemplate;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestMaintenanceOptions;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestMetadataOptions;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestNetworkInterface;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestPrivateDnsNameOptions;
-import com.pulumi.policypacks.aws.ec2.SpotInstanceRequestRootBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCapacityReservationSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCpuOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCreditSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestEbsBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestEnclaveOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestLaunchTemplate;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestMaintenanceOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestMetadataOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestNetworkInterface;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestPrivateDnsNameOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestRootBlockDevice;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/spotInstanceRequest:SpotInstanceRequest")
-public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResource {
+public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    public String ami;
+    private UndeferrableValue<String> ami;
 
+    public String ami() {
+        if (ami == null) return null;
+        return ami.getValue("SpotInstanceRequest.ami");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SpotInstanceRequest.arn");
+    }
 
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    public Boolean associatePublicIpAddress;
+    private UndeferrableValue<Boolean> associatePublicIpAddress;
 
-
+    public Boolean associatePublicIpAddress() {
+        if (associatePublicIpAddress == null) return null;
+        return associatePublicIpAddress.getValue("SpotInstanceRequest.associatePublicIpAddress");
+    }
 
     /**
      * AZ to start the instance in.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("SpotInstanceRequest.availabilityZone");
+    }
 
     /**
      * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -60,9 +74,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
      * 
      */
-    public Integer blockDurationMinutes;
+    private @Nullable UndeferrableValue<Integer> blockDurationMinutes;
 
-
+    public @Nullable Integer blockDurationMinutes() {
+        if (blockDurationMinutes == null) return null;
+        return blockDurationMinutes.getValue("SpotInstanceRequest.blockDurationMinutes");
+    }
 
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -70,9 +87,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
-    public SpotInstanceRequestCapacityReservationSpecification capacityReservationSpecification;
+    private UndeferrableValue<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification;
 
-
+    public SpotInstanceRequestCapacityReservationSpecification capacityReservationSpecification() {
+        if (capacityReservationSpecification == null) return null;
+        return capacityReservationSpecification.getValue("SpotInstanceRequest.capacityReservationSpecification");
+    }
 
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -82,17 +102,23 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    public Integer cpuCoreCount;
+    private UndeferrableValue<Integer> cpuCoreCount;
 
-
+    public Integer cpuCoreCount() {
+        if (cpuCoreCount == null) return null;
+        return cpuCoreCount.getValue("SpotInstanceRequest.cpuCoreCount");
+    }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    public SpotInstanceRequestCpuOptions cpuOptions;
+    private UndeferrableValue<SpotInstanceRequestCpuOptions> cpuOptions;
 
-
+    public SpotInstanceRequestCpuOptions cpuOptions() {
+        if (cpuOptions == null) return null;
+        return cpuOptions.getValue("SpotInstanceRequest.cpuOptions");
+    }
 
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -102,242 +128,338 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    public Integer cpuThreadsPerCore;
+    private UndeferrableValue<Integer> cpuThreadsPerCore;
 
-
+    public Integer cpuThreadsPerCore() {
+        if (cpuThreadsPerCore == null) return null;
+        return cpuThreadsPerCore.getValue("SpotInstanceRequest.cpuThreadsPerCore");
+    }
 
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
-    public SpotInstanceRequestCreditSpecification creditSpecification;
+    private @Nullable UndeferrableValue<SpotInstanceRequestCreditSpecification> creditSpecification;
 
-
+    public @Nullable SpotInstanceRequestCreditSpecification creditSpecification() {
+        if (creditSpecification == null) return null;
+        return creditSpecification.getValue("SpotInstanceRequest.creditSpecification");
+    }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    public Boolean disableApiStop;
+    private UndeferrableValue<Boolean> disableApiStop;
 
-
+    public Boolean disableApiStop() {
+        if (disableApiStop == null) return null;
+        return disableApiStop.getValue("SpotInstanceRequest.disableApiStop");
+    }
 
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    public Boolean disableApiTermination;
+    private UndeferrableValue<Boolean> disableApiTermination;
 
-
+    public Boolean disableApiTermination() {
+        if (disableApiTermination == null) return null;
+        return disableApiTermination.getValue("SpotInstanceRequest.disableApiTermination");
+    }
 
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public List<SpotInstanceRequestEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<SpotInstanceRequestEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<SpotInstanceRequestEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("SpotInstanceRequest.ebsBlockDevices");
+    }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    public Boolean ebsOptimized;
+    private UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("SpotInstanceRequest.ebsOptimized");
+    }
 
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
      * 
      */
-    public Boolean enablePrimaryIpv6;
+    private UndeferrableValue<Boolean> enablePrimaryIpv6;
 
-
+    public Boolean enablePrimaryIpv6() {
+        if (enablePrimaryIpv6 == null) return null;
+        return enablePrimaryIpv6.getValue("SpotInstanceRequest.enablePrimaryIpv6");
+    }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    public SpotInstanceRequestEnclaveOptions enclaveOptions;
+    private UndeferrableValue<SpotInstanceRequestEnclaveOptions> enclaveOptions;
 
-
+    public SpotInstanceRequestEnclaveOptions enclaveOptions() {
+        if (enclaveOptions == null) return null;
+        return enclaveOptions.getValue("SpotInstanceRequest.enclaveOptions");
+    }
 
     /**
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public List<SpotInstanceRequestEphemeralBlockDevice> ephemeralBlockDevices;
+    private UndeferrableValue<List<SpotInstanceRequestEphemeralBlockDevice>> ephemeralBlockDevices;
 
-
+    public List<SpotInstanceRequestEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("SpotInstanceRequest.ephemeralBlockDevices");
+    }
 
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    public Boolean getPasswordData;
+    private @Nullable UndeferrableValue<Boolean> getPasswordData;
 
-
+    public @Nullable Boolean getPasswordData() {
+        if (getPasswordData == null) return null;
+        return getPasswordData.getValue("SpotInstanceRequest.getPasswordData");
+    }
 
     /**
      * If true, the launched EC2 instance will support hibernation.
      * 
      */
-    public Boolean hibernation;
+    private @Nullable UndeferrableValue<Boolean> hibernation;
 
-
+    public @Nullable Boolean hibernation() {
+        if (hibernation == null) return null;
+        return hibernation.getValue("SpotInstanceRequest.hibernation");
+    }
 
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    public String hostId;
+    private UndeferrableValue<String> hostId;
 
-
+    public String hostId() {
+        if (hostId == null) return null;
+        return hostId.getValue("SpotInstanceRequest.hostId");
+    }
 
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    public String hostResourceGroupArn;
+    private UndeferrableValue<String> hostResourceGroupArn;
 
-
+    public String hostResourceGroupArn() {
+        if (hostResourceGroupArn == null) return null;
+        return hostResourceGroupArn.getValue("SpotInstanceRequest.hostResourceGroupArn");
+    }
 
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    public String iamInstanceProfile;
+    private UndeferrableValue<String> iamInstanceProfile;
 
-
+    public String iamInstanceProfile() {
+        if (iamInstanceProfile == null) return null;
+        return iamInstanceProfile.getValue("SpotInstanceRequest.iamInstanceProfile");
+    }
 
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    public String instanceInitiatedShutdownBehavior;
+    private UndeferrableValue<String> instanceInitiatedShutdownBehavior;
 
-
+    public String instanceInitiatedShutdownBehavior() {
+        if (instanceInitiatedShutdownBehavior == null) return null;
+        return instanceInitiatedShutdownBehavior.getValue("SpotInstanceRequest.instanceInitiatedShutdownBehavior");
+    }
 
     /**
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
-    public String instanceInterruptionBehavior;
+    private @Nullable UndeferrableValue<String> instanceInterruptionBehavior;
 
+    public @Nullable String instanceInterruptionBehavior() {
+        if (instanceInterruptionBehavior == null) return null;
+        return instanceInterruptionBehavior.getValue("SpotInstanceRequest.instanceInterruptionBehavior");
+    }
 
+    private UndeferrableValue<String> instanceState;
 
-    public String instanceState;
-
-
+    public String instanceState() {
+        if (instanceState == null) return null;
+        return instanceState.getValue("SpotInstanceRequest.instanceState");
+    }
 
     /**
      * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("SpotInstanceRequest.instanceType");
+    }
 
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    public Integer ipv6AddressCount;
+    private UndeferrableValue<Integer> ipv6AddressCount;
 
-
+    public Integer ipv6AddressCount() {
+        if (ipv6AddressCount == null) return null;
+        return ipv6AddressCount.getValue("SpotInstanceRequest.ipv6AddressCount");
+    }
 
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    public List<String> ipv6Addresses;
+    private UndeferrableValue<List<String>> ipv6Addresses;
 
-
+    public List<String> ipv6Addresses() {
+        if (ipv6Addresses == null) return null;
+        return ipv6Addresses.getValue("SpotInstanceRequest.ipv6Addresses");
+    }
 
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    public String keyName;
+    private UndeferrableValue<String> keyName;
 
-
+    public String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("SpotInstanceRequest.keyName");
+    }
 
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      * 
      */
-    public String launchGroup;
+    private @Nullable UndeferrableValue<String> launchGroup;
 
-
+    public @Nullable String launchGroup() {
+        if (launchGroup == null) return null;
+        return launchGroup.getValue("SpotInstanceRequest.launchGroup");
+    }
 
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
-    public SpotInstanceRequestLaunchTemplate launchTemplate;
+    private @Nullable UndeferrableValue<SpotInstanceRequestLaunchTemplate> launchTemplate;
 
-
+    public @Nullable SpotInstanceRequestLaunchTemplate launchTemplate() {
+        if (launchTemplate == null) return null;
+        return launchTemplate.getValue("SpotInstanceRequest.launchTemplate");
+    }
 
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    public SpotInstanceRequestMaintenanceOptions maintenanceOptions;
+    private UndeferrableValue<SpotInstanceRequestMaintenanceOptions> maintenanceOptions;
 
-
+    public SpotInstanceRequestMaintenanceOptions maintenanceOptions() {
+        if (maintenanceOptions == null) return null;
+        return maintenanceOptions.getValue("SpotInstanceRequest.maintenanceOptions");
+    }
 
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    public SpotInstanceRequestMetadataOptions metadataOptions;
+    private UndeferrableValue<SpotInstanceRequestMetadataOptions> metadataOptions;
 
-
+    public SpotInstanceRequestMetadataOptions metadataOptions() {
+        if (metadataOptions == null) return null;
+        return metadataOptions.getValue("SpotInstanceRequest.metadataOptions");
+    }
 
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    public Boolean monitoring;
+    private UndeferrableValue<Boolean> monitoring;
 
-
+    public Boolean monitoring() {
+        if (monitoring == null) return null;
+        return monitoring.getValue("SpotInstanceRequest.monitoring");
+    }
 
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    public List<SpotInstanceRequestNetworkInterface> networkInterfaces;
+    private UndeferrableValue<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
 
+    public List<SpotInstanceRequestNetworkInterface> networkInterfaces() {
+        if (networkInterfaces == null) return null;
+        return networkInterfaces.getValue("SpotInstanceRequest.networkInterfaces");
+    }
 
+    private UndeferrableValue<String> outpostArn;
 
-    public String outpostArn;
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("SpotInstanceRequest.outpostArn");
+    }
 
+    private UndeferrableValue<String> passwordData;
 
-
-    public String passwordData;
-
-
+    public String passwordData() {
+        if (passwordData == null) return null;
+        return passwordData.getValue("SpotInstanceRequest.passwordData");
+    }
 
     /**
      * Placement Group to start the instance in.
      * 
      */
-    public String placementGroup;
+    private UndeferrableValue<String> placementGroup;
 
-
+    public String placementGroup() {
+        if (placementGroup == null) return null;
+        return placementGroup.getValue("SpotInstanceRequest.placementGroup");
+    }
 
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    public Integer placementPartitionNumber;
+    private UndeferrableValue<Integer> placementPartitionNumber;
 
+    public Integer placementPartitionNumber() {
+        if (placementPartitionNumber == null) return null;
+        return placementPartitionNumber.getValue("SpotInstanceRequest.placementPartitionNumber");
+    }
 
+    private UndeferrableValue<String> primaryNetworkInterfaceId;
 
-    public String primaryNetworkInterfaceId;
-
-
+    public String primaryNetworkInterfaceId() {
+        if (primaryNetworkInterfaceId == null) return null;
+        return primaryNetworkInterfaceId.getValue("SpotInstanceRequest.primaryNetworkInterfaceId");
+    }
 
     /**
      * The private DNS name assigned to the instance. Can only be
@@ -345,58 +467,79 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * for your VPC
      * 
      */
-    public String privateDns;
+    private UndeferrableValue<String> privateDns;
 
-
+    public String privateDns() {
+        if (privateDns == null) return null;
+        return privateDns.getValue("SpotInstanceRequest.privateDns");
+    }
 
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    public SpotInstanceRequestPrivateDnsNameOptions privateDnsNameOptions;
+    private UndeferrableValue<SpotInstanceRequestPrivateDnsNameOptions> privateDnsNameOptions;
 
-
+    public SpotInstanceRequestPrivateDnsNameOptions privateDnsNameOptions() {
+        if (privateDnsNameOptions == null) return null;
+        return privateDnsNameOptions.getValue("SpotInstanceRequest.privateDnsNameOptions");
+    }
 
     /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
-    public String privateIp;
+    private UndeferrableValue<String> privateIp;
 
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("SpotInstanceRequest.privateIp");
+    }
 
     /**
      * The public DNS name assigned to the instance. For EC2-VPC, this
      * is only available if you&#39;ve enabled DNS hostnames for your VPC
      * 
      */
-    public String publicDns;
+    private UndeferrableValue<String> publicDns;
 
-
+    public String publicDns() {
+        if (publicDns == null) return null;
+        return publicDns.getValue("SpotInstanceRequest.publicDns");
+    }
 
     /**
      * The public IP address assigned to the instance, if applicable.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("SpotInstanceRequest.publicIp");
+    }
 
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    public SpotInstanceRequestRootBlockDevice rootBlockDevice;
+    private UndeferrableValue<SpotInstanceRequestRootBlockDevice> rootBlockDevice;
 
-
+    public SpotInstanceRequestRootBlockDevice rootBlockDevice() {
+        if (rootBlockDevice == null) return null;
+        return rootBlockDevice.getValue("SpotInstanceRequest.rootBlockDevice");
+    }
 
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    public List<String> secondaryPrivateIps;
+    private UndeferrableValue<List<String>> secondaryPrivateIps;
 
-
+    public List<String> secondaryPrivateIps() {
+        if (secondaryPrivateIps == null) return null;
+        return secondaryPrivateIps.getValue("SpotInstanceRequest.secondaryPrivateIps");
+    }
 
     /**
      * List of security group names to associate with.
@@ -404,17 +547,23 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("SpotInstanceRequest.securityGroups");
+    }
 
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      * 
      */
-    public Boolean sourceDestCheck;
+    private @Nullable UndeferrableValue<Boolean> sourceDestCheck;
 
-
+    public @Nullable Boolean sourceDestCheck() {
+        if (sourceDestCheck == null) return null;
+        return sourceDestCheck.getValue("SpotInstanceRequest.sourceDestCheck");
+    }
 
     /**
      * The current [bid
@@ -422,26 +571,35 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * of the Spot Instance Request.
      * 
      */
-    public String spotBidStatus;
+    private UndeferrableValue<String> spotBidStatus;
 
-
+    public String spotBidStatus() {
+        if (spotBidStatus == null) return null;
+        return spotBidStatus.getValue("SpotInstanceRequest.spotBidStatus");
+    }
 
     /**
      * The Instance ID (if any) that is currently fulfilling
      * the Spot Instance request.
      * 
      */
-    public String spotInstanceId;
+    private UndeferrableValue<String> spotInstanceId;
 
-
+    public String spotInstanceId() {
+        if (spotInstanceId == null) return null;
+        return spotInstanceId.getValue("SpotInstanceRequest.spotInstanceId");
+    }
 
     /**
      * The maximum price to request on the spot market.
      * 
      */
-    public String spotPrice;
+    private UndeferrableValue<String> spotPrice;
 
-
+    public String spotPrice() {
+        if (spotPrice == null) return null;
+        return spotPrice.getValue("SpotInstanceRequest.spotPrice");
+    }
 
     /**
      * The current [request
@@ -449,34 +607,46 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * of the Spot Instance Request.
      * 
      */
-    public String spotRequestState;
+    private UndeferrableValue<String> spotRequestState;
 
-
+    public String spotRequestState() {
+        if (spotRequestState == null) return null;
+        return spotRequestState.getValue("SpotInstanceRequest.spotRequestState");
+    }
 
     /**
      * If set to `one-time`, after
      * the instance is terminated, the spot request will be closed.
      * 
      */
-    public String spotType;
+    private @Nullable UndeferrableValue<String> spotType;
 
-
+    public @Nullable String spotType() {
+        if (spotType == null) return null;
+        return spotType.getValue("SpotInstanceRequest.spotType");
+    }
 
     /**
      * VPC Subnet ID to launch in.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("SpotInstanceRequest.subnetId");
+    }
 
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SpotInstanceRequest.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -486,57 +656,78 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SpotInstanceRequest.tagsAll");
+    }
 
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    public String tenancy;
+    private UndeferrableValue<String> tenancy;
 
-
+    public String tenancy() {
+        if (tenancy == null) return null;
+        return tenancy.getValue("SpotInstanceRequest.tenancy");
+    }
 
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public String userData;
+    private UndeferrableValue<String> userData;
 
-
+    public String userData() {
+        if (userData == null) return null;
+        return userData.getValue("SpotInstanceRequest.userData");
+    }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public String userDataBase64;
+    private UndeferrableValue<String> userDataBase64;
 
-
+    public String userDataBase64() {
+        if (userDataBase64 == null) return null;
+        return userDataBase64.getValue("SpotInstanceRequest.userDataBase64");
+    }
 
     /**
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
-    public Boolean userDataReplaceOnChange;
+    private @Nullable UndeferrableValue<Boolean> userDataReplaceOnChange;
 
-
+    public @Nullable Boolean userDataReplaceOnChange() {
+        if (userDataReplaceOnChange == null) return null;
+        return userDataReplaceOnChange.getValue("SpotInstanceRequest.userDataReplaceOnChange");
+    }
 
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    public String validFrom;
+    private UndeferrableValue<String> validFrom;
 
-
+    public String validFrom() {
+        if (validFrom == null) return null;
+        return validFrom.getValue("SpotInstanceRequest.validFrom");
+    }
 
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
-    public String validUntil;
+    private UndeferrableValue<String> validUntil;
 
-
+    public String validUntil() {
+        if (validUntil == null) return null;
+        return validUntil.getValue("SpotInstanceRequest.validUntil");
+    }
 
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
@@ -544,17 +735,23 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
-    public Map<String,String> volumeTags;
+    private @Nullable UndeferrableValue<Map<String,String>> volumeTags;
 
-
+    public @Nullable Map<String,String> volumeTags() {
+        if (volumeTags == null) return null;
+        return volumeTags.getValue("SpotInstanceRequest.volumeTags");
+    }
 
     /**
      * List of security group IDs to associate with.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("SpotInstanceRequest.vpcSecurityGroupIds");
+    }
 
     /**
      * If set, this provider will
@@ -562,8 +759,11 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * timeout of 10m is reached.
      * 
      */
-    public Boolean waitForFulfillment;
+    private @Nullable UndeferrableValue<Boolean> waitForFulfillment;
 
-
+    public @Nullable Boolean waitForFulfillment() {
+        if (waitForFulfillment == null) return null;
+        return waitForFulfillment.getValue("SpotInstanceRequest.waitForFulfillment");
+    }
 
 }

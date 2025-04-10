@@ -3,70 +3,96 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.ThesaurusSourceS3Path;
+import com.pulumi.policypacks.aws.kendra.outputs.ThesaurusSourceS3Path;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/thesaurus:Thesaurus")
-public final class Thesaurus extends com.pulumi.resources.PolicyResource {
+public final class Thesaurus extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the thesaurus.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Thesaurus.arn");
+    }
 
+    private @Nullable UndeferrableValue<String> description;
 
-    public String description;
-
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Thesaurus.description");
+    }
 
     /**
      * The identifier of the index for a thesaurus.
      * 
      */
-    public String indexId;
+    private UndeferrableValue<String> indexId;
 
-
+    public String indexId() {
+        if (indexId == null) return null;
+        return indexId.getValue("Thesaurus.indexId");
+    }
 
     /**
      * The name for the thesaurus.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Thesaurus.name");
+    }
 
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Thesaurus.roleArn");
+    }
 
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
      */
-    public ThesaurusSourceS3Path sourceS3Path;
+    private UndeferrableValue<ThesaurusSourceS3Path> sourceS3Path;
 
-
+    public ThesaurusSourceS3Path sourceS3Path() {
+        if (sourceS3Path == null) return null;
+        return sourceS3Path.getValue("Thesaurus.sourceS3Path");
+    }
 
     /**
      * The current status of the thesaurus.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Thesaurus.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Thesaurus.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,12 +102,18 @@ public final class Thesaurus extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Thesaurus.tagsAll");
+    }
 
+    private UndeferrableValue<String> thesaurusId;
 
-    public String thesaurusId;
-
-
+    public String thesaurusId() {
+        if (thesaurusId == null) return null;
+        return thesaurusId.getValue("Thesaurus.thesaurusId");
+    }
 
 }

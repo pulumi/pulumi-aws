@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dataexchange.EventActionAction;
-import com.pulumi.policypacks.aws.dataexchange.EventActionEvent;
+import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionAction;
+import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionEvent;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dataexchange/eventAction:EventAction")
-public final class EventAction extends com.pulumi.resources.PolicyResource {
+public final class EventAction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Describes the action to take.
      * Described in `action` Configuration Block below.
      * 
      */
-    public EventActionAction action;
+    private @Nullable UndeferrableValue<EventActionAction> action;
 
-
+    public @Nullable EventActionAction action() {
+        if (action == null) return null;
+        return action.getValue("EventAction.action");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the event action.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventAction.arn");
+    }
 
     /**
      * Date and time when the resource was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("EventAction.createdAt");
+    }
 
     /**
      * Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      * 
      */
-    public EventActionEvent event;
+    private @Nullable UndeferrableValue<EventActionEvent> event;
 
-
+    public @Nullable EventActionEvent event() {
+        if (event == null) return null;
+        return event.getValue("EventAction.event");
+    }
 
     /**
      * Data and time when the resource was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("EventAction.updatedAt");
+    }
 
 }

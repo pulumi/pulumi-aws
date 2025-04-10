@@ -3,70 +3,99 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentCollaboratorAgentDescriptor;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentCollaboratorTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentCollaboratorAgentDescriptor;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentCollaboratorTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")
-public final class AgentAgentCollaborator extends com.pulumi.resources.PolicyResource {
+public final class AgentAgentCollaborator extends com.pulumi.resources.PolicyResourceOutput {
 
-    public AgentAgentCollaboratorAgentDescriptor agentDescriptor;
+    private @Nullable UndeferrableValue<AgentAgentCollaboratorAgentDescriptor> agentDescriptor;
 
-
+    public @Nullable AgentAgentCollaboratorAgentDescriptor agentDescriptor() {
+        if (agentDescriptor == null) return null;
+        return agentDescriptor.getValue("AgentAgentCollaborator.agentDescriptor");
+    }
 
     /**
      * ID if the agent to associate the collaborator.
      * 
      */
-    public String agentId;
+    private UndeferrableValue<String> agentId;
 
+    public String agentId() {
+        if (agentId == null) return null;
+        return agentId.getValue("AgentAgentCollaborator.agentId");
+    }
 
+    private UndeferrableValue<String> agentVersion;
 
-    public String agentVersion;
-
-
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("AgentAgentCollaborator.agentVersion");
+    }
 
     /**
      * Instruction to give the collaborator.
      * 
      */
-    public String collaborationInstruction;
+    private UndeferrableValue<String> collaborationInstruction;
 
-
+    public String collaborationInstruction() {
+        if (collaborationInstruction == null) return null;
+        return collaborationInstruction.getValue("AgentAgentCollaborator.collaborationInstruction");
+    }
 
     /**
      * ID of the Agent Collaborator.
      * 
      */
-    public String collaboratorId;
+    private UndeferrableValue<String> collaboratorId;
 
+    public String collaboratorId() {
+        if (collaboratorId == null) return null;
+        return collaboratorId.getValue("AgentAgentCollaborator.collaboratorId");
+    }
 
+    private UndeferrableValue<String> collaboratorName;
 
-    public String collaboratorName;
-
-
+    public String collaboratorName() {
+        if (collaboratorName == null) return null;
+        return collaboratorName.getValue("AgentAgentCollaborator.collaboratorName");
+    }
 
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    public Boolean prepareAgent;
+    private UndeferrableValue<Boolean> prepareAgent;
 
-
+    public Boolean prepareAgent() {
+        if (prepareAgent == null) return null;
+        return prepareAgent.getValue("AgentAgentCollaborator.prepareAgent");
+    }
 
     /**
      * Configure relaying the history to the collaborator.
      * 
      */
-    public String relayConversationHistory;
+    private UndeferrableValue<String> relayConversationHistory;
 
+    public String relayConversationHistory() {
+        if (relayConversationHistory == null) return null;
+        return relayConversationHistory.getValue("AgentAgentCollaborator.relayConversationHistory");
+    }
 
+    private @Nullable UndeferrableValue<AgentAgentCollaboratorTimeouts> timeouts;
 
-    public AgentAgentCollaboratorTimeouts timeouts;
-
-
+    public @Nullable AgentAgentCollaboratorTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentAgentCollaborator.timeouts");
+    }
 
 }

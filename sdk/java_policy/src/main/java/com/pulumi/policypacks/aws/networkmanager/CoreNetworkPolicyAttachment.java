@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")
-public final class CoreNetworkPolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class CoreNetworkPolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("CoreNetworkPolicyAttachment.coreNetworkId");
+    }
 
     /**
      * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("CoreNetworkPolicyAttachment.policyDocument");
+    }
 
     /**
      * Current state of a core network.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("CoreNetworkPolicyAttachment.state");
+    }
 
 }

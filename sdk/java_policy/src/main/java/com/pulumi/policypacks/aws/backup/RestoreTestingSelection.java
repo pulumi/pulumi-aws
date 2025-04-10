@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.RestoreTestingSelectionProtectedResourceConditions;
+import com.pulumi.policypacks.aws.backup.outputs.RestoreTestingSelectionProtectedResourceConditions;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/restoreTestingSelection:RestoreTestingSelection")
-public final class RestoreTestingSelection extends com.pulumi.resources.PolicyResource {
+public final class RestoreTestingSelection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the IAM role.
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("RestoreTestingSelection.iamRoleArn");
+    }
 
     /**
      * The name of the backup restore testing selection.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RestoreTestingSelection.name");
+    }
 
     /**
      * The ARNs for the protected resources.
      * 
      */
-    public List<String> protectedResourceArns;
+    private UndeferrableValue<List<String>> protectedResourceArns;
 
-
+    public List<String> protectedResourceArns() {
+        if (protectedResourceArns == null) return null;
+        return protectedResourceArns.getValue("RestoreTestingSelection.protectedResourceArns");
+    }
 
     /**
      * The conditions for the protected resource.
      * 
      */
-    public RestoreTestingSelectionProtectedResourceConditions protectedResourceConditions;
+    private @Nullable UndeferrableValue<RestoreTestingSelectionProtectedResourceConditions> protectedResourceConditions;
 
-
+    public @Nullable RestoreTestingSelectionProtectedResourceConditions protectedResourceConditions() {
+        if (protectedResourceConditions == null) return null;
+        return protectedResourceConditions.getValue("RestoreTestingSelection.protectedResourceConditions");
+    }
 
     /**
      * The type of the protected resource.
      * 
      */
-    public String protectedResourceType;
+    private UndeferrableValue<String> protectedResourceType;
 
-
+    public String protectedResourceType() {
+        if (protectedResourceType == null) return null;
+        return protectedResourceType.getValue("RestoreTestingSelection.protectedResourceType");
+    }
 
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      * 
      */
-    public Map<String,String> restoreMetadataOverrides;
+    private UndeferrableValue<Map<String,String>> restoreMetadataOverrides;
 
-
+    public Map<String,String> restoreMetadataOverrides() {
+        if (restoreMetadataOverrides == null) return null;
+        return restoreMetadataOverrides.getValue("RestoreTestingSelection.restoreMetadataOverrides");
+    }
 
     /**
      * The name of the restore testing plan.
      * 
      */
-    public String restoreTestingPlanName;
+    private UndeferrableValue<String> restoreTestingPlanName;
 
-
+    public String restoreTestingPlanName() {
+        if (restoreTestingPlanName == null) return null;
+        return restoreTestingPlanName.getValue("RestoreTestingSelection.restoreTestingPlanName");
+    }
 
     /**
      * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
-    public Integer validationWindowHours;
+    private UndeferrableValue<Integer> validationWindowHours;
 
-
+    public Integer validationWindowHours() {
+        if (validationWindowHours == null) return null;
+        return validationWindowHours.getValue("RestoreTestingSelection.validationWindowHours");
+    }
 
 }

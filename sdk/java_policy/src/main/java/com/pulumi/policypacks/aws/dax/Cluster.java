@@ -3,42 +3,53 @@
 
 package com.pulumi.policypacks.aws.dax;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dax.ClusterNode;
-import com.pulumi.policypacks.aws.dax.ClusterServerSideEncryption;
+import com.pulumi.policypacks.aws.dax.outputs.ClusterNode;
+import com.pulumi.policypacks.aws.dax.outputs.ClusterServerSideEncryption;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dax/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the DAX cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * List of Availability Zones in which the
      * nodes will be created
      * 
      */
-    public List<String> availabilityZones;
+    private @Nullable UndeferrableValue<List<String>> availabilityZones;
 
-
+    public @Nullable List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Cluster.availabilityZones");
+    }
 
     /**
      * The DNS name of the DAX cluster without the port appended
      * 
      */
-    public String clusterAddress;
+    private UndeferrableValue<String> clusterAddress;
 
-
+    public String clusterAddress() {
+        if (clusterAddress == null) return null;
+        return clusterAddress.getValue("Cluster.clusterAddress");
+    }
 
     /**
      * The type of encryption the
@@ -46,35 +57,47 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * Default value is `NONE`.
      * 
      */
-    public String clusterEndpointEncryptionType;
+    private @Nullable UndeferrableValue<String> clusterEndpointEncryptionType;
 
-
+    public @Nullable String clusterEndpointEncryptionType() {
+        if (clusterEndpointEncryptionType == null) return null;
+        return clusterEndpointEncryptionType.getValue("Cluster.clusterEndpointEncryptionType");
+    }
 
     /**
      * Group identifier. DAX converts this name to
      * lowercase
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("Cluster.clusterName");
+    }
 
     /**
      * The configuration endpoint for this DAX cluster,
      * consisting of a DNS name and a port number
      * 
      */
-    public String configurationEndpoint;
+    private UndeferrableValue<String> configurationEndpoint;
 
-
+    public String configurationEndpoint() {
+        if (configurationEndpoint == null) return null;
+        return configurationEndpoint.getValue("Cluster.configurationEndpoint");
+    }
 
     /**
      * Description for the cluster
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Cluster.description");
+    }
 
     /**
      * A valid Amazon Resource Name (ARN) that identifies
@@ -82,9 +105,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * permissions to access DynamoDB on your behalf
      * 
      */
-    public String iamRoleArn;
+    private UndeferrableValue<String> iamRoleArn;
 
-
+    public String iamRoleArn() {
+        if (iamRoleArn == null) return null;
+        return iamRoleArn.getValue("Cluster.iamRoleArn");
+    }
 
     /**
      * Specifies the weekly time range for when
@@ -93,18 +119,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * `sun:05:00-sun:09:00`
      * 
      */
-    public String maintenanceWindow;
+    private UndeferrableValue<String> maintenanceWindow;
 
-
+    public String maintenanceWindow() {
+        if (maintenanceWindow == null) return null;
+        return maintenanceWindow.getValue("Cluster.maintenanceWindow");
+    }
 
     /**
      * The compute and memory capacity of the nodes. See
      * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      * 
      */
-    public String nodeType;
+    private UndeferrableValue<String> nodeType;
 
-
+    public String nodeType() {
+        if (nodeType == null) return null;
+        return nodeType.getValue("Cluster.nodeType");
+    }
 
     /**
      * List of node objects including `id`, `address`, `port` and
@@ -112,9 +144,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * `${aws_dax_cluster.test.nodes.0.address}`
      * 
      */
-    public List<ClusterNode> nodes;
+    private UndeferrableValue<List<ClusterNode>> nodes;
 
-
+    public List<ClusterNode> nodes() {
+        if (nodes == null) return null;
+        return nodes.getValue("Cluster.nodes");
+    }
 
     /**
      * An Amazon Resource Name (ARN) of an
@@ -122,26 +157,35 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
      */
-    public String notificationTopicArn;
+    private @Nullable UndeferrableValue<String> notificationTopicArn;
 
-
+    public @Nullable String notificationTopicArn() {
+        if (notificationTopicArn == null) return null;
+        return notificationTopicArn.getValue("Cluster.notificationTopicArn");
+    }
 
     /**
      * Name of the parameter group to associate
      * with this DAX cluster
      * 
      */
-    public String parameterGroupName;
+    private UndeferrableValue<String> parameterGroupName;
 
-
+    public String parameterGroupName() {
+        if (parameterGroupName == null) return null;
+        return parameterGroupName.getValue("Cluster.parameterGroupName");
+    }
 
     /**
      * The port used by the configuration endpoint
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * The number of nodes in the DAX cluster. A
@@ -149,43 +193,58 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * replicas
      * 
      */
-    public Integer replicationFactor;
+    private UndeferrableValue<Integer> replicationFactor;
 
-
+    public Integer replicationFactor() {
+        if (replicationFactor == null) return null;
+        return replicationFactor.getValue("Cluster.replicationFactor");
+    }
 
     /**
      * One or more VPC security groups associated
      * with the cluster
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Cluster.securityGroupIds");
+    }
 
     /**
      * Encrypt at rest options
      * 
      */
-    public ClusterServerSideEncryption serverSideEncryption;
+    private @Nullable UndeferrableValue<ClusterServerSideEncryption> serverSideEncryption;
 
-
+    public @Nullable ClusterServerSideEncryption serverSideEncryption() {
+        if (serverSideEncryption == null) return null;
+        return serverSideEncryption.getValue("Cluster.serverSideEncryption");
+    }
 
     /**
      * Name of the subnet group to be used for the
      * cluster
      * 
      */
-    public String subnetGroupName;
+    private UndeferrableValue<String> subnetGroupName;
 
-
+    public String subnetGroupName() {
+        if (subnetGroupName == null) return null;
+        return subnetGroupName.getValue("Cluster.subnetGroupName");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -195,8 +254,11 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
 }

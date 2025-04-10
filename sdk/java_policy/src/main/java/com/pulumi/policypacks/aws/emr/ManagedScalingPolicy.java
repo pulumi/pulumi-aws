@@ -3,29 +3,36 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emr.ManagedScalingPolicyComputeLimit;
+import com.pulumi.policypacks.aws.emr.outputs.ManagedScalingPolicyComputeLimit;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:emr/managedScalingPolicy:ManagedScalingPolicy")
-public final class ManagedScalingPolicy extends com.pulumi.resources.PolicyResource {
+public final class ManagedScalingPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the EMR cluster
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("ManagedScalingPolicy.clusterId");
+    }
 
     /**
      * Configuration block with compute limit settings. Described below.
      * 
      */
-    public List<ManagedScalingPolicyComputeLimit> computeLimits;
+    private UndeferrableValue<List<ManagedScalingPolicyComputeLimit>> computeLimits;
 
-
+    public List<ManagedScalingPolicyComputeLimit> computeLimits() {
+        if (computeLimits == null) return null;
+        return computeLimits.getValue("ManagedScalingPolicy.computeLimits");
+    }
 
 }

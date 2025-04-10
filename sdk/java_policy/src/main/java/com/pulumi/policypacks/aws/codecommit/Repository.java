@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codecommit/repository:Repository")
-public final class Repository extends com.pulumi.resources.PolicyResource {
+public final class Repository extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the repository
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Repository.arn");
+    }
 
     /**
      * The URL to use for cloning the repository over HTTPS.
      * 
      */
-    public String cloneUrlHttp;
+    private UndeferrableValue<String> cloneUrlHttp;
 
-
+    public String cloneUrlHttp() {
+        if (cloneUrlHttp == null) return null;
+        return cloneUrlHttp.getValue("Repository.cloneUrlHttp");
+    }
 
     /**
      * The URL to use for cloning the repository over SSH.
      * 
      */
-    public String cloneUrlSsh;
+    private UndeferrableValue<String> cloneUrlSsh;
 
-
+    public String cloneUrlSsh() {
+        if (cloneUrlSsh == null) return null;
+        return cloneUrlSsh.getValue("Repository.cloneUrlSsh");
+    }
 
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      * 
      */
-    public String defaultBranch;
+    private @Nullable UndeferrableValue<String> defaultBranch;
 
-
+    public @Nullable String defaultBranch() {
+        if (defaultBranch == null) return null;
+        return defaultBranch.getValue("Repository.defaultBranch");
+    }
 
     /**
      * The description of the repository. This needs to be less than 1000 characters
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Repository.description");
+    }
 
     /**
      * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Repository.kmsKeyId");
+    }
 
     /**
      * The ID of the repository
      * 
      */
-    public String repositoryId;
+    private UndeferrableValue<String> repositoryId;
 
-
+    public String repositoryId() {
+        if (repositoryId == null) return null;
+        return repositoryId.getValue("Repository.repositoryId");
+    }
 
     /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    public String repositoryName;
+    private UndeferrableValue<String> repositoryName;
 
-
+    public String repositoryName() {
+        if (repositoryName == null) return null;
+        return repositoryName.getValue("Repository.repositoryName");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Repository.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -91,8 +120,11 @@ public final class Repository extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Repository.tagsAll");
+    }
 
 }

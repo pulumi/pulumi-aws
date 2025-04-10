@@ -3,174 +3,233 @@
 
 package com.pulumi.policypacks.aws.route53domains;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53domains.DomainAdminContact;
-import com.pulumi.policypacks.aws.route53domains.DomainBillingContact;
-import com.pulumi.policypacks.aws.route53domains.DomainNameServer;
-import com.pulumi.policypacks.aws.route53domains.DomainRegistrantContact;
-import com.pulumi.policypacks.aws.route53domains.DomainTechContact;
-import com.pulumi.policypacks.aws.route53domains.DomainTimeouts;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainAdminContact;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainBillingContact;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainNameServer;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainRegistrantContact;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainTechContact;
+import com.pulumi.policypacks.aws.route53domains.outputs.DomainTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53domains/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      * 
      */
-    public String abuseContactEmail;
+    private UndeferrableValue<String> abuseContactEmail;
 
-
+    public String abuseContactEmail() {
+        if (abuseContactEmail == null) return null;
+        return abuseContactEmail.getValue("Domain.abuseContactEmail");
+    }
 
     /**
      * Phone number for reporting abuse.
      * 
      */
-    public String abuseContactPhone;
+    private UndeferrableValue<String> abuseContactPhone;
 
-
+    public String abuseContactPhone() {
+        if (abuseContactPhone == null) return null;
+        return abuseContactPhone.getValue("Domain.abuseContactPhone");
+    }
 
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    public DomainAdminContact adminContact;
+    private @Nullable UndeferrableValue<DomainAdminContact> adminContact;
 
-
+    public @Nullable DomainAdminContact adminContact() {
+        if (adminContact == null) return null;
+        return adminContact.getValue("Domain.adminContact");
+    }
 
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    public Boolean adminPrivacy;
+    private UndeferrableValue<Boolean> adminPrivacy;
 
-
+    public Boolean adminPrivacy() {
+        if (adminPrivacy == null) return null;
+        return adminPrivacy.getValue("Domain.adminPrivacy");
+    }
 
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      * 
      */
-    public Boolean autoRenew;
+    private UndeferrableValue<Boolean> autoRenew;
 
-
+    public Boolean autoRenew() {
+        if (autoRenew == null) return null;
+        return autoRenew.getValue("Domain.autoRenew");
+    }
 
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      * 
      */
-    public List<DomainBillingContact> billingContacts;
+    private UndeferrableValue<List<DomainBillingContact>> billingContacts;
 
-
+    public List<DomainBillingContact> billingContacts() {
+        if (billingContacts == null) return null;
+        return billingContacts.getValue("Domain.billingContacts");
+    }
 
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    public Boolean billingPrivacy;
+    private UndeferrableValue<Boolean> billingPrivacy;
 
-
+    public Boolean billingPrivacy() {
+        if (billingPrivacy == null) return null;
+        return billingPrivacy.getValue("Domain.billingPrivacy");
+    }
 
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("Domain.creationDate");
+    }
 
     /**
      * The name of the domain.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
     /**
      * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
      * 
      */
-    public Integer durationInYears;
+    private UndeferrableValue<Integer> durationInYears;
 
-
+    public Integer durationInYears() {
+        if (durationInYears == null) return null;
+        return durationInYears.getValue("Domain.durationInYears");
+    }
 
     /**
      * The date when the registration for the domain is set to expire.
      * 
      */
-    public String expirationDate;
+    private UndeferrableValue<String> expirationDate;
 
-
+    public String expirationDate() {
+        if (expirationDate == null) return null;
+        return expirationDate.getValue("Domain.expirationDate");
+    }
 
     /**
      * The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Domain.hostedZoneId");
+    }
 
     /**
      * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
-    public List<DomainNameServer> nameServers;
+    private UndeferrableValue<List<DomainNameServer>> nameServers;
 
-
+    public List<DomainNameServer> nameServers() {
+        if (nameServers == null) return null;
+        return nameServers.getValue("Domain.nameServers");
+    }
 
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    public DomainRegistrantContact registrantContact;
+    private @Nullable UndeferrableValue<DomainRegistrantContact> registrantContact;
 
-
+    public @Nullable DomainRegistrantContact registrantContact() {
+        if (registrantContact == null) return null;
+        return registrantContact.getValue("Domain.registrantContact");
+    }
 
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    public Boolean registrantPrivacy;
+    private UndeferrableValue<Boolean> registrantPrivacy;
 
-
+    public Boolean registrantPrivacy() {
+        if (registrantPrivacy == null) return null;
+        return registrantPrivacy.getValue("Domain.registrantPrivacy");
+    }
 
     /**
      * Name of the registrar of the domain as identified in the registry.
      * 
      */
-    public String registrarName;
+    private UndeferrableValue<String> registrarName;
 
-
+    public String registrarName() {
+        if (registrarName == null) return null;
+        return registrarName.getValue("Domain.registrarName");
+    }
 
     /**
      * Web address of the registrar.
      * 
      */
-    public String registrarUrl;
+    private UndeferrableValue<String> registrarUrl;
 
-
+    public String registrarUrl() {
+        if (registrarUrl == null) return null;
+        return registrarUrl.getValue("Domain.registrarUrl");
+    }
 
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      * 
      */
-    public List<String> statusLists;
+    private UndeferrableValue<List<String>> statusLists;
 
-
+    public List<String> statusLists() {
+        if (statusLists == null) return null;
+        return statusLists.getValue("Domain.statusLists");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -180,52 +239,73 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    public DomainTechContact techContact;
+    private @Nullable UndeferrableValue<DomainTechContact> techContact;
 
-
+    public @Nullable DomainTechContact techContact() {
+        if (techContact == null) return null;
+        return techContact.getValue("Domain.techContact");
+    }
 
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    public Boolean techPrivacy;
+    private UndeferrableValue<Boolean> techPrivacy;
 
+    public Boolean techPrivacy() {
+        if (techPrivacy == null) return null;
+        return techPrivacy.getValue("Domain.techPrivacy");
+    }
 
+    private @Nullable UndeferrableValue<DomainTimeouts> timeouts;
 
-    public DomainTimeouts timeouts;
-
-
+    public @Nullable DomainTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Domain.timeouts");
+    }
 
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
      */
-    public Boolean transferLock;
+    private UndeferrableValue<Boolean> transferLock;
 
-
+    public Boolean transferLock() {
+        if (transferLock == null) return null;
+        return transferLock.getValue("Domain.transferLock");
+    }
 
     /**
      * The last updated date of the domain as found in the response to a WHOIS query.
      * 
      */
-    public String updatedDate;
+    private UndeferrableValue<String> updatedDate;
 
-
+    public String updatedDate() {
+        if (updatedDate == null) return null;
+        return updatedDate.getValue("Domain.updatedDate");
+    }
 
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      * 
      */
-    public String whoisServer;
+    private UndeferrableValue<String> whoisServer;
 
-
+    public String whoisServer() {
+        if (whoisServer == null) return null;
+        return whoisServer.getValue("Domain.whoisServer");
+    }
 
 }

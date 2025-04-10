@@ -3,73 +3,96 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.resourceexplorer.ViewFilters;
-import com.pulumi.policypacks.aws.resourceexplorer.ViewIncludedProperty;
+import com.pulumi.policypacks.aws.resourceexplorer.outputs.ViewFilters;
+import com.pulumi.policypacks.aws.resourceexplorer.outputs.ViewIncludedProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:resourceexplorer/view:View")
-public final class View extends com.pulumi.resources.PolicyResource {
+public final class View extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Resource Explorer view.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("View.arn");
+    }
 
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      * 
      */
-    public Boolean defaultView;
+    private UndeferrableValue<Boolean> defaultView;
 
-
+    public Boolean defaultView() {
+        if (defaultView == null) return null;
+        return defaultView.getValue("View.defaultView");
+    }
 
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      * 
      */
-    public ViewFilters filters;
+    private @Nullable UndeferrableValue<ViewFilters> filters;
 
-
+    public @Nullable ViewFilters filters() {
+        if (filters == null) return null;
+        return filters.getValue("View.filters");
+    }
 
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      * 
      */
-    public List<ViewIncludedProperty> includedProperties;
+    private @Nullable UndeferrableValue<List<ViewIncludedProperty>> includedProperties;
 
-
+    public @Nullable List<ViewIncludedProperty> includedProperties() {
+        if (includedProperties == null) return null;
+        return includedProperties.getValue("View.includedProperties");
+    }
 
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("View.name");
+    }
 
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      * 
      */
-    public String scope;
+    private UndeferrableValue<String> scope;
 
-
+    public String scope() {
+        if (scope == null) return null;
+        return scope.getValue("View.scope");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("View.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -79,8 +102,11 @@ public final class View extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("View.tagsAll");
+    }
 
 }

@@ -3,106 +3,141 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.TriggerAction;
-import com.pulumi.policypacks.aws.glue.TriggerEventBatchingCondition;
-import com.pulumi.policypacks.aws.glue.TriggerPredicate;
+import com.pulumi.policypacks.aws.glue.outputs.TriggerAction;
+import com.pulumi.policypacks.aws.glue.outputs.TriggerEventBatchingCondition;
+import com.pulumi.policypacks.aws.glue.outputs.TriggerPredicate;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/trigger:Trigger")
-public final class Trigger extends com.pulumi.resources.PolicyResource {
+public final class Trigger extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of actions initiated by this trigger when it fires. See Actions Below.
      * 
      */
-    public List<TriggerAction> actions;
+    private UndeferrableValue<List<TriggerAction>> actions;
 
-
+    public List<TriggerAction> actions() {
+        if (actions == null) return null;
+        return actions.getValue("Trigger.actions");
+    }
 
     /**
      * Amazon Resource Name (ARN) of Glue Trigger
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Trigger.arn");
+    }
 
     /**
      * A description of the new trigger.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Trigger.description");
+    }
 
     /**
      * Start the trigger. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("Trigger.enabled");
+    }
 
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
      * 
      */
-    public List<TriggerEventBatchingCondition> eventBatchingConditions;
+    private @Nullable UndeferrableValue<List<TriggerEventBatchingCondition>> eventBatchingConditions;
 
-
+    public @Nullable List<TriggerEventBatchingCondition> eventBatchingConditions() {
+        if (eventBatchingConditions == null) return null;
+        return eventBatchingConditions.getValue("Trigger.eventBatchingConditions");
+    }
 
     /**
      * The name of the trigger.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Trigger.name");
+    }
 
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      * 
      */
-    public TriggerPredicate predicate;
+    private @Nullable UndeferrableValue<TriggerPredicate> predicate;
 
-
+    public @Nullable TriggerPredicate predicate() {
+        if (predicate == null) return null;
+        return predicate.getValue("Trigger.predicate");
+    }
 
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
-    public String schedule;
+    private @Nullable UndeferrableValue<String> schedule;
 
-
+    public @Nullable String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("Trigger.schedule");
+    }
 
     /**
      * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
      * 
      */
-    public Boolean startOnCreation;
+    private @Nullable UndeferrableValue<Boolean> startOnCreation;
 
-
+    public @Nullable Boolean startOnCreation() {
+        if (startOnCreation == null) return null;
+        return startOnCreation.getValue("Trigger.startOnCreation");
+    }
 
     /**
      * The current state of the trigger.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Trigger.state");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Trigger.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,24 +147,33 @@ public final class Trigger extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Trigger.tagsAll");
+    }
 
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Trigger.type");
+    }
 
     /**
      * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
-    public String workflowName;
+    private @Nullable UndeferrableValue<String> workflowName;
 
-
+    public @Nullable String workflowName() {
+        if (workflowName == null) return null;
+        return workflowName.getValue("Trigger.workflowName");
+    }
 
 }

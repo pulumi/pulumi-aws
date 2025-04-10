@@ -3,56 +3,75 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sagemaker/imageVersion:ImageVersion")
-public final class ImageVersion extends com.pulumi.resources.PolicyResource {
+public final class ImageVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ImageVersion.arn");
+    }
 
     /**
      * The registry path of the container image on which this image version is based.
      * 
      */
-    public String baseImage;
+    private UndeferrableValue<String> baseImage;
 
-
+    public String baseImage() {
+        if (baseImage == null) return null;
+        return baseImage.getValue("ImageVersion.baseImage");
+    }
 
     /**
      * The registry path of the container image that contains this image version.
      * 
      */
-    public String containerImage;
+    private UndeferrableValue<String> containerImage;
 
-
+    public String containerImage() {
+        if (containerImage == null) return null;
+        return containerImage.getValue("ImageVersion.containerImage");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
-    public String imageArn;
+    private UndeferrableValue<String> imageArn;
 
-
+    public String imageArn() {
+        if (imageArn == null) return null;
+        return imageArn.getValue("ImageVersion.imageArn");
+    }
 
     /**
      * The name of the image. Must be unique to your account.
      * 
      */
-    public String imageName;
+    private UndeferrableValue<String> imageName;
 
+    public String imageName() {
+        if (imageName == null) return null;
+        return imageName.getValue("ImageVersion.imageName");
+    }
 
+    private UndeferrableValue<Integer> version;
 
-    public Integer version;
-
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("ImageVersion.version");
+    }
 
 }

@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dms.ReplicationConfigComputeConfig;
+import com.pulumi.policypacks.aws.dms.outputs.ReplicationConfigComputeConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/replicationConfig:ReplicationConfig")
-public final class ReplicationConfig extends com.pulumi.resources.PolicyResource {
+public final class ReplicationConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the serverless replication config.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReplicationConfig.arn");
+    }
 
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      * 
      */
-    public ReplicationConfigComputeConfig computeConfig;
+    private UndeferrableValue<ReplicationConfigComputeConfig> computeConfig;
 
-
+    public ReplicationConfigComputeConfig computeConfig() {
+        if (computeConfig == null) return null;
+        return computeConfig.getValue("ReplicationConfig.computeConfig");
+    }
 
     /**
      * Unique identifier that you want to use to create the config.
      * 
      */
-    public String replicationConfigIdentifier;
+    private UndeferrableValue<String> replicationConfigIdentifier;
 
-
+    public String replicationConfigIdentifier() {
+        if (replicationConfigIdentifier == null) return null;
+        return replicationConfigIdentifier.getValue("ReplicationConfig.replicationConfigIdentifier");
+    }
 
     /**
      * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
      * 
      */
-    public String replicationSettings;
+    private UndeferrableValue<String> replicationSettings;
 
-
+    public String replicationSettings() {
+        if (replicationSettings == null) return null;
+        return replicationSettings.getValue("ReplicationConfig.replicationSettings");
+    }
 
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    public String replicationType;
+    private UndeferrableValue<String> replicationType;
 
-
+    public String replicationType() {
+        if (replicationType == null) return null;
+        return replicationType.getValue("ReplicationConfig.replicationType");
+    }
 
     /**
      * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
-    public String resourceIdentifier;
+    private UndeferrableValue<String> resourceIdentifier;
 
-
+    public String resourceIdentifier() {
+        if (resourceIdentifier == null) return null;
+        return resourceIdentifier.getValue("ReplicationConfig.resourceIdentifier");
+    }
 
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      * 
      */
-    public String sourceEndpointArn;
+    private UndeferrableValue<String> sourceEndpointArn;
 
-
+    public String sourceEndpointArn() {
+        if (sourceEndpointArn == null) return null;
+        return sourceEndpointArn.getValue("ReplicationConfig.sourceEndpointArn");
+    }
 
     /**
      * Whether to run or stop the serverless replication, default is false.
      * 
      */
-    public Boolean startReplication;
+    private @Nullable UndeferrableValue<Boolean> startReplication;
 
-
+    public @Nullable Boolean startReplication() {
+        if (startReplication == null) return null;
+        return startReplication.getValue("ReplicationConfig.startReplication");
+    }
 
     /**
      * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
      * 
      */
-    public String supplementalSettings;
+    private @Nullable UndeferrableValue<String> supplementalSettings;
 
-
+    public @Nullable String supplementalSettings() {
+        if (supplementalSettings == null) return null;
+        return supplementalSettings.getValue("ReplicationConfig.supplementalSettings");
+    }
 
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    public String tableMappings;
+    private UndeferrableValue<String> tableMappings;
 
-
+    public String tableMappings() {
+        if (tableMappings == null) return null;
+        return tableMappings.getValue("ReplicationConfig.tableMappings");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -109,16 +144,22 @@ public final class ReplicationConfig extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationConfig.tagsAll");
+    }
 
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      * 
      */
-    public String targetEndpointArn;
+    private UndeferrableValue<String> targetEndpointArn;
 
-
+    public String targetEndpointArn() {
+        if (targetEndpointArn == null) return null;
+        return targetEndpointArn.getValue("ReplicationConfig.targetEndpointArn");
+    }
 
 }

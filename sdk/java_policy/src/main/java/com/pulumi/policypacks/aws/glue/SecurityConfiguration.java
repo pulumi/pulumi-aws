@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.SecurityConfigurationEncryptionConfiguration;
+import com.pulumi.policypacks.aws.glue.outputs.SecurityConfigurationEncryptionConfiguration;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:glue/securityConfiguration:SecurityConfiguration")
-public final class SecurityConfiguration extends com.pulumi.resources.PolicyResource {
+public final class SecurityConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block containing encryption configuration. Detailed below.
      * 
      */
-    public SecurityConfigurationEncryptionConfiguration encryptionConfiguration;
+    private UndeferrableValue<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration;
 
-
+    public SecurityConfigurationEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("SecurityConfiguration.encryptionConfiguration");
+    }
 
     /**
      * Name of the security configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SecurityConfiguration.name");
+    }
 
 }

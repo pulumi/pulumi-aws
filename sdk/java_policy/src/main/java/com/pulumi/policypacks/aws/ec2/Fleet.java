@@ -3,117 +3,155 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.FleetFleetInstanceSet;
-import com.pulumi.policypacks.aws.ec2.FleetLaunchTemplateConfig;
-import com.pulumi.policypacks.aws.ec2.FleetOnDemandOptions;
-import com.pulumi.policypacks.aws.ec2.FleetSpotOptions;
-import com.pulumi.policypacks.aws.ec2.FleetTargetCapacitySpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.FleetFleetInstanceSet;
+import com.pulumi.policypacks.aws.ec2.outputs.FleetLaunchTemplateConfig;
+import com.pulumi.policypacks.aws.ec2.outputs.FleetOnDemandOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.FleetSpotOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.FleetTargetCapacitySpecification;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/fleet:Fleet")
-public final class Fleet extends com.pulumi.resources.PolicyResource {
+public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the fleet
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Fleet.arn");
+    }
 
     /**
      * Reserved.
      * 
      */
-    public String context;
+    private @Nullable UndeferrableValue<String> context;
 
-
+    public @Nullable String context() {
+        if (context == null) return null;
+        return context.getValue("Fleet.context");
+    }
 
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
-    public String excessCapacityTerminationPolicy;
+    private @Nullable UndeferrableValue<String> excessCapacityTerminationPolicy;
 
-
+    public @Nullable String excessCapacityTerminationPolicy() {
+        if (excessCapacityTerminationPolicy == null) return null;
+        return excessCapacityTerminationPolicy.getValue("Fleet.excessCapacityTerminationPolicy");
+    }
 
     /**
      * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
      * 
      */
-    public List<FleetFleetInstanceSet> fleetInstanceSets;
+    private UndeferrableValue<List<FleetFleetInstanceSet>> fleetInstanceSets;
 
-
+    public List<FleetFleetInstanceSet> fleetInstanceSets() {
+        if (fleetInstanceSets == null) return null;
+        return fleetInstanceSets.getValue("Fleet.fleetInstanceSets");
+    }
 
     /**
      * The state of the EC2 Fleet.
      * 
      */
-    public String fleetState;
+    private UndeferrableValue<String> fleetState;
 
-
+    public String fleetState() {
+        if (fleetState == null) return null;
+        return fleetState.getValue("Fleet.fleetState");
+    }
 
     /**
      * The number of units fulfilled by this request compared to the set target capacity.
      * 
      */
-    public Double fulfilledCapacity;
+    private UndeferrableValue<Double> fulfilledCapacity;
 
-
+    public Double fulfilledCapacity() {
+        if (fulfilledCapacity == null) return null;
+        return fulfilledCapacity.getValue("Fleet.fulfilledCapacity");
+    }
 
     /**
      * The number of units fulfilled by this request compared to the set target On-Demand capacity.
      * 
      */
-    public Double fulfilledOnDemandCapacity;
+    private UndeferrableValue<Double> fulfilledOnDemandCapacity;
 
-
+    public Double fulfilledOnDemandCapacity() {
+        if (fulfilledOnDemandCapacity == null) return null;
+        return fulfilledOnDemandCapacity.getValue("Fleet.fulfilledOnDemandCapacity");
+    }
 
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    public List<FleetLaunchTemplateConfig> launchTemplateConfigs;
+    private UndeferrableValue<List<FleetLaunchTemplateConfig>> launchTemplateConfigs;
 
-
+    public List<FleetLaunchTemplateConfig> launchTemplateConfigs() {
+        if (launchTemplateConfigs == null) return null;
+        return launchTemplateConfigs.getValue("Fleet.launchTemplateConfigs");
+    }
 
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      * 
      */
-    public FleetOnDemandOptions onDemandOptions;
+    private @Nullable UndeferrableValue<FleetOnDemandOptions> onDemandOptions;
 
-
+    public @Nullable FleetOnDemandOptions onDemandOptions() {
+        if (onDemandOptions == null) return null;
+        return onDemandOptions.getValue("Fleet.onDemandOptions");
+    }
 
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
-    public Boolean replaceUnhealthyInstances;
+    private @Nullable UndeferrableValue<Boolean> replaceUnhealthyInstances;
 
-
+    public @Nullable Boolean replaceUnhealthyInstances() {
+        if (replaceUnhealthyInstances == null) return null;
+        return replaceUnhealthyInstances.getValue("Fleet.replaceUnhealthyInstances");
+    }
 
     /**
      * Nested argument containing Spot configurations. Defined below.
      * 
      */
-    public FleetSpotOptions spotOptions;
+    private @Nullable UndeferrableValue<FleetSpotOptions> spotOptions;
 
-
+    public @Nullable FleetSpotOptions spotOptions() {
+        if (spotOptions == null) return null;
+        return spotOptions.getValue("Fleet.spotOptions");
+    }
 
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Fleet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,56 +161,77 @@ public final class Fleet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Fleet.tagsAll");
+    }
 
     /**
      * Nested argument containing target capacity configurations. Defined below.
      * 
      */
-    public FleetTargetCapacitySpecification targetCapacitySpecification;
+    private UndeferrableValue<FleetTargetCapacitySpecification> targetCapacitySpecification;
 
-
+    public FleetTargetCapacitySpecification targetCapacitySpecification() {
+        if (targetCapacitySpecification == null) return null;
+        return targetCapacitySpecification.getValue("Fleet.targetCapacitySpecification");
+    }
 
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      * 
      */
-    public Boolean terminateInstances;
+    private @Nullable UndeferrableValue<Boolean> terminateInstances;
 
-
+    public @Nullable Boolean terminateInstances() {
+        if (terminateInstances == null) return null;
+        return terminateInstances.getValue("Fleet.terminateInstances");
+    }
 
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      * 
      */
-    public Boolean terminateInstancesWithExpiration;
+    private @Nullable UndeferrableValue<Boolean> terminateInstancesWithExpiration;
 
-
+    public @Nullable Boolean terminateInstancesWithExpiration() {
+        if (terminateInstancesWithExpiration == null) return null;
+        return terminateInstancesWithExpiration.getValue("Fleet.terminateInstancesWithExpiration");
+    }
 
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("Fleet.type");
+    }
 
     /**
      * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    public String validFrom;
+    private @Nullable UndeferrableValue<String> validFrom;
 
-
+    public @Nullable String validFrom() {
+        if (validFrom == null) return null;
+        return validFrom.getValue("Fleet.validFrom");
+    }
 
     /**
      * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
      * 
      */
-    public String validUntil;
+    private @Nullable UndeferrableValue<String> validUntil;
 
-
+    public @Nullable String validUntil() {
+        if (validUntil == null) return null;
+        return validUntil.getValue("Fleet.validUntil");
+    }
 
 }

@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3control/bucket:Bucket")
-public final class Bucket extends com.pulumi.resources.PolicyResource {
+public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Bucket.arn");
+    }
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("Bucket.bucket");
+    }
 
     /**
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("Bucket.creationDate");
+    }
 
     /**
      * Identifier of the Outpost to contain this bucket.
      * 
      */
-    public String outpostId;
+    private UndeferrableValue<String> outpostId;
 
-
+    public String outpostId() {
+        if (outpostId == null) return null;
+        return outpostId.getValue("Bucket.outpostId");
+    }
 
     /**
      * Boolean whether Public Access Block is enabled.
      * 
      */
-    public Boolean publicAccessBlockEnabled;
+    private UndeferrableValue<Boolean> publicAccessBlockEnabled;
 
-
+    public Boolean publicAccessBlockEnabled() {
+        if (publicAccessBlockEnabled == null) return null;
+        return publicAccessBlockEnabled.getValue("Bucket.publicAccessBlockEnabled");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Bucket.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class Bucket extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Bucket.tagsAll");
+    }
 
 }

@@ -3,100 +3,135 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/organizationManagedRule:OrganizationManagedRule")
-public final class OrganizationManagedRule extends com.pulumi.resources.PolicyResource {
+public final class OrganizationManagedRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the rule
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OrganizationManagedRule.arn");
+    }
 
     /**
      * Description of the rule
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("OrganizationManagedRule.description");
+    }
 
     /**
      * List of AWS account identifiers to exclude from the rule
      * 
      */
-    public List<String> excludedAccounts;
+    private @Nullable UndeferrableValue<List<String>> excludedAccounts;
 
-
+    public @Nullable List<String> excludedAccounts() {
+        if (excludedAccounts == null) return null;
+        return excludedAccounts.getValue("OrganizationManagedRule.excludedAccounts");
+    }
 
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      * 
      */
-    public String inputParameters;
+    private @Nullable UndeferrableValue<String> inputParameters;
 
-
+    public @Nullable String inputParameters() {
+        if (inputParameters == null) return null;
+        return inputParameters.getValue("OrganizationManagedRule.inputParameters");
+    }
 
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      * 
      */
-    public String maximumExecutionFrequency;
+    private @Nullable UndeferrableValue<String> maximumExecutionFrequency;
 
-
+    public @Nullable String maximumExecutionFrequency() {
+        if (maximumExecutionFrequency == null) return null;
+        return maximumExecutionFrequency.getValue("OrganizationManagedRule.maximumExecutionFrequency");
+    }
 
     /**
      * The name of the rule
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OrganizationManagedRule.name");
+    }
 
     /**
      * Identifier of the AWS resource to evaluate
      * 
      */
-    public String resourceIdScope;
+    private @Nullable UndeferrableValue<String> resourceIdScope;
 
-
+    public @Nullable String resourceIdScope() {
+        if (resourceIdScope == null) return null;
+        return resourceIdScope.getValue("OrganizationManagedRule.resourceIdScope");
+    }
 
     /**
      * List of types of AWS resources to evaluate
      * 
      */
-    public List<String> resourceTypesScopes;
+    private @Nullable UndeferrableValue<List<String>> resourceTypesScopes;
 
-
+    public @Nullable List<String> resourceTypesScopes() {
+        if (resourceTypesScopes == null) return null;
+        return resourceTypesScopes.getValue("OrganizationManagedRule.resourceTypesScopes");
+    }
 
     /**
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      * 
      */
-    public String ruleIdentifier;
+    private UndeferrableValue<String> ruleIdentifier;
 
-
+    public String ruleIdentifier() {
+        if (ruleIdentifier == null) return null;
+        return ruleIdentifier.getValue("OrganizationManagedRule.ruleIdentifier");
+    }
 
     /**
      * Tag key of AWS resources to evaluate
      * 
      */
-    public String tagKeyScope;
+    private @Nullable UndeferrableValue<String> tagKeyScope;
 
-
+    public @Nullable String tagKeyScope() {
+        if (tagKeyScope == null) return null;
+        return tagKeyScope.getValue("OrganizationManagedRule.tagKeyScope");
+    }
 
     /**
      * Tag value of AWS resources to evaluate
      * 
      */
-    public String tagValueScope;
+    private @Nullable UndeferrableValue<String> tagValueScope;
 
-
+    public @Nullable String tagValueScope() {
+        if (tagValueScope == null) return null;
+        return tagValueScope.getValue("OrganizationManagedRule.tagValueScope");
+    }
 
 }

@@ -3,61 +3,75 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.InstanceCapacityReservationSpecification;
-import com.pulumi.policypacks.aws.ec2.InstanceCpuOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceCreditSpecification;
-import com.pulumi.policypacks.aws.ec2.InstanceEbsBlockDevice;
-import com.pulumi.policypacks.aws.ec2.InstanceEnclaveOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceEphemeralBlockDevice;
-import com.pulumi.policypacks.aws.ec2.InstanceInstanceMarketOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceLaunchTemplate;
-import com.pulumi.policypacks.aws.ec2.InstanceMaintenanceOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceMetadataOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceNetworkInterface;
-import com.pulumi.policypacks.aws.ec2.InstancePrivateDnsNameOptions;
-import com.pulumi.policypacks.aws.ec2.InstanceRootBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceCapacityReservationSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceCpuOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceCreditSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceEbsBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceEnclaveOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceInstanceMarketOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceLaunchTemplate;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceMaintenanceOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceMetadataOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceNetworkInterface;
+import com.pulumi.policypacks.aws.ec2.outputs.InstancePrivateDnsNameOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.InstanceRootBlockDevice;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/instance:Instance")
-public final class Instance extends com.pulumi.resources.PolicyResource {
+public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    public String ami;
+    private UndeferrableValue<String> ami;
 
-
+    public String ami() {
+        if (ami == null) return null;
+        return ami.getValue("Instance.ami");
+    }
 
     /**
      * ARN of the instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Instance.arn");
+    }
 
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    public Boolean associatePublicIpAddress;
+    private UndeferrableValue<Boolean> associatePublicIpAddress;
 
-
+    public Boolean associatePublicIpAddress() {
+        if (associatePublicIpAddress == null) return null;
+        return associatePublicIpAddress.getValue("Instance.associatePublicIpAddress");
+    }
 
     /**
      * AZ to start the instance in.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Instance.availabilityZone");
+    }
 
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -65,9 +79,12 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
-    public InstanceCapacityReservationSpecification capacityReservationSpecification;
+    private UndeferrableValue<InstanceCapacityReservationSpecification> capacityReservationSpecification;
 
-
+    public InstanceCapacityReservationSpecification capacityReservationSpecification() {
+        if (capacityReservationSpecification == null) return null;
+        return capacityReservationSpecification.getValue("Instance.capacityReservationSpecification");
+    }
 
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -77,17 +94,23 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    public Integer cpuCoreCount;
+    private UndeferrableValue<Integer> cpuCoreCount;
 
-
+    public Integer cpuCoreCount() {
+        if (cpuCoreCount == null) return null;
+        return cpuCoreCount.getValue("Instance.cpuCoreCount");
+    }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    public InstanceCpuOptions cpuOptions;
+    private UndeferrableValue<InstanceCpuOptions> cpuOptions;
 
-
+    public InstanceCpuOptions cpuOptions() {
+        if (cpuOptions == null) return null;
+        return cpuOptions.getValue("Instance.cpuOptions");
+    }
 
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -97,313 +120,430 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    public Integer cpuThreadsPerCore;
+    private UndeferrableValue<Integer> cpuThreadsPerCore;
 
-
+    public Integer cpuThreadsPerCore() {
+        if (cpuThreadsPerCore == null) return null;
+        return cpuThreadsPerCore.getValue("Instance.cpuThreadsPerCore");
+    }
 
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
-    public InstanceCreditSpecification creditSpecification;
+    private @Nullable UndeferrableValue<InstanceCreditSpecification> creditSpecification;
 
-
+    public @Nullable InstanceCreditSpecification creditSpecification() {
+        if (creditSpecification == null) return null;
+        return creditSpecification.getValue("Instance.creditSpecification");
+    }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    public Boolean disableApiStop;
+    private UndeferrableValue<Boolean> disableApiStop;
 
-
+    public Boolean disableApiStop() {
+        if (disableApiStop == null) return null;
+        return disableApiStop.getValue("Instance.disableApiStop");
+    }
 
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    public Boolean disableApiTermination;
+    private UndeferrableValue<Boolean> disableApiTermination;
 
-
+    public Boolean disableApiTermination() {
+        if (disableApiTermination == null) return null;
+        return disableApiTermination.getValue("Instance.disableApiTermination");
+    }
 
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public List<InstanceEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<InstanceEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<InstanceEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("Instance.ebsBlockDevices");
+    }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    public Boolean ebsOptimized;
+    private UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("Instance.ebsOptimized");
+    }
 
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
      * 
      */
-    public Boolean enablePrimaryIpv6;
+    private UndeferrableValue<Boolean> enablePrimaryIpv6;
 
-
+    public Boolean enablePrimaryIpv6() {
+        if (enablePrimaryIpv6 == null) return null;
+        return enablePrimaryIpv6.getValue("Instance.enablePrimaryIpv6");
+    }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    public InstanceEnclaveOptions enclaveOptions;
+    private UndeferrableValue<InstanceEnclaveOptions> enclaveOptions;
 
-
+    public InstanceEnclaveOptions enclaveOptions() {
+        if (enclaveOptions == null) return null;
+        return enclaveOptions.getValue("Instance.enclaveOptions");
+    }
 
     /**
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    public List<InstanceEphemeralBlockDevice> ephemeralBlockDevices;
+    private UndeferrableValue<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
-
+    public List<InstanceEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("Instance.ephemeralBlockDevices");
+    }
 
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    public Boolean getPasswordData;
+    private @Nullable UndeferrableValue<Boolean> getPasswordData;
 
-
+    public @Nullable Boolean getPasswordData() {
+        if (getPasswordData == null) return null;
+        return getPasswordData.getValue("Instance.getPasswordData");
+    }
 
     /**
      * If true, the launched EC2 instance will support hibernation.
      * 
      */
-    public Boolean hibernation;
+    private @Nullable UndeferrableValue<Boolean> hibernation;
 
-
+    public @Nullable Boolean hibernation() {
+        if (hibernation == null) return null;
+        return hibernation.getValue("Instance.hibernation");
+    }
 
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    public String hostId;
+    private UndeferrableValue<String> hostId;
 
-
+    public String hostId() {
+        if (hostId == null) return null;
+        return hostId.getValue("Instance.hostId");
+    }
 
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    public String hostResourceGroupArn;
+    private UndeferrableValue<String> hostResourceGroupArn;
 
-
+    public String hostResourceGroupArn() {
+        if (hostResourceGroupArn == null) return null;
+        return hostResourceGroupArn.getValue("Instance.hostResourceGroupArn");
+    }
 
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    public String iamInstanceProfile;
+    private UndeferrableValue<String> iamInstanceProfile;
 
-
+    public String iamInstanceProfile() {
+        if (iamInstanceProfile == null) return null;
+        return iamInstanceProfile.getValue("Instance.iamInstanceProfile");
+    }
 
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    public String instanceInitiatedShutdownBehavior;
+    private UndeferrableValue<String> instanceInitiatedShutdownBehavior;
 
-
+    public String instanceInitiatedShutdownBehavior() {
+        if (instanceInitiatedShutdownBehavior == null) return null;
+        return instanceInitiatedShutdownBehavior.getValue("Instance.instanceInitiatedShutdownBehavior");
+    }
 
     /**
      * Indicates whether this is a Spot Instance or a Scheduled Instance.
      * 
      */
-    public String instanceLifecycle;
+    private UndeferrableValue<String> instanceLifecycle;
 
-
+    public String instanceLifecycle() {
+        if (instanceLifecycle == null) return null;
+        return instanceLifecycle.getValue("Instance.instanceLifecycle");
+    }
 
     /**
      * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      * 
      */
-    public InstanceInstanceMarketOptions instanceMarketOptions;
+    private UndeferrableValue<InstanceInstanceMarketOptions> instanceMarketOptions;
 
-
+    public InstanceInstanceMarketOptions instanceMarketOptions() {
+        if (instanceMarketOptions == null) return null;
+        return instanceMarketOptions.getValue("Instance.instanceMarketOptions");
+    }
 
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
-    public String instanceState;
+    private UndeferrableValue<String> instanceState;
 
-
+    public String instanceState() {
+        if (instanceState == null) return null;
+        return instanceState.getValue("Instance.instanceState");
+    }
 
     /**
      * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("Instance.instanceType");
+    }
 
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    public Integer ipv6AddressCount;
+    private UndeferrableValue<Integer> ipv6AddressCount;
 
-
+    public Integer ipv6AddressCount() {
+        if (ipv6AddressCount == null) return null;
+        return ipv6AddressCount.getValue("Instance.ipv6AddressCount");
+    }
 
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    public List<String> ipv6Addresses;
+    private UndeferrableValue<List<String>> ipv6Addresses;
 
-
+    public List<String> ipv6Addresses() {
+        if (ipv6Addresses == null) return null;
+        return ipv6Addresses.getValue("Instance.ipv6Addresses");
+    }
 
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    public String keyName;
+    private UndeferrableValue<String> keyName;
 
-
+    public String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("Instance.keyName");
+    }
 
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
-    public InstanceLaunchTemplate launchTemplate;
+    private @Nullable UndeferrableValue<InstanceLaunchTemplate> launchTemplate;
 
-
+    public @Nullable InstanceLaunchTemplate launchTemplate() {
+        if (launchTemplate == null) return null;
+        return launchTemplate.getValue("Instance.launchTemplate");
+    }
 
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    public InstanceMaintenanceOptions maintenanceOptions;
+    private UndeferrableValue<InstanceMaintenanceOptions> maintenanceOptions;
 
-
+    public InstanceMaintenanceOptions maintenanceOptions() {
+        if (maintenanceOptions == null) return null;
+        return maintenanceOptions.getValue("Instance.maintenanceOptions");
+    }
 
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    public InstanceMetadataOptions metadataOptions;
+    private UndeferrableValue<InstanceMetadataOptions> metadataOptions;
 
-
+    public InstanceMetadataOptions metadataOptions() {
+        if (metadataOptions == null) return null;
+        return metadataOptions.getValue("Instance.metadataOptions");
+    }
 
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    public Boolean monitoring;
+    private UndeferrableValue<Boolean> monitoring;
 
-
+    public Boolean monitoring() {
+        if (monitoring == null) return null;
+        return monitoring.getValue("Instance.monitoring");
+    }
 
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    public List<InstanceNetworkInterface> networkInterfaces;
+    private UndeferrableValue<List<InstanceNetworkInterface>> networkInterfaces;
 
-
+    public List<InstanceNetworkInterface> networkInterfaces() {
+        if (networkInterfaces == null) return null;
+        return networkInterfaces.getValue("Instance.networkInterfaces");
+    }
 
     /**
      * ARN of the Outpost the instance is assigned to.
      * 
      */
-    public String outpostArn;
+    private UndeferrableValue<String> outpostArn;
 
-
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("Instance.outpostArn");
+    }
 
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    public String passwordData;
+    private UndeferrableValue<String> passwordData;
 
-
+    public String passwordData() {
+        if (passwordData == null) return null;
+        return passwordData.getValue("Instance.passwordData");
+    }
 
     /**
      * Placement Group to start the instance in.
      * 
      */
-    public String placementGroup;
+    private UndeferrableValue<String> placementGroup;
 
-
+    public String placementGroup() {
+        if (placementGroup == null) return null;
+        return placementGroup.getValue("Instance.placementGroup");
+    }
 
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    public Integer placementPartitionNumber;
+    private UndeferrableValue<Integer> placementPartitionNumber;
 
-
+    public Integer placementPartitionNumber() {
+        if (placementPartitionNumber == null) return null;
+        return placementPartitionNumber.getValue("Instance.placementPartitionNumber");
+    }
 
     /**
      * ID of the instance&#39;s primary network interface.
      * 
      */
-    public String primaryNetworkInterfaceId;
+    private UndeferrableValue<String> primaryNetworkInterfaceId;
 
-
+    public String primaryNetworkInterfaceId() {
+        if (primaryNetworkInterfaceId == null) return null;
+        return primaryNetworkInterfaceId.getValue("Instance.primaryNetworkInterfaceId");
+    }
 
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String privateDns;
+    private UndeferrableValue<String> privateDns;
 
-
+    public String privateDns() {
+        if (privateDns == null) return null;
+        return privateDns.getValue("Instance.privateDns");
+    }
 
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    public InstancePrivateDnsNameOptions privateDnsNameOptions;
+    private UndeferrableValue<InstancePrivateDnsNameOptions> privateDnsNameOptions;
 
-
+    public InstancePrivateDnsNameOptions privateDnsNameOptions() {
+        if (privateDnsNameOptions == null) return null;
+        return privateDnsNameOptions.getValue("Instance.privateDnsNameOptions");
+    }
 
     /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
-    public String privateIp;
+    private UndeferrableValue<String> privateIp;
 
-
+    public String privateIp() {
+        if (privateIp == null) return null;
+        return privateIp.getValue("Instance.privateIp");
+    }
 
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    public String publicDns;
+    private UndeferrableValue<String> publicDns;
 
-
+    public String publicDns() {
+        if (publicDns == null) return null;
+        return publicDns.getValue("Instance.publicDns");
+    }
 
     /**
      * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
-    public String publicIp;
+    private UndeferrableValue<String> publicIp;
 
-
+    public String publicIp() {
+        if (publicIp == null) return null;
+        return publicIp.getValue("Instance.publicIp");
+    }
 
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    public InstanceRootBlockDevice rootBlockDevice;
+    private UndeferrableValue<InstanceRootBlockDevice> rootBlockDevice;
 
-
+    public InstanceRootBlockDevice rootBlockDevice() {
+        if (rootBlockDevice == null) return null;
+        return rootBlockDevice.getValue("Instance.rootBlockDevice");
+    }
 
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    public List<String> secondaryPrivateIps;
+    private UndeferrableValue<List<String>> secondaryPrivateIps;
 
-
+    public List<String> secondaryPrivateIps() {
+        if (secondaryPrivateIps == null) return null;
+        return secondaryPrivateIps.getValue("Instance.secondaryPrivateIps");
+    }
 
     /**
      * List of security group names to associate with.
@@ -415,41 +555,56 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates. */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("Instance.securityGroups");
+    }
 
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      * 
      */
-    public Boolean sourceDestCheck;
+    private @Nullable UndeferrableValue<Boolean> sourceDestCheck;
 
-
+    public @Nullable Boolean sourceDestCheck() {
+        if (sourceDestCheck == null) return null;
+        return sourceDestCheck.getValue("Instance.sourceDestCheck");
+    }
 
     /**
      * If the request is a Spot Instance request, the ID of the request.
      * 
      */
-    public String spotInstanceRequestId;
+    private UndeferrableValue<String> spotInstanceRequestId;
 
-
+    public String spotInstanceRequestId() {
+        if (spotInstanceRequestId == null) return null;
+        return spotInstanceRequestId.getValue("Instance.spotInstanceRequestId");
+    }
 
     /**
      * VPC Subnet ID to launch in.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("Instance.subnetId");
+    }
 
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Instance.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -459,41 +614,56 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Instance.tagsAll");
+    }
 
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    public String tenancy;
+    private UndeferrableValue<String> tenancy;
 
-
+    public String tenancy() {
+        if (tenancy == null) return null;
+        return tenancy.getValue("Instance.tenancy");
+    }
 
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public String userData;
+    private UndeferrableValue<String> userData;
 
-
+    public String userData() {
+        if (userData == null) return null;
+        return userData.getValue("Instance.userData");
+    }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    public String userDataBase64;
+    private UndeferrableValue<String> userDataBase64;
 
-
+    public String userDataBase64() {
+        if (userDataBase64 == null) return null;
+        return userDataBase64.getValue("Instance.userDataBase64");
+    }
 
     /**
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
-    public Boolean userDataReplaceOnChange;
+    private @Nullable UndeferrableValue<Boolean> userDataReplaceOnChange;
 
-
+    public @Nullable Boolean userDataReplaceOnChange() {
+        if (userDataReplaceOnChange == null) return null;
+        return userDataReplaceOnChange.getValue("Instance.userDataReplaceOnChange");
+    }
 
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
@@ -501,16 +671,22 @@ public final class Instance extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
-    public Map<String,String> volumeTags;
+    private @Nullable UndeferrableValue<Map<String,String>> volumeTags;
 
-
+    public @Nullable Map<String,String> volumeTags() {
+        if (volumeTags == null) return null;
+        return volumeTags.getValue("Instance.volumeTags");
+    }
 
     /**
      * List of security group IDs to associate with.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Instance.vpcSecurityGroupIds");
+    }
 
 }

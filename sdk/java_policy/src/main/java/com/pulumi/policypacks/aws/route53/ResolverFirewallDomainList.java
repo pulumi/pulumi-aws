@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")
-public final class ResolverFirewallDomainList extends com.pulumi.resources.PolicyResource {
+public final class ResolverFirewallDomainList extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN (Amazon Resource Name) of the domain list.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverFirewallDomainList.arn");
+    }
 
     /**
      * A array of domains for the firewall domain list.
      * 
      */
-    public List<String> domains;
+    private @Nullable UndeferrableValue<List<String>> domains;
 
-
+    public @Nullable List<String> domains() {
+        if (domains == null) return null;
+        return domains.getValue("ResolverFirewallDomainList.domains");
+    }
 
     /**
      * A name that lets you identify the domain list, to manage and use it.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverFirewallDomainList.name");
+    }
 
     /**
      * A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResolverFirewallDomainList.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class ResolverFirewallDomainList extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResolverFirewallDomainList.tagsAll");
+    }
 
 }

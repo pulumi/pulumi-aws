@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logResourcePolicy:LogResourcePolicy")
-public final class LogResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class LogResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("LogResourcePolicy.policyDocument");
+    }
 
     /**
      * Name of the resource policy.
      * 
      */
-    public String policyName;
+    private UndeferrableValue<String> policyName;
 
-
+    public String policyName() {
+        if (policyName == null) return null;
+        return policyName.getValue("LogResourcePolicy.policyName");
+    }
 
 }

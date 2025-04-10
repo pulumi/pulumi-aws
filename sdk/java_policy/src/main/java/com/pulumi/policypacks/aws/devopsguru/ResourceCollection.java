@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.devopsguru;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.devopsguru.ResourceCollectionCloudformation;
-import com.pulumi.policypacks.aws.devopsguru.ResourceCollectionTags;
+import com.pulumi.policypacks.aws.devopsguru.outputs.ResourceCollectionCloudformation;
+import com.pulumi.policypacks.aws.devopsguru.outputs.ResourceCollectionTags;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devopsguru/resourceCollection:ResourceCollection")
-public final class ResourceCollection extends com.pulumi.resources.PolicyResource {
+public final class ResourceCollection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      * 
      */
-    public ResourceCollectionCloudformation cloudformation;
+    private @Nullable UndeferrableValue<ResourceCollectionCloudformation> cloudformation;
 
-
+    public @Nullable ResourceCollectionCloudformation cloudformation() {
+        if (cloudformation == null) return null;
+        return cloudformation.getValue("ResourceCollection.cloudformation");
+    }
 
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
-    public ResourceCollectionTags tags;
+    private @Nullable UndeferrableValue<ResourceCollectionTags> tags;
 
-
+    public @Nullable ResourceCollectionTags tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceCollection.tags");
+    }
 
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -34,8 +42,11 @@ public final class ResourceCollection extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ResourceCollection.type");
+    }
 
 }

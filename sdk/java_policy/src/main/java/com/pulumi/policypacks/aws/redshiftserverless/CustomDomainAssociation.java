@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation")
-public final class CustomDomainAssociation extends com.pulumi.resources.PolicyResource {
+public final class CustomDomainAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the certificate for the custom domain association.
      * 
      */
-    public String customDomainCertificateArn;
+    private UndeferrableValue<String> customDomainCertificateArn;
 
-
+    public String customDomainCertificateArn() {
+        if (customDomainCertificateArn == null) return null;
+        return customDomainCertificateArn.getValue("CustomDomainAssociation.customDomainCertificateArn");
+    }
 
     /**
      * Expiration time for the certificate.
      * 
      */
-    public String customDomainCertificateExpiryTime;
+    private UndeferrableValue<String> customDomainCertificateExpiryTime;
 
-
+    public String customDomainCertificateExpiryTime() {
+        if (customDomainCertificateExpiryTime == null) return null;
+        return customDomainCertificateExpiryTime.getValue("CustomDomainAssociation.customDomainCertificateExpiryTime");
+    }
 
     /**
      * Custom domain to associate with the workgroup.
      * 
      */
-    public String customDomainName;
+    private UndeferrableValue<String> customDomainName;
 
-
+    public String customDomainName() {
+        if (customDomainName == null) return null;
+        return customDomainName.getValue("CustomDomainAssociation.customDomainName");
+    }
 
     /**
      * Name of the workgroup.
      * 
      */
-    public String workgroupName;
+    private UndeferrableValue<String> workgroupName;
 
-
+    public String workgroupName() {
+        if (workgroupName == null) return null;
+        return workgroupName.getValue("CustomDomainAssociation.workgroupName");
+    }
 
 }

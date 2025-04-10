@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -11,102 +12,141 @@ import java.util.List;
 
 
 @PolicyResourceType(type="aws:docdb/clusterSnapshot:ClusterSnapshot")
-public final class ClusterSnapshot extends com.pulumi.resources.PolicyResource {
+public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("ClusterSnapshot.availabilityZones");
+    }
 
     /**
      * The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
-    public String dbClusterIdentifier;
+    private UndeferrableValue<String> dbClusterIdentifier;
 
-
+    public String dbClusterIdentifier() {
+        if (dbClusterIdentifier == null) return null;
+        return dbClusterIdentifier.getValue("ClusterSnapshot.dbClusterIdentifier");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      * 
      */
-    public String dbClusterSnapshotArn;
+    private UndeferrableValue<String> dbClusterSnapshotArn;
 
-
+    public String dbClusterSnapshotArn() {
+        if (dbClusterSnapshotArn == null) return null;
+        return dbClusterSnapshotArn.getValue("ClusterSnapshot.dbClusterSnapshotArn");
+    }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    public String dbClusterSnapshotIdentifier;
+    private UndeferrableValue<String> dbClusterSnapshotIdentifier;
 
-
+    public String dbClusterSnapshotIdentifier() {
+        if (dbClusterSnapshotIdentifier == null) return null;
+        return dbClusterSnapshotIdentifier.getValue("ClusterSnapshot.dbClusterSnapshotIdentifier");
+    }
 
     /**
      * Specifies the name of the database engine.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterSnapshot.engine");
+    }
 
     /**
      * Version of the database engine for this DocumentDB cluster snapshot.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterSnapshot.engineVersion");
+    }
 
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterSnapshot.kmsKeyId");
+    }
 
     /**
      * Port that the DocumentDB cluster was listening on at the time of the snapshot.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("ClusterSnapshot.port");
+    }
 
+    private UndeferrableValue<String> snapshotType;
 
-    public String snapshotType;
+    public String snapshotType() {
+        if (snapshotType == null) return null;
+        return snapshotType.getValue("ClusterSnapshot.snapshotType");
+    }
 
+    private UndeferrableValue<String> sourceDbClusterSnapshotArn;
 
-
-    public String sourceDbClusterSnapshotArn;
-
-
+    public String sourceDbClusterSnapshotArn() {
+        if (sourceDbClusterSnapshotArn == null) return null;
+        return sourceDbClusterSnapshotArn.getValue("ClusterSnapshot.sourceDbClusterSnapshotArn");
+    }
 
     /**
      * The status of this DocumentDB Cluster Snapshot.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ClusterSnapshot.status");
+    }
 
     /**
      * Specifies whether the DocumentDB cluster snapshot is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterSnapshot.storageEncrypted");
+    }
 
     /**
      * The VPC ID associated with the DocumentDB cluster snapshot.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ClusterSnapshot.vpcId");
+    }
 
 }

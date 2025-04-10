@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")
-public final class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resources.PolicyResource {
+public final class VpcNetworkPerformanceMetricSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      * 
      */
-    public String destination;
+    private UndeferrableValue<String> destination;
 
-
+    public String destination() {
+        if (destination == null) return null;
+        return destination.getValue("VpcNetworkPerformanceMetricSubscription.destination");
+    }
 
     /**
      * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      * 
      */
-    public String metric;
+    private @Nullable UndeferrableValue<String> metric;
 
-
+    public @Nullable String metric() {
+        if (metric == null) return null;
+        return metric.getValue("VpcNetworkPerformanceMetricSubscription.metric");
+    }
 
     /**
      * The data aggregation time for the subscription.
      * 
      */
-    public String period;
+    private UndeferrableValue<String> period;
 
-
+    public String period() {
+        if (period == null) return null;
+        return period.getValue("VpcNetworkPerformanceMetricSubscription.period");
+    }
 
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      * 
      */
-    public String source;
+    private UndeferrableValue<String> source;
 
-
+    public String source() {
+        if (source == null) return null;
+        return source.getValue("VpcNetworkPerformanceMetricSubscription.source");
+    }
 
     /**
      * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      * 
      */
-    public String statistic;
+    private @Nullable UndeferrableValue<String> statistic;
 
-
+    public @Nullable String statistic() {
+        if (statistic == null) return null;
+        return statistic.getValue("VpcNetworkPerformanceMetricSubscription.statistic");
+    }
 
 }

@@ -3,118 +3,159 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/replicationTask:ReplicationTask")
-public final class ReplicationTask extends com.pulumi.resources.PolicyResource {
+public final class ReplicationTask extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
-    public String cdcStartPosition;
+    private UndeferrableValue<String> cdcStartPosition;
 
-
+    public String cdcStartPosition() {
+        if (cdcStartPosition == null) return null;
+        return cdcStartPosition.getValue("ReplicationTask.cdcStartPosition");
+    }
 
     /**
      * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
-    public String cdcStartTime;
+    private @Nullable UndeferrableValue<String> cdcStartTime;
 
-
+    public @Nullable String cdcStartTime() {
+        if (cdcStartTime == null) return null;
+        return cdcStartTime.getValue("ReplicationTask.cdcStartTime");
+    }
 
     /**
      * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    public String migrationType;
+    private UndeferrableValue<String> migrationType;
 
-
+    public String migrationType() {
+        if (migrationType == null) return null;
+        return migrationType.getValue("ReplicationTask.migrationType");
+    }
 
     /**
      * ARN of the replication instance.
      * 
      */
-    public String replicationInstanceArn;
+    private UndeferrableValue<String> replicationInstanceArn;
 
-
+    public String replicationInstanceArn() {
+        if (replicationInstanceArn == null) return null;
+        return replicationInstanceArn.getValue("ReplicationTask.replicationInstanceArn");
+    }
 
     /**
      * ARN for the replication task.
      * 
      */
-    public String replicationTaskArn;
+    private UndeferrableValue<String> replicationTaskArn;
 
-
+    public String replicationTaskArn() {
+        if (replicationTaskArn == null) return null;
+        return replicationTaskArn.getValue("ReplicationTask.replicationTaskArn");
+    }
 
     /**
      * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      * 
      */
-    public String replicationTaskId;
+    private UndeferrableValue<String> replicationTaskId;
 
-
+    public String replicationTaskId() {
+        if (replicationTaskId == null) return null;
+        return replicationTaskId.getValue("ReplicationTask.replicationTaskId");
+    }
 
     /**
      * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      * 
      */
-    public String replicationTaskSettings;
+    private UndeferrableValue<String> replicationTaskSettings;
 
-
+    public String replicationTaskSettings() {
+        if (replicationTaskSettings == null) return null;
+        return replicationTaskSettings.getValue("ReplicationTask.replicationTaskSettings");
+    }
 
     /**
      * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
      * 
      */
-    public String resourceIdentifier;
+    private @Nullable UndeferrableValue<String> resourceIdentifier;
 
-
+    public @Nullable String resourceIdentifier() {
+        if (resourceIdentifier == null) return null;
+        return resourceIdentifier.getValue("ReplicationTask.resourceIdentifier");
+    }
 
     /**
      * ARN that uniquely identifies the source endpoint.
      * 
      */
-    public String sourceEndpointArn;
+    private UndeferrableValue<String> sourceEndpointArn;
 
-
+    public String sourceEndpointArn() {
+        if (sourceEndpointArn == null) return null;
+        return sourceEndpointArn.getValue("ReplicationTask.sourceEndpointArn");
+    }
 
     /**
      * Whether to run or stop the replication task.
      * 
      */
-    public Boolean startReplicationTask;
+    private @Nullable UndeferrableValue<Boolean> startReplicationTask;
 
-
+    public @Nullable Boolean startReplicationTask() {
+        if (startReplicationTask == null) return null;
+        return startReplicationTask.getValue("ReplicationTask.startReplicationTask");
+    }
 
     /**
      * Replication Task status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ReplicationTask.status");
+    }
 
     /**
      * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    public String tableMappings;
+    private UndeferrableValue<String> tableMappings;
 
-
+    public String tableMappings() {
+        if (tableMappings == null) return null;
+        return tableMappings.getValue("ReplicationTask.tableMappings");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicationTask.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -124,16 +165,22 @@ public final class ReplicationTask extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicationTask.tagsAll");
+    }
 
     /**
      * ARN that uniquely identifies the target endpoint.
      * 
      */
-    public String targetEndpointArn;
+    private UndeferrableValue<String> targetEndpointArn;
 
-
+    public String targetEndpointArn() {
+        if (targetEndpointArn == null) return null;
+        return targetEndpointArn.getValue("ReplicationTask.targetEndpointArn");
+    }
 
 }

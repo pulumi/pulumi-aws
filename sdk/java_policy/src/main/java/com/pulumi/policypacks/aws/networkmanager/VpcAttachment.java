@@ -3,120 +3,161 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.VpcAttachmentOptions;
+import com.pulumi.policypacks.aws.networkmanager.outputs.VpcAttachmentOptions;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/vpcAttachment:VpcAttachment")
-public final class VpcAttachment extends com.pulumi.resources.PolicyResource {
+public final class VpcAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcAttachment.arn");
+    }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    public Integer attachmentPolicyRuleNumber;
+    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
 
-
+    public Integer attachmentPolicyRuleNumber() {
+        if (attachmentPolicyRuleNumber == null) return null;
+        return attachmentPolicyRuleNumber.getValue("VpcAttachment.attachmentPolicyRuleNumber");
+    }
 
     /**
      * The type of attachment.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("VpcAttachment.attachmentType");
+    }
 
     /**
      * The ARN of a core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("VpcAttachment.coreNetworkArn");
+    }
 
     /**
      * The ID of a core network for the VPC attachment.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("VpcAttachment.coreNetworkId");
+    }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("VpcAttachment.edgeLocation");
+    }
 
     /**
      * Options for the VPC attachment.
      * 
      */
-    public VpcAttachmentOptions options;
+    private @Nullable UndeferrableValue<VpcAttachmentOptions> options;
 
-
+    public @Nullable VpcAttachmentOptions options() {
+        if (options == null) return null;
+        return options.getValue("VpcAttachment.options");
+    }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("VpcAttachment.ownerAccountId");
+    }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("VpcAttachment.resourceArn");
+    }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    public String segmentName;
+    private UndeferrableValue<String> segmentName;
 
-
+    public String segmentName() {
+        if (segmentName == null) return null;
+        return segmentName.getValue("VpcAttachment.segmentName");
+    }
 
     /**
      * The state of the attachment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcAttachment.state");
+    }
 
     /**
      * The subnet ARN of the VPC attachment.
      * 
      */
-    public List<String> subnetArns;
+    private UndeferrableValue<List<String>> subnetArns;
 
-
+    public List<String> subnetArns() {
+        if (subnetArns == null) return null;
+        return subnetArns.getValue("VpcAttachment.subnetArns");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -126,9 +167,12 @@ public final class VpcAttachment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcAttachment.tagsAll");
+    }
 
     /**
      * The ARN of the VPC.
@@ -136,8 +180,11 @@ public final class VpcAttachment extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String vpcArn;
+    private UndeferrableValue<String> vpcArn;
 
-
+    public String vpcArn() {
+        if (vpcArn == null) return null;
+        return vpcArn.getValue("VpcAttachment.vpcArn");
+    }
 
 }

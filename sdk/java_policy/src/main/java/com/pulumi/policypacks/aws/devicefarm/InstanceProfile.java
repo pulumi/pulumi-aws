@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/instanceProfile:InstanceProfile")
-public final class InstanceProfile extends com.pulumi.resources.PolicyResource {
+public final class InstanceProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this instance profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("InstanceProfile.arn");
+    }
 
     /**
      * The description of the instance profile.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("InstanceProfile.description");
+    }
 
     /**
      * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
      * 
      */
-    public List<String> excludeAppPackagesFromCleanups;
+    private @Nullable UndeferrableValue<List<String>> excludeAppPackagesFromCleanups;
 
-
+    public @Nullable List<String> excludeAppPackagesFromCleanups() {
+        if (excludeAppPackagesFromCleanups == null) return null;
+        return excludeAppPackagesFromCleanups.getValue("InstanceProfile.excludeAppPackagesFromCleanups");
+    }
 
     /**
      * The name for the instance profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InstanceProfile.name");
+    }
 
     /**
      * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
      * 
      */
-    public Boolean packageCleanup;
+    private @Nullable UndeferrableValue<Boolean> packageCleanup;
 
-
+    public @Nullable Boolean packageCleanup() {
+        if (packageCleanup == null) return null;
+        return packageCleanup.getValue("InstanceProfile.packageCleanup");
+    }
 
     /**
      * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
      * 
      */
-    public Boolean rebootAfterUse;
+    private @Nullable UndeferrableValue<Boolean> rebootAfterUse;
 
-
+    public @Nullable Boolean rebootAfterUse() {
+        if (rebootAfterUse == null) return null;
+        return rebootAfterUse.getValue("InstanceProfile.rebootAfterUse");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("InstanceProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class InstanceProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("InstanceProfile.tagsAll");
+    }
 
 }

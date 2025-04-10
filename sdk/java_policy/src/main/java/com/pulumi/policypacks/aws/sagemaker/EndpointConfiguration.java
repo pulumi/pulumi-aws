@@ -3,90 +3,119 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.EndpointConfigurationAsyncInferenceConfig;
-import com.pulumi.policypacks.aws.sagemaker.EndpointConfigurationDataCaptureConfig;
-import com.pulumi.policypacks.aws.sagemaker.EndpointConfigurationProductionVariant;
-import com.pulumi.policypacks.aws.sagemaker.EndpointConfigurationShadowProductionVariant;
+import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointConfigurationDataCaptureConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointConfigurationProductionVariant;
+import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariant;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/endpointConfiguration:EndpointConfiguration")
-public final class EndpointConfiguration extends com.pulumi.resources.PolicyResource {
+public final class EndpointConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EndpointConfiguration.arn");
+    }
 
     /**
      * Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
-    public EndpointConfigurationAsyncInferenceConfig asyncInferenceConfig;
+    private @Nullable UndeferrableValue<EndpointConfigurationAsyncInferenceConfig> asyncInferenceConfig;
 
-
+    public @Nullable EndpointConfigurationAsyncInferenceConfig asyncInferenceConfig() {
+        if (asyncInferenceConfig == null) return null;
+        return asyncInferenceConfig.getValue("EndpointConfiguration.asyncInferenceConfig");
+    }
 
     /**
      * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
-    public EndpointConfigurationDataCaptureConfig dataCaptureConfig;
+    private @Nullable UndeferrableValue<EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
-
+    public @Nullable EndpointConfigurationDataCaptureConfig dataCaptureConfig() {
+        if (dataCaptureConfig == null) return null;
+        return dataCaptureConfig.getValue("EndpointConfiguration.dataCaptureConfig");
+    }
 
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("EndpointConfiguration.kmsKeyArn");
+    }
 
     /**
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EndpointConfiguration.name");
+    }
 
     /**
      * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("EndpointConfiguration.namePrefix");
+    }
 
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
-    public List<EndpointConfigurationProductionVariant> productionVariants;
+    private UndeferrableValue<List<EndpointConfigurationProductionVariant>> productionVariants;
 
-
+    public List<EndpointConfigurationProductionVariant> productionVariants() {
+        if (productionVariants == null) return null;
+        return productionVariants.getValue("EndpointConfiguration.productionVariants");
+    }
 
     /**
      * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
-    public List<EndpointConfigurationShadowProductionVariant> shadowProductionVariants;
+    private @Nullable UndeferrableValue<List<EndpointConfigurationShadowProductionVariant>> shadowProductionVariants;
 
-
+    public @Nullable List<EndpointConfigurationShadowProductionVariant> shadowProductionVariants() {
+        if (shadowProductionVariants == null) return null;
+        return shadowProductionVariants.getValue("EndpointConfiguration.shadowProductionVariants");
+    }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EndpointConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -96,8 +125,11 @@ public final class EndpointConfiguration extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EndpointConfiguration.tagsAll");
+    }
 
 }

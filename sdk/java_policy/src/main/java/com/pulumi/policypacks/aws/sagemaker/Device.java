@@ -3,40 +3,53 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.DeviceDevice;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DeviceDevice;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sagemaker/device:Device")
-public final class Device extends com.pulumi.resources.PolicyResource {
+public final class Device extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String agentVersion;
+    private UndeferrableValue<String> agentVersion;
 
-
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("Device.agentVersion");
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Device.arn");
+    }
 
     /**
      * The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
-    public DeviceDevice device;
+    private UndeferrableValue<DeviceDevice> device;
 
-
+    public DeviceDevice device() {
+        if (device == null) return null;
+        return device.getValue("Device.device");
+    }
 
     /**
      * The name of the Device Fleet.
      * 
      */
-    public String deviceFleetName;
+    private UndeferrableValue<String> deviceFleetName;
 
-
+    public String deviceFleetName() {
+        if (deviceFleetName == null) return null;
+        return deviceFleetName.getValue("Device.deviceFleetName");
+    }
 
 }

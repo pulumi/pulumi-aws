@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ProxyDefaultTargetGroupConnectionPoolConfig;
+import com.pulumi.policypacks.aws.rds.outputs.ProxyDefaultTargetGroupConnectionPoolConfig;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")
-public final class ProxyDefaultTargetGroup extends com.pulumi.resources.PolicyResource {
+public final class ProxyDefaultTargetGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProxyDefaultTargetGroup.arn");
+    }
 
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      * 
      */
-    public ProxyDefaultTargetGroupConnectionPoolConfig connectionPoolConfig;
+    private UndeferrableValue<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig;
 
-
+    public ProxyDefaultTargetGroupConnectionPoolConfig connectionPoolConfig() {
+        if (connectionPoolConfig == null) return null;
+        return connectionPoolConfig.getValue("ProxyDefaultTargetGroup.connectionPoolConfig");
+    }
 
     /**
      * Name of the RDS DB Proxy.
      * 
      */
-    public String dbProxyName;
+    private UndeferrableValue<String> dbProxyName;
 
-
+    public String dbProxyName() {
+        if (dbProxyName == null) return null;
+        return dbProxyName.getValue("ProxyDefaultTargetGroup.dbProxyName");
+    }
 
     /**
      * The name of the default target group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProxyDefaultTargetGroup.name");
+    }
 
 }

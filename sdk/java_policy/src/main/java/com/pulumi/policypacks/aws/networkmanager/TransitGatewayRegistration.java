@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")
-public final class TransitGatewayRegistration extends com.pulumi.resources.PolicyResource {
+public final class TransitGatewayRegistration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Global Network to register to.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("TransitGatewayRegistration.globalNetworkId");
+    }
 
     /**
      * The ARN of the Transit Gateway to register.
      * 
      */
-    public String transitGatewayArn;
+    private UndeferrableValue<String> transitGatewayArn;
 
-
+    public String transitGatewayArn() {
+        if (transitGatewayArn == null) return null;
+        return transitGatewayArn.getValue("TransitGatewayRegistration.transitGatewayArn");
+    }
 
 }

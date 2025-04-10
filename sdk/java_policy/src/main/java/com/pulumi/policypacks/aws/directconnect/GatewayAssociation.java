@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/gatewayAssociation:GatewayAssociation")
-public final class GatewayAssociation extends com.pulumi.resources.PolicyResource {
+public final class GatewayAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    public List<String> allowedPrefixes;
+    private UndeferrableValue<List<String>> allowedPrefixes;
 
-
+    public List<String> allowedPrefixes() {
+        if (allowedPrefixes == null) return null;
+        return allowedPrefixes.getValue("GatewayAssociation.allowedPrefixes");
+    }
 
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      * 
      */
-    public String associatedGatewayId;
+    private UndeferrableValue<String> associatedGatewayId;
 
-
+    public String associatedGatewayId() {
+        if (associatedGatewayId == null) return null;
+        return associatedGatewayId.getValue("GatewayAssociation.associatedGatewayId");
+    }
 
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    public String associatedGatewayOwnerAccountId;
+    private UndeferrableValue<String> associatedGatewayOwnerAccountId;
 
-
+    public String associatedGatewayOwnerAccountId() {
+        if (associatedGatewayOwnerAccountId == null) return null;
+        return associatedGatewayOwnerAccountId.getValue("GatewayAssociation.associatedGatewayOwnerAccountId");
+    }
 
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
-    public String associatedGatewayType;
+    private UndeferrableValue<String> associatedGatewayType;
 
-
+    public String associatedGatewayType() {
+        if (associatedGatewayType == null) return null;
+        return associatedGatewayType.getValue("GatewayAssociation.associatedGatewayType");
+    }
 
     /**
      * The ID of the Direct Connect gateway association.
      * 
      */
-    public String dxGatewayAssociationId;
+    private UndeferrableValue<String> dxGatewayAssociationId;
 
-
+    public String dxGatewayAssociationId() {
+        if (dxGatewayAssociationId == null) return null;
+        return dxGatewayAssociationId.getValue("GatewayAssociation.dxGatewayAssociationId");
+    }
 
     /**
      * The ID of the Direct Connect gateway.
      * 
      */
-    public String dxGatewayId;
+    private UndeferrableValue<String> dxGatewayId;
 
-
+    public String dxGatewayId() {
+        if (dxGatewayId == null) return null;
+        return dxGatewayId.getValue("GatewayAssociation.dxGatewayId");
+    }
 
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      * 
      */
-    public String dxGatewayOwnerAccountId;
+    private UndeferrableValue<String> dxGatewayOwnerAccountId;
 
-
+    public String dxGatewayOwnerAccountId() {
+        if (dxGatewayOwnerAccountId == null) return null;
+        return dxGatewayOwnerAccountId.getValue("GatewayAssociation.dxGatewayOwnerAccountId");
+    }
 
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    public String proposalId;
+    private @Nullable UndeferrableValue<String> proposalId;
 
-
+    public @Nullable String proposalId() {
+        if (proposalId == null) return null;
+        return proposalId.getValue("GatewayAssociation.proposalId");
+    }
 
     /**
      * @deprecated
@@ -84,8 +110,11 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    public String vpnGatewayId;
+    private @Nullable UndeferrableValue<String> vpnGatewayId;
 
-
+    public @Nullable String vpnGatewayId() {
+        if (vpnGatewayId == null) return null;
+        return vpnGatewayId.getValue("GatewayAssociation.vpnGatewayId");
+    }
 
 }

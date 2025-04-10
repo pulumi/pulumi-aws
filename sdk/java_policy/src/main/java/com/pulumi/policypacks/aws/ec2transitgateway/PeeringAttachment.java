@@ -3,66 +3,89 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2transitgateway.PeeringAttachmentOptions;
+import com.pulumi.policypacks.aws.ec2transitgateway.outputs.PeeringAttachmentOptions;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
-public final class PeeringAttachment extends com.pulumi.resources.PolicyResource {
+public final class PeeringAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PeeringAttachment.arn");
+    }
 
     /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      * 
      */
-    public PeeringAttachmentOptions options;
+    private @Nullable UndeferrableValue<PeeringAttachmentOptions> options;
 
-
+    public @Nullable PeeringAttachmentOptions options() {
+        if (options == null) return null;
+        return options.getValue("PeeringAttachment.options");
+    }
 
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public String peerAccountId;
+    private UndeferrableValue<String> peerAccountId;
 
-
+    public String peerAccountId() {
+        if (peerAccountId == null) return null;
+        return peerAccountId.getValue("PeeringAttachment.peerAccountId");
+    }
 
     /**
      * Region of EC2 Transit Gateway to peer with.
      * 
      */
-    public String peerRegion;
+    private UndeferrableValue<String> peerRegion;
 
-
+    public String peerRegion() {
+        if (peerRegion == null) return null;
+        return peerRegion.getValue("PeeringAttachment.peerRegion");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    public String peerTransitGatewayId;
+    private UndeferrableValue<String> peerTransitGatewayId;
 
+    public String peerTransitGatewayId() {
+        if (peerTransitGatewayId == null) return null;
+        return peerTransitGatewayId.getValue("PeeringAttachment.peerTransitGatewayId");
+    }
 
+    private UndeferrableValue<String> state;
 
-    public String state;
-
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("PeeringAttachment.state");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PeeringAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -72,16 +95,22 @@ public final class PeeringAttachment extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PeeringAttachment.tagsAll");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("PeeringAttachment.transitGatewayId");
+    }
 
 }

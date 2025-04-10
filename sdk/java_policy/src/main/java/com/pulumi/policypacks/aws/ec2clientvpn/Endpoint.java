@@ -3,156 +3,209 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2clientvpn.EndpointAuthenticationOption;
-import com.pulumi.policypacks.aws.ec2clientvpn.EndpointClientConnectOptions;
-import com.pulumi.policypacks.aws.ec2clientvpn.EndpointClientLoginBannerOptions;
-import com.pulumi.policypacks.aws.ec2clientvpn.EndpointConnectionLogOptions;
+import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointAuthenticationOption;
+import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointClientConnectOptions;
+import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointClientLoginBannerOptions;
+import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointConnectionLogOptions;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2clientvpn/endpoint:Endpoint")
-public final class Endpoint extends com.pulumi.resources.PolicyResource {
+public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Client VPN endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Endpoint.arn");
+    }
 
     /**
      * Information about the authentication method to be used to authenticate clients.
      * 
      */
-    public List<EndpointAuthenticationOption> authenticationOptions;
+    private UndeferrableValue<List<EndpointAuthenticationOption>> authenticationOptions;
 
-
+    public List<EndpointAuthenticationOption> authenticationOptions() {
+        if (authenticationOptions == null) return null;
+        return authenticationOptions.getValue("Endpoint.authenticationOptions");
+    }
 
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      * 
      */
-    public String clientCidrBlock;
+    private UndeferrableValue<String> clientCidrBlock;
 
-
+    public String clientCidrBlock() {
+        if (clientCidrBlock == null) return null;
+        return clientCidrBlock.getValue("Endpoint.clientCidrBlock");
+    }
 
     /**
      * The options for managing connection authorization for new client connections.
      * 
      */
-    public EndpointClientConnectOptions clientConnectOptions;
+    private UndeferrableValue<EndpointClientConnectOptions> clientConnectOptions;
 
-
+    public EndpointClientConnectOptions clientConnectOptions() {
+        if (clientConnectOptions == null) return null;
+        return clientConnectOptions.getValue("Endpoint.clientConnectOptions");
+    }
 
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
-    public EndpointClientLoginBannerOptions clientLoginBannerOptions;
+    private UndeferrableValue<EndpointClientLoginBannerOptions> clientLoginBannerOptions;
 
-
+    public EndpointClientLoginBannerOptions clientLoginBannerOptions() {
+        if (clientLoginBannerOptions == null) return null;
+        return clientLoginBannerOptions.getValue("Endpoint.clientLoginBannerOptions");
+    }
 
     /**
      * Information about the client connection logging options.
      * 
      */
-    public EndpointConnectionLogOptions connectionLogOptions;
+    private UndeferrableValue<EndpointConnectionLogOptions> connectionLogOptions;
 
-
+    public EndpointConnectionLogOptions connectionLogOptions() {
+        if (connectionLogOptions == null) return null;
+        return connectionLogOptions.getValue("Endpoint.connectionLogOptions");
+    }
 
     /**
      * A brief description of the Client VPN endpoint.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Endpoint.description");
+    }
 
     /**
      * Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
      * 
      */
-    public Boolean disconnectOnSessionTimeout;
+    private UndeferrableValue<Boolean> disconnectOnSessionTimeout;
 
-
+    public Boolean disconnectOnSessionTimeout() {
+        if (disconnectOnSessionTimeout == null) return null;
+        return disconnectOnSessionTimeout.getValue("Endpoint.disconnectOnSessionTimeout");
+    }
 
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("Endpoint.dnsName");
+    }
 
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      * 
      */
-    public List<String> dnsServers;
+    private @Nullable UndeferrableValue<List<String>> dnsServers;
 
-
+    public @Nullable List<String> dnsServers() {
+        if (dnsServers == null) return null;
+        return dnsServers.getValue("Endpoint.dnsServers");
+    }
 
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Endpoint.securityGroupIds");
+    }
 
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      * 
      */
-    public String selfServicePortal;
+    private @Nullable UndeferrableValue<String> selfServicePortal;
 
-
+    public @Nullable String selfServicePortal() {
+        if (selfServicePortal == null) return null;
+        return selfServicePortal.getValue("Endpoint.selfServicePortal");
+    }
 
     /**
      * The URL of the self-service portal.
      * 
      */
-    public String selfServicePortalUrl;
+    private UndeferrableValue<String> selfServicePortalUrl;
 
-
+    public String selfServicePortalUrl() {
+        if (selfServicePortalUrl == null) return null;
+        return selfServicePortalUrl.getValue("Endpoint.selfServicePortalUrl");
+    }
 
     /**
      * The ARN of the ACM server certificate.
      * 
      */
-    public String serverCertificateArn;
+    private UndeferrableValue<String> serverCertificateArn;
 
-
+    public String serverCertificateArn() {
+        if (serverCertificateArn == null) return null;
+        return serverCertificateArn.getValue("Endpoint.serverCertificateArn");
+    }
 
     /**
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      * 
      */
-    public Integer sessionTimeoutHours;
+    private @Nullable UndeferrableValue<Integer> sessionTimeoutHours;
 
-
+    public @Nullable Integer sessionTimeoutHours() {
+        if (sessionTimeoutHours == null) return null;
+        return sessionTimeoutHours.getValue("Endpoint.sessionTimeoutHours");
+    }
 
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      * 
      */
-    public Boolean splitTunnel;
+    private @Nullable UndeferrableValue<Boolean> splitTunnel;
 
-
+    public @Nullable Boolean splitTunnel() {
+        if (splitTunnel == null) return null;
+        return splitTunnel.getValue("Endpoint.splitTunnel");
+    }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Endpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -162,32 +215,44 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Endpoint.tagsAll");
+    }
 
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
-    public String transportProtocol;
+    private @Nullable UndeferrableValue<String> transportProtocol;
 
-
+    public @Nullable String transportProtocol() {
+        if (transportProtocol == null) return null;
+        return transportProtocol.getValue("Endpoint.transportProtocol");
+    }
 
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Endpoint.vpcId");
+    }
 
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      * 
      */
-    public Integer vpnPort;
+    private @Nullable UndeferrableValue<Integer> vpnPort;
 
-
+    public @Nullable Integer vpnPort() {
+        if (vpnPort == null) return null;
+        return vpnPort.getValue("Endpoint.vpnPort");
+    }
 
 }

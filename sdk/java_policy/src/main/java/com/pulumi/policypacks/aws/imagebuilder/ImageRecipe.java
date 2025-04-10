@@ -3,105 +3,140 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.ImageRecipeBlockDeviceMapping;
-import com.pulumi.policypacks.aws.imagebuilder.ImageRecipeComponent;
-import com.pulumi.policypacks.aws.imagebuilder.ImageRecipeSystemsManagerAgent;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageRecipeBlockDeviceMapping;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageRecipeComponent;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageRecipeSystemsManagerAgent;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/imageRecipe:ImageRecipe")
-public final class ImageRecipe extends com.pulumi.resources.PolicyResource {
+public final class ImageRecipe extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ImageRecipe.arn");
+    }
 
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      * 
      */
-    public List<ImageRecipeBlockDeviceMapping> blockDeviceMappings;
+    private @Nullable UndeferrableValue<List<ImageRecipeBlockDeviceMapping>> blockDeviceMappings;
 
-
+    public @Nullable List<ImageRecipeBlockDeviceMapping> blockDeviceMappings() {
+        if (blockDeviceMappings == null) return null;
+        return blockDeviceMappings.getValue("ImageRecipe.blockDeviceMappings");
+    }
 
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      * 
      */
-    public List<ImageRecipeComponent> components;
+    private UndeferrableValue<List<ImageRecipeComponent>> components;
 
-
+    public List<ImageRecipeComponent> components() {
+        if (components == null) return null;
+        return components.getValue("ImageRecipe.components");
+    }
 
     /**
      * Date the image recipe was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("ImageRecipe.dateCreated");
+    }
 
     /**
      * Description of the image recipe.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ImageRecipe.description");
+    }
 
     /**
      * Name of the image recipe.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ImageRecipe.name");
+    }
 
     /**
      * Owner of the image recipe.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("ImageRecipe.owner");
+    }
 
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
-    public String parentImage;
+    private UndeferrableValue<String> parentImage;
 
-
+    public String parentImage() {
+        if (parentImage == null) return null;
+        return parentImage.getValue("ImageRecipe.parentImage");
+    }
 
     /**
      * Platform of the image recipe.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("ImageRecipe.platform");
+    }
 
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
-    public ImageRecipeSystemsManagerAgent systemsManagerAgent;
+    private UndeferrableValue<ImageRecipeSystemsManagerAgent> systemsManagerAgent;
 
-
+    public ImageRecipeSystemsManagerAgent systemsManagerAgent() {
+        if (systemsManagerAgent == null) return null;
+        return systemsManagerAgent.getValue("ImageRecipe.systemsManagerAgent");
+    }
 
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ImageRecipe.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -111,17 +146,23 @@ public final class ImageRecipe extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ImageRecipe.tagsAll");
+    }
 
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      * 
      */
-    public String userDataBase64;
+    private UndeferrableValue<String> userDataBase64;
 
-
+    public String userDataBase64() {
+        if (userDataBase64 == null) return null;
+        return userDataBase64.getValue("ImageRecipe.userDataBase64");
+    }
 
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
@@ -129,16 +170,22 @@ public final class ImageRecipe extends com.pulumi.resources.PolicyResource {
      * The following attributes are optional:
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("ImageRecipe.version");
+    }
 
     /**
      * The working directory to be used during build and test workflows.
      * 
      */
-    public String workingDirectory;
+    private @Nullable UndeferrableValue<String> workingDirectory;
 
-
+    public @Nullable String workingDirectory() {
+        if (workingDirectory == null) return null;
+        return workingDirectory.getValue("ImageRecipe.workingDirectory");
+    }
 
 }

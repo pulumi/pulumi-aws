@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opsworks/permission:Permission")
-public final class Permission extends com.pulumi.resources.PolicyResource {
+public final class Permission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      * 
      */
-    public Boolean allowSsh;
+    private UndeferrableValue<Boolean> allowSsh;
 
-
+    public Boolean allowSsh() {
+        if (allowSsh == null) return null;
+        return allowSsh.getValue("Permission.allowSsh");
+    }
 
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      * 
      */
-    public Boolean allowSudo;
+    private UndeferrableValue<Boolean> allowSudo;
 
-
+    public Boolean allowSudo() {
+        if (allowSudo == null) return null;
+        return allowSudo.getValue("Permission.allowSudo");
+    }
 
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      * 
      */
-    public String level;
+    private UndeferrableValue<String> level;
 
-
+    public String level() {
+        if (level == null) return null;
+        return level.getValue("Permission.level");
+    }
 
     /**
      * The stack to set the permissions for
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("Permission.stackId");
+    }
 
     /**
      * The user&#39;s IAM ARN to set permissions for
      * 
      */
-    public String userArn;
+    private UndeferrableValue<String> userArn;
 
-
+    public String userArn() {
+        if (userArn == null) return null;
+        return userArn.getValue("Permission.userArn");
+    }
 
 }

@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/parameter:Parameter")
-public final class Parameter extends com.pulumi.resources.PolicyResource {
+public final class Parameter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Regular expression used to validate the parameter value.
      * 
      */
-    public String allowedPattern;
+    private @Nullable UndeferrableValue<String> allowedPattern;
 
-
+    public @Nullable String allowedPattern() {
+        if (allowedPattern == null) return null;
+        return allowedPattern.getValue("Parameter.allowedPattern");
+    }
 
     /**
      * ARN of the parameter.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Parameter.arn");
+    }
 
     /**
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
-    public String dataType;
+    private UndeferrableValue<String> dataType;
 
-
+    public String dataType() {
+        if (dataType == null) return null;
+        return dataType.getValue("Parameter.dataType");
+    }
 
     /**
      * Description of the parameter.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Parameter.description");
+    }
 
     /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
-    public String insecureValue;
+    private UndeferrableValue<String> insecureValue;
 
-
+    public String insecureValue() {
+        if (insecureValue == null) return null;
+        return insecureValue.getValue("Parameter.insecureValue");
+    }
 
     /**
      * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("Parameter.keyId");
+    }
 
     /**
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Parameter.name");
+    }
 
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      * 
      */
-    public Boolean overwrite;
+    private @Nullable UndeferrableValue<Boolean> overwrite;
 
-
+    public @Nullable Boolean overwrite() {
+        if (overwrite == null) return null;
+        return overwrite.getValue("Parameter.overwrite");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Parameter.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,17 +122,23 @@ public final class Parameter extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Parameter.tagsAll");
+    }
 
     /**
      * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
-    public String tier;
+    private @Nullable UndeferrableValue<String> tier;
 
-
+    public @Nullable String tier() {
+        if (tier == null) return null;
+        return tier.getValue("Parameter.tier");
+    }
 
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -111,24 +146,33 @@ public final class Parameter extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Parameter.type");
+    }
 
     /**
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("Parameter.value");
+    }
 
     /**
      * Version of the parameter.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("Parameter.version");
+    }
 
 }

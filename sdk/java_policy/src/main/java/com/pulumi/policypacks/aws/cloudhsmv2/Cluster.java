@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudhsmv2.ClusterClusterCertificate;
+import com.pulumi.policypacks.aws.cloudhsmv2.outputs.ClusterClusterCertificate;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudhsmv2/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The list of cluster certificates.
      * 
      */
-    public List<ClusterClusterCertificate> clusterCertificates;
+    private UndeferrableValue<List<ClusterClusterCertificate>> clusterCertificates;
 
-
+    public List<ClusterClusterCertificate> clusterCertificates() {
+        if (clusterCertificates == null) return null;
+        return clusterCertificates.getValue("Cluster.clusterCertificates");
+    }
 
     /**
      * The id of the CloudHSM cluster.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("Cluster.clusterId");
+    }
 
     /**
      * The state of the CloudHSM cluster.
      * 
      */
-    public String clusterState;
+    private UndeferrableValue<String> clusterState;
 
-
+    public String clusterState() {
+        if (clusterState == null) return null;
+        return clusterState.getValue("Cluster.clusterState");
+    }
 
     /**
      * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
-    public String hsmType;
+    private UndeferrableValue<String> hsmType;
 
-
+    public String hsmType() {
+        if (hsmType == null) return null;
+        return hsmType.getValue("Cluster.hsmType");
+    }
 
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
      * 
      */
-    public String mode;
+    private UndeferrableValue<String> mode;
 
-
+    public String mode() {
+        if (mode == null) return null;
+        return mode.getValue("Cluster.mode");
+    }
 
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("Cluster.securityGroupId");
+    }
 
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
-    public String sourceBackupIdentifier;
+    private @Nullable UndeferrableValue<String> sourceBackupIdentifier;
 
-
+    public @Nullable String sourceBackupIdentifier() {
+        if (sourceBackupIdentifier == null) return null;
+        return sourceBackupIdentifier.getValue("Cluster.sourceBackupIdentifier");
+    }
 
     /**
      * The IDs of subnets in which cluster will operate.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Cluster.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,16 +122,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Cluster.vpcId");
+    }
 
 }

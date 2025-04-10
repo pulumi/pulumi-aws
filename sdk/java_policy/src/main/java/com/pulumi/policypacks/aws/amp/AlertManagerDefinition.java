@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.amp;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:amp/alertManagerDefinition:AlertManagerDefinition")
-public final class AlertManagerDefinition extends com.pulumi.resources.PolicyResource {
+public final class AlertManagerDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
      * 
      */
-    public String definition;
+    private UndeferrableValue<String> definition;
 
-
+    public String definition() {
+        if (definition == null) return null;
+        return definition.getValue("AlertManagerDefinition.definition");
+    }
 
     /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("AlertManagerDefinition.workspaceId");
+    }
 
 }

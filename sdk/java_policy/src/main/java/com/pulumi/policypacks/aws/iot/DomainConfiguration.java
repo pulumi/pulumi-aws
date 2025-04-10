@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.DomainConfigurationAuthorizerConfig;
-import com.pulumi.policypacks.aws.iot.DomainConfigurationTlsConfig;
+import com.pulumi.policypacks.aws.iot.outputs.DomainConfigurationAuthorizerConfig;
+import com.pulumi.policypacks.aws.iot.outputs.DomainConfigurationTlsConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/domainConfiguration:DomainConfiguration")
-public final class DomainConfiguration extends com.pulumi.resources.PolicyResource {
+public final class DomainConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the domain configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainConfiguration.arn");
+    }
 
     /**
      * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
-    public DomainConfigurationAuthorizerConfig authorizerConfig;
+    private @Nullable UndeferrableValue<DomainConfigurationAuthorizerConfig> authorizerConfig;
 
-
+    public @Nullable DomainConfigurationAuthorizerConfig authorizerConfig() {
+        if (authorizerConfig == null) return null;
+        return authorizerConfig.getValue("DomainConfiguration.authorizerConfig");
+    }
 
     /**
      * Fully-qualified domain name.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainConfiguration.domainName");
+    }
 
     /**
      * The type of the domain.
      * 
      */
-    public String domainType;
+    private UndeferrableValue<String> domainType;
 
-
+    public String domainType() {
+        if (domainType == null) return null;
+        return domainType.getValue("DomainConfiguration.domainType");
+    }
 
     /**
      * The name of the domain configuration. This value must be unique to a region.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DomainConfiguration.name");
+    }
 
     /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
      * 
      */
-    public List<String> serverCertificateArns;
+    private @Nullable UndeferrableValue<List<String>> serverCertificateArns;
 
-
+    public @Nullable List<String> serverCertificateArns() {
+        if (serverCertificateArns == null) return null;
+        return serverCertificateArns.getValue("DomainConfiguration.serverCertificateArns");
+    }
 
     /**
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      * 
      */
-    public String serviceType;
+    private @Nullable UndeferrableValue<String> serviceType;
 
-
+    public @Nullable String serviceType() {
+        if (serviceType == null) return null;
+        return serviceType.getValue("DomainConfiguration.serviceType");
+    }
 
     /**
      * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("DomainConfiguration.status");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DomainConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,24 +123,33 @@ public final class DomainConfiguration extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DomainConfiguration.tagsAll");
+    }
 
     /**
      * An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
-    public DomainConfigurationTlsConfig tlsConfig;
+    private UndeferrableValue<DomainConfigurationTlsConfig> tlsConfig;
 
-
+    public DomainConfigurationTlsConfig tlsConfig() {
+        if (tlsConfig == null) return null;
+        return tlsConfig.getValue("DomainConfiguration.tlsConfig");
+    }
 
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      * 
      */
-    public String validationCertificateArn;
+    private @Nullable UndeferrableValue<String> validationCertificateArn;
 
-
+    public @Nullable String validationCertificateArn() {
+        if (validationCertificateArn == null) return null;
+        return validationCertificateArn.getValue("DomainConfiguration.validationCertificateArn");
+    }
 
 }

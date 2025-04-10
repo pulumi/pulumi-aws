@@ -3,96 +3,128 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.CompositeAlarmActionsSuppressor;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.CompositeAlarmActionsSuppressor;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/compositeAlarm:CompositeAlarm")
-public final class CompositeAlarm extends com.pulumi.resources.PolicyResource {
+public final class CompositeAlarm extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      * 
      */
-    public Boolean actionsEnabled;
+    private @Nullable UndeferrableValue<Boolean> actionsEnabled;
 
-
+    public @Nullable Boolean actionsEnabled() {
+        if (actionsEnabled == null) return null;
+        return actionsEnabled.getValue("CompositeAlarm.actionsEnabled");
+    }
 
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      * 
      */
-    public CompositeAlarmActionsSuppressor actionsSuppressor;
+    private @Nullable UndeferrableValue<CompositeAlarmActionsSuppressor> actionsSuppressor;
 
-
+    public @Nullable CompositeAlarmActionsSuppressor actionsSuppressor() {
+        if (actionsSuppressor == null) return null;
+        return actionsSuppressor.getValue("CompositeAlarm.actionsSuppressor");
+    }
 
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    public List<String> alarmActions;
+    private @Nullable UndeferrableValue<List<String>> alarmActions;
 
-
+    public @Nullable List<String> alarmActions() {
+        if (alarmActions == null) return null;
+        return alarmActions.getValue("CompositeAlarm.alarmActions");
+    }
 
     /**
      * The description for the composite alarm.
      * 
      */
-    public String alarmDescription;
+    private @Nullable UndeferrableValue<String> alarmDescription;
 
-
+    public @Nullable String alarmDescription() {
+        if (alarmDescription == null) return null;
+        return alarmDescription.getValue("CompositeAlarm.alarmDescription");
+    }
 
     /**
      * The name for the composite alarm. This name must be unique within the region.
      * 
      */
-    public String alarmName;
+    private UndeferrableValue<String> alarmName;
 
-
+    public String alarmName() {
+        if (alarmName == null) return null;
+        return alarmName.getValue("CompositeAlarm.alarmName");
+    }
 
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      * 
      */
-    public String alarmRule;
+    private UndeferrableValue<String> alarmRule;
 
-
+    public String alarmRule() {
+        if (alarmRule == null) return null;
+        return alarmRule.getValue("CompositeAlarm.alarmRule");
+    }
 
     /**
      * The ARN of the composite alarm.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CompositeAlarm.arn");
+    }
 
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    public List<String> insufficientDataActions;
+    private @Nullable UndeferrableValue<List<String>> insufficientDataActions;
 
-
+    public @Nullable List<String> insufficientDataActions() {
+        if (insufficientDataActions == null) return null;
+        return insufficientDataActions.getValue("CompositeAlarm.insufficientDataActions");
+    }
 
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    public List<String> okActions;
+    private @Nullable UndeferrableValue<List<String>> okActions;
 
-
+    public @Nullable List<String> okActions() {
+        if (okActions == null) return null;
+        return okActions.getValue("CompositeAlarm.okActions");
+    }
 
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CompositeAlarm.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -102,8 +134,11 @@ public final class CompositeAlarm extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CompositeAlarm.tagsAll");
+    }
 
 }

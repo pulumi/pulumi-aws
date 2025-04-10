@@ -3,116 +3,157 @@
 
 package com.pulumi.policypacks.aws.sns;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sns/platformApplication:PlatformApplication")
-public final class PlatformApplication extends com.pulumi.resources.PolicyResource {
+public final class PlatformApplication extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      * 
      */
-    public String applePlatformBundleId;
+    private @Nullable UndeferrableValue<String> applePlatformBundleId;
 
-
+    public @Nullable String applePlatformBundleId() {
+        if (applePlatformBundleId == null) return null;
+        return applePlatformBundleId.getValue("PlatformApplication.applePlatformBundleId");
+    }
 
     /**
      * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      * 
      */
-    public String applePlatformTeamId;
+    private @Nullable UndeferrableValue<String> applePlatformTeamId;
 
-
+    public @Nullable String applePlatformTeamId() {
+        if (applePlatformTeamId == null) return null;
+        return applePlatformTeamId.getValue("PlatformApplication.applePlatformTeamId");
+    }
 
     /**
      * The ARN of the SNS platform application
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PlatformApplication.arn");
+    }
 
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      * 
      */
-    public String eventDeliveryFailureTopicArn;
+    private @Nullable UndeferrableValue<String> eventDeliveryFailureTopicArn;
 
-
+    public @Nullable String eventDeliveryFailureTopicArn() {
+        if (eventDeliveryFailureTopicArn == null) return null;
+        return eventDeliveryFailureTopicArn.getValue("PlatformApplication.eventDeliveryFailureTopicArn");
+    }
 
     /**
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      * 
      */
-    public String eventEndpointCreatedTopicArn;
+    private @Nullable UndeferrableValue<String> eventEndpointCreatedTopicArn;
 
-
+    public @Nullable String eventEndpointCreatedTopicArn() {
+        if (eventEndpointCreatedTopicArn == null) return null;
+        return eventEndpointCreatedTopicArn.getValue("PlatformApplication.eventEndpointCreatedTopicArn");
+    }
 
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      * 
      */
-    public String eventEndpointDeletedTopicArn;
+    private @Nullable UndeferrableValue<String> eventEndpointDeletedTopicArn;
 
-
+    public @Nullable String eventEndpointDeletedTopicArn() {
+        if (eventEndpointDeletedTopicArn == null) return null;
+        return eventEndpointDeletedTopicArn.getValue("PlatformApplication.eventEndpointDeletedTopicArn");
+    }
 
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      * 
      */
-    public String eventEndpointUpdatedTopicArn;
+    private @Nullable UndeferrableValue<String> eventEndpointUpdatedTopicArn;
 
-
+    public @Nullable String eventEndpointUpdatedTopicArn() {
+        if (eventEndpointUpdatedTopicArn == null) return null;
+        return eventEndpointUpdatedTopicArn.getValue("PlatformApplication.eventEndpointUpdatedTopicArn");
+    }
 
     /**
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    public String failureFeedbackRoleArn;
+    private @Nullable UndeferrableValue<String> failureFeedbackRoleArn;
 
-
+    public @Nullable String failureFeedbackRoleArn() {
+        if (failureFeedbackRoleArn == null) return null;
+        return failureFeedbackRoleArn.getValue("PlatformApplication.failureFeedbackRoleArn");
+    }
 
     /**
      * The friendly name for the SNS platform application
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PlatformApplication.name");
+    }
 
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("PlatformApplication.platform");
+    }
 
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    public String platformCredential;
+    private UndeferrableValue<String> platformCredential;
 
-
+    public String platformCredential() {
+        if (platformCredential == null) return null;
+        return platformCredential.getValue("PlatformApplication.platformCredential");
+    }
 
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    public String platformPrincipal;
+    private @Nullable UndeferrableValue<String> platformPrincipal;
 
-
+    public @Nullable String platformPrincipal() {
+        if (platformPrincipal == null) return null;
+        return platformPrincipal.getValue("PlatformApplication.platformPrincipal");
+    }
 
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    public String successFeedbackRoleArn;
+    private @Nullable UndeferrableValue<String> successFeedbackRoleArn;
 
-
+    public @Nullable String successFeedbackRoleArn() {
+        if (successFeedbackRoleArn == null) return null;
+        return successFeedbackRoleArn.getValue("PlatformApplication.successFeedbackRoleArn");
+    }
 
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
@@ -120,8 +161,11 @@ public final class PlatformApplication extends com.pulumi.resources.PolicyResour
      * The following attributes are needed only when using APNS token credentials:
      * 
      */
-    public String successFeedbackSampleRate;
+    private @Nullable UndeferrableValue<String> successFeedbackSampleRate;
 
-
+    public @Nullable String successFeedbackSampleRate() {
+        if (successFeedbackSampleRate == null) return null;
+        return successFeedbackSampleRate.getValue("PlatformApplication.successFeedbackSampleRate");
+    }
 
 }

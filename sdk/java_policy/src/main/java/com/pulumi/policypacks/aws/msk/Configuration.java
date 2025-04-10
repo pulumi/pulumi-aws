@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:msk/configuration:Configuration")
-public final class Configuration extends com.pulumi.resources.PolicyResource {
+public final class Configuration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Configuration.arn");
+    }
 
     /**
      * Description of the configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Configuration.description");
+    }
 
     /**
      * List of Apache Kafka versions which can use this configuration.
      * 
      */
-    public List<String> kafkaVersions;
+    private @Nullable UndeferrableValue<List<String>> kafkaVersions;
 
-
+    public @Nullable List<String> kafkaVersions() {
+        if (kafkaVersions == null) return null;
+        return kafkaVersions.getValue("Configuration.kafkaVersions");
+    }
 
     /**
      * Latest revision of the configuration.
      * 
      */
-    public Integer latestRevision;
+    private UndeferrableValue<Integer> latestRevision;
 
-
+    public Integer latestRevision() {
+        if (latestRevision == null) return null;
+        return latestRevision.getValue("Configuration.latestRevision");
+    }
 
     /**
      * Name of the configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Configuration.name");
+    }
 
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      * 
      */
-    public String serverProperties;
+    private UndeferrableValue<String> serverProperties;
 
-
+    public String serverProperties() {
+        if (serverProperties == null) return null;
+        return serverProperties.getValue("Configuration.serverProperties");
+    }
 
 }

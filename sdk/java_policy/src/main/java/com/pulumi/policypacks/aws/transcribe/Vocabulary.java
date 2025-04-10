@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transcribe/vocabulary:Vocabulary")
-public final class Vocabulary extends com.pulumi.resources.PolicyResource {
+public final class Vocabulary extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Vocabulary.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Vocabulary.arn");
+    }
 
     /**
      * Generated download URI.
      * 
      */
-    public String downloadUri;
+    private UndeferrableValue<String> downloadUri;
 
-
+    public String downloadUri() {
+        if (downloadUri == null) return null;
+        return downloadUri.getValue("Vocabulary.downloadUri");
+    }
 
     /**
      * The language code you selected for your vocabulary.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("Vocabulary.languageCode");
+    }
 
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
-    public List<String> phrases;
+    private @Nullable UndeferrableValue<List<String>> phrases;
 
-
+    public @Nullable List<String> phrases() {
+        if (phrases == null) return null;
+        return phrases.getValue("Vocabulary.phrases");
+    }
 
     /**
      * A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Vocabulary.tags");
+    }
 
     /**
      * @deprecated
@@ -58,17 +75,23 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Vocabulary.tagsAll");
+    }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
-    public String vocabularyFileUri;
+    private UndeferrableValue<String> vocabularyFileUri;
 
-
+    public String vocabularyFileUri() {
+        if (vocabularyFileUri == null) return null;
+        return vocabularyFileUri.getValue("Vocabulary.vocabularyFileUri");
+    }
 
     /**
      * The name of the Vocabulary.
@@ -76,8 +99,11 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String vocabularyName;
+    private UndeferrableValue<String> vocabularyName;
 
-
+    public String vocabularyName() {
+        if (vocabularyName == null) return null;
+        return vocabularyName.getValue("Vocabulary.vocabularyName");
+    }
 
 }

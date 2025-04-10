@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketObjectLockConfigurationV2Rule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketObjectLockConfigurationV2Rule;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")
-public final class BucketObjectLockConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketObjectLockConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketObjectLockConfigurationV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketObjectLockConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
-    public String objectLockEnabled;
+    private @Nullable UndeferrableValue<String> objectLockEnabled;
 
-
+    public @Nullable String objectLockEnabled() {
+        if (objectLockEnabled == null) return null;
+        return objectLockEnabled.getValue("BucketObjectLockConfigurationV2.objectLockEnabled");
+    }
 
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
-    public BucketObjectLockConfigurationV2Rule rule;
+    private @Nullable UndeferrableValue<BucketObjectLockConfigurationV2Rule> rule;
 
-
+    public @Nullable BucketObjectLockConfigurationV2Rule rule() {
+        if (rule == null) return null;
+        return rule.getValue("BucketObjectLockConfigurationV2.rule");
+    }
 
     /**
      * This argument is deprecated and no longer needed to enable Object Lock.
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
-    public String token;
+    private @Nullable UndeferrableValue<String> token;
 
-
+    public @Nullable String token() {
+        if (token == null) return null;
+        return token.getValue("BucketObjectLockConfigurationV2.token");
+    }
 
 }

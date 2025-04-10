@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/bucket:Bucket")
-public final class Bucket extends com.pulumi.resources.PolicyResource {
+public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the lightsail bucket.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Bucket.arn");
+    }
 
     /**
      * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Bucket.availabilityZone");
+    }
 
     /**
      * The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      * 
      */
-    public String bundleId;
+    private UndeferrableValue<String> bundleId;
 
-
+    public String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("Bucket.bundleId");
+    }
 
     /**
      * The timestamp when the bucket was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Bucket.createdAt");
+    }
 
     /**
      * Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("Bucket.forceDelete");
+    }
 
     /**
      * The name for the bucket.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Bucket.name");
+    }
 
     /**
      * The Amazon Web Services Region name.
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("Bucket.region");
+    }
 
     /**
      * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public String supportCode;
+    private UndeferrableValue<String> supportCode;
 
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("Bucket.supportCode");
+    }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Bucket.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,12 +121,18 @@ public final class Bucket extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Bucket.tagsAll");
+    }
 
+    private UndeferrableValue<String> url;
 
-    public String url;
-
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("Bucket.url");
+    }
 
 }

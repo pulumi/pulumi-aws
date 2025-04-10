@@ -3,12 +3,13 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3tables/tablePolicy:TablePolicy")
-public final class TablePolicy extends com.pulumi.resources.PolicyResource {
+public final class TablePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the table.
@@ -16,9 +17,12 @@ public final class TablePolicy extends com.pulumi.resources.PolicyResource {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TablePolicy.name");
+    }
 
     /**
      * Name of the namespace for this table.
@@ -26,24 +30,33 @@ public final class TablePolicy extends com.pulumi.resources.PolicyResource {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("TablePolicy.namespace");
+    }
 
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */
-    public String resourcePolicy;
+    private UndeferrableValue<String> resourcePolicy;
 
-
+    public String resourcePolicy() {
+        if (resourcePolicy == null) return null;
+        return resourcePolicy.getValue("TablePolicy.resourcePolicy");
+    }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      */
-    public String tableBucketArn;
+    private UndeferrableValue<String> tableBucketArn;
 
-
+    public String tableBucketArn() {
+        if (tableBucketArn == null) return null;
+        return tableBucketArn.getValue("TablePolicy.tableBucketArn");
+    }
 
 }

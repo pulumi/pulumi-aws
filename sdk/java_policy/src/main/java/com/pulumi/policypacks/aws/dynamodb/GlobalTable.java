@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dynamodb.GlobalTableReplica;
+import com.pulumi.policypacks.aws.dynamodb.outputs.GlobalTableReplica;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:dynamodb/globalTable:GlobalTable")
-public final class GlobalTable extends com.pulumi.resources.PolicyResource {
+public final class GlobalTable extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the DynamoDB Global Table
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("GlobalTable.arn");
+    }
 
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GlobalTable.name");
+    }
 
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      * 
      */
-    public List<GlobalTableReplica> replicas;
+    private UndeferrableValue<List<GlobalTableReplica>> replicas;
 
-
+    public List<GlobalTableReplica> replicas() {
+        if (replicas == null) return null;
+        return replicas.getValue("GlobalTable.replicas");
+    }
 
 }

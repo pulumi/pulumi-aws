@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketOwnershipControlsRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketOwnershipControlsRule;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3/bucketOwnershipControls:BucketOwnershipControls")
-public final class BucketOwnershipControls extends com.pulumi.resources.PolicyResource {
+public final class BucketOwnershipControls extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket that you want to associate this access point with.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketOwnershipControls.bucket");
+    }
 
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      * 
      */
-    public BucketOwnershipControlsRule rule;
+    private UndeferrableValue<BucketOwnershipControlsRule> rule;
 
-
+    public BucketOwnershipControlsRule rule() {
+        if (rule == null) return null;
+        return rule.getValue("BucketOwnershipControls.rule");
+    }
 
 }

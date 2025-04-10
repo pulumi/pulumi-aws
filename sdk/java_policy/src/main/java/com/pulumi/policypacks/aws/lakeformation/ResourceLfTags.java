@@ -3,33 +3,40 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lakeformation.ResourceLfTagsDatabase;
-import com.pulumi.policypacks.aws.lakeformation.ResourceLfTagsLfTag;
-import com.pulumi.policypacks.aws.lakeformation.ResourceLfTagsTable;
-import com.pulumi.policypacks.aws.lakeformation.ResourceLfTagsTableWithColumns;
+import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagsDatabase;
+import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagsLfTag;
+import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagsTable;
+import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagsTableWithColumns;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:lakeformation/resourceLfTags:ResourceLfTags")
-public final class ResourceLfTags extends com.pulumi.resources.PolicyResource {
+public final class ResourceLfTags extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("ResourceLfTags.catalogId");
+    }
 
     /**
      * Configuration block for a database resource. See below.
      * 
      */
-    public ResourceLfTagsDatabase database;
+    private UndeferrableValue<ResourceLfTagsDatabase> database;
 
-
+    public ResourceLfTagsDatabase database() {
+        if (database == null) return null;
+        return database.getValue("ResourceLfTags.database");
+    }
 
     /**
      * Set of LF-tags to attach to the resource. See below.
@@ -37,17 +44,23 @@ public final class ResourceLfTags extends com.pulumi.resources.PolicyResource {
      * Exactly one of the following is required:
      * 
      */
-    public List<ResourceLfTagsLfTag> lfTags;
+    private UndeferrableValue<List<ResourceLfTagsLfTag>> lfTags;
 
-
+    public List<ResourceLfTagsLfTag> lfTags() {
+        if (lfTags == null) return null;
+        return lfTags.getValue("ResourceLfTags.lfTags");
+    }
 
     /**
      * Configuration block for a table resource. See below.
      * 
      */
-    public ResourceLfTagsTable table;
+    private UndeferrableValue<ResourceLfTagsTable> table;
 
-
+    public ResourceLfTagsTable table() {
+        if (table == null) return null;
+        return table.getValue("ResourceLfTags.table");
+    }
 
     /**
      * Configuration block for a table with columns resource. See below.
@@ -55,8 +68,11 @@ public final class ResourceLfTags extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ResourceLfTagsTableWithColumns tableWithColumns;
+    private UndeferrableValue<ResourceLfTagsTableWithColumns> tableWithColumns;
 
-
+    public ResourceLfTagsTableWithColumns tableWithColumns() {
+        if (tableWithColumns == null) return null;
+        return tableWithColumns.getValue("ResourceLfTags.tableWithColumns");
+    }
 
 }

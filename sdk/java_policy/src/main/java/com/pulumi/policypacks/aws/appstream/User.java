@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appstream/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the appstream user.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      * 
      */
-    public String authenticationType;
+    private UndeferrableValue<String> authenticationType;
 
-
+    public String authenticationType() {
+        if (authenticationType == null) return null;
+        return authenticationType.getValue("User.authenticationType");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("User.createdTime");
+    }
 
     /**
      * Whether the user in the user pool is enabled.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("User.enabled");
+    }
 
     /**
      * First name, or given name, of the user.
      * 
      */
-    public String firstName;
+    private @Nullable UndeferrableValue<String> firstName;
 
-
+    public @Nullable String firstName() {
+        if (firstName == null) return null;
+        return firstName.getValue("User.firstName");
+    }
 
     /**
      * Last name, or surname, of the user.
      * 
      */
-    public String lastName;
+    private @Nullable UndeferrableValue<String> lastName;
 
-
+    public @Nullable String lastName() {
+        if (lastName == null) return null;
+        return lastName.getValue("User.lastName");
+    }
 
     /**
      * Send an email notification.
      * 
      */
-    public Boolean sendEmailNotification;
+    private @Nullable UndeferrableValue<Boolean> sendEmailNotification;
 
-
+    public @Nullable Boolean sendEmailNotification() {
+        if (sendEmailNotification == null) return null;
+        return sendEmailNotification.getValue("User.sendEmailNotification");
+    }
 
     /**
      * Email address of the user.
@@ -73,8 +96,11 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
 }

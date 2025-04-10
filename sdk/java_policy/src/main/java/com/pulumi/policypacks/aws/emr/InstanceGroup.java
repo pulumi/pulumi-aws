@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emr.InstanceGroupEbsConfig;
+import com.pulumi.policypacks.aws.emr.outputs.InstanceGroupEbsConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emr/instanceGroup:InstanceGroup")
-public final class InstanceGroup extends com.pulumi.resources.PolicyResource {
+public final class InstanceGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
-    public String autoscalingPolicy;
+    private @Nullable UndeferrableValue<String> autoscalingPolicy;
 
-
+    public @Nullable String autoscalingPolicy() {
+        if (autoscalingPolicy == null) return null;
+        return autoscalingPolicy.getValue("InstanceGroup.autoscalingPolicy");
+    }
 
     /**
      * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    public String bidPrice;
+    private @Nullable UndeferrableValue<String> bidPrice;
 
-
+    public @Nullable String bidPrice() {
+        if (bidPrice == null) return null;
+        return bidPrice.getValue("InstanceGroup.bidPrice");
+    }
 
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("InstanceGroup.clusterId");
+    }
 
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -90,64 +101,88 @@ public final class InstanceGroup extends com.pulumi.resources.PolicyResource {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public String configurationsJson;
+    private @Nullable UndeferrableValue<String> configurationsJson;
 
-
+    public @Nullable String configurationsJson() {
+        if (configurationsJson == null) return null;
+        return configurationsJson.getValue("InstanceGroup.configurationsJson");
+    }
 
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public List<InstanceGroupEbsConfig> ebsConfigs;
+    private UndeferrableValue<List<InstanceGroupEbsConfig>> ebsConfigs;
 
-
+    public List<InstanceGroupEbsConfig> ebsConfigs() {
+        if (ebsConfigs == null) return null;
+        return ebsConfigs.getValue("InstanceGroup.ebsConfigs");
+    }
 
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      * 
      */
-    public Boolean ebsOptimized;
+    private @Nullable UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public @Nullable Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("InstanceGroup.ebsOptimized");
+    }
 
     /**
      * target number of instances for the instance group. defaults to 0.
      * 
      */
-    public Integer instanceCount;
+    private UndeferrableValue<Integer> instanceCount;
 
-
+    public Integer instanceCount() {
+        if (instanceCount == null) return null;
+        return instanceCount.getValue("InstanceGroup.instanceCount");
+    }
 
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("InstanceGroup.instanceType");
+    }
 
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InstanceGroup.name");
+    }
 
     /**
      * The number of instances currently running in this instance group.
      * 
      */
-    public Integer runningInstanceCount;
+    private UndeferrableValue<Integer> runningInstanceCount;
 
-
+    public Integer runningInstanceCount() {
+        if (runningInstanceCount == null) return null;
+        return runningInstanceCount.getValue("InstanceGroup.runningInstanceCount");
+    }
 
     /**
      * The current status of the instance group.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("InstanceGroup.status");
+    }
 
 }

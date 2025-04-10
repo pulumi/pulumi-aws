@@ -3,109 +3,144 @@
 
 package com.pulumi.policypacks.aws.mskconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorCapacity;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorKafkaCluster;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorKafkaClusterClientAuthentication;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorKafkaClusterEncryptionInTransit;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorLogDelivery;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorPlugin;
-import com.pulumi.policypacks.aws.mskconnect.ConnectorWorkerConfiguration;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorCapacity;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorKafkaCluster;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorKafkaClusterClientAuthentication;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorKafkaClusterEncryptionInTransit;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorLogDelivery;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorPlugin;
+import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorWorkerConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mskconnect/connector:Connector")
-public final class Connector extends com.pulumi.resources.PolicyResource {
+public final class Connector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the connector.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Connector.arn");
+    }
 
     /**
      * Information about the capacity allocated to the connector. See `capacity` Block for details.
      * 
      */
-    public ConnectorCapacity capacity;
+    private UndeferrableValue<ConnectorCapacity> capacity;
 
-
+    public ConnectorCapacity capacity() {
+        if (capacity == null) return null;
+        return capacity.getValue("Connector.capacity");
+    }
 
     /**
      * A map of keys to values that represent the configuration for the connector.
      * 
      */
-    public Map<String,String> connectorConfiguration;
+    private UndeferrableValue<Map<String,String>> connectorConfiguration;
 
-
+    public Map<String,String> connectorConfiguration() {
+        if (connectorConfiguration == null) return null;
+        return connectorConfiguration.getValue("Connector.connectorConfiguration");
+    }
 
     /**
      * A summary description of the connector.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Connector.description");
+    }
 
     /**
      * Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
      * 
      */
-    public ConnectorKafkaCluster kafkaCluster;
+    private UndeferrableValue<ConnectorKafkaCluster> kafkaCluster;
 
-
+    public ConnectorKafkaCluster kafkaCluster() {
+        if (kafkaCluster == null) return null;
+        return kafkaCluster.getValue("Connector.kafkaCluster");
+    }
 
     /**
      * Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
      * 
      */
-    public ConnectorKafkaClusterClientAuthentication kafkaClusterClientAuthentication;
+    private UndeferrableValue<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication;
 
-
+    public ConnectorKafkaClusterClientAuthentication kafkaClusterClientAuthentication() {
+        if (kafkaClusterClientAuthentication == null) return null;
+        return kafkaClusterClientAuthentication.getValue("Connector.kafkaClusterClientAuthentication");
+    }
 
     /**
      * Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
      * 
      */
-    public ConnectorKafkaClusterEncryptionInTransit kafkaClusterEncryptionInTransit;
+    private UndeferrableValue<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit;
 
-
+    public ConnectorKafkaClusterEncryptionInTransit kafkaClusterEncryptionInTransit() {
+        if (kafkaClusterEncryptionInTransit == null) return null;
+        return kafkaClusterEncryptionInTransit.getValue("Connector.kafkaClusterEncryptionInTransit");
+    }
 
     /**
      * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
-    public String kafkaconnectVersion;
+    private UndeferrableValue<String> kafkaconnectVersion;
 
-
+    public String kafkaconnectVersion() {
+        if (kafkaconnectVersion == null) return null;
+        return kafkaconnectVersion.getValue("Connector.kafkaconnectVersion");
+    }
 
     /**
      * Details about log delivery. See `log_delivery` Block for details.
      * 
      */
-    public ConnectorLogDelivery logDelivery;
+    private @Nullable UndeferrableValue<ConnectorLogDelivery> logDelivery;
 
-
+    public @Nullable ConnectorLogDelivery logDelivery() {
+        if (logDelivery == null) return null;
+        return logDelivery.getValue("Connector.logDelivery");
+    }
 
     /**
      * The name of the connector.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Connector.name");
+    }
 
     /**
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      * 
      */
-    public List<ConnectorPlugin> plugins;
+    private UndeferrableValue<List<ConnectorPlugin>> plugins;
 
-
+    public List<ConnectorPlugin> plugins() {
+        if (plugins == null) return null;
+        return plugins.getValue("Connector.plugins");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
@@ -113,17 +148,23 @@ public final class Connector extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String serviceExecutionRoleArn;
+    private UndeferrableValue<String> serviceExecutionRoleArn;
 
-
+    public String serviceExecutionRoleArn() {
+        if (serviceExecutionRoleArn == null) return null;
+        return serviceExecutionRoleArn.getValue("Connector.serviceExecutionRoleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Connector.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -133,24 +174,33 @@ public final class Connector extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Connector.tagsAll");
+    }
 
     /**
      * The current version of the connector.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Connector.version");
+    }
 
     /**
      * Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
      * 
      */
-    public ConnectorWorkerConfiguration workerConfiguration;
+    private @Nullable UndeferrableValue<ConnectorWorkerConfiguration> workerConfiguration;
 
-
+    public @Nullable ConnectorWorkerConfiguration workerConfiguration() {
+        if (workerConfiguration == null) return null;
+        return workerConfiguration.getValue("Connector.workerConfiguration");
+    }
 
 }

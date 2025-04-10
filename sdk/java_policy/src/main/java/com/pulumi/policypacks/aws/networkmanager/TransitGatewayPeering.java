@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")
-public final class TransitGatewayPeering extends com.pulumi.resources.PolicyResource {
+public final class TransitGatewayPeering extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Peering Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TransitGatewayPeering.arn");
+    }
 
     /**
      * The ARN of the core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("TransitGatewayPeering.coreNetworkArn");
+    }
 
     /**
      * The ID of a core network.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("TransitGatewayPeering.coreNetworkId");
+    }
 
     /**
      * The edge location for the peer.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("TransitGatewayPeering.edgeLocation");
+    }
 
     /**
      * The ID of the account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("TransitGatewayPeering.ownerAccountId");
+    }
 
     /**
      * The type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
-    public String peeringType;
+    private UndeferrableValue<String> peeringType;
 
-
+    public String peeringType() {
+        if (peeringType == null) return null;
+        return peeringType.getValue("TransitGatewayPeering.peeringType");
+    }
 
     /**
      * The resource ARN of the peer.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("TransitGatewayPeering.resourceArn");
+    }
 
     /**
      * Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TransitGatewayPeering.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,24 +109,33 @@ public final class TransitGatewayPeering extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TransitGatewayPeering.tagsAll");
+    }
 
     /**
      * The ARN of the transit gateway for the peering request.
      * 
      */
-    public String transitGatewayArn;
+    private UndeferrableValue<String> transitGatewayArn;
 
-
+    public String transitGatewayArn() {
+        if (transitGatewayArn == null) return null;
+        return transitGatewayArn.getValue("TransitGatewayPeering.transitGatewayArn");
+    }
 
     /**
      * The ID of the transit gateway peering attachment.
      * 
      */
-    public String transitGatewayPeeringAttachmentId;
+    private UndeferrableValue<String> transitGatewayPeeringAttachmentId;
 
-
+    public String transitGatewayPeeringAttachmentId() {
+        if (transitGatewayPeeringAttachmentId == null) return null;
+        return transitGatewayPeeringAttachmentId.getValue("TransitGatewayPeering.transitGatewayPeeringAttachmentId");
+    }
 
 }

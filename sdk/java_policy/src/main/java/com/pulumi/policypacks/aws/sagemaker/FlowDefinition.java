@@ -3,81 +3,107 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.FlowDefinitionHumanLoopActivationConfig;
-import com.pulumi.policypacks.aws.sagemaker.FlowDefinitionHumanLoopConfig;
-import com.pulumi.policypacks.aws.sagemaker.FlowDefinitionHumanLoopRequestSource;
-import com.pulumi.policypacks.aws.sagemaker.FlowDefinitionOutputConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopActivationConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopRequestSource;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionOutputConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/flowDefinition:FlowDefinition")
-public final class FlowDefinition extends com.pulumi.resources.PolicyResource {
+public final class FlowDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FlowDefinition.arn");
+    }
 
     /**
      * The name of your flow definition.
      * 
      */
-    public String flowDefinitionName;
+    private UndeferrableValue<String> flowDefinitionName;
 
-
+    public String flowDefinitionName() {
+        if (flowDefinitionName == null) return null;
+        return flowDefinitionName.getValue("FlowDefinition.flowDefinitionName");
+    }
 
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      * 
      */
-    public FlowDefinitionHumanLoopActivationConfig humanLoopActivationConfig;
+    private @Nullable UndeferrableValue<FlowDefinitionHumanLoopActivationConfig> humanLoopActivationConfig;
 
-
+    public @Nullable FlowDefinitionHumanLoopActivationConfig humanLoopActivationConfig() {
+        if (humanLoopActivationConfig == null) return null;
+        return humanLoopActivationConfig.getValue("FlowDefinition.humanLoopActivationConfig");
+    }
 
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      * 
      */
-    public FlowDefinitionHumanLoopConfig humanLoopConfig;
+    private UndeferrableValue<FlowDefinitionHumanLoopConfig> humanLoopConfig;
 
-
+    public FlowDefinitionHumanLoopConfig humanLoopConfig() {
+        if (humanLoopConfig == null) return null;
+        return humanLoopConfig.getValue("FlowDefinition.humanLoopConfig");
+    }
 
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      * 
      */
-    public FlowDefinitionHumanLoopRequestSource humanLoopRequestSource;
+    private @Nullable UndeferrableValue<FlowDefinitionHumanLoopRequestSource> humanLoopRequestSource;
 
-
+    public @Nullable FlowDefinitionHumanLoopRequestSource humanLoopRequestSource() {
+        if (humanLoopRequestSource == null) return null;
+        return humanLoopRequestSource.getValue("FlowDefinition.humanLoopRequestSource");
+    }
 
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      * 
      */
-    public FlowDefinitionOutputConfig outputConfig;
+    private UndeferrableValue<FlowDefinitionOutputConfig> outputConfig;
 
-
+    public FlowDefinitionOutputConfig outputConfig() {
+        if (outputConfig == null) return null;
+        return outputConfig.getValue("FlowDefinition.outputConfig");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("FlowDefinition.roleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FlowDefinition.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,8 +113,11 @@ public final class FlowDefinition extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FlowDefinition.tagsAll");
+    }
 
 }

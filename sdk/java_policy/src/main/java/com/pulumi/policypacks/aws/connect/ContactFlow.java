@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/contactFlow:ContactFlow")
-public final class ContactFlow extends com.pulumi.resources.PolicyResource {
+public final class ContactFlow extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Contact Flow.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContactFlow.arn");
+    }
 
     /**
      * The identifier of the Contact Flow.
      * 
      */
-    public String contactFlowId;
+    private UndeferrableValue<String> contactFlowId;
 
-
+    public String contactFlowId() {
+        if (contactFlowId == null) return null;
+        return contactFlowId.getValue("ContactFlow.contactFlowId");
+    }
 
     /**
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("ContactFlow.content");
+    }
 
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
      * 
      */
-    public String contentHash;
+    private @Nullable UndeferrableValue<String> contentHash;
 
-
+    public @Nullable String contentHash() {
+        if (contentHash == null) return null;
+        return contentHash.getValue("ContactFlow.contentHash");
+    }
 
     /**
      * Specifies the description of the Contact Flow.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ContactFlow.description");
+    }
 
     /**
      * The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
      * 
      */
-    public String filename;
+    private @Nullable UndeferrableValue<String> filename;
 
-
+    public @Nullable String filename() {
+        if (filename == null) return null;
+        return filename.getValue("ContactFlow.filename");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("ContactFlow.instanceId");
+    }
 
     /**
      * Specifies the name of the Contact Flow.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ContactFlow.name");
+    }
 
     /**
      * Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContactFlow.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -91,16 +120,22 @@ public final class ContactFlow extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContactFlow.tagsAll");
+    }
 
     /**
      * Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("ContactFlow.type");
+    }
 
 }

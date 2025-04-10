@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3/bucketPolicy:BucketPolicy")
-public final class BucketPolicy extends com.pulumi.resources.PolicyResource {
+public final class BucketPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket to which to apply the policy.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketPolicy.bucket");
+    }
 
     /**
      * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("BucketPolicy.policy");
+    }
 
 }

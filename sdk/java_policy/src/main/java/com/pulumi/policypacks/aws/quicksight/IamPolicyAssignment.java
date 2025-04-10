@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.quicksight.IamPolicyAssignmentIdentities;
+import com.pulumi.policypacks.aws.quicksight.outputs.IamPolicyAssignmentIdentities;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")
-public final class IamPolicyAssignment extends com.pulumi.resources.PolicyResource {
+public final class IamPolicyAssignment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Assignment ID.
      * 
      */
-    public String assignmentId;
+    private UndeferrableValue<String> assignmentId;
 
-
+    public String assignmentId() {
+        if (assignmentId == null) return null;
+        return assignmentId.getValue("IamPolicyAssignment.assignmentId");
+    }
 
     /**
      * Name of the assignment.
      * 
      */
-    public String assignmentName;
+    private UndeferrableValue<String> assignmentName;
 
-
+    public String assignmentName() {
+        if (assignmentName == null) return null;
+        return assignmentName.getValue("IamPolicyAssignment.assignmentName");
+    }
 
     /**
      * Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
@@ -33,40 +41,55 @@ public final class IamPolicyAssignment extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String assignmentStatus;
+    private UndeferrableValue<String> assignmentStatus;
 
-
+    public String assignmentStatus() {
+        if (assignmentStatus == null) return null;
+        return assignmentStatus.getValue("IamPolicyAssignment.assignmentStatus");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("IamPolicyAssignment.awsAccountId");
+    }
 
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
-    public IamPolicyAssignmentIdentities identities;
+    private @Nullable UndeferrableValue<IamPolicyAssignmentIdentities> identities;
 
-
+    public @Nullable IamPolicyAssignmentIdentities identities() {
+        if (identities == null) return null;
+        return identities.getValue("IamPolicyAssignment.identities");
+    }
 
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("IamPolicyAssignment.namespace");
+    }
 
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      * 
      */
-    public String policyArn;
+    private @Nullable UndeferrableValue<String> policyArn;
 
-
+    public @Nullable String policyArn() {
+        if (policyArn == null) return null;
+        return policyArn.getValue("IamPolicyAssignment.policyArn");
+    }
 
 }

@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.waf.RateBasedRulePredicate;
+import com.pulumi.policypacks.aws.waf.outputs.RateBasedRulePredicate;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/rateBasedRule:RateBasedRule")
-public final class RateBasedRule extends com.pulumi.resources.PolicyResource {
+public final class RateBasedRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RateBasedRule.arn");
+    }
 
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      * 
      */
-    public String metricName;
+    private UndeferrableValue<String> metricName;
 
-
+    public String metricName() {
+        if (metricName == null) return null;
+        return metricName.getValue("RateBasedRule.metricName");
+    }
 
     /**
      * The name or description of the rule.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RateBasedRule.name");
+    }
 
     /**
      * The objects to include in a rule (documented below).
      * 
      */
-    public List<RateBasedRulePredicate> predicates;
+    private @Nullable UndeferrableValue<List<RateBasedRulePredicate>> predicates;
 
-
+    public @Nullable List<RateBasedRulePredicate> predicates() {
+        if (predicates == null) return null;
+        return predicates.getValue("RateBasedRule.predicates");
+    }
 
     /**
      * Valid value is IP.
      * 
      */
-    public String rateKey;
+    private UndeferrableValue<String> rateKey;
 
-
+    public String rateKey() {
+        if (rateKey == null) return null;
+        return rateKey.getValue("RateBasedRule.rateKey");
+    }
 
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      * 
      */
-    public Integer rateLimit;
+    private UndeferrableValue<Integer> rateLimit;
 
-
+    public Integer rateLimit() {
+        if (rateLimit == null) return null;
+        return rateLimit.getValue("RateBasedRule.rateLimit");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RateBasedRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,8 +101,11 @@ public final class RateBasedRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RateBasedRule.tagsAll");
+    }
 
 }

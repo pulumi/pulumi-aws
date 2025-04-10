@@ -3,31 +3,41 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opensearch/packageAssociation:PackageAssociation")
-public final class PackageAssociation extends com.pulumi.resources.PolicyResource {
+public final class PackageAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the domain to associate the package with.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("PackageAssociation.domainName");
+    }
 
     /**
      * Internal ID of the package to associate with a domain.
      * 
      */
-    public String packageId;
+    private UndeferrableValue<String> packageId;
 
+    public String packageId() {
+        if (packageId == null) return null;
+        return packageId.getValue("PackageAssociation.packageId");
+    }
 
+    private UndeferrableValue<String> referencePath;
 
-    public String referencePath;
-
-
+    public String referencePath() {
+        if (referencePath == null) return null;
+        return referencePath.getValue("PackageAssociation.referencePath");
+    }
 
 }

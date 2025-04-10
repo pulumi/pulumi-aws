@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/thing:Thing")
-public final class Thing extends com.pulumi.resources.PolicyResource {
+public final class Thing extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the thing.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Thing.arn");
+    }
 
     /**
      * Map of attributes of the thing.
      * 
      */
-    public Map<String,String> attributes;
+    private @Nullable UndeferrableValue<Map<String,String>> attributes;
 
-
+    public @Nullable Map<String,String> attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("Thing.attributes");
+    }
 
     /**
      * The default client ID.
      * 
      */
-    public String defaultClientId;
+    private UndeferrableValue<String> defaultClientId;
 
-
+    public String defaultClientId() {
+        if (defaultClientId == null) return null;
+        return defaultClientId.getValue("Thing.defaultClientId");
+    }
 
     /**
      * The name of the thing.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Thing.name");
+    }
 
     /**
      * The thing type name.
      * 
      */
-    public String thingTypeName;
+    private @Nullable UndeferrableValue<String> thingTypeName;
 
-
+    public @Nullable String thingTypeName() {
+        if (thingTypeName == null) return null;
+        return thingTypeName.getValue("Thing.thingTypeName");
+    }
 
     /**
      * The current version of the thing record in the registry.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("Thing.version");
+    }
 
 }

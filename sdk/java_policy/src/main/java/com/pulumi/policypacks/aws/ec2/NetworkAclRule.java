@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/networkAclRule:NetworkAclRule")
-public final class NetworkAclRule extends com.pulumi.resources.PolicyResource {
+public final class NetworkAclRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      * 
      */
-    public String cidrBlock;
+    private @Nullable UndeferrableValue<String> cidrBlock;
 
-
+    public @Nullable String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("NetworkAclRule.cidrBlock");
+    }
 
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      * 
      */
-    public Boolean egress;
+    private @Nullable UndeferrableValue<Boolean> egress;
 
-
+    public @Nullable Boolean egress() {
+        if (egress == null) return null;
+        return egress.getValue("NetworkAclRule.egress");
+    }
 
     /**
      * The from port to match.
      * 
      */
-    public Integer fromPort;
+    private @Nullable UndeferrableValue<Integer> fromPort;
 
-
+    public @Nullable Integer fromPort() {
+        if (fromPort == null) return null;
+        return fromPort.getValue("NetworkAclRule.fromPort");
+    }
 
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
@@ -46,64 +57,88 @@ public final class NetworkAclRule extends com.pulumi.resources.PolicyResource {
      * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      * 
      */
-    public Integer icmpCode;
+    private @Nullable UndeferrableValue<Integer> icmpCode;
 
-
+    public @Nullable Integer icmpCode() {
+        if (icmpCode == null) return null;
+        return icmpCode.getValue("NetworkAclRule.icmpCode");
+    }
 
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      * 
      */
-    public Integer icmpType;
+    private @Nullable UndeferrableValue<Integer> icmpType;
 
-
+    public @Nullable Integer icmpType() {
+        if (icmpType == null) return null;
+        return icmpType.getValue("NetworkAclRule.icmpType");
+    }
 
     /**
      * The IPv6 CIDR block to allow or deny.
      * 
      */
-    public String ipv6CidrBlock;
+    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
 
-
+    public @Nullable String ipv6CidrBlock() {
+        if (ipv6CidrBlock == null) return null;
+        return ipv6CidrBlock.getValue("NetworkAclRule.ipv6CidrBlock");
+    }
 
     /**
      * The ID of the network ACL.
      * 
      */
-    public String networkAclId;
+    private UndeferrableValue<String> networkAclId;
 
-
+    public String networkAclId() {
+        if (networkAclId == null) return null;
+        return networkAclId.getValue("NetworkAclRule.networkAclId");
+    }
 
     /**
      * The protocol. A value of -1 means all protocols.
      * 
      */
-    public String protocol;
+    private UndeferrableValue<String> protocol;
 
-
+    public String protocol() {
+        if (protocol == null) return null;
+        return protocol.getValue("NetworkAclRule.protocol");
+    }
 
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      * 
      */
-    public String ruleAction;
+    private UndeferrableValue<String> ruleAction;
 
-
+    public String ruleAction() {
+        if (ruleAction == null) return null;
+        return ruleAction.getValue("NetworkAclRule.ruleAction");
+    }
 
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      * 
      */
-    public Integer ruleNumber;
+    private UndeferrableValue<Integer> ruleNumber;
 
-
+    public Integer ruleNumber() {
+        if (ruleNumber == null) return null;
+        return ruleNumber.getValue("NetworkAclRule.ruleNumber");
+    }
 
     /**
      * The to port to match.
      * 
      */
-    public Integer toPort;
+    private @Nullable UndeferrableValue<Integer> toPort;
 
-
+    public @Nullable Integer toPort() {
+        if (toPort == null) return null;
+        return toPort.getValue("NetworkAclRule.toPort");
+    }
 
 }

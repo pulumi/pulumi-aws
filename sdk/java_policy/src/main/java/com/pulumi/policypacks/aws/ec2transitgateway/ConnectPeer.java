@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/connectPeer:ConnectPeer")
-public final class ConnectPeer extends com.pulumi.resources.PolicyResource {
+public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConnectPeer.arn");
+    }
 
     /**
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      * 
      */
-    public String bgpAsn;
+    private UndeferrableValue<String> bgpAsn;
 
-
+    public String bgpAsn() {
+        if (bgpAsn == null) return null;
+        return bgpAsn.getValue("ConnectPeer.bgpAsn");
+    }
 
     /**
      * The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
-    public String bgpPeerAddress;
+    private UndeferrableValue<String> bgpPeerAddress;
 
-
+    public String bgpPeerAddress() {
+        if (bgpPeerAddress == null) return null;
+        return bgpPeerAddress.getValue("ConnectPeer.bgpPeerAddress");
+    }
 
     /**
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
-    public List<String> bgpTransitGatewayAddresses;
+    private UndeferrableValue<List<String>> bgpTransitGatewayAddresses;
 
-
+    public List<String> bgpTransitGatewayAddresses() {
+        if (bgpTransitGatewayAddresses == null) return null;
+        return bgpTransitGatewayAddresses.getValue("ConnectPeer.bgpTransitGatewayAddresses");
+    }
 
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      * 
      */
-    public List<String> insideCidrBlocks;
+    private UndeferrableValue<List<String>> insideCidrBlocks;
 
-
+    public List<String> insideCidrBlocks() {
+        if (insideCidrBlocks == null) return null;
+        return insideCidrBlocks.getValue("ConnectPeer.insideCidrBlocks");
+    }
 
     /**
      * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
      * 
      */
-    public String peerAddress;
+    private UndeferrableValue<String> peerAddress;
 
-
+    public String peerAddress() {
+        if (peerAddress == null) return null;
+        return peerAddress.getValue("ConnectPeer.peerAddress");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConnectPeer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,24 +99,33 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConnectPeer.tagsAll");
+    }
 
     /**
      * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
-    public String transitGatewayAddress;
+    private UndeferrableValue<String> transitGatewayAddress;
 
-
+    public String transitGatewayAddress() {
+        if (transitGatewayAddress == null) return null;
+        return transitGatewayAddress.getValue("ConnectPeer.transitGatewayAddress");
+    }
 
     /**
      * The Transit Gateway Connect
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("ConnectPeer.transitGatewayAttachmentId");
+    }
 
 }

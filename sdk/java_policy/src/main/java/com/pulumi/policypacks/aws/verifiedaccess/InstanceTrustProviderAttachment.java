@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")
-public final class InstanceTrustProviderAttachment extends com.pulumi.resources.PolicyResource {
+public final class InstanceTrustProviderAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
-    public String verifiedaccessInstanceId;
+    private UndeferrableValue<String> verifiedaccessInstanceId;
 
-
+    public String verifiedaccessInstanceId() {
+        if (verifiedaccessInstanceId == null) return null;
+        return verifiedaccessInstanceId.getValue("InstanceTrustProviderAttachment.verifiedaccessInstanceId");
+    }
 
     /**
      * The ID of the Verified Access trust provider.
      * 
      */
-    public String verifiedaccessTrustProviderId;
+    private UndeferrableValue<String> verifiedaccessTrustProviderId;
 
-
+    public String verifiedaccessTrustProviderId() {
+        if (verifiedaccessTrustProviderId == null) return null;
+        return verifiedaccessTrustProviderId.getValue("InstanceTrustProviderAttachment.verifiedaccessTrustProviderId");
+    }
 
 }

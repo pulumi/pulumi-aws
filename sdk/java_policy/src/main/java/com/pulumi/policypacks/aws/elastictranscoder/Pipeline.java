@@ -3,98 +3,130 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elastictranscoder.PipelineContentConfig;
-import com.pulumi.policypacks.aws.elastictranscoder.PipelineContentConfigPermission;
-import com.pulumi.policypacks.aws.elastictranscoder.PipelineNotifications;
-import com.pulumi.policypacks.aws.elastictranscoder.PipelineThumbnailConfig;
-import com.pulumi.policypacks.aws.elastictranscoder.PipelineThumbnailConfigPermission;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineContentConfig;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineContentConfigPermission;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineNotifications;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineThumbnailConfig;
+import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineThumbnailConfigPermission;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elastictranscoder/pipeline:Pipeline")
-public final class Pipeline extends com.pulumi.resources.PolicyResource {
+public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Elastictranscoder pipeline.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Pipeline.arn");
+    }
 
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      * 
      */
-    public String awsKmsKeyArn;
+    private @Nullable UndeferrableValue<String> awsKmsKeyArn;
 
-
+    public @Nullable String awsKmsKeyArn() {
+        if (awsKmsKeyArn == null) return null;
+        return awsKmsKeyArn.getValue("Pipeline.awsKmsKeyArn");
+    }
 
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      * 
      */
-    public PipelineContentConfig contentConfig;
+    private UndeferrableValue<PipelineContentConfig> contentConfig;
 
-
+    public PipelineContentConfig contentConfig() {
+        if (contentConfig == null) return null;
+        return contentConfig.getValue("Pipeline.contentConfig");
+    }
 
     /**
      * The permissions for the `content_config` object. (documented below)
      * 
      */
-    public List<PipelineContentConfigPermission> contentConfigPermissions;
+    private @Nullable UndeferrableValue<List<PipelineContentConfigPermission>> contentConfigPermissions;
 
-
+    public @Nullable List<PipelineContentConfigPermission> contentConfigPermissions() {
+        if (contentConfigPermissions == null) return null;
+        return contentConfigPermissions.getValue("Pipeline.contentConfigPermissions");
+    }
 
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      * 
      */
-    public String inputBucket;
+    private UndeferrableValue<String> inputBucket;
 
-
+    public String inputBucket() {
+        if (inputBucket == null) return null;
+        return inputBucket.getValue("Pipeline.inputBucket");
+    }
 
     /**
      * The name of the pipeline. Maximum 40 characters
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Pipeline.name");
+    }
 
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      * 
      */
-    public PipelineNotifications notifications;
+    private @Nullable UndeferrableValue<PipelineNotifications> notifications;
 
-
+    public @Nullable PipelineNotifications notifications() {
+        if (notifications == null) return null;
+        return notifications.getValue("Pipeline.notifications");
+    }
 
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      * 
      */
-    public String outputBucket;
+    private UndeferrableValue<String> outputBucket;
 
-
+    public String outputBucket() {
+        if (outputBucket == null) return null;
+        return outputBucket.getValue("Pipeline.outputBucket");
+    }
 
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("Pipeline.role");
+    }
 
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      * 
      */
-    public PipelineThumbnailConfig thumbnailConfig;
+    private UndeferrableValue<PipelineThumbnailConfig> thumbnailConfig;
 
-
+    public PipelineThumbnailConfig thumbnailConfig() {
+        if (thumbnailConfig == null) return null;
+        return thumbnailConfig.getValue("Pipeline.thumbnailConfig");
+    }
 
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
@@ -107,8 +139,11 @@ public final class Pipeline extends com.pulumi.resources.PolicyResource {
      * `thumbnail_config`, omit the `output_bucket` object.
      * 
      */
-    public List<PipelineThumbnailConfigPermission> thumbnailConfigPermissions;
+    private @Nullable UndeferrableValue<List<PipelineThumbnailConfigPermission>> thumbnailConfigPermissions;
 
-
+    public @Nullable List<PipelineThumbnailConfigPermission> thumbnailConfigPermissions() {
+        if (thumbnailConfigPermissions == null) return null;
+        return thumbnailConfigPermissions.getValue("Pipeline.thumbnailConfigPermissions");
+    }
 
 }

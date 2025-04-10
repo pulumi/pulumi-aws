@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directoryservice/radiusSettings:RadiusSettings")
-public final class RadiusSettings extends com.pulumi.resources.PolicyResource {
+public final class RadiusSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
      * 
      */
-    public String authenticationProtocol;
+    private UndeferrableValue<String> authenticationProtocol;
 
-
+    public String authenticationProtocol() {
+        if (authenticationProtocol == null) return null;
+        return authenticationProtocol.getValue("RadiusSettings.authenticationProtocol");
+    }
 
     /**
      * The identifier of the directory for which you want to manager RADIUS settings.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("RadiusSettings.directoryId");
+    }
 
     /**
      * Display label.
      * 
      */
-    public String displayLabel;
+    private UndeferrableValue<String> displayLabel;
 
-
+    public String displayLabel() {
+        if (displayLabel == null) return null;
+        return displayLabel.getValue("RadiusSettings.displayLabel");
+    }
 
     /**
      * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
      * 
      */
-    public Integer radiusPort;
+    private UndeferrableValue<Integer> radiusPort;
 
-
+    public Integer radiusPort() {
+        if (radiusPort == null) return null;
+        return radiusPort.getValue("RadiusSettings.radiusPort");
+    }
 
     /**
      * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
      * 
      */
-    public Integer radiusRetries;
+    private UndeferrableValue<Integer> radiusRetries;
 
-
+    public Integer radiusRetries() {
+        if (radiusRetries == null) return null;
+        return radiusRetries.getValue("RadiusSettings.radiusRetries");
+    }
 
     /**
      * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
-    public List<String> radiusServers;
+    private UndeferrableValue<List<String>> radiusServers;
 
-
+    public List<String> radiusServers() {
+        if (radiusServers == null) return null;
+        return radiusServers.getValue("RadiusSettings.radiusServers");
+    }
 
     /**
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      * 
      */
-    public Integer radiusTimeout;
+    private UndeferrableValue<Integer> radiusTimeout;
 
-
+    public Integer radiusTimeout() {
+        if (radiusTimeout == null) return null;
+        return radiusTimeout.getValue("RadiusSettings.radiusTimeout");
+    }
 
     /**
      * Required for enabling RADIUS on the directory.
      * 
      */
-    public String sharedSecret;
+    private UndeferrableValue<String> sharedSecret;
 
-
+    public String sharedSecret() {
+        if (sharedSecret == null) return null;
+        return sharedSecret.getValue("RadiusSettings.sharedSecret");
+    }
 
     /**
      * Not currently used.
      * 
      */
-    public Boolean useSameUsername;
+    private @Nullable UndeferrableValue<Boolean> useSameUsername;
 
-
+    public @Nullable Boolean useSameUsername() {
+        if (useSameUsername == null) return null;
+        return useSameUsername.getValue("RadiusSettings.useSameUsername");
+    }
 
 }

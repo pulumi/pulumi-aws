@@ -3,104 +3,139 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.QueueOutboundCallerConfig;
+import com.pulumi.policypacks.aws.connect.outputs.QueueOutboundCallerConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/queue:Queue")
-public final class Queue extends com.pulumi.resources.PolicyResource {
+public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Queue.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Queue.arn");
+    }
 
     /**
      * Specifies the description of the Queue.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Queue.description");
+    }
 
     /**
      * Specifies the identifier of the Hours of Operation.
      * 
      */
-    public String hoursOfOperationId;
+    private UndeferrableValue<String> hoursOfOperationId;
 
-
+    public String hoursOfOperationId() {
+        if (hoursOfOperationId == null) return null;
+        return hoursOfOperationId.getValue("Queue.hoursOfOperationId");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("Queue.instanceId");
+    }
 
     /**
      * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    public Integer maxContacts;
+    private @Nullable UndeferrableValue<Integer> maxContacts;
 
-
+    public @Nullable Integer maxContacts() {
+        if (maxContacts == null) return null;
+        return maxContacts.getValue("Queue.maxContacts");
+    }
 
     /**
      * Specifies the name of the Queue.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Queue.name");
+    }
 
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    public QueueOutboundCallerConfig outboundCallerConfig;
+    private @Nullable UndeferrableValue<QueueOutboundCallerConfig> outboundCallerConfig;
 
-
+    public @Nullable QueueOutboundCallerConfig outboundCallerConfig() {
+        if (outboundCallerConfig == null) return null;
+        return outboundCallerConfig.getValue("Queue.outboundCallerConfig");
+    }
 
     /**
      * The identifier for the Queue.
      * 
      */
-    public String queueId;
+    private UndeferrableValue<String> queueId;
 
-
+    public String queueId() {
+        if (queueId == null) return null;
+        return queueId.getValue("Queue.queueId");
+    }
 
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      * 
      */
-    public List<String> quickConnectIds;
+    private @Nullable UndeferrableValue<List<String>> quickConnectIds;
 
-
+    public @Nullable List<String> quickConnectIds() {
+        if (quickConnectIds == null) return null;
+        return quickConnectIds.getValue("Queue.quickConnectIds");
+    }
 
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Queue.status");
+    }
 
     /**
      * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Queue.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -110,8 +145,11 @@ public final class Queue extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Queue.tagsAll");
+    }
 
 }

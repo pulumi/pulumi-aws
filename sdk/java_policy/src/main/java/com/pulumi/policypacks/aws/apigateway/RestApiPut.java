@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.RestApiPutTimeouts;
+import com.pulumi.policypacks.aws.apigateway.outputs.RestApiPutTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/restApiPut:RestApiPut")
-public final class RestApiPut extends com.pulumi.resources.PolicyResource {
+public final class RestApiPut extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
      * 
      */
-    public String body;
+    private UndeferrableValue<String> body;
 
-
+    public String body() {
+        if (body == null) return null;
+        return body.getValue("RestApiPut.body");
+    }
 
     /**
      * Whether to rollback the API update when a warning is encountered. The default value is `false`.
      * 
      */
-    public Boolean failOnWarnings;
+    private UndeferrableValue<Boolean> failOnWarnings;
 
-
+    public Boolean failOnWarnings() {
+        if (failOnWarnings == null) return null;
+        return failOnWarnings.getValue("RestApiPut.failOnWarnings");
+    }
 
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = &#34;documentation&#34;`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("RestApiPut.parameters");
+    }
 
     /**
      * Identifier of the associated REST API.
@@ -43,20 +54,29 @@ public final class RestApiPut extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String restApiId;
+    private UndeferrableValue<String> restApiId;
 
+    public String restApiId() {
+        if (restApiId == null) return null;
+        return restApiId.getValue("RestApiPut.restApiId");
+    }
 
+    private @Nullable UndeferrableValue<RestApiPutTimeouts> timeouts;
 
-    public RestApiPutTimeouts timeouts;
-
-
+    public @Nullable RestApiPutTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("RestApiPut.timeouts");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("RestApiPut.triggers");
+    }
 
 }

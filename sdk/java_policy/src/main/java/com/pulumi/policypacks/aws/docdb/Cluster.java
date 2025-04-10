@@ -3,25 +3,30 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.docdb.ClusterRestoreToPointInTime;
+import com.pulumi.policypacks.aws.docdb.outputs.ClusterRestoreToPointInTime;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:docdb/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
      * 
      */
-    public Boolean allowMajorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
 
-
+    public @Nullable Boolean allowMajorVersionUpgrade() {
+        if (allowMajorVersionUpgrade == null) return null;
+        return allowMajorVersionUpgrade.getValue("Cluster.allowMajorVersionUpgrade");
+    }
 
     /**
      * Specifies whether any cluster modifications
@@ -29,123 +34,168 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * `false`.
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Cluster.applyImmediately");
+    }
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("Cluster.availabilityZones");
+    }
 
     /**
      * The days to retain backups for. Default `1`
      * 
      */
-    public Integer backupRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> backupRetentionPeriod;
 
-
+    public @Nullable Integer backupRetentionPeriod() {
+        if (backupRetentionPeriod == null) return null;
+        return backupRetentionPeriod.getValue("Cluster.backupRetentionPeriod");
+    }
 
     /**
      * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+    }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    public String clusterIdentifierPrefix;
+    private UndeferrableValue<String> clusterIdentifierPrefix;
 
-
+    public String clusterIdentifierPrefix() {
+        if (clusterIdentifierPrefix == null) return null;
+        return clusterIdentifierPrefix.getValue("Cluster.clusterIdentifierPrefix");
+    }
 
     /**
      * List of DocumentDB Instances that are a part of this cluster
      * 
      */
-    public List<String> clusterMembers;
+    private UndeferrableValue<List<String>> clusterMembers;
 
-
+    public List<String> clusterMembers() {
+        if (clusterMembers == null) return null;
+        return clusterMembers.getValue("Cluster.clusterMembers");
+    }
 
     /**
      * The DocumentDB Cluster Resource ID
      * 
      */
-    public String clusterResourceId;
+    private UndeferrableValue<String> clusterResourceId;
 
-
+    public String clusterResourceId() {
+        if (clusterResourceId == null) return null;
+        return clusterResourceId.getValue("Cluster.clusterResourceId");
+    }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    public String dbClusterParameterGroupName;
+    private UndeferrableValue<String> dbClusterParameterGroupName;
 
-
+    public String dbClusterParameterGroupName() {
+        if (dbClusterParameterGroupName == null) return null;
+        return dbClusterParameterGroupName.getValue("Cluster.dbClusterParameterGroupName");
+    }
 
     /**
      * A DB subnet group to associate with this DB instance.
      * 
      */
-    public String dbSubnetGroupName;
+    private UndeferrableValue<String> dbSubnetGroupName;
 
-
+    public String dbSubnetGroupName() {
+        if (dbSubnetGroupName == null) return null;
+        return dbSubnetGroupName.getValue("Cluster.dbSubnetGroupName");
+    }
 
     /**
      * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
-    public Boolean deletionProtection;
+    private @Nullable UndeferrableValue<Boolean> deletionProtection;
 
-
+    public @Nullable Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("Cluster.deletionProtection");
+    }
 
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
-    public List<String> enabledCloudwatchLogsExports;
+    private @Nullable UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
 
-
+    public @Nullable List<String> enabledCloudwatchLogsExports() {
+        if (enabledCloudwatchLogsExports == null) return null;
+        return enabledCloudwatchLogsExports.getValue("Cluster.enabledCloudwatchLogsExports");
+    }
 
     /**
      * The DNS address of the DocumentDB instance
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Cluster.endpoint");
+    }
 
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
-    public String engine;
+    private @Nullable UndeferrableValue<String> engine;
 
-
+    public @Nullable String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Cluster.engine");
+    }
 
     /**
      * The database engine version. Updating this argument results in an outage.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Cluster.engineVersion");
+    }
 
     /**
      * The name of your final DB snapshot
@@ -153,131 +203,179 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * made.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+    }
 
     /**
      * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      * 
      */
-    public String globalClusterIdentifier;
+    private @Nullable UndeferrableValue<String> globalClusterIdentifier;
 
-
+    public @Nullable String globalClusterIdentifier() {
+        if (globalClusterIdentifier == null) return null;
+        return globalClusterIdentifier.getValue("Cluster.globalClusterIdentifier");
+    }
 
     /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Cluster.hostedZoneId");
+    }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Cluster.kmsKeyId");
+    }
 
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
-    public String masterPassword;
+    private @Nullable UndeferrableValue<String> masterPassword;
 
-
+    public @Nullable String masterPassword() {
+        if (masterPassword == null) return null;
+        return masterPassword.getValue("Cluster.masterPassword");
+    }
 
     /**
      * Username for the master DB user.
      * 
      */
-    public String masterUsername;
+    private UndeferrableValue<String> masterUsername;
 
-
+    public String masterUsername() {
+        if (masterUsername == null) return null;
+        return masterUsername.getValue("Cluster.masterUsername");
+    }
 
     /**
      * The port on which the DB accepts connections
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("Cluster.preferredBackupWindow");
+    }
 
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+    }
 
     /**
      * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
-    public String readerEndpoint;
+    private UndeferrableValue<String> readerEndpoint;
 
-
+    public String readerEndpoint() {
+        if (readerEndpoint == null) return null;
+        return readerEndpoint.getValue("Cluster.readerEndpoint");
+    }
 
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      * 
      */
-    public ClusterRestoreToPointInTime restoreToPointInTime;
+    private @Nullable UndeferrableValue<ClusterRestoreToPointInTime> restoreToPointInTime;
 
-
+    public @Nullable ClusterRestoreToPointInTime restoreToPointInTime() {
+        if (restoreToPointInTime == null) return null;
+        return restoreToPointInTime.getValue("Cluster.restoreToPointInTime");
+    }
 
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+    }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
-    public String snapshotIdentifier;
+    private @Nullable UndeferrableValue<String> snapshotIdentifier;
 
-
+    public @Nullable String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      * 
      */
-    public Boolean storageEncrypted;
+    private @Nullable UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public @Nullable Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("Cluster.storageEncrypted");
+    }
 
     /**
      * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
      * 
      */
-    public String storageType;
+    private @Nullable UndeferrableValue<String> storageType;
 
-
+    public @Nullable String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("Cluster.storageType");
+    }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -287,17 +385,23 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * List of VPC security groups to associate
      * with the Cluster
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+    }
 
 }

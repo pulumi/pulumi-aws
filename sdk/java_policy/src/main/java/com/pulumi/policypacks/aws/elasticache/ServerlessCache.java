@@ -3,100 +3,132 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.ServerlessCacheCacheUsageLimits;
-import com.pulumi.policypacks.aws.elasticache.ServerlessCacheEndpoint;
-import com.pulumi.policypacks.aws.elasticache.ServerlessCacheReaderEndpoint;
-import com.pulumi.policypacks.aws.elasticache.ServerlessCacheTimeouts;
+import com.pulumi.policypacks.aws.elasticache.outputs.ServerlessCacheCacheUsageLimits;
+import com.pulumi.policypacks.aws.elasticache.outputs.ServerlessCacheEndpoint;
+import com.pulumi.policypacks.aws.elasticache.outputs.ServerlessCacheReaderEndpoint;
+import com.pulumi.policypacks.aws.elasticache.outputs.ServerlessCacheTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/serverlessCache:ServerlessCache")
-public final class ServerlessCache extends com.pulumi.resources.PolicyResource {
+public final class ServerlessCache extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the serverless cache.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServerlessCache.arn");
+    }
 
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
-    public ServerlessCacheCacheUsageLimits cacheUsageLimits;
+    private @Nullable UndeferrableValue<ServerlessCacheCacheUsageLimits> cacheUsageLimits;
 
-
+    public @Nullable ServerlessCacheCacheUsageLimits cacheUsageLimits() {
+        if (cacheUsageLimits == null) return null;
+        return cacheUsageLimits.getValue("ServerlessCache.cacheUsageLimits");
+    }
 
     /**
      * Timestamp of when the serverless cache was created.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("ServerlessCache.createTime");
+    }
 
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
-    public String dailySnapshotTime;
+    private UndeferrableValue<String> dailySnapshotTime;
 
-
+    public String dailySnapshotTime() {
+        if (dailySnapshotTime == null) return null;
+        return dailySnapshotTime.getValue("ServerlessCache.dailySnapshotTime");
+    }
 
     /**
      * User-provided description for the serverless cache. The default is NULL.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ServerlessCache.description");
+    }
 
     /**
      * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      * 
      */
-    public List<ServerlessCacheEndpoint> endpoints;
+    private UndeferrableValue<List<ServerlessCacheEndpoint>> endpoints;
 
-
+    public List<ServerlessCacheEndpoint> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("ServerlessCache.endpoints");
+    }
 
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ServerlessCache.engine");
+    }
 
     /**
      * The name and version number of the engine the serverless cache is compatible with.
      * 
      */
-    public String fullEngineVersion;
+    private UndeferrableValue<String> fullEngineVersion;
 
-
+    public String fullEngineVersion() {
+        if (fullEngineVersion == null) return null;
+        return fullEngineVersion.getValue("ServerlessCache.fullEngineVersion");
+    }
 
     /**
      * ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ServerlessCache.kmsKeyId");
+    }
 
     /**
      * The version of the cache engine that will be used to create the serverless cache.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
      * 
      */
-    public String majorEngineVersion;
+    private UndeferrableValue<String> majorEngineVersion;
 
-
+    public String majorEngineVersion() {
+        if (majorEngineVersion == null) return null;
+        return majorEngineVersion.getValue("ServerlessCache.majorEngineVersion");
+    }
 
     /**
      * The Cluster name which serves as a unique identifier to the serverless cache
@@ -104,65 +136,89 @@ public final class ServerlessCache extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessCache.name");
+    }
 
     /**
      * Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
      * 
      */
-    public List<ServerlessCacheReaderEndpoint> readerEndpoints;
+    private UndeferrableValue<List<ServerlessCacheReaderEndpoint>> readerEndpoints;
 
-
+    public List<ServerlessCacheReaderEndpoint> readerEndpoints() {
+        if (readerEndpoints == null) return null;
+        return readerEndpoints.getValue("ServerlessCache.readerEndpoints");
+    }
 
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ServerlessCache.securityGroupIds");
+    }
 
     /**
      * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
      * 
      */
-    public List<String> snapshotArnsToRestores;
+    private @Nullable UndeferrableValue<List<String>> snapshotArnsToRestores;
 
-
+    public @Nullable List<String> snapshotArnsToRestores() {
+        if (snapshotArnsToRestores == null) return null;
+        return snapshotArnsToRestores.getValue("ServerlessCache.snapshotArnsToRestores");
+    }
 
     /**
      * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
      * 
      */
-    public Integer snapshotRetentionLimit;
+    private UndeferrableValue<Integer> snapshotRetentionLimit;
 
-
+    public Integer snapshotRetentionLimit() {
+        if (snapshotRetentionLimit == null) return null;
+        return snapshotRetentionLimit.getValue("ServerlessCache.snapshotRetentionLimit");
+    }
 
     /**
      * The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ServerlessCache.status");
+    }
 
     /**
      * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("ServerlessCache.subnetIds");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServerlessCache.tags");
+    }
 
     /**
      * @deprecated
@@ -170,20 +226,29 @@ public final class ServerlessCache extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServerlessCache.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ServerlessCacheTimeouts> timeouts;
 
-    public ServerlessCacheTimeouts timeouts;
-
-
+    public @Nullable ServerlessCacheTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ServerlessCache.timeouts");
+    }
 
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      * 
      */
-    public String userGroupId;
+    private @Nullable UndeferrableValue<String> userGroupId;
 
-
+    public @Nullable String userGroupId() {
+        if (userGroupId == null) return null;
+        return userGroupId.getValue("ServerlessCache.userGroupId");
+    }
 
 }

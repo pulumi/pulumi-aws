@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticsearch.DomainSamlOptionsSamlOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainSamlOptionsSamlOptions;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticsearch/domainSamlOptions:DomainSamlOptions")
-public final class DomainSamlOptions extends com.pulumi.resources.PolicyResource {
+public final class DomainSamlOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the domain.
@@ -17,16 +19,22 @@ public final class DomainSamlOptions extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainSamlOptions.domainName");
+    }
 
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      * 
      */
-    public DomainSamlOptionsSamlOptions samlOptions;
+    private @Nullable UndeferrableValue<DomainSamlOptionsSamlOptions> samlOptions;
 
-
+    public @Nullable DomainSamlOptionsSamlOptions samlOptions() {
+        if (samlOptions == null) return null;
+        return samlOptions.getValue("DomainSamlOptions.samlOptions");
+    }
 
 }

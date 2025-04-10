@@ -3,112 +3,150 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.evidently.FeatureEvaluationRule;
-import com.pulumi.policypacks.aws.evidently.FeatureVariation;
+import com.pulumi.policypacks.aws.evidently.outputs.FeatureEvaluationRule;
+import com.pulumi.policypacks.aws.evidently.outputs.FeatureVariation;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:evidently/feature:Feature")
-public final class Feature extends com.pulumi.resources.PolicyResource {
+public final class Feature extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the feature.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Feature.arn");
+    }
 
     /**
      * The date and time that the feature is created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Feature.createdTime");
+    }
 
     /**
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
      * 
      */
-    public String defaultVariation;
+    private UndeferrableValue<String> defaultVariation;
 
-
+    public String defaultVariation() {
+        if (defaultVariation == null) return null;
+        return defaultVariation.getValue("Feature.defaultVariation");
+    }
 
     /**
      * Specifies the description of the feature.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Feature.description");
+    }
 
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      * 
      */
-    public Map<String,String> entityOverrides;
+    private @Nullable UndeferrableValue<Map<String,String>> entityOverrides;
 
-
+    public @Nullable Map<String,String> entityOverrides() {
+        if (entityOverrides == null) return null;
+        return entityOverrides.getValue("Feature.entityOverrides");
+    }
 
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      * 
      */
-    public List<FeatureEvaluationRule> evaluationRules;
+    private UndeferrableValue<List<FeatureEvaluationRule>> evaluationRules;
 
-
+    public List<FeatureEvaluationRule> evaluationRules() {
+        if (evaluationRules == null) return null;
+        return evaluationRules.getValue("Feature.evaluationRules");
+    }
 
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      * 
      */
-    public String evaluationStrategy;
+    private UndeferrableValue<String> evaluationStrategy;
 
-
+    public String evaluationStrategy() {
+        if (evaluationStrategy == null) return null;
+        return evaluationStrategy.getValue("Feature.evaluationStrategy");
+    }
 
     /**
      * The date and time that the feature was most recently updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Feature.lastUpdatedTime");
+    }
 
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Feature.name");
+    }
 
     /**
      * The name or ARN of the project that is to contain the new feature.
      * 
      */
-    public String project;
+    private UndeferrableValue<String> project;
 
-
+    public String project() {
+        if (project == null) return null;
+        return project.getValue("Feature.project");
+    }
 
     /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Feature.status");
+    }
 
     /**
      * Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Feature.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -118,24 +156,33 @@ public final class Feature extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Feature.tagsAll");
+    }
 
     /**
      * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
      * 
      */
-    public String valueType;
+    private UndeferrableValue<String> valueType;
 
-
+    public String valueType() {
+        if (valueType == null) return null;
+        return valueType.getValue("Feature.valueType");
+    }
 
     /**
      * One or more blocks that contain the configuration of the feature&#39;s different variations. Detailed below
      * 
      */
-    public List<FeatureVariation> variations;
+    private UndeferrableValue<List<FeatureVariation>> variations;
 
-
+    public List<FeatureVariation> variations() {
+        if (variations == null) return null;
+        return variations.getValue("Feature.variations");
+    }
 
 }

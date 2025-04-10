@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.m2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.m2.ApplicationDefinition;
-import com.pulumi.policypacks.aws.m2.ApplicationTimeouts;
+import com.pulumi.policypacks.aws.m2.outputs.ApplicationDefinition;
+import com.pulumi.policypacks.aws.m2.outputs.ApplicationTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:m2/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Id of the Application.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("Application.applicationId");
+    }
 
     /**
      * ARN of the Application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * Current version of the application deployed.
      * 
      */
-    public Integer currentVersion;
+    private UndeferrableValue<Integer> currentVersion;
 
-
+    public Integer currentVersion() {
+        if (currentVersion == null) return null;
+        return currentVersion.getValue("Application.currentVersion");
+    }
 
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    public ApplicationDefinition definition;
+    private @Nullable UndeferrableValue<ApplicationDefinition> definition;
 
-
+    public @Nullable ApplicationDefinition definition() {
+        if (definition == null) return null;
+        return definition.getValue("Application.definition");
+    }
 
     /**
      * Description of the application.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Application.description");
+    }
 
     /**
      * Engine type must be `microfocus | bluage`.
      * 
      */
-    public String engineType;
+    private UndeferrableValue<String> engineType;
 
-
+    public String engineType() {
+        if (engineType == null) return null;
+        return engineType.getValue("Application.engineType");
+    }
 
     /**
      * KMS Key to use for the Application.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Application.kmsKeyId");
+    }
 
     /**
      * Unique identifier of the application.
@@ -76,25 +99,34 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * ARN of role for application to use to access AWS resources.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Application.roleArn");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,12 +136,18 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ApplicationTimeouts> timeouts;
 
-    public ApplicationTimeouts timeouts;
-
-
+    public @Nullable ApplicationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Application.timeouts");
+    }
 
 }

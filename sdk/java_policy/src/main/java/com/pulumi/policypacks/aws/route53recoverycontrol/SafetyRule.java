@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53recoverycontrol.SafetyRuleRuleConfig;
+import com.pulumi.policypacks.aws.route53recoverycontrol.outputs.SafetyRuleRuleConfig;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53recoverycontrol/safetyRule:SafetyRule")
-public final class SafetyRule extends com.pulumi.resources.PolicyResource {
+public final class SafetyRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the safety rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SafetyRule.arn");
+    }
 
     /**
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      * 
      */
-    public List<String> assertedControls;
+    private @Nullable UndeferrableValue<List<String>> assertedControls;
 
-
+    public @Nullable List<String> assertedControls() {
+        if (assertedControls == null) return null;
+        return assertedControls.getValue("SafetyRule.assertedControls");
+    }
 
     /**
      * ARN of the control panel in which this safety rule will reside.
      * 
      */
-    public String controlPanelArn;
+    private UndeferrableValue<String> controlPanelArn;
 
-
+    public String controlPanelArn() {
+        if (controlPanelArn == null) return null;
+        return controlPanelArn.getValue("SafetyRule.controlPanelArn");
+    }
 
     /**
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      * 
      */
-    public List<String> gatingControls;
+    private @Nullable UndeferrableValue<List<String>> gatingControls;
 
-
+    public @Nullable List<String> gatingControls() {
+        if (gatingControls == null) return null;
+        return gatingControls.getValue("SafetyRule.gatingControls");
+    }
 
     /**
      * Name describing the safety rule.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("SafetyRule.name");
+    }
 
     /**
      * Configuration block for safety rule criteria. See below.
      * 
      */
-    public SafetyRuleRuleConfig ruleConfig;
+    private UndeferrableValue<SafetyRuleRuleConfig> ruleConfig;
 
-
+    public SafetyRuleRuleConfig ruleConfig() {
+        if (ruleConfig == null) return null;
+        return ruleConfig.getValue("SafetyRule.ruleConfig");
+    }
 
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("SafetyRule.status");
+    }
 
     /**
      * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
      * 
      */
-    public List<String> targetControls;
+    private @Nullable UndeferrableValue<List<String>> targetControls;
 
-
+    public @Nullable List<String> targetControls() {
+        if (targetControls == null) return null;
+        return targetControls.getValue("SafetyRule.targetControls");
+    }
 
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -83,8 +109,11 @@ public final class SafetyRule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer waitPeriodMs;
+    private UndeferrableValue<Integer> waitPeriodMs;
 
-
+    public Integer waitPeriodMs() {
+        if (waitPeriodMs == null) return null;
+        return waitPeriodMs.getValue("SafetyRule.waitPeriodMs");
+    }
 
 }

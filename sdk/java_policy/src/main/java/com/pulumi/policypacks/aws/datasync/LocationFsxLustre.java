@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationFsxLustre:LocationFsxLustre")
-public final class LocationFsxLustre extends com.pulumi.resources.PolicyResource {
+public final class LocationFsxLustre extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationFsxLustre.arn");
+    }
 
     /**
      * The time that the FSx for Lustre location was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("LocationFsxLustre.creationTime");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      * 
      */
-    public String fsxFilesystemArn;
+    private UndeferrableValue<String> fsxFilesystemArn;
 
-
+    public String fsxFilesystemArn() {
+        if (fsxFilesystemArn == null) return null;
+        return fsxFilesystemArn.getValue("LocationFsxLustre.fsxFilesystemArn");
+    }
 
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
-    public List<String> securityGroupArns;
+    private UndeferrableValue<List<String>> securityGroupArns;
 
-
+    public List<String> securityGroupArns() {
+        if (securityGroupArns == null) return null;
+        return securityGroupArns.getValue("LocationFsxLustre.securityGroupArns");
+    }
 
     /**
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationFsxLustre.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationFsxLustre.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,16 +88,22 @@ public final class LocationFsxLustre extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationFsxLustre.tagsAll");
+    }
 
     /**
      * The URL of the FSx for Lustre location that was described.
      * 
      */
-    public String uri;
+    private UndeferrableValue<String> uri;
 
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationFsxLustre.uri");
+    }
 
 }

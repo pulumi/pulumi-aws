@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:route53/resolverFirewallConfig:ResolverFirewallConfig")
-public final class ResolverFirewallConfig extends com.pulumi.resources.PolicyResource {
+public final class ResolverFirewallConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public String firewallFailOpen;
+    private UndeferrableValue<String> firewallFailOpen;
 
-
+    public String firewallFailOpen() {
+        if (firewallFailOpen == null) return null;
+        return firewallFailOpen.getValue("ResolverFirewallConfig.firewallFailOpen");
+    }
 
     /**
      * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ResolverFirewallConfig.ownerId");
+    }
 
     /**
      * The ID of the VPC that the configuration is for.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ResolverFirewallConfig.resourceId");
+    }
 
 }

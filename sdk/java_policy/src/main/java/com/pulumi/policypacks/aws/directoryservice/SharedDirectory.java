@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.directoryservice.SharedDirectoryTarget;
+import com.pulumi.policypacks.aws.directoryservice.outputs.SharedDirectoryTarget;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directoryservice/sharedDirectory:SharedDirectory")
-public final class SharedDirectory extends com.pulumi.resources.PolicyResource {
+public final class SharedDirectory extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("SharedDirectory.directoryId");
+    }
 
     /**
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      * 
      */
-    public String method;
+    private @Nullable UndeferrableValue<String> method;
 
-
+    public @Nullable String method() {
+        if (method == null) return null;
+        return method.getValue("SharedDirectory.method");
+    }
 
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    public String notes;
+    private @Nullable UndeferrableValue<String> notes;
 
-
+    public @Nullable String notes() {
+        if (notes == null) return null;
+        return notes.getValue("SharedDirectory.notes");
+    }
 
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    public String sharedDirectoryId;
+    private UndeferrableValue<String> sharedDirectoryId;
 
-
+    public String sharedDirectoryId() {
+        if (sharedDirectoryId == null) return null;
+        return sharedDirectoryId.getValue("SharedDirectory.sharedDirectoryId");
+    }
 
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -49,8 +63,11 @@ public final class SharedDirectory extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public SharedDirectoryTarget target;
+    private UndeferrableValue<SharedDirectoryTarget> target;
 
-
+    public SharedDirectoryTarget target() {
+        if (target == null) return null;
+        return target.getValue("SharedDirectory.target");
+    }
 
 }

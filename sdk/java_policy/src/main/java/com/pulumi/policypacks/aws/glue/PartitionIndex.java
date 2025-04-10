@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.PartitionIndexPartitionIndex;
+import com.pulumi.policypacks.aws.glue.outputs.PartitionIndexPartitionIndex;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:glue/partitionIndex:PartitionIndex")
-public final class PartitionIndex extends com.pulumi.resources.PolicyResource {
+public final class PartitionIndex extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The catalog ID where the table resides.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("PartitionIndex.catalogId");
+    }
 
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("PartitionIndex.databaseName");
+    }
 
     /**
      * Configuration block for a partition index. See `partition_index` below.
      * 
      */
-    public PartitionIndexPartitionIndex partitionIndex;
+    private UndeferrableValue<PartitionIndexPartitionIndex> partitionIndex;
 
-
+    public PartitionIndexPartitionIndex partitionIndex() {
+        if (partitionIndex == null) return null;
+        return partitionIndex.getValue("PartitionIndex.partitionIndex");
+    }
 
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("PartitionIndex.tableName");
+    }
 
 }

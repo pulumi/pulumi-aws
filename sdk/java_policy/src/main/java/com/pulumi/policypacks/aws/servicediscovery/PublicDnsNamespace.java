@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")
-public final class PublicDnsNamespace extends com.pulumi.resources.PolicyResource {
+public final class PublicDnsNamespace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PublicDnsNamespace.arn");
+    }
 
     /**
      * The description that you specify for the namespace when you create it.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PublicDnsNamespace.description");
+    }
 
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    public String hostedZone;
+    private UndeferrableValue<String> hostedZone;
 
-
+    public String hostedZone() {
+        if (hostedZone == null) return null;
+        return hostedZone.getValue("PublicDnsNamespace.hostedZone");
+    }
 
     /**
      * The name of the namespace.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PublicDnsNamespace.name");
+    }
 
     /**
      * A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PublicDnsNamespace.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class PublicDnsNamespace extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PublicDnsNamespace.tagsAll");
+    }
 
 }

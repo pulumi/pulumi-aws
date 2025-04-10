@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.iot.ProvisioningTemplatePreProvisioningHook;
+import com.pulumi.policypacks.aws.iot.outputs.ProvisioningTemplatePreProvisioningHook;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/provisioningTemplate:ProvisioningTemplate")
-public final class ProvisioningTemplate extends com.pulumi.resources.PolicyResource {
+public final class ProvisioningTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN that identifies the provisioning template.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProvisioningTemplate.arn");
+    }
 
     /**
      * The default version of the fleet provisioning template.
      * 
      */
-    public Integer defaultVersionId;
+    private UndeferrableValue<Integer> defaultVersionId;
 
-
+    public Integer defaultVersionId() {
+        if (defaultVersionId == null) return null;
+        return defaultVersionId.getValue("ProvisioningTemplate.defaultVersionId");
+    }
 
     /**
      * The description of the fleet provisioning template.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ProvisioningTemplate.description");
+    }
 
     /**
      * True to enable the fleet provisioning template, otherwise false.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ProvisioningTemplate.enabled");
+    }
 
     /**
      * The name of the fleet provisioning template.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProvisioningTemplate.name");
+    }
 
     /**
      * Creates a pre-provisioning hook template. Details below.
      * 
      */
-    public ProvisioningTemplatePreProvisioningHook preProvisioningHook;
+    private @Nullable UndeferrableValue<ProvisioningTemplatePreProvisioningHook> preProvisioningHook;
 
-
+    public @Nullable ProvisioningTemplatePreProvisioningHook preProvisioningHook() {
+        if (preProvisioningHook == null) return null;
+        return preProvisioningHook.getValue("ProvisioningTemplate.preProvisioningHook");
+    }
 
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      * 
      */
-    public String provisioningRoleArn;
+    private UndeferrableValue<String> provisioningRoleArn;
 
-
+    public String provisioningRoleArn() {
+        if (provisioningRoleArn == null) return null;
+        return provisioningRoleArn.getValue("ProvisioningTemplate.provisioningRoleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProvisioningTemplate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -86,24 +112,33 @@ public final class ProvisioningTemplate extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProvisioningTemplate.tagsAll");
+    }
 
     /**
      * The JSON formatted contents of the fleet provisioning template.
      * 
      */
-    public String templateBody;
+    private UndeferrableValue<String> templateBody;
 
-
+    public String templateBody() {
+        if (templateBody == null) return null;
+        return templateBody.getValue("ProvisioningTemplate.templateBody");
+    }
 
     /**
      * The type you define in a provisioning template.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ProvisioningTemplate.type");
+    }
 
 }

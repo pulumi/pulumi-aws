@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:autoscaling/notification:Notification")
-public final class Notification extends com.pulumi.resources.PolicyResource {
+public final class Notification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of AutoScaling Group Names
      * 
      */
-    public List<String> groupNames;
+    private UndeferrableValue<List<String>> groupNames;
 
-
+    public List<String> groupNames() {
+        if (groupNames == null) return null;
+        return groupNames.getValue("Notification.groupNames");
+    }
 
     /**
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    public List<String> notifications;
+    private UndeferrableValue<List<String>> notifications;
 
-
+    public List<String> notifications() {
+        if (notifications == null) return null;
+        return notifications.getValue("Notification.notifications");
+    }
 
     /**
      * Topic ARN for notifications to be sent through
      * 
      */
-    public String topicArn;
+    private UndeferrableValue<String> topicArn;
 
-
+    public String topicArn() {
+        if (topicArn == null) return null;
+        return topicArn.getValue("Notification.topicArn");
+    }
 
 }

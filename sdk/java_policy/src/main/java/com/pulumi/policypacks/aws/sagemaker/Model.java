@@ -3,83 +3,109 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.ModelContainer;
-import com.pulumi.policypacks.aws.sagemaker.ModelInferenceExecutionConfig;
-import com.pulumi.policypacks.aws.sagemaker.ModelPrimaryContainer;
-import com.pulumi.policypacks.aws.sagemaker.ModelVpcConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.ModelContainer;
+import com.pulumi.policypacks.aws.sagemaker.outputs.ModelInferenceExecutionConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.ModelPrimaryContainer;
+import com.pulumi.policypacks.aws.sagemaker.outputs.ModelVpcConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/model:Model")
-public final class Model extends com.pulumi.resources.PolicyResource {
+public final class Model extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Model.arn");
+    }
 
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
      * 
      */
-    public List<ModelContainer> containers;
+    private @Nullable UndeferrableValue<List<ModelContainer>> containers;
 
-
+    public @Nullable List<ModelContainer> containers() {
+        if (containers == null) return null;
+        return containers.getValue("Model.containers");
+    }
 
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      * 
      */
-    public Boolean enableNetworkIsolation;
+    private @Nullable UndeferrableValue<Boolean> enableNetworkIsolation;
 
-
+    public @Nullable Boolean enableNetworkIsolation() {
+        if (enableNetworkIsolation == null) return null;
+        return enableNetworkIsolation.getValue("Model.enableNetworkIsolation");
+    }
 
     /**
      * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("Model.executionRoleArn");
+    }
 
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      * 
      */
-    public ModelInferenceExecutionConfig inferenceExecutionConfig;
+    private UndeferrableValue<ModelInferenceExecutionConfig> inferenceExecutionConfig;
 
-
+    public ModelInferenceExecutionConfig inferenceExecutionConfig() {
+        if (inferenceExecutionConfig == null) return null;
+        return inferenceExecutionConfig.getValue("Model.inferenceExecutionConfig");
+    }
 
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Model.name");
+    }
 
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
-    public ModelPrimaryContainer primaryContainer;
+    private @Nullable UndeferrableValue<ModelPrimaryContainer> primaryContainer;
 
-
+    public @Nullable ModelPrimaryContainer primaryContainer() {
+        if (primaryContainer == null) return null;
+        return primaryContainer.getValue("Model.primaryContainer");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Model.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -89,16 +115,22 @@ public final class Model extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Model.tagsAll");
+    }
 
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      * 
      */
-    public ModelVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<ModelVpcConfig> vpcConfig;
 
-
+    public @Nullable ModelVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Model.vpcConfig");
+    }
 
 }

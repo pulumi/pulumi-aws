@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.UserAuthenticationMode;
+import com.pulumi.policypacks.aws.elasticache.outputs.UserAuthenticationMode;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      * 
      */
-    public String accessString;
+    private UndeferrableValue<String> accessString;
 
-
+    public String accessString() {
+        if (accessString == null) return null;
+        return accessString.getValue("User.accessString");
+    }
 
     /**
      * The ARN of the created ElastiCache User.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    public UserAuthenticationMode authenticationMode;
+    private UndeferrableValue<UserAuthenticationMode> authenticationMode;
 
-
+    public UserAuthenticationMode authenticationMode() {
+        if (authenticationMode == null) return null;
+        return authenticationMode.getValue("User.authenticationMode");
+    }
 
     /**
      * The current supported values are `redis`, `valkey` (case insensitive).
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("User.engine");
+    }
 
     /**
      * Indicates a password is not required for this user.
      * 
      */
-    public Boolean noPasswordRequired;
+    private @Nullable UndeferrableValue<Boolean> noPasswordRequired;
 
-
+    public @Nullable Boolean noPasswordRequired() {
+        if (noPasswordRequired == null) return null;
+        return noPasswordRequired.getValue("User.noPasswordRequired");
+    }
 
     /**
      * Passwords used for this user. You can create up to two passwords for each user.
      * 
      */
-    public List<String> passwords;
+    private @Nullable UndeferrableValue<List<String>> passwords;
 
-
+    public @Nullable List<String> passwords() {
+        if (passwords == null) return null;
+        return passwords.getValue("User.passwords");
+    }
 
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("User.tags");
+    }
 
     /**
      * @deprecated
@@ -76,17 +99,23 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("User.tagsAll");
+    }
 
     /**
      * The ID of the user.
      * 
      */
-    public String userId;
+    private UndeferrableValue<String> userId;
 
-
+    public String userId() {
+        if (userId == null) return null;
+        return userId.getValue("User.userId");
+    }
 
     /**
      * The username of the user.
@@ -94,8 +123,11 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
 }

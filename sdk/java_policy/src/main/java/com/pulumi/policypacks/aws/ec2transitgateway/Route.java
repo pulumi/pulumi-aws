@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/route:Route")
-public final class Route extends com.pulumi.resources.PolicyResource {
+public final class Route extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      * 
      */
-    public Boolean blackhole;
+    private @Nullable UndeferrableValue<Boolean> blackhole;
 
-
+    public @Nullable Boolean blackhole() {
+        if (blackhole == null) return null;
+        return blackhole.getValue("Route.blackhole");
+    }
 
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      * 
      */
-    public String destinationCidrBlock;
+    private UndeferrableValue<String> destinationCidrBlock;
 
-
+    public String destinationCidrBlock() {
+        if (destinationCidrBlock == null) return null;
+        return destinationCidrBlock.getValue("Route.destinationCidrBlock");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      * 
      */
-    public String transitGatewayAttachmentId;
+    private @Nullable UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public @Nullable String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("Route.transitGatewayAttachmentId");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    public String transitGatewayRouteTableId;
+    private UndeferrableValue<String> transitGatewayRouteTableId;
 
-
+    public String transitGatewayRouteTableId() {
+        if (transitGatewayRouteTableId == null) return null;
+        return transitGatewayRouteTableId.getValue("Route.transitGatewayRouteTableId");
+    }
 
 }

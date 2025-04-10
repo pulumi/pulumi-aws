@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")
-public final class VpcEndpointConnectionAccepter extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointConnectionAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS VPC Endpoint ID.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("VpcEndpointConnectionAccepter.vpcEndpointId");
+    }
 
     /**
      * AWS VPC Endpoint Service ID.
      * 
      */
-    public String vpcEndpointServiceId;
+    private UndeferrableValue<String> vpcEndpointServiceId;
 
-
+    public String vpcEndpointServiceId() {
+        if (vpcEndpointServiceId == null) return null;
+        return vpcEndpointServiceId.getValue("VpcEndpointConnectionAccepter.vpcEndpointServiceId");
+    }
 
     /**
      * State of the VPC Endpoint.
      * 
      */
-    public String vpcEndpointState;
+    private UndeferrableValue<String> vpcEndpointState;
 
-
+    public String vpcEndpointState() {
+        if (vpcEndpointState == null) return null;
+        return vpcEndpointState.getValue("VpcEndpointConnectionAccepter.vpcEndpointState");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")
-public final class ProtectionHealthCheckAssociation extends com.pulumi.resources.PolicyResource {
+public final class ProtectionHealthCheckAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
-    public String healthCheckArn;
+    private UndeferrableValue<String> healthCheckArn;
 
-
+    public String healthCheckArn() {
+        if (healthCheckArn == null) return null;
+        return healthCheckArn.getValue("ProtectionHealthCheckAssociation.healthCheckArn");
+    }
 
     /**
      * The ID of the protected resource.
      * 
      */
-    public String shieldProtectionId;
+    private UndeferrableValue<String> shieldProtectionId;
 
-
+    public String shieldProtectionId() {
+        if (shieldProtectionId == null) return null;
+        return shieldProtectionId.getValue("ProtectionHealthCheckAssociation.shieldProtectionId");
+    }
 
 }

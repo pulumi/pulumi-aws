@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/eventSubscription:EventSubscription")
-public final class EventSubscription extends com.pulumi.resources.PolicyResource {
+public final class EventSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the DMS Event Subscription.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventSubscription.arn");
+    }
 
     /**
      * Whether the event subscription should be enabled.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("EventSubscription.enabled");
+    }
 
     /**
      * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
      * 
      */
-    public List<String> eventCategories;
+    private UndeferrableValue<List<String>> eventCategories;
 
-
+    public List<String> eventCategories() {
+        if (eventCategories == null) return null;
+        return eventCategories.getValue("EventSubscription.eventCategories");
+    }
 
     /**
      * Name of event subscription.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventSubscription.name");
+    }
 
     /**
      * SNS topic arn to send events on.
      * 
      */
-    public String snsTopicArn;
+    private UndeferrableValue<String> snsTopicArn;
 
-
+    public String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("EventSubscription.snsTopicArn");
+    }
 
     /**
      * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
-    public List<String> sourceIds;
+    private @Nullable UndeferrableValue<List<String>> sourceIds;
 
-
+    public @Nullable List<String> sourceIds() {
+        if (sourceIds == null) return null;
+        return sourceIds.getValue("EventSubscription.sourceIds");
+    }
 
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    public String sourceType;
+    private UndeferrableValue<String> sourceType;
 
-
+    public String sourceType() {
+        if (sourceType == null) return null;
+        return sourceType.getValue("EventSubscription.sourceType");
+    }
 
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventSubscription.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class EventSubscription extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventSubscription.tagsAll");
+    }
 
 }

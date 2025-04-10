@@ -3,20 +3,24 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecr/accountSetting:AccountSetting")
-public final class AccountSetting extends com.pulumi.resources.PolicyResource {
+public final class AccountSetting extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AccountSetting.name");
+    }
 
     /**
      * Setting value that is specified. Valid values are:
@@ -24,8 +28,11 @@ public final class AccountSetting extends com.pulumi.resources.PolicyResource {
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("AccountSetting.value");
+    }
 
 }

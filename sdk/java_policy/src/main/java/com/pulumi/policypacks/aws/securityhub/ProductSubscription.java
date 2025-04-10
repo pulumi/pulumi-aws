@@ -3,20 +3,24 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/productSubscription:ProductSubscription")
-public final class ProductSubscription extends com.pulumi.resources.PolicyResource {
+public final class ProductSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProductSubscription.arn");
+    }
 
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -60,8 +64,11 @@ public final class ProductSubscription extends com.pulumi.resources.PolicyResour
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      * 
      */
-    public String productArn;
+    private UndeferrableValue<String> productArn;
 
-
+    public String productArn() {
+        if (productArn == null) return null;
+        return productArn.getValue("ProductSubscription.productArn");
+    }
 
 }

@@ -3,35 +3,43 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshift.ClusterClusterNode;
-import com.pulumi.policypacks.aws.redshift.ClusterLogging;
-import com.pulumi.policypacks.aws.redshift.ClusterSnapshotCopy;
+import com.pulumi.policypacks.aws.redshift.outputs.ClusterClusterNode;
+import com.pulumi.policypacks.aws.redshift.outputs.ClusterLogging;
+import com.pulumi.policypacks.aws.redshift.outputs.ClusterSnapshotCopy;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      * 
      */
-    public Boolean allowVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> allowVersionUpgrade;
 
-
+    public @Nullable Boolean allowVersionUpgrade() {
+        if (allowVersionUpgrade == null) return null;
+        return allowVersionUpgrade.getValue("Cluster.allowVersionUpgrade");
+    }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Cluster.applyImmediately");
+    }
 
     /**
      * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
@@ -43,195 +51,267 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
-    public String aquaConfigurationStatus;
+    private UndeferrableValue<String> aquaConfigurationStatus;
 
-
+    public String aquaConfigurationStatus() {
+        if (aquaConfigurationStatus == null) return null;
+        return aquaConfigurationStatus.getValue("Cluster.aquaConfigurationStatus");
+    }
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      * 
      */
-    public Integer automatedSnapshotRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> automatedSnapshotRetentionPeriod;
 
-
+    public @Nullable Integer automatedSnapshotRetentionPeriod() {
+        if (automatedSnapshotRetentionPeriod == null) return null;
+        return automatedSnapshotRetentionPeriod.getValue("Cluster.automatedSnapshotRetentionPeriod");
+    }
 
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Cluster.availabilityZone");
+    }
 
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      * 
      */
-    public Boolean availabilityZoneRelocationEnabled;
+    private @Nullable UndeferrableValue<Boolean> availabilityZoneRelocationEnabled;
 
-
+    public @Nullable Boolean availabilityZoneRelocationEnabled() {
+        if (availabilityZoneRelocationEnabled == null) return null;
+        return availabilityZoneRelocationEnabled.getValue("Cluster.availabilityZoneRelocationEnabled");
+    }
 
     /**
      * The Cluster Identifier. Must be a lower case string.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+    }
 
     /**
      * The namespace Amazon Resource Name (ARN) of the cluster
      * 
      */
-    public String clusterNamespaceArn;
+    private UndeferrableValue<String> clusterNamespaceArn;
 
-
+    public String clusterNamespaceArn() {
+        if (clusterNamespaceArn == null) return null;
+        return clusterNamespaceArn.getValue("Cluster.clusterNamespaceArn");
+    }
 
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
-    public List<ClusterClusterNode> clusterNodes;
+    private UndeferrableValue<List<ClusterClusterNode>> clusterNodes;
 
-
+    public List<ClusterClusterNode> clusterNodes() {
+        if (clusterNodes == null) return null;
+        return clusterNodes.getValue("Cluster.clusterNodes");
+    }
 
     /**
      * The name of the parameter group to be associated with this cluster.
      * 
      */
-    public String clusterParameterGroupName;
+    private UndeferrableValue<String> clusterParameterGroupName;
 
-
+    public String clusterParameterGroupName() {
+        if (clusterParameterGroupName == null) return null;
+        return clusterParameterGroupName.getValue("Cluster.clusterParameterGroupName");
+    }
 
     /**
      * The public key for the cluster
      * 
      */
-    public String clusterPublicKey;
+    private UndeferrableValue<String> clusterPublicKey;
 
-
+    public String clusterPublicKey() {
+        if (clusterPublicKey == null) return null;
+        return clusterPublicKey.getValue("Cluster.clusterPublicKey");
+    }
 
     /**
      * The specific revision number of the database in the cluster
      * 
      */
-    public String clusterRevisionNumber;
+    private UndeferrableValue<String> clusterRevisionNumber;
 
-
+    public String clusterRevisionNumber() {
+        if (clusterRevisionNumber == null) return null;
+        return clusterRevisionNumber.getValue("Cluster.clusterRevisionNumber");
+    }
 
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
-    public String clusterSubnetGroupName;
+    private UndeferrableValue<String> clusterSubnetGroupName;
 
-
+    public String clusterSubnetGroupName() {
+        if (clusterSubnetGroupName == null) return null;
+        return clusterSubnetGroupName.getValue("Cluster.clusterSubnetGroupName");
+    }
 
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      * 
      */
-    public String clusterType;
+    private UndeferrableValue<String> clusterType;
 
-
+    public String clusterType() {
+        if (clusterType == null) return null;
+        return clusterType.getValue("Cluster.clusterType");
+    }
 
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.
      * The version selected runs on all the nodes in the cluster.
      * 
      */
-    public String clusterVersion;
+    private @Nullable UndeferrableValue<String> clusterVersion;
 
-
+    public @Nullable String clusterVersion() {
+        if (clusterVersion == null) return null;
+        return clusterVersion.getValue("Cluster.clusterVersion");
+    }
 
     /**
      * The name of the first database to be created when the cluster is created.
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Cluster.databaseName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    public String defaultIamRoleArn;
+    private UndeferrableValue<String> defaultIamRoleArn;
 
-
+    public String defaultIamRoleArn() {
+        if (defaultIamRoleArn == null) return null;
+        return defaultIamRoleArn.getValue("Cluster.defaultIamRoleArn");
+    }
 
     /**
      * The DNS name of the cluster
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("Cluster.dnsName");
+    }
 
     /**
      * The Elastic IP (EIP) address for the cluster.
      * 
      */
-    public String elasticIp;
+    private @Nullable UndeferrableValue<String> elasticIp;
 
-
+    public @Nullable String elasticIp() {
+        if (elasticIp == null) return null;
+        return elasticIp.getValue("Cluster.elasticIp");
+    }
 
     /**
      * If true , the data in the cluster is encrypted at rest.
      * 
      */
-    public Boolean encrypted;
+    private @Nullable UndeferrableValue<Boolean> encrypted;
 
-
+    public @Nullable Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("Cluster.encrypted");
+    }
 
     /**
      * The connection endpoint
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Cluster.endpoint");
+    }
 
     /**
      * If true , enhanced VPC routing is enabled.
      * 
      */
-    public Boolean enhancedVpcRouting;
+    private UndeferrableValue<Boolean> enhancedVpcRouting;
 
-
+    public Boolean enhancedVpcRouting() {
+        if (enhancedVpcRouting == null) return null;
+        return enhancedVpcRouting.getValue("Cluster.enhancedVpcRouting");
+    }
 
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+    }
 
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    public List<String> iamRoles;
+    private UndeferrableValue<List<String>> iamRoles;
 
-
+    public List<String> iamRoles() {
+        if (iamRoles == null) return null;
+        return iamRoles.getValue("Cluster.iamRoles");
+    }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Cluster.kmsKeyId");
+    }
 
     /**
      * Logging, documented below.
@@ -241,17 +321,23 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    public ClusterLogging logging;
+    private UndeferrableValue<ClusterLogging> logging;
 
-
+    public ClusterLogging logging() {
+        if (logging == null) return null;
+        return logging.getValue("Cluster.logging");
+    }
 
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      * 
      */
-    public String maintenanceTrackName;
+    private @Nullable UndeferrableValue<String> maintenanceTrackName;
 
-
+    public @Nullable String maintenanceTrackName() {
+        if (maintenanceTrackName == null) return null;
+        return maintenanceTrackName.getValue("Cluster.maintenanceTrackName");
+    }
 
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -259,17 +345,23 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
      * 
      */
-    public Boolean manageMasterPassword;
+    private @Nullable UndeferrableValue<Boolean> manageMasterPassword;
 
-
+    public @Nullable Boolean manageMasterPassword() {
+        if (manageMasterPassword == null) return null;
+        return manageMasterPassword.getValue("Cluster.manageMasterPassword");
+    }
 
     /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      * 
      */
-    public Integer manualSnapshotRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
 
-
+    public @Nullable Integer manualSnapshotRetentionPeriod() {
+        if (manualSnapshotRetentionPeriod == null) return null;
+        return manualSnapshotRetentionPeriod.getValue("Cluster.manualSnapshotRetentionPeriod");
+    }
 
     /**
      * Password for the master DB user.
@@ -279,65 +371,89 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
-    public String masterPassword;
+    private @Nullable UndeferrableValue<String> masterPassword;
 
-
+    public @Nullable String masterPassword() {
+        if (masterPassword == null) return null;
+        return masterPassword.getValue("Cluster.masterPassword");
+    }
 
     /**
      * ARN of the cluster admin credentials secret
      * 
      */
-    public String masterPasswordSecretArn;
+    private UndeferrableValue<String> masterPasswordSecretArn;
 
-
+    public String masterPasswordSecretArn() {
+        if (masterPasswordSecretArn == null) return null;
+        return masterPasswordSecretArn.getValue("Cluster.masterPasswordSecretArn");
+    }
 
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      * 
      */
-    public String masterPasswordSecretKmsKeyId;
+    private UndeferrableValue<String> masterPasswordSecretKmsKeyId;
 
-
+    public String masterPasswordSecretKmsKeyId() {
+        if (masterPasswordSecretKmsKeyId == null) return null;
+        return masterPasswordSecretKmsKeyId.getValue("Cluster.masterPasswordSecretKmsKeyId");
+    }
 
     /**
      * Username for the master DB user.
      * 
      */
-    public String masterUsername;
+    private @Nullable UndeferrableValue<String> masterUsername;
 
-
+    public @Nullable String masterUsername() {
+        if (masterUsername == null) return null;
+        return masterUsername.getValue("Cluster.masterUsername");
+    }
 
     /**
      * Specifies if the Redshift cluster is multi-AZ.
      * 
      */
-    public Boolean multiAz;
+    private @Nullable UndeferrableValue<Boolean> multiAz;
 
-
+    public @Nullable Boolean multiAz() {
+        if (multiAz == null) return null;
+        return multiAz.getValue("Cluster.multiAz");
+    }
 
     /**
      * The node type to be provisioned for the cluster.
      * 
      */
-    public String nodeType;
+    private UndeferrableValue<String> nodeType;
 
-
+    public String nodeType() {
+        if (nodeType == null) return null;
+        return nodeType.getValue("Cluster.nodeType");
+    }
 
     /**
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
      * 
      */
-    public Integer numberOfNodes;
+    private @Nullable UndeferrableValue<Integer> numberOfNodes;
 
-
+    public @Nullable Integer numberOfNodes() {
+        if (numberOfNodes == null) return null;
+        return numberOfNodes.getValue("Cluster.numberOfNodes");
+    }
 
     /**
      * The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      * 
      */
-    public String ownerAccount;
+    private @Nullable UndeferrableValue<String> ownerAccount;
 
-
+    public @Nullable String ownerAccount() {
+        if (ownerAccount == null) return null;
+        return ownerAccount.getValue("Cluster.ownerAccount");
+    }
 
     /**
      * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
@@ -346,50 +462,68 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * Default port is `5439`.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+    }
 
     /**
      * If true, the cluster can be accessed from a public network. Default is `true`.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Cluster.publiclyAccessible");
+    }
 
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+    }
 
     /**
      * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
      * 
      */
-    public String snapshotArn;
+    private @Nullable UndeferrableValue<String> snapshotArn;
 
-
+    public @Nullable String snapshotArn() {
+        if (snapshotArn == null) return null;
+        return snapshotArn.getValue("Cluster.snapshotArn");
+    }
 
     /**
      * The name of the cluster the source snapshot was created from.
      * 
      */
-    public String snapshotClusterIdentifier;
+    private @Nullable UndeferrableValue<String> snapshotClusterIdentifier;
 
-
+    public @Nullable String snapshotClusterIdentifier() {
+        if (snapshotClusterIdentifier == null) return null;
+        return snapshotClusterIdentifier.getValue("Cluster.snapshotClusterIdentifier");
+    }
 
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
@@ -399,25 +533,34 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    public ClusterSnapshotCopy snapshotCopy;
+    private UndeferrableValue<ClusterSnapshotCopy> snapshotCopy;
 
-
+    public ClusterSnapshotCopy snapshotCopy() {
+        if (snapshotCopy == null) return null;
+        return snapshotCopy.getValue("Cluster.snapshotCopy");
+    }
 
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
-    public String snapshotIdentifier;
+    private @Nullable UndeferrableValue<String> snapshotIdentifier;
 
-
+    public @Nullable String snapshotIdentifier() {
+        if (snapshotIdentifier == null) return null;
+        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -427,16 +570,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+    }
 
 }

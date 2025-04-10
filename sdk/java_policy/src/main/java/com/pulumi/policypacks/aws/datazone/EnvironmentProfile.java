@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.EnvironmentProfileUserParameter;
+import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentProfileUserParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/environmentProfile:EnvironmentProfile")
-public final class EnvironmentProfile extends com.pulumi.resources.PolicyResource {
+public final class EnvironmentProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Id of the AWS account being used.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("EnvironmentProfile.awsAccountId");
+    }
 
     /**
      * Desired region for environment profile.
      * 
      */
-    public String awsAccountRegion;
+    private UndeferrableValue<String> awsAccountRegion;
 
-
+    public String awsAccountRegion() {
+        if (awsAccountRegion == null) return null;
+        return awsAccountRegion.getValue("EnvironmentProfile.awsAccountRegion");
+    }
 
     /**
      * Creation time of environment profile.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("EnvironmentProfile.createdAt");
+    }
 
     /**
      * Creator of environment profile.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("EnvironmentProfile.createdBy");
+    }
 
     /**
      * Description of environment profile.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("EnvironmentProfile.description");
+    }
 
     /**
      * Domain Identifier for environment profile.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("EnvironmentProfile.domainIdentifier");
+    }
 
     /**
      * ID of the blueprint which the environment will be created with.
      * 
      */
-    public String environmentBlueprintIdentifier;
+    private UndeferrableValue<String> environmentBlueprintIdentifier;
 
-
+    public String environmentBlueprintIdentifier() {
+        if (environmentBlueprintIdentifier == null) return null;
+        return environmentBlueprintIdentifier.getValue("EnvironmentProfile.environmentBlueprintIdentifier");
+    }
 
     /**
      * Name of the environment profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EnvironmentProfile.name");
+    }
 
     /**
      * Project identifier for environment profile.
@@ -82,24 +108,33 @@ public final class EnvironmentProfile extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String projectIdentifier;
+    private UndeferrableValue<String> projectIdentifier;
 
-
+    public String projectIdentifier() {
+        if (projectIdentifier == null) return null;
+        return projectIdentifier.getValue("EnvironmentProfile.projectIdentifier");
+    }
 
     /**
      * Time of last update to environment profile.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("EnvironmentProfile.updatedAt");
+    }
 
     /**
      * Array of user parameters of the environment profile with the following attributes:
      * 
      */
-    public List<EnvironmentProfileUserParameter> userParameters;
+    private @Nullable UndeferrableValue<List<EnvironmentProfileUserParameter>> userParameters;
 
-
+    public @Nullable List<EnvironmentProfileUserParameter> userParameters() {
+        if (userParameters == null) return null;
+        return userParameters.getValue("EnvironmentProfile.userParameters");
+    }
 
 }

@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy")
-public final class ServerlessLifecyclePolicy extends com.pulumi.resources.PolicyResource {
+public final class ServerlessLifecyclePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Description of the policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ServerlessLifecyclePolicy.description");
+    }
 
     /**
      * Name of the policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessLifecyclePolicy.name");
+    }
 
     /**
      * JSON policy document to use as the content for the new policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ServerlessLifecyclePolicy.policy");
+    }
 
     /**
      * Version of the policy.
      * 
      */
-    public String policyVersion;
+    private UndeferrableValue<String> policyVersion;
 
-
+    public String policyVersion() {
+        if (policyVersion == null) return null;
+        return policyVersion.getValue("ServerlessLifecyclePolicy.policyVersion");
+    }
 
     /**
      * Type of lifecycle policy. Must be `retention`.
@@ -48,8 +62,11 @@ public final class ServerlessLifecyclePolicy extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ServerlessLifecyclePolicy.type");
+    }
 
 }

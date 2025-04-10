@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")
-public final class EmailIdentityMailFromAttributes extends com.pulumi.resources.PolicyResource {
+public final class EmailIdentityMailFromAttributes extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
-    public String behaviorOnMxFailure;
+    private @Nullable UndeferrableValue<String> behaviorOnMxFailure;
 
-
+    public @Nullable String behaviorOnMxFailure() {
+        if (behaviorOnMxFailure == null) return null;
+        return behaviorOnMxFailure.getValue("EmailIdentityMailFromAttributes.behaviorOnMxFailure");
+    }
 
     /**
      * The verified email identity.
      * 
      */
-    public String emailIdentity;
+    private UndeferrableValue<String> emailIdentity;
 
-
+    public String emailIdentity() {
+        if (emailIdentity == null) return null;
+        return emailIdentity.getValue("EmailIdentityMailFromAttributes.emailIdentity");
+    }
 
     /**
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
      * 
      */
-    public String mailFromDomain;
+    private @Nullable UndeferrableValue<String> mailFromDomain;
 
-
+    public @Nullable String mailFromDomain() {
+        if (mailFromDomain == null) return null;
+        return mailFromDomain.getValue("EmailIdentityMailFromAttributes.mailFromDomain");
+    }
 
 }

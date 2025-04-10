@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opsworks/rdsDbInstance:RdsDbInstance")
-public final class RdsDbInstance extends com.pulumi.resources.PolicyResource {
+public final class RdsDbInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A db password
      * 
      */
-    public String dbPassword;
+    private UndeferrableValue<String> dbPassword;
 
-
+    public String dbPassword() {
+        if (dbPassword == null) return null;
+        return dbPassword.getValue("RdsDbInstance.dbPassword");
+    }
 
     /**
      * A db username
      * 
      */
-    public String dbUser;
+    private UndeferrableValue<String> dbUser;
 
-
+    public String dbUser() {
+        if (dbUser == null) return null;
+        return dbUser.getValue("RdsDbInstance.dbUser");
+    }
 
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      * 
      */
-    public String rdsDbInstanceArn;
+    private UndeferrableValue<String> rdsDbInstanceArn;
 
-
+    public String rdsDbInstanceArn() {
+        if (rdsDbInstanceArn == null) return null;
+        return rdsDbInstanceArn.getValue("RdsDbInstance.rdsDbInstanceArn");
+    }
 
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("RdsDbInstance.stackId");
+    }
 
 }

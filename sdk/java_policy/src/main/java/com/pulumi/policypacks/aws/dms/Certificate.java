@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.dms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dms/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    public String certificateArn;
+    private UndeferrableValue<String> certificateArn;
 
-
+    public String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("Certificate.certificateArn");
+    }
 
     /**
      * The certificate identifier.
@@ -25,33 +30,45 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
-    public String certificateId;
+    private UndeferrableValue<String> certificateId;
 
-
+    public String certificateId() {
+        if (certificateId == null) return null;
+        return certificateId.getValue("Certificate.certificateId");
+    }
 
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    public String certificatePem;
+    private @Nullable UndeferrableValue<String> certificatePem;
 
-
+    public @Nullable String certificatePem() {
+        if (certificatePem == null) return null;
+        return certificatePem.getValue("Certificate.certificatePem");
+    }
 
     /**
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    public String certificateWallet;
+    private @Nullable UndeferrableValue<String> certificateWallet;
 
-
+    public @Nullable String certificateWallet() {
+        if (certificateWallet == null) return null;
+        return certificateWallet.getValue("Certificate.certificateWallet");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Certificate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Certificate.tagsAll");
+    }
 
 }

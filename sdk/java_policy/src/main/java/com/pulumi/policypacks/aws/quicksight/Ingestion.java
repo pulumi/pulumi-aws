@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:quicksight/ingestion:Ingestion")
-public final class Ingestion extends com.pulumi.resources.PolicyResource {
+public final class Ingestion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Ingestion.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Ingestion.arn");
+    }
 
     /**
      * AWS account ID.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("Ingestion.awsAccountId");
+    }
 
     /**
      * ID of the dataset used in the ingestion.
      * 
      */
-    public String dataSetId;
+    private UndeferrableValue<String> dataSetId;
 
-
+    public String dataSetId() {
+        if (dataSetId == null) return null;
+        return dataSetId.getValue("Ingestion.dataSetId");
+    }
 
     /**
      * ID for the ingestion.
      * 
      */
-    public String ingestionId;
+    private UndeferrableValue<String> ingestionId;
 
-
+    public String ingestionId() {
+        if (ingestionId == null) return null;
+        return ingestionId.getValue("Ingestion.ingestionId");
+    }
 
     /**
      * Ingestion status.
      * 
      */
-    public String ingestionStatus;
+    private UndeferrableValue<String> ingestionStatus;
 
-
+    public String ingestionStatus() {
+        if (ingestionStatus == null) return null;
+        return ingestionStatus.getValue("Ingestion.ingestionStatus");
+    }
 
     /**
      * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -56,8 +72,11 @@ public final class Ingestion extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String ingestionType;
+    private UndeferrableValue<String> ingestionType;
 
-
+    public String ingestionType() {
+        if (ingestionType == null) return null;
+        return ingestionType.getValue("Ingestion.ingestionType");
+    }
 
 }

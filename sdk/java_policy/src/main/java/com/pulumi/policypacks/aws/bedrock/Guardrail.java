@@ -3,91 +3,120 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.GuardrailContentPolicyConfig;
-import com.pulumi.policypacks.aws.bedrock.GuardrailContextualGroundingPolicyConfig;
-import com.pulumi.policypacks.aws.bedrock.GuardrailSensitiveInformationPolicyConfig;
-import com.pulumi.policypacks.aws.bedrock.GuardrailTimeouts;
-import com.pulumi.policypacks.aws.bedrock.GuardrailTopicPolicyConfig;
-import com.pulumi.policypacks.aws.bedrock.GuardrailWordPolicyConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailContentPolicyConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailContextualGroundingPolicyConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailSensitiveInformationPolicyConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailTopicPolicyConfig;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailWordPolicyConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/guardrail:Guardrail")
-public final class Guardrail extends com.pulumi.resources.PolicyResource {
+public final class Guardrail extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Message to return when the guardrail blocks a prompt.
      * 
      */
-    public String blockedInputMessaging;
+    private UndeferrableValue<String> blockedInputMessaging;
 
-
+    public String blockedInputMessaging() {
+        if (blockedInputMessaging == null) return null;
+        return blockedInputMessaging.getValue("Guardrail.blockedInputMessaging");
+    }
 
     /**
      * Message to return when the guardrail blocks a model response.
      * 
      */
-    public String blockedOutputsMessaging;
+    private UndeferrableValue<String> blockedOutputsMessaging;
 
-
+    public String blockedOutputsMessaging() {
+        if (blockedOutputsMessaging == null) return null;
+        return blockedOutputsMessaging.getValue("Guardrail.blockedOutputsMessaging");
+    }
 
     /**
      * Content policy config for a guardrail. See Content Policy Config for more information.
      * 
      */
-    public GuardrailContentPolicyConfig contentPolicyConfig;
+    private @Nullable UndeferrableValue<GuardrailContentPolicyConfig> contentPolicyConfig;
 
-
+    public @Nullable GuardrailContentPolicyConfig contentPolicyConfig() {
+        if (contentPolicyConfig == null) return null;
+        return contentPolicyConfig.getValue("Guardrail.contentPolicyConfig");
+    }
 
     /**
      * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
      * 
      */
-    public GuardrailContextualGroundingPolicyConfig contextualGroundingPolicyConfig;
+    private @Nullable UndeferrableValue<GuardrailContextualGroundingPolicyConfig> contextualGroundingPolicyConfig;
 
-
+    public @Nullable GuardrailContextualGroundingPolicyConfig contextualGroundingPolicyConfig() {
+        if (contextualGroundingPolicyConfig == null) return null;
+        return contextualGroundingPolicyConfig.getValue("Guardrail.contextualGroundingPolicyConfig");
+    }
 
     /**
      * Unix epoch timestamp in seconds for when the Guardrail was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Guardrail.createdAt");
+    }
 
     /**
      * Description of the guardrail or its version.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Guardrail.description");
+    }
 
     /**
      * ARN of the Guardrail.
      * 
      */
-    public String guardrailArn;
+    private UndeferrableValue<String> guardrailArn;
 
-
+    public String guardrailArn() {
+        if (guardrailArn == null) return null;
+        return guardrailArn.getValue("Guardrail.guardrailArn");
+    }
 
     /**
      * ID of the Guardrail.
      * 
      */
-    public String guardrailId;
+    private UndeferrableValue<String> guardrailId;
 
-
+    public String guardrailId() {
+        if (guardrailId == null) return null;
+        return guardrailId.getValue("Guardrail.guardrailId");
+    }
 
     /**
      * The KMS key with which the guardrail was encrypted at rest.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Guardrail.kmsKeyArn");
+    }
 
     /**
      * Name of the guardrail.
@@ -95,33 +124,45 @@ public final class Guardrail extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Guardrail.name");
+    }
 
     /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      * 
      */
-    public GuardrailSensitiveInformationPolicyConfig sensitiveInformationPolicyConfig;
+    private @Nullable UndeferrableValue<GuardrailSensitiveInformationPolicyConfig> sensitiveInformationPolicyConfig;
 
-
+    public @Nullable GuardrailSensitiveInformationPolicyConfig sensitiveInformationPolicyConfig() {
+        if (sensitiveInformationPolicyConfig == null) return null;
+        return sensitiveInformationPolicyConfig.getValue("Guardrail.sensitiveInformationPolicyConfig");
+    }
 
     /**
      * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Guardrail.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Guardrail.tags");
+    }
 
     /**
      * @deprecated
@@ -129,36 +170,51 @@ public final class Guardrail extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Guardrail.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<GuardrailTimeouts> timeouts;
 
-    public GuardrailTimeouts timeouts;
-
-
+    public @Nullable GuardrailTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Guardrail.timeouts");
+    }
 
     /**
      * Topic policy config for a guardrail. See Topic Policy Config for more information.
      * 
      */
-    public GuardrailTopicPolicyConfig topicPolicyConfig;
+    private @Nullable UndeferrableValue<GuardrailTopicPolicyConfig> topicPolicyConfig;
 
-
+    public @Nullable GuardrailTopicPolicyConfig topicPolicyConfig() {
+        if (topicPolicyConfig == null) return null;
+        return topicPolicyConfig.getValue("Guardrail.topicPolicyConfig");
+    }
 
     /**
      * Version of the Guardrail.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Guardrail.version");
+    }
 
     /**
      * Word policy config for a guardrail. See Word Policy Config for more information.
      * 
      */
-    public GuardrailWordPolicyConfig wordPolicyConfig;
+    private @Nullable UndeferrableValue<GuardrailWordPolicyConfig> wordPolicyConfig;
 
-
+    public @Nullable GuardrailWordPolicyConfig wordPolicyConfig() {
+        if (wordPolicyConfig == null) return null;
+        return wordPolicyConfig.getValue("Guardrail.wordPolicyConfig");
+    }
 
 }

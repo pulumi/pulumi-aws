@@ -3,16 +3,18 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration;
+import com.pulumi.policypacks.aws.sagemaker.outputs.NotebookInstanceInstanceMetadataServiceConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/notebookInstance:NotebookInstance")
-public final class NotebookInstance extends com.pulumi.resources.PolicyResource {
+public final class NotebookInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
@@ -22,138 +24,189 @@ public final class NotebookInstance extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    public List<String> acceleratorTypes;
+    private @Nullable UndeferrableValue<List<String>> acceleratorTypes;
 
-
+    public @Nullable List<String> acceleratorTypes() {
+        if (acceleratorTypes == null) return null;
+        return acceleratorTypes.getValue("NotebookInstance.acceleratorTypes");
+    }
 
     /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      * 
      */
-    public List<String> additionalCodeRepositories;
+    private @Nullable UndeferrableValue<List<String>> additionalCodeRepositories;
 
-
+    public @Nullable List<String> additionalCodeRepositories() {
+        if (additionalCodeRepositories == null) return null;
+        return additionalCodeRepositories.getValue("NotebookInstance.additionalCodeRepositories");
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("NotebookInstance.arn");
+    }
 
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
      * 
      */
-    public String defaultCodeRepository;
+    private @Nullable UndeferrableValue<String> defaultCodeRepository;
 
-
+    public @Nullable String defaultCodeRepository() {
+        if (defaultCodeRepository == null) return null;
+        return defaultCodeRepository.getValue("NotebookInstance.defaultCodeRepository");
+    }
 
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
-    public String directInternetAccess;
+    private @Nullable UndeferrableValue<String> directInternetAccess;
 
-
+    public @Nullable String directInternetAccess() {
+        if (directInternetAccess == null) return null;
+        return directInternetAccess.getValue("NotebookInstance.directInternetAccess");
+    }
 
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
      * 
      */
-    public NotebookInstanceInstanceMetadataServiceConfiguration instanceMetadataServiceConfiguration;
+    private @Nullable UndeferrableValue<NotebookInstanceInstanceMetadataServiceConfiguration> instanceMetadataServiceConfiguration;
 
-
+    public @Nullable NotebookInstanceInstanceMetadataServiceConfiguration instanceMetadataServiceConfiguration() {
+        if (instanceMetadataServiceConfiguration == null) return null;
+        return instanceMetadataServiceConfiguration.getValue("NotebookInstance.instanceMetadataServiceConfiguration");
+    }
 
     /**
      * The name of ML compute instance type.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("NotebookInstance.instanceType");
+    }
 
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("NotebookInstance.kmsKeyId");
+    }
 
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      * 
      */
-    public String lifecycleConfigName;
+    private @Nullable UndeferrableValue<String> lifecycleConfigName;
 
-
+    public @Nullable String lifecycleConfigName() {
+        if (lifecycleConfigName == null) return null;
+        return lifecycleConfigName.getValue("NotebookInstance.lifecycleConfigName");
+    }
 
     /**
      * The name of the notebook instance (must be unique).
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("NotebookInstance.name");
+    }
 
     /**
      * The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("NotebookInstance.networkInterfaceId");
+    }
 
     /**
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
-    public String platformIdentifier;
+    private UndeferrableValue<String> platformIdentifier;
 
-
+    public String platformIdentifier() {
+        if (platformIdentifier == null) return null;
+        return platformIdentifier.getValue("NotebookInstance.platformIdentifier");
+    }
 
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("NotebookInstance.roleArn");
+    }
 
     /**
      * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
      * 
      */
-    public String rootAccess;
+    private @Nullable UndeferrableValue<String> rootAccess;
 
-
+    public @Nullable String rootAccess() {
+        if (rootAccess == null) return null;
+        return rootAccess.getValue("NotebookInstance.rootAccess");
+    }
 
     /**
      * The associated security groups.
      * 
      */
-    public List<String> securityGroups;
+    private UndeferrableValue<List<String>> securityGroups;
 
-
+    public List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("NotebookInstance.securityGroups");
+    }
 
     /**
      * The VPC subnet ID.
      * 
      */
-    public String subnetId;
+    private @Nullable UndeferrableValue<String> subnetId;
 
-
+    public @Nullable String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("NotebookInstance.subnetId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("NotebookInstance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -163,24 +216,33 @@ public final class NotebookInstance extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("NotebookInstance.tagsAll");
+    }
 
     /**
      * The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("NotebookInstance.url");
+    }
 
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
      * 
      */
-    public Integer volumeSize;
+    private @Nullable UndeferrableValue<Integer> volumeSize;
 
-
+    public @Nullable Integer volumeSize() {
+        if (volumeSize == null) return null;
+        return volumeSize.getValue("NotebookInstance.volumeSize");
+    }
 
 }

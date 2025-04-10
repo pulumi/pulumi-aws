@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/invocation:Invocation")
-public final class Invocation extends com.pulumi.resources.PolicyResource {
+public final class Invocation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the lambda function.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("Invocation.functionName");
+    }
 
     /**
      * JSON payload to the lambda function.
@@ -25,44 +30,62 @@ public final class Invocation extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String input;
+    private UndeferrableValue<String> input;
 
-
+    public String input() {
+        if (input == null) return null;
+        return input.getValue("Invocation.input");
+    }
 
     /**
      * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
      * 
      */
-    public String lifecycleScope;
+    private @Nullable UndeferrableValue<String> lifecycleScope;
 
-
+    public @Nullable String lifecycleScope() {
+        if (lifecycleScope == null) return null;
+        return lifecycleScope.getValue("Invocation.lifecycleScope");
+    }
 
     /**
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      * 
      */
-    public String qualifier;
+    private @Nullable UndeferrableValue<String> qualifier;
 
-
+    public @Nullable String qualifier() {
+        if (qualifier == null) return null;
+        return qualifier.getValue("Invocation.qualifier");
+    }
 
     /**
      * String result of the lambda function invocation.
      * 
      */
-    public String result;
+    private UndeferrableValue<String> result;
 
+    public String result() {
+        if (result == null) return null;
+        return result.getValue("Invocation.result");
+    }
 
+    private @Nullable UndeferrableValue<String> terraformKey;
 
-    public String terraformKey;
-
-
+    public @Nullable String terraformKey() {
+        if (terraformKey == null) return null;
+        return terraformKey.getValue("Invocation.terraformKey");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      * 
      */
-    public Map<String,String> triggers;
+    private @Nullable UndeferrableValue<Map<String,String>> triggers;
 
-
+    public @Nullable Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Invocation.triggers");
+    }
 
 }

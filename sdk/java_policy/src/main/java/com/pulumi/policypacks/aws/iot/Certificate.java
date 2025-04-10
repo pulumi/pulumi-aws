@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.iot;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iot/certificate:Certificate")
-public final class Certificate extends com.pulumi.resources.PolicyResource {
+public final class Certificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Boolean flag to indicate if the certificate should be active
      * 
      */
-    public Boolean active;
+    private UndeferrableValue<Boolean> active;
 
-
+    public Boolean active() {
+        if (active == null) return null;
+        return active.getValue("Certificate.active");
+    }
 
     /**
      * The ARN of the created certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Certificate.arn");
+    }
 
     /**
      * The certificate ID of the CA certificate used to sign the certificate.
      * 
      */
-    public String caCertificateId;
+    private UndeferrableValue<String> caCertificateId;
 
-
+    public String caCertificateId() {
+        if (caCertificateId == null) return null;
+        return caCertificateId.getValue("Certificate.caCertificateId");
+    }
 
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */
-    public String caPem;
+    private @Nullable UndeferrableValue<String> caPem;
 
-
+    public @Nullable String caPem() {
+        if (caPem == null) return null;
+        return caPem.getValue("Certificate.caPem");
+    }
 
     /**
      * The certificate to be registered. If `ca_pem` is unspecified, review
@@ -51,9 +65,12 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * for more information on registering a certificate.
      * 
      */
-    public String certificatePem;
+    private UndeferrableValue<String> certificatePem;
 
-
+    public String certificatePem() {
+        if (certificatePem == null) return null;
+        return certificatePem.getValue("Certificate.certificatePem");
+    }
 
     /**
      * The certificate signing request. Review
@@ -63,24 +80,33 @@ public final class Certificate extends com.pulumi.resources.PolicyResource {
      * for more information on generating keys and a certificate.
      * 
      */
-    public String csr;
+    private @Nullable UndeferrableValue<String> csr;
 
-
+    public @Nullable String csr() {
+        if (csr == null) return null;
+        return csr.getValue("Certificate.csr");
+    }
 
     /**
      * When neither CSR nor certificate is provided, the private key.
      * 
      */
-    public String privateKey;
+    private UndeferrableValue<String> privateKey;
 
-
+    public String privateKey() {
+        if (privateKey == null) return null;
+        return privateKey.getValue("Certificate.privateKey");
+    }
 
     /**
      * When neither CSR nor certificate is provided, the public key.
      * 
      */
-    public String publicKey;
+    private UndeferrableValue<String> publicKey;
 
-
+    public String publicKey() {
+        if (publicKey == null) return null;
+        return publicKey.getValue("Certificate.publicKey");
+    }
 
 }

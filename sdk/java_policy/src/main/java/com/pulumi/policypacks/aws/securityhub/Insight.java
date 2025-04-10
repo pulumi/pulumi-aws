@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securityhub.InsightFilters;
+import com.pulumi.policypacks.aws.securityhub.outputs.InsightFilters;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/insight:Insight")
-public final class Insight extends com.pulumi.resources.PolicyResource {
+public final class Insight extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the insight.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Insight.arn");
+    }
 
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      * 
      */
-    public InsightFilters filters;
+    private UndeferrableValue<InsightFilters> filters;
 
-
+    public InsightFilters filters() {
+        if (filters == null) return null;
+        return filters.getValue("Insight.filters");
+    }
 
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      * 
      */
-    public String groupByAttribute;
+    private UndeferrableValue<String> groupByAttribute;
 
-
+    public String groupByAttribute() {
+        if (groupByAttribute == null) return null;
+        return groupByAttribute.getValue("Insight.groupByAttribute");
+    }
 
     /**
      * The name of the custom insight.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Insight.name");
+    }
 
 }

@@ -3,183 +3,248 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amplify/branch:Branch")
-public final class Branch extends com.pulumi.resources.PolicyResource {
+public final class Branch extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique ID for an Amplify app.
      * 
      */
-    public String appId;
+    private UndeferrableValue<String> appId;
 
-
+    public String appId() {
+        if (appId == null) return null;
+        return appId.getValue("Branch.appId");
+    }
 
     /**
      * ARN for the branch.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Branch.arn");
+    }
 
     /**
      * A list of custom resources that are linked to this branch.
      * 
      */
-    public List<String> associatedResources;
+    private UndeferrableValue<List<String>> associatedResources;
 
-
+    public List<String> associatedResources() {
+        if (associatedResources == null) return null;
+        return associatedResources.getValue("Branch.associatedResources");
+    }
 
     /**
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    public String backendEnvironmentArn;
+    private @Nullable UndeferrableValue<String> backendEnvironmentArn;
 
-
+    public @Nullable String backendEnvironmentArn() {
+        if (backendEnvironmentArn == null) return null;
+        return backendEnvironmentArn.getValue("Branch.backendEnvironmentArn");
+    }
 
     /**
      * Basic authorization credentials for the branch.
      * 
      */
-    public String basicAuthCredentials;
+    private @Nullable UndeferrableValue<String> basicAuthCredentials;
 
-
+    public @Nullable String basicAuthCredentials() {
+        if (basicAuthCredentials == null) return null;
+        return basicAuthCredentials.getValue("Branch.basicAuthCredentials");
+    }
 
     /**
      * Name for the branch.
      * 
      */
-    public String branchName;
+    private UndeferrableValue<String> branchName;
 
-
+    public String branchName() {
+        if (branchName == null) return null;
+        return branchName.getValue("Branch.branchName");
+    }
 
     /**
      * Custom domains for the branch.
      * 
      */
-    public List<String> customDomains;
+    private UndeferrableValue<List<String>> customDomains;
 
-
+    public List<String> customDomains() {
+        if (customDomains == null) return null;
+        return customDomains.getValue("Branch.customDomains");
+    }
 
     /**
      * Description for the branch.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Branch.description");
+    }
 
     /**
      * Destination branch if the branch is a pull request branch.
      * 
      */
-    public String destinationBranch;
+    private UndeferrableValue<String> destinationBranch;
 
-
+    public String destinationBranch() {
+        if (destinationBranch == null) return null;
+        return destinationBranch.getValue("Branch.destinationBranch");
+    }
 
     /**
      * Display name for a branch. This is used as the default domain prefix.
      * 
      */
-    public String displayName;
+    private UndeferrableValue<String> displayName;
 
-
+    public String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Branch.displayName");
+    }
 
     /**
      * Enables auto building for the branch.
      * 
      */
-    public Boolean enableAutoBuild;
+    private @Nullable UndeferrableValue<Boolean> enableAutoBuild;
 
-
+    public @Nullable Boolean enableAutoBuild() {
+        if (enableAutoBuild == null) return null;
+        return enableAutoBuild.getValue("Branch.enableAutoBuild");
+    }
 
     /**
      * Enables basic authorization for the branch.
      * 
      */
-    public Boolean enableBasicAuth;
+    private @Nullable UndeferrableValue<Boolean> enableBasicAuth;
 
-
+    public @Nullable Boolean enableBasicAuth() {
+        if (enableBasicAuth == null) return null;
+        return enableBasicAuth.getValue("Branch.enableBasicAuth");
+    }
 
     /**
      * Enables notifications for the branch.
      * 
      */
-    public Boolean enableNotification;
+    private @Nullable UndeferrableValue<Boolean> enableNotification;
 
-
+    public @Nullable Boolean enableNotification() {
+        if (enableNotification == null) return null;
+        return enableNotification.getValue("Branch.enableNotification");
+    }
 
     /**
      * Enables performance mode for the branch.
      * 
      */
-    public Boolean enablePerformanceMode;
+    private @Nullable UndeferrableValue<Boolean> enablePerformanceMode;
 
-
+    public @Nullable Boolean enablePerformanceMode() {
+        if (enablePerformanceMode == null) return null;
+        return enablePerformanceMode.getValue("Branch.enablePerformanceMode");
+    }
 
     /**
      * Enables pull request previews for this branch.
      * 
      */
-    public Boolean enablePullRequestPreview;
+    private @Nullable UndeferrableValue<Boolean> enablePullRequestPreview;
 
-
+    public @Nullable Boolean enablePullRequestPreview() {
+        if (enablePullRequestPreview == null) return null;
+        return enablePullRequestPreview.getValue("Branch.enablePullRequestPreview");
+    }
 
     /**
      * Environment variables for the branch.
      * 
      */
-    public Map<String,String> environmentVariables;
+    private @Nullable UndeferrableValue<Map<String,String>> environmentVariables;
 
-
+    public @Nullable Map<String,String> environmentVariables() {
+        if (environmentVariables == null) return null;
+        return environmentVariables.getValue("Branch.environmentVariables");
+    }
 
     /**
      * Framework for the branch.
      * 
      */
-    public String framework;
+    private @Nullable UndeferrableValue<String> framework;
 
-
+    public @Nullable String framework() {
+        if (framework == null) return null;
+        return framework.getValue("Branch.framework");
+    }
 
     /**
      * Amplify environment name for the pull request.
      * 
      */
-    public String pullRequestEnvironmentName;
+    private @Nullable UndeferrableValue<String> pullRequestEnvironmentName;
 
-
+    public @Nullable String pullRequestEnvironmentName() {
+        if (pullRequestEnvironmentName == null) return null;
+        return pullRequestEnvironmentName.getValue("Branch.pullRequestEnvironmentName");
+    }
 
     /**
      * Source branch if the branch is a pull request branch.
      * 
      */
-    public String sourceBranch;
+    private UndeferrableValue<String> sourceBranch;
 
-
+    public String sourceBranch() {
+        if (sourceBranch == null) return null;
+        return sourceBranch.getValue("Branch.sourceBranch");
+    }
 
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      * 
      */
-    public String stage;
+    private @Nullable UndeferrableValue<String> stage;
 
-
+    public @Nullable String stage() {
+        if (stage == null) return null;
+        return stage.getValue("Branch.stage");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Branch.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -189,16 +254,22 @@ public final class Branch extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Branch.tagsAll");
+    }
 
     /**
      * Content Time To Live (TTL) for the website in seconds.
      * 
      */
-    public String ttl;
+    private @Nullable UndeferrableValue<String> ttl;
 
-
+    public @Nullable String ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("Branch.ttl");
+    }
 
 }

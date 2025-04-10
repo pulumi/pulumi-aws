@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:quicksight/roleMembership:RoleMembership")
-public final class RoleMembership extends com.pulumi.resources.PolicyResource {
+public final class RoleMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID. Defaults to the account of the caller identity if not configured.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("RoleMembership.awsAccountId");
+    }
 
     /**
      * Name of the group to be added to the role.
      * 
      */
-    public String memberName;
+    private UndeferrableValue<String> memberName;
 
-
+    public String memberName() {
+        if (memberName == null) return null;
+        return memberName.getValue("RoleMembership.memberName");
+    }
 
     /**
      * Name of the namespace. Defaults to `default`.
      * 
      */
-    public String namespace;
+    private UndeferrableValue<String> namespace;
 
-
+    public String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("RoleMembership.namespace");
+    }
 
     /**
      * Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
@@ -40,8 +50,11 @@ public final class RoleMembership extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("RoleMembership.role");
+    }
 
 }

@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.amp;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amp/ruleGroupNamespace:RuleGroupNamespace")
-public final class RuleGroupNamespace extends com.pulumi.resources.PolicyResource {
+public final class RuleGroupNamespace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the rule group namespace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RuleGroupNamespace.arn");
+    }
 
     /**
      * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
      * 
      */
-    public String data;
+    private UndeferrableValue<String> data;
 
-
+    public String data() {
+        if (data == null) return null;
+        return data.getValue("RuleGroupNamespace.data");
+    }
 
     /**
      * The name of the rule group namespace.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RuleGroupNamespace.name");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RuleGroupNamespace.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,16 +65,22 @@ public final class RuleGroupNamespace extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RuleGroupNamespace.tagsAll");
+    }
 
     /**
      * ID of the prometheus workspace the rule group namespace should be linked to.
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("RuleGroupNamespace.workspaceId");
+    }
 
 }

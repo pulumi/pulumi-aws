@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/instanceState:InstanceState")
-public final class InstanceState extends com.pulumi.resources.PolicyResource {
+public final class InstanceState extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
      * 
      */
-    public Boolean force;
+    private @Nullable UndeferrableValue<Boolean> force;
 
-
+    public @Nullable Boolean force() {
+        if (force == null) return null;
+        return force.getValue("InstanceState.force");
+    }
 
     /**
      * ID of the instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("InstanceState.instanceId");
+    }
 
     /**
      * State of the instance. Valid values are `stopped`, `running`.
@@ -33,8 +41,11 @@ public final class InstanceState extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("InstanceState.state");
+    }
 
 }

@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securityhub.ConfigurationPolicyConfigurationPolicy;
+import com.pulumi.policypacks.aws.securityhub.outputs.ConfigurationPolicyConfigurationPolicy;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/configurationPolicy:ConfigurationPolicy")
-public final class ConfigurationPolicy extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConfigurationPolicy.arn");
+    }
 
     /**
      * Defines how Security Hub is configured. See below.
      * 
      */
-    public ConfigurationPolicyConfigurationPolicy configurationPolicy;
+    private UndeferrableValue<ConfigurationPolicyConfigurationPolicy> configurationPolicy;
 
-
+    public ConfigurationPolicyConfigurationPolicy configurationPolicy() {
+        if (configurationPolicy == null) return null;
+        return configurationPolicy.getValue("ConfigurationPolicy.configurationPolicy");
+    }
 
     /**
      * The description of the configuration policy.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ConfigurationPolicy.description");
+    }
 
     /**
      * The name of the configuration policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConfigurationPolicy.name");
+    }
 
 }

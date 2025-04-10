@@ -3,88 +3,120 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.ConnectPeerBgpOptions;
-import com.pulumi.policypacks.aws.networkmanager.ConnectPeerConfiguration;
+import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectPeerBgpOptions;
+import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectPeerConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/connectPeer:ConnectPeer")
-public final class ConnectPeer extends com.pulumi.resources.PolicyResource {
+public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConnectPeer.arn");
+    }
 
     /**
      * The Connect peer BGP options.
      * 
      */
-    public ConnectPeerBgpOptions bgpOptions;
+    private @Nullable UndeferrableValue<ConnectPeerBgpOptions> bgpOptions;
 
-
+    public @Nullable ConnectPeerBgpOptions bgpOptions() {
+        if (bgpOptions == null) return null;
+        return bgpOptions.getValue("ConnectPeer.bgpOptions");
+    }
 
     /**
      * The configuration of the Connect peer.
      * 
      */
-    public List<ConnectPeerConfiguration> configurations;
+    private UndeferrableValue<List<ConnectPeerConfiguration>> configurations;
 
-
+    public List<ConnectPeerConfiguration> configurations() {
+        if (configurations == null) return null;
+        return configurations.getValue("ConnectPeer.configurations");
+    }
 
     /**
      * The ID of the connection attachment.
      * 
      */
-    public String connectAttachmentId;
+    private UndeferrableValue<String> connectAttachmentId;
 
+    public String connectAttachmentId() {
+        if (connectAttachmentId == null) return null;
+        return connectAttachmentId.getValue("ConnectPeer.connectAttachmentId");
+    }
 
+    private UndeferrableValue<String> connectPeerId;
 
-    public String connectPeerId;
-
-
+    public String connectPeerId() {
+        if (connectPeerId == null) return null;
+        return connectPeerId.getValue("ConnectPeer.connectPeerId");
+    }
 
     /**
      * A Connect peer core network address.
      * 
      */
-    public String coreNetworkAddress;
+    private @Nullable UndeferrableValue<String> coreNetworkAddress;
 
-
+    public @Nullable String coreNetworkAddress() {
+        if (coreNetworkAddress == null) return null;
+        return coreNetworkAddress.getValue("ConnectPeer.coreNetworkAddress");
+    }
 
     /**
      * The ID of a core network.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("ConnectPeer.coreNetworkId");
+    }
 
+    private UndeferrableValue<String> createdAt;
 
-    public String createdAt;
-
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("ConnectPeer.createdAt");
+    }
 
     /**
      * The Region where the peer is located.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("ConnectPeer.edgeLocation");
+    }
 
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    public List<String> insideCidrBlocks;
+    private @Nullable UndeferrableValue<List<String>> insideCidrBlocks;
 
-
+    public @Nullable List<String> insideCidrBlocks() {
+        if (insideCidrBlocks == null) return null;
+        return insideCidrBlocks.getValue("ConnectPeer.insideCidrBlocks");
+    }
 
     /**
      * The Connect peer address.
@@ -92,33 +124,45 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String peerAddress;
+    private UndeferrableValue<String> peerAddress;
 
-
+    public String peerAddress() {
+        if (peerAddress == null) return null;
+        return peerAddress.getValue("ConnectPeer.peerAddress");
+    }
 
     /**
      * The state of the Connect peer.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ConnectPeer.state");
+    }
 
     /**
      * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    public String subnetArn;
+    private @Nullable UndeferrableValue<String> subnetArn;
 
-
+    public @Nullable String subnetArn() {
+        if (subnetArn == null) return null;
+        return subnetArn.getValue("ConnectPeer.subnetArn");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConnectPeer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -128,8 +172,11 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConnectPeer.tagsAll");
+    }
 
 }

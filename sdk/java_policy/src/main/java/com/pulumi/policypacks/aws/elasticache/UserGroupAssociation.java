@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:elasticache/userGroupAssociation:UserGroupAssociation")
-public final class UserGroupAssociation extends com.pulumi.resources.PolicyResource {
+public final class UserGroupAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the user group.
      * 
      */
-    public String userGroupId;
+    private UndeferrableValue<String> userGroupId;
 
-
+    public String userGroupId() {
+        if (userGroupId == null) return null;
+        return userGroupId.getValue("UserGroupAssociation.userGroupId");
+    }
 
     /**
      * ID of the user to associated with the user group.
      * 
      */
-    public String userId;
+    private UndeferrableValue<String> userId;
 
-
+    public String userId() {
+        if (userId == null) return null;
+        return userId.getValue("UserGroupAssociation.userId");
+    }
 
 }

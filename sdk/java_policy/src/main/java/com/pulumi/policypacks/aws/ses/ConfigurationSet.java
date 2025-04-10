@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ses.ConfigurationSetDeliveryOptions;
-import com.pulumi.policypacks.aws.ses.ConfigurationSetTrackingOptions;
+import com.pulumi.policypacks.aws.ses.outputs.ConfigurationSetDeliveryOptions;
+import com.pulumi.policypacks.aws.ses.outputs.ConfigurationSetTrackingOptions;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ses/configurationSet:ConfigurationSet")
-public final class ConfigurationSet extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * SES configuration set ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConfigurationSet.arn");
+    }
 
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
-    public ConfigurationSetDeliveryOptions deliveryOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetDeliveryOptions> deliveryOptions;
 
-
+    public @Nullable ConfigurationSetDeliveryOptions deliveryOptions() {
+        if (deliveryOptions == null) return null;
+        return deliveryOptions.getValue("ConfigurationSet.deliveryOptions");
+    }
 
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
-    public String lastFreshStart;
+    private UndeferrableValue<String> lastFreshStart;
 
-
+    public String lastFreshStart() {
+        if (lastFreshStart == null) return null;
+        return lastFreshStart.getValue("ConfigurationSet.lastFreshStart");
+    }
 
     /**
      * Name of the configuration set.
@@ -43,32 +54,44 @@ public final class ConfigurationSet extends com.pulumi.resources.PolicyResource 
      * The following argument is optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConfigurationSet.name");
+    }
 
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      * 
      */
-    public Boolean reputationMetricsEnabled;
+    private @Nullable UndeferrableValue<Boolean> reputationMetricsEnabled;
 
-
+    public @Nullable Boolean reputationMetricsEnabled() {
+        if (reputationMetricsEnabled == null) return null;
+        return reputationMetricsEnabled.getValue("ConfigurationSet.reputationMetricsEnabled");
+    }
 
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      * 
      */
-    public Boolean sendingEnabled;
+    private @Nullable UndeferrableValue<Boolean> sendingEnabled;
 
-
+    public @Nullable Boolean sendingEnabled() {
+        if (sendingEnabled == null) return null;
+        return sendingEnabled.getValue("ConfigurationSet.sendingEnabled");
+    }
 
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      * 
      */
-    public ConfigurationSetTrackingOptions trackingOptions;
+    private @Nullable UndeferrableValue<ConfigurationSetTrackingOptions> trackingOptions;
 
-
+    public @Nullable ConfigurationSetTrackingOptions trackingOptions() {
+        if (trackingOptions == null) return null;
+        return trackingOptions.getValue("ConfigurationSet.trackingOptions");
+    }
 
 }

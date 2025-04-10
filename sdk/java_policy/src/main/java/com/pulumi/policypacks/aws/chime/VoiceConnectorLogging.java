@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorLogging:VoiceConnectorLogging")
-public final class VoiceConnectorLogging extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorLogging extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      * 
      */
-    public Boolean enableMediaMetricLogs;
+    private @Nullable UndeferrableValue<Boolean> enableMediaMetricLogs;
 
-
+    public @Nullable Boolean enableMediaMetricLogs() {
+        if (enableMediaMetricLogs == null) return null;
+        return enableMediaMetricLogs.getValue("VoiceConnectorLogging.enableMediaMetricLogs");
+    }
 
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      * 
      */
-    public Boolean enableSipLogs;
+    private @Nullable UndeferrableValue<Boolean> enableSipLogs;
 
-
+    public @Nullable Boolean enableSipLogs() {
+        if (enableSipLogs == null) return null;
+        return enableSipLogs.getValue("VoiceConnectorLogging.enableSipLogs");
+    }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    public String voiceConnectorId;
+    private UndeferrableValue<String> voiceConnectorId;
 
-
+    public String voiceConnectorId() {
+        if (voiceConnectorId == null) return null;
+        return voiceConnectorId.getValue("VoiceConnectorLogging.voiceConnectorId");
+    }
 
 }

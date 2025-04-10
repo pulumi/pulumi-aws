@@ -3,81 +3,107 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ZoneVpc;
+import com.pulumi.policypacks.aws.route53.outputs.ZoneVpc;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/zone:Zone")
-public final class Zone extends com.pulumi.resources.PolicyResource {
+public final class Zone extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Hosted Zone.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Zone.arn");
+    }
 
     /**
      * A comment for the hosted zone. Defaults to &#39;Managed by Pulumi&#39;.
      * 
      */
-    public String comment;
+    private UndeferrableValue<String> comment;
 
-
+    public String comment() {
+        if (comment == null) return null;
+        return comment.getValue("Zone.comment");
+    }
 
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      * 
      */
-    public String delegationSetId;
+    private @Nullable UndeferrableValue<String> delegationSetId;
 
-
+    public @Nullable String delegationSetId() {
+        if (delegationSetId == null) return null;
+        return delegationSetId.getValue("Zone.delegationSetId");
+    }
 
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Zone.forceDestroy");
+    }
 
     /**
      * This is the name of the hosted zone.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Zone.name");
+    }
 
     /**
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      * 
      */
-    public List<String> nameServers;
+    private UndeferrableValue<List<String>> nameServers;
 
-
+    public List<String> nameServers() {
+        if (nameServers == null) return null;
+        return nameServers.getValue("Zone.nameServers");
+    }
 
     /**
      * The Route 53 name server that created the SOA record.
      * 
      */
-    public String primaryNameServer;
+    private UndeferrableValue<String> primaryNameServer;
 
-
+    public String primaryNameServer() {
+        if (primaryNameServer == null) return null;
+        return primaryNameServer.getValue("Zone.primaryNameServer");
+    }
 
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Zone.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,24 +113,33 @@ public final class Zone extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Zone.tagsAll");
+    }
 
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      * 
      */
-    public List<ZoneVpc> vpcs;
+    private @Nullable UndeferrableValue<List<ZoneVpc>> vpcs;
 
-
+    public @Nullable List<ZoneVpc> vpcs() {
+        if (vpcs == null) return null;
+        return vpcs.getValue("Zone.vpcs");
+    }
 
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("Zone.zoneId");
+    }
 
 }

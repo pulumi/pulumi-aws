@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.memorydb.UserAuthenticationMode;
+import com.pulumi.policypacks.aws.memorydb.outputs.UserAuthenticationMode;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:memorydb/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Access permissions string used for this user.
      * 
      */
-    public String accessString;
+    private UndeferrableValue<String> accessString;
 
-
+    public String accessString() {
+        if (accessString == null) return null;
+        return accessString.getValue("User.accessString");
+    }
 
     /**
      * ARN of the user.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    public UserAuthenticationMode authenticationMode;
+    private UndeferrableValue<UserAuthenticationMode> authenticationMode;
 
-
+    public UserAuthenticationMode authenticationMode() {
+        if (authenticationMode == null) return null;
+        return authenticationMode.getValue("User.authenticationMode");
+    }
 
     /**
      * Minimum engine version supported for the user.
      * 
      */
-    public String minimumEngineVersion;
+    private UndeferrableValue<String> minimumEngineVersion;
 
-
+    public String minimumEngineVersion() {
+        if (minimumEngineVersion == null) return null;
+        return minimumEngineVersion.getValue("User.minimumEngineVersion");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("User.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,9 +77,12 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("User.tagsAll");
+    }
 
     /**
      * Name of the MemoryDB user. Up to 40 characters.
@@ -70,8 +90,11 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
 }

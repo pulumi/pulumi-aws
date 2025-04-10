@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.ShardGroupTimeouts;
+import com.pulumi.policypacks.aws.rds.outputs.ShardGroupTimeouts;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/shardGroup:ShardGroup")
-public final class ShardGroup extends com.pulumi.resources.PolicyResource {
+public final class ShardGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the shard group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ShardGroup.arn");
+    }
 
     /**
      * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
      * 
      */
-    public Integer computeRedundancy;
+    private UndeferrableValue<Integer> computeRedundancy;
 
-
+    public Integer computeRedundancy() {
+        if (computeRedundancy == null) return null;
+        return computeRedundancy.getValue("ShardGroup.computeRedundancy");
+    }
 
     /**
      * The name of the primary DB cluster for the DB shard group.
      * 
      */
-    public String dbClusterIdentifier;
+    private UndeferrableValue<String> dbClusterIdentifier;
 
-
+    public String dbClusterIdentifier() {
+        if (dbClusterIdentifier == null) return null;
+        return dbClusterIdentifier.getValue("ShardGroup.dbClusterIdentifier");
+    }
 
     /**
      * The name of the DB shard group.
      * 
      */
-    public String dbShardGroupIdentifier;
+    private UndeferrableValue<String> dbShardGroupIdentifier;
 
-
+    public String dbShardGroupIdentifier() {
+        if (dbShardGroupIdentifier == null) return null;
+        return dbShardGroupIdentifier.getValue("ShardGroup.dbShardGroupIdentifier");
+    }
 
     /**
      * The AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
-    public String dbShardGroupResourceId;
+    private UndeferrableValue<String> dbShardGroupResourceId;
 
-
+    public String dbShardGroupResourceId() {
+        if (dbShardGroupResourceId == null) return null;
+        return dbShardGroupResourceId.getValue("ShardGroup.dbShardGroupResourceId");
+    }
 
     /**
      * The connection endpoint for the DB shard group.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ShardGroup.endpoint");
+    }
 
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    public Double maxAcu;
+    private UndeferrableValue<Double> maxAcu;
 
-
+    public Double maxAcu() {
+        if (maxAcu == null) return null;
+        return maxAcu.getValue("ShardGroup.maxAcu");
+    }
 
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    public Double minAcu;
+    private UndeferrableValue<Double> minAcu;
 
-
+    public Double minAcu() {
+        if (minAcu == null) return null;
+        return minAcu.getValue("ShardGroup.minAcu");
+    }
 
     /**
      * Indicates whether the DB shard group is publicly accessible.
      * 
      */
-    public Boolean publiclyAccessible;
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("ShardGroup.publiclyAccessible");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ShardGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,12 +135,18 @@ public final class ShardGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ShardGroup.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ShardGroupTimeouts> timeouts;
 
-    public ShardGroupTimeouts timeouts;
-
-
+    public @Nullable ShardGroupTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ShardGroup.timeouts");
+    }
 
 }

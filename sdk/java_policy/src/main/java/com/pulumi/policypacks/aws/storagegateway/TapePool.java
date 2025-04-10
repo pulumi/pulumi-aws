@@ -3,62 +3,82 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:storagegateway/tapePool:TapePool")
-public final class TapePool extends com.pulumi.resources.PolicyResource {
+public final class TapePool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TapePool.arn");
+    }
 
     /**
      * The name of the new custom tape pool.
      * 
      */
-    public String poolName;
+    private UndeferrableValue<String> poolName;
 
-
+    public String poolName() {
+        if (poolName == null) return null;
+        return poolName.getValue("TapePool.poolName");
+    }
 
     /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      * 
      */
-    public Integer retentionLockTimeInDays;
+    private @Nullable UndeferrableValue<Integer> retentionLockTimeInDays;
 
-
+    public @Nullable Integer retentionLockTimeInDays() {
+        if (retentionLockTimeInDays == null) return null;
+        return retentionLockTimeInDays.getValue("TapePool.retentionLockTimeInDays");
+    }
 
     /**
      * Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
      * 
      */
-    public String retentionLockType;
+    private @Nullable UndeferrableValue<String> retentionLockType;
 
-
+    public @Nullable String retentionLockType() {
+        if (retentionLockType == null) return null;
+        return retentionLockType.getValue("TapePool.retentionLockType");
+    }
 
     /**
      * The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
      * 
      */
-    public String storageClass;
+    private UndeferrableValue<String> storageClass;
 
-
+    public String storageClass() {
+        if (storageClass == null) return null;
+        return storageClass.getValue("TapePool.storageClass");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TapePool.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -68,8 +88,11 @@ public final class TapePool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TapePool.tagsAll");
+    }
 
 }

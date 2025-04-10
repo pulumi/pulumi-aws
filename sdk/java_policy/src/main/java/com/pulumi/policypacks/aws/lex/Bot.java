@@ -3,160 +3,216 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.BotAbortStatement;
-import com.pulumi.policypacks.aws.lex.BotClarificationPrompt;
-import com.pulumi.policypacks.aws.lex.BotIntent;
+import com.pulumi.policypacks.aws.lex.outputs.BotAbortStatement;
+import com.pulumi.policypacks.aws.lex.outputs.BotClarificationPrompt;
+import com.pulumi.policypacks.aws.lex.outputs.BotIntent;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/bot:Bot")
-public final class Bot extends com.pulumi.resources.PolicyResource {
+public final class Bot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      * 
      */
-    public BotAbortStatement abortStatement;
+    private UndeferrableValue<BotAbortStatement> abortStatement;
 
+    public BotAbortStatement abortStatement() {
+        if (abortStatement == null) return null;
+        return abortStatement.getValue("Bot.abortStatement");
+    }
 
+    private UndeferrableValue<String> arn;
 
-    public String arn;
-
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Bot.arn");
+    }
 
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
      * included as an argument because the resource will add it automatically when updating the bot.
      * 
      */
-    public String checksum;
+    private UndeferrableValue<String> checksum;
 
-
+    public String checksum() {
+        if (checksum == null) return null;
+        return checksum.getValue("Bot.checksum");
+    }
 
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      * 
      */
-    public Boolean childDirected;
+    private UndeferrableValue<Boolean> childDirected;
 
-
+    public Boolean childDirected() {
+        if (childDirected == null) return null;
+        return childDirected.getValue("Bot.childDirected");
+    }
 
     /**
      * The message that Amazon Lex uses when it doesn&#39;t understand the user&#39;s request. Attributes are documented under prompt.
      * 
      */
-    public BotClarificationPrompt clarificationPrompt;
+    private @Nullable UndeferrableValue<BotClarificationPrompt> clarificationPrompt;
 
-
+    public @Nullable BotClarificationPrompt clarificationPrompt() {
+        if (clarificationPrompt == null) return null;
+        return clarificationPrompt.getValue("Bot.clarificationPrompt");
+    }
 
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      * 
      */
-    public Boolean createVersion;
+    private @Nullable UndeferrableValue<Boolean> createVersion;
 
-
+    public @Nullable Boolean createVersion() {
+        if (createVersion == null) return null;
+        return createVersion.getValue("Bot.createVersion");
+    }
 
     /**
      * The date when the bot version was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Bot.createdDate");
+    }
 
     /**
      * A description of the bot. Must be less than or equal to 200 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Bot.description");
+    }
 
     /**
      * When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don&#39;t specify detectSentiment, the default is `false`.
      * 
      */
-    public Boolean detectSentiment;
+    private @Nullable UndeferrableValue<Boolean> detectSentiment;
 
-
+    public @Nullable Boolean detectSentiment() {
+        if (detectSentiment == null) return null;
+        return detectSentiment.getValue("Bot.detectSentiment");
+    }
 
     /**
      * Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
      * 
      */
-    public Boolean enableModelImprovements;
+    private @Nullable UndeferrableValue<Boolean> enableModelImprovements;
 
-
+    public @Nullable Boolean enableModelImprovements() {
+        if (enableModelImprovements == null) return null;
+        return enableModelImprovements.getValue("Bot.enableModelImprovements");
+    }
 
     /**
      * If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
      * 
      */
-    public String failureReason;
+    private UndeferrableValue<String> failureReason;
 
-
+    public String failureReason() {
+        if (failureReason == null) return null;
+        return failureReason.getValue("Bot.failureReason");
+    }
 
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
      * 
      */
-    public Integer idleSessionTtlInSeconds;
+    private @Nullable UndeferrableValue<Integer> idleSessionTtlInSeconds;
 
-
+    public @Nullable Integer idleSessionTtlInSeconds() {
+        if (idleSessionTtlInSeconds == null) return null;
+        return idleSessionTtlInSeconds.getValue("Bot.idleSessionTtlInSeconds");
+    }
 
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      * 
      */
-    public List<BotIntent> intents;
+    private UndeferrableValue<List<BotIntent>> intents;
 
-
+    public List<BotIntent> intents() {
+        if (intents == null) return null;
+        return intents.getValue("Bot.intents");
+    }
 
     /**
      * The date when the $LATEST version of this bot was updated.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("Bot.lastUpdatedDate");
+    }
 
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      * 
      */
-    public String locale;
+    private @Nullable UndeferrableValue<String> locale;
 
-
+    public @Nullable String locale() {
+        if (locale == null) return null;
+        return locale.getValue("Bot.locale");
+    }
 
     /**
      * The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Bot.name");
+    }
 
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
      * 
      */
-    public Double nluIntentConfidenceThreshold;
+    private @Nullable UndeferrableValue<Double> nluIntentConfidenceThreshold;
 
-
+    public @Nullable Double nluIntentConfidenceThreshold() {
+        if (nluIntentConfidenceThreshold == null) return null;
+        return nluIntentConfidenceThreshold.getValue("Bot.nluIntentConfidenceThreshold");
+    }
 
     /**
      * If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn&#39;t build it. Default is `SAVE`.
      * 
      */
-    public String processBehavior;
+    private @Nullable UndeferrableValue<String> processBehavior;
 
-
+    public @Nullable String processBehavior() {
+        if (processBehavior == null) return null;
+        return processBehavior.getValue("Bot.processBehavior");
+    }
 
     /**
      * When you send a request to create or update a bot, Amazon Lex sets the status response
@@ -165,24 +221,33 @@ public final class Bot extends com.pulumi.resources.PolicyResource {
      * failure_reason response element.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Bot.status");
+    }
 
     /**
      * The version of the bot.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Bot.version");
+    }
 
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
-    public String voiceId;
+    private UndeferrableValue<String> voiceId;
 
-
+    public String voiceId() {
+        if (voiceId == null) return null;
+        return voiceId.getValue("Bot.voiceId");
+    }
 
 }

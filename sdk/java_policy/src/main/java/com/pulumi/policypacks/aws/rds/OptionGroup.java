@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.OptionGroupOption;
+import com.pulumi.policypacks.aws.rds.outputs.OptionGroupOption;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/optionGroup:OptionGroup")
-public final class OptionGroup extends com.pulumi.resources.PolicyResource {
+public final class OptionGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the DB option group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OptionGroup.arn");
+    }
 
     /**
      * Specifies the name of the engine that this option group should be associated with.
      * 
      */
-    public String engineName;
+    private UndeferrableValue<String> engineName;
 
-
+    public String engineName() {
+        if (engineName == null) return null;
+        return engineName.getValue("OptionGroup.engineName");
+    }
 
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      * 
      */
-    public String majorEngineVersion;
+    private UndeferrableValue<String> majorEngineVersion;
 
-
+    public String majorEngineVersion() {
+        if (majorEngineVersion == null) return null;
+        return majorEngineVersion.getValue("OptionGroup.majorEngineVersion");
+    }
 
     /**
      * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OptionGroup.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("OptionGroup.namePrefix");
+    }
 
     /**
      * Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    public String optionGroupDescription;
+    private UndeferrableValue<String> optionGroupDescription;
 
-
+    public String optionGroupDescription() {
+        if (optionGroupDescription == null) return null;
+        return optionGroupDescription.getValue("OptionGroup.optionGroupDescription");
+    }
 
     /**
      * The options to apply. See `option` Block below for more details.
      * 
      */
-    public List<OptionGroupOption> options;
+    private @Nullable UndeferrableValue<List<OptionGroupOption>> options;
 
-
+    public @Nullable List<OptionGroupOption> options() {
+        if (options == null) return null;
+        return options.getValue("OptionGroup.options");
+    }
 
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("OptionGroup.skipDestroy");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OptionGroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class OptionGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OptionGroup.tagsAll");
+    }
 
 }

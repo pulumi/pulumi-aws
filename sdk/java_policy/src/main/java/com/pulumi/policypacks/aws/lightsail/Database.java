@@ -3,232 +3,315 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/database:Database")
-public final class Database extends com.pulumi.resources.PolicyResource {
+public final class Database extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Database.applyImmediately");
+    }
 
     /**
      * The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Database.arn");
+    }
 
     /**
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Database.availabilityZone");
+    }
 
     /**
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      * 
      */
-    public Boolean backupRetentionEnabled;
+    private @Nullable UndeferrableValue<Boolean> backupRetentionEnabled;
 
-
+    public @Nullable Boolean backupRetentionEnabled() {
+        if (backupRetentionEnabled == null) return null;
+        return backupRetentionEnabled.getValue("Database.backupRetentionEnabled");
+    }
 
     /**
      * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      * 
      */
-    public String blueprintId;
+    private UndeferrableValue<String> blueprintId;
 
-
+    public String blueprintId() {
+        if (blueprintId == null) return null;
+        return blueprintId.getValue("Database.blueprintId");
+    }
 
     /**
      * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      * 
      */
-    public String bundleId;
+    private UndeferrableValue<String> bundleId;
 
-
+    public String bundleId() {
+        if (bundleId == null) return null;
+        return bundleId.getValue("Database.bundleId");
+    }
 
     /**
      * The certificate associated with the database.
      * 
      */
-    public String caCertificateIdentifier;
+    private UndeferrableValue<String> caCertificateIdentifier;
 
-
+    public String caCertificateIdentifier() {
+        if (caCertificateIdentifier == null) return null;
+        return caCertificateIdentifier.getValue("Database.caCertificateIdentifier");
+    }
 
     /**
      * The number of vCPUs for the database.
      * 
      */
-    public Integer cpuCount;
+    private UndeferrableValue<Integer> cpuCount;
 
-
+    public Integer cpuCount() {
+        if (cpuCount == null) return null;
+        return cpuCount.getValue("Database.cpuCount");
+    }
 
     /**
      * The timestamp when the instance was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Database.createdAt");
+    }
 
     /**
      * The size of the disk for the database.
      * 
      */
-    public Double diskSize;
+    private UndeferrableValue<Double> diskSize;
 
-
+    public Double diskSize() {
+        if (diskSize == null) return null;
+        return diskSize.getValue("Database.diskSize");
+    }
 
     /**
      * The database software (for example, MySQL).
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Database.engine");
+    }
 
     /**
      * The database engine version (for example, 5.7.23).
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Database.engineVersion");
+    }
 
     /**
      * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      * 
      */
-    public String finalSnapshotName;
+    private @Nullable UndeferrableValue<String> finalSnapshotName;
 
-
+    public @Nullable String finalSnapshotName() {
+        if (finalSnapshotName == null) return null;
+        return finalSnapshotName.getValue("Database.finalSnapshotName");
+    }
 
     /**
      * The name of the master database created when the Lightsail database resource is created.
      * 
      */
-    public String masterDatabaseName;
+    private UndeferrableValue<String> masterDatabaseName;
 
-
+    public String masterDatabaseName() {
+        if (masterDatabaseName == null) return null;
+        return masterDatabaseName.getValue("Database.masterDatabaseName");
+    }
 
     /**
      * The master endpoint fqdn for the database.
      * 
      */
-    public String masterEndpointAddress;
+    private UndeferrableValue<String> masterEndpointAddress;
 
-
+    public String masterEndpointAddress() {
+        if (masterEndpointAddress == null) return null;
+        return masterEndpointAddress.getValue("Database.masterEndpointAddress");
+    }
 
     /**
      * The master endpoint network port for the database.
      * 
      */
-    public Integer masterEndpointPort;
+    private UndeferrableValue<Integer> masterEndpointPort;
 
-
+    public Integer masterEndpointPort() {
+        if (masterEndpointPort == null) return null;
+        return masterEndpointPort.getValue("Database.masterEndpointPort");
+    }
 
     /**
      * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
-    public String masterPassword;
+    private UndeferrableValue<String> masterPassword;
 
-
+    public String masterPassword() {
+        if (masterPassword == null) return null;
+        return masterPassword.getValue("Database.masterPassword");
+    }
 
     /**
      * The master user name for your new database.
      * 
      */
-    public String masterUsername;
+    private UndeferrableValue<String> masterUsername;
 
-
+    public String masterUsername() {
+        if (masterUsername == null) return null;
+        return masterUsername.getValue("Database.masterUsername");
+    }
 
     /**
      * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("Database.preferredBackupWindow");
+    }
 
     /**
      * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("Database.preferredMaintenanceWindow");
+    }
 
     /**
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      * 
      */
-    public Boolean publiclyAccessible;
+    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
 
-
+    public @Nullable Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("Database.publiclyAccessible");
+    }
 
     /**
      * The amount of RAM in GB for the database.
      * 
      */
-    public Double ramSize;
+    private UndeferrableValue<Double> ramSize;
 
-
+    public Double ramSize() {
+        if (ramSize == null) return null;
+        return ramSize.getValue("Database.ramSize");
+    }
 
     /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      * 
      */
-    public String relationalDatabaseName;
+    private UndeferrableValue<String> relationalDatabaseName;
 
-
+    public String relationalDatabaseName() {
+        if (relationalDatabaseName == null) return null;
+        return relationalDatabaseName.getValue("Database.relationalDatabaseName");
+    }
 
     /**
      * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
      * 
      */
-    public String secondaryAvailabilityZone;
+    private UndeferrableValue<String> secondaryAvailabilityZone;
 
-
+    public String secondaryAvailabilityZone() {
+        if (secondaryAvailabilityZone == null) return null;
+        return secondaryAvailabilityZone.getValue("Database.secondaryAvailabilityZone");
+    }
 
     /**
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      * 
      */
-    public Boolean skipFinalSnapshot;
+    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
 
-
+    public @Nullable Boolean skipFinalSnapshot() {
+        if (skipFinalSnapshot == null) return null;
+        return skipFinalSnapshot.getValue("Database.skipFinalSnapshot");
+    }
 
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    public String supportCode;
+    private UndeferrableValue<String> supportCode;
 
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("Database.supportCode");
+    }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Database.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -238,8 +321,11 @@ public final class Database extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Database.tagsAll");
+    }
 
 }

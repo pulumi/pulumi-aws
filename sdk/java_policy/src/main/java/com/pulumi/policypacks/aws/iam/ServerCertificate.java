@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/serverCertificate:ServerCertificate")
-public final class ServerCertificate extends com.pulumi.resources.PolicyResource {
+public final class ServerCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServerCertificate.arn");
+    }
 
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      * 
      */
-    public String certificateBody;
+    private UndeferrableValue<String> certificateBody;
 
-
+    public String certificateBody() {
+        if (certificateBody == null) return null;
+        return certificateBody.getValue("ServerCertificate.certificateBody");
+    }
 
     /**
      * The contents of the certificate chain.
@@ -34,34 +42,46 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * of the chain.
      * 
      */
-    public String certificateChain;
+    private @Nullable UndeferrableValue<String> certificateChain;
 
-
+    public @Nullable String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("ServerCertificate.certificateChain");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      * 
      */
-    public String expiration;
+    private UndeferrableValue<String> expiration;
 
-
+    public String expiration() {
+        if (expiration == null) return null;
+        return expiration.getValue("ServerCertificate.expiration");
+    }
 
     /**
      * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerCertificate.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("ServerCertificate.namePrefix");
+    }
 
     /**
      * The IAM path for the server certificate.  If it is not
@@ -70,17 +90,23 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("ServerCertificate.path");
+    }
 
     /**
      * The contents of the private key in PEM-encoded format.
      * 
      */
-    public String privateKey;
+    private UndeferrableValue<String> privateKey;
 
-
+    public String privateKey() {
+        if (privateKey == null) return null;
+        return privateKey.getValue("ServerCertificate.privateKey");
+    }
 
     /**
      * Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -88,9 +114,12 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServerCertificate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -100,16 +129,22 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServerCertificate.tagsAll");
+    }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      * 
      */
-    public String uploadDate;
+    private UndeferrableValue<String> uploadDate;
 
-
+    public String uploadDate() {
+        if (uploadDate == null) return null;
+        return uploadDate.getValue("ServerCertificate.uploadDate");
+    }
 
 }

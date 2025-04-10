@@ -3,130 +3,174 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudtrail.TrailAdvancedEventSelector;
-import com.pulumi.policypacks.aws.cloudtrail.TrailEventSelector;
-import com.pulumi.policypacks.aws.cloudtrail.TrailInsightSelector;
+import com.pulumi.policypacks.aws.cloudtrail.outputs.TrailAdvancedEventSelector;
+import com.pulumi.policypacks.aws.cloudtrail.outputs.TrailEventSelector;
+import com.pulumi.policypacks.aws.cloudtrail.outputs.TrailInsightSelector;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudtrail/trail:Trail")
-public final class Trail extends com.pulumi.resources.PolicyResource {
+public final class Trail extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
      * 
      */
-    public List<TrailAdvancedEventSelector> advancedEventSelectors;
+    private @Nullable UndeferrableValue<List<TrailAdvancedEventSelector>> advancedEventSelectors;
 
-
+    public @Nullable List<TrailAdvancedEventSelector> advancedEventSelectors() {
+        if (advancedEventSelectors == null) return null;
+        return advancedEventSelectors.getValue("Trail.advancedEventSelectors");
+    }
 
     /**
      * ARN of the trail.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Trail.arn");
+    }
 
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      * 
      */
-    public String cloudWatchLogsGroupArn;
+    private @Nullable UndeferrableValue<String> cloudWatchLogsGroupArn;
 
-
+    public @Nullable String cloudWatchLogsGroupArn() {
+        if (cloudWatchLogsGroupArn == null) return null;
+        return cloudWatchLogsGroupArn.getValue("Trail.cloudWatchLogsGroupArn");
+    }
 
     /**
      * Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
      * 
      */
-    public String cloudWatchLogsRoleArn;
+    private @Nullable UndeferrableValue<String> cloudWatchLogsRoleArn;
 
-
+    public @Nullable String cloudWatchLogsRoleArn() {
+        if (cloudWatchLogsRoleArn == null) return null;
+        return cloudWatchLogsRoleArn.getValue("Trail.cloudWatchLogsRoleArn");
+    }
 
     /**
      * Whether log file integrity validation is enabled. Defaults to `false`.
      * 
      */
-    public Boolean enableLogFileValidation;
+    private @Nullable UndeferrableValue<Boolean> enableLogFileValidation;
 
-
+    public @Nullable Boolean enableLogFileValidation() {
+        if (enableLogFileValidation == null) return null;
+        return enableLogFileValidation.getValue("Trail.enableLogFileValidation");
+    }
 
     /**
      * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
      * 
      */
-    public Boolean enableLogging;
+    private @Nullable UndeferrableValue<Boolean> enableLogging;
 
-
+    public @Nullable Boolean enableLogging() {
+        if (enableLogging == null) return null;
+        return enableLogging.getValue("Trail.enableLogging");
+    }
 
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
      * 
      */
-    public List<TrailEventSelector> eventSelectors;
+    private @Nullable UndeferrableValue<List<TrailEventSelector>> eventSelectors;
 
-
+    public @Nullable List<TrailEventSelector> eventSelectors() {
+        if (eventSelectors == null) return null;
+        return eventSelectors.getValue("Trail.eventSelectors");
+    }
 
     /**
      * Region in which the trail was created.
      * 
      */
-    public String homeRegion;
+    private UndeferrableValue<String> homeRegion;
 
-
+    public String homeRegion() {
+        if (homeRegion == null) return null;
+        return homeRegion.getValue("Trail.homeRegion");
+    }
 
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      * 
      */
-    public Boolean includeGlobalServiceEvents;
+    private @Nullable UndeferrableValue<Boolean> includeGlobalServiceEvents;
 
-
+    public @Nullable Boolean includeGlobalServiceEvents() {
+        if (includeGlobalServiceEvents == null) return null;
+        return includeGlobalServiceEvents.getValue("Trail.includeGlobalServiceEvents");
+    }
 
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      * 
      */
-    public List<TrailInsightSelector> insightSelectors;
+    private @Nullable UndeferrableValue<List<TrailInsightSelector>> insightSelectors;
 
-
+    public @Nullable List<TrailInsightSelector> insightSelectors() {
+        if (insightSelectors == null) return null;
+        return insightSelectors.getValue("Trail.insightSelectors");
+    }
 
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      * 
      */
-    public Boolean isMultiRegionTrail;
+    private @Nullable UndeferrableValue<Boolean> isMultiRegionTrail;
 
-
+    public @Nullable Boolean isMultiRegionTrail() {
+        if (isMultiRegionTrail == null) return null;
+        return isMultiRegionTrail.getValue("Trail.isMultiRegionTrail");
+    }
 
     /**
      * Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
      * 
      */
-    public Boolean isOrganizationTrail;
+    private @Nullable UndeferrableValue<Boolean> isOrganizationTrail;
 
-
+    public @Nullable Boolean isOrganizationTrail() {
+        if (isOrganizationTrail == null) return null;
+        return isOrganizationTrail.getValue("Trail.isOrganizationTrail");
+    }
 
     /**
      * KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Trail.kmsKeyId");
+    }
 
     /**
      * Name of the trail.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Trail.name");
+    }
 
     /**
      * Name of the S3 bucket designated for publishing log files.
@@ -134,41 +178,56 @@ public final class Trail extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String s3BucketName;
+    private UndeferrableValue<String> s3BucketName;
 
-
+    public String s3BucketName() {
+        if (s3BucketName == null) return null;
+        return s3BucketName.getValue("Trail.s3BucketName");
+    }
 
     /**
      * S3 key prefix that follows the name of the bucket you have designated for log file delivery.
      * 
      */
-    public String s3KeyPrefix;
+    private @Nullable UndeferrableValue<String> s3KeyPrefix;
 
-
+    public @Nullable String s3KeyPrefix() {
+        if (s3KeyPrefix == null) return null;
+        return s3KeyPrefix.getValue("Trail.s3KeyPrefix");
+    }
 
     /**
      * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
      * 
      */
-    public String snsTopicArn;
+    private UndeferrableValue<String> snsTopicArn;
 
-
+    public String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("Trail.snsTopicArn");
+    }
 
     /**
      * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
-    public String snsTopicName;
+    private @Nullable UndeferrableValue<String> snsTopicName;
 
-
+    public @Nullable String snsTopicName() {
+        if (snsTopicName == null) return null;
+        return snsTopicName.getValue("Trail.snsTopicName");
+    }
 
     /**
      * Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Trail.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -178,8 +237,11 @@ public final class Trail extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Trail.tagsAll");
+    }
 
 }

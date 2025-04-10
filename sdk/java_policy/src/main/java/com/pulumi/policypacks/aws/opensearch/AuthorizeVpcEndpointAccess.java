@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal;
+import com.pulumi.policypacks.aws.opensearch.outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")
-public final class AuthorizeVpcEndpointAccess extends com.pulumi.resources.PolicyResource {
+public final class AuthorizeVpcEndpointAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID to grant access to.
      * 
      */
-    public String account;
+    private UndeferrableValue<String> account;
 
-
+    public String account() {
+        if (account == null) return null;
+        return account.getValue("AuthorizeVpcEndpointAccess.account");
+    }
 
     /**
      * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
      * 
      */
-    public List<AuthorizeVpcEndpointAccessAuthorizedPrincipal> authorizedPrincipals;
+    private UndeferrableValue<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals;
 
-
+    public List<AuthorizeVpcEndpointAccessAuthorizedPrincipal> authorizedPrincipals() {
+        if (authorizedPrincipals == null) return null;
+        return authorizedPrincipals.getValue("AuthorizeVpcEndpointAccess.authorizedPrincipals");
+    }
 
     /**
      * Name of OpenSearch Service domain to provide access to.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("AuthorizeVpcEndpointAccess.domainName");
+    }
 
 }

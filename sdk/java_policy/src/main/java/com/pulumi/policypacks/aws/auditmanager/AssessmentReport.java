@@ -3,12 +3,14 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/assessmentReport:AssessmentReport")
-public final class AssessmentReport extends com.pulumi.resources.PolicyResource {
+public final class AssessmentReport extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique identifier of the assessment to create the report from.
@@ -16,40 +18,55 @@ public final class AssessmentReport extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String assessmentId;
+    private UndeferrableValue<String> assessmentId;
 
-
+    public String assessmentId() {
+        if (assessmentId == null) return null;
+        return assessmentId.getValue("AssessmentReport.assessmentId");
+    }
 
     /**
      * Name of the user who created the assessment report.
      * 
      */
-    public String author;
+    private UndeferrableValue<String> author;
 
-
+    public String author() {
+        if (author == null) return null;
+        return author.getValue("AssessmentReport.author");
+    }
 
     /**
      * Description of the assessment report.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AssessmentReport.description");
+    }
 
     /**
      * Name of the assessment report.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AssessmentReport.name");
+    }
 
     /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("AssessmentReport.status");
+    }
 
 }

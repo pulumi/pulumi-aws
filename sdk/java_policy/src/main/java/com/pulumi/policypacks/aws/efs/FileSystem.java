@@ -3,44 +3,55 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.efs.FileSystemLifecyclePolicy;
-import com.pulumi.policypacks.aws.efs.FileSystemProtection;
-import com.pulumi.policypacks.aws.efs.FileSystemSizeInByte;
+import com.pulumi.policypacks.aws.efs.outputs.FileSystemLifecyclePolicy;
+import com.pulumi.policypacks.aws.efs.outputs.FileSystemProtection;
+import com.pulumi.policypacks.aws.efs.outputs.FileSystemSizeInByte;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:efs/fileSystem:FileSystem")
-public final class FileSystem extends com.pulumi.resources.PolicyResource {
+public final class FileSystem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FileSystem.arn");
+    }
 
     /**
      * The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    public String availabilityZoneId;
+    private UndeferrableValue<String> availabilityZoneId;
 
-
+    public String availabilityZoneId() {
+        if (availabilityZoneId == null) return null;
+        return availabilityZoneId.getValue("FileSystem.availabilityZoneId");
+    }
 
     /**
      * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
-    public String availabilityZoneName;
+    private UndeferrableValue<String> availabilityZoneName;
 
-
+    public String availabilityZoneName() {
+        if (availabilityZoneName == null) return null;
+        return availabilityZoneName.getValue("FileSystem.availabilityZoneName");
+    }
 
     /**
      * A unique name (a maximum of 64 characters are allowed)
@@ -49,105 +60,144 @@ public final class FileSystem extends com.pulumi.resources.PolicyResource {
      * user guide for more information.
      * 
      */
-    public String creationToken;
+    private UndeferrableValue<String> creationToken;
 
-
+    public String creationToken() {
+        if (creationToken == null) return null;
+        return creationToken.getValue("FileSystem.creationToken");
+    }
 
     /**
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("FileSystem.dnsName");
+    }
 
     /**
      * If true, the disk will be encrypted.
      * 
      */
-    public Boolean encrypted;
+    private UndeferrableValue<Boolean> encrypted;
 
-
+    public Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("FileSystem.encrypted");
+    }
 
     /**
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("FileSystem.kmsKeyId");
+    }
 
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
-    public List<FileSystemLifecyclePolicy> lifecyclePolicies;
+    private @Nullable UndeferrableValue<List<FileSystemLifecyclePolicy>> lifecyclePolicies;
 
-
+    public @Nullable List<FileSystemLifecyclePolicy> lifecyclePolicies() {
+        if (lifecyclePolicies == null) return null;
+        return lifecyclePolicies.getValue("FileSystem.lifecyclePolicies");
+    }
 
     /**
      * The value of the file system&#39;s `Name` tag.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FileSystem.name");
+    }
 
     /**
      * The current number of mount targets that the file system has.
      * 
      */
-    public Integer numberOfMountTargets;
+    private UndeferrableValue<Integer> numberOfMountTargets;
 
-
+    public Integer numberOfMountTargets() {
+        if (numberOfMountTargets == null) return null;
+        return numberOfMountTargets.getValue("FileSystem.numberOfMountTargets");
+    }
 
     /**
      * The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("FileSystem.ownerId");
+    }
 
     /**
      * The file system performance mode. Can be either `&#34;generalPurpose&#34;` or `&#34;maxIO&#34;` (Default: `&#34;generalPurpose&#34;`).
      * 
      */
-    public String performanceMode;
+    private UndeferrableValue<String> performanceMode;
 
-
+    public String performanceMode() {
+        if (performanceMode == null) return null;
+        return performanceMode.getValue("FileSystem.performanceMode");
+    }
 
     /**
      * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      * 
      */
-    public FileSystemProtection protection;
+    private UndeferrableValue<FileSystemProtection> protection;
 
-
+    public FileSystemProtection protection() {
+        if (protection == null) return null;
+        return protection.getValue("FileSystem.protection");
+    }
 
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
      * 
      */
-    public Double provisionedThroughputInMibps;
+    private @Nullable UndeferrableValue<Double> provisionedThroughputInMibps;
 
-
+    public @Nullable Double provisionedThroughputInMibps() {
+        if (provisionedThroughputInMibps == null) return null;
+        return provisionedThroughputInMibps.getValue("FileSystem.provisionedThroughputInMibps");
+    }
 
     /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      * 
      */
-    public List<FileSystemSizeInByte> sizeInBytes;
+    private UndeferrableValue<List<FileSystemSizeInByte>> sizeInBytes;
 
-
+    public List<FileSystemSizeInByte> sizeInBytes() {
+        if (sizeInBytes == null) return null;
+        return sizeInBytes.getValue("FileSystem.sizeInBytes");
+    }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FileSystem.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -157,16 +207,22 @@ public final class FileSystem extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FileSystem.tagsAll");
+    }
 
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
      * 
      */
-    public String throughputMode;
+    private @Nullable UndeferrableValue<String> throughputMode;
 
-
+    public @Nullable String throughputMode() {
+        if (throughputMode == null) return null;
+        return throughputMode.getValue("FileSystem.throughputMode");
+    }
 
 }

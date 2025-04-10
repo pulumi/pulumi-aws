@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appconfig.ConfigurationProfileValidator;
+import com.pulumi.policypacks.aws.appconfig.outputs.ConfigurationProfileValidator;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/configurationProfile:ConfigurationProfile")
-public final class ConfigurationProfile extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("ConfigurationProfile.applicationId");
+    }
 
     /**
      * ARN of the AppConfig Configuration Profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConfigurationProfile.arn");
+    }
 
     /**
      * The configuration profile ID.
      * 
      */
-    public String configurationProfileId;
+    private UndeferrableValue<String> configurationProfileId;
 
-
+    public String configurationProfileId() {
+        if (configurationProfileId == null) return null;
+        return configurationProfileId.getValue("ConfigurationProfile.configurationProfileId");
+    }
 
     /**
      * Description of the configuration profile. Can be at most 1024 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ConfigurationProfile.description");
+    }
 
     /**
      * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
-    public String kmsKeyIdentifier;
+    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
 
-
+    public @Nullable String kmsKeyIdentifier() {
+        if (kmsKeyIdentifier == null) return null;
+        return kmsKeyIdentifier.getValue("ConfigurationProfile.kmsKeyIdentifier");
+    }
 
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
-    public String locationUri;
+    private UndeferrableValue<String> locationUri;
 
-
+    public String locationUri() {
+        if (locationUri == null) return null;
+        return locationUri.getValue("ConfigurationProfile.locationUri");
+    }
 
     /**
      * Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConfigurationProfile.name");
+    }
 
     /**
      * ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      * 
      */
-    public String retrievalRoleArn;
+    private @Nullable UndeferrableValue<String> retrievalRoleArn;
 
-
+    public @Nullable String retrievalRoleArn() {
+        if (retrievalRoleArn == null) return null;
+        return retrievalRoleArn.getValue("ConfigurationProfile.retrievalRoleArn");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConfigurationProfile.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,24 +122,33 @@ public final class ConfigurationProfile extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConfigurationProfile.tagsAll");
+    }
 
     /**
      * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("ConfigurationProfile.type");
+    }
 
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      * 
      */
-    public List<ConfigurationProfileValidator> validators;
+    private @Nullable UndeferrableValue<List<ConfigurationProfileValidator>> validators;
 
-
+    public @Nullable List<ConfigurationProfileValidator> validators() {
+        if (validators == null) return null;
+        return validators.getValue("ConfigurationProfile.validators");
+    }
 
 }

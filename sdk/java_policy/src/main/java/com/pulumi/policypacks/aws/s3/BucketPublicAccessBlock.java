@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")
-public final class BucketPublicAccessBlock extends com.pulumi.resources.PolicyResource {
+public final class BucketPublicAccessBlock extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -17,43 +19,58 @@ public final class BucketPublicAccessBlock extends com.pulumi.resources.PolicyRe
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
-    public Boolean blockPublicAcls;
+    private @Nullable UndeferrableValue<Boolean> blockPublicAcls;
 
-
+    public @Nullable Boolean blockPublicAcls() {
+        if (blockPublicAcls == null) return null;
+        return blockPublicAcls.getValue("BucketPublicAccessBlock.blockPublicAcls");
+    }
 
     /**
      * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    public Boolean blockPublicPolicy;
+    private @Nullable UndeferrableValue<Boolean> blockPublicPolicy;
 
-
+    public @Nullable Boolean blockPublicPolicy() {
+        if (blockPublicPolicy == null) return null;
+        return blockPublicPolicy.getValue("BucketPublicAccessBlock.blockPublicPolicy");
+    }
 
     /**
      * S3 Bucket to which this Public Access Block configuration should be applied.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketPublicAccessBlock.bucket");
+    }
 
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore public ACLs on this bucket and any objects that it contains.
      * 
      */
-    public Boolean ignorePublicAcls;
+    private @Nullable UndeferrableValue<Boolean> ignorePublicAcls;
 
-
+    public @Nullable Boolean ignorePublicAcls() {
+        if (ignorePublicAcls == null) return null;
+        return ignorePublicAcls.getValue("BucketPublicAccessBlock.ignorePublicAcls");
+    }
 
     /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      * 
      */
-    public Boolean restrictPublicBuckets;
+    private @Nullable UndeferrableValue<Boolean> restrictPublicBuckets;
 
-
+    public @Nullable Boolean restrictPublicBuckets() {
+        if (restrictPublicBuckets == null) return null;
+        return restrictPublicBuckets.getValue("BucketPublicAccessBlock.restrictPublicBuckets");
+    }
 
 }

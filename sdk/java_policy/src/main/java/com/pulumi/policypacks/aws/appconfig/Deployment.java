@@ -3,110 +3,148 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/deployment:Deployment")
-public final class Deployment extends com.pulumi.resources.PolicyResource {
+public final class Deployment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("Deployment.applicationId");
+    }
 
     /**
      * ARN of the AppConfig Deployment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Deployment.arn");
+    }
 
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
-    public String configurationProfileId;
+    private UndeferrableValue<String> configurationProfileId;
 
-
+    public String configurationProfileId() {
+        if (configurationProfileId == null) return null;
+        return configurationProfileId.getValue("Deployment.configurationProfileId");
+    }
 
     /**
      * Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
-    public String configurationVersion;
+    private UndeferrableValue<String> configurationVersion;
 
-
+    public String configurationVersion() {
+        if (configurationVersion == null) return null;
+        return configurationVersion.getValue("Deployment.configurationVersion");
+    }
 
     /**
      * Deployment number.
      * 
      */
-    public Integer deploymentNumber;
+    private UndeferrableValue<Integer> deploymentNumber;
 
-
+    public Integer deploymentNumber() {
+        if (deploymentNumber == null) return null;
+        return deploymentNumber.getValue("Deployment.deploymentNumber");
+    }
 
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
-    public String deploymentStrategyId;
+    private UndeferrableValue<String> deploymentStrategyId;
 
-
+    public String deploymentStrategyId() {
+        if (deploymentStrategyId == null) return null;
+        return deploymentStrategyId.getValue("Deployment.deploymentStrategyId");
+    }
 
     /**
      * Description of the deployment. Can be at most 1024 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Deployment.description");
+    }
 
     /**
      * Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
-
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("Deployment.environmentId");
+    }
 
     /**
      * ARN of the KMS key used to encrypt configuration data.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Deployment.kmsKeyArn");
+    }
 
     /**
      * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      * 
      */
-    public String kmsKeyIdentifier;
+    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
 
-
+    public @Nullable String kmsKeyIdentifier() {
+        if (kmsKeyIdentifier == null) return null;
+        return kmsKeyIdentifier.getValue("Deployment.kmsKeyIdentifier");
+    }
 
     /**
      * State of the deployment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("Deployment.state");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Deployment.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -116,8 +154,11 @@ public final class Deployment extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Deployment.tagsAll");
+    }
 
 }

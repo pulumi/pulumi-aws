@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")
-public final class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.PolicyResource {
+public final class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
      * 
      */
-    public Boolean assignGeneratedIpv6CidrBlock;
+    private UndeferrableValue<Boolean> assignGeneratedIpv6CidrBlock;
 
-
+    public Boolean assignGeneratedIpv6CidrBlock() {
+        if (assignGeneratedIpv6CidrBlock == null) return null;
+        return assignGeneratedIpv6CidrBlock.getValue("VpcIpv6CidrBlockAssociation.assignGeneratedIpv6CidrBlock");
+    }
 
     /**
      * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
      * 
      */
-    public String ipSource;
+    private UndeferrableValue<String> ipSource;
 
-
+    public String ipSource() {
+        if (ipSource == null) return null;
+        return ipSource.getValue("VpcIpv6CidrBlockAssociation.ipSource");
+    }
 
     /**
      * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
      * 
      */
-    public String ipv6AddressAttribute;
+    private UndeferrableValue<String> ipv6AddressAttribute;
 
-
+    public String ipv6AddressAttribute() {
+        if (ipv6AddressAttribute == null) return null;
+        return ipv6AddressAttribute.getValue("VpcIpv6CidrBlockAssociation.ipv6AddressAttribute");
+    }
 
     /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */
-    public String ipv6CidrBlock;
+    private UndeferrableValue<String> ipv6CidrBlock;
 
-
+    public String ipv6CidrBlock() {
+        if (ipv6CidrBlock == null) return null;
+        return ipv6CidrBlock.getValue("VpcIpv6CidrBlockAssociation.ipv6CidrBlock");
+    }
 
     /**
      * The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
      * 
      */
-    public String ipv6IpamPoolId;
+    private @Nullable UndeferrableValue<String> ipv6IpamPoolId;
 
-
+    public @Nullable String ipv6IpamPoolId() {
+        if (ipv6IpamPoolId == null) return null;
+        return ipv6IpamPoolId.getValue("VpcIpv6CidrBlockAssociation.ipv6IpamPoolId");
+    }
 
     /**
      * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
      * 
      */
-    public Integer ipv6NetmaskLength;
+    private @Nullable UndeferrableValue<Integer> ipv6NetmaskLength;
 
-
+    public @Nullable Integer ipv6NetmaskLength() {
+        if (ipv6NetmaskLength == null) return null;
+        return ipv6NetmaskLength.getValue("VpcIpv6CidrBlockAssociation.ipv6NetmaskLength");
+    }
 
     /**
      * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
      * 
      */
-    public String ipv6Pool;
+    private UndeferrableValue<String> ipv6Pool;
 
-
+    public String ipv6Pool() {
+        if (ipv6Pool == null) return null;
+        return ipv6Pool.getValue("VpcIpv6CidrBlockAssociation.ipv6Pool");
+    }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("VpcIpv6CidrBlockAssociation.vpcId");
+    }
 
 }

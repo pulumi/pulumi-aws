@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:apigateway/restApiPolicy:RestApiPolicy")
-public final class RestApiPolicy extends com.pulumi.resources.PolicyResource {
+public final class RestApiPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("RestApiPolicy.policy");
+    }
 
     /**
      * ID of the REST API.
      * 
      */
-    public String restApiId;
+    private UndeferrableValue<String> restApiId;
 
-
+    public String restApiId() {
+        if (restApiId == null) return null;
+        return restApiId.getValue("RestApiPolicy.restApiId");
+    }
 
 }

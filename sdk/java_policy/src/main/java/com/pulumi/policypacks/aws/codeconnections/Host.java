@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.codeconnections;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codeconnections.HostTimeouts;
-import com.pulumi.policypacks.aws.codeconnections.HostVpcConfiguration;
+import com.pulumi.policypacks.aws.codeconnections.outputs.HostTimeouts;
+import com.pulumi.policypacks.aws.codeconnections.outputs.HostVpcConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codeconnections/host:Host")
-public final class Host extends com.pulumi.resources.PolicyResource {
+public final class Host extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The CodeConnections Host ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Host.arn");
+    }
 
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Host.name");
+    }
 
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      * 
      */
-    public String providerEndpoint;
+    private UndeferrableValue<String> providerEndpoint;
 
-
+    public String providerEndpoint() {
+        if (providerEndpoint == null) return null;
+        return providerEndpoint.getValue("Host.providerEndpoint");
+    }
 
     /**
      * The name of the external provider where your third-party code repository is configured.
      * 
      */
-    public String providerType;
+    private UndeferrableValue<String> providerType;
 
+    public String providerType() {
+        if (providerType == null) return null;
+        return providerType.getValue("Host.providerType");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Host.tags");
+    }
 
     /**
      * @deprecated
@@ -55,20 +72,29 @@ public final class Host extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Host.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<HostTimeouts> timeouts;
 
-    public HostTimeouts timeouts;
-
-
+    public @Nullable HostTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Host.timeouts");
+    }
 
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      * 
      */
-    public HostVpcConfiguration vpcConfiguration;
+    private @Nullable UndeferrableValue<HostVpcConfiguration> vpcConfiguration;
 
-
+    public @Nullable HostVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("Host.vpcConfiguration");
+    }
 
 }

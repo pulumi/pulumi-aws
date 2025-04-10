@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.mediastore;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:mediastore/containerPolicy:ContainerPolicy")
-public final class ContainerPolicy extends com.pulumi.resources.PolicyResource {
+public final class ContainerPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the container.
      * 
      */
-    public String containerName;
+    private UndeferrableValue<String> containerName;
 
-
+    public String containerName() {
+        if (containerName == null) return null;
+        return containerName.getValue("ContainerPolicy.containerName");
+    }
 
     /**
      * The contents of the policy.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ContainerPolicy.policy");
+    }
 
 }

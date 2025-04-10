@@ -3,68 +3,91 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")
-public final class HostedConfigurationVersion extends com.pulumi.resources.PolicyResource {
+public final class HostedConfigurationVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("HostedConfigurationVersion.applicationId");
+    }
 
     /**
      * ARN of the AppConfig  hosted configuration version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HostedConfigurationVersion.arn");
+    }
 
     /**
      * Configuration profile ID.
      * 
      */
-    public String configurationProfileId;
+    private UndeferrableValue<String> configurationProfileId;
 
-
+    public String configurationProfileId() {
+        if (configurationProfileId == null) return null;
+        return configurationProfileId.getValue("HostedConfigurationVersion.configurationProfileId");
+    }
 
     /**
      * Content of the configuration or the configuration data.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("HostedConfigurationVersion.content");
+    }
 
     /**
      * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("HostedConfigurationVersion.contentType");
+    }
 
     /**
      * Description of the configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("HostedConfigurationVersion.description");
+    }
 
     /**
      * Version number of the hosted configuration.
      * 
      */
-    public Integer versionNumber;
+    private UndeferrableValue<Integer> versionNumber;
 
-
+    public Integer versionNumber() {
+        if (versionNumber == null) return null;
+        return versionNumber.getValue("HostedConfigurationVersion.versionNumber");
+    }
 
 }

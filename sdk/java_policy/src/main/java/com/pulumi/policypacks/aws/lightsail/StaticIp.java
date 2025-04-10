@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/staticIp:StaticIp")
-public final class StaticIp extends com.pulumi.resources.PolicyResource {
+public final class StaticIp extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Lightsail static IP
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StaticIp.arn");
+    }
 
     /**
      * The allocated static IP address
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("StaticIp.ipAddress");
+    }
 
     /**
      * The name for the allocated static IP
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StaticIp.name");
+    }
 
     /**
      * The support code.
      * 
      */
-    public String supportCode;
+    private UndeferrableValue<String> supportCode;
 
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("StaticIp.supportCode");
+    }
 
 }

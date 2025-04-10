@@ -3,139 +3,186 @@
 
 package com.pulumi.policypacks.aws.batch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.batch.JobDefinitionEksProperties;
-import com.pulumi.policypacks.aws.batch.JobDefinitionRetryStrategy;
-import com.pulumi.policypacks.aws.batch.JobDefinitionTimeout;
+import com.pulumi.policypacks.aws.batch.outputs.JobDefinitionEksProperties;
+import com.pulumi.policypacks.aws.batch.outputs.JobDefinitionRetryStrategy;
+import com.pulumi.policypacks.aws.batch.outputs.JobDefinitionTimeout;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:batch/jobDefinition:JobDefinition")
-public final class JobDefinition extends com.pulumi.resources.PolicyResource {
+public final class JobDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the job definition, includes revision (`:#`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("JobDefinition.arn");
+    }
 
     /**
      * ARN without the revision number.
      * 
      */
-    public String arnPrefix;
+    private UndeferrableValue<String> arnPrefix;
 
-
+    public String arnPrefix() {
+        if (arnPrefix == null) return null;
+        return arnPrefix.getValue("JobDefinition.arnPrefix");
+    }
 
     /**
      * Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    public String containerProperties;
+    private @Nullable UndeferrableValue<String> containerProperties;
 
-
+    public @Nullable String containerProperties() {
+        if (containerProperties == null) return null;
+        return containerProperties.getValue("JobDefinition.containerProperties");
+    }
 
     /**
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      * 
      */
-    public Boolean deregisterOnNewRevision;
+    private @Nullable UndeferrableValue<Boolean> deregisterOnNewRevision;
 
-
+    public @Nullable Boolean deregisterOnNewRevision() {
+        if (deregisterOnNewRevision == null) return null;
+        return deregisterOnNewRevision.getValue("JobDefinition.deregisterOnNewRevision");
+    }
 
     /**
      * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    public String ecsProperties;
+    private @Nullable UndeferrableValue<String> ecsProperties;
 
-
+    public @Nullable String ecsProperties() {
+        if (ecsProperties == null) return null;
+        return ecsProperties.getValue("JobDefinition.ecsProperties");
+    }
 
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    public JobDefinitionEksProperties eksProperties;
+    private @Nullable UndeferrableValue<JobDefinitionEksProperties> eksProperties;
 
-
+    public @Nullable JobDefinitionEksProperties eksProperties() {
+        if (eksProperties == null) return null;
+        return eksProperties.getValue("JobDefinition.eksProperties");
+    }
 
     /**
      * Name of the job definition.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("JobDefinition.name");
+    }
 
     /**
      * Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
-    public String nodeProperties;
+    private @Nullable UndeferrableValue<String> nodeProperties;
 
-
+    public @Nullable String nodeProperties() {
+        if (nodeProperties == null) return null;
+        return nodeProperties.getValue("JobDefinition.nodeProperties");
+    }
 
     /**
      * Parameter substitution placeholders to set in the job definition.
      * 
      */
-    public Map<String,String> parameters;
+    private @Nullable UndeferrableValue<Map<String,String>> parameters;
 
-
+    public @Nullable Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("JobDefinition.parameters");
+    }
 
     /**
      * Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
-    public List<String> platformCapabilities;
+    private @Nullable UndeferrableValue<List<String>> platformCapabilities;
 
-
+    public @Nullable List<String> platformCapabilities() {
+        if (platformCapabilities == null) return null;
+        return platformCapabilities.getValue("JobDefinition.platformCapabilities");
+    }
 
     /**
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
-    public Boolean propagateTags;
+    private @Nullable UndeferrableValue<Boolean> propagateTags;
 
-
+    public @Nullable Boolean propagateTags() {
+        if (propagateTags == null) return null;
+        return propagateTags.getValue("JobDefinition.propagateTags");
+    }
 
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
-    public JobDefinitionRetryStrategy retryStrategy;
+    private @Nullable UndeferrableValue<JobDefinitionRetryStrategy> retryStrategy;
 
-
+    public @Nullable JobDefinitionRetryStrategy retryStrategy() {
+        if (retryStrategy == null) return null;
+        return retryStrategy.getValue("JobDefinition.retryStrategy");
+    }
 
     /**
      * Revision of the job definition.
      * 
      */
-    public Integer revision;
+    private UndeferrableValue<Integer> revision;
 
-
+    public Integer revision() {
+        if (revision == null) return null;
+        return revision.getValue("JobDefinition.revision");
+    }
 
     /**
      * Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
-    public Integer schedulingPriority;
+    private @Nullable UndeferrableValue<Integer> schedulingPriority;
 
-
+    public @Nullable Integer schedulingPriority() {
+        if (schedulingPriority == null) return null;
+        return schedulingPriority.getValue("JobDefinition.schedulingPriority");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("JobDefinition.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -145,17 +192,23 @@ public final class JobDefinition extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("JobDefinition.tagsAll");
+    }
 
     /**
      * Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
-    public JobDefinitionTimeout timeout;
+    private @Nullable UndeferrableValue<JobDefinitionTimeout> timeout;
 
-
+    public @Nullable JobDefinitionTimeout timeout() {
+        if (timeout == null) return null;
+        return timeout.getValue("JobDefinition.timeout");
+    }
 
     /**
      * Type of job definition. Must be `container` or `multinode`.
@@ -163,8 +216,11 @@ public final class JobDefinition extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("JobDefinition.type");
+    }
 
 }

@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedaccess.TrustProviderDeviceOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.TrustProviderNativeApplicationOidcOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.TrustProviderOidcOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.TrustProviderSseSpecification;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.TrustProviderDeviceOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.TrustProviderNativeApplicationOidcOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.TrustProviderOidcOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.TrustProviderSseSpecification;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/trustProvider:TrustProvider")
-public final class TrustProvider extends com.pulumi.resources.PolicyResource {
+public final class TrustProvider extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A description for the AWS Verified Access trust provider.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TrustProvider.description");
+    }
 
     /**
      * A block of options for device identity based trust providers.
      * 
      */
-    public TrustProviderDeviceOptions deviceOptions;
+    private @Nullable UndeferrableValue<TrustProviderDeviceOptions> deviceOptions;
 
-
+    public @Nullable TrustProviderDeviceOptions deviceOptions() {
+        if (deviceOptions == null) return null;
+        return deviceOptions.getValue("TrustProvider.deviceOptions");
+    }
 
     /**
      * The type of device-based trust provider.
      * 
      */
-    public String deviceTrustProviderType;
+    private @Nullable UndeferrableValue<String> deviceTrustProviderType;
 
-
+    public @Nullable String deviceTrustProviderType() {
+        if (deviceTrustProviderType == null) return null;
+        return deviceTrustProviderType.getValue("TrustProvider.deviceTrustProviderType");
+    }
 
     /**
      * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
      * 
      */
-    public TrustProviderNativeApplicationOidcOptions nativeApplicationOidcOptions;
+    private @Nullable UndeferrableValue<TrustProviderNativeApplicationOidcOptions> nativeApplicationOidcOptions;
 
-
+    public @Nullable TrustProviderNativeApplicationOidcOptions nativeApplicationOidcOptions() {
+        if (nativeApplicationOidcOptions == null) return null;
+        return nativeApplicationOidcOptions.getValue("TrustProvider.nativeApplicationOidcOptions");
+    }
 
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      * 
      */
-    public TrustProviderOidcOptions oidcOptions;
+    private @Nullable UndeferrableValue<TrustProviderOidcOptions> oidcOptions;
 
-
+    public @Nullable TrustProviderOidcOptions oidcOptions() {
+        if (oidcOptions == null) return null;
+        return oidcOptions.getValue("TrustProvider.oidcOptions");
+    }
 
     /**
      * The identifier to be used when working with policy rules.
      * 
      */
-    public String policyReferenceName;
+    private UndeferrableValue<String> policyReferenceName;
 
+    public String policyReferenceName() {
+        if (policyReferenceName == null) return null;
+        return policyReferenceName.getValue("TrustProvider.policyReferenceName");
+    }
 
+    private UndeferrableValue<TrustProviderSseSpecification> sseSpecification;
 
-    public TrustProviderSseSpecification sseSpecification;
-
-
+    public TrustProviderSseSpecification sseSpecification() {
+        if (sseSpecification == null) return null;
+        return sseSpecification.getValue("TrustProvider.sseSpecification");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrustProvider.tags");
+    }
 
     /**
      * @deprecated
@@ -81,9 +107,12 @@ public final class TrustProvider extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrustProvider.tagsAll");
+    }
 
     /**
      * The type of trust provider can be either user or device-based.
@@ -91,16 +120,22 @@ public final class TrustProvider extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String trustProviderType;
+    private UndeferrableValue<String> trustProviderType;
 
-
+    public String trustProviderType() {
+        if (trustProviderType == null) return null;
+        return trustProviderType.getValue("TrustProvider.trustProviderType");
+    }
 
     /**
      * The type of user-based trust provider.
      * 
      */
-    public String userTrustProviderType;
+    private @Nullable UndeferrableValue<String> userTrustProviderType;
 
-
+    public @Nullable String userTrustProviderType() {
+        if (userTrustProviderType == null) return null;
+        return userTrustProviderType.getValue("TrustProvider.userTrustProviderType");
+    }
 
 }

@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ivs/channel:Channel")
-public final class Channel extends com.pulumi.resources.PolicyResource {
+public final class Channel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Channel.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Channel.arn");
+    }
 
     /**
      * If `true`, channel is private (enabled for playback authorization).
      * 
      */
-    public Boolean authorized;
+    private UndeferrableValue<Boolean> authorized;
 
-
+    public Boolean authorized() {
+        if (authorized == null) return null;
+        return authorized.getValue("Channel.authorized");
+    }
 
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      * 
      */
-    public String ingestEndpoint;
+    private UndeferrableValue<String> ingestEndpoint;
 
-
+    public String ingestEndpoint() {
+        if (ingestEndpoint == null) return null;
+        return ingestEndpoint.getValue("Channel.ingestEndpoint");
+    }
 
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
-    public String latencyMode;
+    private UndeferrableValue<String> latencyMode;
 
-
+    public String latencyMode() {
+        if (latencyMode == null) return null;
+        return latencyMode.getValue("Channel.latencyMode");
+    }
 
     /**
      * Channel name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Channel.name");
+    }
 
     /**
      * Channel playback URL.
      * 
      */
-    public String playbackUrl;
+    private UndeferrableValue<String> playbackUrl;
 
-
+    public String playbackUrl() {
+        if (playbackUrl == null) return null;
+        return playbackUrl.getValue("Channel.playbackUrl");
+    }
 
     /**
      * Recording configuration ARN.
      * 
      */
-    public String recordingConfigurationArn;
+    private UndeferrableValue<String> recordingConfigurationArn;
 
-
+    public String recordingConfigurationArn() {
+        if (recordingConfigurationArn == null) return null;
+        return recordingConfigurationArn.getValue("Channel.recordingConfigurationArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Channel.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,16 +110,22 @@ public final class Channel extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Channel.tagsAll");
+    }
 
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Channel.type");
+    }
 
 }

@@ -3,122 +3,163 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.workspaces.DirectorySamlProperties;
-import com.pulumi.policypacks.aws.workspaces.DirectorySelfServicePermissions;
-import com.pulumi.policypacks.aws.workspaces.DirectoryWorkspaceAccessProperties;
-import com.pulumi.policypacks.aws.workspaces.DirectoryWorkspaceCreationProperties;
+import com.pulumi.policypacks.aws.workspaces.outputs.DirectorySamlProperties;
+import com.pulumi.policypacks.aws.workspaces.outputs.DirectorySelfServicePermissions;
+import com.pulumi.policypacks.aws.workspaces.outputs.DirectoryWorkspaceAccessProperties;
+import com.pulumi.policypacks.aws.workspaces.outputs.DirectoryWorkspaceCreationProperties;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:workspaces/directory:Directory")
-public final class Directory extends com.pulumi.resources.PolicyResource {
+public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The directory alias.
      * 
      */
-    public String alias;
+    private UndeferrableValue<String> alias;
 
-
+    public String alias() {
+        if (alias == null) return null;
+        return alias.getValue("Directory.alias");
+    }
 
     /**
      * The user name for the service account.
      * 
      */
-    public String customerUserName;
+    private UndeferrableValue<String> customerUserName;
 
-
+    public String customerUserName() {
+        if (customerUserName == null) return null;
+        return customerUserName.getValue("Directory.customerUserName");
+    }
 
     /**
      * The directory identifier for registration in WorkSpaces service.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("Directory.directoryId");
+    }
 
     /**
      * The name of the directory.
      * 
      */
-    public String directoryName;
+    private UndeferrableValue<String> directoryName;
 
-
+    public String directoryName() {
+        if (directoryName == null) return null;
+        return directoryName.getValue("Directory.directoryName");
+    }
 
     /**
      * The directory type.
      * 
      */
-    public String directoryType;
+    private UndeferrableValue<String> directoryType;
 
-
+    public String directoryType() {
+        if (directoryType == null) return null;
+        return directoryType.getValue("Directory.directoryType");
+    }
 
     /**
      * The IP addresses of the DNS servers for the directory.
      * 
      */
-    public List<String> dnsIpAddresses;
+    private UndeferrableValue<List<String>> dnsIpAddresses;
 
-
+    public List<String> dnsIpAddresses() {
+        if (dnsIpAddresses == null) return null;
+        return dnsIpAddresses.getValue("Directory.dnsIpAddresses");
+    }
 
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
-    public String iamRoleId;
+    private UndeferrableValue<String> iamRoleId;
 
-
+    public String iamRoleId() {
+        if (iamRoleId == null) return null;
+        return iamRoleId.getValue("Directory.iamRoleId");
+    }
 
     /**
      * The identifiers of the IP access control groups associated with the directory.
      * 
      */
-    public List<String> ipGroupIds;
+    private UndeferrableValue<List<String>> ipGroupIds;
 
-
+    public List<String> ipGroupIds() {
+        if (ipGroupIds == null) return null;
+        return ipGroupIds.getValue("Directory.ipGroupIds");
+    }
 
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
-    public String registrationCode;
+    private UndeferrableValue<String> registrationCode;
 
-
+    public String registrationCode() {
+        if (registrationCode == null) return null;
+        return registrationCode.getValue("Directory.registrationCode");
+    }
 
     /**
      * Configuration of SAML authentication integration. Defined below.
      * 
      */
-    public DirectorySamlProperties samlProperties;
+    private UndeferrableValue<DirectorySamlProperties> samlProperties;
 
-
+    public DirectorySamlProperties samlProperties() {
+        if (samlProperties == null) return null;
+        return samlProperties.getValue("Directory.samlProperties");
+    }
 
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
-    public DirectorySelfServicePermissions selfServicePermissions;
+    private UndeferrableValue<DirectorySelfServicePermissions> selfServicePermissions;
 
-
+    public DirectorySelfServicePermissions selfServicePermissions() {
+        if (selfServicePermissions == null) return null;
+        return selfServicePermissions.getValue("Directory.selfServicePermissions");
+    }
 
     /**
      * The identifiers of the subnets where the directory resides.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("Directory.subnetIds");
+    }
 
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Directory.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -128,32 +169,44 @@ public final class Directory extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Directory.tagsAll");
+    }
 
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
-    public DirectoryWorkspaceAccessProperties workspaceAccessProperties;
+    private UndeferrableValue<DirectoryWorkspaceAccessProperties> workspaceAccessProperties;
 
-
+    public DirectoryWorkspaceAccessProperties workspaceAccessProperties() {
+        if (workspaceAccessProperties == null) return null;
+        return workspaceAccessProperties.getValue("Directory.workspaceAccessProperties");
+    }
 
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
-    public DirectoryWorkspaceCreationProperties workspaceCreationProperties;
+    private UndeferrableValue<DirectoryWorkspaceCreationProperties> workspaceCreationProperties;
 
-
+    public DirectoryWorkspaceCreationProperties workspaceCreationProperties() {
+        if (workspaceCreationProperties == null) return null;
+        return workspaceCreationProperties.getValue("Directory.workspaceCreationProperties");
+    }
 
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
-    public String workspaceSecurityGroupId;
+    private UndeferrableValue<String> workspaceSecurityGroupId;
 
-
+    public String workspaceSecurityGroupId() {
+        if (workspaceSecurityGroupId == null) return null;
+        return workspaceSecurityGroupId.getValue("Directory.workspaceSecurityGroupId");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")
-public final class DedicatedIpAssignment extends com.pulumi.resources.PolicyResource {
+public final class DedicatedIpAssignment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Dedicated IP address.
      * 
      */
-    public String destinationPoolName;
+    private UndeferrableValue<String> destinationPoolName;
 
-
+    public String destinationPoolName() {
+        if (destinationPoolName == null) return null;
+        return destinationPoolName.getValue("DedicatedIpAssignment.destinationPoolName");
+    }
 
     /**
      * Dedicated IP address.
      * 
      */
-    public String ip;
+    private UndeferrableValue<String> ip;
 
-
+    public String ip() {
+        if (ip == null) return null;
+        return ip.getValue("DedicatedIpAssignment.ip");
+    }
 
 }

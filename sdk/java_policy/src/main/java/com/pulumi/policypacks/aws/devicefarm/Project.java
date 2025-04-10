@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:devicefarm/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of this project
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Project.arn");
+    }
 
     /**
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      * 
      */
-    public Integer defaultJobTimeoutMinutes;
+    private @Nullable UndeferrableValue<Integer> defaultJobTimeoutMinutes;
 
-
+    public @Nullable Integer defaultJobTimeoutMinutes() {
+        if (defaultJobTimeoutMinutes == null) return null;
+        return defaultJobTimeoutMinutes.getValue("Project.defaultJobTimeoutMinutes");
+    }
 
     /**
      * The name of the project
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Project.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Project.tagsAll");
+    }
 
 }

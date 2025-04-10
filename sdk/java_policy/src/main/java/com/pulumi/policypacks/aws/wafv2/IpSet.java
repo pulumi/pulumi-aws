@@ -3,82 +3,111 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafv2/ipSet:IpSet")
-public final class IpSet extends com.pulumi.resources.PolicyResource {
+public final class IpSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      * 
      */
-    public List<String> addresses;
+    private @Nullable UndeferrableValue<List<String>> addresses;
 
-
+    public @Nullable List<String> addresses() {
+        if (addresses == null) return null;
+        return addresses.getValue("IpSet.addresses");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IP set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("IpSet.arn");
+    }
 
     /**
      * A friendly description of the IP set.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("IpSet.description");
+    }
 
     /**
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      * 
      */
-    public String ipAddressVersion;
+    private UndeferrableValue<String> ipAddressVersion;
 
+    public String ipAddressVersion() {
+        if (ipAddressVersion == null) return null;
+        return ipAddressVersion.getValue("IpSet.ipAddressVersion");
+    }
 
+    private UndeferrableValue<String> lockToken;
 
-    public String lockToken;
-
-
+    public String lockToken() {
+        if (lockToken == null) return null;
+        return lockToken.getValue("IpSet.lockToken");
+    }
 
     /**
      * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("IpSet.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("IpSet.namePrefix");
+    }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      * 
      */
-    public String scope;
+    private UndeferrableValue<String> scope;
 
-
+    public String scope() {
+        if (scope == null) return null;
+        return scope.getValue("IpSet.scope");
+    }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("IpSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -88,8 +117,11 @@ public final class IpSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("IpSet.tagsAll");
+    }
 
 }

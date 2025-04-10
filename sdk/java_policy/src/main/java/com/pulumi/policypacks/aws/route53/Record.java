@@ -3,31 +3,36 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.RecordAlias;
-import com.pulumi.policypacks.aws.route53.RecordCidrRoutingPolicy;
-import com.pulumi.policypacks.aws.route53.RecordFailoverRoutingPolicy;
-import com.pulumi.policypacks.aws.route53.RecordGeolocationRoutingPolicy;
-import com.pulumi.policypacks.aws.route53.RecordGeoproximityRoutingPolicy;
-import com.pulumi.policypacks.aws.route53.RecordLatencyRoutingPolicy;
-import com.pulumi.policypacks.aws.route53.RecordWeightedRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordAlias;
+import com.pulumi.policypacks.aws.route53.outputs.RecordCidrRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordFailoverRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordGeolocationRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordGeoproximityRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordLatencyRoutingPolicy;
+import com.pulumi.policypacks.aws.route53.outputs.RecordWeightedRoutingPolicy;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/record:Record")
-public final class Record extends com.pulumi.resources.PolicyResource {
+public final class Record extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An alias block. Conflicts with `ttl` &amp; `records`.
      * Documented below.
      * 
      */
-    public List<RecordAlias> aliases;
+    private @Nullable UndeferrableValue<List<RecordAlias>> aliases;
 
-
+    public @Nullable List<RecordAlias> aliases() {
+        if (aliases == null) return null;
+        return aliases.getValue("Record.aliases");
+    }
 
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -35,128 +40,176 @@ public final class Record extends com.pulumi.resources.PolicyResource {
      * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
      * 
      */
-    public Boolean allowOverwrite;
+    private UndeferrableValue<Boolean> allowOverwrite;
 
-
+    public Boolean allowOverwrite() {
+        if (allowOverwrite == null) return null;
+        return allowOverwrite.getValue("Record.allowOverwrite");
+    }
 
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public RecordCidrRoutingPolicy cidrRoutingPolicy;
+    private @Nullable UndeferrableValue<RecordCidrRoutingPolicy> cidrRoutingPolicy;
 
-
+    public @Nullable RecordCidrRoutingPolicy cidrRoutingPolicy() {
+        if (cidrRoutingPolicy == null) return null;
+        return cidrRoutingPolicy.getValue("Record.cidrRoutingPolicy");
+    }
 
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public List<RecordFailoverRoutingPolicy> failoverRoutingPolicies;
+    private @Nullable UndeferrableValue<List<RecordFailoverRoutingPolicy>> failoverRoutingPolicies;
 
-
+    public @Nullable List<RecordFailoverRoutingPolicy> failoverRoutingPolicies() {
+        if (failoverRoutingPolicies == null) return null;
+        return failoverRoutingPolicies.getValue("Record.failoverRoutingPolicies");
+    }
 
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      * 
      */
-    public String fqdn;
+    private UndeferrableValue<String> fqdn;
 
-
+    public String fqdn() {
+        if (fqdn == null) return null;
+        return fqdn.getValue("Record.fqdn");
+    }
 
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public List<RecordGeolocationRoutingPolicy> geolocationRoutingPolicies;
+    private @Nullable UndeferrableValue<List<RecordGeolocationRoutingPolicy>> geolocationRoutingPolicies;
 
-
+    public @Nullable List<RecordGeolocationRoutingPolicy> geolocationRoutingPolicies() {
+        if (geolocationRoutingPolicies == null) return null;
+        return geolocationRoutingPolicies.getValue("Record.geolocationRoutingPolicies");
+    }
 
     /**
      * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public RecordGeoproximityRoutingPolicy geoproximityRoutingPolicy;
+    private @Nullable UndeferrableValue<RecordGeoproximityRoutingPolicy> geoproximityRoutingPolicy;
 
-
+    public @Nullable RecordGeoproximityRoutingPolicy geoproximityRoutingPolicy() {
+        if (geoproximityRoutingPolicy == null) return null;
+        return geoproximityRoutingPolicy.getValue("Record.geoproximityRoutingPolicy");
+    }
 
     /**
      * The health check the record should be associated with.
      * 
      */
-    public String healthCheckId;
+    private @Nullable UndeferrableValue<String> healthCheckId;
 
-
+    public @Nullable String healthCheckId() {
+        if (healthCheckId == null) return null;
+        return healthCheckId.getValue("Record.healthCheckId");
+    }
 
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public List<RecordLatencyRoutingPolicy> latencyRoutingPolicies;
+    private @Nullable UndeferrableValue<List<RecordLatencyRoutingPolicy>> latencyRoutingPolicies;
 
-
+    public @Nullable List<RecordLatencyRoutingPolicy> latencyRoutingPolicies() {
+        if (latencyRoutingPolicies == null) return null;
+        return latencyRoutingPolicies.getValue("Record.latencyRoutingPolicies");
+    }
 
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      * 
      */
-    public Boolean multivalueAnswerRoutingPolicy;
+    private @Nullable UndeferrableValue<Boolean> multivalueAnswerRoutingPolicy;
 
-
+    public @Nullable Boolean multivalueAnswerRoutingPolicy() {
+        if (multivalueAnswerRoutingPolicy == null) return null;
+        return multivalueAnswerRoutingPolicy.getValue("Record.multivalueAnswerRoutingPolicy");
+    }
 
     /**
      * The name of the record.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Record.name");
+    }
 
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
      * 
      */
-    public List<String> records;
+    private @Nullable UndeferrableValue<List<String>> records;
 
-
+    public @Nullable List<String> records() {
+        if (records == null) return null;
+        return records.getValue("Record.records");
+    }
 
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
-    public String setIdentifier;
+    private @Nullable UndeferrableValue<String> setIdentifier;
 
-
+    public @Nullable String setIdentifier() {
+        if (setIdentifier == null) return null;
+        return setIdentifier.getValue("Record.setIdentifier");
+    }
 
     /**
      * The TTL of the record.
      * 
      */
-    public Integer ttl;
+    private @Nullable UndeferrableValue<Integer> ttl;
 
-
+    public @Nullable Integer ttl() {
+        if (ttl == null) return null;
+        return ttl.getValue("Record.ttl");
+    }
 
     /**
      * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("Record.type");
+    }
 
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public List<RecordWeightedRoutingPolicy> weightedRoutingPolicies;
+    private @Nullable UndeferrableValue<List<RecordWeightedRoutingPolicy>> weightedRoutingPolicies;
 
-
+    public @Nullable List<RecordWeightedRoutingPolicy> weightedRoutingPolicies() {
+        if (weightedRoutingPolicies == null) return null;
+        return weightedRoutingPolicies.getValue("Record.weightedRoutingPolicies");
+    }
 
     /**
      * The ID of the hosted zone to contain this record.
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("Record.zoneId");
+    }
 
 }

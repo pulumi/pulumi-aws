@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.OutboundConnectionConnectionProperties;
-import com.pulumi.policypacks.aws.opensearch.OutboundConnectionLocalDomainInfo;
-import com.pulumi.policypacks.aws.opensearch.OutboundConnectionRemoteDomainInfo;
+import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionConnectionProperties;
+import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionLocalDomainInfo;
+import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionRemoteDomainInfo;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/outboundConnection:OutboundConnection")
-public final class OutboundConnection extends com.pulumi.resources.PolicyResource {
+public final class OutboundConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Accepts the connection.
      * 
      */
-    public Boolean acceptConnection;
+    private @Nullable UndeferrableValue<Boolean> acceptConnection;
 
-
+    public @Nullable Boolean acceptConnection() {
+        if (acceptConnection == null) return null;
+        return acceptConnection.getValue("OutboundConnection.acceptConnection");
+    }
 
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
      * 
      */
-    public String connectionAlias;
+    private UndeferrableValue<String> connectionAlias;
 
-
+    public String connectionAlias() {
+        if (connectionAlias == null) return null;
+        return connectionAlias.getValue("OutboundConnection.connectionAlias");
+    }
 
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      * 
      */
-    public String connectionMode;
+    private UndeferrableValue<String> connectionMode;
 
-
+    public String connectionMode() {
+        if (connectionMode == null) return null;
+        return connectionMode.getValue("OutboundConnection.connectionMode");
+    }
 
     /**
      * Configuration block for the outbound connection.
      * 
      */
-    public OutboundConnectionConnectionProperties connectionProperties;
+    private UndeferrableValue<OutboundConnectionConnectionProperties> connectionProperties;
 
-
+    public OutboundConnectionConnectionProperties connectionProperties() {
+        if (connectionProperties == null) return null;
+        return connectionProperties.getValue("OutboundConnection.connectionProperties");
+    }
 
     /**
      * Status of the connection request.
      * 
      */
-    public String connectionStatus;
+    private UndeferrableValue<String> connectionStatus;
 
-
+    public String connectionStatus() {
+        if (connectionStatus == null) return null;
+        return connectionStatus.getValue("OutboundConnection.connectionStatus");
+    }
 
     /**
      * Configuration block for the local Opensearch domain.
      * 
      */
-    public OutboundConnectionLocalDomainInfo localDomainInfo;
+    private UndeferrableValue<OutboundConnectionLocalDomainInfo> localDomainInfo;
 
-
+    public OutboundConnectionLocalDomainInfo localDomainInfo() {
+        if (localDomainInfo == null) return null;
+        return localDomainInfo.getValue("OutboundConnection.localDomainInfo");
+    }
 
     /**
      * Configuration block for the remote Opensearch domain.
      * 
      */
-    public OutboundConnectionRemoteDomainInfo remoteDomainInfo;
+    private UndeferrableValue<OutboundConnectionRemoteDomainInfo> remoteDomainInfo;
 
-
+    public OutboundConnectionRemoteDomainInfo remoteDomainInfo() {
+        if (remoteDomainInfo == null) return null;
+        return remoteDomainInfo.getValue("OutboundConnection.remoteDomainInfo");
+    }
 
 }

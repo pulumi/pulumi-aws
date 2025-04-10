@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.customerprofiles;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.customerprofiles.DomainMatching;
-import com.pulumi.policypacks.aws.customerprofiles.DomainRuleBasedMatching;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatching;
+import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainRuleBasedMatching;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:customerprofiles/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      * 
      */
-    public String deadLetterQueueUrl;
+    private @Nullable UndeferrableValue<String> deadLetterQueueUrl;
 
-
+    public @Nullable String deadLetterQueueUrl() {
+        if (deadLetterQueueUrl == null) return null;
+        return deadLetterQueueUrl.getValue("Domain.deadLetterQueueUrl");
+    }
 
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      * 
      */
-    public String defaultEncryptionKey;
+    private @Nullable UndeferrableValue<String> defaultEncryptionKey;
 
-
+    public @Nullable String defaultEncryptionKey() {
+        if (defaultEncryptionKey == null) return null;
+        return defaultEncryptionKey.getValue("Domain.defaultEncryptionKey");
+    }
 
     /**
      * The default number of days until the data within the domain expires.
@@ -44,41 +55,56 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer defaultExpirationDays;
+    private UndeferrableValue<Integer> defaultExpirationDays;
 
-
+    public Integer defaultExpirationDays() {
+        if (defaultExpirationDays == null) return null;
+        return defaultExpirationDays.getValue("Domain.defaultExpirationDays");
+    }
 
     /**
      * The name for your Customer Profile domain. It must be unique for your AWS account.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      * 
      */
-    public DomainMatching matching;
+    private @Nullable UndeferrableValue<DomainMatching> matching;
 
-
+    public @Nullable DomainMatching matching() {
+        if (matching == null) return null;
+        return matching.getValue("Domain.matching");
+    }
 
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      * 
      */
-    public DomainRuleBasedMatching ruleBasedMatching;
+    private @Nullable UndeferrableValue<DomainRuleBasedMatching> ruleBasedMatching;
 
-
+    public @Nullable DomainRuleBasedMatching ruleBasedMatching() {
+        if (ruleBasedMatching == null) return null;
+        return ruleBasedMatching.getValue("Domain.ruleBasedMatching");
+    }
 
     /**
      * Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -88,8 +114,11 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
 }

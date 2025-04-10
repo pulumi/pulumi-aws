@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.alb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:alb/targetGroupAttachment:TargetGroupAttachment")
-public final class TargetGroupAttachment extends com.pulumi.resources.PolicyResource {
+public final class TargetGroupAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
-    public String availabilityZone;
+    private @Nullable UndeferrableValue<String> availabilityZone;
 
-
+    public @Nullable String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("TargetGroupAttachment.availabilityZone");
+    }
 
     /**
      * The port on which targets receive traffic.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("TargetGroupAttachment.port");
+    }
 
     /**
      * The ARN of the target group with which to register targets.
      * 
      */
-    public String targetGroupArn;
+    private UndeferrableValue<String> targetGroupArn;
 
-
+    public String targetGroupArn() {
+        if (targetGroupArn == null) return null;
+        return targetGroupArn.getValue("TargetGroupAttachment.targetGroupArn");
+    }
 
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -41,8 +52,11 @@ public final class TargetGroupAttachment extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("TargetGroupAttachment.targetId");
+    }
 
 }

@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")
-public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.PolicyResource {
+public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The time period after which
      * the session cookie should be considered stale, expressed in seconds.
      * 
      */
-    public Integer cookieExpirationPeriod;
+    private @Nullable UndeferrableValue<Integer> cookieExpirationPeriod;
 
-
+    public @Nullable Integer cookieExpirationPeriod() {
+        if (cookieExpirationPeriod == null) return null;
+        return cookieExpirationPeriod.getValue("LoadBalancerCookieStickinessPolicy.cookieExpirationPeriod");
+    }
 
     /**
      * The load balancer port to which the policy
@@ -26,25 +31,34 @@ public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resourc
      * balancer.
      * 
      */
-    public Integer lbPort;
+    private UndeferrableValue<Integer> lbPort;
 
-
+    public Integer lbPort() {
+        if (lbPort == null) return null;
+        return lbPort.getValue("LoadBalancerCookieStickinessPolicy.lbPort");
+    }
 
     /**
      * The load balancer to which the policy
      * should be attached.
      * 
      */
-    public String loadBalancer;
+    private UndeferrableValue<String> loadBalancer;
 
-
+    public String loadBalancer() {
+        if (loadBalancer == null) return null;
+        return loadBalancer.getValue("LoadBalancerCookieStickinessPolicy.loadBalancer");
+    }
 
     /**
      * The name of the stickiness policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LoadBalancerCookieStickinessPolicy.name");
+    }
 
 }

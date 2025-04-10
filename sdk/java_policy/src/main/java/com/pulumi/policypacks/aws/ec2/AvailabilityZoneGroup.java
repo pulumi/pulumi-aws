@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")
-public final class AvailabilityZoneGroup extends com.pulumi.resources.PolicyResource {
+public final class AvailabilityZoneGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Availability Zone Group.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("AvailabilityZoneGroup.groupName");
+    }
 
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      * 
      */
-    public String optInStatus;
+    private UndeferrableValue<String> optInStatus;
 
-
+    public String optInStatus() {
+        if (optInStatus == null) return null;
+        return optInStatus.getValue("AvailabilityZoneGroup.optInStatus");
+    }
 
 }

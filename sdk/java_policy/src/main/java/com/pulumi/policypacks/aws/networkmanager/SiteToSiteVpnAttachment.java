@@ -3,102 +3,137 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")
-public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyResource {
+public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SiteToSiteVpnAttachment.arn");
+    }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    public Integer attachmentPolicyRuleNumber;
+    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
 
-
+    public Integer attachmentPolicyRuleNumber() {
+        if (attachmentPolicyRuleNumber == null) return null;
+        return attachmentPolicyRuleNumber.getValue("SiteToSiteVpnAttachment.attachmentPolicyRuleNumber");
+    }
 
     /**
      * The type of attachment.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("SiteToSiteVpnAttachment.attachmentType");
+    }
 
     /**
      * The ARN of a core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("SiteToSiteVpnAttachment.coreNetworkArn");
+    }
 
     /**
      * The ID of a core network for the VPN attachment.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("SiteToSiteVpnAttachment.coreNetworkId");
+    }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("SiteToSiteVpnAttachment.edgeLocation");
+    }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("SiteToSiteVpnAttachment.ownerAccountId");
+    }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("SiteToSiteVpnAttachment.resourceArn");
+    }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    public String segmentName;
+    private UndeferrableValue<String> segmentName;
 
-
+    public String segmentName() {
+        if (segmentName == null) return null;
+        return segmentName.getValue("SiteToSiteVpnAttachment.segmentName");
+    }
 
     /**
      * The state of the attachment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("SiteToSiteVpnAttachment.state");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SiteToSiteVpnAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,9 +143,12 @@ public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SiteToSiteVpnAttachment.tagsAll");
+    }
 
     /**
      * The ARN of the site-to-site VPN connection.
@@ -118,8 +156,11 @@ public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    public String vpnConnectionArn;
+    private UndeferrableValue<String> vpnConnectionArn;
 
-
+    public String vpnConnectionArn() {
+        if (vpnConnectionArn == null) return null;
+        return vpnConnectionArn.getValue("SiteToSiteVpnAttachment.vpnConnectionArn");
+    }
 
 }

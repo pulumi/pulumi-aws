@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transcribe/medicalVocabulary:MedicalVocabulary")
-public final class MedicalVocabulary extends com.pulumi.resources.PolicyResource {
+public final class MedicalVocabulary extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the MedicalVocabulary.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MedicalVocabulary.arn");
+    }
 
     /**
      * Generated download URI.
      * 
      */
-    public String downloadUri;
+    private UndeferrableValue<String> downloadUri;
 
-
+    public String downloadUri() {
+        if (downloadUri == null) return null;
+        return downloadUri.getValue("MedicalVocabulary.downloadUri");
+    }
 
     /**
      * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("MedicalVocabulary.languageCode");
+    }
 
     /**
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MedicalVocabulary.tags");
+    }
 
     /**
      * @deprecated
@@ -49,17 +63,23 @@ public final class MedicalVocabulary extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MedicalVocabulary.tagsAll");
+    }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
-    public String vocabularyFileUri;
+    private UndeferrableValue<String> vocabularyFileUri;
 
-
+    public String vocabularyFileUri() {
+        if (vocabularyFileUri == null) return null;
+        return vocabularyFileUri.getValue("MedicalVocabulary.vocabularyFileUri");
+    }
 
     /**
      * The name of the Medical Vocabulary.
@@ -67,8 +87,11 @@ public final class MedicalVocabulary extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public String vocabularyName;
+    private UndeferrableValue<String> vocabularyName;
 
-
+    public String vocabularyName() {
+        if (vocabularyName == null) return null;
+        return vocabularyName.getValue("MedicalVocabulary.vocabularyName");
+    }
 
 }

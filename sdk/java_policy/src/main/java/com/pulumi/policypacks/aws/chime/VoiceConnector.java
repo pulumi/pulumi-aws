@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnector:VoiceConnector")
-public final class VoiceConnector extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VoiceConnector.arn");
+    }
 
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
      */
-    public String awsRegion;
+    private UndeferrableValue<String> awsRegion;
 
-
+    public String awsRegion() {
+        if (awsRegion == null) return null;
+        return awsRegion.getValue("VoiceConnector.awsRegion");
+    }
 
     /**
      * The name of the Amazon Chime Voice Connector.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VoiceConnector.name");
+    }
 
     /**
      * The outbound host name for the Amazon Chime Voice Connector.
      * 
      */
-    public String outboundHostName;
+    private UndeferrableValue<String> outboundHostName;
 
-
+    public String outboundHostName() {
+        if (outboundHostName == null) return null;
+        return outboundHostName.getValue("VoiceConnector.outboundHostName");
+    }
 
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
@@ -50,17 +64,23 @@ public final class VoiceConnector extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Boolean requireEncryption;
+    private UndeferrableValue<Boolean> requireEncryption;
 
-
+    public Boolean requireEncryption() {
+        if (requireEncryption == null) return null;
+        return requireEncryption.getValue("VoiceConnector.requireEncryption");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VoiceConnector.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,8 +90,11 @@ public final class VoiceConnector extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VoiceConnector.tagsAll");
+    }
 
 }

@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.serverlessrepository;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:serverlessrepository/cloudFormationStack:CloudFormationStack")
-public final class CloudFormationStack extends com.pulumi.resources.PolicyResource {
+public final class CloudFormationStack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the application from the Serverless Application Repository.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("CloudFormationStack.applicationId");
+    }
 
     /**
      * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
      * 
      */
-    public List<String> capabilities;
+    private UndeferrableValue<List<String>> capabilities;
 
-
+    public List<String> capabilities() {
+        if (capabilities == null) return null;
+        return capabilities.getValue("CloudFormationStack.capabilities");
+    }
 
     /**
      * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CloudFormationStack.name");
+    }
 
     /**
      * A map of outputs from the stack.
      * 
      */
-    public Map<String,String> outputs;
+    private UndeferrableValue<Map<String,String>> outputs;
 
-
+    public Map<String,String> outputs() {
+        if (outputs == null) return null;
+        return outputs.getValue("CloudFormationStack.outputs");
+    }
 
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    public Map<String,String> parameters;
+    private UndeferrableValue<Map<String,String>> parameters;
 
-
+    public Map<String,String> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("CloudFormationStack.parameters");
+    }
 
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
-    public String semanticVersion;
+    private UndeferrableValue<String> semanticVersion;
 
-
+    public String semanticVersion() {
+        if (semanticVersion == null) return null;
+        return semanticVersion.getValue("CloudFormationStack.semanticVersion");
+    }
 
     /**
      * A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CloudFormationStack.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class CloudFormationStack extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CloudFormationStack.tagsAll");
+    }
 
 }

@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.UserDefinedFunctionResourceUri;
+import com.pulumi.policypacks.aws.glue.outputs.UserDefinedFunctionResourceUri;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/userDefinedFunction:UserDefinedFunction")
-public final class UserDefinedFunction extends com.pulumi.resources.PolicyResource {
+public final class UserDefinedFunction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Glue User Defined Function.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UserDefinedFunction.arn");
+    }
 
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    public String catalogId;
+    private @Nullable UndeferrableValue<String> catalogId;
 
-
+    public @Nullable String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("UserDefinedFunction.catalogId");
+    }
 
     /**
      * The Java class that contains the function code.
      * 
      */
-    public String className;
+    private UndeferrableValue<String> className;
 
-
+    public String className() {
+        if (className == null) return null;
+        return className.getValue("UserDefinedFunction.className");
+    }
 
     /**
      * The time at which the function was created.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("UserDefinedFunction.createTime");
+    }
 
     /**
      * The name of the Database to create the Function.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("UserDefinedFunction.databaseName");
+    }
 
     /**
      * The name of the function.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UserDefinedFunction.name");
+    }
 
     /**
      * The owner of the function.
      * 
      */
-    public String ownerName;
+    private UndeferrableValue<String> ownerName;
 
-
+    public String ownerName() {
+        if (ownerName == null) return null;
+        return ownerName.getValue("UserDefinedFunction.ownerName");
+    }
 
     /**
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
-    public String ownerType;
+    private UndeferrableValue<String> ownerType;
 
-
+    public String ownerType() {
+        if (ownerType == null) return null;
+        return ownerType.getValue("UserDefinedFunction.ownerType");
+    }
 
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      * 
      */
-    public List<UserDefinedFunctionResourceUri> resourceUris;
+    private @Nullable UndeferrableValue<List<UserDefinedFunctionResourceUri>> resourceUris;
 
-
+    public @Nullable List<UserDefinedFunctionResourceUri> resourceUris() {
+        if (resourceUris == null) return null;
+        return resourceUris.getValue("UserDefinedFunction.resourceUris");
+    }
 
 }

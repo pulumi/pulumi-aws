@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")
-public final class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.PolicyResource {
+public final class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An identity pool ID.
      * 
      */
-    public String identityPoolId;
+    private UndeferrableValue<String> identityPoolId;
 
-
+    public String identityPoolId() {
+        if (identityPoolId == null) return null;
+        return identityPoolId.getValue("IdentityPoolProviderPrincipalTag.identityPoolId");
+    }
 
     /**
      * The name of the identity provider.
      * 
      */
-    public String identityProviderName;
+    private UndeferrableValue<String> identityProviderName;
 
-
+    public String identityProviderName() {
+        if (identityProviderName == null) return null;
+        return identityProviderName.getValue("IdentityPoolProviderPrincipalTag.identityProviderName");
+    }
 
     /**
      * String to string map of variables.
      * 
      */
-    public Map<String,String> principalTags;
+    private @Nullable UndeferrableValue<Map<String,String>> principalTags;
 
-
+    public @Nullable Map<String,String> principalTags() {
+        if (principalTags == null) return null;
+        return principalTags.getValue("IdentityPoolProviderPrincipalTag.principalTags");
+    }
 
     /**
      * use default (username and clientID) attribute mappings.
      * 
      */
-    public Boolean useDefaults;
+    private @Nullable UndeferrableValue<Boolean> useDefaults;
 
-
+    public @Nullable Boolean useDefaults() {
+        if (useDefaults == null) return null;
+        return useDefaults.getValue("IdentityPoolProviderPrincipalTag.useDefaults");
+    }
 
 }

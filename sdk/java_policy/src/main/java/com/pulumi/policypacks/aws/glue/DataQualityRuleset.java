@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.DataQualityRulesetTargetTable;
+import com.pulumi.policypacks.aws.glue.outputs.DataQualityRulesetTargetTable;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/dataQualityRuleset:DataQualityRuleset")
-public final class DataQualityRuleset extends com.pulumi.resources.PolicyResource {
+public final class DataQualityRuleset extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Glue Data Quality Ruleset.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataQualityRuleset.arn");
+    }
 
     /**
      * The time and date that this data quality ruleset was created.
      * 
      */
-    public String createdOn;
+    private UndeferrableValue<String> createdOn;
 
-
+    public String createdOn() {
+        if (createdOn == null) return null;
+        return createdOn.getValue("DataQualityRuleset.createdOn");
+    }
 
     /**
      * Description of the data quality ruleset.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DataQualityRuleset.description");
+    }
 
     /**
      * The time and date that this data quality ruleset was created.
      * 
      */
-    public String lastModifiedOn;
+    private UndeferrableValue<String> lastModifiedOn;
 
-
+    public String lastModifiedOn() {
+        if (lastModifiedOn == null) return null;
+        return lastModifiedOn.getValue("DataQualityRuleset.lastModifiedOn");
+    }
 
     /**
      * Name of the data quality ruleset.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataQualityRuleset.name");
+    }
 
     /**
      * When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
      * 
      */
-    public String recommendationRunId;
+    private UndeferrableValue<String> recommendationRunId;
 
-
+    public String recommendationRunId() {
+        if (recommendationRunId == null) return null;
+        return recommendationRunId.getValue("DataQualityRuleset.recommendationRunId");
+    }
 
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
-    public String ruleset;
+    private UndeferrableValue<String> ruleset;
 
-
+    public String ruleset() {
+        if (ruleset == null) return null;
+        return ruleset.getValue("DataQualityRuleset.ruleset");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataQualityRuleset.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,16 +110,22 @@ public final class DataQualityRuleset extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataQualityRuleset.tagsAll");
+    }
 
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
      * 
      */
-    public DataQualityRulesetTargetTable targetTable;
+    private @Nullable UndeferrableValue<DataQualityRulesetTargetTable> targetTable;
 
-
+    public @Nullable DataQualityRulesetTargetTable targetTable() {
+        if (targetTable == null) return null;
+        return targetTable.getValue("DataQualityRuleset.targetTable");
+    }
 
 }

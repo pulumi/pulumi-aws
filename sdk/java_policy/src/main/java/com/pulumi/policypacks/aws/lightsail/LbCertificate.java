@@ -3,69 +3,94 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lightsail.LbCertificateDomainValidationRecord;
+import com.pulumi.policypacks.aws.lightsail.outputs.LbCertificateDomainValidationRecord;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:lightsail/lbCertificate:LbCertificate")
-public final class LbCertificate extends com.pulumi.resources.PolicyResource {
+public final class LbCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the lightsail certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LbCertificate.arn");
+    }
 
     /**
      * The timestamp when the instance was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("LbCertificate.createdAt");
+    }
 
     /**
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("LbCertificate.domainName");
+    }
 
+    private UndeferrableValue<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
-    public List<LbCertificateDomainValidationRecord> domainValidationRecords;
-
-
+    public List<LbCertificateDomainValidationRecord> domainValidationRecords() {
+        if (domainValidationRecords == null) return null;
+        return domainValidationRecords.getValue("LbCertificate.domainValidationRecords");
+    }
 
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
-    public String lbName;
+    private UndeferrableValue<String> lbName;
 
-
+    public String lbName() {
+        if (lbName == null) return null;
+        return lbName.getValue("LbCertificate.lbName");
+    }
 
     /**
      * The SSL/TLS certificate name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LbCertificate.name");
+    }
 
     /**
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    public List<String> subjectAlternativeNames;
+    private UndeferrableValue<List<String>> subjectAlternativeNames;
 
+    public List<String> subjectAlternativeNames() {
+        if (subjectAlternativeNames == null) return null;
+        return subjectAlternativeNames.getValue("LbCertificate.subjectAlternativeNames");
+    }
 
+    private UndeferrableValue<String> supportCode;
 
-    public String supportCode;
-
-
+    public String supportCode() {
+        if (supportCode == null) return null;
+        return supportCode.getValue("LbCertificate.supportCode");
+    }
 
 }

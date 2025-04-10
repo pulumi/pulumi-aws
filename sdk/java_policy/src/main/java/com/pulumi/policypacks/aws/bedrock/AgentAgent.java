@@ -3,84 +3,110 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentGuardrailConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentMemoryConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentPromptOverrideConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentGuardrailConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentMemoryConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentPromptOverrideConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentAgent:AgentAgent")
-public final class AgentAgent extends com.pulumi.resources.PolicyResource {
+public final class AgentAgent extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the agent.
      * 
      */
-    public String agentArn;
+    private UndeferrableValue<String> agentArn;
 
-
+    public String agentArn() {
+        if (agentArn == null) return null;
+        return agentArn.getValue("AgentAgent.agentArn");
+    }
 
     /**
      * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
      * 
      */
-    public String agentCollaboration;
+    private UndeferrableValue<String> agentCollaboration;
 
-
+    public String agentCollaboration() {
+        if (agentCollaboration == null) return null;
+        return agentCollaboration.getValue("AgentAgent.agentCollaboration");
+    }
 
     /**
      * Unique identifier of the agent.
      * 
      */
-    public String agentId;
+    private UndeferrableValue<String> agentId;
 
-
+    public String agentId() {
+        if (agentId == null) return null;
+        return agentId.getValue("AgentAgent.agentId");
+    }
 
     /**
      * Name of the agent.
      * 
      */
-    public String agentName;
+    private UndeferrableValue<String> agentName;
 
-
+    public String agentName() {
+        if (agentName == null) return null;
+        return agentName.getValue("AgentAgent.agentName");
+    }
 
     /**
      * ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
-    public String agentResourceRoleArn;
+    private UndeferrableValue<String> agentResourceRoleArn;
 
-
+    public String agentResourceRoleArn() {
+        if (agentResourceRoleArn == null) return null;
+        return agentResourceRoleArn.getValue("AgentAgent.agentResourceRoleArn");
+    }
 
     /**
      * Version of the agent.
      * 
      */
-    public String agentVersion;
+    private UndeferrableValue<String> agentVersion;
 
-
+    public String agentVersion() {
+        if (agentVersion == null) return null;
+        return agentVersion.getValue("AgentAgent.agentVersion");
+    }
 
     /**
      * ARN of the AWS KMS key that encrypts the agent.
      * 
      */
-    public String customerEncryptionKeyArn;
+    private @Nullable UndeferrableValue<String> customerEncryptionKeyArn;
 
-
+    public @Nullable String customerEncryptionKeyArn() {
+        if (customerEncryptionKeyArn == null) return null;
+        return customerEncryptionKeyArn.getValue("AgentAgent.customerEncryptionKeyArn");
+    }
 
     /**
      * Description of the agent.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AgentAgent.description");
+    }
 
     /**
      * Foundation model used for orchestration by the agent.
@@ -88,73 +114,100 @@ public final class AgentAgent extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String foundationModel;
+    private UndeferrableValue<String> foundationModel;
 
-
+    public String foundationModel() {
+        if (foundationModel == null) return null;
+        return foundationModel.getValue("AgentAgent.foundationModel");
+    }
 
     /**
      * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
      * 
      */
-    public List<AgentAgentGuardrailConfiguration> guardrailConfigurations;
+    private @Nullable UndeferrableValue<List<AgentAgentGuardrailConfiguration>> guardrailConfigurations;
 
-
+    public @Nullable List<AgentAgentGuardrailConfiguration> guardrailConfigurations() {
+        if (guardrailConfigurations == null) return null;
+        return guardrailConfigurations.getValue("AgentAgent.guardrailConfigurations");
+    }
 
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
-    public Integer idleSessionTtlInSeconds;
+    private UndeferrableValue<Integer> idleSessionTtlInSeconds;
 
-
+    public Integer idleSessionTtlInSeconds() {
+        if (idleSessionTtlInSeconds == null) return null;
+        return idleSessionTtlInSeconds.getValue("AgentAgent.idleSessionTtlInSeconds");
+    }
 
     /**
      * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
-    public String instruction;
+    private UndeferrableValue<String> instruction;
 
-
+    public String instruction() {
+        if (instruction == null) return null;
+        return instruction.getValue("AgentAgent.instruction");
+    }
 
     /**
      * Configurations for the agent&#39;s ability to retain the conversational context.
      * 
      */
-    public List<AgentAgentMemoryConfiguration> memoryConfigurations;
+    private UndeferrableValue<List<AgentAgentMemoryConfiguration>> memoryConfigurations;
 
-
+    public List<AgentAgentMemoryConfiguration> memoryConfigurations() {
+        if (memoryConfigurations == null) return null;
+        return memoryConfigurations.getValue("AgentAgent.memoryConfigurations");
+    }
 
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    public Boolean prepareAgent;
+    private UndeferrableValue<Boolean> prepareAgent;
 
-
+    public Boolean prepareAgent() {
+        if (prepareAgent == null) return null;
+        return prepareAgent.getValue("AgentAgent.prepareAgent");
+    }
 
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
-    public List<AgentAgentPromptOverrideConfiguration> promptOverrideConfigurations;
+    private UndeferrableValue<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
-
+    public List<AgentAgentPromptOverrideConfiguration> promptOverrideConfigurations() {
+        if (promptOverrideConfigurations == null) return null;
+        return promptOverrideConfigurations.getValue("AgentAgent.promptOverrideConfigurations");
+    }
 
     /**
      * Whether the in-use check is skipped when deleting the agent.
      * 
      */
-    public Boolean skipResourceInUseCheck;
+    private UndeferrableValue<Boolean> skipResourceInUseCheck;
 
-
+    public Boolean skipResourceInUseCheck() {
+        if (skipResourceInUseCheck == null) return null;
+        return skipResourceInUseCheck.getValue("AgentAgent.skipResourceInUseCheck");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AgentAgent.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -164,12 +217,18 @@ public final class AgentAgent extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AgentAgent.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<AgentAgentTimeouts> timeouts;
 
-    public AgentAgentTimeouts timeouts;
-
-
+    public @Nullable AgentAgentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentAgent.timeouts");
+    }
 
 }

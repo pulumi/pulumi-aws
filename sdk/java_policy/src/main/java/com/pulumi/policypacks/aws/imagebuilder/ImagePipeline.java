@@ -3,131 +3,175 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.imagebuilder.ImagePipelineImageScanningConfiguration;
-import com.pulumi.policypacks.aws.imagebuilder.ImagePipelineImageTestsConfiguration;
-import com.pulumi.policypacks.aws.imagebuilder.ImagePipelineSchedule;
-import com.pulumi.policypacks.aws.imagebuilder.ImagePipelineWorkflow;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImagePipelineSchedule;
+import com.pulumi.policypacks.aws.imagebuilder.outputs.ImagePipelineWorkflow;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:imagebuilder/imagePipeline:ImagePipeline")
-public final class ImagePipeline extends com.pulumi.resources.PolicyResource {
+public final class ImagePipeline extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the image pipeline.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ImagePipeline.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    public String containerRecipeArn;
+    private @Nullable UndeferrableValue<String> containerRecipeArn;
 
-
+    public @Nullable String containerRecipeArn() {
+        if (containerRecipeArn == null) return null;
+        return containerRecipeArn.getValue("ImagePipeline.containerRecipeArn");
+    }
 
     /**
      * Date the image pipeline was created.
      * 
      */
-    public String dateCreated;
+    private UndeferrableValue<String> dateCreated;
 
-
+    public String dateCreated() {
+        if (dateCreated == null) return null;
+        return dateCreated.getValue("ImagePipeline.dateCreated");
+    }
 
     /**
      * Date the image pipeline was last run.
      * 
      */
-    public String dateLastRun;
+    private UndeferrableValue<String> dateLastRun;
 
-
+    public String dateLastRun() {
+        if (dateLastRun == null) return null;
+        return dateLastRun.getValue("ImagePipeline.dateLastRun");
+    }
 
     /**
      * Date the image pipeline will run next.
      * 
      */
-    public String dateNextRun;
+    private UndeferrableValue<String> dateNextRun;
 
-
+    public String dateNextRun() {
+        if (dateNextRun == null) return null;
+        return dateNextRun.getValue("ImagePipeline.dateNextRun");
+    }
 
     /**
      * Date the image pipeline was updated.
      * 
      */
-    public String dateUpdated;
+    private UndeferrableValue<String> dateUpdated;
 
-
+    public String dateUpdated() {
+        if (dateUpdated == null) return null;
+        return dateUpdated.getValue("ImagePipeline.dateUpdated");
+    }
 
     /**
      * Description of the image pipeline.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ImagePipeline.description");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    public String distributionConfigurationArn;
+    private @Nullable UndeferrableValue<String> distributionConfigurationArn;
 
-
+    public @Nullable String distributionConfigurationArn() {
+        if (distributionConfigurationArn == null) return null;
+        return distributionConfigurationArn.getValue("ImagePipeline.distributionConfigurationArn");
+    }
 
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      * 
      */
-    public Boolean enhancedImageMetadataEnabled;
+    private @Nullable UndeferrableValue<Boolean> enhancedImageMetadataEnabled;
 
-
+    public @Nullable Boolean enhancedImageMetadataEnabled() {
+        if (enhancedImageMetadataEnabled == null) return null;
+        return enhancedImageMetadataEnabled.getValue("ImagePipeline.enhancedImageMetadataEnabled");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
-    public String executionRole;
+    private @Nullable UndeferrableValue<String> executionRole;
 
-
+    public @Nullable String executionRole() {
+        if (executionRole == null) return null;
+        return executionRole.getValue("ImagePipeline.executionRole");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    public String imageRecipeArn;
+    private @Nullable UndeferrableValue<String> imageRecipeArn;
 
-
+    public @Nullable String imageRecipeArn() {
+        if (imageRecipeArn == null) return null;
+        return imageRecipeArn.getValue("ImagePipeline.imageRecipeArn");
+    }
 
     /**
      * Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    public ImagePipelineImageScanningConfiguration imageScanningConfiguration;
+    private UndeferrableValue<ImagePipelineImageScanningConfiguration> imageScanningConfiguration;
 
-
+    public ImagePipelineImageScanningConfiguration imageScanningConfiguration() {
+        if (imageScanningConfiguration == null) return null;
+        return imageScanningConfiguration.getValue("ImagePipeline.imageScanningConfiguration");
+    }
 
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
-    public ImagePipelineImageTestsConfiguration imageTestsConfiguration;
+    private UndeferrableValue<ImagePipelineImageTestsConfiguration> imageTestsConfiguration;
 
-
+    public ImagePipelineImageTestsConfiguration imageTestsConfiguration() {
+        if (imageTestsConfiguration == null) return null;
+        return imageTestsConfiguration.getValue("ImagePipeline.imageTestsConfiguration");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      * 
      */
-    public String infrastructureConfigurationArn;
+    private UndeferrableValue<String> infrastructureConfigurationArn;
 
-
+    public String infrastructureConfigurationArn() {
+        if (infrastructureConfigurationArn == null) return null;
+        return infrastructureConfigurationArn.getValue("ImagePipeline.infrastructureConfigurationArn");
+    }
 
     /**
      * Name of the image pipeline.
@@ -135,41 +179,56 @@ public final class ImagePipeline extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ImagePipeline.name");
+    }
 
     /**
      * Platform of the image pipeline.
      * 
      */
-    public String platform;
+    private UndeferrableValue<String> platform;
 
-
+    public String platform() {
+        if (platform == null) return null;
+        return platform.getValue("ImagePipeline.platform");
+    }
 
     /**
      * Configuration block with schedule settings. Detailed below.
      * 
      */
-    public ImagePipelineSchedule schedule;
+    private @Nullable UndeferrableValue<ImagePipelineSchedule> schedule;
 
-
+    public @Nullable ImagePipelineSchedule schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("ImagePipeline.schedule");
+    }
 
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("ImagePipeline.status");
+    }
 
     /**
      * Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ImagePipeline.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -179,16 +238,22 @@ public final class ImagePipeline extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ImagePipeline.tagsAll");
+    }
 
     /**
      * Configuration block with the workflow configuration. Detailed below.
      * 
      */
-    public List<ImagePipelineWorkflow> workflows;
+    private UndeferrableValue<List<ImagePipelineWorkflow>> workflows;
 
-
+    public List<ImagePipelineWorkflow> workflows() {
+        if (workflows == null) return null;
+        return workflows.getValue("ImagePipeline.workflows");
+    }
 
 }

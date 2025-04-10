@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.BotAssociationLexBot;
+import com.pulumi.policypacks.aws.connect.outputs.BotAssociationLexBot;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:connect/botAssociation:BotAssociation")
-public final class BotAssociation extends com.pulumi.resources.PolicyResource {
+public final class BotAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("BotAssociation.instanceId");
+    }
 
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      * 
      */
-    public BotAssociationLexBot lexBot;
+    private UndeferrableValue<BotAssociationLexBot> lexBot;
 
-
+    public BotAssociationLexBot lexBot() {
+        if (lexBot == null) return null;
+        return lexBot.getValue("BotAssociation.lexBot");
+    }
 
 }

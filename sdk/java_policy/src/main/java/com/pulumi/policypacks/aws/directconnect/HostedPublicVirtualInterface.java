@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -10,106 +11,145 @@ import java.util.List;
 
 
 @PolicyResourceType(type="aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface")
-public final class HostedPublicVirtualInterface extends com.pulumi.resources.PolicyResource {
+public final class HostedPublicVirtualInterface extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("HostedPublicVirtualInterface.addressFamily");
+    }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    public String amazonAddress;
+    private UndeferrableValue<String> amazonAddress;
 
+    public String amazonAddress() {
+        if (amazonAddress == null) return null;
+        return amazonAddress.getValue("HostedPublicVirtualInterface.amazonAddress");
+    }
 
+    private UndeferrableValue<String> amazonSideAsn;
 
-    public String amazonSideAsn;
-
-
+    public String amazonSideAsn() {
+        if (amazonSideAsn == null) return null;
+        return amazonSideAsn.getValue("HostedPublicVirtualInterface.amazonSideAsn");
+    }
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HostedPublicVirtualInterface.arn");
+    }
 
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    public String awsDevice;
+    private UndeferrableValue<String> awsDevice;
 
-
+    public String awsDevice() {
+        if (awsDevice == null) return null;
+        return awsDevice.getValue("HostedPublicVirtualInterface.awsDevice");
+    }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    public Integer bgpAsn;
+    private UndeferrableValue<Integer> bgpAsn;
 
-
+    public Integer bgpAsn() {
+        if (bgpAsn == null) return null;
+        return bgpAsn.getValue("HostedPublicVirtualInterface.bgpAsn");
+    }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    public String bgpAuthKey;
+    private UndeferrableValue<String> bgpAuthKey;
 
-
+    public String bgpAuthKey() {
+        if (bgpAuthKey == null) return null;
+        return bgpAuthKey.getValue("HostedPublicVirtualInterface.bgpAuthKey");
+    }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("HostedPublicVirtualInterface.connectionId");
+    }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    public String customerAddress;
+    private UndeferrableValue<String> customerAddress;
 
-
+    public String customerAddress() {
+        if (customerAddress == null) return null;
+        return customerAddress.getValue("HostedPublicVirtualInterface.customerAddress");
+    }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("HostedPublicVirtualInterface.name");
+    }
 
     /**
      * The AWS account that will own the new virtual interface.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("HostedPublicVirtualInterface.ownerAccountId");
+    }
 
     /**
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
-    public List<String> routeFilterPrefixes;
+    private UndeferrableValue<List<String>> routeFilterPrefixes;
 
-
+    public List<String> routeFilterPrefixes() {
+        if (routeFilterPrefixes == null) return null;
+        return routeFilterPrefixes.getValue("HostedPublicVirtualInterface.routeFilterPrefixes");
+    }
 
     /**
      * The VLAN ID.
      * 
      */
-    public Integer vlan;
+    private UndeferrableValue<Integer> vlan;
 
-
+    public Integer vlan() {
+        if (vlan == null) return null;
+        return vlan.getValue("HostedPublicVirtualInterface.vlan");
+    }
 
 }

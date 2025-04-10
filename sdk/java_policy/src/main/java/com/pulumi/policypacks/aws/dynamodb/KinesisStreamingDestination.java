@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")
-public final class KinesisStreamingDestination extends com.pulumi.resources.PolicyResource {
+public final class KinesisStreamingDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
      * 
      */
-    public String approximateCreationDateTimePrecision;
+    private UndeferrableValue<String> approximateCreationDateTimePrecision;
 
-
+    public String approximateCreationDateTimePrecision() {
+        if (approximateCreationDateTimePrecision == null) return null;
+        return approximateCreationDateTimePrecision.getValue("KinesisStreamingDestination.approximateCreationDateTimePrecision");
+    }
 
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
-    public String streamArn;
+    private UndeferrableValue<String> streamArn;
 
-
+    public String streamArn() {
+        if (streamArn == null) return null;
+        return streamArn.getValue("KinesisStreamingDestination.streamArn");
+    }
 
     /**
      * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
-    public String tableName;
+    private UndeferrableValue<String> tableName;
 
-
+    public String tableName() {
+        if (tableName == null) return null;
+        return tableName.getValue("KinesisStreamingDestination.tableName");
+    }
 
 }

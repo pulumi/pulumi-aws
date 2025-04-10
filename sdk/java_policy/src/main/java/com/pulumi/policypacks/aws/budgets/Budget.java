@@ -3,123 +3,164 @@
 
 package com.pulumi.policypacks.aws.budgets;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.budgets.BudgetAutoAdjustData;
-import com.pulumi.policypacks.aws.budgets.BudgetCostFilter;
-import com.pulumi.policypacks.aws.budgets.BudgetCostTypes;
-import com.pulumi.policypacks.aws.budgets.BudgetNotification;
-import com.pulumi.policypacks.aws.budgets.BudgetPlannedLimit;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetAutoAdjustData;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetCostFilter;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetCostTypes;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetNotification;
+import com.pulumi.policypacks.aws.budgets.outputs.BudgetPlannedLimit;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:budgets/budget:Budget")
-public final class Budget extends com.pulumi.resources.PolicyResource {
+public final class Budget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Budget.accountId");
+    }
 
     /**
      * The ARN of the budget.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Budget.arn");
+    }
 
     /**
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      * 
      */
-    public BudgetAutoAdjustData autoAdjustData;
+    private @Nullable UndeferrableValue<BudgetAutoAdjustData> autoAdjustData;
 
-
+    public @Nullable BudgetAutoAdjustData autoAdjustData() {
+        if (autoAdjustData == null) return null;
+        return autoAdjustData.getValue("Budget.autoAdjustData");
+    }
 
     /**
      * Whether this budget tracks monetary cost or usage.
      * 
      */
-    public String budgetType;
+    private UndeferrableValue<String> budgetType;
 
-
+    public String budgetType() {
+        if (budgetType == null) return null;
+        return budgetType.getValue("Budget.budgetType");
+    }
 
     /**
      * A list of CostFilter name/values pair to apply to budget.
      * 
      */
-    public List<BudgetCostFilter> costFilters;
+    private UndeferrableValue<List<BudgetCostFilter>> costFilters;
 
-
+    public List<BudgetCostFilter> costFilters() {
+        if (costFilters == null) return null;
+        return costFilters.getValue("Budget.costFilters");
+    }
 
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
-    public BudgetCostTypes costTypes;
+    private UndeferrableValue<BudgetCostTypes> costTypes;
 
-
+    public BudgetCostTypes costTypes() {
+        if (costTypes == null) return null;
+        return costTypes.getValue("Budget.costTypes");
+    }
 
     /**
      * The amount of cost or usage being measured for a budget.
      * 
      */
-    public String limitAmount;
+    private UndeferrableValue<String> limitAmount;
 
-
+    public String limitAmount() {
+        if (limitAmount == null) return null;
+        return limitAmount.getValue("Budget.limitAmount");
+    }
 
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
-    public String limitUnit;
+    private UndeferrableValue<String> limitUnit;
 
-
+    public String limitUnit() {
+        if (limitUnit == null) return null;
+        return limitUnit.getValue("Budget.limitUnit");
+    }
 
     /**
      * The name of a budget. Unique within accounts.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Budget.name");
+    }
 
     /**
      * The prefix of the name of a budget. Unique within accounts.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Budget.namePrefix");
+    }
 
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
-    public List<BudgetNotification> notifications;
+    private @Nullable UndeferrableValue<List<BudgetNotification>> notifications;
 
-
+    public @Nullable List<BudgetNotification> notifications() {
+        if (notifications == null) return null;
+        return notifications.getValue("Budget.notifications");
+    }
 
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    public List<BudgetPlannedLimit> plannedLimits;
+    private @Nullable UndeferrableValue<List<BudgetPlannedLimit>> plannedLimits;
 
-
+    public @Nullable List<BudgetPlannedLimit> plannedLimits() {
+        if (plannedLimits == null) return null;
+        return plannedLimits.getValue("Budget.plannedLimits");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Budget.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -129,25 +170,34 @@ public final class Budget extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Budget.tagsAll");
+    }
 
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    public String timePeriodEnd;
+    private @Nullable UndeferrableValue<String> timePeriodEnd;
 
-
+    public @Nullable String timePeriodEnd() {
+        if (timePeriodEnd == null) return null;
+        return timePeriodEnd.getValue("Budget.timePeriodEnd");
+    }
 
     /**
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    public String timePeriodStart;
+    private UndeferrableValue<String> timePeriodStart;
 
-
+    public String timePeriodStart() {
+        if (timePeriodStart == null) return null;
+        return timePeriodStart.getValue("Budget.timePeriodStart");
+    }
 
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
@@ -155,8 +205,11 @@ public final class Budget extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String timeUnit;
+    private UndeferrableValue<String> timeUnit;
 
-
+    public String timeUnit() {
+        if (timeUnit == null) return null;
+        return timeUnit.getValue("Budget.timeUnit");
+    }
 
 }

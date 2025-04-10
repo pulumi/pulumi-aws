@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/subscription:Subscription")
-public final class Subscription extends com.pulumi.resources.PolicyResource {
+public final class Subscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
      * 
      */
-    public String autoRenew;
+    private UndeferrableValue<String> autoRenew;
 
-
+    public String autoRenew() {
+        if (autoRenew == null) return null;
+        return autoRenew.getValue("Subscription.autoRenew");
+    }
 
     /**
      * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("Subscription.skipDestroy");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:elb/attachment:Attachment")
-public final class Attachment extends com.pulumi.resources.PolicyResource {
+public final class Attachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the ELB.
      * 
      */
-    public String elb;
+    private UndeferrableValue<String> elb;
 
-
+    public String elb() {
+        if (elb == null) return null;
+        return elb.getValue("Attachment.elb");
+    }
 
     /**
      * Instance ID to place in the ELB pool.
      * 
      */
-    public String instance;
+    private UndeferrableValue<String> instance;
 
-
+    public String instance() {
+        if (instance == null) return null;
+        return instance.getValue("Attachment.instance");
+    }
 
 }

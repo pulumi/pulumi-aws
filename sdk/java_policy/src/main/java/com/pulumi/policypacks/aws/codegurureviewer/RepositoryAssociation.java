@@ -3,73 +3,96 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codegurureviewer.RepositoryAssociationKmsKeyDetails;
-import com.pulumi.policypacks.aws.codegurureviewer.RepositoryAssociationRepository;
-import com.pulumi.policypacks.aws.codegurureviewer.RepositoryAssociationS3RepositoryDetail;
+import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationKmsKeyDetails;
+import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationRepository;
+import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationS3RepositoryDetail;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")
-public final class RepositoryAssociation extends com.pulumi.resources.PolicyResource {
+public final class RepositoryAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) identifying the repository association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RepositoryAssociation.arn");
+    }
 
     /**
      * The ID of the repository association.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("RepositoryAssociation.associationId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      * 
      */
-    public String connectionArn;
+    private UndeferrableValue<String> connectionArn;
 
-
+    public String connectionArn() {
+        if (connectionArn == null) return null;
+        return connectionArn.getValue("RepositoryAssociation.connectionArn");
+    }
 
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      * 
      */
-    public RepositoryAssociationKmsKeyDetails kmsKeyDetails;
+    private @Nullable UndeferrableValue<RepositoryAssociationKmsKeyDetails> kmsKeyDetails;
 
-
+    public @Nullable RepositoryAssociationKmsKeyDetails kmsKeyDetails() {
+        if (kmsKeyDetails == null) return null;
+        return kmsKeyDetails.getValue("RepositoryAssociation.kmsKeyDetails");
+    }
 
     /**
      * The name of the repository.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RepositoryAssociation.name");
+    }
 
     /**
      * The owner of the repository.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("RepositoryAssociation.owner");
+    }
 
     /**
      * The provider type of the repository association.
      * 
      */
-    public String providerType;
+    private UndeferrableValue<String> providerType;
 
-
+    public String providerType() {
+        if (providerType == null) return null;
+        return providerType.getValue("RepositoryAssociation.providerType");
+    }
 
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -77,33 +100,48 @@ public final class RepositoryAssociation extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public RepositoryAssociationRepository repository;
+    private UndeferrableValue<RepositoryAssociationRepository> repository;
 
+    public RepositoryAssociationRepository repository() {
+        if (repository == null) return null;
+        return repository.getValue("RepositoryAssociation.repository");
+    }
 
+    private UndeferrableValue<List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails;
 
-    public List<RepositoryAssociationS3RepositoryDetail> s3RepositoryDetails;
-
-
+    public List<RepositoryAssociationS3RepositoryDetail> s3RepositoryDetails() {
+        if (s3RepositoryDetails == null) return null;
+        return s3RepositoryDetails.getValue("RepositoryAssociation.s3RepositoryDetails");
+    }
 
     /**
      * The state of the repository association.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("RepositoryAssociation.state");
+    }
 
     /**
      * A description of why the repository association is in the current state.
      * 
      */
-    public String stateReason;
+    private UndeferrableValue<String> stateReason;
 
+    public String stateReason() {
+        if (stateReason == null) return null;
+        return stateReason.getValue("RepositoryAssociation.stateReason");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RepositoryAssociation.tags");
+    }
 
     /**
      * @deprecated
@@ -111,8 +149,11 @@ public final class RepositoryAssociation extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RepositoryAssociation.tagsAll");
+    }
 
 }

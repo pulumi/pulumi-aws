@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.VoiceConnectorStreamingMediaInsightsConfiguration;
+import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorStreamingMediaInsightsConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")
-public final class VoiceConnectorStreaming extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorStreaming extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The retention period, in hours, for the Amazon Kinesis data.
      * 
      */
-    public Integer dataRetention;
+    private UndeferrableValue<Integer> dataRetention;
 
-
+    public Integer dataRetention() {
+        if (dataRetention == null) return null;
+        return dataRetention.getValue("VoiceConnectorStreaming.dataRetention");
+    }
 
     /**
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      * 
      */
-    public Boolean disabled;
+    private @Nullable UndeferrableValue<Boolean> disabled;
 
-
+    public @Nullable Boolean disabled() {
+        if (disabled == null) return null;
+        return disabled.getValue("VoiceConnectorStreaming.disabled");
+    }
 
     /**
      * The media insights configuration. See `media_insights_configuration`.
      * 
      */
-    public VoiceConnectorStreamingMediaInsightsConfiguration mediaInsightsConfiguration;
+    private @Nullable UndeferrableValue<VoiceConnectorStreamingMediaInsightsConfiguration> mediaInsightsConfiguration;
 
-
+    public @Nullable VoiceConnectorStreamingMediaInsightsConfiguration mediaInsightsConfiguration() {
+        if (mediaInsightsConfiguration == null) return null;
+        return mediaInsightsConfiguration.getValue("VoiceConnectorStreaming.mediaInsightsConfiguration");
+    }
 
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      * 
      */
-    public List<String> streamingNotificationTargets;
+    private @Nullable UndeferrableValue<List<String>> streamingNotificationTargets;
 
-
+    public @Nullable List<String> streamingNotificationTargets() {
+        if (streamingNotificationTargets == null) return null;
+        return streamingNotificationTargets.getValue("VoiceConnectorStreaming.streamingNotificationTargets");
+    }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    public String voiceConnectorId;
+    private UndeferrableValue<String> voiceConnectorId;
 
-
+    public String voiceConnectorId() {
+        if (voiceConnectorId == null) return null;
+        return voiceConnectorId.getValue("VoiceConnectorStreaming.voiceConnectorId");
+    }
 
 }

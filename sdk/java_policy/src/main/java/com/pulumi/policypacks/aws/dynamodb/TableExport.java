@@ -3,139 +3,189 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.dynamodb.TableExportIncrementalExportSpecification;
+import com.pulumi.policypacks.aws.dynamodb.outputs.TableExportIncrementalExportSpecification;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dynamodb/tableExport:TableExport")
-public final class TableExport extends com.pulumi.resources.PolicyResource {
+public final class TableExport extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Table Export.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TableExport.arn");
+    }
 
     /**
      * Billable size of the table export.
      * 
      */
-    public Integer billedSizeInBytes;
+    private UndeferrableValue<Integer> billedSizeInBytes;
 
-
+    public Integer billedSizeInBytes() {
+        if (billedSizeInBytes == null) return null;
+        return billedSizeInBytes.getValue("TableExport.billedSizeInBytes");
+    }
 
     /**
      * Time at which the export task completed.
      * 
      */
-    public String endTime;
+    private UndeferrableValue<String> endTime;
 
-
+    public String endTime() {
+        if (endTime == null) return null;
+        return endTime.getValue("TableExport.endTime");
+    }
 
     /**
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
-    public String exportFormat;
+    private @Nullable UndeferrableValue<String> exportFormat;
 
-
+    public @Nullable String exportFormat() {
+        if (exportFormat == null) return null;
+        return exportFormat.getValue("TableExport.exportFormat");
+    }
 
     /**
      * Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
      * 
      */
-    public String exportStatus;
+    private UndeferrableValue<String> exportStatus;
 
-
+    public String exportStatus() {
+        if (exportStatus == null) return null;
+        return exportStatus.getValue("TableExport.exportStatus");
+    }
 
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table&#39;s state at this point in time. Omitting this value will result in a snapshot from the current time.
      * 
      */
-    public String exportTime;
+    private UndeferrableValue<String> exportTime;
 
-
+    public String exportTime() {
+        if (exportTime == null) return null;
+        return exportTime.getValue("TableExport.exportTime");
+    }
 
     /**
      * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
      * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
      * 
      */
-    public String exportType;
+    private UndeferrableValue<String> exportType;
 
+    public String exportType() {
+        if (exportType == null) return null;
+        return exportType.getValue("TableExport.exportType");
+    }
 
+    private @Nullable UndeferrableValue<TableExportIncrementalExportSpecification> incrementalExportSpecification;
 
-    public TableExportIncrementalExportSpecification incrementalExportSpecification;
-
-
+    public @Nullable TableExportIncrementalExportSpecification incrementalExportSpecification() {
+        if (incrementalExportSpecification == null) return null;
+        return incrementalExportSpecification.getValue("TableExport.incrementalExportSpecification");
+    }
 
     /**
      * Number of items exported.
      * 
      */
-    public Integer itemCount;
+    private UndeferrableValue<Integer> itemCount;
 
-
+    public Integer itemCount() {
+        if (itemCount == null) return null;
+        return itemCount.getValue("TableExport.itemCount");
+    }
 
     /**
      * Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
      * 
      */
-    public String manifestFilesS3Key;
+    private UndeferrableValue<String> manifestFilesS3Key;
 
-
+    public String manifestFilesS3Key() {
+        if (manifestFilesS3Key == null) return null;
+        return manifestFilesS3Key.getValue("TableExport.manifestFilesS3Key");
+    }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      * 
      */
-    public String s3Bucket;
+    private UndeferrableValue<String> s3Bucket;
 
-
+    public String s3Bucket() {
+        if (s3Bucket == null) return null;
+        return s3Bucket.getValue("TableExport.s3Bucket");
+    }
 
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      * 
      */
-    public String s3BucketOwner;
+    private UndeferrableValue<String> s3BucketOwner;
 
-
+    public String s3BucketOwner() {
+        if (s3BucketOwner == null) return null;
+        return s3BucketOwner.getValue("TableExport.s3BucketOwner");
+    }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    public String s3Prefix;
+    private UndeferrableValue<String> s3Prefix;
 
-
+    public String s3Prefix() {
+        if (s3Prefix == null) return null;
+        return s3Prefix.getValue("TableExport.s3Prefix");
+    }
 
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      * 
      */
-    public String s3SseAlgorithm;
+    private UndeferrableValue<String> s3SseAlgorithm;
 
-
+    public String s3SseAlgorithm() {
+        if (s3SseAlgorithm == null) return null;
+        return s3SseAlgorithm.getValue("TableExport.s3SseAlgorithm");
+    }
 
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      * 
      */
-    public String s3SseKmsKeyId;
+    private @Nullable UndeferrableValue<String> s3SseKmsKeyId;
 
-
+    public @Nullable String s3SseKmsKeyId() {
+        if (s3SseKmsKeyId == null) return null;
+        return s3SseKmsKeyId.getValue("TableExport.s3SseKmsKeyId");
+    }
 
     /**
      * Time at which the export task began.
      * 
      */
-    public String startTime;
+    private UndeferrableValue<String> startTime;
 
-
+    public String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("TableExport.startTime");
+    }
 
     /**
      * ARN associated with the table to export.
@@ -143,8 +193,11 @@ public final class TableExport extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String tableArn;
+    private UndeferrableValue<String> tableArn;
 
-
+    public String tableArn() {
+        if (tableArn == null) return null;
+        return tableArn.getValue("TableExport.tableArn");
+    }
 
 }

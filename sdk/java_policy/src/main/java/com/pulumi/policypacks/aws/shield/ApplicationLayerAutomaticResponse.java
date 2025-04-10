@@ -3,32 +3,43 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.shield.ApplicationLayerAutomaticResponseTimeouts;
+import com.pulumi.policypacks.aws.shield.outputs.ApplicationLayerAutomaticResponseTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")
-public final class ApplicationLayerAutomaticResponse extends com.pulumi.resources.PolicyResource {
+public final class ApplicationLayerAutomaticResponse extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * One of `COUNT` or `BLOCK`
      * 
      */
-    public String action;
+    private UndeferrableValue<String> action;
 
-
+    public String action() {
+        if (action == null) return null;
+        return action.getValue("ApplicationLayerAutomaticResponse.action");
+    }
 
     /**
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ApplicationLayerAutomaticResponse.resourceArn");
+    }
 
+    private @Nullable UndeferrableValue<ApplicationLayerAutomaticResponseTimeouts> timeouts;
 
-    public ApplicationLayerAutomaticResponseTimeouts timeouts;
-
-
+    public @Nullable ApplicationLayerAutomaticResponseTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ApplicationLayerAutomaticResponse.timeouts");
+    }
 
 }

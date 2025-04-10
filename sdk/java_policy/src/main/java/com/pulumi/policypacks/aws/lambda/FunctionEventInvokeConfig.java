@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.FunctionEventInvokeConfigDestinationConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionEventInvokeConfigDestinationConfig;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")
-public final class FunctionEventInvokeConfig extends com.pulumi.resources.PolicyResource {
+public final class FunctionEventInvokeConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block with destination configuration. See below for details.
      * 
      */
-    public FunctionEventInvokeConfigDestinationConfig destinationConfig;
+    private @Nullable UndeferrableValue<FunctionEventInvokeConfigDestinationConfig> destinationConfig;
 
-
+    public @Nullable FunctionEventInvokeConfigDestinationConfig destinationConfig() {
+        if (destinationConfig == null) return null;
+        return destinationConfig.getValue("FunctionEventInvokeConfig.destinationConfig");
+    }
 
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -26,32 +31,44 @@ public final class FunctionEventInvokeConfig extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("FunctionEventInvokeConfig.functionName");
+    }
 
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      * 
      */
-    public Integer maximumEventAgeInSeconds;
+    private @Nullable UndeferrableValue<Integer> maximumEventAgeInSeconds;
 
-
+    public @Nullable Integer maximumEventAgeInSeconds() {
+        if (maximumEventAgeInSeconds == null) return null;
+        return maximumEventAgeInSeconds.getValue("FunctionEventInvokeConfig.maximumEventAgeInSeconds");
+    }
 
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      * 
      */
-    public Integer maximumRetryAttempts;
+    private @Nullable UndeferrableValue<Integer> maximumRetryAttempts;
 
-
+    public @Nullable Integer maximumRetryAttempts() {
+        if (maximumRetryAttempts == null) return null;
+        return maximumRetryAttempts.getValue("FunctionEventInvokeConfig.maximumRetryAttempts");
+    }
 
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      * 
      */
-    public String qualifier;
+    private @Nullable UndeferrableValue<String> qualifier;
 
-
+    public @Nullable String qualifier() {
+        if (qualifier == null) return null;
+        return qualifier.getValue("FunctionEventInvokeConfig.qualifier");
+    }
 
 }

@@ -3,183 +3,254 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.CustomLayerCloudwatchConfiguration;
-import com.pulumi.policypacks.aws.opsworks.CustomLayerEbsVolume;
-import com.pulumi.policypacks.aws.opsworks.CustomLayerLoadBasedAutoScaling;
+import com.pulumi.policypacks.aws.opsworks.outputs.CustomLayerCloudwatchConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.CustomLayerEbsVolume;
+import com.pulumi.policypacks.aws.opsworks.outputs.CustomLayerLoadBasedAutoScaling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/customLayer:CustomLayer")
-public final class CustomLayer extends com.pulumi.resources.PolicyResource {
+public final class CustomLayer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomLayer.arn");
+    }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignElasticIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
 
-
+    public @Nullable Boolean autoAssignElasticIps() {
+        if (autoAssignElasticIps == null) return null;
+        return autoAssignElasticIps.getValue("CustomLayer.autoAssignElasticIps");
+    }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignPublicIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
 
-
+    public @Nullable Boolean autoAssignPublicIps() {
+        if (autoAssignPublicIps == null) return null;
+        return autoAssignPublicIps.getValue("CustomLayer.autoAssignPublicIps");
+    }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    public Boolean autoHealing;
+    private @Nullable UndeferrableValue<Boolean> autoHealing;
 
-
+    public @Nullable Boolean autoHealing() {
+        if (autoHealing == null) return null;
+        return autoHealing.getValue("CustomLayer.autoHealing");
+    }
 
     /**
      * Will create an EBS volume and connect it to the layer&#39;s instances. See Cloudwatch Configuration.
      * 
      */
-    public CustomLayerCloudwatchConfiguration cloudwatchConfiguration;
+    private @Nullable UndeferrableValue<CustomLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
+    public @Nullable CustomLayerCloudwatchConfiguration cloudwatchConfiguration() {
+        if (cloudwatchConfiguration == null) return null;
+        return cloudwatchConfiguration.getValue("CustomLayer.cloudwatchConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
 
-    public List<String> customConfigureRecipes;
+    public @Nullable List<String> customConfigureRecipes() {
+        if (customConfigureRecipes == null) return null;
+        return customConfigureRecipes.getValue("CustomLayer.customConfigureRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
 
-
-    public List<String> customDeployRecipes;
-
-
+    public @Nullable List<String> customDeployRecipes() {
+        if (customDeployRecipes == null) return null;
+        return customDeployRecipes.getValue("CustomLayer.customDeployRecipes");
+    }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    public String customInstanceProfileArn;
+    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
 
-
+    public @Nullable String customInstanceProfileArn() {
+        if (customInstanceProfileArn == null) return null;
+        return customInstanceProfileArn.getValue("CustomLayer.customInstanceProfileArn");
+    }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    public String customJson;
+    private @Nullable UndeferrableValue<String> customJson;
 
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("CustomLayer.customJson");
+    }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    public List<String> customSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
 
+    public @Nullable List<String> customSecurityGroupIds() {
+        if (customSecurityGroupIds == null) return null;
+        return customSecurityGroupIds.getValue("CustomLayer.customSecurityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
 
-    public List<String> customSetupRecipes;
+    public @Nullable List<String> customSetupRecipes() {
+        if (customSetupRecipes == null) return null;
+        return customSetupRecipes.getValue("CustomLayer.customSetupRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
 
+    public @Nullable List<String> customShutdownRecipes() {
+        if (customShutdownRecipes == null) return null;
+        return customShutdownRecipes.getValue("CustomLayer.customShutdownRecipes");
+    }
 
-    public List<String> customShutdownRecipes;
+    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
 
-
-
-    public List<String> customUndeployRecipes;
-
-
+    public @Nullable List<String> customUndeployRecipes() {
+        if (customUndeployRecipes == null) return null;
+        return customUndeployRecipes.getValue("CustomLayer.customUndeployRecipes");
+    }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    public Boolean drainElbOnShutdown;
+    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
 
-
+    public @Nullable Boolean drainElbOnShutdown() {
+        if (drainElbOnShutdown == null) return null;
+        return drainElbOnShutdown.getValue("CustomLayer.drainElbOnShutdown");
+    }
 
     /**
      * Will create an EBS volume and connect it to the layer&#39;s instances. See EBS Volume.
      * 
      */
-    public List<CustomLayerEbsVolume> ebsVolumes;
+    private UndeferrableValue<List<CustomLayerEbsVolume>> ebsVolumes;
 
-
+    public List<CustomLayerEbsVolume> ebsVolumes() {
+        if (ebsVolumes == null) return null;
+        return ebsVolumes.getValue("CustomLayer.ebsVolumes");
+    }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    public String elasticLoadBalancer;
+    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
 
-
+    public @Nullable String elasticLoadBalancer() {
+        if (elasticLoadBalancer == null) return null;
+        return elasticLoadBalancer.getValue("CustomLayer.elasticLoadBalancer");
+    }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("CustomLayer.installUpdatesOnBoot");
+    }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    public Integer instanceShutdownTimeout;
+    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
 
-
+    public @Nullable Integer instanceShutdownTimeout() {
+        if (instanceShutdownTimeout == null) return null;
+        return instanceShutdownTimeout.getValue("CustomLayer.instanceShutdownTimeout");
+    }
 
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      * 
      */
-    public CustomLayerLoadBasedAutoScaling loadBasedAutoScaling;
+    private UndeferrableValue<CustomLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-
+    public CustomLayerLoadBasedAutoScaling loadBasedAutoScaling() {
+        if (loadBasedAutoScaling == null) return null;
+        return loadBasedAutoScaling.getValue("CustomLayer.loadBasedAutoScaling");
+    }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CustomLayer.name");
+    }
 
     /**
      * A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
      * 
      */
-    public String shortName;
+    private UndeferrableValue<String> shortName;
 
-
+    public String shortName() {
+        if (shortName == null) return null;
+        return shortName.getValue("CustomLayer.shortName");
+    }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("CustomLayer.stackId");
+    }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    public List<String> systemPackages;
+    private @Nullable UndeferrableValue<List<String>> systemPackages;
 
-
+    public @Nullable List<String> systemPackages() {
+        if (systemPackages == null) return null;
+        return systemPackages.getValue("CustomLayer.systemPackages");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -189,9 +260,12 @@ public final class CustomLayer extends com.pulumi.resources.PolicyResource {
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomLayer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -201,16 +275,22 @@ public final class CustomLayer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomLayer.tagsAll");
+    }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    public Boolean useEbsOptimizedInstances;
+    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
 
-
+    public @Nullable Boolean useEbsOptimizedInstances() {
+        if (useEbsOptimizedInstances == null) return null;
+        return useEbsOptimizedInstances.getValue("CustomLayer.useEbsOptimizedInstances");
+    }
 
 }

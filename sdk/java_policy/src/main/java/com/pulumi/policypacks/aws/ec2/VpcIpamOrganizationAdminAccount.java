@@ -3,47 +3,63 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")
-public final class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Organizations ARN for the delegate account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpamOrganizationAdminAccount.arn");
+    }
 
+    private UndeferrableValue<String> delegatedAdminAccountId;
 
-    public String delegatedAdminAccountId;
-
-
+    public String delegatedAdminAccountId() {
+        if (delegatedAdminAccountId == null) return null;
+        return delegatedAdminAccountId.getValue("VpcIpamOrganizationAdminAccount.delegatedAdminAccountId");
+    }
 
     /**
      * The Organizations email for the delegate account.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("VpcIpamOrganizationAdminAccount.email");
+    }
 
     /**
      * The Organizations name for the delegate account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VpcIpamOrganizationAdminAccount.name");
+    }
 
     /**
      * The AWS service principal.
      * 
      */
-    public String servicePrincipal;
+    private UndeferrableValue<String> servicePrincipal;
 
-
+    public String servicePrincipal() {
+        if (servicePrincipal == null) return null;
+        return servicePrincipal.getValue("VpcIpamOrganizationAdminAccount.servicePrincipal");
+    }
 
 }

@@ -3,19 +3,24 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sesv2.ContactListTopic;
+import com.pulumi.policypacks.aws.sesv2.outputs.ContactListTopic;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sesv2/contactList:ContactList")
-public final class ContactList extends com.pulumi.resources.PolicyResource {
+public final class ContactList extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContactList.arn");
+    }
 
     /**
      * Name of the contact list.
@@ -23,41 +28,56 @@ public final class ContactList extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String contactListName;
+    private UndeferrableValue<String> contactListName;
 
-
+    public String contactListName() {
+        if (contactListName == null) return null;
+        return contactListName.getValue("ContactList.contactListName");
+    }
 
     /**
      * Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
-    public String createdTimestamp;
+    private UndeferrableValue<String> createdTimestamp;
 
-
+    public String createdTimestamp() {
+        if (createdTimestamp == null) return null;
+        return createdTimestamp.getValue("ContactList.createdTimestamp");
+    }
 
     /**
      * Description of what the contact list is about.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ContactList.description");
+    }
 
     /**
      * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
-    public String lastUpdatedTimestamp;
+    private UndeferrableValue<String> lastUpdatedTimestamp;
 
-
+    public String lastUpdatedTimestamp() {
+        if (lastUpdatedTimestamp == null) return null;
+        return lastUpdatedTimestamp.getValue("ContactList.lastUpdatedTimestamp");
+    }
 
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ContactList.tags");
+    }
 
     /**
      * @deprecated
@@ -65,16 +85,22 @@ public final class ContactList extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ContactList.tagsAll");
+    }
 
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      * 
      */
-    public List<ContactListTopic> topics;
+    private @Nullable UndeferrableValue<List<ContactListTopic>> topics;
 
-
+    public @Nullable List<ContactListTopic> topics() {
+        if (topics == null) return null;
+        return topics.getValue("ContactList.topics");
+    }
 
 }

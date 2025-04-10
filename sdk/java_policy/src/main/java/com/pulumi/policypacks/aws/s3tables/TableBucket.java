@@ -3,38 +3,48 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3tables.TableBucketMaintenanceConfiguration;
+import com.pulumi.policypacks.aws.s3tables.outputs.TableBucketMaintenanceConfiguration;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:s3tables/tableBucket:TableBucket")
-public final class TableBucket extends com.pulumi.resources.PolicyResource {
+public final class TableBucket extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the table bucket.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TableBucket.arn");
+    }
 
     /**
      * Date and time when the bucket was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("TableBucket.createdAt");
+    }
 
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
-    public TableBucketMaintenanceConfiguration maintenanceConfiguration;
+    private UndeferrableValue<TableBucketMaintenanceConfiguration> maintenanceConfiguration;
 
-
+    public TableBucketMaintenanceConfiguration maintenanceConfiguration() {
+        if (maintenanceConfiguration == null) return null;
+        return maintenanceConfiguration.getValue("TableBucket.maintenanceConfiguration");
+    }
 
     /**
      * Name of the table bucket.
@@ -45,16 +55,22 @@ public final class TableBucket extends com.pulumi.resources.PolicyResource {
      * The following argument is optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TableBucket.name");
+    }
 
     /**
      * Account ID of the account that owns the table bucket.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("TableBucket.ownerAccountId");
+    }
 
 }

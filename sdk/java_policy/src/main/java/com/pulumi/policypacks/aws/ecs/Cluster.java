@@ -3,33 +3,41 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.ClusterConfiguration;
-import com.pulumi.policypacks.aws.ecs.ClusterServiceConnectDefaults;
-import com.pulumi.policypacks.aws.ecs.ClusterSetting;
+import com.pulumi.policypacks.aws.ecs.outputs.ClusterConfiguration;
+import com.pulumi.policypacks.aws.ecs.outputs.ClusterServiceConnectDefaults;
+import com.pulumi.policypacks.aws.ecs.outputs.ClusterSetting;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN that identifies the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
-    public ClusterConfiguration configuration;
+    private @Nullable UndeferrableValue<ClusterConfiguration> configuration;
 
-
+    public @Nullable ClusterConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Cluster.configuration");
+    }
 
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -37,33 +45,45 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Cluster.name");
+    }
 
     /**
      * Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
-    public ClusterServiceConnectDefaults serviceConnectDefaults;
+    private @Nullable UndeferrableValue<ClusterServiceConnectDefaults> serviceConnectDefaults;
 
-
+    public @Nullable ClusterServiceConnectDefaults serviceConnectDefaults() {
+        if (serviceConnectDefaults == null) return null;
+        return serviceConnectDefaults.getValue("Cluster.serviceConnectDefaults");
+    }
 
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
-    public List<ClusterSetting> settings;
+    private UndeferrableValue<List<ClusterSetting>> settings;
 
-
+    public List<ClusterSetting> settings() {
+        if (settings == null) return null;
+        return settings.getValue("Cluster.settings");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -73,8 +93,11 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
 }

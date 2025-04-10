@@ -10,5 +10,5 @@ pluginManagement {
   }
 }
 
-rootProject.name = "com.pulumi.aws-policypacks"
+rootProject.name = "com.pulumi.policypacks.aws"
 include("lib")

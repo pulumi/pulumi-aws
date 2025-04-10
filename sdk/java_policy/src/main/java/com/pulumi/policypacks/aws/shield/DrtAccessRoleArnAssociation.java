@@ -3,24 +3,32 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.shield.DrtAccessRoleArnAssociationTimeouts;
+import com.pulumi.policypacks.aws.shield.outputs.DrtAccessRoleArnAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")
-public final class DrtAccessRoleArnAssociation extends com.pulumi.resources.PolicyResource {
+public final class DrtAccessRoleArnAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("DrtAccessRoleArnAssociation.roleArn");
+    }
 
+    private @Nullable UndeferrableValue<DrtAccessRoleArnAssociationTimeouts> timeouts;
 
-    public DrtAccessRoleArnAssociationTimeouts timeouts;
-
-
+    public @Nullable DrtAccessRoleArnAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("DrtAccessRoleArnAssociation.timeouts");
+    }
 
 }

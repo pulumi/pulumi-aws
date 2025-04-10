@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")
-public final class OrganizationAdminAccount extends com.pulumi.resources.PolicyResource {
+public final class OrganizationAdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account identifier to designate as a delegated administrator for GuardDuty.
      * 
      */
-    public String adminAccountId;
+    private UndeferrableValue<String> adminAccountId;
 
-
+    public String adminAccountId() {
+        if (adminAccountId == null) return null;
+        return adminAccountId.getValue("OrganizationAdminAccount.adminAccountId");
+    }
 
 }

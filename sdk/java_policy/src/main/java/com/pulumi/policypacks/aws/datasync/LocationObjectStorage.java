@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationObjectStorage:LocationObjectStorage")
-public final class LocationObjectStorage extends com.pulumi.resources.PolicyResource {
+public final class LocationObjectStorage extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
      * 
      */
-    public String accessKey;
+    private @Nullable UndeferrableValue<String> accessKey;
 
-
+    public @Nullable String accessKey() {
+        if (accessKey == null) return null;
+        return accessKey.getValue("LocationObjectStorage.accessKey");
+    }
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public List<String> agentArns;
+    private UndeferrableValue<List<String>> agentArns;
 
-
+    public List<String> agentArns() {
+        if (agentArns == null) return null;
+        return agentArns.getValue("LocationObjectStorage.agentArns");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationObjectStorage.arn");
+    }
 
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      * 
      */
-    public String bucketName;
+    private UndeferrableValue<String> bucketName;
 
-
+    public String bucketName() {
+        if (bucketName == null) return null;
+        return bucketName.getValue("LocationObjectStorage.bucketName");
+    }
 
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
      * 
      */
-    public String secretKey;
+    private @Nullable UndeferrableValue<String> secretKey;
 
-
+    public @Nullable String secretKey() {
+        if (secretKey == null) return null;
+        return secretKey.getValue("LocationObjectStorage.secretKey");
+    }
 
     /**
      * Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
      * 
      */
-    public String serverCertificate;
+    private @Nullable UndeferrableValue<String> serverCertificate;
 
-
+    public @Nullable String serverCertificate() {
+        if (serverCertificate == null) return null;
+        return serverCertificate.getValue("LocationObjectStorage.serverCertificate");
+    }
 
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
      * 
      */
-    public String serverHostname;
+    private UndeferrableValue<String> serverHostname;
 
-
+    public String serverHostname() {
+        if (serverHostname == null) return null;
+        return serverHostname.getValue("LocationObjectStorage.serverHostname");
+    }
 
     /**
      * The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
      * 
      */
-    public Integer serverPort;
+    private @Nullable UndeferrableValue<Integer> serverPort;
 
-
+    public @Nullable Integer serverPort() {
+        if (serverPort == null) return null;
+        return serverPort.getValue("LocationObjectStorage.serverPort");
+    }
 
     /**
      * The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
      * 
      */
-    public String serverProtocol;
+    private @Nullable UndeferrableValue<String> serverProtocol;
 
-
+    public @Nullable String serverProtocol() {
+        if (serverProtocol == null) return null;
+        return serverProtocol.getValue("LocationObjectStorage.serverProtocol");
+    }
 
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn&#39;t specified, it will default to /.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationObjectStorage.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationObjectStorage.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -109,16 +144,22 @@ public final class LocationObjectStorage extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationObjectStorage.tagsAll");
+    }
 
     /**
      * The URL of the Object Storage location that was described.
      * 
      */
-    public String uri;
+    private UndeferrableValue<String> uri;
 
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationObjectStorage.uri");
+    }
 
 }

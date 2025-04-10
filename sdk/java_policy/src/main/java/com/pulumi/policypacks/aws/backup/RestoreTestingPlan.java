@@ -3,67 +3,90 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.backup.RestoreTestingPlanRecoveryPointSelection;
+import com.pulumi.policypacks.aws.backup.outputs.RestoreTestingPlanRecoveryPointSelection;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/restoreTestingPlan:RestoreTestingPlan")
-public final class RestoreTestingPlan extends com.pulumi.resources.PolicyResource {
+public final class RestoreTestingPlan extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Restore Testing Plan.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RestoreTestingPlan.arn");
+    }
 
     /**
      * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RestoreTestingPlan.name");
+    }
 
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      * 
      */
-    public RestoreTestingPlanRecoveryPointSelection recoveryPointSelection;
+    private @Nullable UndeferrableValue<RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection;
 
-
+    public @Nullable RestoreTestingPlanRecoveryPointSelection recoveryPointSelection() {
+        if (recoveryPointSelection == null) return null;
+        return recoveryPointSelection.getValue("RestoreTestingPlan.recoveryPointSelection");
+    }
 
     /**
      * The schedule expression for the restore testing plan.
      * 
      */
-    public String scheduleExpression;
+    private UndeferrableValue<String> scheduleExpression;
 
-
+    public String scheduleExpression() {
+        if (scheduleExpression == null) return null;
+        return scheduleExpression.getValue("RestoreTestingPlan.scheduleExpression");
+    }
 
     /**
      * The timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
-    public String scheduleExpressionTimezone;
+    private UndeferrableValue<String> scheduleExpressionTimezone;
 
-
+    public String scheduleExpressionTimezone() {
+        if (scheduleExpressionTimezone == null) return null;
+        return scheduleExpressionTimezone.getValue("RestoreTestingPlan.scheduleExpressionTimezone");
+    }
 
     /**
      * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
-    public Integer startWindowHours;
+    private UndeferrableValue<Integer> startWindowHours;
 
+    public Integer startWindowHours() {
+        if (startWindowHours == null) return null;
+        return startWindowHours.getValue("RestoreTestingPlan.startWindowHours");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RestoreTestingPlan.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -73,8 +96,11 @@ public final class RestoreTestingPlan extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RestoreTestingPlan.tagsAll");
+    }
 
 }

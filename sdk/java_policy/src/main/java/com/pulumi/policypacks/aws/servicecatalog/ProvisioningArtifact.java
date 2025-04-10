@@ -3,93 +3,125 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")
-public final class ProvisioningArtifact extends com.pulumi.resources.PolicyResource {
+public final class ProvisioningArtifact extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      * 
      */
-    public String acceptLanguage;
+    private @Nullable UndeferrableValue<String> acceptLanguage;
 
-
+    public @Nullable String acceptLanguage() {
+        if (acceptLanguage == null) return null;
+        return acceptLanguage.getValue("ProvisioningArtifact.acceptLanguage");
+    }
 
     /**
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      * 
      */
-    public Boolean active;
+    private @Nullable UndeferrableValue<Boolean> active;
 
-
+    public @Nullable Boolean active() {
+        if (active == null) return null;
+        return active.getValue("ProvisioningArtifact.active");
+    }
 
     /**
      * Time when the provisioning artifact was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("ProvisioningArtifact.createdTime");
+    }
 
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("ProvisioningArtifact.description");
+    }
 
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      * 
      */
-    public Boolean disableTemplateValidation;
+    private @Nullable UndeferrableValue<Boolean> disableTemplateValidation;
 
-
+    public @Nullable Boolean disableTemplateValidation() {
+        if (disableTemplateValidation == null) return null;
+        return disableTemplateValidation.getValue("ProvisioningArtifact.disableTemplateValidation");
+    }
 
     /**
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      * 
      */
-    public String guidance;
+    private @Nullable UndeferrableValue<String> guidance;
 
-
+    public @Nullable String guidance() {
+        if (guidance == null) return null;
+        return guidance.getValue("ProvisioningArtifact.guidance");
+    }
 
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProvisioningArtifact.name");
+    }
 
     /**
      * Identifier of the product.
      * 
      */
-    public String productId;
+    private UndeferrableValue<String> productId;
 
-
+    public String productId() {
+        if (productId == null) return null;
+        return productId.getValue("ProvisioningArtifact.productId");
+    }
 
     /**
      * Provisioning artifact identifier.
      * 
      */
-    public String provisioningArtifactId;
+    private UndeferrableValue<String> provisioningArtifactId;
 
-
+    public String provisioningArtifactId() {
+        if (provisioningArtifactId == null) return null;
+        return provisioningArtifactId.getValue("ProvisioningArtifact.provisioningArtifactId");
+    }
 
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
-    public String templatePhysicalId;
+    private @Nullable UndeferrableValue<String> templatePhysicalId;
 
-
+    public @Nullable String templatePhysicalId() {
+        if (templatePhysicalId == null) return null;
+        return templatePhysicalId.getValue("ProvisioningArtifact.templatePhysicalId");
+    }
 
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
@@ -97,16 +129,22 @@ public final class ProvisioningArtifact extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    public String templateUrl;
+    private @Nullable UndeferrableValue<String> templateUrl;
 
-
+    public @Nullable String templateUrl() {
+        if (templateUrl == null) return null;
+        return templateUrl.getValue("ProvisioningArtifact.templateUrl");
+    }
 
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("ProvisioningArtifact.type");
+    }
 
 }

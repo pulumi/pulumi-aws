@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")
-public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResource {
+public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the traffic mirror target.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficMirrorTarget.arn");
+    }
 
     /**
      * A description of the traffic mirror session.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TrafficMirrorTarget.description");
+    }
 
     /**
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      * 
      */
-    public String gatewayLoadBalancerEndpointId;
+    private @Nullable UndeferrableValue<String> gatewayLoadBalancerEndpointId;
 
-
+    public @Nullable String gatewayLoadBalancerEndpointId() {
+        if (gatewayLoadBalancerEndpointId == null) return null;
+        return gatewayLoadBalancerEndpointId.getValue("TrafficMirrorTarget.gatewayLoadBalancerEndpointId");
+    }
 
     /**
      * The network interface ID that is associated with the target.
      * 
      */
-    public String networkInterfaceId;
+    private @Nullable UndeferrableValue<String> networkInterfaceId;
 
-
+    public @Nullable String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("TrafficMirrorTarget.networkInterfaceId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      * 
      */
-    public String networkLoadBalancerArn;
+    private @Nullable UndeferrableValue<String> networkLoadBalancerArn;
 
-
+    public @Nullable String networkLoadBalancerArn() {
+        if (networkLoadBalancerArn == null) return null;
+        return networkLoadBalancerArn.getValue("TrafficMirrorTarget.networkLoadBalancerArn");
+    }
 
     /**
      * The ID of the AWS account that owns the traffic mirror target.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("TrafficMirrorTarget.ownerId");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,9 +85,12 @@ public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResour
      * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrafficMirrorTarget.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrafficMirrorTarget.tagsAll");
+    }
 
 }

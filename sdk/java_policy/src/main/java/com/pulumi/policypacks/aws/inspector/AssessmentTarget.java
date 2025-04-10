@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:inspector/assessmentTarget:AssessmentTarget")
-public final class AssessmentTarget extends com.pulumi.resources.PolicyResource {
+public final class AssessmentTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The target assessment ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AssessmentTarget.arn");
+    }
 
     /**
      * The name of the assessment target.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AssessmentTarget.name");
+    }
 
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
-    public String resourceGroupArn;
+    private @Nullable UndeferrableValue<String> resourceGroupArn;
 
-
+    public @Nullable String resourceGroupArn() {
+        if (resourceGroupArn == null) return null;
+        return resourceGroupArn.getValue("AssessmentTarget.resourceGroupArn");
+    }
 
 }

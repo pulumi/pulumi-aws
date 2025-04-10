@@ -3,30 +3,37 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sesv2.AccountVdmAttributesDashboardAttributes;
-import com.pulumi.policypacks.aws.sesv2.AccountVdmAttributesGuardianAttributes;
+import com.pulumi.policypacks.aws.sesv2.outputs.AccountVdmAttributesDashboardAttributes;
+import com.pulumi.policypacks.aws.sesv2.outputs.AccountVdmAttributesGuardianAttributes;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sesv2/accountVdmAttributes:AccountVdmAttributes")
-public final class AccountVdmAttributes extends com.pulumi.resources.PolicyResource {
+public final class AccountVdmAttributes extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
-    public AccountVdmAttributesDashboardAttributes dashboardAttributes;
+    private UndeferrableValue<AccountVdmAttributesDashboardAttributes> dashboardAttributes;
 
-
+    public AccountVdmAttributesDashboardAttributes dashboardAttributes() {
+        if (dashboardAttributes == null) return null;
+        return dashboardAttributes.getValue("AccountVdmAttributes.dashboardAttributes");
+    }
 
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
-    public AccountVdmAttributesGuardianAttributes guardianAttributes;
+    private UndeferrableValue<AccountVdmAttributesGuardianAttributes> guardianAttributes;
 
-
+    public AccountVdmAttributesGuardianAttributes guardianAttributes() {
+        if (guardianAttributes == null) return null;
+        return guardianAttributes.getValue("AccountVdmAttributes.guardianAttributes");
+    }
 
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
@@ -34,8 +41,11 @@ public final class AccountVdmAttributes extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    public String vdmEnabled;
+    private UndeferrableValue<String> vdmEnabled;
 
-
+    public String vdmEnabled() {
+        if (vdmEnabled == null) return null;
+        return vdmEnabled.getValue("AccountVdmAttributes.vdmEnabled");
+    }
 
 }

@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.GuardrailVersionTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailVersionTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/guardrailVersion:GuardrailVersion")
-public final class GuardrailVersion extends com.pulumi.resources.PolicyResource {
+public final class GuardrailVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Description of the Guardrail version.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("GuardrailVersion.description");
+    }
 
     /**
      * Guardrail ARN.
@@ -26,28 +31,40 @@ public final class GuardrailVersion extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String guardrailArn;
+    private UndeferrableValue<String> guardrailArn;
 
-
+    public String guardrailArn() {
+        if (guardrailArn == null) return null;
+        return guardrailArn.getValue("GuardrailVersion.guardrailArn");
+    }
 
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("GuardrailVersion.skipDestroy");
+    }
 
+    private @Nullable UndeferrableValue<GuardrailVersionTimeouts> timeouts;
 
-    public GuardrailVersionTimeouts timeouts;
-
-
+    public @Nullable GuardrailVersionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("GuardrailVersion.timeouts");
+    }
 
     /**
      * Guardrail version.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("GuardrailVersion.version");
+    }
 
 }

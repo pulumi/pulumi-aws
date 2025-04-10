@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")
-public final class InternetGatewayAttachment extends com.pulumi.resources.PolicyResource {
+public final class InternetGatewayAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the internet gateway.
      * 
      */
-    public String internetGatewayId;
+    private UndeferrableValue<String> internetGatewayId;
 
-
+    public String internetGatewayId() {
+        if (internetGatewayId == null) return null;
+        return internetGatewayId.getValue("InternetGatewayAttachment.internetGatewayId");
+    }
 
     /**
      * The ID of the VPC.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("InternetGatewayAttachment.vpcId");
+    }
 
 }

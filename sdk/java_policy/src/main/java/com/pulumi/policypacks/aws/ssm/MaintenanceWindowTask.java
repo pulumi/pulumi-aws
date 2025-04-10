@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.MaintenanceWindowTaskTarget;
-import com.pulumi.policypacks.aws.ssm.MaintenanceWindowTaskTaskInvocationParameters;
+import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTaskTarget;
+import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTaskTaskInvocationParameters;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")
-public final class MaintenanceWindowTask extends com.pulumi.resources.PolicyResource {
+public final class MaintenanceWindowTask extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the maintenance window task.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MaintenanceWindowTask.arn");
+    }
 
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      * 
      */
-    public String cutoffBehavior;
+    private @Nullable UndeferrableValue<String> cutoffBehavior;
 
-
+    public @Nullable String cutoffBehavior() {
+        if (cutoffBehavior == null) return null;
+        return cutoffBehavior.getValue("MaintenanceWindowTask.cutoffBehavior");
+    }
 
     /**
      * The description of the maintenance window task.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MaintenanceWindowTask.description");
+    }
 
     /**
      * The maximum number of targets this task can be run for in parallel.
      * 
      */
-    public String maxConcurrency;
+    private UndeferrableValue<String> maxConcurrency;
 
-
+    public String maxConcurrency() {
+        if (maxConcurrency == null) return null;
+        return maxConcurrency.getValue("MaintenanceWindowTask.maxConcurrency");
+    }
 
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      * 
      */
-    public String maxErrors;
+    private UndeferrableValue<String> maxErrors;
 
-
+    public String maxErrors() {
+        if (maxErrors == null) return null;
+        return maxErrors.getValue("MaintenanceWindowTask.maxErrors");
+    }
 
     /**
      * The name of the maintenance window task.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MaintenanceWindowTask.name");
+    }
 
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      * 
      */
-    public Integer priority;
+    private @Nullable UndeferrableValue<Integer> priority;
 
-
+    public @Nullable Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("MaintenanceWindowTask.priority");
+    }
 
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account&#39;s service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      * 
      */
-    public String serviceRoleArn;
+    private UndeferrableValue<String> serviceRoleArn;
 
-
+    public String serviceRoleArn() {
+        if (serviceRoleArn == null) return null;
+        return serviceRoleArn.getValue("MaintenanceWindowTask.serviceRoleArn");
+    }
 
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
-    public List<MaintenanceWindowTaskTarget> targets;
+    private @Nullable UndeferrableValue<List<MaintenanceWindowTaskTarget>> targets;
 
-
+    public @Nullable List<MaintenanceWindowTaskTarget> targets() {
+        if (targets == null) return null;
+        return targets.getValue("MaintenanceWindowTask.targets");
+    }
 
     /**
      * The ARN of the task to execute.
      * 
      */
-    public String taskArn;
+    private UndeferrableValue<String> taskArn;
 
-
+    public String taskArn() {
+        if (taskArn == null) return null;
+        return taskArn.getValue("MaintenanceWindowTask.taskArn");
+    }
 
     /**
      * Configuration block with parameters for task execution.
      * 
      */
-    public MaintenanceWindowTaskTaskInvocationParameters taskInvocationParameters;
+    private @Nullable UndeferrableValue<MaintenanceWindowTaskTaskInvocationParameters> taskInvocationParameters;
 
-
+    public @Nullable MaintenanceWindowTaskTaskInvocationParameters taskInvocationParameters() {
+        if (taskInvocationParameters == null) return null;
+        return taskInvocationParameters.getValue("MaintenanceWindowTask.taskInvocationParameters");
+    }
 
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      * 
      */
-    public String taskType;
+    private UndeferrableValue<String> taskType;
 
-
+    public String taskType() {
+        if (taskType == null) return null;
+        return taskType.getValue("MaintenanceWindowTask.taskType");
+    }
 
     /**
      * The Id of the maintenance window to register the task with.
      * 
      */
-    public String windowId;
+    private UndeferrableValue<String> windowId;
 
-
+    public String windowId() {
+        if (windowId == null) return null;
+        return windowId.getValue("MaintenanceWindowTask.windowId");
+    }
 
     /**
      * The ID of the maintenance window task.
      * 
      */
-    public String windowTaskId;
+    private UndeferrableValue<String> windowTaskId;
 
-
+    public String windowTaskId() {
+        if (windowTaskId == null) return null;
+        return windowTaskId.getValue("MaintenanceWindowTask.windowTaskId");
+    }
 
 }

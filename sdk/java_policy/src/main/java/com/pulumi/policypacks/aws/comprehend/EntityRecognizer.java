@@ -3,57 +3,74 @@
 
 package com.pulumi.policypacks.aws.comprehend;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.comprehend.EntityRecognizerInputDataConfig;
-import com.pulumi.policypacks.aws.comprehend.EntityRecognizerVpcConfig;
+import com.pulumi.policypacks.aws.comprehend.outputs.EntityRecognizerInputDataConfig;
+import com.pulumi.policypacks.aws.comprehend.outputs.EntityRecognizerVpcConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:comprehend/entityRecognizer:EntityRecognizer")
-public final class EntityRecognizer extends com.pulumi.resources.PolicyResource {
+public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Entity Recognizer version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EntityRecognizer.arn");
+    }
 
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      * 
      */
-    public String dataAccessRoleArn;
+    private UndeferrableValue<String> dataAccessRoleArn;
 
-
+    public String dataAccessRoleArn() {
+        if (dataAccessRoleArn == null) return null;
+        return dataAccessRoleArn.getValue("EntityRecognizer.dataAccessRoleArn");
+    }
 
     /**
      * Configuration for the training and testing data.
      * See the `input_data_config` Configuration Block section below.
      * 
      */
-    public EntityRecognizerInputDataConfig inputDataConfig;
+    private UndeferrableValue<EntityRecognizerInputDataConfig> inputDataConfig;
 
-
+    public EntityRecognizerInputDataConfig inputDataConfig() {
+        if (inputDataConfig == null) return null;
+        return inputDataConfig.getValue("EntityRecognizer.inputDataConfig");
+    }
 
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("EntityRecognizer.languageCode");
+    }
 
     /**
      * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
      * 
      */
-    public String modelKmsKeyId;
+    private @Nullable UndeferrableValue<String> modelKmsKeyId;
 
-
+    public @Nullable String modelKmsKeyId() {
+        if (modelKmsKeyId == null) return null;
+        return modelKmsKeyId.getValue("EntityRecognizer.modelKmsKeyId");
+    }
 
     /**
      * Name for the Entity Recognizer.
@@ -63,17 +80,23 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EntityRecognizer.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EntityRecognizer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,9 +106,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EntityRecognizer.tagsAll");
+    }
 
     /**
      * Name for the version of the Entity Recognizer.
@@ -97,9 +123,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResource 
      * Conflicts with `version_name_prefix`.
      * 
      */
-    public String versionName;
+    private UndeferrableValue<String> versionName;
 
-
+    public String versionName() {
+        if (versionName == null) return null;
+        return versionName.getValue("EntityRecognizer.versionName");
+    }
 
     /**
      * Creates a unique version name beginning with the specified prefix.
@@ -108,25 +137,34 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResource 
      * Conflicts with `version_name`.
      * 
      */
-    public String versionNamePrefix;
+    private UndeferrableValue<String> versionNamePrefix;
 
-
+    public String versionNamePrefix() {
+        if (versionNamePrefix == null) return null;
+        return versionNamePrefix.getValue("EntityRecognizer.versionNamePrefix");
+    }
 
     /**
      * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
      * 
      */
-    public String volumeKmsKeyId;
+    private @Nullable UndeferrableValue<String> volumeKmsKeyId;
 
-
+    public @Nullable String volumeKmsKeyId() {
+        if (volumeKmsKeyId == null) return null;
+        return volumeKmsKeyId.getValue("EntityRecognizer.volumeKmsKeyId");
+    }
 
     /**
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpc_config` Configuration Block section below.
      * 
      */
-    public EntityRecognizerVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<EntityRecognizerVpcConfig> vpcConfig;
 
-
+    public @Nullable EntityRecognizerVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("EntityRecognizer.vpcConfig");
+    }
 
 }

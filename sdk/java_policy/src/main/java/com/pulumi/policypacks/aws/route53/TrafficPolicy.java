@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/trafficPolicy:TrafficPolicy")
-public final class TrafficPolicy extends com.pulumi.resources.PolicyResource {
+public final class TrafficPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the traffic policy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficPolicy.arn");
+    }
 
     /**
      * Comment for the traffic policy.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("TrafficPolicy.comment");
+    }
 
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
@@ -33,32 +41,44 @@ public final class TrafficPolicy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String document;
+    private UndeferrableValue<String> document;
 
-
+    public String document() {
+        if (document == null) return null;
+        return document.getValue("TrafficPolicy.document");
+    }
 
     /**
      * Name of the traffic policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TrafficPolicy.name");
+    }
 
     /**
      * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("TrafficPolicy.type");
+    }
 
     /**
      * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
      * 
      */
-    public Integer version;
+    private UndeferrableValue<Integer> version;
 
-
+    public Integer version() {
+        if (version == null) return null;
+        return version.getValue("TrafficPolicy.version");
+    }
 
 }

@@ -3,83 +3,112 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/userPoolDomain:UserPoolDomain")
-public final class UserPoolDomain extends com.pulumi.resources.PolicyResource {
+public final class UserPoolDomain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID for the user pool owner.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("UserPoolDomain.awsAccountId");
+    }
 
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      * 
      */
-    public String certificateArn;
+    private @Nullable UndeferrableValue<String> certificateArn;
 
-
+    public @Nullable String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("UserPoolDomain.certificateArn");
+    }
 
     /**
      * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      * 
      */
-    public String cloudfrontDistribution;
+    private UndeferrableValue<String> cloudfrontDistribution;
 
-
+    public String cloudfrontDistribution() {
+        if (cloudfrontDistribution == null) return null;
+        return cloudfrontDistribution.getValue("UserPoolDomain.cloudfrontDistribution");
+    }
 
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
-    public String cloudfrontDistributionArn;
+    private UndeferrableValue<String> cloudfrontDistributionArn;
 
-
+    public String cloudfrontDistributionArn() {
+        if (cloudfrontDistributionArn == null) return null;
+        return cloudfrontDistributionArn.getValue("UserPoolDomain.cloudfrontDistributionArn");
+    }
 
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      * 
      */
-    public String cloudfrontDistributionZoneId;
+    private UndeferrableValue<String> cloudfrontDistributionZoneId;
 
-
+    public String cloudfrontDistributionZoneId() {
+        if (cloudfrontDistributionZoneId == null) return null;
+        return cloudfrontDistributionZoneId.getValue("UserPoolDomain.cloudfrontDistributionZoneId");
+    }
 
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("UserPoolDomain.domain");
+    }
 
     /**
      * The S3 bucket where the static files for this domain are stored.
      * 
      */
-    public String s3Bucket;
+    private UndeferrableValue<String> s3Bucket;
 
-
+    public String s3Bucket() {
+        if (s3Bucket == null) return null;
+        return s3Bucket.getValue("UserPoolDomain.s3Bucket");
+    }
 
     /**
      * The user pool ID.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("UserPoolDomain.userPoolId");
+    }
 
     /**
      * The app version.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("UserPoolDomain.version");
+    }
 
 }

@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ses/template:Template")
-public final class Template extends com.pulumi.resources.PolicyResource {
+public final class Template extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the SES template
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Template.arn");
+    }
 
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    public String html;
+    private @Nullable UndeferrableValue<String> html;
 
-
+    public @Nullable String html() {
+        if (html == null) return null;
+        return html.getValue("Template.html");
+    }
 
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Template.name");
+    }
 
     /**
      * The subject line of the email.
      * 
      */
-    public String subject;
+    private @Nullable UndeferrableValue<String> subject;
 
-
+    public @Nullable String subject() {
+        if (subject == null) return null;
+        return subject.getValue("Template.subject");
+    }
 
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    public String text;
+    private @Nullable UndeferrableValue<String> text;
 
-
+    public @Nullable String text() {
+        if (text == null) return null;
+        return text.getValue("Template.text");
+    }
 
 }

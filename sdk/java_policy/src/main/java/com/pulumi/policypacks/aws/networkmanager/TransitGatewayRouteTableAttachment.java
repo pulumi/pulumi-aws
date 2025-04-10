@@ -3,110 +3,148 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")
-public final class TransitGatewayRouteTableAttachment extends com.pulumi.resources.PolicyResource {
+public final class TransitGatewayRouteTableAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Attachment Amazon Resource Name (ARN).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TransitGatewayRouteTableAttachment.arn");
+    }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    public Integer attachmentPolicyRuleNumber;
+    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
 
-
+    public Integer attachmentPolicyRuleNumber() {
+        if (attachmentPolicyRuleNumber == null) return null;
+        return attachmentPolicyRuleNumber.getValue("TransitGatewayRouteTableAttachment.attachmentPolicyRuleNumber");
+    }
 
     /**
      * The type of attachment.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("TransitGatewayRouteTableAttachment.attachmentType");
+    }
 
     /**
      * The ARN of the core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("TransitGatewayRouteTableAttachment.coreNetworkArn");
+    }
 
     /**
      * The ID of the core network.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("TransitGatewayRouteTableAttachment.coreNetworkId");
+    }
 
     /**
      * The edge location for the peer.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("TransitGatewayRouteTableAttachment.edgeLocation");
+    }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("TransitGatewayRouteTableAttachment.ownerAccountId");
+    }
 
     /**
      * The ID of the peer for the attachment.
      * 
      */
-    public String peeringId;
+    private UndeferrableValue<String> peeringId;
 
-
+    public String peeringId() {
+        if (peeringId == null) return null;
+        return peeringId.getValue("TransitGatewayRouteTableAttachment.peeringId");
+    }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("TransitGatewayRouteTableAttachment.resourceArn");
+    }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    public String segmentName;
+    private UndeferrableValue<String> segmentName;
 
-
+    public String segmentName() {
+        if (segmentName == null) return null;
+        return segmentName.getValue("TransitGatewayRouteTableAttachment.segmentName");
+    }
 
     /**
      * The state of the attachment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("TransitGatewayRouteTableAttachment.state");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TransitGatewayRouteTableAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -116,16 +154,22 @@ public final class TransitGatewayRouteTableAttachment extends com.pulumi.resourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TransitGatewayRouteTableAttachment.tagsAll");
+    }
 
     /**
      * The ARN of the transit gateway route table for the attachment.
      * 
      */
-    public String transitGatewayRouteTableArn;
+    private UndeferrableValue<String> transitGatewayRouteTableArn;
 
-
+    public String transitGatewayRouteTableArn() {
+        if (transitGatewayRouteTableArn == null) return null;
+        return transitGatewayRouteTableArn.getValue("TransitGatewayRouteTableAttachment.transitGatewayRouteTableArn");
+    }
 
 }

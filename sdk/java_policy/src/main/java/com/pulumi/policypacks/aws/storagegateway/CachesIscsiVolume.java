@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")
-public final class CachesIscsiVolume extends com.pulumi.resources.PolicyResource {
+public final class CachesIscsiVolume extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CachesIscsiVolume.arn");
+    }
 
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
-    public Boolean chapEnabled;
+    private UndeferrableValue<Boolean> chapEnabled;
 
-
+    public Boolean chapEnabled() {
+        if (chapEnabled == null) return null;
+        return chapEnabled.getValue("CachesIscsiVolume.chapEnabled");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    public String gatewayArn;
+    private UndeferrableValue<String> gatewayArn;
 
-
+    public String gatewayArn() {
+        if (gatewayArn == null) return null;
+        return gatewayArn.getValue("CachesIscsiVolume.gatewayArn");
+    }
 
     /**
      * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
      * 
      */
-    public Boolean kmsEncrypted;
+    private @Nullable UndeferrableValue<Boolean> kmsEncrypted;
 
-
+    public @Nullable Boolean kmsEncrypted() {
+        if (kmsEncrypted == null) return null;
+        return kmsEncrypted.getValue("CachesIscsiVolume.kmsEncrypted");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
      * 
      */
-    public String kmsKey;
+    private @Nullable UndeferrableValue<String> kmsKey;
 
-
+    public @Nullable String kmsKey() {
+        if (kmsKey == null) return null;
+        return kmsKey.getValue("CachesIscsiVolume.kmsKey");
+    }
 
     /**
      * Logical disk number.
      * 
      */
-    public Integer lunNumber;
+    private UndeferrableValue<Integer> lunNumber;
 
-
+    public Integer lunNumber() {
+        if (lunNumber == null) return null;
+        return lunNumber.getValue("CachesIscsiVolume.lunNumber");
+    }
 
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("CachesIscsiVolume.networkInterfaceId");
+    }
 
     /**
      * The port used to communicate with iSCSI targets.
      * 
      */
-    public Integer networkInterfacePort;
+    private UndeferrableValue<Integer> networkInterfacePort;
 
-
+    public Integer networkInterfacePort() {
+        if (networkInterfacePort == null) return null;
+        return networkInterfacePort.getValue("CachesIscsiVolume.networkInterfacePort");
+    }
 
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      * 
      */
-    public String snapshotId;
+    private @Nullable UndeferrableValue<String> snapshotId;
 
-
+    public @Nullable String snapshotId() {
+        if (snapshotId == null) return null;
+        return snapshotId.getValue("CachesIscsiVolume.snapshotId");
+    }
 
     /**
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume&#39;s latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      * 
      */
-    public String sourceVolumeArn;
+    private @Nullable UndeferrableValue<String> sourceVolumeArn;
 
-
+    public @Nullable String sourceVolumeArn() {
+        if (sourceVolumeArn == null) return null;
+        return sourceVolumeArn.getValue("CachesIscsiVolume.sourceVolumeArn");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CachesIscsiVolume.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -109,48 +144,66 @@ public final class CachesIscsiVolume extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CachesIscsiVolume.tagsAll");
+    }
 
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
-
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("CachesIscsiVolume.targetArn");
+    }
 
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      * 
      */
-    public String targetName;
+    private UndeferrableValue<String> targetName;
 
-
+    public String targetName() {
+        if (targetName == null) return null;
+        return targetName.getValue("CachesIscsiVolume.targetName");
+    }
 
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    public String volumeArn;
+    private UndeferrableValue<String> volumeArn;
 
-
+    public String volumeArn() {
+        if (volumeArn == null) return null;
+        return volumeArn.getValue("CachesIscsiVolume.volumeArn");
+    }
 
     /**
      * Volume ID, e.g., `vol-12345678`.
      * 
      */
-    public String volumeId;
+    private UndeferrableValue<String> volumeId;
 
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("CachesIscsiVolume.volumeId");
+    }
 
     /**
      * The size of the volume in bytes.
      * 
      */
-    public Integer volumeSizeInBytes;
+    private UndeferrableValue<Integer> volumeSizeInBytes;
 
-
+    public Integer volumeSizeInBytes() {
+        if (volumeSizeInBytes == null) return null;
+        return volumeSizeInBytes.getValue("CachesIscsiVolume.volumeSizeInBytes");
+    }
 
 }

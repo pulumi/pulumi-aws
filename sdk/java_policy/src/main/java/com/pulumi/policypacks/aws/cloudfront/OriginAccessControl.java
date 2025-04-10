@@ -3,67 +3,90 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/originAccessControl:OriginAccessControl")
-public final class OriginAccessControl extends com.pulumi.resources.PolicyResource {
+public final class OriginAccessControl extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Origin Access Control ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OriginAccessControl.arn");
+    }
 
     /**
      * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("OriginAccessControl.description");
+    }
 
     /**
      * The current version of this Origin Access Control.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("OriginAccessControl.etag");
+    }
 
     /**
      * A name that identifies the Origin Access Control.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OriginAccessControl.name");
+    }
 
     /**
      * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
-    public String originAccessControlOriginType;
+    private UndeferrableValue<String> originAccessControlOriginType;
 
-
+    public String originAccessControlOriginType() {
+        if (originAccessControlOriginType == null) return null;
+        return originAccessControlOriginType.getValue("OriginAccessControl.originAccessControlOriginType");
+    }
 
     /**
      * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
-    public String signingBehavior;
+    private UndeferrableValue<String> signingBehavior;
 
-
+    public String signingBehavior() {
+        if (signingBehavior == null) return null;
+        return signingBehavior.getValue("OriginAccessControl.signingBehavior");
+    }
 
     /**
      * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
-    public String signingProtocol;
+    private UndeferrableValue<String> signingProtocol;
 
-
+    public String signingProtocol() {
+        if (signingProtocol == null) return null;
+        return signingProtocol.getValue("OriginAccessControl.signingProtocol");
+    }
 
 }

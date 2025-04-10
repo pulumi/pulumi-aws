@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.EndpointDeploymentConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointDeploymentConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/endpoint:Endpoint")
-public final class Endpoint extends com.pulumi.resources.PolicyResource {
+public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Endpoint.arn");
+    }
 
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      * 
      */
-    public EndpointDeploymentConfig deploymentConfig;
+    private @Nullable UndeferrableValue<EndpointDeploymentConfig> deploymentConfig;
 
-
+    public @Nullable EndpointDeploymentConfig deploymentConfig() {
+        if (deploymentConfig == null) return null;
+        return deploymentConfig.getValue("Endpoint.deploymentConfig");
+    }
 
     /**
      * The name of the endpoint configuration to use.
      * 
      */
-    public String endpointConfigName;
+    private UndeferrableValue<String> endpointConfigName;
 
-
+    public String endpointConfigName() {
+        if (endpointConfigName == null) return null;
+        return endpointConfigName.getValue("Endpoint.endpointConfigName");
+    }
 
     /**
      * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Endpoint.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Endpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Endpoint.tagsAll");
+    }
 
 }

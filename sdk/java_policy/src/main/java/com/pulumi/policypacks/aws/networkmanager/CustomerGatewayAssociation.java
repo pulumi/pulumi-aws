@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")
-public final class CustomerGatewayAssociation extends com.pulumi.resources.PolicyResource {
+public final class CustomerGatewayAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the customer gateway.
      * 
      */
-    public String customerGatewayArn;
+    private UndeferrableValue<String> customerGatewayArn;
 
-
+    public String customerGatewayArn() {
+        if (customerGatewayArn == null) return null;
+        return customerGatewayArn.getValue("CustomerGatewayAssociation.customerGatewayArn");
+    }
 
     /**
      * The ID of the device.
      * 
      */
-    public String deviceId;
+    private UndeferrableValue<String> deviceId;
 
-
+    public String deviceId() {
+        if (deviceId == null) return null;
+        return deviceId.getValue("CustomerGatewayAssociation.deviceId");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("CustomerGatewayAssociation.globalNetworkId");
+    }
 
     /**
      * The ID of the link.
      * 
      */
-    public String linkId;
+    private @Nullable UndeferrableValue<String> linkId;
 
-
+    public @Nullable String linkId() {
+        if (linkId == null) return null;
+        return linkId.getValue("CustomerGatewayAssociation.linkId");
+    }
 
 }

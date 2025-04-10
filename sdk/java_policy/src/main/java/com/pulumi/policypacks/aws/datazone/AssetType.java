@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.AssetTypeFormsInput;
-import com.pulumi.policypacks.aws.datazone.AssetTypeTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.AssetTypeFormsInput;
+import com.pulumi.policypacks.aws.datazone.outputs.AssetTypeTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/assetType:AssetType")
-public final class AssetType extends com.pulumi.resources.PolicyResource {
+public final class AssetType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The timestamp when the custom asset type was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("AssetType.createdAt");
+    }
 
     /**
      * The user who created the custom asset type.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("AssetType.createdBy");
+    }
 
     /**
      * The description of the custom asset type.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AssetType.description");
+    }
 
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("AssetType.domainIdentifier");
+    }
 
     /**
      * The metadata forms that are to be attached to the custom asset type.
      * 
      */
-    public List<AssetTypeFormsInput> formsInputs;
+    private @Nullable UndeferrableValue<List<AssetTypeFormsInput>> formsInputs;
 
-
+    public @Nullable List<AssetTypeFormsInput> formsInputs() {
+        if (formsInputs == null) return null;
+        return formsInputs.getValue("AssetType.formsInputs");
+    }
 
     /**
      * The name of the custom asset type.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AssetType.name");
+    }
 
     /**
      * The unique identifier of the Amazon DataZone project that owns the custom asset type.
@@ -67,20 +87,29 @@ public final class AssetType extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String owningProjectIdentifier;
+    private UndeferrableValue<String> owningProjectIdentifier;
 
-
+    public String owningProjectIdentifier() {
+        if (owningProjectIdentifier == null) return null;
+        return owningProjectIdentifier.getValue("AssetType.owningProjectIdentifier");
+    }
 
     /**
      * The revision of the asset type.
      * 
      */
-    public String revision;
+    private UndeferrableValue<String> revision;
 
+    public String revision() {
+        if (revision == null) return null;
+        return revision.getValue("AssetType.revision");
+    }
 
+    private @Nullable UndeferrableValue<AssetTypeTimeouts> timeouts;
 
-    public AssetTypeTimeouts timeouts;
-
-
+    public @Nullable AssetTypeTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AssetType.timeouts");
+    }
 
 }

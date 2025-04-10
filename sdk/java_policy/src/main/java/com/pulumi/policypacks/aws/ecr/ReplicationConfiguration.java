@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecr.ReplicationConfigurationReplicationConfiguration;
+import com.pulumi.policypacks.aws.ecr.outputs.ReplicationConfigurationReplicationConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecr/replicationConfiguration:ReplicationConfiguration")
-public final class ReplicationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class ReplicationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The registry ID where the replication configuration was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("ReplicationConfiguration.registryId");
+    }
 
     /**
      * Replication configuration for a registry. See Replication Configuration.
      * 
      */
-    public ReplicationConfigurationReplicationConfiguration replicationConfiguration;
+    private @Nullable UndeferrableValue<ReplicationConfigurationReplicationConfiguration> replicationConfiguration;
 
-
+    public @Nullable ReplicationConfigurationReplicationConfiguration replicationConfiguration() {
+        if (replicationConfiguration == null) return null;
+        return replicationConfiguration.getValue("ReplicationConfiguration.replicationConfiguration");
+    }
 
 }

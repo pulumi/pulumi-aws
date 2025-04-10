@@ -3,32 +3,40 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.auditmanager.FrameworkControlSet;
+import com.pulumi.policypacks.aws.auditmanager.outputs.FrameworkControlSet;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/framework:Framework")
-public final class Framework extends com.pulumi.resources.PolicyResource {
+public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Framework.arn");
+    }
 
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      * 
      */
-    public String complianceType;
+    private @Nullable UndeferrableValue<String> complianceType;
 
-
+    public @Nullable String complianceType() {
+        if (complianceType == null) return null;
+        return complianceType.getValue("Framework.complianceType");
+    }
 
     /**
      * Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
@@ -36,41 +44,56 @@ public final class Framework extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<FrameworkControlSet> controlSets;
+    private @Nullable UndeferrableValue<List<FrameworkControlSet>> controlSets;
 
-
+    public @Nullable List<FrameworkControlSet> controlSets() {
+        if (controlSets == null) return null;
+        return controlSets.getValue("Framework.controlSets");
+    }
 
     /**
      * Description of the framework.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Framework.description");
+    }
 
     /**
      * Framework type, such as a custom framework or a standard framework.
      * 
      */
-    public String frameworkType;
+    private UndeferrableValue<String> frameworkType;
 
-
+    public String frameworkType() {
+        if (frameworkType == null) return null;
+        return frameworkType.getValue("Framework.frameworkType");
+    }
 
     /**
      * Name of the framework.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Framework.name");
+    }
 
     /**
      * A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Framework.tags");
+    }
 
     /**
      * @deprecated
@@ -78,8 +101,11 @@ public final class Framework extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Framework.tagsAll");
+    }
 
 }

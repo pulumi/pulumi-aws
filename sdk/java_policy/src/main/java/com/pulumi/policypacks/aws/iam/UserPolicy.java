@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/userPolicy:UserPolicy")
-public final class UserPolicy extends com.pulumi.resources.PolicyResource {
+public final class UserPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UserPolicy.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("UserPolicy.namePrefix");
+    }
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("UserPolicy.policy");
+    }
 
     /**
      * IAM user to which to attach this policy.
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("UserPolicy.user");
+    }
 
 }

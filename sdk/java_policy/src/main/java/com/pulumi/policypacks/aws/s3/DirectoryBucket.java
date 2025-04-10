@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.DirectoryBucketLocation;
+import com.pulumi.policypacks.aws.s3.outputs.DirectoryBucketLocation;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/directoryBucket:DirectoryBucket")
-public final class DirectoryBucket extends com.pulumi.resources.PolicyResource {
+public final class DirectoryBucket extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the bucket.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DirectoryBucket.arn");
+    }
 
     /**
      * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("DirectoryBucket.bucket");
+    }
 
     /**
      * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
-    public String dataRedundancy;
+    private UndeferrableValue<String> dataRedundancy;
 
-
+    public String dataRedundancy() {
+        if (dataRedundancy == null) return null;
+        return dataRedundancy.getValue("DirectoryBucket.dataRedundancy");
+    }
 
     /**
      * Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
-    public Boolean forceDestroy;
+    private UndeferrableValue<Boolean> forceDestroy;
 
-
+    public Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("DirectoryBucket.forceDestroy");
+    }
 
     /**
      * Bucket location. See Location below for more details.
      * 
      */
-    public DirectoryBucketLocation location;
+    private @Nullable UndeferrableValue<DirectoryBucketLocation> location;
 
-
+    public @Nullable DirectoryBucketLocation location() {
+        if (location == null) return null;
+        return location.getValue("DirectoryBucket.location");
+    }
 
     /**
      * Bucket type. Valid values: `Directory`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DirectoryBucket.type");
+    }
 
 }

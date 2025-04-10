@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")
-public final class InboundConnectionAccepter extends com.pulumi.resources.PolicyResource {
+public final class InboundConnectionAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies the ID of the connection to accept.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("InboundConnectionAccepter.connectionId");
+    }
 
     /**
      * Status of the connection request.
      * 
      */
-    public String connectionStatus;
+    private UndeferrableValue<String> connectionStatus;
 
-
+    public String connectionStatus() {
+        if (connectionStatus == null) return null;
+        return connectionStatus.getValue("InboundConnectionAccepter.connectionStatus");
+    }
 
 }

@@ -3,106 +3,141 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkfirewall.FirewallEncryptionConfiguration;
-import com.pulumi.policypacks.aws.networkfirewall.FirewallFirewallStatus;
-import com.pulumi.policypacks.aws.networkfirewall.FirewallSubnetMapping;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallEncryptionConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallFirewallStatus;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallSubnetMapping;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkfirewall/firewall:Firewall")
-public final class Firewall extends com.pulumi.resources.PolicyResource {
+public final class Firewall extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Firewall.arn");
+    }
 
     /**
      * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
-    public Boolean deleteProtection;
+    private @Nullable UndeferrableValue<Boolean> deleteProtection;
 
-
+    public @Nullable Boolean deleteProtection() {
+        if (deleteProtection == null) return null;
+        return deleteProtection.getValue("Firewall.deleteProtection");
+    }
 
     /**
      * A friendly description of the firewall.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Firewall.description");
+    }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    public FirewallEncryptionConfiguration encryptionConfiguration;
+    private @Nullable UndeferrableValue<FirewallEncryptionConfiguration> encryptionConfiguration;
 
-
+    public @Nullable FirewallEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("Firewall.encryptionConfiguration");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      * 
      */
-    public String firewallPolicyArn;
+    private UndeferrableValue<String> firewallPolicyArn;
 
-
+    public String firewallPolicyArn() {
+        if (firewallPolicyArn == null) return null;
+        return firewallPolicyArn.getValue("Firewall.firewallPolicyArn");
+    }
 
     /**
      * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
-    public Boolean firewallPolicyChangeProtection;
+    private @Nullable UndeferrableValue<Boolean> firewallPolicyChangeProtection;
 
-
+    public @Nullable Boolean firewallPolicyChangeProtection() {
+        if (firewallPolicyChangeProtection == null) return null;
+        return firewallPolicyChangeProtection.getValue("Firewall.firewallPolicyChangeProtection");
+    }
 
     /**
      * Nested list of information about the current status of the firewall.
      * 
      */
-    public List<FirewallFirewallStatus> firewallStatuses;
+    private UndeferrableValue<List<FirewallFirewallStatus>> firewallStatuses;
 
-
+    public List<FirewallFirewallStatus> firewallStatuses() {
+        if (firewallStatuses == null) return null;
+        return firewallStatuses.getValue("Firewall.firewallStatuses");
+    }
 
     /**
      * A friendly name of the firewall.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Firewall.name");
+    }
 
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
-    public Boolean subnetChangeProtection;
+    private @Nullable UndeferrableValue<Boolean> subnetChangeProtection;
 
-
+    public @Nullable Boolean subnetChangeProtection() {
+        if (subnetChangeProtection == null) return null;
+        return subnetChangeProtection.getValue("Firewall.subnetChangeProtection");
+    }
 
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      * 
      */
-    public List<FirewallSubnetMapping> subnetMappings;
+    private UndeferrableValue<List<FirewallSubnetMapping>> subnetMappings;
 
-
+    public List<FirewallSubnetMapping> subnetMappings() {
+        if (subnetMappings == null) return null;
+        return subnetMappings.getValue("Firewall.subnetMappings");
+    }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Firewall.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,24 +147,33 @@ public final class Firewall extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Firewall.tagsAll");
+    }
 
     /**
      * A string token used when updating a firewall.
      * 
      */
-    public String updateToken;
+    private UndeferrableValue<String> updateToken;
 
-
+    public String updateToken() {
+        if (updateToken == null) return null;
+        return updateToken.getValue("Firewall.updateToken");
+    }
 
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("Firewall.vpcId");
+    }
 
 }

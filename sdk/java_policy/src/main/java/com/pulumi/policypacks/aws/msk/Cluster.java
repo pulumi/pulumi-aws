@@ -3,220 +3,297 @@
 
 package com.pulumi.policypacks.aws.msk;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.msk.ClusterBrokerNodeGroupInfo;
-import com.pulumi.policypacks.aws.msk.ClusterClientAuthentication;
-import com.pulumi.policypacks.aws.msk.ClusterConfigurationInfo;
-import com.pulumi.policypacks.aws.msk.ClusterEncryptionInfo;
-import com.pulumi.policypacks.aws.msk.ClusterLoggingInfo;
-import com.pulumi.policypacks.aws.msk.ClusterOpenMonitoring;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterBrokerNodeGroupInfo;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterClientAuthentication;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterConfigurationInfo;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterEncryptionInfo;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterLoggingInfo;
+import com.pulumi.policypacks.aws.msk.outputs.ClusterOpenMonitoring;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:msk/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String bootstrapBrokers;
+    private UndeferrableValue<String> bootstrapBrokers;
 
-
+    public String bootstrapBrokers() {
+        if (bootstrapBrokers == null) return null;
+        return bootstrapBrokers.getValue("Cluster.bootstrapBrokers");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicSaslIam;
+    private UndeferrableValue<String> bootstrapBrokersPublicSaslIam;
 
-
+    public String bootstrapBrokersPublicSaslIam() {
+        if (bootstrapBrokersPublicSaslIam == null) return null;
+        return bootstrapBrokersPublicSaslIam.getValue("Cluster.bootstrapBrokersPublicSaslIam");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicSaslScram;
+    private UndeferrableValue<String> bootstrapBrokersPublicSaslScram;
 
-
+    public String bootstrapBrokersPublicSaslScram() {
+        if (bootstrapBrokersPublicSaslScram == null) return null;
+        return bootstrapBrokersPublicSaslScram.getValue("Cluster.bootstrapBrokersPublicSaslScram");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersPublicTls;
+    private UndeferrableValue<String> bootstrapBrokersPublicTls;
 
-
+    public String bootstrapBrokersPublicTls() {
+        if (bootstrapBrokersPublicTls == null) return null;
+        return bootstrapBrokersPublicTls.getValue("Cluster.bootstrapBrokersPublicTls");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersSaslIam;
+    private UndeferrableValue<String> bootstrapBrokersSaslIam;
 
-
+    public String bootstrapBrokersSaslIam() {
+        if (bootstrapBrokersSaslIam == null) return null;
+        return bootstrapBrokersSaslIam.getValue("Cluster.bootstrapBrokersSaslIam");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersSaslScram;
+    private UndeferrableValue<String> bootstrapBrokersSaslScram;
 
-
+    public String bootstrapBrokersSaslScram() {
+        if (bootstrapBrokersSaslScram == null) return null;
+        return bootstrapBrokersSaslScram.getValue("Cluster.bootstrapBrokersSaslScram");
+    }
 
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersTls;
+    private UndeferrableValue<String> bootstrapBrokersTls;
 
-
+    public String bootstrapBrokersTls() {
+        if (bootstrapBrokersTls == null) return null;
+        return bootstrapBrokersTls.getValue("Cluster.bootstrapBrokersTls");
+    }
 
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersVpcConnectivitySaslIam;
+    private UndeferrableValue<String> bootstrapBrokersVpcConnectivitySaslIam;
 
-
+    public String bootstrapBrokersVpcConnectivitySaslIam() {
+        if (bootstrapBrokersVpcConnectivitySaslIam == null) return null;
+        return bootstrapBrokersVpcConnectivitySaslIam.getValue("Cluster.bootstrapBrokersVpcConnectivitySaslIam");
+    }
 
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersVpcConnectivitySaslScram;
+    private UndeferrableValue<String> bootstrapBrokersVpcConnectivitySaslScram;
 
-
+    public String bootstrapBrokersVpcConnectivitySaslScram() {
+        if (bootstrapBrokersVpcConnectivitySaslScram == null) return null;
+        return bootstrapBrokersVpcConnectivitySaslScram.getValue("Cluster.bootstrapBrokersVpcConnectivitySaslScram");
+    }
 
     /**
      * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    public String bootstrapBrokersVpcConnectivityTls;
+    private UndeferrableValue<String> bootstrapBrokersVpcConnectivityTls;
 
-
+    public String bootstrapBrokersVpcConnectivityTls() {
+        if (bootstrapBrokersVpcConnectivityTls == null) return null;
+        return bootstrapBrokersVpcConnectivityTls.getValue("Cluster.bootstrapBrokersVpcConnectivityTls");
+    }
 
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      * 
      */
-    public ClusterBrokerNodeGroupInfo brokerNodeGroupInfo;
+    private UndeferrableValue<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo;
 
-
+    public ClusterBrokerNodeGroupInfo brokerNodeGroupInfo() {
+        if (brokerNodeGroupInfo == null) return null;
+        return brokerNodeGroupInfo.getValue("Cluster.brokerNodeGroupInfo");
+    }
 
     /**
      * Configuration block for specifying a client authentication. See below.
      * 
      */
-    public ClusterClientAuthentication clientAuthentication;
+    private @Nullable UndeferrableValue<ClusterClientAuthentication> clientAuthentication;
 
-
+    public @Nullable ClusterClientAuthentication clientAuthentication() {
+        if (clientAuthentication == null) return null;
+        return clientAuthentication.getValue("Cluster.clientAuthentication");
+    }
 
     /**
      * Name of the MSK cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("Cluster.clusterName");
+    }
 
     /**
      * UUID of the MSK cluster, for use in IAM policies.
      * 
      */
-    public String clusterUuid;
+    private UndeferrableValue<String> clusterUuid;
 
-
+    public String clusterUuid() {
+        if (clusterUuid == null) return null;
+        return clusterUuid.getValue("Cluster.clusterUuid");
+    }
 
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      * 
      */
-    public ClusterConfigurationInfo configurationInfo;
+    private @Nullable UndeferrableValue<ClusterConfigurationInfo> configurationInfo;
 
-
+    public @Nullable ClusterConfigurationInfo configurationInfo() {
+        if (configurationInfo == null) return null;
+        return configurationInfo.getValue("Cluster.configurationInfo");
+    }
 
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      * 
      */
-    public String currentVersion;
+    private UndeferrableValue<String> currentVersion;
 
-
+    public String currentVersion() {
+        if (currentVersion == null) return null;
+        return currentVersion.getValue("Cluster.currentVersion");
+    }
 
     /**
      * Configuration block for specifying encryption. See below.
      * 
      */
-    public ClusterEncryptionInfo encryptionInfo;
+    private @Nullable UndeferrableValue<ClusterEncryptionInfo> encryptionInfo;
 
-
+    public @Nullable ClusterEncryptionInfo encryptionInfo() {
+        if (encryptionInfo == null) return null;
+        return encryptionInfo.getValue("Cluster.encryptionInfo");
+    }
 
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      * 
      */
-    public String enhancedMonitoring;
+    private @Nullable UndeferrableValue<String> enhancedMonitoring;
 
-
+    public @Nullable String enhancedMonitoring() {
+        if (enhancedMonitoring == null) return null;
+        return enhancedMonitoring.getValue("Cluster.enhancedMonitoring");
+    }
 
     /**
      * Specify the desired Kafka software version.
      * 
      */
-    public String kafkaVersion;
+    private UndeferrableValue<String> kafkaVersion;
 
-
+    public String kafkaVersion() {
+        if (kafkaVersion == null) return null;
+        return kafkaVersion.getValue("Cluster.kafkaVersion");
+    }
 
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      * 
      */
-    public ClusterLoggingInfo loggingInfo;
+    private @Nullable UndeferrableValue<ClusterLoggingInfo> loggingInfo;
 
-
+    public @Nullable ClusterLoggingInfo loggingInfo() {
+        if (loggingInfo == null) return null;
+        return loggingInfo.getValue("Cluster.loggingInfo");
+    }
 
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      * 
      */
-    public Integer numberOfBrokerNodes;
+    private UndeferrableValue<Integer> numberOfBrokerNodes;
 
-
+    public Integer numberOfBrokerNodes() {
+        if (numberOfBrokerNodes == null) return null;
+        return numberOfBrokerNodes.getValue("Cluster.numberOfBrokerNodes");
+    }
 
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      * 
      */
-    public ClusterOpenMonitoring openMonitoring;
+    private @Nullable UndeferrableValue<ClusterOpenMonitoring> openMonitoring;
 
-
+    public @Nullable ClusterOpenMonitoring openMonitoring() {
+        if (openMonitoring == null) return null;
+        return openMonitoring.getValue("Cluster.openMonitoring");
+    }
 
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      * 
      */
-    public String storageMode;
+    private UndeferrableValue<String> storageMode;
 
-
+    public String storageMode() {
+        if (storageMode == null) return null;
+        return storageMode.getValue("Cluster.storageMode");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -226,24 +303,33 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String zookeeperConnectString;
+    private UndeferrableValue<String> zookeeperConnectString;
 
-
+    public String zookeeperConnectString() {
+        if (zookeeperConnectString == null) return null;
+        return zookeeperConnectString.getValue("Cluster.zookeeperConnectString");
+    }
 
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    public String zookeeperConnectStringTls;
+    private UndeferrableValue<String> zookeeperConnectStringTls;
 
-
+    public String zookeeperConnectStringTls() {
+        if (zookeeperConnectStringTls == null) return null;
+        return zookeeperConnectStringTls.getValue("Cluster.zookeeperConnectStringTls");
+    }
 
 }

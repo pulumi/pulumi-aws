@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/snapshotSchedule:SnapshotSchedule")
-public final class SnapshotSchedule extends com.pulumi.resources.PolicyResource {
+public final class SnapshotSchedule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SnapshotSchedule.arn");
+    }
 
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      * 
      */
-    public List<String> definitions;
+    private UndeferrableValue<List<String>> definitions;
 
-
+    public List<String> definitions() {
+        if (definitions == null) return null;
+        return definitions.getValue("SnapshotSchedule.definitions");
+    }
 
     /**
      * The description of the snapshot schedule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SnapshotSchedule.description");
+    }
 
     /**
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("SnapshotSchedule.forceDestroy");
+    }
 
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("SnapshotSchedule.identifier");
+    }
 
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public String identifierPrefix;
+    private UndeferrableValue<String> identifierPrefix;
 
-
+    public String identifierPrefix() {
+        if (identifierPrefix == null) return null;
+        return identifierPrefix.getValue("SnapshotSchedule.identifierPrefix");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SnapshotSchedule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,8 +101,11 @@ public final class SnapshotSchedule extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SnapshotSchedule.tagsAll");
+    }
 
 }

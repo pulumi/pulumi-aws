@@ -3,40 +3,54 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcBlockPublicAccessOptionsTimeouts;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcBlockPublicAccessOptionsTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")
-public final class VpcBlockPublicAccessOptions extends com.pulumi.resources.PolicyResource {
+public final class VpcBlockPublicAccessOptions extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account id to which these options apply.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("VpcBlockPublicAccessOptions.awsAccountId");
+    }
 
     /**
      * The AWS region to which these options apply.
      * 
      */
-    public String awsRegion;
+    private UndeferrableValue<String> awsRegion;
 
-
+    public String awsRegion() {
+        if (awsRegion == null) return null;
+        return awsRegion.getValue("VpcBlockPublicAccessOptions.awsRegion");
+    }
 
     /**
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      * 
      */
-    public String internetGatewayBlockMode;
+    private UndeferrableValue<String> internetGatewayBlockMode;
 
+    public String internetGatewayBlockMode() {
+        if (internetGatewayBlockMode == null) return null;
+        return internetGatewayBlockMode.getValue("VpcBlockPublicAccessOptions.internetGatewayBlockMode");
+    }
 
+    private @Nullable UndeferrableValue<VpcBlockPublicAccessOptionsTimeouts> timeouts;
 
-    public VpcBlockPublicAccessOptionsTimeouts timeouts;
-
-
+    public @Nullable VpcBlockPublicAccessOptionsTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("VpcBlockPublicAccessOptions.timeouts");
+    }
 
 }

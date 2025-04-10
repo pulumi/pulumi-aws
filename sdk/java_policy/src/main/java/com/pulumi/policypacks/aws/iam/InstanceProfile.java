@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/instanceProfile:InstanceProfile")
-public final class InstanceProfile extends com.pulumi.resources.PolicyResource {
+public final class InstanceProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN assigned by AWS to the instance profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("InstanceProfile.arn");
+    }
 
     /**
      * Creation timestamp of the instance profile.
      * 
      */
-    public String createDate;
+    private UndeferrableValue<String> createDate;
 
-
+    public String createDate() {
+        if (createDate == null) return null;
+        return createDate.getValue("InstanceProfile.createDate");
+    }
 
     /**
      * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `{@literal @}`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("InstanceProfile.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("InstanceProfile.namePrefix");
+    }
 
     /**
      * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("InstanceProfile.path");
+    }
 
     /**
      * Name of the role to add to the profile.
      * 
      */
-    public String role;
+    private @Nullable UndeferrableValue<String> role;
 
-
+    public @Nullable String role() {
+        if (role == null) return null;
+        return role.getValue("InstanceProfile.role");
+    }
 
     /**
      * Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("InstanceProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -75,16 +98,22 @@ public final class InstanceProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("InstanceProfile.tagsAll");
+    }
 
     /**
      * [Unique ID][1] assigned by AWS.
      * 
      */
-    public String uniqueId;
+    private UndeferrableValue<String> uniqueId;
 
-
+    public String uniqueId() {
+        if (uniqueId == null) return null;
+        return uniqueId.getValue("InstanceProfile.uniqueId");
+    }
 
 }

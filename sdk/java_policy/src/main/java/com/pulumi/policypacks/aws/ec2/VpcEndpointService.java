@@ -3,144 +3,194 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcEndpointServicePrivateDnsNameConfiguration;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcEndpointServicePrivateDnsNameConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcEndpointService:VpcEndpointService")
-public final class VpcEndpointService extends com.pulumi.resources.PolicyResource {
+public final class VpcEndpointService extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
      */
-    public Boolean acceptanceRequired;
+    private UndeferrableValue<Boolean> acceptanceRequired;
 
-
+    public Boolean acceptanceRequired() {
+        if (acceptanceRequired == null) return null;
+        return acceptanceRequired.getValue("VpcEndpointService.acceptanceRequired");
+    }
 
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
-    public List<String> allowedPrincipals;
+    private UndeferrableValue<List<String>> allowedPrincipals;
 
-
+    public List<String> allowedPrincipals() {
+        if (allowedPrincipals == null) return null;
+        return allowedPrincipals.getValue("VpcEndpointService.allowedPrincipals");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcEndpointService.arn");
+    }
 
     /**
      * A set of Availability Zones in which the service is available.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("VpcEndpointService.availabilityZones");
+    }
 
     /**
      * A set of DNS names for the service.
      * 
      */
-    public List<String> baseEndpointDnsNames;
+    private UndeferrableValue<List<String>> baseEndpointDnsNames;
 
-
+    public List<String> baseEndpointDnsNames() {
+        if (baseEndpointDnsNames == null) return null;
+        return baseEndpointDnsNames.getValue("VpcEndpointService.baseEndpointDnsNames");
+    }
 
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
-    public List<String> gatewayLoadBalancerArns;
+    private @Nullable UndeferrableValue<List<String>> gatewayLoadBalancerArns;
 
-
+    public @Nullable List<String> gatewayLoadBalancerArns() {
+        if (gatewayLoadBalancerArns == null) return null;
+        return gatewayLoadBalancerArns.getValue("VpcEndpointService.gatewayLoadBalancerArns");
+    }
 
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    public Boolean managesVpcEndpoints;
+    private UndeferrableValue<Boolean> managesVpcEndpoints;
 
-
+    public Boolean managesVpcEndpoints() {
+        if (managesVpcEndpoints == null) return null;
+        return managesVpcEndpoints.getValue("VpcEndpointService.managesVpcEndpoints");
+    }
 
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      * 
      */
-    public List<String> networkLoadBalancerArns;
+    private @Nullable UndeferrableValue<List<String>> networkLoadBalancerArns;
 
-
+    public @Nullable List<String> networkLoadBalancerArns() {
+        if (networkLoadBalancerArns == null) return null;
+        return networkLoadBalancerArns.getValue("VpcEndpointService.networkLoadBalancerArns");
+    }
 
     /**
      * The private DNS name for the service.
      * 
      */
-    public String privateDnsName;
+    private UndeferrableValue<String> privateDnsName;
 
-
+    public String privateDnsName() {
+        if (privateDnsName == null) return null;
+        return privateDnsName.getValue("VpcEndpointService.privateDnsName");
+    }
 
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      * 
      */
-    public List<VpcEndpointServicePrivateDnsNameConfiguration> privateDnsNameConfigurations;
+    private UndeferrableValue<List<VpcEndpointServicePrivateDnsNameConfiguration>> privateDnsNameConfigurations;
 
-
+    public List<VpcEndpointServicePrivateDnsNameConfiguration> privateDnsNameConfigurations() {
+        if (privateDnsNameConfigurations == null) return null;
+        return privateDnsNameConfigurations.getValue("VpcEndpointService.privateDnsNameConfigurations");
+    }
 
     /**
      * The service name.
      * 
      */
-    public String serviceName;
+    private UndeferrableValue<String> serviceName;
 
-
+    public String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("VpcEndpointService.serviceName");
+    }
 
     /**
      * The service type, `Gateway` or `Interface`.
      * 
      */
-    public String serviceType;
+    private UndeferrableValue<String> serviceType;
 
-
+    public String serviceType() {
+        if (serviceType == null) return null;
+        return serviceType.getValue("VpcEndpointService.serviceType");
+    }
 
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcEndpointService.state");
+    }
 
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
-    public List<String> supportedIpAddressTypes;
+    private UndeferrableValue<List<String>> supportedIpAddressTypes;
 
-
+    public List<String> supportedIpAddressTypes() {
+        if (supportedIpAddressTypes == null) return null;
+        return supportedIpAddressTypes.getValue("VpcEndpointService.supportedIpAddressTypes");
+    }
 
     /**
      * The set of regions from which service consumers can access the service.
      * 
      */
-    public List<String> supportedRegions;
+    private UndeferrableValue<List<String>> supportedRegions;
 
-
+    public List<String> supportedRegions() {
+        if (supportedRegions == null) return null;
+        return supportedRegions.getValue("VpcEndpointService.supportedRegions");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcEndpointService.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -150,8 +200,11 @@ public final class VpcEndpointService extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcEndpointService.tagsAll");
+    }
 
 }

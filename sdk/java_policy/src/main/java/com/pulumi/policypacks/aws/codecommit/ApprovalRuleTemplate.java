@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")
-public final class ApprovalRuleTemplate extends com.pulumi.resources.PolicyResource {
+public final class ApprovalRuleTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the approval rule template
      * 
      */
-    public String approvalRuleTemplateId;
+    private UndeferrableValue<String> approvalRuleTemplateId;
 
-
+    public String approvalRuleTemplateId() {
+        if (approvalRuleTemplateId == null) return null;
+        return approvalRuleTemplateId.getValue("ApprovalRuleTemplate.approvalRuleTemplateId");
+    }
 
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("ApprovalRuleTemplate.content");
+    }
 
     /**
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("ApprovalRuleTemplate.creationDate");
+    }
 
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ApprovalRuleTemplate.description");
+    }
 
     /**
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String lastModifiedDate;
+    private UndeferrableValue<String> lastModifiedDate;
 
-
+    public String lastModifiedDate() {
+        if (lastModifiedDate == null) return null;
+        return lastModifiedDate.getValue("ApprovalRuleTemplate.lastModifiedDate");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
-    public String lastModifiedUser;
+    private UndeferrableValue<String> lastModifiedUser;
 
-
+    public String lastModifiedUser() {
+        if (lastModifiedUser == null) return null;
+        return lastModifiedUser.getValue("ApprovalRuleTemplate.lastModifiedUser");
+    }
 
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ApprovalRuleTemplate.name");
+    }
 
     /**
      * The SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    public String ruleContentSha256;
+    private UndeferrableValue<String> ruleContentSha256;
 
-
+    public String ruleContentSha256() {
+        if (ruleContentSha256 == null) return null;
+        return ruleContentSha256.getValue("ApprovalRuleTemplate.ruleContentSha256");
+    }
 
 }

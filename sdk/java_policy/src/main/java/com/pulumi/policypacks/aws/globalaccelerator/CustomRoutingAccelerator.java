@@ -3,49 +3,63 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.CustomRoutingAcceleratorAttributes;
-import com.pulumi.policypacks.aws.globalaccelerator.CustomRoutingAcceleratorIpSet;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingAcceleratorAttributes;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingAcceleratorIpSet;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator")
-public final class CustomRoutingAccelerator extends com.pulumi.resources.PolicyResource {
+public final class CustomRoutingAccelerator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the custom accelerator.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomRoutingAccelerator.arn");
+    }
 
     /**
      * The attributes of the accelerator. Fields documented below.
      * 
      */
-    public CustomRoutingAcceleratorAttributes attributes;
+    private @Nullable UndeferrableValue<CustomRoutingAcceleratorAttributes> attributes;
 
-
+    public @Nullable CustomRoutingAcceleratorAttributes attributes() {
+        if (attributes == null) return null;
+        return attributes.getValue("CustomRoutingAccelerator.attributes");
+    }
 
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("CustomRoutingAccelerator.dnsName");
+    }
 
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("CustomRoutingAccelerator.enabled");
+    }
 
     /**
      * -  The Global Accelerator Route 53 zone ID that can be used to
@@ -53,49 +67,67 @@ public final class CustomRoutingAccelerator extends com.pulumi.resources.PolicyR
      *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("CustomRoutingAccelerator.hostedZoneId");
+    }
 
     /**
      * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
-    public String ipAddressType;
+    private @Nullable UndeferrableValue<String> ipAddressType;
 
-
+    public @Nullable String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("CustomRoutingAccelerator.ipAddressType");
+    }
 
     /**
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
-    public List<String> ipAddresses;
+    private @Nullable UndeferrableValue<List<String>> ipAddresses;
 
-
+    public @Nullable List<String> ipAddresses() {
+        if (ipAddresses == null) return null;
+        return ipAddresses.getValue("CustomRoutingAccelerator.ipAddresses");
+    }
 
     /**
      * IP address set associated with the accelerator.
      * 
      */
-    public List<CustomRoutingAcceleratorIpSet> ipSets;
+    private UndeferrableValue<List<CustomRoutingAcceleratorIpSet>> ipSets;
 
-
+    public List<CustomRoutingAcceleratorIpSet> ipSets() {
+        if (ipSets == null) return null;
+        return ipSets.getValue("CustomRoutingAccelerator.ipSets");
+    }
 
     /**
      * The name of a custom routing accelerator.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CustomRoutingAccelerator.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomRoutingAccelerator.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -105,8 +137,11 @@ public final class CustomRoutingAccelerator extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomRoutingAccelerator.tagsAll");
+    }
 
 }

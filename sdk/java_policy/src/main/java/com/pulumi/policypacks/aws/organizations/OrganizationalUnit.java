@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.organizations.OrganizationalUnitAccount;
+import com.pulumi.policypacks.aws.organizations.outputs.OrganizationalUnitAccount;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:organizations/organizationalUnit:OrganizationalUnit")
-public final class OrganizationalUnit extends com.pulumi.resources.PolicyResource {
+public final class OrganizationalUnit extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      * 
      */
-    public List<OrganizationalUnitAccount> accounts;
+    private UndeferrableValue<List<OrganizationalUnitAccount>> accounts;
 
-
+    public List<OrganizationalUnitAccount> accounts() {
+        if (accounts == null) return null;
+        return accounts.getValue("OrganizationalUnit.accounts");
+    }
 
     /**
      * ARN of the organizational unit
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OrganizationalUnit.arn");
+    }
 
     /**
      * The name for the organizational unit
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OrganizationalUnit.name");
+    }
 
     /**
      * ID of the parent organizational unit, which may be the root
      * 
      */
-    public String parentId;
+    private UndeferrableValue<String> parentId;
 
-
+    public String parentId() {
+        if (parentId == null) return null;
+        return parentId.getValue("OrganizationalUnit.parentId");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OrganizationalUnit.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class OrganizationalUnit extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OrganizationalUnit.tagsAll");
+    }
 
 }

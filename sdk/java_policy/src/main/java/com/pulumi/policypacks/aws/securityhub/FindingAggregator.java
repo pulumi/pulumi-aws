@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/findingAggregator:FindingAggregator")
-public final class FindingAggregator extends com.pulumi.resources.PolicyResource {
+public final class FindingAggregator extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      * 
      */
-    public String linkingMode;
+    private UndeferrableValue<String> linkingMode;
 
-
+    public String linkingMode() {
+        if (linkingMode == null) return null;
+        return linkingMode.getValue("FindingAggregator.linkingMode");
+    }
 
     /**
      * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
-    public List<String> specifiedRegions;
+    private @Nullable UndeferrableValue<List<String>> specifiedRegions;
 
-
+    public @Nullable List<String> specifiedRegions() {
+        if (specifiedRegions == null) return null;
+        return specifiedRegions.getValue("FindingAggregator.specifiedRegions");
+    }
 
 }

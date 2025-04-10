@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.athena.WorkgroupConfiguration;
+import com.pulumi.policypacks.aws.athena.outputs.WorkgroupConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/workgroup:Workgroup")
-public final class Workgroup extends com.pulumi.resources.PolicyResource {
+public final class Workgroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the workgroup
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workgroup.arn");
+    }
 
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      * 
      */
-    public WorkgroupConfiguration configuration;
+    private @Nullable UndeferrableValue<WorkgroupConfiguration> configuration;
 
-
+    public @Nullable WorkgroupConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Workgroup.configuration");
+    }
 
     /**
      * Description of the workgroup.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Workgroup.description");
+    }
 
     /**
      * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Workgroup.forceDestroy");
+    }
 
     /**
      * Name of the workgroup.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Workgroup.name");
+    }
 
     /**
      * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("Workgroup.state");
+    }
 
     /**
      * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workgroup.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,8 +100,11 @@ public final class Workgroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workgroup.tagsAll");
+    }
 
 }

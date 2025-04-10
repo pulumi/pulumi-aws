@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.RecordsExclusiveResourceRecordSet;
-import com.pulumi.policypacks.aws.route53.RecordsExclusiveTimeouts;
+import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSet;
+import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/recordsExclusive:RecordsExclusive")
-public final class RecordsExclusive extends com.pulumi.resources.PolicyResource {
+public final class RecordsExclusive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of all resource record sets associated with the hosted zone.
      * See `resource_record_set` below.
      * 
      */
-    public List<RecordsExclusiveResourceRecordSet> resourceRecordSets;
+    private @Nullable UndeferrableValue<List<RecordsExclusiveResourceRecordSet>> resourceRecordSets;
 
+    public @Nullable List<RecordsExclusiveResourceRecordSet> resourceRecordSets() {
+        if (resourceRecordSets == null) return null;
+        return resourceRecordSets.getValue("RecordsExclusive.resourceRecordSets");
+    }
 
+    private @Nullable UndeferrableValue<RecordsExclusiveTimeouts> timeouts;
 
-    public RecordsExclusiveTimeouts timeouts;
-
-
+    public @Nullable RecordsExclusiveTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("RecordsExclusive.timeouts");
+    }
 
     /**
      * ID of the hosted zone containing the resource record sets.
@@ -32,8 +40,11 @@ public final class RecordsExclusive extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String zoneId;
+    private UndeferrableValue<String> zoneId;
 
-
+    public String zoneId() {
+        if (zoneId == null) return null;
+        return zoneId.getValue("RecordsExclusive.zoneId");
+    }
 
 }

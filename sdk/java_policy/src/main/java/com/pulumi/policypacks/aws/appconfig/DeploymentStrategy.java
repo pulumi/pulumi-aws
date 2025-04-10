@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appconfig/deploymentStrategy:DeploymentStrategy")
-public final class DeploymentStrategy extends com.pulumi.resources.PolicyResource {
+public final class DeploymentStrategy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the AppConfig Deployment Strategy.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DeploymentStrategy.arn");
+    }
 
     /**
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      * 
      */
-    public Integer deploymentDurationInMinutes;
+    private UndeferrableValue<Integer> deploymentDurationInMinutes;
 
-
+    public Integer deploymentDurationInMinutes() {
+        if (deploymentDurationInMinutes == null) return null;
+        return deploymentDurationInMinutes.getValue("DeploymentStrategy.deploymentDurationInMinutes");
+    }
 
     /**
      * Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DeploymentStrategy.description");
+    }
 
     /**
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
-    public Integer finalBakeTimeInMinutes;
+    private @Nullable UndeferrableValue<Integer> finalBakeTimeInMinutes;
 
-
+    public @Nullable Integer finalBakeTimeInMinutes() {
+        if (finalBakeTimeInMinutes == null) return null;
+        return finalBakeTimeInMinutes.getValue("DeploymentStrategy.finalBakeTimeInMinutes");
+    }
 
     /**
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
-    public Double growthFactor;
+    private UndeferrableValue<Double> growthFactor;
 
-
+    public Double growthFactor() {
+        if (growthFactor == null) return null;
+        return growthFactor.getValue("DeploymentStrategy.growthFactor");
+    }
 
     /**
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
-    public String growthType;
+    private @Nullable UndeferrableValue<String> growthType;
 
-
+    public @Nullable String growthType() {
+        if (growthType == null) return null;
+        return growthType.getValue("DeploymentStrategy.growthType");
+    }
 
     /**
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DeploymentStrategy.name");
+    }
 
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      * 
      */
-    public String replicateTo;
+    private UndeferrableValue<String> replicateTo;
 
-
+    public String replicateTo() {
+        if (replicateTo == null) return null;
+        return replicateTo.getValue("DeploymentStrategy.replicateTo");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DeploymentStrategy.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,8 +122,11 @@ public final class DeploymentStrategy extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DeploymentStrategy.tagsAll");
+    }
 
 }

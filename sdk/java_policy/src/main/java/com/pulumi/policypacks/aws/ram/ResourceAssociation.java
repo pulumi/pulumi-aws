@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ram;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ram/resourceAssociation:ResourceAssociation")
-public final class ResourceAssociation extends com.pulumi.resources.PolicyResource {
+public final class ResourceAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ResourceAssociation.resourceArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      * 
      */
-    public String resourceShareArn;
+    private UndeferrableValue<String> resourceShareArn;
 
-
+    public String resourceShareArn() {
+        if (resourceShareArn == null) return null;
+        return resourceShareArn.getValue("ResourceAssociation.resourceShareArn");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")
-public final class SnapshotScheduleAssociation extends com.pulumi.resources.PolicyResource {
+public final class SnapshotScheduleAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The cluster identifier.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("SnapshotScheduleAssociation.clusterIdentifier");
+    }
 
     /**
      * The snapshot schedule identifier.
      * 
      */
-    public String scheduleIdentifier;
+    private UndeferrableValue<String> scheduleIdentifier;
 
-
+    public String scheduleIdentifier() {
+        if (scheduleIdentifier == null) return null;
+        return scheduleIdentifier.getValue("SnapshotScheduleAssociation.scheduleIdentifier");
+    }
 
 }

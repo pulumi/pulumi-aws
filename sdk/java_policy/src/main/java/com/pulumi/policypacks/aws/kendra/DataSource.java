@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.DataSourceConfiguration;
-import com.pulumi.policypacks.aws.kendra.DataSourceCustomDocumentEnrichmentConfiguration;
+import com.pulumi.policypacks.aws.kendra.outputs.DataSourceConfiguration;
+import com.pulumi.policypacks.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/dataSource:DataSource")
-public final class DataSource extends com.pulumi.resources.PolicyResource {
+public final class DataSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Data Source.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataSource.arn");
+    }
 
     /**
      * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
-    public DataSourceConfiguration configuration;
+    private @Nullable UndeferrableValue<DataSourceConfiguration> configuration;
 
-
+    public @Nullable DataSourceConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("DataSource.configuration");
+    }
 
     /**
      * The Unix time stamp of when the Data Source was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("DataSource.createdAt");
+    }
 
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      * 
      */
-    public DataSourceCustomDocumentEnrichmentConfiguration customDocumentEnrichmentConfiguration;
+    private @Nullable UndeferrableValue<DataSourceCustomDocumentEnrichmentConfiguration> customDocumentEnrichmentConfiguration;
 
-
+    public @Nullable DataSourceCustomDocumentEnrichmentConfiguration customDocumentEnrichmentConfiguration() {
+        if (customDocumentEnrichmentConfiguration == null) return null;
+        return customDocumentEnrichmentConfiguration.getValue("DataSource.customDocumentEnrichmentConfiguration");
+    }
 
     /**
      * The unique identifiers of the Data Source.
      * 
      */
-    public String dataSourceId;
+    private UndeferrableValue<String> dataSourceId;
 
-
+    public String dataSourceId() {
+        if (dataSourceId == null) return null;
+        return dataSourceId.getValue("DataSource.dataSourceId");
+    }
 
     /**
      * A description for the Data Source connector.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DataSource.description");
+    }
 
     /**
      * When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      * 
      */
-    public String errorMessage;
+    private UndeferrableValue<String> errorMessage;
 
-
+    public String errorMessage() {
+        if (errorMessage == null) return null;
+        return errorMessage.getValue("DataSource.errorMessage");
+    }
 
     /**
      * The identifier of the index for your Amazon Kendra data source.
      * 
      */
-    public String indexId;
+    private UndeferrableValue<String> indexId;
 
-
+    public String indexId() {
+        if (indexId == null) return null;
+        return indexId.getValue("DataSource.indexId");
+    }
 
     /**
      * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("DataSource.languageCode");
+    }
 
     /**
      * A name for your data source connector.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataSource.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can&#39;t specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("DataSource.roleArn");
+    }
 
     /**
      * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don&#39;t set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
      * 
      */
-    public String schedule;
+    private @Nullable UndeferrableValue<String> schedule;
 
-
+    public @Nullable String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("DataSource.schedule");
+    }
 
     /**
      * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("DataSource.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataSource.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -133,9 +177,12 @@ public final class DataSource extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataSource.tagsAll");
+    }
 
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
@@ -143,16 +190,22 @@ public final class DataSource extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DataSource.type");
+    }
 
     /**
      * The Unix time stamp of when the Data Source was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("DataSource.updatedAt");
+    }
 
 }

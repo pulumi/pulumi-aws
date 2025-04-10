@@ -3,14 +3,16 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange;
+import com.pulumi.policypacks.aws.emr.outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange;
 import java.lang.Boolean;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")
-public final class BlockPublicAccessConfiguration extends com.pulumi.resources.PolicyResource {
+public final class BlockPublicAccessConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Enable or disable EMR Block Public Access.
@@ -18,16 +20,22 @@ public final class BlockPublicAccessConfiguration extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    public Boolean blockPublicSecurityGroupRules;
+    private UndeferrableValue<Boolean> blockPublicSecurityGroupRules;
 
-
+    public Boolean blockPublicSecurityGroupRules() {
+        if (blockPublicSecurityGroupRules == null) return null;
+        return blockPublicSecurityGroupRules.getValue("BlockPublicAccessConfiguration.blockPublicSecurityGroupRules");
+    }
 
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
      * 
      */
-    public List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange> permittedPublicSecurityGroupRuleRanges;
+    private @Nullable UndeferrableValue<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> permittedPublicSecurityGroupRuleRanges;
 
-
+    public @Nullable List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange> permittedPublicSecurityGroupRuleRanges() {
+        if (permittedPublicSecurityGroupRuleRanges == null) return null;
+        return permittedPublicSecurityGroupRuleRanges.getValue("BlockPublicAccessConfiguration.permittedPublicSecurityGroupRuleRanges");
+    }
 
 }

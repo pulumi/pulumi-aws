@@ -3,32 +3,43 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rds.InstanceDesiredStateTimeouts;
+import com.pulumi.policypacks.aws.rds.outputs.InstanceDesiredStateTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/instanceDesiredState:InstanceDesiredState")
-public final class InstanceDesiredState extends com.pulumi.resources.PolicyResource {
+public final class InstanceDesiredState extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * DB Instance Identifier
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("InstanceDesiredState.identifier");
+    }
 
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("InstanceDesiredState.state");
+    }
 
+    private @Nullable UndeferrableValue<InstanceDesiredStateTimeouts> timeouts;
 
-    public InstanceDesiredStateTimeouts timeouts;
-
-
+    public @Nullable InstanceDesiredStateTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("InstanceDesiredState.timeouts");
+    }
 
 }

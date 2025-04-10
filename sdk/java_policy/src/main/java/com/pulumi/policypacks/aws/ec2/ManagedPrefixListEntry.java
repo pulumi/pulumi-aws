@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")
-public final class ManagedPrefixListEntry extends com.pulumi.resources.PolicyResource {
+public final class ManagedPrefixListEntry extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * CIDR block of this entry.
      * 
      */
-    public String cidr;
+    private UndeferrableValue<String> cidr;
 
-
+    public String cidr() {
+        if (cidr == null) return null;
+        return cidr.getValue("ManagedPrefixListEntry.cidr");
+    }
 
     /**
      * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ManagedPrefixListEntry.description");
+    }
 
     /**
      * The ID of the prefix list.
      * 
      */
-    public String prefixListId;
+    private UndeferrableValue<String> prefixListId;
 
-
+    public String prefixListId() {
+        if (prefixListId == null) return null;
+        return prefixListId.getValue("ManagedPrefixListEntry.prefixListId");
+    }
 
 }

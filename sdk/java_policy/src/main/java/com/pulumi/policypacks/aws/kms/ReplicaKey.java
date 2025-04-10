@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kms/replicaKey:ReplicaKey")
-public final class ReplicaKey extends com.pulumi.resources.PolicyResource {
+public final class ReplicaKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReplicaKey.arn");
+    }
 
     /**
      * A flag to indicate whether to bypass the key policy lockout safety check.
@@ -28,90 +33,123 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResource {
      * The default value is `false`.
      * 
      */
-    public Boolean bypassPolicyLockoutSafetyCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
+        if (bypassPolicyLockoutSafetyCheck == null) return null;
+        return bypassPolicyLockoutSafetyCheck.getValue("ReplicaKey.bypassPolicyLockoutSafetyCheck");
+    }
 
     /**
      * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
-    public Integer deletionWindowInDays;
+    private @Nullable UndeferrableValue<Integer> deletionWindowInDays;
 
-
+    public @Nullable Integer deletionWindowInDays() {
+        if (deletionWindowInDays == null) return null;
+        return deletionWindowInDays.getValue("ReplicaKey.deletionWindowInDays");
+    }
 
     /**
      * A description of the KMS key.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ReplicaKey.description");
+    }
 
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ReplicaKey.enabled");
+    }
 
     /**
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
-    public String keyId;
+    private UndeferrableValue<String> keyId;
 
-
+    public String keyId() {
+        if (keyId == null) return null;
+        return keyId.getValue("ReplicaKey.keyId");
+    }
 
     /**
      * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
-    public Boolean keyRotationEnabled;
+    private UndeferrableValue<Boolean> keyRotationEnabled;
 
-
+    public Boolean keyRotationEnabled() {
+        if (keyRotationEnabled == null) return null;
+        return keyRotationEnabled.getValue("ReplicaKey.keyRotationEnabled");
+    }
 
     /**
      * The type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    public String keySpec;
+    private UndeferrableValue<String> keySpec;
 
-
+    public String keySpec() {
+        if (keySpec == null) return null;
+        return keySpec.getValue("ReplicaKey.keySpec");
+    }
 
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    public String keyUsage;
+    private UndeferrableValue<String> keyUsage;
 
-
+    public String keyUsage() {
+        if (keyUsage == null) return null;
+        return keyUsage.getValue("ReplicaKey.keyUsage");
+    }
 
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ReplicaKey.policy");
+    }
 
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
-    public String primaryKeyArn;
+    private UndeferrableValue<String> primaryKeyArn;
 
-
+    public String primaryKeyArn() {
+        if (primaryKeyArn == null) return null;
+        return primaryKeyArn.getValue("ReplicaKey.primaryKeyArn");
+    }
 
     /**
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReplicaKey.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -121,8 +159,11 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReplicaKey.tagsAll");
+    }
 
 }

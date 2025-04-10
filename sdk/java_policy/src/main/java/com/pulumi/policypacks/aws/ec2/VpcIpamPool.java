@@ -3,160 +3,219 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamPool:VpcIpamPool")
-public final class VpcIpamPool extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamPool extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      * 
      */
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("VpcIpamPool.addressFamily");
+    }
 
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      * 
      */
-    public Integer allocationDefaultNetmaskLength;
+    private @Nullable UndeferrableValue<Integer> allocationDefaultNetmaskLength;
 
-
+    public @Nullable Integer allocationDefaultNetmaskLength() {
+        if (allocationDefaultNetmaskLength == null) return null;
+        return allocationDefaultNetmaskLength.getValue("VpcIpamPool.allocationDefaultNetmaskLength");
+    }
 
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    public Integer allocationMaxNetmaskLength;
+    private @Nullable UndeferrableValue<Integer> allocationMaxNetmaskLength;
 
-
+    public @Nullable Integer allocationMaxNetmaskLength() {
+        if (allocationMaxNetmaskLength == null) return null;
+        return allocationMaxNetmaskLength.getValue("VpcIpamPool.allocationMaxNetmaskLength");
+    }
 
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    public Integer allocationMinNetmaskLength;
+    private @Nullable UndeferrableValue<Integer> allocationMinNetmaskLength;
 
-
+    public @Nullable Integer allocationMinNetmaskLength() {
+        if (allocationMinNetmaskLength == null) return null;
+        return allocationMinNetmaskLength.getValue("VpcIpamPool.allocationMinNetmaskLength");
+    }
 
     /**
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      * 
      */
-    public Map<String,String> allocationResourceTags;
+    private @Nullable UndeferrableValue<Map<String,String>> allocationResourceTags;
 
-
+    public @Nullable Map<String,String> allocationResourceTags() {
+        if (allocationResourceTags == null) return null;
+        return allocationResourceTags.getValue("VpcIpamPool.allocationResourceTags");
+    }
 
     /**
      * Amazon Resource Name (ARN) of IPAM
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpamPool.arn");
+    }
 
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
      * within the CIDR range in the pool.
      * 
      */
-    public Boolean autoImport;
+    private @Nullable UndeferrableValue<Boolean> autoImport;
 
-
+    public @Nullable Boolean autoImport() {
+        if (autoImport == null) return null;
+        return autoImport.getValue("VpcIpamPool.autoImport");
+    }
 
     /**
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      * 
      */
-    public String awsService;
+    private @Nullable UndeferrableValue<String> awsService;
 
-
+    public @Nullable String awsService() {
+        if (awsService == null) return null;
+        return awsService.getValue("VpcIpamPool.awsService");
+    }
 
     /**
      * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      * 
      */
-    public Boolean cascade;
+    private @Nullable UndeferrableValue<Boolean> cascade;
 
-
+    public @Nullable Boolean cascade() {
+        if (cascade == null) return null;
+        return cascade.getValue("VpcIpamPool.cascade");
+    }
 
     /**
      * A description for the IPAM pool.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("VpcIpamPool.description");
+    }
 
     /**
      * The ID of the scope in which you would like to create the IPAM pool.
      * 
      */
-    public String ipamScopeId;
+    private UndeferrableValue<String> ipamScopeId;
 
+    public String ipamScopeId() {
+        if (ipamScopeId == null) return null;
+        return ipamScopeId.getValue("VpcIpamPool.ipamScopeId");
+    }
 
+    private UndeferrableValue<String> ipamScopeType;
 
-    public String ipamScopeType;
-
-
+    public String ipamScopeType() {
+        if (ipamScopeType == null) return null;
+        return ipamScopeType.getValue("VpcIpamPool.ipamScopeType");
+    }
 
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
      * 
      */
-    public String locale;
+    private @Nullable UndeferrableValue<String> locale;
 
+    public @Nullable String locale() {
+        if (locale == null) return null;
+        return locale.getValue("VpcIpamPool.locale");
+    }
 
+    private UndeferrableValue<Integer> poolDepth;
 
-    public Integer poolDepth;
-
-
+    public Integer poolDepth() {
+        if (poolDepth == null) return null;
+        return poolDepth.getValue("VpcIpamPool.poolDepth");
+    }
 
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      * 
      */
-    public String publicIpSource;
+    private @Nullable UndeferrableValue<String> publicIpSource;
 
-
+    public @Nullable String publicIpSource() {
+        if (publicIpSource == null) return null;
+        return publicIpSource.getValue("VpcIpamPool.publicIpSource");
+    }
 
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
-    public Boolean publiclyAdvertisable;
+    private @Nullable UndeferrableValue<Boolean> publiclyAdvertisable;
 
-
+    public @Nullable Boolean publiclyAdvertisable() {
+        if (publiclyAdvertisable == null) return null;
+        return publiclyAdvertisable.getValue("VpcIpamPool.publiclyAdvertisable");
+    }
 
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
-    public String sourceIpamPoolId;
+    private @Nullable UndeferrableValue<String> sourceIpamPoolId;
 
-
+    public @Nullable String sourceIpamPoolId() {
+        if (sourceIpamPoolId == null) return null;
+        return sourceIpamPoolId.getValue("VpcIpamPool.sourceIpamPoolId");
+    }
 
     /**
      * The ID of the IPAM
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("VpcIpamPool.state");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIpamPool.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -166,8 +225,11 @@ public final class VpcIpamPool extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIpamPool.tagsAll");
+    }
 
 }

@@ -3,47 +3,61 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsBotLocaleTimeouts;
-import com.pulumi.policypacks.aws.lex.V2modelsBotLocaleVoiceSettings;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotLocaleTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotLocaleVoiceSettings;
 import java.lang.Double;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsBotLocale:V2modelsBotLocale")
-public final class V2modelsBotLocale extends com.pulumi.resources.PolicyResource {
+public final class V2modelsBotLocale extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the bot to create the locale for.
      * 
      */
-    public String botId;
+    private UndeferrableValue<String> botId;
 
-
+    public String botId() {
+        if (botId == null) return null;
+        return botId.getValue("V2modelsBotLocale.botId");
+    }
 
     /**
      * Version of the bot to create the locale for. This can only be the draft version of the bot.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("V2modelsBotLocale.botVersion");
+    }
 
     /**
      * Description of the bot locale. Use this to help identify the bot locale in lists.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsBotLocale.description");
+    }
 
     /**
      * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
      * 
      */
-    public String localeId;
+    private UndeferrableValue<String> localeId;
 
-
+    public String localeId() {
+        if (localeId == null) return null;
+        return localeId.getValue("V2modelsBotLocale.localeId");
+    }
 
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
@@ -51,28 +65,40 @@ public final class V2modelsBotLocale extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public Double nLuIntentConfidenceThreshold;
+    private UndeferrableValue<Double> nLuIntentConfidenceThreshold;
 
-
+    public Double nLuIntentConfidenceThreshold() {
+        if (nLuIntentConfidenceThreshold == null) return null;
+        return nLuIntentConfidenceThreshold.getValue("V2modelsBotLocale.nLuIntentConfidenceThreshold");
+    }
 
     /**
      * Specified locale name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("V2modelsBotLocale.name");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsBotLocaleTimeouts> timeouts;
 
-    public V2modelsBotLocaleTimeouts timeouts;
-
-
+    public @Nullable V2modelsBotLocaleTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsBotLocale.timeouts");
+    }
 
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
      * 
      */
-    public V2modelsBotLocaleVoiceSettings voiceSettings;
+    private @Nullable UndeferrableValue<V2modelsBotLocaleVoiceSettings> voiceSettings;
 
-
+    public @Nullable V2modelsBotLocaleVoiceSettings voiceSettings() {
+        if (voiceSettings == null) return null;
+        return voiceSettings.getValue("V2modelsBotLocale.voiceSettings");
+    }
 
 }

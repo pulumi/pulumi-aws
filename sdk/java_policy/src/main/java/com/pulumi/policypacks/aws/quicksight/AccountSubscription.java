@@ -3,125 +3,169 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/accountSubscription:AccountSubscription")
-public final class AccountSubscription extends com.pulumi.resources.PolicyResource {
+public final class AccountSubscription extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
      * 
      */
-    public String accountName;
+    private UndeferrableValue<String> accountName;
 
-
+    public String accountName() {
+        if (accountName == null) return null;
+        return accountName.getValue("AccountSubscription.accountName");
+    }
 
     /**
      * Status of the Amazon QuickSight account&#39;s subscription.
      * 
      */
-    public String accountSubscriptionStatus;
+    private UndeferrableValue<String> accountSubscriptionStatus;
 
-
+    public String accountSubscriptionStatus() {
+        if (accountSubscriptionStatus == null) return null;
+        return accountSubscriptionStatus.getValue("AccountSubscription.accountSubscriptionStatus");
+    }
 
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
-    public String activeDirectoryName;
+    private @Nullable UndeferrableValue<String> activeDirectoryName;
 
-
+    public @Nullable String activeDirectoryName() {
+        if (activeDirectoryName == null) return null;
+        return activeDirectoryName.getValue("AccountSubscription.activeDirectoryName");
+    }
 
     /**
      * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
-    public List<String> adminGroups;
+    private @Nullable UndeferrableValue<List<String>> adminGroups;
 
-
+    public @Nullable List<String> adminGroups() {
+        if (adminGroups == null) return null;
+        return adminGroups.getValue("AccountSubscription.adminGroups");
+    }
 
     /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
-    public String authenticationMethod;
+    private UndeferrableValue<String> authenticationMethod;
 
-
+    public String authenticationMethod() {
+        if (authenticationMethod == null) return null;
+        return authenticationMethod.getValue("AccountSubscription.authenticationMethod");
+    }
 
     /**
      * Author group associated with your Active Directory.
      * 
      */
-    public List<String> authorGroups;
+    private @Nullable UndeferrableValue<List<String>> authorGroups;
 
-
+    public @Nullable List<String> authorGroups() {
+        if (authorGroups == null) return null;
+        return authorGroups.getValue("AccountSubscription.authorGroups");
+    }
 
     /**
      * AWS account ID hosting the QuickSight account. Default to provider account.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("AccountSubscription.awsAccountId");
+    }
 
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    public String contactNumber;
+    private @Nullable UndeferrableValue<String> contactNumber;
 
-
+    public @Nullable String contactNumber() {
+        if (contactNumber == null) return null;
+        return contactNumber.getValue("AccountSubscription.contactNumber");
+    }
 
     /**
      * Active Directory ID that is associated with your Amazon QuickSight account.
      * 
      */
-    public String directoryId;
+    private @Nullable UndeferrableValue<String> directoryId;
 
-
+    public @Nullable String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("AccountSubscription.directoryId");
+    }
 
     /**
      * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
      * 
      */
-    public String edition;
+    private UndeferrableValue<String> edition;
 
-
+    public String edition() {
+        if (edition == null) return null;
+        return edition.getValue("AccountSubscription.edition");
+    }
 
     /**
      * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    public String emailAddress;
+    private @Nullable UndeferrableValue<String> emailAddress;
 
-
+    public @Nullable String emailAddress() {
+        if (emailAddress == null) return null;
+        return emailAddress.getValue("AccountSubscription.emailAddress");
+    }
 
     /**
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    public String firstName;
+    private @Nullable UndeferrableValue<String> firstName;
 
-
+    public @Nullable String firstName() {
+        if (firstName == null) return null;
+        return firstName.getValue("AccountSubscription.firstName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
      * 
      */
-    public String iamIdentityCenterInstanceArn;
+    private @Nullable UndeferrableValue<String> iamIdentityCenterInstanceArn;
 
-
+    public @Nullable String iamIdentityCenterInstanceArn() {
+        if (iamIdentityCenterInstanceArn == null) return null;
+        return iamIdentityCenterInstanceArn.getValue("AccountSubscription.iamIdentityCenterInstanceArn");
+    }
 
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    public String lastName;
+    private @Nullable UndeferrableValue<String> lastName;
 
-
+    public @Nullable String lastName() {
+        if (lastName == null) return null;
+        return lastName.getValue("AccountSubscription.lastName");
+    }
 
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
@@ -129,24 +173,33 @@ public final class AccountSubscription extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String notificationEmail;
+    private UndeferrableValue<String> notificationEmail;
 
-
+    public String notificationEmail() {
+        if (notificationEmail == null) return null;
+        return notificationEmail.getValue("AccountSubscription.notificationEmail");
+    }
 
     /**
      * Reader group associated with your Active Directory.
      * 
      */
-    public List<String> readerGroups;
+    private @Nullable UndeferrableValue<List<String>> readerGroups;
 
-
+    public @Nullable List<String> readerGroups() {
+        if (readerGroups == null) return null;
+        return readerGroups.getValue("AccountSubscription.readerGroups");
+    }
 
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      * 
      */
-    public String realm;
+    private @Nullable UndeferrableValue<String> realm;
 
-
+    public @Nullable String realm() {
+        if (realm == null) return null;
+        return realm.getValue("AccountSubscription.realm");
+    }
 
 }

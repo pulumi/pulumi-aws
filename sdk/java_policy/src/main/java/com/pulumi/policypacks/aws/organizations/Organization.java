@@ -3,103 +3,138 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.organizations.OrganizationAccount;
-import com.pulumi.policypacks.aws.organizations.OrganizationNonMasterAccount;
-import com.pulumi.policypacks.aws.organizations.OrganizationRoot;
+import com.pulumi.policypacks.aws.organizations.outputs.OrganizationAccount;
+import com.pulumi.policypacks.aws.organizations.outputs.OrganizationNonMasterAccount;
+import com.pulumi.policypacks.aws.organizations.outputs.OrganizationRoot;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:organizations/organization:Organization")
-public final class Organization extends com.pulumi.resources.PolicyResource {
+public final class Organization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
      */
-    public List<OrganizationAccount> accounts;
+    private UndeferrableValue<List<OrganizationAccount>> accounts;
 
-
+    public List<OrganizationAccount> accounts() {
+        if (accounts == null) return null;
+        return accounts.getValue("Organization.accounts");
+    }
 
     /**
      * ARN of the root
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Organization.arn");
+    }
 
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      * 
      */
-    public List<String> awsServiceAccessPrincipals;
+    private @Nullable UndeferrableValue<List<String>> awsServiceAccessPrincipals;
 
-
+    public @Nullable List<String> awsServiceAccessPrincipals() {
+        if (awsServiceAccessPrincipals == null) return null;
+        return awsServiceAccessPrincipals.getValue("Organization.awsServiceAccessPrincipals");
+    }
 
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
-    public List<String> enabledPolicyTypes;
+    private @Nullable UndeferrableValue<List<String>> enabledPolicyTypes;
 
-
+    public @Nullable List<String> enabledPolicyTypes() {
+        if (enabledPolicyTypes == null) return null;
+        return enabledPolicyTypes.getValue("Organization.enabledPolicyTypes");
+    }
 
     /**
      * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
      * 
      */
-    public String featureSet;
+    private @Nullable UndeferrableValue<String> featureSet;
 
-
+    public @Nullable String featureSet() {
+        if (featureSet == null) return null;
+        return featureSet.getValue("Organization.featureSet");
+    }
 
     /**
      * ARN of the master account
      * 
      */
-    public String masterAccountArn;
+    private UndeferrableValue<String> masterAccountArn;
 
-
+    public String masterAccountArn() {
+        if (masterAccountArn == null) return null;
+        return masterAccountArn.getValue("Organization.masterAccountArn");
+    }
 
     /**
      * Email address of the master account
      * 
      */
-    public String masterAccountEmail;
+    private UndeferrableValue<String> masterAccountEmail;
 
-
+    public String masterAccountEmail() {
+        if (masterAccountEmail == null) return null;
+        return masterAccountEmail.getValue("Organization.masterAccountEmail");
+    }
 
     /**
      * Identifier of the master account
      * 
      */
-    public String masterAccountId;
+    private UndeferrableValue<String> masterAccountId;
 
-
+    public String masterAccountId() {
+        if (masterAccountId == null) return null;
+        return masterAccountId.getValue("Organization.masterAccountId");
+    }
 
     /**
      * Name of the master account
      * 
      */
-    public String masterAccountName;
+    private UndeferrableValue<String> masterAccountName;
 
-
+    public String masterAccountName() {
+        if (masterAccountName == null) return null;
+        return masterAccountName.getValue("Organization.masterAccountName");
+    }
 
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
-    public List<OrganizationNonMasterAccount> nonMasterAccounts;
+    private UndeferrableValue<List<OrganizationNonMasterAccount>> nonMasterAccounts;
 
-
+    public List<OrganizationNonMasterAccount> nonMasterAccounts() {
+        if (nonMasterAccounts == null) return null;
+        return nonMasterAccounts.getValue("Organization.nonMasterAccounts");
+    }
 
     /**
      * List of organization roots. All elements have these attributes:
      * 
      */
-    public List<OrganizationRoot> roots;
+    private UndeferrableValue<List<OrganizationRoot>> roots;
 
-
+    public List<OrganizationRoot> roots() {
+        if (roots == null) return null;
+        return roots.getValue("Organization.roots");
+    }
 
 }

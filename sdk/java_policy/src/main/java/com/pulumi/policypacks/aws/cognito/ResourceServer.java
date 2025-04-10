@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.ResourceServerScope;
+import com.pulumi.policypacks.aws.cognito.outputs.ResourceServerScope;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/resourceServer:ResourceServer")
-public final class ResourceServer extends com.pulumi.resources.PolicyResource {
+public final class ResourceServer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An identifier for the resource server.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("ResourceServer.identifier");
+    }
 
     /**
      * A name for the resource server.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResourceServer.name");
+    }
 
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      * 
      */
-    public List<String> scopeIdentifiers;
+    private UndeferrableValue<List<String>> scopeIdentifiers;
 
-
+    public List<String> scopeIdentifiers() {
+        if (scopeIdentifiers == null) return null;
+        return scopeIdentifiers.getValue("ResourceServer.scopeIdentifiers");
+    }
 
     /**
      * A list of Authorization Scope.
      * 
      */
-    public List<ResourceServerScope> scopes;
+    private @Nullable UndeferrableValue<List<ResourceServerScope>> scopes;
 
-
+    public @Nullable List<ResourceServerScope> scopes() {
+        if (scopes == null) return null;
+        return scopes.getValue("ResourceServer.scopes");
+    }
 
     /**
      * User pool the client belongs to.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("ResourceServer.userPoolId");
+    }
 
 }

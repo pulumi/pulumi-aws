@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.sns;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sns/topicPolicy:TopicPolicy")
-public final class TopicPolicy extends com.pulumi.resources.PolicyResource {
+public final class TopicPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the SNS topic
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TopicPolicy.arn");
+    }
 
     /**
      * The AWS Account ID of the SNS topic owner
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("TopicPolicy.owner");
+    }
 
     /**
      * The fully-formed AWS policy as JSON.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("TopicPolicy.policy");
+    }
 
 }

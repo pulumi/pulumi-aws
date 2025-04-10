@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.amplify.DomainAssociationCertificateSettings;
-import com.pulumi.policypacks.aws.amplify.DomainAssociationSubDomain;
+import com.pulumi.policypacks.aws.amplify.outputs.DomainAssociationCertificateSettings;
+import com.pulumi.policypacks.aws.amplify.outputs.DomainAssociationSubDomain;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:amplify/domainAssociation:DomainAssociation")
-public final class DomainAssociation extends com.pulumi.resources.PolicyResource {
+public final class DomainAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Unique ID for an Amplify app.
      * 
      */
-    public String appId;
+    private UndeferrableValue<String> appId;
 
-
+    public String appId() {
+        if (appId == null) return null;
+        return appId.getValue("DomainAssociation.appId");
+    }
 
     /**
      * ARN for the domain association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainAssociation.arn");
+    }
 
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      * 
      */
-    public DomainAssociationCertificateSettings certificateSettings;
+    private UndeferrableValue<DomainAssociationCertificateSettings> certificateSettings;
 
-
+    public DomainAssociationCertificateSettings certificateSettings() {
+        if (certificateSettings == null) return null;
+        return certificateSettings.getValue("DomainAssociation.certificateSettings");
+    }
 
     /**
      * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
-    public String certificateVerificationDnsRecord;
+    private UndeferrableValue<String> certificateVerificationDnsRecord;
 
-
+    public String certificateVerificationDnsRecord() {
+        if (certificateVerificationDnsRecord == null) return null;
+        return certificateVerificationDnsRecord.getValue("DomainAssociation.certificateVerificationDnsRecord");
+    }
 
     /**
      * Domain name for the domain association.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainAssociation.domainName");
+    }
 
     /**
      * Enables the automated creation of subdomains for branches.
      * 
      */
-    public Boolean enableAutoSubDomain;
+    private @Nullable UndeferrableValue<Boolean> enableAutoSubDomain;
 
-
+    public @Nullable Boolean enableAutoSubDomain() {
+        if (enableAutoSubDomain == null) return null;
+        return enableAutoSubDomain.getValue("DomainAssociation.enableAutoSubDomain");
+    }
 
     /**
      * Setting for the subdomain. Documented below.
      * 
      */
-    public List<DomainAssociationSubDomain> subDomains;
+    private UndeferrableValue<List<DomainAssociationSubDomain>> subDomains;
 
-
+    public List<DomainAssociationSubDomain> subDomains() {
+        if (subDomains == null) return null;
+        return subDomains.getValue("DomainAssociation.subDomains");
+    }
 
     /**
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    public Boolean waitForVerification;
+    private @Nullable UndeferrableValue<Boolean> waitForVerification;
 
-
+    public @Nullable Boolean waitForVerification() {
+        if (waitForVerification == null) return null;
+        return waitForVerification.getValue("DomainAssociation.waitForVerification");
+    }
 
 }

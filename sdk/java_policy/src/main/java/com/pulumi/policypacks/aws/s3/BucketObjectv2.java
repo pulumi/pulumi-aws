@@ -4,167 +4,226 @@
 package com.pulumi.policypacks.aws.s3;
 
 import com.pulumi.asset.AssetOrArchive;
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketObjectv2OverrideProvider;
+import com.pulumi.policypacks.aws.s3.outputs.BucketObjectv2OverrideProvider;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketObjectv2:BucketObjectv2")
-public final class BucketObjectv2 extends com.pulumi.resources.PolicyResource {
+public final class BucketObjectv2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
-    public String acl;
+    private UndeferrableValue<String> acl;
 
-
+    public String acl() {
+        if (acl == null) return null;
+        return acl.getValue("BucketObjectv2.acl");
+    }
 
     /**
      * ARN of the object.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("BucketObjectv2.arn");
+    }
 
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketObjectv2.bucket");
+    }
 
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    public Boolean bucketKeyEnabled;
+    private UndeferrableValue<Boolean> bucketKeyEnabled;
 
-
+    public Boolean bucketKeyEnabled() {
+        if (bucketKeyEnabled == null) return null;
+        return bucketKeyEnabled.getValue("BucketObjectv2.bucketKeyEnabled");
+    }
 
     /**
      * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
-    public String cacheControl;
+    private @Nullable UndeferrableValue<String> cacheControl;
 
-
+    public @Nullable String cacheControl() {
+        if (cacheControl == null) return null;
+        return cacheControl.getValue("BucketObjectv2.cacheControl");
+    }
 
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
-    public String checksumAlgorithm;
+    private @Nullable UndeferrableValue<String> checksumAlgorithm;
 
-
+    public @Nullable String checksumAlgorithm() {
+        if (checksumAlgorithm == null) return null;
+        return checksumAlgorithm.getValue("BucketObjectv2.checksumAlgorithm");
+    }
 
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    public String checksumCrc32;
+    private UndeferrableValue<String> checksumCrc32;
 
-
+    public String checksumCrc32() {
+        if (checksumCrc32 == null) return null;
+        return checksumCrc32.getValue("BucketObjectv2.checksumCrc32");
+    }
 
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    public String checksumCrc32c;
+    private UndeferrableValue<String> checksumCrc32c;
 
-
+    public String checksumCrc32c() {
+        if (checksumCrc32c == null) return null;
+        return checksumCrc32c.getValue("BucketObjectv2.checksumCrc32c");
+    }
 
     /**
      * The base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
-    public String checksumCrc64nvme;
+    private UndeferrableValue<String> checksumCrc64nvme;
 
-
+    public String checksumCrc64nvme() {
+        if (checksumCrc64nvme == null) return null;
+        return checksumCrc64nvme.getValue("BucketObjectv2.checksumCrc64nvme");
+    }
 
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    public String checksumSha1;
+    private UndeferrableValue<String> checksumSha1;
 
-
+    public String checksumSha1() {
+        if (checksumSha1 == null) return null;
+        return checksumSha1.getValue("BucketObjectv2.checksumSha1");
+    }
 
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    public String checksumSha256;
+    private UndeferrableValue<String> checksumSha256;
 
-
+    public String checksumSha256() {
+        if (checksumSha256 == null) return null;
+        return checksumSha256.getValue("BucketObjectv2.checksumSha256");
+    }
 
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      * 
      */
-    public String content;
+    private @Nullable UndeferrableValue<String> content;
 
-
+    public @Nullable String content() {
+        if (content == null) return null;
+        return content.getValue("BucketObjectv2.content");
+    }
 
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      * 
      */
-    public String contentBase64;
+    private @Nullable UndeferrableValue<String> contentBase64;
 
-
+    public @Nullable String contentBase64() {
+        if (contentBase64 == null) return null;
+        return contentBase64.getValue("BucketObjectv2.contentBase64");
+    }
 
     /**
      * Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
-    public String contentDisposition;
+    private @Nullable UndeferrableValue<String> contentDisposition;
 
-
+    public @Nullable String contentDisposition() {
+        if (contentDisposition == null) return null;
+        return contentDisposition.getValue("BucketObjectv2.contentDisposition");
+    }
 
     /**
      * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
-    public String contentEncoding;
+    private @Nullable UndeferrableValue<String> contentEncoding;
 
-
+    public @Nullable String contentEncoding() {
+        if (contentEncoding == null) return null;
+        return contentEncoding.getValue("BucketObjectv2.contentEncoding");
+    }
 
     /**
      * Language the content is in e.g., en-US or en-GB.
      * 
      */
-    public String contentLanguage;
+    private @Nullable UndeferrableValue<String> contentLanguage;
 
-
+    public @Nullable String contentLanguage() {
+        if (contentLanguage == null) return null;
+        return contentLanguage.getValue("BucketObjectv2.contentLanguage");
+    }
 
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      * 
      */
-    public String contentType;
+    private UndeferrableValue<String> contentType;
 
-
+    public String contentType() {
+        if (contentType == null) return null;
+        return contentType.getValue("BucketObjectv2.contentType");
+    }
 
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("BucketObjectv2.etag");
+    }
 
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("BucketObjectv2.forceDestroy");
+    }
 
     /**
      * Name of the object once it is in the bucket.
@@ -172,97 +231,133 @@ public final class BucketObjectv2 extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("BucketObjectv2.key");
+    }
 
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("BucketObjectv2.kmsKeyId");
+    }
 
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
-    public Map<String,String> metadata;
+    private @Nullable UndeferrableValue<Map<String,String>> metadata;
 
-
+    public @Nullable Map<String,String> metadata() {
+        if (metadata == null) return null;
+        return metadata.getValue("BucketObjectv2.metadata");
+    }
 
     /**
      * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
-    public String objectLockLegalHoldStatus;
+    private @Nullable UndeferrableValue<String> objectLockLegalHoldStatus;
 
-
+    public @Nullable String objectLockLegalHoldStatus() {
+        if (objectLockLegalHoldStatus == null) return null;
+        return objectLockLegalHoldStatus.getValue("BucketObjectv2.objectLockLegalHoldStatus");
+    }
 
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    public String objectLockMode;
+    private @Nullable UndeferrableValue<String> objectLockMode;
 
-
+    public @Nullable String objectLockMode() {
+        if (objectLockMode == null) return null;
+        return objectLockMode.getValue("BucketObjectv2.objectLockMode");
+    }
 
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
-    public String objectLockRetainUntilDate;
+    private @Nullable UndeferrableValue<String> objectLockRetainUntilDate;
 
-
+    public @Nullable String objectLockRetainUntilDate() {
+        if (objectLockRetainUntilDate == null) return null;
+        return objectLockRetainUntilDate.getValue("BucketObjectv2.objectLockRetainUntilDate");
+    }
 
     /**
      * Override provider-level configuration options. See Override Provider below for more details.
      * 
      */
-    public BucketObjectv2OverrideProvider overrideProvider;
+    private @Nullable UndeferrableValue<BucketObjectv2OverrideProvider> overrideProvider;
 
-
+    public @Nullable BucketObjectv2OverrideProvider overrideProvider() {
+        if (overrideProvider == null) return null;
+        return overrideProvider.getValue("BucketObjectv2.overrideProvider");
+    }
 
     /**
      * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
-    public String serverSideEncryption;
+    private UndeferrableValue<String> serverSideEncryption;
 
-
+    public String serverSideEncryption() {
+        if (serverSideEncryption == null) return null;
+        return serverSideEncryption.getValue("BucketObjectv2.serverSideEncryption");
+    }
 
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      * 
      */
-    public AssetOrArchive source;
+    private @Nullable UndeferrableValue<AssetOrArchive> source;
 
-
+    public @Nullable AssetOrArchive source() {
+        if (source == null) return null;
+        return source.getValue("BucketObjectv2.source");
+    }
 
     /**
      * Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
      * 
      */
-    public String sourceHash;
+    private @Nullable UndeferrableValue<String> sourceHash;
 
-
+    public @Nullable String sourceHash() {
+        if (sourceHash == null) return null;
+        return sourceHash.getValue("BucketObjectv2.sourceHash");
+    }
 
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to &#34;`STANDARD`&#34;.
      * 
      */
-    public String storageClass;
+    private UndeferrableValue<String> storageClass;
 
-
+    public String storageClass() {
+        if (storageClass == null) return null;
+        return storageClass.getValue("BucketObjectv2.storageClass");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("BucketObjectv2.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -272,17 +367,23 @@ public final class BucketObjectv2 extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("BucketObjectv2.tagsAll");
+    }
 
     /**
      * Unique version ID value for the object, if bucket versioning is enabled.
      * 
      */
-    public String versionId;
+    private UndeferrableValue<String> versionId;
 
-
+    public String versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("BucketObjectv2.versionId");
+    }
 
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -292,8 +393,11 @@ public final class BucketObjectv2 extends com.pulumi.resources.PolicyResource {
      * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 
      */
-    public String websiteRedirect;
+    private @Nullable UndeferrableValue<String> websiteRedirect;
 
-
+    public @Nullable String websiteRedirect() {
+        if (websiteRedirect == null) return null;
+        return websiteRedirect.getValue("BucketObjectv2.websiteRedirect");
+    }
 
 }

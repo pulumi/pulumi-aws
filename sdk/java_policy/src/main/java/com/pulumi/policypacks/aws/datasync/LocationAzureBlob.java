@@ -3,87 +3,116 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.LocationAzureBlobSasConfiguration;
+import com.pulumi.policypacks.aws.datasync.outputs.LocationAzureBlobSasConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationAzureBlob:LocationAzureBlob")
-public final class LocationAzureBlob extends com.pulumi.resources.PolicyResource {
+public final class LocationAzureBlob extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
      * 
      */
-    public String accessTier;
+    private @Nullable UndeferrableValue<String> accessTier;
 
-
+    public @Nullable String accessTier() {
+        if (accessTier == null) return null;
+        return accessTier.getValue("LocationAzureBlob.accessTier");
+    }
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public List<String> agentArns;
+    private UndeferrableValue<List<String>> agentArns;
 
-
+    public List<String> agentArns() {
+        if (agentArns == null) return null;
+        return agentArns.getValue("LocationAzureBlob.agentArns");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationAzureBlob.arn");
+    }
 
     /**
      * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
      * 
      */
-    public String authenticationType;
+    private UndeferrableValue<String> authenticationType;
 
-
+    public String authenticationType() {
+        if (authenticationType == null) return null;
+        return authenticationType.getValue("LocationAzureBlob.authenticationType");
+    }
 
     /**
      * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
      * 
      */
-    public String blobType;
+    private @Nullable UndeferrableValue<String> blobType;
 
-
+    public @Nullable String blobType() {
+        if (blobType == null) return null;
+        return blobType.getValue("LocationAzureBlob.blobType");
+    }
 
     /**
      * The URL of the Azure Blob Storage container involved in your transfer.
      * 
      */
-    public String containerUrl;
+    private UndeferrableValue<String> containerUrl;
 
-
+    public String containerUrl() {
+        if (containerUrl == null) return null;
+        return containerUrl.getValue("LocationAzureBlob.containerUrl");
+    }
 
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      * 
      */
-    public LocationAzureBlobSasConfiguration sasConfiguration;
+    private @Nullable UndeferrableValue<LocationAzureBlobSasConfiguration> sasConfiguration;
 
-
+    public @Nullable LocationAzureBlobSasConfiguration sasConfiguration() {
+        if (sasConfiguration == null) return null;
+        return sasConfiguration.getValue("LocationAzureBlob.sasConfiguration");
+    }
 
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationAzureBlob.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationAzureBlob.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,12 +122,18 @@ public final class LocationAzureBlob extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationAzureBlob.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationAzureBlob.uri");
+    }
 
 }

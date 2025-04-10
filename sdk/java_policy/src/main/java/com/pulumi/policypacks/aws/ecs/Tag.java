@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ecs/tag:Tag")
-public final class Tag extends com.pulumi.resources.PolicyResource {
+public final class Tag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Tag name.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
-
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("Tag.key");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("Tag.resourceArn");
+    }
 
     /**
      * Tag value.
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("Tag.value");
+    }
 
 }

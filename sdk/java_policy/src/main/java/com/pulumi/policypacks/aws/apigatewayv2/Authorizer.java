@@ -3,42 +3,53 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.AuthorizerJwtConfiguration;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.AuthorizerJwtConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/authorizer:Authorizer")
-public final class Authorizer extends com.pulumi.resources.PolicyResource {
+public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Authorizer.apiId");
+    }
 
     /**
      * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      * 
      */
-    public String authorizerCredentialsArn;
+    private @Nullable UndeferrableValue<String> authorizerCredentialsArn;
 
-
+    public @Nullable String authorizerCredentialsArn() {
+        if (authorizerCredentialsArn == null) return null;
+        return authorizerCredentialsArn.getValue("Authorizer.authorizerCredentialsArn");
+    }
 
     /**
      * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      * 
      */
-    public String authorizerPayloadFormatVersion;
+    private @Nullable UndeferrableValue<String> authorizerPayloadFormatVersion;
 
-
+    public @Nullable String authorizerPayloadFormatVersion() {
+        if (authorizerPayloadFormatVersion == null) return null;
+        return authorizerPayloadFormatVersion.getValue("Authorizer.authorizerPayloadFormatVersion");
+    }
 
     /**
      * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
@@ -46,9 +57,12 @@ public final class Authorizer extends com.pulumi.resources.PolicyResource {
      * Supported only for HTTP API Lambda authorizers.
      * 
      */
-    public Integer authorizerResultTtlInSeconds;
+    private UndeferrableValue<Integer> authorizerResultTtlInSeconds;
 
-
+    public Integer authorizerResultTtlInSeconds() {
+        if (authorizerResultTtlInSeconds == null) return null;
+        return authorizerResultTtlInSeconds.getValue("Authorizer.authorizerResultTtlInSeconds");
+    }
 
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.
@@ -56,9 +70,12 @@ public final class Authorizer extends com.pulumi.resources.PolicyResource {
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
      */
-    public String authorizerType;
+    private UndeferrableValue<String> authorizerType;
 
-
+    public String authorizerType() {
+        if (authorizerType == null) return null;
+        return authorizerType.getValue("Authorizer.authorizerType");
+    }
 
     /**
      * Authorizer&#39;s Uniform Resource Identifier (URI).
@@ -66,18 +83,24 @@ public final class Authorizer extends com.pulumi.resources.PolicyResource {
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
-    public String authorizerUri;
+    private @Nullable UndeferrableValue<String> authorizerUri;
 
-
+    public @Nullable String authorizerUri() {
+        if (authorizerUri == null) return null;
+        return authorizerUri.getValue("Authorizer.authorizerUri");
+    }
 
     /**
      * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
      * Supported only for HTTP APIs.
      * 
      */
-    public Boolean enableSimpleResponses;
+    private @Nullable UndeferrableValue<Boolean> enableSimpleResponses;
 
-
+    public @Nullable Boolean enableSimpleResponses() {
+        if (enableSimpleResponses == null) return null;
+        return enableSimpleResponses.getValue("Authorizer.enableSimpleResponses");
+    }
 
     /**
      * Identity sources for which authorization is requested.
@@ -85,25 +108,34 @@ public final class Authorizer extends com.pulumi.resources.PolicyResource {
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
      */
-    public List<String> identitySources;
+    private @Nullable UndeferrableValue<List<String>> identitySources;
 
-
+    public @Nullable List<String> identitySources() {
+        if (identitySources == null) return null;
+        return identitySources.getValue("Authorizer.identitySources");
+    }
 
     /**
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      * 
      */
-    public AuthorizerJwtConfiguration jwtConfiguration;
+    private @Nullable UndeferrableValue<AuthorizerJwtConfiguration> jwtConfiguration;
 
-
+    public @Nullable AuthorizerJwtConfiguration jwtConfiguration() {
+        if (jwtConfiguration == null) return null;
+        return jwtConfiguration.getValue("Authorizer.jwtConfiguration");
+    }
 
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Authorizer.name");
+    }
 
 }

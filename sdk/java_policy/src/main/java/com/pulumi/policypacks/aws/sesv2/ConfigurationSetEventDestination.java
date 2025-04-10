@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sesv2.ConfigurationSetEventDestinationEventDestination;
+import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestination;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")
-public final class ConfigurationSetEventDestination extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationSetEventDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the configuration set.
      * 
      */
-    public String configurationSetName;
+    private UndeferrableValue<String> configurationSetName;
 
-
+    public String configurationSetName() {
+        if (configurationSetName == null) return null;
+        return configurationSetName.getValue("ConfigurationSetEventDestination.configurationSetName");
+    }
 
     /**
      * A name that identifies the event destination within the configuration set.
      * 
      */
-    public ConfigurationSetEventDestinationEventDestination eventDestination;
+    private UndeferrableValue<ConfigurationSetEventDestinationEventDestination> eventDestination;
 
-
+    public ConfigurationSetEventDestinationEventDestination eventDestination() {
+        if (eventDestination == null) return null;
+        return eventDestination.getValue("ConfigurationSetEventDestination.eventDestination");
+    }
 
     /**
      * An object that defines the event destination. See `event_destination` Block for details.
      * 
      */
-    public String eventDestinationName;
+    private UndeferrableValue<String> eventDestinationName;
 
-
+    public String eventDestinationName() {
+        if (eventDestinationName == null) return null;
+        return eventDestinationName.getValue("ConfigurationSetEventDestination.eventDestinationName");
+    }
 
 }

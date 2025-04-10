@@ -3,145 +3,195 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.ManagedUserPoolClientAnalyticsConfiguration;
-import com.pulumi.policypacks.aws.cognito.ManagedUserPoolClientTokenValidityUnits;
+import com.pulumi.policypacks.aws.cognito.outputs.ManagedUserPoolClientAnalyticsConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.ManagedUserPoolClientTokenValidityUnits;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/managedUserPoolClient:ManagedUserPoolClient")
-public final class ManagedUserPoolClient extends com.pulumi.resources.PolicyResource {
+public final class ManagedUserPoolClient extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
-    public Integer accessTokenValidity;
+    private UndeferrableValue<Integer> accessTokenValidity;
 
-
+    public Integer accessTokenValidity() {
+        if (accessTokenValidity == null) return null;
+        return accessTokenValidity.getValue("ManagedUserPoolClient.accessTokenValidity");
+    }
 
     /**
      * List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    public List<String> allowedOauthFlows;
+    private UndeferrableValue<List<String>> allowedOauthFlows;
 
-
+    public List<String> allowedOauthFlows() {
+        if (allowedOauthFlows == null) return null;
+        return allowedOauthFlows.getValue("ManagedUserPoolClient.allowedOauthFlows");
+    }
 
     /**
      * Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
-    public Boolean allowedOauthFlowsUserPoolClient;
+    private UndeferrableValue<Boolean> allowedOauthFlowsUserPoolClient;
 
-
+    public Boolean allowedOauthFlowsUserPoolClient() {
+        if (allowedOauthFlowsUserPoolClient == null) return null;
+        return allowedOauthFlowsUserPoolClient.getValue("ManagedUserPoolClient.allowedOauthFlowsUserPoolClient");
+    }
 
     /**
      * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    public List<String> allowedOauthScopes;
+    private UndeferrableValue<List<String>> allowedOauthScopes;
 
-
+    public List<String> allowedOauthScopes() {
+        if (allowedOauthScopes == null) return null;
+        return allowedOauthScopes.getValue("ManagedUserPoolClient.allowedOauthScopes");
+    }
 
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      * 
      */
-    public ManagedUserPoolClientAnalyticsConfiguration analyticsConfiguration;
+    private @Nullable UndeferrableValue<ManagedUserPoolClientAnalyticsConfiguration> analyticsConfiguration;
 
-
+    public @Nullable ManagedUserPoolClientAnalyticsConfiguration analyticsConfiguration() {
+        if (analyticsConfiguration == null) return null;
+        return analyticsConfiguration.getValue("ManagedUserPoolClient.analyticsConfiguration");
+    }
 
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
      * 
      */
-    public Integer authSessionValidity;
+    private UndeferrableValue<Integer> authSessionValidity;
 
-
+    public Integer authSessionValidity() {
+        if (authSessionValidity == null) return null;
+        return authSessionValidity.getValue("ManagedUserPoolClient.authSessionValidity");
+    }
 
     /**
      * List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    public List<String> callbackUrls;
+    private UndeferrableValue<List<String>> callbackUrls;
 
-
+    public List<String> callbackUrls() {
+        if (callbackUrls == null) return null;
+        return callbackUrls.getValue("ManagedUserPoolClient.callbackUrls");
+    }
 
     /**
      * Client secret of the user pool client.
      * 
      */
-    public String clientSecret;
+    private UndeferrableValue<String> clientSecret;
 
-
+    public String clientSecret() {
+        if (clientSecret == null) return null;
+        return clientSecret.getValue("ManagedUserPoolClient.clientSecret");
+    }
 
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      * 
      */
-    public String defaultRedirectUri;
+    private UndeferrableValue<String> defaultRedirectUri;
 
-
+    public String defaultRedirectUri() {
+        if (defaultRedirectUri == null) return null;
+        return defaultRedirectUri.getValue("ManagedUserPoolClient.defaultRedirectUri");
+    }
 
     /**
      * Enables the propagation of additional user context data.
      * 
      */
-    public Boolean enablePropagateAdditionalUserContextData;
+    private UndeferrableValue<Boolean> enablePropagateAdditionalUserContextData;
 
-
+    public Boolean enablePropagateAdditionalUserContextData() {
+        if (enablePropagateAdditionalUserContextData == null) return null;
+        return enablePropagateAdditionalUserContextData.getValue("ManagedUserPoolClient.enablePropagateAdditionalUserContextData");
+    }
 
     /**
      * Enables or disables token revocation.
      * 
      */
-    public Boolean enableTokenRevocation;
+    private UndeferrableValue<Boolean> enableTokenRevocation;
 
-
+    public Boolean enableTokenRevocation() {
+        if (enableTokenRevocation == null) return null;
+        return enableTokenRevocation.getValue("ManagedUserPoolClient.enableTokenRevocation");
+    }
 
     /**
      * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      * 
      */
-    public List<String> explicitAuthFlows;
+    private UndeferrableValue<List<String>> explicitAuthFlows;
 
-
+    public List<String> explicitAuthFlows() {
+        if (explicitAuthFlows == null) return null;
+        return explicitAuthFlows.getValue("ManagedUserPoolClient.explicitAuthFlows");
+    }
 
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
-    public Integer idTokenValidity;
+    private UndeferrableValue<Integer> idTokenValidity;
 
-
+    public Integer idTokenValidity() {
+        if (idTokenValidity == null) return null;
+        return idTokenValidity.getValue("ManagedUserPoolClient.idTokenValidity");
+    }
 
     /**
      * List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    public List<String> logoutUrls;
+    private UndeferrableValue<List<String>> logoutUrls;
 
-
+    public List<String> logoutUrls() {
+        if (logoutUrls == null) return null;
+        return logoutUrls.getValue("ManagedUserPoolClient.logoutUrls");
+    }
 
     /**
      * Name of the user pool client.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ManagedUserPoolClient.name");
+    }
 
     /**
      * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      * 
      */
-    public String namePattern;
+    private @Nullable UndeferrableValue<String> namePattern;
 
-
+    public @Nullable String namePattern() {
+        if (namePattern == null) return null;
+        return namePattern.getValue("ManagedUserPoolClient.namePattern");
+    }
 
     /**
      * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
@@ -149,64 +199,88 @@ public final class ManagedUserPoolClient extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public String namePrefix;
+    private @Nullable UndeferrableValue<String> namePrefix;
 
-
+    public @Nullable String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("ManagedUserPoolClient.namePrefix");
+    }
 
     /**
      * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      * 
      */
-    public String preventUserExistenceErrors;
+    private UndeferrableValue<String> preventUserExistenceErrors;
 
-
+    public String preventUserExistenceErrors() {
+        if (preventUserExistenceErrors == null) return null;
+        return preventUserExistenceErrors.getValue("ManagedUserPoolClient.preventUserExistenceErrors");
+    }
 
     /**
      * List of user pool attributes that the application client can read from.
      * 
      */
-    public List<String> readAttributes;
+    private UndeferrableValue<List<String>> readAttributes;
 
-
+    public List<String> readAttributes() {
+        if (readAttributes == null) return null;
+        return readAttributes.getValue("ManagedUserPoolClient.readAttributes");
+    }
 
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
-    public Integer refreshTokenValidity;
+    private UndeferrableValue<Integer> refreshTokenValidity;
 
-
+    public Integer refreshTokenValidity() {
+        if (refreshTokenValidity == null) return null;
+        return refreshTokenValidity.getValue("ManagedUserPoolClient.refreshTokenValidity");
+    }
 
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
-    public List<String> supportedIdentityProviders;
+    private UndeferrableValue<List<String>> supportedIdentityProviders;
 
-
+    public List<String> supportedIdentityProviders() {
+        if (supportedIdentityProviders == null) return null;
+        return supportedIdentityProviders.getValue("ManagedUserPoolClient.supportedIdentityProviders");
+    }
 
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      * 
      */
-    public ManagedUserPoolClientTokenValidityUnits tokenValidityUnits;
+    private @Nullable UndeferrableValue<ManagedUserPoolClientTokenValidityUnits> tokenValidityUnits;
 
-
+    public @Nullable ManagedUserPoolClientTokenValidityUnits tokenValidityUnits() {
+        if (tokenValidityUnits == null) return null;
+        return tokenValidityUnits.getValue("ManagedUserPoolClient.tokenValidityUnits");
+    }
 
     /**
      * User pool that the client belongs to.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("ManagedUserPoolClient.userPoolId");
+    }
 
     /**
      * List of user pool attributes that the application client can write to.
      * 
      */
-    public List<String> writeAttributes;
+    private UndeferrableValue<List<String>> writeAttributes;
 
-
+    public List<String> writeAttributes() {
+        if (writeAttributes == null) return null;
+        return writeAttributes.getValue("ManagedUserPoolClient.writeAttributes");
+    }
 
 }

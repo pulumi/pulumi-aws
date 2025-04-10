@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentAliasRoutingConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentAgentAliasTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentAliasRoutingConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentAliasTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentAgentAlias:AgentAgentAlias")
-public final class AgentAgentAlias extends com.pulumi.resources.PolicyResource {
+public final class AgentAgentAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the alias.
      * 
      */
-    public String agentAliasArn;
+    private UndeferrableValue<String> agentAliasArn;
 
-
+    public String agentAliasArn() {
+        if (agentAliasArn == null) return null;
+        return agentAliasArn.getValue("AgentAgentAlias.agentAliasArn");
+    }
 
     /**
      * Unique identifier of the alias.
      * 
      */
-    public String agentAliasId;
+    private UndeferrableValue<String> agentAliasId;
 
-
+    public String agentAliasId() {
+        if (agentAliasId == null) return null;
+        return agentAliasId.getValue("AgentAgentAlias.agentAliasId");
+    }
 
     /**
      * Name of the alias.
      * 
      */
-    public String agentAliasName;
+    private UndeferrableValue<String> agentAliasName;
 
-
+    public String agentAliasName() {
+        if (agentAliasName == null) return null;
+        return agentAliasName.getValue("AgentAgentAlias.agentAliasName");
+    }
 
     /**
      * Identifier of the agent to create an alias for.
@@ -44,33 +55,45 @@ public final class AgentAgentAlias extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String agentId;
+    private UndeferrableValue<String> agentId;
 
-
+    public String agentId() {
+        if (agentId == null) return null;
+        return agentId.getValue("AgentAgentAlias.agentId");
+    }
 
     /**
      * Description of the alias.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AgentAgentAlias.description");
+    }
 
     /**
      * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
-    public List<AgentAgentAliasRoutingConfiguration> routingConfigurations;
+    private UndeferrableValue<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
 
-
+    public List<AgentAgentAliasRoutingConfiguration> routingConfigurations() {
+        if (routingConfigurations == null) return null;
+        return routingConfigurations.getValue("AgentAgentAlias.routingConfigurations");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AgentAgentAlias.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -80,12 +103,18 @@ public final class AgentAgentAlias extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AgentAgentAlias.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<AgentAgentAliasTimeouts> timeouts;
 
-    public AgentAgentAliasTimeouts timeouts;
-
-
+    public @Nullable AgentAgentAliasTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentAgentAlias.timeouts");
+    }
 
 }

@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/proxyEndpoint:ProxyEndpoint")
-public final class ProxyEndpoint extends com.pulumi.resources.PolicyResource {
+public final class ProxyEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProxyEndpoint.arn");
+    }
 
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
-    public String dbProxyEndpointName;
+    private UndeferrableValue<String> dbProxyEndpointName;
 
-
+    public String dbProxyEndpointName() {
+        if (dbProxyEndpointName == null) return null;
+        return dbProxyEndpointName.getValue("ProxyEndpoint.dbProxyEndpointName");
+    }
 
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
-    public String dbProxyName;
+    private UndeferrableValue<String> dbProxyName;
 
-
+    public String dbProxyName() {
+        if (dbProxyName == null) return null;
+        return dbProxyName.getValue("ProxyEndpoint.dbProxyName");
+    }
 
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ProxyEndpoint.endpoint");
+    }
 
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
-    public Boolean isDefault;
+    private UndeferrableValue<Boolean> isDefault;
 
-
+    public Boolean isDefault() {
+        if (isDefault == null) return null;
+        return isDefault.getValue("ProxyEndpoint.isDefault");
+    }
 
     /**
      * A mapping of tags to assign to the resource.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProxyEndpoint.tags");
+    }
 
     /**
      * @deprecated
@@ -67,40 +87,55 @@ public final class ProxyEndpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProxyEndpoint.tagsAll");
+    }
 
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
-    public String targetRole;
+    private @Nullable UndeferrableValue<String> targetRole;
 
-
+    public @Nullable String targetRole() {
+        if (targetRole == null) return null;
+        return targetRole.getValue("ProxyEndpoint.targetRole");
+    }
 
     /**
      * The VPC ID of the DB proxy endpoint.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ProxyEndpoint.vpcId");
+    }
 
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("ProxyEndpoint.vpcSecurityGroupIds");
+    }
 
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      * 
      */
-    public List<String> vpcSubnetIds;
+    private UndeferrableValue<List<String>> vpcSubnetIds;
 
-
+    public List<String> vpcSubnetIds() {
+        if (vpcSubnetIds == null) return null;
+        return vpcSubnetIds.getValue("ProxyEndpoint.vpcSubnetIds");
+    }
 
 }

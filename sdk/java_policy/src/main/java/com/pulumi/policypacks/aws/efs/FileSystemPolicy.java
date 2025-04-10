@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.efs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:efs/fileSystemPolicy:FileSystemPolicy")
-public final class FileSystemPolicy extends com.pulumi.resources.PolicyResource {
+public final class FileSystemPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
      * 
      */
-    public Boolean bypassPolicyLockoutSafetyCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
+        if (bypassPolicyLockoutSafetyCheck == null) return null;
+        return bypassPolicyLockoutSafetyCheck.getValue("FileSystemPolicy.bypassPolicyLockoutSafetyCheck");
+    }
 
     /**
      * The ID of the EFS file system.
      * 
      */
-    public String fileSystemId;
+    private UndeferrableValue<String> fileSystemId;
 
-
+    public String fileSystemId() {
+        if (fileSystemId == null) return null;
+        return fileSystemId.getValue("FileSystemPolicy.fileSystemId");
+    }
 
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
@@ -33,8 +41,11 @@ public final class FileSystemPolicy extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("FileSystemPolicy.policy");
+    }
 
 }

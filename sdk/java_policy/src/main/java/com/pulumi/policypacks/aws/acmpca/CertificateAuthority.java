@@ -3,121 +3,162 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.acmpca.CertificateAuthorityCertificateAuthorityConfiguration;
-import com.pulumi.policypacks.aws.acmpca.CertificateAuthorityRevocationConfiguration;
+import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityCertificateAuthorityConfiguration;
+import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityRevocationConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:acmpca/certificateAuthority:CertificateAuthority")
-public final class CertificateAuthority extends com.pulumi.resources.PolicyResource {
+public final class CertificateAuthority extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the certificate authority.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CertificateAuthority.arn");
+    }
 
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String certificate;
+    private UndeferrableValue<String> certificate;
 
-
+    public String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("CertificateAuthority.certificate");
+    }
 
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      * 
      */
-    public CertificateAuthorityCertificateAuthorityConfiguration certificateAuthorityConfiguration;
+    private UndeferrableValue<CertificateAuthorityCertificateAuthorityConfiguration> certificateAuthorityConfiguration;
 
-
+    public CertificateAuthorityCertificateAuthorityConfiguration certificateAuthorityConfiguration() {
+        if (certificateAuthorityConfiguration == null) return null;
+        return certificateAuthorityConfiguration.getValue("CertificateAuthority.certificateAuthorityConfiguration");
+    }
 
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String certificateChain;
+    private UndeferrableValue<String> certificateChain;
 
-
+    public String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("CertificateAuthority.certificateChain");
+    }
 
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    public String certificateSigningRequest;
+    private UndeferrableValue<String> certificateSigningRequest;
 
-
+    public String certificateSigningRequest() {
+        if (certificateSigningRequest == null) return null;
+        return certificateSigningRequest.getValue("CertificateAuthority.certificateSigningRequest");
+    }
 
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
-
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("CertificateAuthority.enabled");
+    }
 
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      * 
      */
-    public String keyStorageSecurityStandard;
+    private UndeferrableValue<String> keyStorageSecurityStandard;
 
-
+    public String keyStorageSecurityStandard() {
+        if (keyStorageSecurityStandard == null) return null;
+        return keyStorageSecurityStandard.getValue("CertificateAuthority.keyStorageSecurityStandard");
+    }
 
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String notAfter;
+    private UndeferrableValue<String> notAfter;
 
-
+    public String notAfter() {
+        if (notAfter == null) return null;
+        return notAfter.getValue("CertificateAuthority.notAfter");
+    }
 
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String notBefore;
+    private UndeferrableValue<String> notBefore;
 
-
+    public String notBefore() {
+        if (notBefore == null) return null;
+        return notBefore.getValue("CertificateAuthority.notBefore");
+    }
 
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
-    public Integer permanentDeletionTimeInDays;
+    private @Nullable UndeferrableValue<Integer> permanentDeletionTimeInDays;
 
-
+    public @Nullable Integer permanentDeletionTimeInDays() {
+        if (permanentDeletionTimeInDays == null) return null;
+        return permanentDeletionTimeInDays.getValue("CertificateAuthority.permanentDeletionTimeInDays");
+    }
 
     /**
      * Nested argument containing revocation configuration. Defined below.
      * 
      */
-    public CertificateAuthorityRevocationConfiguration revocationConfiguration;
+    private @Nullable UndeferrableValue<CertificateAuthorityRevocationConfiguration> revocationConfiguration;
 
-
+    public @Nullable CertificateAuthorityRevocationConfiguration revocationConfiguration() {
+        if (revocationConfiguration == null) return null;
+        return revocationConfiguration.getValue("CertificateAuthority.revocationConfiguration");
+    }
 
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    public String serial;
+    private UndeferrableValue<String> serial;
 
-
+    public String serial() {
+        if (serial == null) return null;
+        return serial.getValue("CertificateAuthority.serial");
+    }
 
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CertificateAuthority.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,24 +168,33 @@ public final class CertificateAuthority extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CertificateAuthority.tagsAll");
+    }
 
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
-
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("CertificateAuthority.type");
+    }
 
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      * 
      */
-    public String usageMode;
+    private UndeferrableValue<String> usageMode;
 
-
+    public String usageMode() {
+        if (usageMode == null) return null;
+        return usageMode.getValue("CertificateAuthority.usageMode");
+    }
 
 }

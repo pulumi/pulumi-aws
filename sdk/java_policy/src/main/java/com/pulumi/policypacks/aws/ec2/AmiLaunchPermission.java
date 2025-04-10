@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/amiLaunchPermission:AmiLaunchPermission")
-public final class AmiLaunchPermission extends com.pulumi.resources.PolicyResource {
+public final class AmiLaunchPermission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * AWS account ID for the launch permission.
      * 
      */
-    public String accountId;
+    private @Nullable UndeferrableValue<String> accountId;
 
-
+    public @Nullable String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("AmiLaunchPermission.accountId");
+    }
 
     /**
      * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
-    public String group;
+    private @Nullable UndeferrableValue<String> group;
 
-
+    public @Nullable String group() {
+        if (group == null) return null;
+        return group.getValue("AmiLaunchPermission.group");
+    }
 
     /**
      * ID of the AMI.
      * 
      */
-    public String imageId;
+    private UndeferrableValue<String> imageId;
 
-
+    public String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("AmiLaunchPermission.imageId");
+    }
 
     /**
      * ARN of an organization for the launch permission.
      * 
      */
-    public String organizationArn;
+    private @Nullable UndeferrableValue<String> organizationArn;
 
-
+    public @Nullable String organizationArn() {
+        if (organizationArn == null) return null;
+        return organizationArn.getValue("AmiLaunchPermission.organizationArn");
+    }
 
     /**
      * ARN of an organizational unit for the launch permission.
      * 
      */
-    public String organizationalUnitArn;
+    private @Nullable UndeferrableValue<String> organizationalUnitArn;
 
-
+    public @Nullable String organizationalUnitArn() {
+        if (organizationalUnitArn == null) return null;
+        return organizationalUnitArn.getValue("AmiLaunchPermission.organizationalUnitArn");
+    }
 
 }

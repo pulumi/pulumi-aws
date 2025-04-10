@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafregional.IpSetIpSetDescriptor;
+import com.pulumi.policypacks.aws.wafregional.outputs.IpSetIpSetDescriptor;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafregional/ipSet:IpSet")
-public final class IpSet extends com.pulumi.resources.PolicyResource {
+public final class IpSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the WAF IPSet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("IpSet.arn");
+    }
 
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      * 
      */
-    public List<IpSetIpSetDescriptor> ipSetDescriptors;
+    private @Nullable UndeferrableValue<List<IpSetIpSetDescriptor>> ipSetDescriptors;
 
-
+    public @Nullable List<IpSetIpSetDescriptor> ipSetDescriptors() {
+        if (ipSetDescriptors == null) return null;
+        return ipSetDescriptors.getValue("IpSet.ipSetDescriptors");
+    }
 
     /**
      * The name or description of the IPSet.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("IpSet.name");
+    }
 
 }

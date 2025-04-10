@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.ProjectFailureReason;
-import com.pulumi.policypacks.aws.datazone.ProjectTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.ProjectFailureReason;
+import com.pulumi.policypacks.aws.datazone.outputs.ProjectTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Timestamp of when the project was made.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("Project.createdAt");
+    }
 
     /**
      * Creator of the project.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("Project.createdBy");
+    }
 
     /**
      * Description of project.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Project.description");
+    }
 
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
-
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("Project.domainIdentifier");
+    }
 
     /**
      * List of error messages if operation cannot be completed.
      * 
      */
-    public List<ProjectFailureReason> failureReasons;
+    private UndeferrableValue<List<ProjectFailureReason>> failureReasons;
 
-
+    public List<ProjectFailureReason> failureReasons() {
+        if (failureReasons == null) return null;
+        return failureReasons.getValue("Project.failureReasons");
+    }
 
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    public List<String> glossaryTerms;
+    private @Nullable UndeferrableValue<List<String>> glossaryTerms;
 
-
+    public @Nullable List<String> glossaryTerms() {
+        if (glossaryTerms == null) return null;
+        return glossaryTerms.getValue("Project.glossaryTerms");
+    }
 
     /**
      * Timestamp of when the project was last updated.
      * 
      */
-    public String lastUpdatedAt;
+    private UndeferrableValue<String> lastUpdatedAt;
 
-
+    public String lastUpdatedAt() {
+        if (lastUpdatedAt == null) return null;
+        return lastUpdatedAt.getValue("Project.lastUpdatedAt");
+    }
 
     /**
      * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
@@ -76,28 +99,40 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      * 
      */
-    public String projectStatus;
+    private UndeferrableValue<String> projectStatus;
 
-
+    public String projectStatus() {
+        if (projectStatus == null) return null;
+        return projectStatus.getValue("Project.projectStatus");
+    }
 
     /**
      * Optional flag to delete all child entities within the project.
      * 
      */
-    public Boolean skipDeletionCheck;
+    private @Nullable UndeferrableValue<Boolean> skipDeletionCheck;
 
+    public @Nullable Boolean skipDeletionCheck() {
+        if (skipDeletionCheck == null) return null;
+        return skipDeletionCheck.getValue("Project.skipDeletionCheck");
+    }
 
+    private @Nullable UndeferrableValue<ProjectTimeouts> timeouts;
 
-    public ProjectTimeouts timeouts;
-
-
+    public @Nullable ProjectTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Project.timeouts");
+    }
 
 }

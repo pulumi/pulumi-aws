@@ -3,42 +3,56 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.ServerlessVpcEndpointTimeouts;
+import com.pulumi.policypacks.aws.opensearch.outputs.ServerlessVpcEndpointTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")
-public final class ServerlessVpcEndpoint extends com.pulumi.resources.PolicyResource {
+public final class ServerlessVpcEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the interface endpoint.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ServerlessVpcEndpoint.name");
+    }
 
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ServerlessVpcEndpoint.securityGroupIds");
+    }
 
     /**
      * One or more subnet IDs from which you&#39;ll access OpenSearch Serverless. Up to 6 subnets can be provided.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("ServerlessVpcEndpoint.subnetIds");
+    }
 
+    private @Nullable UndeferrableValue<ServerlessVpcEndpointTimeouts> timeouts;
 
-    public ServerlessVpcEndpointTimeouts timeouts;
-
-
+    public @Nullable ServerlessVpcEndpointTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ServerlessVpcEndpoint.timeouts");
+    }
 
     /**
      * ID of the VPC from which you&#39;ll access OpenSearch Serverless.
@@ -46,8 +60,11 @@ public final class ServerlessVpcEndpoint extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ServerlessVpcEndpoint.vpcId");
+    }
 
 }

@@ -3,123 +3,167 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ebs/snapshotCopy:SnapshotCopy")
-public final class SnapshotCopy extends com.pulumi.resources.PolicyResource {
+public final class SnapshotCopy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SnapshotCopy.arn");
+    }
 
     /**
      * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
      * 
      */
-    public Integer completionDurationMinutes;
+    private @Nullable UndeferrableValue<Integer> completionDurationMinutes;
 
-
+    public @Nullable Integer completionDurationMinutes() {
+        if (completionDurationMinutes == null) return null;
+        return completionDurationMinutes.getValue("SnapshotCopy.completionDurationMinutes");
+    }
 
     /**
      * The data encryption key identifier for the snapshot.
      * 
      */
-    public String dataEncryptionKeyId;
+    private UndeferrableValue<String> dataEncryptionKeyId;
 
-
+    public String dataEncryptionKeyId() {
+        if (dataEncryptionKeyId == null) return null;
+        return dataEncryptionKeyId.getValue("SnapshotCopy.dataEncryptionKeyId");
+    }
 
     /**
      * A description of what the snapshot is.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("SnapshotCopy.description");
+    }
 
     /**
      * Whether the snapshot is encrypted.
      * 
      */
-    public Boolean encrypted;
+    private @Nullable UndeferrableValue<Boolean> encrypted;
 
-
+    public @Nullable Boolean encrypted() {
+        if (encrypted == null) return null;
+        return encrypted.getValue("SnapshotCopy.encrypted");
+    }
 
     /**
      * The ARN for the KMS encryption key.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("SnapshotCopy.kmsKeyId");
+    }
 
+    private UndeferrableValue<String> outpostArn;
 
-    public String outpostArn;
-
-
+    public String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("SnapshotCopy.outpostArn");
+    }
 
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    public String ownerAlias;
+    private UndeferrableValue<String> ownerAlias;
 
-
+    public String ownerAlias() {
+        if (ownerAlias == null) return null;
+        return ownerAlias.getValue("SnapshotCopy.ownerAlias");
+    }
 
     /**
      * The AWS account ID of the snapshot owner.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("SnapshotCopy.ownerId");
+    }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    public Boolean permanentRestore;
+    private @Nullable UndeferrableValue<Boolean> permanentRestore;
 
-
+    public @Nullable Boolean permanentRestore() {
+        if (permanentRestore == null) return null;
+        return permanentRestore.getValue("SnapshotCopy.permanentRestore");
+    }
 
     /**
      * The region of the source snapshot.
      * 
      */
-    public String sourceRegion;
+    private UndeferrableValue<String> sourceRegion;
 
-
+    public String sourceRegion() {
+        if (sourceRegion == null) return null;
+        return sourceRegion.getValue("SnapshotCopy.sourceRegion");
+    }
 
     /**
      * The ARN for the snapshot to be copied.
      * 
      */
-    public String sourceSnapshotId;
+    private UndeferrableValue<String> sourceSnapshotId;
 
-
+    public String sourceSnapshotId() {
+        if (sourceSnapshotId == null) return null;
+        return sourceSnapshotId.getValue("SnapshotCopy.sourceSnapshotId");
+    }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    public String storageTier;
+    private UndeferrableValue<String> storageTier;
 
-
+    public String storageTier() {
+        if (storageTier == null) return null;
+        return storageTier.getValue("SnapshotCopy.storageTier");
+    }
 
     /**
      * A map of tags for the snapshot.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("SnapshotCopy.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -129,28 +173,40 @@ public final class SnapshotCopy extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("SnapshotCopy.tagsAll");
+    }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    public Integer temporaryRestoreDays;
+    private @Nullable UndeferrableValue<Integer> temporaryRestoreDays;
 
+    public @Nullable Integer temporaryRestoreDays() {
+        if (temporaryRestoreDays == null) return null;
+        return temporaryRestoreDays.getValue("SnapshotCopy.temporaryRestoreDays");
+    }
 
+    private UndeferrableValue<String> volumeId;
 
-    public String volumeId;
-
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("SnapshotCopy.volumeId");
+    }
 
     /**
      * The size of the drive in GiBs.
      * 
      */
-    public Integer volumeSize;
+    private UndeferrableValue<Integer> volumeSize;
 
-
+    public Integer volumeSize() {
+        if (volumeSize == null) return null;
+        return volumeSize.getValue("SnapshotCopy.volumeSize");
+    }
 
 }

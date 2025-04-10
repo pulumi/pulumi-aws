@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cleanrooms.ConfiguredTableTableReference;
+import com.pulumi.policypacks.aws.cleanrooms.outputs.ConfiguredTableTableReference;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cleanrooms/configuredTable:ConfiguredTable")
-public final class ConfiguredTable extends com.pulumi.resources.PolicyResource {
+public final class ConfiguredTable extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The columns of the references table which will be included in the configured table.
      * 
      */
-    public List<String> allowedColumns;
+    private UndeferrableValue<List<String>> allowedColumns;
 
-
+    public List<String> allowedColumns() {
+        if (allowedColumns == null) return null;
+        return allowedColumns.getValue("ConfiguredTable.allowedColumns");
+    }
 
     /**
      * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
      * 
      */
-    public String analysisMethod;
+    private UndeferrableValue<String> analysisMethod;
 
-
+    public String analysisMethod() {
+        if (analysisMethod == null) return null;
+        return analysisMethod.getValue("ConfiguredTable.analysisMethod");
+    }
 
     /**
      * The ARN of the configured table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConfiguredTable.arn");
+    }
 
     /**
      * The date and time the configured table was created.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("ConfiguredTable.createTime");
+    }
 
     /**
      * A description for the configured table.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ConfiguredTable.description");
+    }
 
     /**
      * The name of the configured table.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConfiguredTable.name");
+    }
 
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
@@ -67,17 +87,23 @@ public final class ConfiguredTable extends com.pulumi.resources.PolicyResource {
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
-    public ConfiguredTableTableReference tableReference;
+    private UndeferrableValue<ConfiguredTableTableReference> tableReference;
 
-
+    public ConfiguredTableTableReference tableReference() {
+        if (tableReference == null) return null;
+        return tableReference.getValue("ConfiguredTable.tableReference");
+    }
 
     /**
      * Key value pairs which tag the configured table.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConfiguredTable.tags");
+    }
 
     /**
      * @deprecated
@@ -85,16 +111,22 @@ public final class ConfiguredTable extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConfiguredTable.tagsAll");
+    }
 
     /**
      * The date and time the configured table was last updated.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("ConfiguredTable.updateTime");
+    }
 
 }

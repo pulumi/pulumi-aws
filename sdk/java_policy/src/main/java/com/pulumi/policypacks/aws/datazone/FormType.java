@@ -3,107 +3,148 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.FormTypeImport;
-import com.pulumi.policypacks.aws.datazone.FormTypeModel;
-import com.pulumi.policypacks.aws.datazone.FormTypeTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.FormTypeImport;
+import com.pulumi.policypacks.aws.datazone.outputs.FormTypeModel;
+import com.pulumi.policypacks.aws.datazone.outputs.FormTypeTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/formType:FormType")
-public final class FormType extends com.pulumi.resources.PolicyResource {
+public final class FormType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Creation time of the Form Type.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("FormType.createdAt");
+    }
 
     /**
      * Creator of the Form Type.
      * 
      */
-    public String createdBy;
+    private UndeferrableValue<String> createdBy;
 
-
+    public String createdBy() {
+        if (createdBy == null) return null;
+        return createdBy.getValue("FormType.createdBy");
+    }
 
     /**
      * Description of form type. Must have a length of between 1 and 2048 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("FormType.description");
+    }
 
     /**
      * Identifier of the domain.
      * 
      */
-    public String domainIdentifier;
+    private UndeferrableValue<String> domainIdentifier;
 
+    public String domainIdentifier() {
+        if (domainIdentifier == null) return null;
+        return domainIdentifier.getValue("FormType.domainIdentifier");
+    }
 
+    private UndeferrableValue<List<FormTypeImport>> imports;
 
-    public List<FormTypeImport> imports;
-
-
+    public List<FormTypeImport> imports() {
+        if (imports == null) return null;
+        return imports.getValue("FormType.imports");
+    }
 
     /**
      * Object of the model of the form type that contains the following attributes.
      * 
      */
-    public FormTypeModel model;
+    private @Nullable UndeferrableValue<FormTypeModel> model;
 
-
+    public @Nullable FormTypeModel model() {
+        if (model == null) return null;
+        return model.getValue("FormType.model");
+    }
 
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FormType.name");
+    }
 
     /**
      * Origin domain id of the Form Type.
      * 
      */
-    public String originDomainId;
+    private UndeferrableValue<String> originDomainId;
 
-
+    public String originDomainId() {
+        if (originDomainId == null) return null;
+        return originDomainId.getValue("FormType.originDomainId");
+    }
 
     /**
      * Origin project id of the Form Type.
      * 
      */
-    public String originProjectId;
+    private UndeferrableValue<String> originProjectId;
 
-
+    public String originProjectId() {
+        if (originProjectId == null) return null;
+        return originProjectId.getValue("FormType.originProjectId");
+    }
 
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      * 
      */
-    public String owningProjectIdentifier;
+    private UndeferrableValue<String> owningProjectIdentifier;
 
-
+    public String owningProjectIdentifier() {
+        if (owningProjectIdentifier == null) return null;
+        return owningProjectIdentifier.getValue("FormType.owningProjectIdentifier");
+    }
 
     /**
      * Revision of the Form Type.
      * 
      */
-    public String revision;
+    private UndeferrableValue<String> revision;
 
+    public String revision() {
+        if (revision == null) return null;
+        return revision.getValue("FormType.revision");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("FormType.status");
+    }
 
+    private @Nullable UndeferrableValue<FormTypeTimeouts> timeouts;
 
-
-    public FormTypeTimeouts timeouts;
-
-
+    public @Nullable FormTypeTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("FormType.timeouts");
+    }
 
 }

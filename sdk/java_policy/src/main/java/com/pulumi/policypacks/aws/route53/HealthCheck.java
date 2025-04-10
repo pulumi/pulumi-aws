@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/healthCheck:HealthCheck")
-public final class HealthCheck extends com.pulumi.resources.PolicyResource {
+public final class HealthCheck extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Health Check.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HealthCheck.arn");
+    }
 
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      * 
      */
-    public Integer childHealthThreshold;
+    private @Nullable UndeferrableValue<Integer> childHealthThreshold;
 
-
+    public @Nullable Integer childHealthThreshold() {
+        if (childHealthThreshold == null) return null;
+        return childHealthThreshold.getValue("HealthCheck.childHealthThreshold");
+    }
 
     /**
      * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
      * 
      */
-    public List<String> childHealthchecks;
+    private @Nullable UndeferrableValue<List<String>> childHealthchecks;
 
-
+    public @Nullable List<String> childHealthchecks() {
+        if (childHealthchecks == null) return null;
+        return childHealthchecks.getValue("HealthCheck.childHealthchecks");
+    }
 
     /**
      * The name of the CloudWatch alarm.
      * 
      */
-    public String cloudwatchAlarmName;
+    private @Nullable UndeferrableValue<String> cloudwatchAlarmName;
 
-
+    public @Nullable String cloudwatchAlarmName() {
+        if (cloudwatchAlarmName == null) return null;
+        return cloudwatchAlarmName.getValue("HealthCheck.cloudwatchAlarmName");
+    }
 
     /**
      * The region that the CloudWatch alarm was created in.
      * 
      */
-    public String cloudwatchAlarmRegion;
+    private @Nullable UndeferrableValue<String> cloudwatchAlarmRegion;
 
-
+    public @Nullable String cloudwatchAlarmRegion() {
+        if (cloudwatchAlarmRegion == null) return null;
+        return cloudwatchAlarmRegion.getValue("HealthCheck.cloudwatchAlarmRegion");
+    }
 
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
@@ -63,130 +80,178 @@ public final class HealthCheck extends com.pulumi.resources.PolicyResource {
      * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
      * 
      */
-    public Boolean disabled;
+    private @Nullable UndeferrableValue<Boolean> disabled;
 
-
+    public @Nullable Boolean disabled() {
+        if (disabled == null) return null;
+        return disabled.getValue("HealthCheck.disabled");
+    }
 
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
      * 
      */
-    public Boolean enableSni;
+    private UndeferrableValue<Boolean> enableSni;
 
-
+    public Boolean enableSni() {
+        if (enableSni == null) return null;
+        return enableSni.getValue("HealthCheck.enableSni");
+    }
 
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      * 
      */
-    public Integer failureThreshold;
+    private UndeferrableValue<Integer> failureThreshold;
 
-
+    public Integer failureThreshold() {
+        if (failureThreshold == null) return null;
+        return failureThreshold.getValue("HealthCheck.failureThreshold");
+    }
 
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
-    public String fqdn;
+    private @Nullable UndeferrableValue<String> fqdn;
 
-
+    public @Nullable String fqdn() {
+        if (fqdn == null) return null;
+        return fqdn.getValue("HealthCheck.fqdn");
+    }
 
     /**
      * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
      * 
      */
-    public String insufficientDataHealthStatus;
+    private @Nullable UndeferrableValue<String> insufficientDataHealthStatus;
 
-
+    public @Nullable String insufficientDataHealthStatus() {
+        if (insufficientDataHealthStatus == null) return null;
+        return insufficientDataHealthStatus.getValue("HealthCheck.insufficientDataHealthStatus");
+    }
 
     /**
      * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
      * 
      */
-    public Boolean invertHealthcheck;
+    private @Nullable UndeferrableValue<Boolean> invertHealthcheck;
 
-
+    public @Nullable Boolean invertHealthcheck() {
+        if (invertHealthcheck == null) return null;
+        return invertHealthcheck.getValue("HealthCheck.invertHealthcheck");
+    }
 
     /**
      * The IP address of the endpoint to be checked.
      * 
      */
-    public String ipAddress;
+    private @Nullable UndeferrableValue<String> ipAddress;
 
-
+    public @Nullable String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("HealthCheck.ipAddress");
+    }
 
     /**
      * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
      * 
      */
-    public Boolean measureLatency;
+    private @Nullable UndeferrableValue<Boolean> measureLatency;
 
-
+    public @Nullable Boolean measureLatency() {
+        if (measureLatency == null) return null;
+        return measureLatency.getValue("HealthCheck.measureLatency");
+    }
 
     /**
      * The port of the endpoint to be checked.
      * 
      */
-    public Integer port;
+    private @Nullable UndeferrableValue<Integer> port;
 
-
+    public @Nullable Integer port() {
+        if (port == null) return null;
+        return port.getValue("HealthCheck.port");
+    }
 
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single health_check set amongst others)
      * 
      */
-    public String referenceName;
+    private @Nullable UndeferrableValue<String> referenceName;
 
-
+    public @Nullable String referenceName() {
+        if (referenceName == null) return null;
+        return referenceName.getValue("HealthCheck.referenceName");
+    }
 
     /**
      * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
      * 
      */
-    public List<String> regions;
+    private @Nullable UndeferrableValue<List<String>> regions;
 
-
+    public @Nullable List<String> regions() {
+        if (regions == null) return null;
+        return regions.getValue("HealthCheck.regions");
+    }
 
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      * 
      */
-    public Integer requestInterval;
+    private @Nullable UndeferrableValue<Integer> requestInterval;
 
-
+    public @Nullable Integer requestInterval() {
+        if (requestInterval == null) return null;
+        return requestInterval.getValue("HealthCheck.requestInterval");
+    }
 
     /**
      * The path that you want Amazon Route 53 to request when performing health checks.
      * 
      */
-    public String resourcePath;
+    private @Nullable UndeferrableValue<String> resourcePath;
 
-
+    public @Nullable String resourcePath() {
+        if (resourcePath == null) return null;
+        return resourcePath.getValue("HealthCheck.resourcePath");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
-    public String routingControlArn;
+    private @Nullable UndeferrableValue<String> routingControlArn;
 
-
+    public @Nullable String routingControlArn() {
+        if (routingControlArn == null) return null;
+        return routingControlArn.getValue("HealthCheck.routingControlArn");
+    }
 
     /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      * 
      */
-    public String searchString;
+    private @Nullable UndeferrableValue<String> searchString;
 
-
+    public @Nullable String searchString() {
+        if (searchString == null) return null;
+        return searchString.getValue("HealthCheck.searchString");
+    }
 
     /**
      * A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HealthCheck.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -196,24 +261,33 @@ public final class HealthCheck extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HealthCheck.tagsAll");
+    }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
      * 
      */
-    public Map<String,String> triggers;
+    private UndeferrableValue<Map<String,String>> triggers;
 
-
+    public Map<String,String> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("HealthCheck.triggers");
+    }
 
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("HealthCheck.type");
+    }
 
 }

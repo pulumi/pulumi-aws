@@ -3,33 +3,44 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:servicecatalog/tagOption:TagOption")
-public final class TagOption extends com.pulumi.resources.PolicyResource {
+public final class TagOption extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether tag option is active. Default is `true`.
      * 
      */
-    public Boolean active;
+    private @Nullable UndeferrableValue<Boolean> active;
 
-
+    public @Nullable Boolean active() {
+        if (active == null) return null;
+        return active.getValue("TagOption.active");
+    }
 
     /**
      * Tag option key.
      * 
      */
-    public String key;
+    private UndeferrableValue<String> key;
 
+    public String key() {
+        if (key == null) return null;
+        return key.getValue("TagOption.key");
+    }
 
+    private UndeferrableValue<String> owner;
 
-    public String owner;
-
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("TagOption.owner");
+    }
 
     /**
      * Tag option value.
@@ -37,8 +48,11 @@ public final class TagOption extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String value;
+    private UndeferrableValue<String> value;
 
-
+    public String value() {
+        if (value == null) return null;
+        return value.getValue("TagOption.value");
+    }
 
 }

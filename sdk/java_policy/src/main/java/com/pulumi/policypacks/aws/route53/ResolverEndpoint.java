@@ -3,23 +3,28 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ResolverEndpointIpAddress;
+import com.pulumi.policypacks.aws.route53.outputs.ResolverEndpointIpAddress;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverEndpoint:ResolverEndpoint")
-public final class ResolverEndpoint extends com.pulumi.resources.PolicyResource {
+public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Route 53 Resolver endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResolverEndpoint.arn");
+    }
 
     /**
      * Direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -27,68 +32,92 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResource 
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
      */
-    public String direction;
+    private UndeferrableValue<String> direction;
 
-
+    public String direction() {
+        if (direction == null) return null;
+        return direction.getValue("ResolverEndpoint.direction");
+    }
 
     /**
      * ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
-    public String hostVpcId;
+    private UndeferrableValue<String> hostVpcId;
 
-
+    public String hostVpcId() {
+        if (hostVpcId == null) return null;
+        return hostVpcId.getValue("ResolverEndpoint.hostVpcId");
+    }
 
     /**
      * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
-    public List<ResolverEndpointIpAddress> ipAddresses;
+    private UndeferrableValue<List<ResolverEndpointIpAddress>> ipAddresses;
 
-
+    public List<ResolverEndpointIpAddress> ipAddresses() {
+        if (ipAddresses == null) return null;
+        return ipAddresses.getValue("ResolverEndpoint.ipAddresses");
+    }
 
     /**
      * Friendly name of the Route 53 Resolver endpoint.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverEndpoint.name");
+    }
 
     /**
      * Protocols you want to use for the Route 53 Resolver endpoint.
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      * 
      */
-    public List<String> protocols;
+    private UndeferrableValue<List<String>> protocols;
 
-
+    public List<String> protocols() {
+        if (protocols == null) return null;
+        return protocols.getValue("ResolverEndpoint.protocols");
+    }
 
     /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 
      */
-    public String resolverEndpointType;
+    private UndeferrableValue<String> resolverEndpointType;
 
-
+    public String resolverEndpointType() {
+        if (resolverEndpointType == null) return null;
+        return resolverEndpointType.getValue("ResolverEndpoint.resolverEndpointType");
+    }
 
     /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("ResolverEndpoint.securityGroupIds");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResolverEndpoint.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -98,8 +127,11 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResolverEndpoint.tagsAll");
+    }
 
 }

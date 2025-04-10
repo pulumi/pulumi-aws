@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN assigned by AWS for this user.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * When destroying this user, destroy even if it
@@ -26,41 +31,56 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("User.forceDestroy");
+    }
 
     /**
      * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("User.name");
+    }
 
     /**
      * Path in which to create the user.
      * 
      */
-    public String path;
+    private @Nullable UndeferrableValue<String> path;
 
-
+    public @Nullable String path() {
+        if (path == null) return null;
+        return path.getValue("User.path");
+    }
 
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    public String permissionsBoundary;
+    private @Nullable UndeferrableValue<String> permissionsBoundary;
 
-
+    public @Nullable String permissionsBoundary() {
+        if (permissionsBoundary == null) return null;
+        return permissionsBoundary.getValue("User.permissionsBoundary");
+    }
 
     /**
      * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("User.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -70,16 +90,22 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("User.tagsAll");
+    }
 
     /**
      * The [unique ID][1] assigned by AWS.
      * 
      */
-    public String uniqueId;
+    private UndeferrableValue<String> uniqueId;
 
-
+    public String uniqueId() {
+        if (uniqueId == null) return null;
+        return uniqueId.getValue("User.uniqueId");
+    }
 
 }

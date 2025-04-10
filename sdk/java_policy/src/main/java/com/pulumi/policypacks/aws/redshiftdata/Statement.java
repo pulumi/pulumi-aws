@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.redshiftdata;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshiftdata.StatementParameter;
+import com.pulumi.policypacks.aws.redshiftdata.outputs.StatementParameter;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftdata/statement:Statement")
-public final class Statement extends com.pulumi.resources.PolicyResource {
+public final class Statement extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    public String clusterIdentifier;
+    private @Nullable UndeferrableValue<String> clusterIdentifier;
 
-
+    public @Nullable String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Statement.clusterIdentifier");
+    }
 
     /**
      * The name of the database.
      * 
      */
-    public String database;
+    private UndeferrableValue<String> database;
 
-
+    public String database() {
+        if (database == null) return null;
+        return database.getValue("Statement.database");
+    }
 
     /**
      * The database user name.
      * 
      */
-    public String dbUser;
+    private @Nullable UndeferrableValue<String> dbUser;
 
+    public @Nullable String dbUser() {
+        if (dbUser == null) return null;
+        return dbUser.getValue("Statement.dbUser");
+    }
 
+    private @Nullable UndeferrableValue<List<StatementParameter>> parameters;
 
-    public List<StatementParameter> parameters;
-
-
+    public @Nullable List<StatementParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Statement.parameters");
+    }
 
     /**
      * The name or ARN of the secret that enables access to the database.
      * 
      */
-    public String secretArn;
+    private @Nullable UndeferrableValue<String> secretArn;
 
-
+    public @Nullable String secretArn() {
+        if (secretArn == null) return null;
+        return secretArn.getValue("Statement.secretArn");
+    }
 
     /**
      * The SQL statement text to run.
@@ -55,32 +72,44 @@ public final class Statement extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String sql;
+    private UndeferrableValue<String> sql;
 
-
+    public String sql() {
+        if (sql == null) return null;
+        return sql.getValue("Statement.sql");
+    }
 
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
-    public String statementName;
+    private @Nullable UndeferrableValue<String> statementName;
 
-
+    public @Nullable String statementName() {
+        if (statementName == null) return null;
+        return statementName.getValue("Statement.statementName");
+    }
 
     /**
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      * 
      */
-    public Boolean withEvent;
+    private @Nullable UndeferrableValue<Boolean> withEvent;
 
-
+    public @Nullable Boolean withEvent() {
+        if (withEvent == null) return null;
+        return withEvent.getValue("Statement.withEvent");
+    }
 
     /**
      * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    public String workgroupName;
+    private @Nullable UndeferrableValue<String> workgroupName;
 
-
+    public @Nullable String workgroupName() {
+        if (workgroupName == null) return null;
+        return workgroupName.getValue("Statement.workgroupName");
+    }
 
 }

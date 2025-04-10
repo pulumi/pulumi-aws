@@ -3,157 +3,213 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/customDbEngineVersion:CustomDbEngineVersion")
-public final class CustomDbEngineVersion extends com.pulumi.resources.PolicyResource {
+public final class CustomDbEngineVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the custom engine version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomDbEngineVersion.arn");
+    }
 
     /**
      * The date and time that the CEV was created.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("CustomDbEngineVersion.createTime");
+    }
 
     /**
      * The name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
-    public String databaseInstallationFilesS3BucketName;
+    private @Nullable UndeferrableValue<String> databaseInstallationFilesS3BucketName;
 
-
+    public @Nullable String databaseInstallationFilesS3BucketName() {
+        if (databaseInstallationFilesS3BucketName == null) return null;
+        return databaseInstallationFilesS3BucketName.getValue("CustomDbEngineVersion.databaseInstallationFilesS3BucketName");
+    }
 
     /**
      * The prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
-    public String databaseInstallationFilesS3Prefix;
+    private @Nullable UndeferrableValue<String> databaseInstallationFilesS3Prefix;
 
-
+    public @Nullable String databaseInstallationFilesS3Prefix() {
+        if (databaseInstallationFilesS3Prefix == null) return null;
+        return databaseInstallationFilesS3Prefix.getValue("CustomDbEngineVersion.databaseInstallationFilesS3Prefix");
+    }
 
     /**
      * The name of the DB parameter group family for the CEV.
      * 
      */
-    public String dbParameterGroupFamily;
+    private UndeferrableValue<String> dbParameterGroupFamily;
 
-
+    public String dbParameterGroupFamily() {
+        if (dbParameterGroupFamily == null) return null;
+        return dbParameterGroupFamily.getValue("CustomDbEngineVersion.dbParameterGroupFamily");
+    }
 
     /**
      * The description of the CEV.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("CustomDbEngineVersion.description");
+    }
 
     /**
      * The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("CustomDbEngineVersion.engine");
+    }
 
     /**
      * The version of the database engine.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("CustomDbEngineVersion.engineVersion");
+    }
 
     /**
      * The name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
-    public String filename;
+    private @Nullable UndeferrableValue<String> filename;
 
-
+    public @Nullable String filename() {
+        if (filename == null) return null;
+        return filename.getValue("CustomDbEngineVersion.filename");
+    }
 
     /**
      * The ID of the AMI that was created with the CEV.
      * 
      */
-    public String imageId;
+    private UndeferrableValue<String> imageId;
 
-
+    public String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("CustomDbEngineVersion.imageId");
+    }
 
     /**
      * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("CustomDbEngineVersion.kmsKeyId");
+    }
 
     /**
      * The major version of the database engine.
      * 
      */
-    public String majorEngineVersion;
+    private UndeferrableValue<String> majorEngineVersion;
 
-
+    public String majorEngineVersion() {
+        if (majorEngineVersion == null) return null;
+        return majorEngineVersion.getValue("CustomDbEngineVersion.majorEngineVersion");
+    }
 
     /**
      * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
-    public String manifest;
+    private @Nullable UndeferrableValue<String> manifest;
 
-
+    public @Nullable String manifest() {
+        if (manifest == null) return null;
+        return manifest.getValue("CustomDbEngineVersion.manifest");
+    }
 
     /**
      * The returned manifest file, in JSON format, service generated and often different from input `manifest`.
      * 
      */
-    public String manifestComputed;
+    private UndeferrableValue<String> manifestComputed;
 
-
+    public String manifestComputed() {
+        if (manifestComputed == null) return null;
+        return manifestComputed.getValue("CustomDbEngineVersion.manifestComputed");
+    }
 
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
-    public String manifestHash;
+    private @Nullable UndeferrableValue<String> manifestHash;
 
-
+    public @Nullable String manifestHash() {
+        if (manifestHash == null) return null;
+        return manifestHash.getValue("CustomDbEngineVersion.manifestHash");
+    }
 
     /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
-    public String sourceImageId;
+    private @Nullable UndeferrableValue<String> sourceImageId;
 
-
+    public @Nullable String sourceImageId() {
+        if (sourceImageId == null) return null;
+        return sourceImageId.getValue("CustomDbEngineVersion.sourceImageId");
+    }
 
     /**
      * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("CustomDbEngineVersion.status");
+    }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomDbEngineVersion.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -163,8 +219,11 @@ public final class CustomDbEngineVersion extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomDbEngineVersion.tagsAll");
+    }
 
 }

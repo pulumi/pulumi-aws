@@ -3,67 +3,90 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkmanager.ConnectAttachmentOptions;
+import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectAttachmentOptions;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/connectAttachment:ConnectAttachment")
-public final class ConnectAttachment extends com.pulumi.resources.PolicyResource {
+public final class ConnectAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the attachment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConnectAttachment.arn");
+    }
 
+    private UndeferrableValue<String> attachmentId;
 
-    public String attachmentId;
-
-
+    public String attachmentId() {
+        if (attachmentId == null) return null;
+        return attachmentId.getValue("ConnectAttachment.attachmentId");
+    }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    public Integer attachmentPolicyRuleNumber;
+    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
 
-
+    public Integer attachmentPolicyRuleNumber() {
+        if (attachmentPolicyRuleNumber == null) return null;
+        return attachmentPolicyRuleNumber.getValue("ConnectAttachment.attachmentPolicyRuleNumber");
+    }
 
     /**
      * The type of attachment.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("ConnectAttachment.attachmentType");
+    }
 
     /**
      * The ARN of a core network.
      * 
      */
-    public String coreNetworkArn;
+    private UndeferrableValue<String> coreNetworkArn;
 
-
+    public String coreNetworkArn() {
+        if (coreNetworkArn == null) return null;
+        return coreNetworkArn.getValue("ConnectAttachment.coreNetworkArn");
+    }
 
     /**
      * The ID of a core network where you want to create the attachment.
      * 
      */
-    public String coreNetworkId;
+    private UndeferrableValue<String> coreNetworkId;
 
-
+    public String coreNetworkId() {
+        if (coreNetworkId == null) return null;
+        return coreNetworkId.getValue("ConnectAttachment.coreNetworkId");
+    }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    public String edgeLocation;
+    private UndeferrableValue<String> edgeLocation;
 
-
+    public String edgeLocation() {
+        if (edgeLocation == null) return null;
+        return edgeLocation.getValue("ConnectAttachment.edgeLocation");
+    }
 
     /**
      * Options block. See options for more information.
@@ -71,49 +94,67 @@ public final class ConnectAttachment extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public ConnectAttachmentOptions options;
+    private UndeferrableValue<ConnectAttachmentOptions> options;
 
-
+    public ConnectAttachmentOptions options() {
+        if (options == null) return null;
+        return options.getValue("ConnectAttachment.options");
+    }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("ConnectAttachment.ownerAccountId");
+    }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ConnectAttachment.resourceArn");
+    }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    public String segmentName;
+    private UndeferrableValue<String> segmentName;
 
-
+    public String segmentName() {
+        if (segmentName == null) return null;
+        return segmentName.getValue("ConnectAttachment.segmentName");
+    }
 
     /**
      * The state of the attachment.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ConnectAttachment.state");
+    }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConnectAttachment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -123,16 +164,22 @@ public final class ConnectAttachment extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConnectAttachment.tagsAll");
+    }
 
     /**
      * The ID of the attachment between the two connections.
      * 
      */
-    public String transportAttachmentId;
+    private UndeferrableValue<String> transportAttachmentId;
 
-
+    public String transportAttachmentId() {
+        if (transportAttachmentId == null) return null;
+        return transportAttachmentId.getValue("ConnectAttachment.transportAttachmentId");
+    }
 
 }

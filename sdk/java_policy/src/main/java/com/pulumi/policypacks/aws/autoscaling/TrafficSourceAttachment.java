@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.autoscaling.TrafficSourceAttachmentTrafficSource;
+import com.pulumi.policypacks.aws.autoscaling.outputs.TrafficSourceAttachmentTrafficSource;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")
-public final class TrafficSourceAttachment extends com.pulumi.resources.PolicyResource {
+public final class TrafficSourceAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the Auto Scaling group.
      * 
      */
-    public String autoscalingGroupName;
+    private UndeferrableValue<String> autoscalingGroupName;
 
-
+    public String autoscalingGroupName() {
+        if (autoscalingGroupName == null) return null;
+        return autoscalingGroupName.getValue("TrafficSourceAttachment.autoscalingGroupName");
+    }
 
     /**
      * The unique identifiers of a traffic sources.
      * 
      */
-    public TrafficSourceAttachmentTrafficSource trafficSource;
+    private @Nullable UndeferrableValue<TrafficSourceAttachmentTrafficSource> trafficSource;
 
-
+    public @Nullable TrafficSourceAttachmentTrafficSource trafficSource() {
+        if (trafficSource == null) return null;
+        return trafficSource.getValue("TrafficSourceAttachment.trafficSource");
+    }
 
 }

@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:vpc/endpointPrivateDns:EndpointPrivateDns")
-public final class EndpointPrivateDns extends com.pulumi.resources.PolicyResource {
+public final class EndpointPrivateDns extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
-    public Boolean privateDnsEnabled;
+    private UndeferrableValue<Boolean> privateDnsEnabled;
 
-
+    public Boolean privateDnsEnabled() {
+        if (privateDnsEnabled == null) return null;
+        return privateDnsEnabled.getValue("EndpointPrivateDns.privateDnsEnabled");
+    }
 
     /**
      * VPC endpoint identifier.
      * 
      */
-    public String vpcEndpointId;
+    private UndeferrableValue<String> vpcEndpointId;
 
-
+    public String vpcEndpointId() {
+        if (vpcEndpointId == null) return null;
+        return vpcEndpointId.getValue("EndpointPrivateDns.vpcEndpointId");
+    }
 
 }

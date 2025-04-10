@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")
-public final class MacsecKeyAssociation extends com.pulumi.resources.PolicyResource {
+public final class MacsecKeyAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
      * 
      */
-    public String cak;
+    private @Nullable UndeferrableValue<String> cak;
 
-
+    public @Nullable String cak() {
+        if (cak == null) return null;
+        return cak.getValue("MacsecKeyAssociation.cak");
+    }
 
     /**
      * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
      * 
      */
-    public String ckn;
+    private UndeferrableValue<String> ckn;
 
-
+    public String ckn() {
+        if (ckn == null) return null;
+        return ckn.getValue("MacsecKeyAssociation.ckn");
+    }
 
     /**
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("MacsecKeyAssociation.connectionId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
@@ -40,24 +51,33 @@ public final class MacsecKeyAssociation extends com.pulumi.resources.PolicyResou
      * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      * 
      */
-    public String secretArn;
+    private UndeferrableValue<String> secretArn;
 
-
+    public String secretArn() {
+        if (secretArn == null) return null;
+        return secretArn.getValue("MacsecKeyAssociation.secretArn");
+    }
 
     /**
      * The date in UTC format that the MAC Security (MACsec) secret key takes effect.
      * 
      */
-    public String startOn;
+    private UndeferrableValue<String> startOn;
 
-
+    public String startOn() {
+        if (startOn == null) return null;
+        return startOn.getValue("MacsecKeyAssociation.startOn");
+    }
 
     /**
      * The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("MacsecKeyAssociation.state");
+    }
 
 }

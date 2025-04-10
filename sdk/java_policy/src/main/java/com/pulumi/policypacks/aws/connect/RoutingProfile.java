@@ -3,89 +3,118 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.RoutingProfileMediaConcurrency;
-import com.pulumi.policypacks.aws.connect.RoutingProfileQueueConfig;
+import com.pulumi.policypacks.aws.connect.outputs.RoutingProfileMediaConcurrency;
+import com.pulumi.policypacks.aws.connect.outputs.RoutingProfileQueueConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/routingProfile:RoutingProfile")
-public final class RoutingProfile extends com.pulumi.resources.PolicyResource {
+public final class RoutingProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RoutingProfile.arn");
+    }
 
     /**
      * Specifies the default outbound queue for the Routing Profile.
      * 
      */
-    public String defaultOutboundQueueId;
+    private UndeferrableValue<String> defaultOutboundQueueId;
 
-
+    public String defaultOutboundQueueId() {
+        if (defaultOutboundQueueId == null) return null;
+        return defaultOutboundQueueId.getValue("RoutingProfile.defaultOutboundQueueId");
+    }
 
     /**
      * Specifies the description of the Routing Profile.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("RoutingProfile.description");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("RoutingProfile.instanceId");
+    }
 
     /**
      * One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
      * 
      */
-    public List<RoutingProfileMediaConcurrency> mediaConcurrencies;
+    private UndeferrableValue<List<RoutingProfileMediaConcurrency>> mediaConcurrencies;
 
-
+    public List<RoutingProfileMediaConcurrency> mediaConcurrencies() {
+        if (mediaConcurrencies == null) return null;
+        return mediaConcurrencies.getValue("RoutingProfile.mediaConcurrencies");
+    }
 
     /**
      * Specifies the name of the Routing Profile.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RoutingProfile.name");
+    }
 
     /**
      * One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
      * 
      */
-    public List<RoutingProfileQueueConfig> queueConfigs;
+    private @Nullable UndeferrableValue<List<RoutingProfileQueueConfig>> queueConfigs;
 
-
+    public @Nullable List<RoutingProfileQueueConfig> queueConfigs() {
+        if (queueConfigs == null) return null;
+        return queueConfigs.getValue("RoutingProfile.queueConfigs");
+    }
 
     /**
      * The identifier for the Routing Profile.
      * 
      */
-    public String routingProfileId;
+    private UndeferrableValue<String> routingProfileId;
 
-
+    public String routingProfileId() {
+        if (routingProfileId == null) return null;
+        return routingProfileId.getValue("RoutingProfile.routingProfileId");
+    }
 
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RoutingProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -95,8 +124,11 @@ public final class RoutingProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RoutingProfile.tagsAll");
+    }
 
 }

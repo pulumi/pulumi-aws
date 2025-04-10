@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")
-public final class ConfigurationPolicyAssociation extends com.pulumi.resources.PolicyResource {
+public final class ConfigurationPolicyAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The universally unique identifier (UUID) of the configuration policy.
      * 
      */
-    public String policyId;
+    private UndeferrableValue<String> policyId;
 
-
+    public String policyId() {
+        if (policyId == null) return null;
+        return policyId.getValue("ConfigurationPolicyAssociation.policyId");
+    }
 
     /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      * 
      */
-    public String targetId;
+    private UndeferrableValue<String> targetId;
 
-
+    public String targetId() {
+        if (targetId == null) return null;
+        return targetId.getValue("ConfigurationPolicyAssociation.targetId");
+    }
 
 }

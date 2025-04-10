@@ -3,86 +3,112 @@
 
 package com.pulumi.policypacks.aws.emr;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emr.ClusterAutoTerminationPolicy;
-import com.pulumi.policypacks.aws.emr.ClusterBootstrapAction;
-import com.pulumi.policypacks.aws.emr.ClusterCoreInstanceFleet;
-import com.pulumi.policypacks.aws.emr.ClusterCoreInstanceGroup;
-import com.pulumi.policypacks.aws.emr.ClusterEc2Attributes;
-import com.pulumi.policypacks.aws.emr.ClusterKerberosAttributes;
-import com.pulumi.policypacks.aws.emr.ClusterMasterInstanceFleet;
-import com.pulumi.policypacks.aws.emr.ClusterMasterInstanceGroup;
-import com.pulumi.policypacks.aws.emr.ClusterPlacementGroupConfig;
-import com.pulumi.policypacks.aws.emr.ClusterStep;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterAutoTerminationPolicy;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterBootstrapAction;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterCoreInstanceFleet;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterCoreInstanceGroup;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterEc2Attributes;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterKerberosAttributes;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterMasterInstanceFleet;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterMasterInstanceGroup;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterPlacementGroupConfig;
+import com.pulumi.policypacks.aws.emr.outputs.ClusterStep;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emr/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
      * 
      */
-    public String additionalInfo;
+    private @Nullable UndeferrableValue<String> additionalInfo;
 
-
+    public @Nullable String additionalInfo() {
+        if (additionalInfo == null) return null;
+        return additionalInfo.getValue("Cluster.additionalInfo");
+    }
 
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      * 
      */
-    public List<String> applications;
+    private @Nullable UndeferrableValue<List<String>> applications;
 
-
+    public @Nullable List<String> applications() {
+        if (applications == null) return null;
+        return applications.getValue("Cluster.applications");
+    }
 
     /**
      * ARN of the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      * 
      */
-    public ClusterAutoTerminationPolicy autoTerminationPolicy;
+    private @Nullable UndeferrableValue<ClusterAutoTerminationPolicy> autoTerminationPolicy;
 
-
+    public @Nullable ClusterAutoTerminationPolicy autoTerminationPolicy() {
+        if (autoTerminationPolicy == null) return null;
+        return autoTerminationPolicy.getValue("Cluster.autoTerminationPolicy");
+    }
 
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      * 
      */
-    public String autoscalingRole;
+    private @Nullable UndeferrableValue<String> autoscalingRole;
 
-
+    public @Nullable String autoscalingRole() {
+        if (autoscalingRole == null) return null;
+        return autoscalingRole.getValue("Cluster.autoscalingRole");
+    }
 
     /**
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      * 
      */
-    public List<ClusterBootstrapAction> bootstrapActions;
+    private @Nullable UndeferrableValue<List<ClusterBootstrapAction>> bootstrapActions;
 
+    public @Nullable List<ClusterBootstrapAction> bootstrapActions() {
+        if (bootstrapActions == null) return null;
+        return bootstrapActions.getValue("Cluster.bootstrapActions");
+    }
 
+    private UndeferrableValue<String> clusterState;
 
-    public String clusterState;
-
-
+    public String clusterState() {
+        if (clusterState == null) return null;
+        return clusterState.getValue("Cluster.clusterState");
+    }
 
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      * 
      */
-    public String configurations;
+    private @Nullable UndeferrableValue<String> configurations;
 
-
+    public @Nullable String configurations() {
+        if (configurations == null) return null;
+        return configurations.getValue("Cluster.configurations");
+    }
 
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
@@ -138,153 +164,210 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public String configurationsJson;
+    private @Nullable UndeferrableValue<String> configurationsJson;
 
-
+    public @Nullable String configurationsJson() {
+        if (configurationsJson == null) return null;
+        return configurationsJson.getValue("Cluster.configurationsJson");
+    }
 
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    public ClusterCoreInstanceFleet coreInstanceFleet;
+    private UndeferrableValue<ClusterCoreInstanceFleet> coreInstanceFleet;
 
-
+    public ClusterCoreInstanceFleet coreInstanceFleet() {
+        if (coreInstanceFleet == null) return null;
+        return coreInstanceFleet.getValue("Cluster.coreInstanceFleet");
+    }
 
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      * 
      */
-    public ClusterCoreInstanceGroup coreInstanceGroup;
+    private UndeferrableValue<ClusterCoreInstanceGroup> coreInstanceGroup;
 
-
+    public ClusterCoreInstanceGroup coreInstanceGroup() {
+        if (coreInstanceGroup == null) return null;
+        return coreInstanceGroup.getValue("Cluster.coreInstanceGroup");
+    }
 
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      * 
      */
-    public String customAmiId;
+    private @Nullable UndeferrableValue<String> customAmiId;
 
-
+    public @Nullable String customAmiId() {
+        if (customAmiId == null) return null;
+        return customAmiId.getValue("Cluster.customAmiId");
+    }
 
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      * 
      */
-    public Integer ebsRootVolumeSize;
+    private @Nullable UndeferrableValue<Integer> ebsRootVolumeSize;
 
-
+    public @Nullable Integer ebsRootVolumeSize() {
+        if (ebsRootVolumeSize == null) return null;
+        return ebsRootVolumeSize.getValue("Cluster.ebsRootVolumeSize");
+    }
 
     /**
      * Attributes for the EC2 instances running the job flow. See below.
      * 
      */
-    public ClusterEc2Attributes ec2Attributes;
+    private @Nullable UndeferrableValue<ClusterEc2Attributes> ec2Attributes;
 
-
+    public @Nullable ClusterEc2Attributes ec2Attributes() {
+        if (ec2Attributes == null) return null;
+        return ec2Attributes.getValue("Cluster.ec2Attributes");
+    }
 
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      * 
      */
-    public Boolean keepJobFlowAliveWhenNoSteps;
+    private UndeferrableValue<Boolean> keepJobFlowAliveWhenNoSteps;
 
-
+    public Boolean keepJobFlowAliveWhenNoSteps() {
+        if (keepJobFlowAliveWhenNoSteps == null) return null;
+        return keepJobFlowAliveWhenNoSteps.getValue("Cluster.keepJobFlowAliveWhenNoSteps");
+    }
 
     /**
      * Kerberos configuration for the cluster. See below.
      * 
      */
-    public ClusterKerberosAttributes kerberosAttributes;
+    private @Nullable UndeferrableValue<ClusterKerberosAttributes> kerberosAttributes;
 
-
+    public @Nullable ClusterKerberosAttributes kerberosAttributes() {
+        if (kerberosAttributes == null) return null;
+        return kerberosAttributes.getValue("Cluster.kerberosAttributes");
+    }
 
     /**
      * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
      * 
      */
-    public List<String> listStepsStates;
+    private @Nullable UndeferrableValue<List<String>> listStepsStates;
 
-
+    public @Nullable List<String> listStepsStates() {
+        if (listStepsStates == null) return null;
+        return listStepsStates.getValue("Cluster.listStepsStates");
+    }
 
     /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      * 
      */
-    public String logEncryptionKmsKeyId;
+    private @Nullable UndeferrableValue<String> logEncryptionKmsKeyId;
 
-
+    public @Nullable String logEncryptionKmsKeyId() {
+        if (logEncryptionKmsKeyId == null) return null;
+        return logEncryptionKmsKeyId.getValue("Cluster.logEncryptionKmsKeyId");
+    }
 
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
      * 
      */
-    public String logUri;
+    private @Nullable UndeferrableValue<String> logUri;
 
-
+    public @Nullable String logUri() {
+        if (logUri == null) return null;
+        return logUri.getValue("Cluster.logUri");
+    }
 
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    public ClusterMasterInstanceFleet masterInstanceFleet;
+    private UndeferrableValue<ClusterMasterInstanceFleet> masterInstanceFleet;
 
-
+    public ClusterMasterInstanceFleet masterInstanceFleet() {
+        if (masterInstanceFleet == null) return null;
+        return masterInstanceFleet.getValue("Cluster.masterInstanceFleet");
+    }
 
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      * 
      */
-    public ClusterMasterInstanceGroup masterInstanceGroup;
+    private UndeferrableValue<ClusterMasterInstanceGroup> masterInstanceGroup;
 
-
+    public ClusterMasterInstanceGroup masterInstanceGroup() {
+        if (masterInstanceGroup == null) return null;
+        return masterInstanceGroup.getValue("Cluster.masterInstanceGroup");
+    }
 
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      * 
      */
-    public String masterPublicDns;
+    private UndeferrableValue<String> masterPublicDns;
 
-
+    public String masterPublicDns() {
+        if (masterPublicDns == null) return null;
+        return masterPublicDns.getValue("Cluster.masterPublicDns");
+    }
 
     /**
      * Name of the job flow.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Cluster.name");
+    }
 
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */
-    public List<ClusterPlacementGroupConfig> placementGroupConfigs;
+    private @Nullable UndeferrableValue<List<ClusterPlacementGroupConfig>> placementGroupConfigs;
 
-
+    public @Nullable List<ClusterPlacementGroupConfig> placementGroupConfigs() {
+        if (placementGroupConfigs == null) return null;
+        return placementGroupConfigs.getValue("Cluster.placementGroupConfigs");
+    }
 
     /**
      * Release label for the Amazon EMR release.
      * 
      */
-    public String releaseLabel;
+    private UndeferrableValue<String> releaseLabel;
 
-
+    public String releaseLabel() {
+        if (releaseLabel == null) return null;
+        return releaseLabel.getValue("Cluster.releaseLabel");
+    }
 
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      * 
      */
-    public String scaleDownBehavior;
+    private UndeferrableValue<String> scaleDownBehavior;
 
-
+    public String scaleDownBehavior() {
+        if (scaleDownBehavior == null) return null;
+        return scaleDownBehavior.getValue("Cluster.scaleDownBehavior");
+    }
 
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
      * 
      */
-    public String securityConfiguration;
+    private @Nullable UndeferrableValue<String> securityConfiguration;
 
-
+    public @Nullable String securityConfiguration() {
+        if (securityConfiguration == null) return null;
+        return securityConfiguration.getValue("Cluster.securityConfiguration");
+    }
 
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
@@ -292,33 +375,45 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("Cluster.serviceRole");
+    }
 
     /**
      * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
      * 
      */
-    public Integer stepConcurrencyLevel;
+    private @Nullable UndeferrableValue<Integer> stepConcurrencyLevel;
 
-
+    public @Nullable Integer stepConcurrencyLevel() {
+        if (stepConcurrencyLevel == null) return null;
+        return stepConcurrencyLevel.getValue("Cluster.stepConcurrencyLevel");
+    }
 
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      * 
      */
-    public List<ClusterStep> steps;
+    private UndeferrableValue<List<ClusterStep>> steps;
 
-
+    public List<ClusterStep> steps() {
+        if (steps == null) return null;
+        return steps.getValue("Cluster.steps");
+    }
 
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -328,32 +423,44 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      * 
      */
-    public Boolean terminationProtection;
+    private UndeferrableValue<Boolean> terminationProtection;
 
-
+    public Boolean terminationProtection() {
+        if (terminationProtection == null) return null;
+        return terminationProtection.getValue("Cluster.terminationProtection");
+    }
 
     /**
      * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
      * 
      */
-    public Boolean unhealthyNodeReplacement;
+    private @Nullable UndeferrableValue<Boolean> unhealthyNodeReplacement;
 
-
+    public @Nullable Boolean unhealthyNodeReplacement() {
+        if (unhealthyNodeReplacement == null) return null;
+        return unhealthyNodeReplacement.getValue("Cluster.unhealthyNodeReplacement");
+    }
 
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      * 
      */
-    public Boolean visibleToAllUsers;
+    private @Nullable UndeferrableValue<Boolean> visibleToAllUsers;
 
-
+    public @Nullable Boolean visibleToAllUsers() {
+        if (visibleToAllUsers == null) return null;
+        return visibleToAllUsers.getValue("Cluster.visibleToAllUsers");
+    }
 
 }

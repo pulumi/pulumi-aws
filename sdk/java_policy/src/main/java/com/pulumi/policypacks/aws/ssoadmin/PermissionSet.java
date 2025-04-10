@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssoadmin/permissionSet:PermissionSet")
-public final class PermissionSet extends com.pulumi.resources.PolicyResource {
+public final class PermissionSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PermissionSet.arn");
+    }
 
     /**
      * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("PermissionSet.createdDate");
+    }
 
     /**
      * The description of the Permission Set.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PermissionSet.description");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    public String instanceArn;
+    private UndeferrableValue<String> instanceArn;
 
-
+    public String instanceArn() {
+        if (instanceArn == null) return null;
+        return instanceArn.getValue("PermissionSet.instanceArn");
+    }
 
     /**
      * The name of the Permission Set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PermissionSet.name");
+    }
 
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    public String relayState;
+    private @Nullable UndeferrableValue<String> relayState;
 
-
+    public @Nullable String relayState() {
+        if (relayState == null) return null;
+        return relayState.getValue("PermissionSet.relayState");
+    }
 
     /**
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      * 
      */
-    public String sessionDuration;
+    private @Nullable UndeferrableValue<String> sessionDuration;
 
-
+    public @Nullable String sessionDuration() {
+        if (sessionDuration == null) return null;
+        return sessionDuration.getValue("PermissionSet.sessionDuration");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PermissionSet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,8 +109,11 @@ public final class PermissionSet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PermissionSet.tagsAll");
+    }
 
 }

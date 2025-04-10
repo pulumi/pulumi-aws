@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshiftserverless.EndpointAccessVpcEndpoint;
+import com.pulumi.policypacks.aws.redshiftserverless.outputs.EndpointAccessVpcEndpoint;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshiftserverless/endpointAccess:EndpointAccess")
-public final class EndpointAccess extends com.pulumi.resources.PolicyResource {
+public final class EndpointAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The DNS address of the VPC endpoint.
      * 
      */
-    public String address;
+    private UndeferrableValue<String> address;
 
-
+    public String address() {
+        if (address == null) return null;
+        return address.getValue("EndpointAccess.address");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EndpointAccess.arn");
+    }
 
     /**
      * The name of the endpoint.
      * 
      */
-    public String endpointName;
+    private UndeferrableValue<String> endpointName;
 
-
+    public String endpointName() {
+        if (endpointName == null) return null;
+        return endpointName.getValue("EndpointAccess.endpointName");
+    }
 
     /**
      * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
      * 
      */
-    public String ownerAccount;
+    private @Nullable UndeferrableValue<String> ownerAccount;
 
-
+    public @Nullable String ownerAccount() {
+        if (ownerAccount == null) return null;
+        return ownerAccount.getValue("EndpointAccess.ownerAccount");
+    }
 
     /**
      * The port that Amazon Redshift Serverless listens on.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("EndpointAccess.port");
+    }
 
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("EndpointAccess.subnetIds");
+    }
 
     /**
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    public List<EndpointAccessVpcEndpoint> vpcEndpoints;
+    private UndeferrableValue<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
-
+    public List<EndpointAccessVpcEndpoint> vpcEndpoints() {
+        if (vpcEndpoints == null) return null;
+        return vpcEndpoints.getValue("EndpointAccess.vpcEndpoints");
+    }
 
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("EndpointAccess.vpcSecurityGroupIds");
+    }
 
     /**
      * The name of the workgroup.
      * 
      */
-    public String workgroupName;
+    private UndeferrableValue<String> workgroupName;
 
-
+    public String workgroupName() {
+        if (workgroupName == null) return null;
+        return workgroupName.getValue("EndpointAccess.workgroupName");
+    }
 
 }

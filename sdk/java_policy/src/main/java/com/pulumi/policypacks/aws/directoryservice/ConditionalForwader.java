@@ -3,36 +3,46 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:directoryservice/conditionalForwader:ConditionalForwader")
-public final class ConditionalForwader extends com.pulumi.resources.PolicyResource {
+public final class ConditionalForwader extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of directory.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("ConditionalForwader.directoryId");
+    }
 
     /**
      * A list of forwarder IP addresses.
      * 
      */
-    public List<String> dnsIps;
+    private UndeferrableValue<List<String>> dnsIps;
 
-
+    public List<String> dnsIps() {
+        if (dnsIps == null) return null;
+        return dnsIps.getValue("ConditionalForwader.dnsIps");
+    }
 
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      * 
      */
-    public String remoteDomainName;
+    private UndeferrableValue<String> remoteDomainName;
 
-
+    public String remoteDomainName() {
+        if (remoteDomainName == null) return null;
+        return remoteDomainName.getValue("ConditionalForwader.remoteDomainName");
+    }
 
 }

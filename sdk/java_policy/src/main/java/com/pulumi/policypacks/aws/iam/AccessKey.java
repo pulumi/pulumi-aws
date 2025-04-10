@@ -3,83 +3,112 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/accessKey:AccessKey")
-public final class AccessKey extends com.pulumi.resources.PolicyResource {
+public final class AccessKey extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      * 
      */
-    public String createDate;
+    private UndeferrableValue<String> createDate;
 
-
+    public String createDate() {
+        if (createDate == null) return null;
+        return createDate.getValue("AccessKey.createDate");
+    }
 
     /**
      * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
      * 
      */
-    public String encryptedSecret;
+    private UndeferrableValue<String> encryptedSecret;
 
-
+    public String encryptedSecret() {
+        if (encryptedSecret == null) return null;
+        return encryptedSecret.getValue("AccessKey.encryptedSecret");
+    }
 
     /**
      * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
      * 
      */
-    public String encryptedSesSmtpPasswordV4;
+    private UndeferrableValue<String> encryptedSesSmtpPasswordV4;
 
-
+    public String encryptedSesSmtpPasswordV4() {
+        if (encryptedSesSmtpPasswordV4 == null) return null;
+        return encryptedSesSmtpPasswordV4.getValue("AccessKey.encryptedSesSmtpPasswordV4");
+    }
 
     /**
      * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      * 
      */
-    public String keyFingerprint;
+    private UndeferrableValue<String> keyFingerprint;
 
-
+    public String keyFingerprint() {
+        if (keyFingerprint == null) return null;
+        return keyFingerprint.getValue("AccessKey.keyFingerprint");
+    }
 
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
-    public String pgpKey;
+    private @Nullable UndeferrableValue<String> pgpKey;
 
-
+    public @Nullable String pgpKey() {
+        if (pgpKey == null) return null;
+        return pgpKey.getValue("AccessKey.pgpKey");
+    }
 
     /**
      * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      * 
      */
-    public String secret;
+    private UndeferrableValue<String> secret;
 
-
+    public String secret() {
+        if (secret == null) return null;
+        return secret.getValue("AccessKey.secret");
+    }
 
     /**
      * Secret access key converted into an SES SMTP password by applying [AWS&#39;s documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      * 
      */
-    public String sesSmtpPasswordV4;
+    private UndeferrableValue<String> sesSmtpPasswordV4;
 
-
+    public String sesSmtpPasswordV4() {
+        if (sesSmtpPasswordV4 == null) return null;
+        return sesSmtpPasswordV4.getValue("AccessKey.sesSmtpPasswordV4");
+    }
 
     /**
      * Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("AccessKey.status");
+    }
 
     /**
      * IAM user to associate with this access key.
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("AccessKey.user");
+    }
 
 }

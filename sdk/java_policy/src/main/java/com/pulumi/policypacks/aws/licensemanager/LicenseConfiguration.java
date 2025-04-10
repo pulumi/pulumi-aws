@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:licensemanager/licenseConfiguration:LicenseConfiguration")
-public final class LicenseConfiguration extends com.pulumi.resources.PolicyResource {
+public final class LicenseConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The license configuration ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LicenseConfiguration.arn");
+    }
 
     /**
      * Description of the license configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("LicenseConfiguration.description");
+    }
 
     /**
      * Number of licenses managed by the license configuration.
      * 
      */
-    public Integer licenseCount;
+    private @Nullable UndeferrableValue<Integer> licenseCount;
 
-
+    public @Nullable Integer licenseCount() {
+        if (licenseCount == null) return null;
+        return licenseCount.getValue("LicenseConfiguration.licenseCount");
+    }
 
     /**
      * Sets the number of available licenses as a hard limit.
      * 
      */
-    public Boolean licenseCountHardLimit;
+    private @Nullable UndeferrableValue<Boolean> licenseCountHardLimit;
 
-
+    public @Nullable Boolean licenseCountHardLimit() {
+        if (licenseCountHardLimit == null) return null;
+        return licenseCountHardLimit.getValue("LicenseConfiguration.licenseCountHardLimit");
+    }
 
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      * 
      */
-    public String licenseCountingType;
+    private UndeferrableValue<String> licenseCountingType;
 
-
+    public String licenseCountingType() {
+        if (licenseCountingType == null) return null;
+        return licenseCountingType.getValue("LicenseConfiguration.licenseCountingType");
+    }
 
     /**
      * Array of configured License Manager rules.
      * 
      */
-    public List<String> licenseRules;
+    private @Nullable UndeferrableValue<List<String>> licenseRules;
 
-
+    public @Nullable List<String> licenseRules() {
+        if (licenseRules == null) return null;
+        return licenseRules.getValue("LicenseConfiguration.licenseRules");
+    }
 
     /**
      * Name of the license configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LicenseConfiguration.name");
+    }
 
     /**
      * Account ID of the owner of the license configuration.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("LicenseConfiguration.ownerAccountId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LicenseConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class LicenseConfiguration extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LicenseConfiguration.tagsAll");
+    }
 
 }

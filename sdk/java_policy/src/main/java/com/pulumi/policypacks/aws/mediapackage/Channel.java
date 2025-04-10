@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.mediapackage;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.mediapackage.ChannelHlsIngest;
+import com.pulumi.policypacks.aws.mediapackage.outputs.ChannelHlsIngest;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mediapackage/channel:Channel")
-public final class Channel extends com.pulumi.resources.PolicyResource {
+public final class Channel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the channel
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Channel.arn");
+    }
 
     /**
      * A unique identifier describing the channel
      * 
      */
-    public String channelId;
+    private UndeferrableValue<String> channelId;
 
-
+    public String channelId() {
+        if (channelId == null) return null;
+        return channelId.getValue("Channel.channelId");
+    }
 
     /**
      * A description of the channel
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Channel.description");
+    }
 
     /**
      * A single item list of HLS ingest information
      * 
      */
-    public List<ChannelHlsIngest> hlsIngests;
+    private UndeferrableValue<List<ChannelHlsIngest>> hlsIngests;
 
-
+    public List<ChannelHlsIngest> hlsIngests() {
+        if (hlsIngests == null) return null;
+        return hlsIngests.getValue("Channel.hlsIngests");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Channel.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class Channel extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Channel.tagsAll");
+    }
 
 }

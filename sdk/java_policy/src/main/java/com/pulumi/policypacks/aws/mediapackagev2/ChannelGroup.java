@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.mediapackagev2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mediapackagev2/channelGroup:ChannelGroup")
-public final class ChannelGroup extends com.pulumi.resources.PolicyResource {
+public final class ChannelGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the channel
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ChannelGroup.arn");
+    }
 
     /**
      * A description of the channel group
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ChannelGroup.description");
+    }
 
     /**
      * The egress domain of the channel group
      * 
      */
-    public String egressDomain;
+    private UndeferrableValue<String> egressDomain;
 
-
+    public String egressDomain() {
+        if (egressDomain == null) return null;
+        return egressDomain.getValue("ChannelGroup.egressDomain");
+    }
 
     /**
      * A unique identifier naming the channel group
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ChannelGroup.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ChannelGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class ChannelGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ChannelGroup.tagsAll");
+    }
 
 }

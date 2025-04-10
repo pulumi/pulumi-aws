@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.eks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.eks.FargateProfileSelector;
+import com.pulumi.policypacks.aws.eks.outputs.FargateProfileSelector;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:eks/fargateProfile:FargateProfile")
-public final class FargateProfile extends com.pulumi.resources.PolicyResource {
+public final class FargateProfile extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the EKS Fargate Profile.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FargateProfile.arn");
+    }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    public String clusterName;
+    private UndeferrableValue<String> clusterName;
 
-
+    public String clusterName() {
+        if (clusterName == null) return null;
+        return clusterName.getValue("FargateProfile.clusterName");
+    }
 
     /**
      * Name of the EKS Fargate Profile.
      * 
      */
-    public String fargateProfileName;
+    private UndeferrableValue<String> fargateProfileName;
 
-
+    public String fargateProfileName() {
+        if (fargateProfileName == null) return null;
+        return fargateProfileName.getValue("FargateProfile.fargateProfileName");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
-    public String podExecutionRoleArn;
+    private UndeferrableValue<String> podExecutionRoleArn;
 
-
+    public String podExecutionRoleArn() {
+        if (podExecutionRoleArn == null) return null;
+        return podExecutionRoleArn.getValue("FargateProfile.podExecutionRoleArn");
+    }
 
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      * 
      */
-    public List<FargateProfileSelector> selectors;
+    private UndeferrableValue<List<FargateProfileSelector>> selectors;
 
-
+    public List<FargateProfileSelector> selectors() {
+        if (selectors == null) return null;
+        return selectors.getValue("FargateProfile.selectors");
+    }
 
     /**
      * Status of the EKS Fargate Profile.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("FargateProfile.status");
+    }
 
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
@@ -67,17 +87,23 @@ public final class FargateProfile extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> subnetIds;
+    private @Nullable UndeferrableValue<List<String>> subnetIds;
 
-
+    public @Nullable List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("FargateProfile.subnetIds");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FargateProfile.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,8 +113,11 @@ public final class FargateProfile extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FargateProfile.tagsAll");
+    }
 
 }

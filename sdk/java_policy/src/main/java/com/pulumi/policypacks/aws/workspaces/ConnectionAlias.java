@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.workspaces.ConnectionAliasTimeouts;
+import com.pulumi.policypacks.aws.workspaces.outputs.ConnectionAliasTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:workspaces/connectionAlias:ConnectionAlias")
-public final class ConnectionAlias extends com.pulumi.resources.PolicyResource {
+public final class ConnectionAlias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
      * 
      */
-    public String connectionString;
+    private UndeferrableValue<String> connectionString;
 
-
+    public String connectionString() {
+        if (connectionString == null) return null;
+        return connectionString.getValue("ConnectionAlias.connectionString");
+    }
 
     /**
      * The identifier of the Amazon Web Services account that owns the connection alias.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("ConnectionAlias.ownerAccountId");
+    }
 
     /**
      * The current state of the connection alias.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ConnectionAlias.state");
+    }
 
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ConnectionAlias.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,12 +66,18 @@ public final class ConnectionAlias extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ConnectionAlias.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ConnectionAliasTimeouts> timeouts;
 
-    public ConnectionAliasTimeouts timeouts;
-
-
+    public @Nullable ConnectionAliasTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ConnectionAlias.timeouts");
+    }
 
 }

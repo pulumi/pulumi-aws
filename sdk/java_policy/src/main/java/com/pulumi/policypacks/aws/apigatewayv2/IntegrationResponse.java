@@ -3,60 +3,80 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/integrationResponse:IntegrationResponse")
-public final class IntegrationResponse extends com.pulumi.resources.PolicyResource {
+public final class IntegrationResponse extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("IntegrationResponse.apiId");
+    }
 
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      * 
      */
-    public String contentHandlingStrategy;
+    private @Nullable UndeferrableValue<String> contentHandlingStrategy;
 
-
+    public @Nullable String contentHandlingStrategy() {
+        if (contentHandlingStrategy == null) return null;
+        return contentHandlingStrategy.getValue("IntegrationResponse.contentHandlingStrategy");
+    }
 
     /**
      * Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
-    public String integrationId;
+    private UndeferrableValue<String> integrationId;
 
-
+    public String integrationId() {
+        if (integrationId == null) return null;
+        return integrationId.getValue("IntegrationResponse.integrationId");
+    }
 
     /**
      * Integration response key.
      * 
      */
-    public String integrationResponseKey;
+    private UndeferrableValue<String> integrationResponseKey;
 
-
+    public String integrationResponseKey() {
+        if (integrationResponseKey == null) return null;
+        return integrationResponseKey.getValue("IntegrationResponse.integrationResponseKey");
+    }
 
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
-    public Map<String,String> responseTemplates;
+    private @Nullable UndeferrableValue<Map<String,String>> responseTemplates;
 
-
+    public @Nullable Map<String,String> responseTemplates() {
+        if (responseTemplates == null) return null;
+        return responseTemplates.getValue("IntegrationResponse.responseTemplates");
+    }
 
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
-    public String templateSelectionExpression;
+    private @Nullable UndeferrableValue<String> templateSelectionExpression;
 
-
+    public @Nullable String templateSelectionExpression() {
+        if (templateSelectionExpression == null) return null;
+        return templateSelectionExpression.getValue("IntegrationResponse.templateSelectionExpression");
+    }
 
 }

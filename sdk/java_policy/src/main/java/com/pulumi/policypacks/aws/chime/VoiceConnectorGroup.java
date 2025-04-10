@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.VoiceConnectorGroupConnector;
+import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorGroupConnector;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorGroup:VoiceConnectorGroup")
-public final class VoiceConnectorGroup extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Chime Voice Connectors to route inbound calls to.
      * 
      */
-    public List<VoiceConnectorGroupConnector> connectors;
+    private @Nullable UndeferrableValue<List<VoiceConnectorGroupConnector>> connectors;
 
-
+    public @Nullable List<VoiceConnectorGroupConnector> connectors() {
+        if (connectors == null) return null;
+        return connectors.getValue("VoiceConnectorGroup.connectors");
+    }
 
     /**
      * The name of the Amazon Chime Voice Connector group.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VoiceConnectorGroup.name");
+    }
 
 }

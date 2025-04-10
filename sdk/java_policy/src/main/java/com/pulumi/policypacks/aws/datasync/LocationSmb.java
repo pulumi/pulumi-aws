@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datasync.LocationSmbMountOptions;
+import com.pulumi.policypacks.aws.datasync.outputs.LocationSmbMountOptions;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datasync/locationSmb:LocationSmb")
-public final class LocationSmb extends com.pulumi.resources.PolicyResource {
+public final class LocationSmb extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    public List<String> agentArns;
+    private UndeferrableValue<List<String>> agentArns;
 
-
+    public List<String> agentArns() {
+        if (agentArns == null) return null;
+        return agentArns.getValue("LocationSmb.agentArns");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LocationSmb.arn");
+    }
 
     /**
      * The name of the Windows domain the SMB server belongs to.
      * 
      */
-    public String domain;
+    private UndeferrableValue<String> domain;
 
-
+    public String domain() {
+        if (domain == null) return null;
+        return domain.getValue("LocationSmb.domain");
+    }
 
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      * 
      */
-    public LocationSmbMountOptions mountOptions;
+    private @Nullable UndeferrableValue<LocationSmbMountOptions> mountOptions;
 
-
+    public @Nullable LocationSmbMountOptions mountOptions() {
+        if (mountOptions == null) return null;
+        return mountOptions.getValue("LocationSmb.mountOptions");
+    }
 
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      * 
      */
-    public String password;
+    private UndeferrableValue<String> password;
 
-
+    public String password() {
+        if (password == null) return null;
+        return password.getValue("LocationSmb.password");
+    }
 
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      * 
      */
-    public String serverHostname;
+    private UndeferrableValue<String> serverHostname;
 
-
+    public String serverHostname() {
+        if (serverHostname == null) return null;
+        return serverHostname.getValue("LocationSmb.serverHostname");
+    }
 
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    public String subdirectory;
+    private UndeferrableValue<String> subdirectory;
 
-
+    public String subdirectory() {
+        if (subdirectory == null) return null;
+        return subdirectory.getValue("LocationSmb.subdirectory");
+    }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LocationSmb.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,20 +111,29 @@ public final class LocationSmb extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LocationSmb.tagsAll");
+    }
 
+    private UndeferrableValue<String> uri;
 
-    public String uri;
-
-
+    public String uri() {
+        if (uri == null) return null;
+        return uri.getValue("LocationSmb.uri");
+    }
 
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("LocationSmb.user");
+    }
 
 }

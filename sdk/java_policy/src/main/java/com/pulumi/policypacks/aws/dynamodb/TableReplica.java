@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:dynamodb/tableReplica:TableReplica")
-public final class TableReplica extends com.pulumi.resources.PolicyResource {
+public final class TableReplica extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the table replica.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TableReplica.arn");
+    }
 
     /**
      * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
      * 
      */
-    public Boolean deletionProtectionEnabled;
+    private UndeferrableValue<Boolean> deletionProtectionEnabled;
 
-
+    public Boolean deletionProtectionEnabled() {
+        if (deletionProtectionEnabled == null) return null;
+        return deletionProtectionEnabled.getValue("TableReplica.deletionProtectionEnabled");
+    }
 
     /**
      * ARN of the _main_ or global table which this resource will replicate.
@@ -34,41 +42,56 @@ public final class TableReplica extends com.pulumi.resources.PolicyResource {
      * Optional arguments:
      * 
      */
-    public String globalTableArn;
+    private UndeferrableValue<String> globalTableArn;
 
-
+    public String globalTableArn() {
+        if (globalTableArn == null) return null;
+        return globalTableArn.getValue("TableReplica.globalTableArn");
+    }
 
     /**
      * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("TableReplica.kmsKeyArn");
+    }
 
     /**
      * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
-    public Boolean pointInTimeRecovery;
+    private @Nullable UndeferrableValue<Boolean> pointInTimeRecovery;
 
-
+    public @Nullable Boolean pointInTimeRecovery() {
+        if (pointInTimeRecovery == null) return null;
+        return pointInTimeRecovery.getValue("TableReplica.pointInTimeRecovery");
+    }
 
     /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      * 
      */
-    public String tableClassOverride;
+    private @Nullable UndeferrableValue<String> tableClassOverride;
 
-
+    public @Nullable String tableClassOverride() {
+        if (tableClassOverride == null) return null;
+        return tableClassOverride.getValue("TableReplica.tableClassOverride");
+    }
 
     /**
      * Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TableReplica.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,8 +101,11 @@ public final class TableReplica extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TableReplica.tagsAll");
+    }
 
 }

@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.kms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:kms/alias:Alias")
-public final class Alias extends com.pulumi.resources.PolicyResource {
+public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the key alias.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Alias.arn");
+    }
 
     /**
      * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Alias.name");
+    }
 
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Alias.namePrefix");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      * 
      */
-    public String targetKeyArn;
+    private UndeferrableValue<String> targetKeyArn;
 
-
+    public String targetKeyArn() {
+        if (targetKeyArn == null) return null;
+        return targetKeyArn.getValue("Alias.targetKeyArn");
+    }
 
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      * 
      */
-    public String targetKeyId;
+    private UndeferrableValue<String> targetKeyId;
 
-
+    public String targetKeyId() {
+        if (targetKeyId == null) return null;
+        return targetKeyId.getValue("Alias.targetKeyId");
+    }
 
 }

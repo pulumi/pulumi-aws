@@ -3,70 +3,99 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codepipeline.CustomActionTypeConfigurationProperty;
-import com.pulumi.policypacks.aws.codepipeline.CustomActionTypeInputArtifactDetails;
-import com.pulumi.policypacks.aws.codepipeline.CustomActionTypeOutputArtifactDetails;
-import com.pulumi.policypacks.aws.codepipeline.CustomActionTypeSettings;
+import com.pulumi.policypacks.aws.codepipeline.outputs.CustomActionTypeConfigurationProperty;
+import com.pulumi.policypacks.aws.codepipeline.outputs.CustomActionTypeInputArtifactDetails;
+import com.pulumi.policypacks.aws.codepipeline.outputs.CustomActionTypeOutputArtifactDetails;
+import com.pulumi.policypacks.aws.codepipeline.outputs.CustomActionTypeSettings;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codepipeline/customActionType:CustomActionType")
-public final class CustomActionType extends com.pulumi.resources.PolicyResource {
+public final class CustomActionType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomActionType.arn");
+    }
 
     /**
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      * 
      */
-    public String category;
+    private UndeferrableValue<String> category;
 
-
+    public String category() {
+        if (category == null) return null;
+        return category.getValue("CustomActionType.category");
+    }
 
     /**
      * The configuration properties for the custom action. Max 10 items.
      * 
      */
-    public List<CustomActionTypeConfigurationProperty> configurationProperties;
+    private @Nullable UndeferrableValue<List<CustomActionTypeConfigurationProperty>> configurationProperties;
 
+    public @Nullable List<CustomActionTypeConfigurationProperty> configurationProperties() {
+        if (configurationProperties == null) return null;
+        return configurationProperties.getValue("CustomActionType.configurationProperties");
+    }
 
+    private UndeferrableValue<CustomActionTypeInputArtifactDetails> inputArtifactDetails;
 
-    public CustomActionTypeInputArtifactDetails inputArtifactDetails;
+    public CustomActionTypeInputArtifactDetails inputArtifactDetails() {
+        if (inputArtifactDetails == null) return null;
+        return inputArtifactDetails.getValue("CustomActionType.inputArtifactDetails");
+    }
 
+    private UndeferrableValue<CustomActionTypeOutputArtifactDetails> outputArtifactDetails;
 
-
-    public CustomActionTypeOutputArtifactDetails outputArtifactDetails;
-
-
+    public CustomActionTypeOutputArtifactDetails outputArtifactDetails() {
+        if (outputArtifactDetails == null) return null;
+        return outputArtifactDetails.getValue("CustomActionType.outputArtifactDetails");
+    }
 
     /**
      * The creator of the action being called.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("CustomActionType.owner");
+    }
 
+    private UndeferrableValue<String> providerName;
 
-    public String providerName;
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("CustomActionType.providerName");
+    }
 
+    private @Nullable UndeferrableValue<CustomActionTypeSettings> settings;
 
+    public @Nullable CustomActionTypeSettings settings() {
+        if (settings == null) return null;
+        return settings.getValue("CustomActionType.settings");
+    }
 
-    public CustomActionTypeSettings settings;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
-
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CustomActionType.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,12 +105,18 @@ public final class CustomActionType extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CustomActionType.tagsAll");
+    }
 
+    private UndeferrableValue<String> version;
 
-    public String version;
-
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("CustomActionType.version");
+    }
 
 }

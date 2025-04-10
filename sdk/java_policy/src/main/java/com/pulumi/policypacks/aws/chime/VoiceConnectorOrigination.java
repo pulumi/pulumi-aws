@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.chime;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.chime.VoiceConnectorOriginationRoute;
+import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorOriginationRoute;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination")
-public final class VoiceConnectorOrigination extends com.pulumi.resources.PolicyResource {
+public final class VoiceConnectorOrigination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      * 
      */
-    public Boolean disabled;
+    private @Nullable UndeferrableValue<Boolean> disabled;
 
-
+    public @Nullable Boolean disabled() {
+        if (disabled == null) return null;
+        return disabled.getValue("VoiceConnectorOrigination.disabled");
+    }
 
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      * 
      */
-    public List<VoiceConnectorOriginationRoute> routes;
+    private UndeferrableValue<List<VoiceConnectorOriginationRoute>> routes;
 
-
+    public List<VoiceConnectorOriginationRoute> routes() {
+        if (routes == null) return null;
+        return routes.getValue("VoiceConnectorOrigination.routes");
+    }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    public String voiceConnectorId;
+    private UndeferrableValue<String> voiceConnectorId;
 
-
+    public String voiceConnectorId() {
+        if (voiceConnectorId == null) return null;
+        return voiceConnectorId.getValue("VoiceConnectorOrigination.voiceConnectorId");
+    }
 
 }

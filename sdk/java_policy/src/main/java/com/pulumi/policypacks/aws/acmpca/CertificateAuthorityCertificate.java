@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")
-public final class CertificateAuthorityCertificate extends com.pulumi.resources.PolicyResource {
+public final class CertificateAuthorityCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * PEM-encoded certificate for the Certificate Authority.
      * 
      */
-    public String certificate;
+    private UndeferrableValue<String> certificate;
 
-
+    public String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("CertificateAuthorityCertificate.certificate");
+    }
 
     /**
      * ARN of the Certificate Authority.
      * 
      */
-    public String certificateAuthorityArn;
+    private UndeferrableValue<String> certificateAuthorityArn;
 
-
+    public String certificateAuthorityArn() {
+        if (certificateAuthorityArn == null) return null;
+        return certificateAuthorityArn.getValue("CertificateAuthorityCertificate.certificateAuthorityArn");
+    }
 
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
-    public String certificateChain;
+    private @Nullable UndeferrableValue<String> certificateChain;
 
-
+    public @Nullable String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("CertificateAuthorityCertificate.certificateChain");
+    }
 
 }

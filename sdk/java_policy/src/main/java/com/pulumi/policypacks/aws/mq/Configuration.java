@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.mq;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:mq/configuration:Configuration")
-public final class Configuration extends com.pulumi.resources.PolicyResource {
+public final class Configuration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Configuration.arn");
+    }
 
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    public String authenticationStrategy;
+    private UndeferrableValue<String> authenticationStrategy;
 
-
+    public String authenticationStrategy() {
+        if (authenticationStrategy == null) return null;
+        return authenticationStrategy.getValue("Configuration.authenticationStrategy");
+    }
 
     /**
      * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
-    public String data;
+    private UndeferrableValue<String> data;
 
-
+    public String data() {
+        if (data == null) return null;
+        return data.getValue("Configuration.data");
+    }
 
     /**
      * Description of the configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Configuration.description");
+    }
 
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    public String engineType;
+    private UndeferrableValue<String> engineType;
 
-
+    public String engineType() {
+        if (engineType == null) return null;
+        return engineType.getValue("Configuration.engineType");
+    }
 
     /**
      * Version of the broker engine.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Configuration.engineVersion");
+    }
 
     /**
      * Latest revision of the configuration.
      * 
      */
-    public Integer latestRevision;
+    private UndeferrableValue<Integer> latestRevision;
 
-
+    public Integer latestRevision() {
+        if (latestRevision == null) return null;
+        return latestRevision.getValue("Configuration.latestRevision");
+    }
 
     /**
      * Name of the configuration.
@@ -74,17 +97,23 @@ public final class Configuration extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Configuration.name");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Configuration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,8 +123,11 @@ public final class Configuration extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Configuration.tagsAll");
+    }
 
 }

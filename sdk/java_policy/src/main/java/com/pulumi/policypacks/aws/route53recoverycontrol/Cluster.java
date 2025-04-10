@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53recoverycontrol.ClusterClusterEndpoint;
+import com.pulumi.policypacks.aws.route53recoverycontrol.outputs.ClusterClusterEndpoint;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:route53recoverycontrol/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      * 
      */
-    public List<ClusterClusterEndpoint> clusterEndpoints;
+    private UndeferrableValue<List<ClusterClusterEndpoint>> clusterEndpoints;
 
-
+    public List<ClusterClusterEndpoint> clusterEndpoints() {
+        if (clusterEndpoints == null) return null;
+        return clusterEndpoints.getValue("Cluster.clusterEndpoints");
+    }
 
     /**
      * Unique name describing the cluster.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Cluster.name");
+    }
 
     /**
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Cluster.status");
+    }
 
 }

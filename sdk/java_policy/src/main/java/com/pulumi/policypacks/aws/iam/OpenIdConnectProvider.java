@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/openIdConnectProvider:OpenIdConnectProvider")
-public final class OpenIdConnectProvider extends com.pulumi.resources.PolicyResource {
+public final class OpenIdConnectProvider extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN assigned by AWS for this provider.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OpenIdConnectProvider.arn");
+    }
 
     /**
      * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
-    public List<String> clientIdLists;
+    private UndeferrableValue<List<String>> clientIdLists;
 
-
+    public List<String> clientIdLists() {
+        if (clientIdLists == null) return null;
+        return clientIdLists.getValue("OpenIdConnectProvider.clientIdLists");
+    }
 
     /**
      * Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OpenIdConnectProvider.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -44,20 +55,29 @@ public final class OpenIdConnectProvider extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OpenIdConnectProvider.tagsAll");
+    }
 
+    private UndeferrableValue<List<String>> thumbprintLists;
 
-    public List<String> thumbprintLists;
-
-
+    public List<String> thumbprintLists() {
+        if (thumbprintLists == null) return null;
+        return thumbprintLists.getValue("OpenIdConnectProvider.thumbprintLists");
+    }
 
     /**
      * URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
-    public String url;
+    private UndeferrableValue<String> url;
 
-
+    public String url() {
+        if (url == null) return null;
+        return url.getValue("OpenIdConnectProvider.url");
+    }
 
 }

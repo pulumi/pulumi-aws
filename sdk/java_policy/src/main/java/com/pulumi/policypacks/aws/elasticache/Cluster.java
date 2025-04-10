@@ -3,34 +3,42 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.ClusterCacheNode;
-import com.pulumi.policypacks.aws.elasticache.ClusterLogDeliveryConfiguration;
+import com.pulumi.policypacks.aws.elasticache.outputs.ClusterCacheNode;
+import com.pulumi.policypacks.aws.elasticache.outputs.ClusterLogDeliveryConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/cluster:Cluster")
-public final class Cluster extends com.pulumi.resources.PolicyResource {
+public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      * 
      */
-    public Boolean applyImmediately;
+    private UndeferrableValue<Boolean> applyImmediately;
 
-
+    public Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("Cluster.applyImmediately");
+    }
 
     /**
      * The ARN of the created ElastiCache Cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Cluster.arn");
+    }
 
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -38,65 +46,89 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * Defaults to `true`.
      * 
      */
-    public String autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<String> autoMinorVersionUpgrade;
 
-
+    public @Nullable String autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("Cluster.autoMinorVersionUpgrade");
+    }
 
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("Cluster.availabilityZone");
+    }
 
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
      * 
      */
-    public String azMode;
+    private UndeferrableValue<String> azMode;
 
-
+    public String azMode() {
+        if (azMode == null) return null;
+        return azMode.getValue("Cluster.azMode");
+    }
 
     /**
      * List of node objects including `id`, `address`, `port` and `availability_zone`.
      * 
      */
-    public List<ClusterCacheNode> cacheNodes;
+    private UndeferrableValue<List<ClusterCacheNode>> cacheNodes;
 
-
+    public List<ClusterCacheNode> cacheNodes() {
+        if (cacheNodes == null) return null;
+        return cacheNodes.getValue("Cluster.cacheNodes");
+    }
 
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
-    public String clusterAddress;
+    private UndeferrableValue<String> clusterAddress;
 
-
+    public String clusterAddress() {
+        if (clusterAddress == null) return null;
+        return clusterAddress.getValue("Cluster.clusterAddress");
+    }
 
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
      * 
      */
-    public String clusterId;
+    private UndeferrableValue<String> clusterId;
 
-
+    public String clusterId() {
+        if (clusterId == null) return null;
+        return clusterId.getValue("Cluster.clusterId");
+    }
 
     /**
      * (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
-    public String configurationEndpoint;
+    private UndeferrableValue<String> configurationEndpoint;
 
-
+    public String configurationEndpoint() {
+        if (configurationEndpoint == null) return null;
+        return configurationEndpoint.getValue("Cluster.configurationEndpoint");
+    }
 
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("Cluster.engine");
+    }
 
     /**
      * Version number of the cache engine to be used.
@@ -109,41 +141,56 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Cluster.engineVersion");
+    }
 
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
-    public String engineVersionActual;
+    private UndeferrableValue<String> engineVersionActual;
 
-
+    public String engineVersionActual() {
+        if (engineVersionActual == null) return null;
+        return engineVersionActual.getValue("Cluster.engineVersionActual");
+    }
 
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
      * 
      */
-    public String finalSnapshotIdentifier;
+    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
 
-
+    public @Nullable String finalSnapshotIdentifier() {
+        if (finalSnapshotIdentifier == null) return null;
+        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+    }
 
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    public String ipDiscovery;
+    private UndeferrableValue<String> ipDiscovery;
 
-
+    public String ipDiscovery() {
+        if (ipDiscovery == null) return null;
+        return ipDiscovery.getValue("Cluster.ipDiscovery");
+    }
 
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      * 
      */
-    public List<ClusterLogDeliveryConfiguration> logDeliveryConfigurations;
+    private @Nullable UndeferrableValue<List<ClusterLogDeliveryConfiguration>> logDeliveryConfigurations;
 
-
+    public @Nullable List<ClusterLogDeliveryConfiguration> logDeliveryConfigurations() {
+        if (logDeliveryConfigurations == null) return null;
+        return logDeliveryConfigurations.getValue("Cluster.logDeliveryConfigurations");
+    }
 
     /**
      * Specifies the weekly time range for when maintenance
@@ -151,17 +198,23 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      * 
      */
-    public String maintenanceWindow;
+    private UndeferrableValue<String> maintenanceWindow;
 
-
+    public String maintenanceWindow() {
+        if (maintenanceWindow == null) return null;
+        return maintenanceWindow.getValue("Cluster.maintenanceWindow");
+    }
 
     /**
      * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    public String networkType;
+    private UndeferrableValue<String> networkType;
 
-
+    public String networkType() {
+        if (networkType == null) return null;
+        return networkType.getValue("Cluster.networkType");
+    }
 
     /**
      * The instance class used.
@@ -170,33 +223,45 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * For Memcached, changing this value will re-create the resource.
      * 
      */
-    public String nodeType;
+    private UndeferrableValue<String> nodeType;
 
-
+    public String nodeType() {
+        if (nodeType == null) return null;
+        return nodeType.getValue("Cluster.nodeType");
+    }
 
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
      * 
      */
-    public String notificationTopicArn;
+    private @Nullable UndeferrableValue<String> notificationTopicArn;
 
-
+    public @Nullable String notificationTopicArn() {
+        if (notificationTopicArn == null) return null;
+        return notificationTopicArn.getValue("Cluster.notificationTopicArn");
+    }
 
     /**
      * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      * 
      */
-    public Integer numCacheNodes;
+    private UndeferrableValue<Integer> numCacheNodes;
 
-
+    public Integer numCacheNodes() {
+        if (numCacheNodes == null) return null;
+        return numCacheNodes.getValue("Cluster.numCacheNodes");
+    }
 
     /**
      * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
      * 
      */
-    public String outpostMode;
+    private @Nullable UndeferrableValue<String> outpostMode;
 
-
+    public @Nullable String outpostMode() {
+        if (outpostMode == null) return null;
+        return outpostMode.getValue("Cluster.outpostMode");
+    }
 
     /**
      * The name of the parameter group to associate with this cache cluster.
@@ -204,97 +269,133 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String parameterGroupName;
+    private UndeferrableValue<String> parameterGroupName;
 
-
+    public String parameterGroupName() {
+        if (parameterGroupName == null) return null;
+        return parameterGroupName.getValue("Cluster.parameterGroupName");
+    }
 
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("Cluster.port");
+    }
 
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      * 
      */
-    public List<String> preferredAvailabilityZones;
+    private @Nullable UndeferrableValue<List<String>> preferredAvailabilityZones;
 
-
+    public @Nullable List<String> preferredAvailabilityZones() {
+        if (preferredAvailabilityZones == null) return null;
+        return preferredAvailabilityZones.getValue("Cluster.preferredAvailabilityZones");
+    }
 
     /**
      * The outpost ARN in which the cache cluster will be created.
      * 
      */
-    public String preferredOutpostArn;
+    private UndeferrableValue<String> preferredOutpostArn;
 
-
+    public String preferredOutpostArn() {
+        if (preferredOutpostArn == null) return null;
+        return preferredOutpostArn.getValue("Cluster.preferredOutpostArn");
+    }
 
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      * 
      */
-    public String replicationGroupId;
+    private UndeferrableValue<String> replicationGroupId;
 
-
+    public String replicationGroupId() {
+        if (replicationGroupId == null) return null;
+        return replicationGroupId.getValue("Cluster.replicationGroupId");
+    }
 
     /**
      * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Cluster.securityGroupIds");
+    }
 
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
      * 
      */
-    public String snapshotArns;
+    private @Nullable UndeferrableValue<String> snapshotArns;
 
-
+    public @Nullable String snapshotArns() {
+        if (snapshotArns == null) return null;
+        return snapshotArns.getValue("Cluster.snapshotArns");
+    }
 
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
      * 
      */
-    public String snapshotName;
+    private @Nullable UndeferrableValue<String> snapshotName;
 
-
+    public @Nullable String snapshotName() {
+        if (snapshotName == null) return null;
+        return snapshotName.getValue("Cluster.snapshotName");
+    }
 
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
      * 
      */
-    public Integer snapshotRetentionLimit;
+    private @Nullable UndeferrableValue<Integer> snapshotRetentionLimit;
 
-
+    public @Nullable Integer snapshotRetentionLimit() {
+        if (snapshotRetentionLimit == null) return null;
+        return snapshotRetentionLimit.getValue("Cluster.snapshotRetentionLimit");
+    }
 
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      * 
      */
-    public String snapshotWindow;
+    private UndeferrableValue<String> snapshotWindow;
 
-
+    public String snapshotWindow() {
+        if (snapshotWindow == null) return null;
+        return snapshotWindow.getValue("Cluster.snapshotWindow");
+    }
 
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
-    public String subnetGroupName;
+    private UndeferrableValue<String> subnetGroupName;
 
-
+    public String subnetGroupName() {
+        if (subnetGroupName == null) return null;
+        return subnetGroupName.getValue("Cluster.subnetGroupName");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Cluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -304,16 +405,22 @@ public final class Cluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Cluster.tagsAll");
+    }
 
     /**
      * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
      * 
      */
-    public Boolean transitEncryptionEnabled;
+    private UndeferrableValue<Boolean> transitEncryptionEnabled;
 
-
+    public Boolean transitEncryptionEnabled() {
+        if (transitEncryptionEnabled == null) return null;
+        return transitEncryptionEnabled.getValue("Cluster.transitEncryptionEnabled");
+    }
 
 }

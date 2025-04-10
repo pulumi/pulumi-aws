@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/policyAttachment:PolicyAttachment")
-public final class PolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class PolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Group(s) the policy should be applied to.
      * 
      */
-    public List<String> groups;
+    private @Nullable UndeferrableValue<List<String>> groups;
 
-
+    public @Nullable List<String> groups() {
+        if (groups == null) return null;
+        return groups.getValue("PolicyAttachment.groups");
+    }
 
     /**
      * Name of the attachment. This cannot be an empty string.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PolicyAttachment.name");
+    }
 
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    public String policyArn;
+    private UndeferrableValue<String> policyArn;
 
-
+    public String policyArn() {
+        if (policyArn == null) return null;
+        return policyArn.getValue("PolicyAttachment.policyArn");
+    }
 
     /**
      * Role(s) the policy should be applied to.
      * 
      */
-    public List<String> roles;
+    private @Nullable UndeferrableValue<List<String>> roles;
 
-
+    public @Nullable List<String> roles() {
+        if (roles == null) return null;
+        return roles.getValue("PolicyAttachment.roles");
+    }
 
     /**
      * User(s) the policy should be applied to.
      * 
      */
-    public List<String> users;
+    private @Nullable UndeferrableValue<List<String>> users;
 
-
+    public @Nullable List<String> users() {
+        if (users == null) return null;
+        return users.getValue("PolicyAttachment.users");
+    }
 
 }

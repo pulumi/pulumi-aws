@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.ram;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ram/resourceShare:ResourceShare")
-public final class ResourceShare extends com.pulumi.resources.PolicyResource {
+public final class ResourceShare extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      * 
      */
-    public Boolean allowExternalPrincipals;
+    private @Nullable UndeferrableValue<Boolean> allowExternalPrincipals;
 
-
+    public @Nullable Boolean allowExternalPrincipals() {
+        if (allowExternalPrincipals == null) return null;
+        return allowExternalPrincipals.getValue("ResourceShare.allowExternalPrincipals");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceShare.arn");
+    }
 
     /**
      * The name of the resource share.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResourceShare.name");
+    }
 
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
-    public List<String> permissionArns;
+    private UndeferrableValue<List<String>> permissionArns;
 
-
+    public List<String> permissionArns() {
+        if (permissionArns == null) return null;
+        return permissionArns.getValue("ResourceShare.permissionArns");
+    }
 
     /**
      * A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceShare.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -61,8 +78,11 @@ public final class ResourceShare extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ResourceShare.tagsAll");
+    }
 
 }

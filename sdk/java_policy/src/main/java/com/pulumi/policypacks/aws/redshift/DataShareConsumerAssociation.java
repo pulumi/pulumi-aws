@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")
-public final class DataShareConsumerAssociation extends com.pulumi.resources.PolicyResource {
+public final class DataShareConsumerAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to allow write operations for a datashare.
      * 
      */
-    public Boolean allowWrites;
+    private @Nullable UndeferrableValue<Boolean> allowWrites;
 
-
+    public @Nullable Boolean allowWrites() {
+        if (allowWrites == null) return null;
+        return allowWrites.getValue("DataShareConsumerAssociation.allowWrites");
+    }
 
     /**
      * Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
      * 
      */
-    public Boolean associateEntireAccount;
+    private @Nullable UndeferrableValue<Boolean> associateEntireAccount;
 
-
+    public @Nullable Boolean associateEntireAccount() {
+        if (associateEntireAccount == null) return null;
+        return associateEntireAccount.getValue("DataShareConsumerAssociation.associateEntireAccount");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
      * 
      */
-    public String consumerArn;
+    private @Nullable UndeferrableValue<String> consumerArn;
 
-
+    public @Nullable String consumerArn() {
+        if (consumerArn == null) return null;
+        return consumerArn.getValue("DataShareConsumerAssociation.consumerArn");
+    }
 
     /**
      * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
      * 
      */
-    public String consumerRegion;
+    private @Nullable UndeferrableValue<String> consumerRegion;
 
-
+    public @Nullable String consumerRegion() {
+        if (consumerRegion == null) return null;
+        return consumerRegion.getValue("DataShareConsumerAssociation.consumerRegion");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
@@ -49,24 +63,33 @@ public final class DataShareConsumerAssociation extends com.pulumi.resources.Pol
      * The following arguments are optional:
      * 
      */
-    public String dataShareArn;
+    private UndeferrableValue<String> dataShareArn;
 
-
+    public String dataShareArn() {
+        if (dataShareArn == null) return null;
+        return dataShareArn.getValue("DataShareConsumerAssociation.dataShareArn");
+    }
 
     /**
      * Identifier of a datashare to show its managing entity.
      * 
      */
-    public String managedBy;
+    private UndeferrableValue<String> managedBy;
 
-
+    public String managedBy() {
+        if (managedBy == null) return null;
+        return managedBy.getValue("DataShareConsumerAssociation.managedBy");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the producer.
      * 
      */
-    public String producerArn;
+    private UndeferrableValue<String> producerArn;
 
-
+    public String producerArn() {
+        if (producerArn == null) return null;
+        return producerArn.getValue("DataShareConsumerAssociation.producerArn");
+    }
 
 }

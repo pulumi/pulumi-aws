@@ -3,58 +3,81 @@
 
 package com.pulumi.policypacks.aws.m2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.m2.DeploymentTimeouts;
+import com.pulumi.policypacks.aws.m2.outputs.DeploymentTimeouts;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:m2/deployment:Deployment")
-public final class Deployment extends com.pulumi.resources.PolicyResource {
+public final class Deployment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Application to deploy.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("Deployment.applicationId");
+    }
 
     /**
      * Version to application to deploy
      * 
      */
-    public Integer applicationVersion;
+    private UndeferrableValue<Integer> applicationVersion;
 
+    public Integer applicationVersion() {
+        if (applicationVersion == null) return null;
+        return applicationVersion.getValue("Deployment.applicationVersion");
+    }
 
+    private UndeferrableValue<String> deploymentId;
 
-    public String deploymentId;
-
-
+    public String deploymentId() {
+        if (deploymentId == null) return null;
+        return deploymentId.getValue("Deployment.deploymentId");
+    }
 
     /**
      * Environment to deploy application to.
      * 
      */
-    public String environmentId;
+    private UndeferrableValue<String> environmentId;
 
+    public String environmentId() {
+        if (environmentId == null) return null;
+        return environmentId.getValue("Deployment.environmentId");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> forceStop;
 
-    public Boolean forceStop;
-
-
+    public @Nullable Boolean forceStop() {
+        if (forceStop == null) return null;
+        return forceStop.getValue("Deployment.forceStop");
+    }
 
     /**
      * Start the application once deployed.
      * 
      */
-    public Boolean start;
+    private UndeferrableValue<Boolean> start;
 
+    public Boolean start() {
+        if (start == null) return null;
+        return start.getValue("Deployment.start");
+    }
 
+    private @Nullable UndeferrableValue<DeploymentTimeouts> timeouts;
 
-    public DeploymentTimeouts timeouts;
-
-
+    public @Nullable DeploymentTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Deployment.timeouts");
+    }
 
 }

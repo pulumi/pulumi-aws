@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/disk_attachment:Disk_attachment")
-public final class Disk_attachment extends com.pulumi.resources.PolicyResource {
+public final class Disk_attachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the Lightsail Disk.
      * 
      */
-    public String diskName;
+    private UndeferrableValue<String> diskName;
 
-
+    public String diskName() {
+        if (diskName == null) return null;
+        return diskName.getValue("Disk_attachment.diskName");
+    }
 
     /**
      * The disk path to expose to the instance.
      * 
      */
-    public String diskPath;
+    private UndeferrableValue<String> diskPath;
 
-
+    public String diskPath() {
+        if (diskPath == null) return null;
+        return diskPath.getValue("Disk_attachment.diskPath");
+    }
 
     /**
      * The name of the Lightsail Instance to attach to.
      * 
      */
-    public String instanceName;
+    private UndeferrableValue<String> instanceName;
 
-
+    public String instanceName() {
+        if (instanceName == null) return null;
+        return instanceName.getValue("Disk_attachment.instanceName");
+    }
 
 }

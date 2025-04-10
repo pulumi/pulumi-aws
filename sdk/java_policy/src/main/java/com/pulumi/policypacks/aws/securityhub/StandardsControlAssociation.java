@@ -3,28 +3,36 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/standardsControlAssociation:StandardsControlAssociation")
-public final class StandardsControlAssociation extends com.pulumi.resources.PolicyResource {
+public final class StandardsControlAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    public String associationStatus;
+    private UndeferrableValue<String> associationStatus;
 
-
+    public String associationStatus() {
+        if (associationStatus == null) return null;
+        return associationStatus.getValue("StandardsControlAssociation.associationStatus");
+    }
 
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      * 
      */
-    public String securityControlId;
+    private UndeferrableValue<String> securityControlId;
 
-
+    public String securityControlId() {
+        if (securityControlId == null) return null;
+        return securityControlId.getValue("StandardsControlAssociation.securityControlId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
@@ -32,16 +40,22 @@ public final class StandardsControlAssociation extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    public String standardsArn;
+    private UndeferrableValue<String> standardsArn;
 
-
+    public String standardsArn() {
+        if (standardsArn == null) return null;
+        return standardsArn.getValue("StandardsControlAssociation.standardsArn");
+    }
 
     /**
      * The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
      * 
      */
-    public String updatedReason;
+    private @Nullable UndeferrableValue<String> updatedReason;
 
-
+    public @Nullable String updatedReason() {
+        if (updatedReason == null) return null;
+        return updatedReason.getValue("StandardsControlAssociation.updatedReason");
+    }
 
 }

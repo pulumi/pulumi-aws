@@ -3,39 +3,52 @@
 
 package com.pulumi.policypacks.aws.synthetics;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:synthetics/groupAssociation:GroupAssociation")
-public final class GroupAssociation extends com.pulumi.resources.PolicyResource {
+public final class GroupAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the canary.
      * 
      */
-    public String canaryArn;
+    private UndeferrableValue<String> canaryArn;
 
+    public String canaryArn() {
+        if (canaryArn == null) return null;
+        return canaryArn.getValue("GroupAssociation.canaryArn");
+    }
 
+    private UndeferrableValue<String> groupArn;
 
-    public String groupArn;
-
-
+    public String groupArn() {
+        if (groupArn == null) return null;
+        return groupArn.getValue("GroupAssociation.groupArn");
+    }
 
     /**
      * ID of the Group.
      * 
      */
-    public String groupId;
+    private UndeferrableValue<String> groupId;
 
-
+    public String groupId() {
+        if (groupId == null) return null;
+        return groupId.getValue("GroupAssociation.groupId");
+    }
 
     /**
      * Name of the group that the canary will be associated with.
      * 
      */
-    public String groupName;
+    private UndeferrableValue<String> groupName;
 
-
+    public String groupName() {
+        if (groupName == null) return null;
+        return groupName.getValue("GroupAssociation.groupName");
+    }
 
 }

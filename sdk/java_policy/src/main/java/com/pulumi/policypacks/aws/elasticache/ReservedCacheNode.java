@@ -3,83 +3,109 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticache.ReservedCacheNodeRecurringCharge;
-import com.pulumi.policypacks.aws.elasticache.ReservedCacheNodeTimeouts;
+import com.pulumi.policypacks.aws.elasticache.outputs.ReservedCacheNodeRecurringCharge;
+import com.pulumi.policypacks.aws.elasticache.outputs.ReservedCacheNodeTimeouts;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticache/reservedCacheNode:ReservedCacheNode")
-public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource {
+public final class ReservedCacheNode extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN for the reserved cache node.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReservedCacheNode.arn");
+    }
 
     /**
      * Number of cache node instances to reserve.
      * Default value is `1`.
      * 
      */
-    public Integer cacheNodeCount;
+    private UndeferrableValue<Integer> cacheNodeCount;
 
-
+    public Integer cacheNodeCount() {
+        if (cacheNodeCount == null) return null;
+        return cacheNodeCount.getValue("ReservedCacheNode.cacheNodeCount");
+    }
 
     /**
      * Node type for the reserved cache nodes.
      * 
      */
-    public String cacheNodeType;
+    private UndeferrableValue<String> cacheNodeType;
 
-
+    public String cacheNodeType() {
+        if (cacheNodeType == null) return null;
+        return cacheNodeType.getValue("ReservedCacheNode.cacheNodeType");
+    }
 
     /**
      * Duration of the reservation as an RFC3339 duration.
      * 
      */
-    public String duration;
+    private UndeferrableValue<String> duration;
 
-
+    public String duration() {
+        if (duration == null) return null;
+        return duration.getValue("ReservedCacheNode.duration");
+    }
 
     /**
      * Fixed price charged for this reserved cache node.
      * 
      */
-    public Double fixedPrice;
+    private UndeferrableValue<Double> fixedPrice;
 
-
+    public Double fixedPrice() {
+        if (fixedPrice == null) return null;
+        return fixedPrice.getValue("ReservedCacheNode.fixedPrice");
+    }
 
     /**
      * Offering type of this reserved cache node.
      * 
      */
-    public String offeringType;
+    private UndeferrableValue<String> offeringType;
 
-
+    public String offeringType() {
+        if (offeringType == null) return null;
+        return offeringType.getValue("ReservedCacheNode.offeringType");
+    }
 
     /**
      * Engine type for the reserved cache node.
      * 
      */
-    public String productDescription;
+    private UndeferrableValue<String> productDescription;
 
-
+    public String productDescription() {
+        if (productDescription == null) return null;
+        return productDescription.getValue("ReservedCacheNode.productDescription");
+    }
 
     /**
      * Recurring price charged to run this reserved cache node.
      * 
      */
-    public List<ReservedCacheNodeRecurringCharge> recurringCharges;
+    private UndeferrableValue<List<ReservedCacheNodeRecurringCharge>> recurringCharges;
 
-
+    public List<ReservedCacheNodeRecurringCharge> recurringCharges() {
+        if (recurringCharges == null) return null;
+        return recurringCharges.getValue("ReservedCacheNode.recurringCharges");
+    }
 
     /**
      * ID of the reserved cache node offering to purchase.
@@ -88,33 +114,45 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    public String reservedCacheNodesOfferingId;
+    private UndeferrableValue<String> reservedCacheNodesOfferingId;
 
-
+    public String reservedCacheNodesOfferingId() {
+        if (reservedCacheNodesOfferingId == null) return null;
+        return reservedCacheNodesOfferingId.getValue("ReservedCacheNode.reservedCacheNodesOfferingId");
+    }
 
     /**
      * Time the reservation started.
      * 
      */
-    public String startTime;
+    private UndeferrableValue<String> startTime;
 
-
+    public String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("ReservedCacheNode.startTime");
+    }
 
     /**
      * State of the reserved cache node.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ReservedCacheNode.state");
+    }
 
     /**
      * Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ReservedCacheNode.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -124,20 +162,29 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ReservedCacheNode.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ReservedCacheNodeTimeouts> timeouts;
 
-    public ReservedCacheNodeTimeouts timeouts;
-
-
+    public @Nullable ReservedCacheNodeTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ReservedCacheNode.timeouts");
+    }
 
     /**
      * Hourly price charged for this reserved cache node.
      * 
      */
-    public Double usagePrice;
+    private UndeferrableValue<Double> usagePrice;
 
-
+    public Double usagePrice() {
+        if (usagePrice == null) return null;
+        return usagePrice.getValue("ReservedCacheNode.usagePrice");
+    }
 
 }

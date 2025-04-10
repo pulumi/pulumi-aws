@@ -3,157 +3,213 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.MatchmakingConfigurationGameProperty;
+import com.pulumi.policypacks.aws.gamelift.outputs.MatchmakingConfigurationGameProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")
-public final class MatchmakingConfiguration extends com.pulumi.resources.PolicyResource {
+public final class MatchmakingConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies if the match that was created with this configuration must be accepted by matched players.
      * 
      */
-    public Boolean acceptanceRequired;
+    private @Nullable UndeferrableValue<Boolean> acceptanceRequired;
 
-
+    public @Nullable Boolean acceptanceRequired() {
+        if (acceptanceRequired == null) return null;
+        return acceptanceRequired.getValue("MatchmakingConfiguration.acceptanceRequired");
+    }
 
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      * 
      */
-    public Integer acceptanceTimeoutSeconds;
+    private @Nullable UndeferrableValue<Integer> acceptanceTimeoutSeconds;
 
-
+    public @Nullable Integer acceptanceTimeoutSeconds() {
+        if (acceptanceTimeoutSeconds == null) return null;
+        return acceptanceTimeoutSeconds.getValue("MatchmakingConfiguration.acceptanceTimeoutSeconds");
+    }
 
     /**
      * The number of player slots in a match to keep open for future players.
      * 
      */
-    public Integer additionalPlayerCount;
+    private @Nullable UndeferrableValue<Integer> additionalPlayerCount;
 
-
+    public @Nullable Integer additionalPlayerCount() {
+        if (additionalPlayerCount == null) return null;
+        return additionalPlayerCount.getValue("MatchmakingConfiguration.additionalPlayerCount");
+    }
 
     /**
      * Matchmaking Configuration ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("MatchmakingConfiguration.arn");
+    }
 
     /**
      * The method used to backfill game sessions that are created with this matchmaking configuration.
      * 
      */
-    public String backfillMode;
+    private @Nullable UndeferrableValue<String> backfillMode;
 
-
+    public @Nullable String backfillMode() {
+        if (backfillMode == null) return null;
+        return backfillMode.getValue("MatchmakingConfiguration.backfillMode");
+    }
 
     /**
      * The time when the Matchmaking Configuration was created.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("MatchmakingConfiguration.creationTime");
+    }
 
     /**
      * Information to be added to all events related to this matchmaking configuration.
      * 
      */
-    public String customEventData;
+    private @Nullable UndeferrableValue<String> customEventData;
 
-
+    public @Nullable String customEventData() {
+        if (customEventData == null) return null;
+        return customEventData.getValue("MatchmakingConfiguration.customEventData");
+    }
 
     /**
      * A human-readable description of the matchmaking configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("MatchmakingConfiguration.description");
+    }
 
     /**
      * Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
      * 
      */
-    public String flexMatchMode;
+    private UndeferrableValue<String> flexMatchMode;
 
-
+    public String flexMatchMode() {
+        if (flexMatchMode == null) return null;
+        return flexMatchMode.getValue("MatchmakingConfiguration.flexMatchMode");
+    }
 
     /**
      * One or more custom game properties. See below.
      * 
      */
-    public List<MatchmakingConfigurationGameProperty> gameProperties;
+    private @Nullable UndeferrableValue<List<MatchmakingConfigurationGameProperty>> gameProperties;
 
-
+    public @Nullable List<MatchmakingConfigurationGameProperty> gameProperties() {
+        if (gameProperties == null) return null;
+        return gameProperties.getValue("MatchmakingConfiguration.gameProperties");
+    }
 
     /**
      * A set of custom game session properties.
      * 
      */
-    public String gameSessionData;
+    private @Nullable UndeferrableValue<String> gameSessionData;
 
-
+    public @Nullable String gameSessionData() {
+        if (gameSessionData == null) return null;
+        return gameSessionData.getValue("MatchmakingConfiguration.gameSessionData");
+    }
 
     /**
      * The ARNs of the GameLift game session queue resources.
      * 
      */
-    public List<String> gameSessionQueueArns;
+    private @Nullable UndeferrableValue<List<String>> gameSessionQueueArns;
 
-
+    public @Nullable List<String> gameSessionQueueArns() {
+        if (gameSessionQueueArns == null) return null;
+        return gameSessionQueueArns.getValue("MatchmakingConfiguration.gameSessionQueueArns");
+    }
 
     /**
      * Name of the matchmaking configuration
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("MatchmakingConfiguration.name");
+    }
 
     /**
      * An SNS topic ARN that is set up to receive matchmaking notifications.
      * 
      */
-    public String notificationTarget;
+    private @Nullable UndeferrableValue<String> notificationTarget;
 
-
+    public @Nullable String notificationTarget() {
+        if (notificationTarget == null) return null;
+        return notificationTarget.getValue("MatchmakingConfiguration.notificationTarget");
+    }
 
     /**
      * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
      * 
      */
-    public Integer requestTimeoutSeconds;
+    private UndeferrableValue<Integer> requestTimeoutSeconds;
 
+    public Integer requestTimeoutSeconds() {
+        if (requestTimeoutSeconds == null) return null;
+        return requestTimeoutSeconds.getValue("MatchmakingConfiguration.requestTimeoutSeconds");
+    }
 
+    private UndeferrableValue<String> ruleSetArn;
 
-    public String ruleSetArn;
-
-
+    public String ruleSetArn() {
+        if (ruleSetArn == null) return null;
+        return ruleSetArn.getValue("MatchmakingConfiguration.ruleSetArn");
+    }
 
     /**
      * A rule set names for the matchmaking rule set to use with this configuration.
      * 
      */
-    public String ruleSetName;
+    private UndeferrableValue<String> ruleSetName;
 
-
+    public String ruleSetName() {
+        if (ruleSetName == null) return null;
+        return ruleSetName.getValue("MatchmakingConfiguration.ruleSetName");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("MatchmakingConfiguration.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -163,8 +219,11 @@ public final class MatchmakingConfiguration extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("MatchmakingConfiguration.tagsAll");
+    }
 
 }

@@ -3,141 +3,188 @@
 
 package com.pulumi.policypacks.aws.timestreamquery;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryErrorReportConfiguration;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryLastRunSummary;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryNotificationConfiguration;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryRecentlyFailedRun;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryScheduleConfiguration;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryTargetConfiguration;
-import com.pulumi.policypacks.aws.timestreamquery.ScheduledQueryTimeouts;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryErrorReportConfiguration;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryLastRunSummary;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryNotificationConfiguration;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryRecentlyFailedRun;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryScheduleConfiguration;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryTargetConfiguration;
+import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:timestreamquery/scheduledQuery:ScheduledQuery")
-public final class ScheduledQuery extends com.pulumi.resources.PolicyResource {
+public final class ScheduledQuery extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Scheduled Query.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ScheduledQuery.arn");
+    }
 
     /**
      * Creation time for the scheduled query.
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("ScheduledQuery.creationTime");
+    }
 
     /**
      * Configuration block for error reporting configuration. See below.
      * 
      */
-    public ScheduledQueryErrorReportConfiguration errorReportConfiguration;
+    private UndeferrableValue<ScheduledQueryErrorReportConfiguration> errorReportConfiguration;
 
-
+    public ScheduledQueryErrorReportConfiguration errorReportConfiguration() {
+        if (errorReportConfiguration == null) return null;
+        return errorReportConfiguration.getValue("ScheduledQuery.errorReportConfiguration");
+    }
 
     /**
      * ARN for the IAM role that Timestream will assume when running the scheduled query.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("ScheduledQuery.executionRoleArn");
+    }
 
     /**
      * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ScheduledQuery.kmsKeyId");
+    }
 
     /**
      * Runtime summary for the last scheduled query run.
      * 
      */
-    public List<ScheduledQueryLastRunSummary> lastRunSummaries;
+    private @Nullable UndeferrableValue<List<ScheduledQueryLastRunSummary>> lastRunSummaries;
 
-
+    public @Nullable List<ScheduledQueryLastRunSummary> lastRunSummaries() {
+        if (lastRunSummaries == null) return null;
+        return lastRunSummaries.getValue("ScheduledQuery.lastRunSummaries");
+    }
 
     /**
      * Name of the scheduled query.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ScheduledQuery.name");
+    }
 
     /**
      * Next time the scheduled query is scheduled to run.
      * 
      */
-    public String nextInvocationTime;
+    private UndeferrableValue<String> nextInvocationTime;
 
-
+    public String nextInvocationTime() {
+        if (nextInvocationTime == null) return null;
+        return nextInvocationTime.getValue("ScheduledQuery.nextInvocationTime");
+    }
 
     /**
      * Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
      * 
      */
-    public ScheduledQueryNotificationConfiguration notificationConfiguration;
+    private UndeferrableValue<ScheduledQueryNotificationConfiguration> notificationConfiguration;
 
-
+    public ScheduledQueryNotificationConfiguration notificationConfiguration() {
+        if (notificationConfiguration == null) return null;
+        return notificationConfiguration.getValue("ScheduledQuery.notificationConfiguration");
+    }
 
     /**
      * Last time the scheduled query was run.
      * 
      */
-    public String previousInvocationTime;
+    private UndeferrableValue<String> previousInvocationTime;
 
-
+    public String previousInvocationTime() {
+        if (previousInvocationTime == null) return null;
+        return previousInvocationTime.getValue("ScheduledQuery.previousInvocationTime");
+    }
 
     /**
      * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
-    public String queryString;
+    private UndeferrableValue<String> queryString;
 
-
+    public String queryString() {
+        if (queryString == null) return null;
+        return queryString.getValue("ScheduledQuery.queryString");
+    }
 
     /**
      * Runtime summary for the last five failed scheduled query runs.
      * 
      */
-    public List<ScheduledQueryRecentlyFailedRun> recentlyFailedRuns;
+    private @Nullable UndeferrableValue<List<ScheduledQueryRecentlyFailedRun>> recentlyFailedRuns;
 
-
+    public @Nullable List<ScheduledQueryRecentlyFailedRun> recentlyFailedRuns() {
+        if (recentlyFailedRuns == null) return null;
+        return recentlyFailedRuns.getValue("ScheduledQuery.recentlyFailedRuns");
+    }
 
     /**
      * Configuration block for schedule configuration for the query. See below.
      * 
      */
-    public ScheduledQueryScheduleConfiguration scheduleConfiguration;
+    private UndeferrableValue<ScheduledQueryScheduleConfiguration> scheduleConfiguration;
 
-
+    public ScheduledQueryScheduleConfiguration scheduleConfiguration() {
+        if (scheduleConfiguration == null) return null;
+        return scheduleConfiguration.getValue("ScheduledQuery.scheduleConfiguration");
+    }
 
     /**
      * State of the scheduled query, either `ENABLED` or `DISABLED`.
      * 
      */
-    public String state;
+    private UndeferrableValue<String> state;
 
-
+    public String state() {
+        if (state == null) return null;
+        return state.getValue("ScheduledQuery.state");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ScheduledQuery.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -147,9 +194,12 @@ public final class ScheduledQuery extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ScheduledQuery.tagsAll");
+    }
 
     /**
      * Configuration block for writing the result of a query. See below.
@@ -157,12 +207,18 @@ public final class ScheduledQuery extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public ScheduledQueryTargetConfiguration targetConfiguration;
+    private UndeferrableValue<ScheduledQueryTargetConfiguration> targetConfiguration;
 
+    public ScheduledQueryTargetConfiguration targetConfiguration() {
+        if (targetConfiguration == null) return null;
+        return targetConfiguration.getValue("ScheduledQuery.targetConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<ScheduledQueryTimeouts> timeouts;
 
-    public ScheduledQueryTimeouts timeouts;
-
-
+    public @Nullable ScheduledQueryTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ScheduledQuery.timeouts");
+    }
 
 }

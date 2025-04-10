@@ -3,163 +3,231 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opsworks.StaticWebLayerCloudwatchConfiguration;
-import com.pulumi.policypacks.aws.opsworks.StaticWebLayerEbsVolume;
-import com.pulumi.policypacks.aws.opsworks.StaticWebLayerLoadBasedAutoScaling;
+import com.pulumi.policypacks.aws.opsworks.outputs.StaticWebLayerCloudwatchConfiguration;
+import com.pulumi.policypacks.aws.opsworks.outputs.StaticWebLayerEbsVolume;
+import com.pulumi.policypacks.aws.opsworks.outputs.StaticWebLayerLoadBasedAutoScaling;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opsworks/staticWebLayer:StaticWebLayer")
-public final class StaticWebLayer extends com.pulumi.resources.PolicyResource {
+public final class StaticWebLayer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StaticWebLayer.arn");
+    }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignElasticIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
 
-
+    public @Nullable Boolean autoAssignElasticIps() {
+        if (autoAssignElasticIps == null) return null;
+        return autoAssignElasticIps.getValue("StaticWebLayer.autoAssignElasticIps");
+    }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    public Boolean autoAssignPublicIps;
+    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
 
-
+    public @Nullable Boolean autoAssignPublicIps() {
+        if (autoAssignPublicIps == null) return null;
+        return autoAssignPublicIps.getValue("StaticWebLayer.autoAssignPublicIps");
+    }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    public Boolean autoHealing;
+    private @Nullable UndeferrableValue<Boolean> autoHealing;
 
+    public @Nullable Boolean autoHealing() {
+        if (autoHealing == null) return null;
+        return autoHealing.getValue("StaticWebLayer.autoHealing");
+    }
 
+    private @Nullable UndeferrableValue<StaticWebLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
-    public StaticWebLayerCloudwatchConfiguration cloudwatchConfiguration;
+    public @Nullable StaticWebLayerCloudwatchConfiguration cloudwatchConfiguration() {
+        if (cloudwatchConfiguration == null) return null;
+        return cloudwatchConfiguration.getValue("StaticWebLayer.cloudwatchConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
 
+    public @Nullable List<String> customConfigureRecipes() {
+        if (customConfigureRecipes == null) return null;
+        return customConfigureRecipes.getValue("StaticWebLayer.customConfigureRecipes");
+    }
 
-    public List<String> customConfigureRecipes;
+    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
 
-
-
-    public List<String> customDeployRecipes;
-
-
+    public @Nullable List<String> customDeployRecipes() {
+        if (customDeployRecipes == null) return null;
+        return customDeployRecipes.getValue("StaticWebLayer.customDeployRecipes");
+    }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    public String customInstanceProfileArn;
+    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
 
+    public @Nullable String customInstanceProfileArn() {
+        if (customInstanceProfileArn == null) return null;
+        return customInstanceProfileArn.getValue("StaticWebLayer.customInstanceProfileArn");
+    }
 
+    private @Nullable UndeferrableValue<String> customJson;
 
-    public String customJson;
-
-
+    public @Nullable String customJson() {
+        if (customJson == null) return null;
+        return customJson.getValue("StaticWebLayer.customJson");
+    }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    public List<String> customSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
 
+    public @Nullable List<String> customSecurityGroupIds() {
+        if (customSecurityGroupIds == null) return null;
+        return customSecurityGroupIds.getValue("StaticWebLayer.customSecurityGroupIds");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
 
-    public List<String> customSetupRecipes;
+    public @Nullable List<String> customSetupRecipes() {
+        if (customSetupRecipes == null) return null;
+        return customSetupRecipes.getValue("StaticWebLayer.customSetupRecipes");
+    }
 
+    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
 
+    public @Nullable List<String> customShutdownRecipes() {
+        if (customShutdownRecipes == null) return null;
+        return customShutdownRecipes.getValue("StaticWebLayer.customShutdownRecipes");
+    }
 
-    public List<String> customShutdownRecipes;
+    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
 
-
-
-    public List<String> customUndeployRecipes;
-
-
+    public @Nullable List<String> customUndeployRecipes() {
+        if (customUndeployRecipes == null) return null;
+        return customUndeployRecipes.getValue("StaticWebLayer.customUndeployRecipes");
+    }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    public Boolean drainElbOnShutdown;
+    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
 
-
+    public @Nullable Boolean drainElbOnShutdown() {
+        if (drainElbOnShutdown == null) return null;
+        return drainElbOnShutdown.getValue("StaticWebLayer.drainElbOnShutdown");
+    }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    public List<StaticWebLayerEbsVolume> ebsVolumes;
+    private UndeferrableValue<List<StaticWebLayerEbsVolume>> ebsVolumes;
 
-
+    public List<StaticWebLayerEbsVolume> ebsVolumes() {
+        if (ebsVolumes == null) return null;
+        return ebsVolumes.getValue("StaticWebLayer.ebsVolumes");
+    }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    public String elasticLoadBalancer;
+    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
 
-
+    public @Nullable String elasticLoadBalancer() {
+        if (elasticLoadBalancer == null) return null;
+        return elasticLoadBalancer.getValue("StaticWebLayer.elasticLoadBalancer");
+    }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    public Boolean installUpdatesOnBoot;
+    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
 
-
+    public @Nullable Boolean installUpdatesOnBoot() {
+        if (installUpdatesOnBoot == null) return null;
+        return installUpdatesOnBoot.getValue("StaticWebLayer.installUpdatesOnBoot");
+    }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    public Integer instanceShutdownTimeout;
+    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
 
+    public @Nullable Integer instanceShutdownTimeout() {
+        if (instanceShutdownTimeout == null) return null;
+        return instanceShutdownTimeout.getValue("StaticWebLayer.instanceShutdownTimeout");
+    }
 
+    private UndeferrableValue<StaticWebLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
-    public StaticWebLayerLoadBasedAutoScaling loadBasedAutoScaling;
-
-
+    public StaticWebLayerLoadBasedAutoScaling loadBasedAutoScaling() {
+        if (loadBasedAutoScaling == null) return null;
+        return loadBasedAutoScaling.getValue("StaticWebLayer.loadBasedAutoScaling");
+    }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StaticWebLayer.name");
+    }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    public String stackId;
+    private UndeferrableValue<String> stackId;
 
-
+    public String stackId() {
+        if (stackId == null) return null;
+        return stackId.getValue("StaticWebLayer.stackId");
+    }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    public List<String> systemPackages;
+    private @Nullable UndeferrableValue<List<String>> systemPackages;
 
-
+    public @Nullable List<String> systemPackages() {
+        if (systemPackages == null) return null;
+        return systemPackages.getValue("StaticWebLayer.systemPackages");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,9 +237,12 @@ public final class StaticWebLayer extends com.pulumi.resources.PolicyResource {
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StaticWebLayer.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -181,16 +252,22 @@ public final class StaticWebLayer extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StaticWebLayer.tagsAll");
+    }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    public Boolean useEbsOptimizedInstances;
+    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
 
-
+    public @Nullable Boolean useEbsOptimizedInstances() {
+        if (useEbsOptimizedInstances == null) return null;
+        return useEbsOptimizedInstances.getValue("StaticWebLayer.useEbsOptimizedInstances");
+    }
 
 }

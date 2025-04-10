@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.costoptimizationhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:costoptimizationhub/preferences:Preferences")
-public final class Preferences extends com.pulumi.resources.PolicyResource {
+public final class Preferences extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Customize whether the member accounts can see the &#34;After Discounts&#34; savings estimates. Valid values are `All` and `None`. Default value is `All`.
      * 
      */
-    public String memberAccountDiscountVisibility;
+    private UndeferrableValue<String> memberAccountDiscountVisibility;
 
-
+    public String memberAccountDiscountVisibility() {
+        if (memberAccountDiscountVisibility == null) return null;
+        return memberAccountDiscountVisibility.getValue("Preferences.memberAccountDiscountVisibility");
+    }
 
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      * 
      */
-    public String savingsEstimationMode;
+    private UndeferrableValue<String> savingsEstimationMode;
 
-
+    public String savingsEstimationMode() {
+        if (savingsEstimationMode == null) return null;
+        return savingsEstimationMode.getValue("Preferences.savingsEstimationMode");
+    }
 
 }

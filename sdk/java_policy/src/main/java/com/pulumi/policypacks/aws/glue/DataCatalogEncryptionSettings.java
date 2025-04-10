@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings;
+import com.pulumi.policypacks.aws.glue.outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")
-public final class DataCatalogEncryptionSettings extends com.pulumi.resources.PolicyResource {
+public final class DataCatalogEncryptionSettings extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
-    public String catalogId;
+    private UndeferrableValue<String> catalogId;
 
-
+    public String catalogId() {
+        if (catalogId == null) return null;
+        return catalogId.getValue("DataCatalogEncryptionSettings.catalogId");
+    }
 
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      * 
      */
-    public DataCatalogEncryptionSettingsDataCatalogEncryptionSettings dataCatalogEncryptionSettings;
+    private UndeferrableValue<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings;
 
-
+    public DataCatalogEncryptionSettingsDataCatalogEncryptionSettings dataCatalogEncryptionSettings() {
+        if (dataCatalogEncryptionSettings == null) return null;
+        return dataCatalogEncryptionSettings.getValue("DataCatalogEncryptionSettings.dataCatalogEncryptionSettings");
+    }
 
 }

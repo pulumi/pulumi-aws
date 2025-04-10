@@ -3,136 +3,183 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:docdb/clusterInstance:ClusterInstance")
-public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
+public final class ClusterInstance extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Boolean applyImmediately;
+    private @Nullable UndeferrableValue<Boolean> applyImmediately;
 
-
+    public @Nullable Boolean applyImmediately() {
+        if (applyImmediately == null) return null;
+        return applyImmediately.getValue("ClusterInstance.applyImmediately");
+    }
 
     /**
      * Amazon Resource Name (ARN) of cluster instance
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ClusterInstance.arn");
+    }
 
     /**
      * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
-    public Boolean autoMinorVersionUpgrade;
+    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
 
-
+    public @Nullable Boolean autoMinorVersionUpgrade() {
+        if (autoMinorVersionUpgrade == null) return null;
+        return autoMinorVersionUpgrade.getValue("ClusterInstance.autoMinorVersionUpgrade");
+    }
 
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("ClusterInstance.availabilityZone");
+    }
 
     /**
      * The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
-    public String caCertIdentifier;
+    private UndeferrableValue<String> caCertIdentifier;
 
-
+    public String caCertIdentifier() {
+        if (caCertIdentifier == null) return null;
+        return caCertIdentifier.getValue("ClusterInstance.caCertIdentifier");
+    }
 
     /**
      * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("ClusterInstance.clusterIdentifier");
+    }
 
     /**
      * Copy all DB instance `tags` to snapshots. Default is `false`.
      * 
      */
-    public Boolean copyTagsToSnapshot;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
 
-
+    public @Nullable Boolean copyTagsToSnapshot() {
+        if (copyTagsToSnapshot == null) return null;
+        return copyTagsToSnapshot.getValue("ClusterInstance.copyTagsToSnapshot");
+    }
 
     /**
      * The DB subnet group to associate with this DB instance.
      * 
      */
-    public String dbSubnetGroupName;
+    private UndeferrableValue<String> dbSubnetGroupName;
 
-
+    public String dbSubnetGroupName() {
+        if (dbSubnetGroupName == null) return null;
+        return dbSubnetGroupName.getValue("ClusterInstance.dbSubnetGroupName");
+    }
 
     /**
      * The region-unique, immutable identifier for the DB instance.
      * 
      */
-    public String dbiResourceId;
+    private UndeferrableValue<String> dbiResourceId;
 
-
+    public String dbiResourceId() {
+        if (dbiResourceId == null) return null;
+        return dbiResourceId.getValue("ClusterInstance.dbiResourceId");
+    }
 
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
-    public Boolean enablePerformanceInsights;
+    private @Nullable UndeferrableValue<Boolean> enablePerformanceInsights;
 
-
+    public @Nullable Boolean enablePerformanceInsights() {
+        if (enablePerformanceInsights == null) return null;
+        return enablePerformanceInsights.getValue("ClusterInstance.enablePerformanceInsights");
+    }
 
     /**
      * The DNS address for this instance. May not be writable
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ClusterInstance.endpoint");
+    }
 
     /**
      * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
-    public String engine;
+    private @Nullable UndeferrableValue<String> engine;
 
-
+    public @Nullable String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterInstance.engine");
+    }
 
     /**
      * The database engine version
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterInstance.engineVersion");
+    }
 
     /**
      * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
-    public String identifier;
+    private UndeferrableValue<String> identifier;
 
-
+    public String identifier() {
+        if (identifier == null) return null;
+        return identifier.getValue("ClusterInstance.identifier");
+    }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    public String identifierPrefix;
+    private UndeferrableValue<String> identifierPrefix;
 
-
+    public String identifierPrefix() {
+        if (identifierPrefix == null) return null;
+        return identifierPrefix.getValue("ClusterInstance.identifierPrefix");
+    }
 
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -161,78 +208,108 @@ public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
      * - db.t3.medium
      * 
      */
-    public String instanceClass;
+    private UndeferrableValue<String> instanceClass;
 
-
+    public String instanceClass() {
+        if (instanceClass == null) return null;
+        return instanceClass.getValue("ClusterInstance.instanceClass");
+    }
 
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterInstance.kmsKeyId");
+    }
 
     /**
      * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
-    public String performanceInsightsKmsKeyId;
+    private UndeferrableValue<String> performanceInsightsKmsKeyId;
 
-
+    public String performanceInsightsKmsKeyId() {
+        if (performanceInsightsKmsKeyId == null) return null;
+        return performanceInsightsKmsKeyId.getValue("ClusterInstance.performanceInsightsKmsKeyId");
+    }
 
     /**
      * The database port
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("ClusterInstance.port");
+    }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("ClusterInstance.preferredBackupWindow");
+    }
 
     /**
      * The window to perform maintenance in.
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("ClusterInstance.preferredMaintenanceWindow");
+    }
 
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
-    public Integer promotionTier;
+    private @Nullable UndeferrableValue<Integer> promotionTier;
 
+    public @Nullable Integer promotionTier() {
+        if (promotionTier == null) return null;
+        return promotionTier.getValue("ClusterInstance.promotionTier");
+    }
 
+    private UndeferrableValue<Boolean> publiclyAccessible;
 
-    public Boolean publiclyAccessible;
-
-
+    public Boolean publiclyAccessible() {
+        if (publiclyAccessible == null) return null;
+        return publiclyAccessible.getValue("ClusterInstance.publiclyAccessible");
+    }
 
     /**
      * Specifies whether the DB cluster is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterInstance.storageEncrypted");
+    }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterInstance.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -242,16 +319,22 @@ public final class ClusterInstance extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterInstance.tagsAll");
+    }
 
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    public Boolean writer;
+    private UndeferrableValue<Boolean> writer;
 
-
+    public Boolean writer() {
+        if (writer == null) return null;
+        return writer.getValue("ClusterInstance.writer");
+    }
 
 }

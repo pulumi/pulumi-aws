@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")
-public final class VpnGatewayRoutePropagation extends com.pulumi.resources.PolicyResource {
+public final class VpnGatewayRoutePropagation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
-    public String routeTableId;
+    private UndeferrableValue<String> routeTableId;
 
-
+    public String routeTableId() {
+        if (routeTableId == null) return null;
+        return routeTableId.getValue("VpnGatewayRoutePropagation.routeTableId");
+    }
 
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
-    public String vpnGatewayId;
+    private UndeferrableValue<String> vpnGatewayId;
 
-
+    public String vpnGatewayId() {
+        if (vpnGatewayId == null) return null;
+        return vpnGatewayId.getValue("VpnGatewayRoutePropagation.vpnGatewayId");
+    }
 
 }

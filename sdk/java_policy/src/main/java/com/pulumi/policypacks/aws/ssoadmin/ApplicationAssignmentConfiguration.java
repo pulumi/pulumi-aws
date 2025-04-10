@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")
-public final class ApplicationAssignmentConfiguration extends com.pulumi.resources.PolicyResource {
+public final class ApplicationAssignmentConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the application.
      * 
      */
-    public String applicationArn;
+    private UndeferrableValue<String> applicationArn;
 
-
+    public String applicationArn() {
+        if (applicationArn == null) return null;
+        return applicationArn.getValue("ApplicationAssignmentConfiguration.applicationArn");
+    }
 
     /**
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      * 
      */
-    public Boolean assignmentRequired;
+    private UndeferrableValue<Boolean> assignmentRequired;
 
-
+    public Boolean assignmentRequired() {
+        if (assignmentRequired == null) return null;
+        return assignmentRequired.getValue("ApplicationAssignmentConfiguration.assignmentRequired");
+    }
 
 }

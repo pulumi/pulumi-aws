@@ -4,79 +4,105 @@
 package com.pulumi.policypacks.aws.lambda;
 
 import com.pulumi.asset.Archive;
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/layerVersion:LayerVersion")
-public final class LayerVersion extends com.pulumi.resources.PolicyResource {
+public final class LayerVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Lambda Layer with version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LayerVersion.arn");
+    }
 
     /**
      * Path to the function&#39;s deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      * 
      */
-    public Archive code;
+    private @Nullable UndeferrableValue<Archive> code;
 
-
+    public @Nullable Archive code() {
+        if (code == null) return null;
+        return code.getValue("LayerVersion.code");
+    }
 
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    public String codeSha256;
+    private UndeferrableValue<String> codeSha256;
 
-
+    public String codeSha256() {
+        if (codeSha256 == null) return null;
+        return codeSha256.getValue("LayerVersion.codeSha256");
+    }
 
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
      * 
      */
-    public List<String> compatibleArchitectures;
+    private @Nullable UndeferrableValue<List<String>> compatibleArchitectures;
 
-
+    public @Nullable List<String> compatibleArchitectures() {
+        if (compatibleArchitectures == null) return null;
+        return compatibleArchitectures.getValue("LayerVersion.compatibleArchitectures");
+    }
 
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
-    public List<String> compatibleRuntimes;
+    private @Nullable UndeferrableValue<List<String>> compatibleRuntimes;
 
-
+    public @Nullable List<String> compatibleRuntimes() {
+        if (compatibleRuntimes == null) return null;
+        return compatibleRuntimes.getValue("LayerVersion.compatibleRuntimes");
+    }
 
     /**
      * Date this resource was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("LayerVersion.createdDate");
+    }
 
     /**
      * Description of what your Lambda Layer does.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("LayerVersion.description");
+    }
 
     /**
      * ARN of the Lambda Layer without version.
      * 
      */
-    public String layerArn;
+    private UndeferrableValue<String> layerArn;
 
-
+    public String layerArn() {
+        if (layerArn == null) return null;
+        return layerArn.getValue("LayerVersion.layerArn");
+    }
 
     /**
      * Unique name for your Lambda Layer
@@ -84,88 +110,121 @@ public final class LayerVersion extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String layerName;
+    private UndeferrableValue<String> layerName;
 
-
+    public String layerName() {
+        if (layerName == null) return null;
+        return layerName.getValue("LayerVersion.layerName");
+    }
 
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      * 
      */
-    public String licenseInfo;
+    private @Nullable UndeferrableValue<String> licenseInfo;
 
-
+    public @Nullable String licenseInfo() {
+        if (licenseInfo == null) return null;
+        return licenseInfo.getValue("LayerVersion.licenseInfo");
+    }
 
     /**
      * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      * 
      */
-    public String s3Bucket;
+    private @Nullable UndeferrableValue<String> s3Bucket;
 
-
+    public @Nullable String s3Bucket() {
+        if (s3Bucket == null) return null;
+        return s3Bucket.getValue("LayerVersion.s3Bucket");
+    }
 
     /**
      * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename`.
      * 
      */
-    public String s3Key;
+    private @Nullable UndeferrableValue<String> s3Key;
 
-
+    public @Nullable String s3Key() {
+        if (s3Key == null) return null;
+        return s3Key.getValue("LayerVersion.s3Key");
+    }
 
     /**
      * Object version containing the function&#39;s deployment package. Conflicts with `filename`.
      * 
      */
-    public String s3ObjectVersion;
+    private @Nullable UndeferrableValue<String> s3ObjectVersion;
 
-
+    public @Nullable String s3ObjectVersion() {
+        if (s3ObjectVersion == null) return null;
+        return s3ObjectVersion.getValue("LayerVersion.s3ObjectVersion");
+    }
 
     /**
      * ARN of a signing job.
      * 
      */
-    public String signingJobArn;
+    private UndeferrableValue<String> signingJobArn;
 
-
+    public String signingJobArn() {
+        if (signingJobArn == null) return null;
+        return signingJobArn.getValue("LayerVersion.signingJobArn");
+    }
 
     /**
      * ARN for a signing profile version.
      * 
      */
-    public String signingProfileVersionArn;
+    private UndeferrableValue<String> signingProfileVersionArn;
 
-
+    public String signingProfileVersionArn() {
+        if (signingProfileVersionArn == null) return null;
+        return signingProfileVersionArn.getValue("LayerVersion.signingProfileVersionArn");
+    }
 
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("LayerVersion.skipDestroy");
+    }
 
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    public String sourceCodeHash;
+    private UndeferrableValue<String> sourceCodeHash;
 
-
+    public String sourceCodeHash() {
+        if (sourceCodeHash == null) return null;
+        return sourceCodeHash.getValue("LayerVersion.sourceCodeHash");
+    }
 
     /**
      * Size in bytes of the function .zip file.
      * 
      */
-    public Integer sourceCodeSize;
+    private UndeferrableValue<Integer> sourceCodeSize;
 
-
+    public Integer sourceCodeSize() {
+        if (sourceCodeSize == null) return null;
+        return sourceCodeSize.getValue("LayerVersion.sourceCodeSize");
+    }
 
     /**
      * Lambda Layer version.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("LayerVersion.version");
+    }
 
 }

@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.worklink;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")
-public final class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources.PolicyResource {
+public final class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The root certificate of the Certificate Authority.
      * 
      */
-    public String certificate;
+    private UndeferrableValue<String> certificate;
 
-
+    public String certificate() {
+        if (certificate == null) return null;
+        return certificate.getValue("WebsiteCertificateAuthorityAssociation.certificate");
+    }
 
     /**
      * The certificate name to display.
      * 
      */
-    public String displayName;
+    private @Nullable UndeferrableValue<String> displayName;
 
-
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("WebsiteCertificateAuthorityAssociation.displayName");
+    }
 
     /**
      * The ARN of the fleet.
      * 
      */
-    public String fleetArn;
+    private UndeferrableValue<String> fleetArn;
 
-
+    public String fleetArn() {
+        if (fleetArn == null) return null;
+        return fleetArn.getValue("WebsiteCertificateAuthorityAssociation.fleetArn");
+    }
 
     /**
      * A unique identifier for the Certificate Authority.
      * 
      */
-    public String websiteCaId;
+    private UndeferrableValue<String> websiteCaId;
 
-
+    public String websiteCaId() {
+        if (websiteCaId == null) return null;
+        return websiteCaId.getValue("WebsiteCertificateAuthorityAssociation.websiteCaId");
+    }
 
 }

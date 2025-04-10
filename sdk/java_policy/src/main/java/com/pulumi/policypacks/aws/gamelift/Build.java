@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.BuildStorageLocation;
+import com.pulumi.policypacks.aws.gamelift.outputs.BuildStorageLocation;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/build:Build")
-public final class Build extends com.pulumi.resources.PolicyResource {
+public final class Build extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * GameLift Build ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Build.arn");
+    }
 
     /**
      * Name of the build
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Build.name");
+    }
 
     /**
      * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      * 
      */
-    public String operatingSystem;
+    private UndeferrableValue<String> operatingSystem;
 
-
+    public String operatingSystem() {
+        if (operatingSystem == null) return null;
+        return operatingSystem.getValue("Build.operatingSystem");
+    }
 
     /**
      * Information indicating where your game build files are stored. See below.
      * 
      */
-    public BuildStorageLocation storageLocation;
+    private UndeferrableValue<BuildStorageLocation> storageLocation;
 
-
+    public BuildStorageLocation storageLocation() {
+        if (storageLocation == null) return null;
+        return storageLocation.getValue("Build.storageLocation");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Build.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,16 +77,22 @@ public final class Build extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Build.tagsAll");
+    }
 
     /**
      * Version that is associated with this build.
      * 
      */
-    public String version;
+    private @Nullable UndeferrableValue<String> version;
 
-
+    public @Nullable String version() {
+        if (version == null) return null;
+        return version.getValue("Build.version");
+    }
 
 }

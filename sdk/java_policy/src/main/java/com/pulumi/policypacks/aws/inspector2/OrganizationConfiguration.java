@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.inspector2.OrganizationConfigurationAutoEnable;
+import com.pulumi.policypacks.aws.inspector2.outputs.OrganizationConfigurationAutoEnable;
 import java.lang.Boolean;
 
 
 @PolicyResourceType(type="aws:inspector2/organizationConfiguration:OrganizationConfiguration")
-public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block for auto enabling. See below.
      * 
      */
-    public OrganizationConfigurationAutoEnable autoEnable;
+    private UndeferrableValue<OrganizationConfigurationAutoEnable> autoEnable;
 
-
+    public OrganizationConfigurationAutoEnable autoEnable() {
+        if (autoEnable == null) return null;
+        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+    }
 
     /**
      * Whether your configuration reached the max account limit.
      * 
      */
-    public Boolean maxAccountLimitReached;
+    private UndeferrableValue<Boolean> maxAccountLimitReached;
 
-
+    public Boolean maxAccountLimitReached() {
+        if (maxAccountLimitReached == null) return null;
+        return maxAccountLimitReached.getValue("OrganizationConfiguration.maxAccountLimitReached");
+    }
 
 }

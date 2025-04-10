@@ -3,118 +3,159 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")
-public final class WorkspaceSamlConfiguration extends com.pulumi.resources.PolicyResource {
+public final class WorkspaceSamlConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The admin role values.
      * 
      */
-    public List<String> adminRoleValues;
+    private @Nullable UndeferrableValue<List<String>> adminRoleValues;
 
-
+    public @Nullable List<String> adminRoleValues() {
+        if (adminRoleValues == null) return null;
+        return adminRoleValues.getValue("WorkspaceSamlConfiguration.adminRoleValues");
+    }
 
     /**
      * The allowed organizations.
      * 
      */
-    public List<String> allowedOrganizations;
+    private @Nullable UndeferrableValue<List<String>> allowedOrganizations;
 
-
+    public @Nullable List<String> allowedOrganizations() {
+        if (allowedOrganizations == null) return null;
+        return allowedOrganizations.getValue("WorkspaceSamlConfiguration.allowedOrganizations");
+    }
 
     /**
      * The editor role values.
      * 
      */
-    public List<String> editorRoleValues;
+    private UndeferrableValue<List<String>> editorRoleValues;
 
-
+    public List<String> editorRoleValues() {
+        if (editorRoleValues == null) return null;
+        return editorRoleValues.getValue("WorkspaceSamlConfiguration.editorRoleValues");
+    }
 
     /**
      * The email assertion.
      * 
      */
-    public String emailAssertion;
+    private UndeferrableValue<String> emailAssertion;
 
-
+    public String emailAssertion() {
+        if (emailAssertion == null) return null;
+        return emailAssertion.getValue("WorkspaceSamlConfiguration.emailAssertion");
+    }
 
     /**
      * The groups assertion.
      * 
      */
-    public String groupsAssertion;
+    private @Nullable UndeferrableValue<String> groupsAssertion;
 
-
+    public @Nullable String groupsAssertion() {
+        if (groupsAssertion == null) return null;
+        return groupsAssertion.getValue("WorkspaceSamlConfiguration.groupsAssertion");
+    }
 
     /**
      * The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    public String idpMetadataUrl;
+    private @Nullable UndeferrableValue<String> idpMetadataUrl;
 
-
+    public @Nullable String idpMetadataUrl() {
+        if (idpMetadataUrl == null) return null;
+        return idpMetadataUrl.getValue("WorkspaceSamlConfiguration.idpMetadataUrl");
+    }
 
     /**
      * The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    public String idpMetadataXml;
+    private @Nullable UndeferrableValue<String> idpMetadataXml;
 
-
+    public @Nullable String idpMetadataXml() {
+        if (idpMetadataXml == null) return null;
+        return idpMetadataXml.getValue("WorkspaceSamlConfiguration.idpMetadataXml");
+    }
 
     /**
      * The login assertion.
      * 
      */
-    public String loginAssertion;
+    private UndeferrableValue<String> loginAssertion;
 
-
+    public String loginAssertion() {
+        if (loginAssertion == null) return null;
+        return loginAssertion.getValue("WorkspaceSamlConfiguration.loginAssertion");
+    }
 
     /**
      * The login validity duration.
      * 
      */
-    public Integer loginValidityDuration;
+    private UndeferrableValue<Integer> loginValidityDuration;
 
-
+    public Integer loginValidityDuration() {
+        if (loginValidityDuration == null) return null;
+        return loginValidityDuration.getValue("WorkspaceSamlConfiguration.loginValidityDuration");
+    }
 
     /**
      * The name assertion.
      * 
      */
-    public String nameAssertion;
+    private UndeferrableValue<String> nameAssertion;
 
-
+    public String nameAssertion() {
+        if (nameAssertion == null) return null;
+        return nameAssertion.getValue("WorkspaceSamlConfiguration.nameAssertion");
+    }
 
     /**
      * The org assertion.
      * 
      */
-    public String orgAssertion;
+    private @Nullable UndeferrableValue<String> orgAssertion;
 
-
+    public @Nullable String orgAssertion() {
+        if (orgAssertion == null) return null;
+        return orgAssertion.getValue("WorkspaceSamlConfiguration.orgAssertion");
+    }
 
     /**
      * The role assertion.
      * 
      */
-    public String roleAssertion;
+    private @Nullable UndeferrableValue<String> roleAssertion;
 
-
+    public @Nullable String roleAssertion() {
+        if (roleAssertion == null) return null;
+        return roleAssertion.getValue("WorkspaceSamlConfiguration.roleAssertion");
+    }
 
     /**
      * The status of the SAML configuration.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("WorkspaceSamlConfiguration.status");
+    }
 
     /**
      * The workspace id.
@@ -122,8 +163,11 @@ public final class WorkspaceSamlConfiguration extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("WorkspaceSamlConfiguration.workspaceId");
+    }
 
 }

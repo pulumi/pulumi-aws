@@ -3,85 +3,111 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appstream.StackAccessEndpoint;
-import com.pulumi.policypacks.aws.appstream.StackApplicationSettings;
-import com.pulumi.policypacks.aws.appstream.StackStorageConnector;
-import com.pulumi.policypacks.aws.appstream.StackStreamingExperienceSettings;
-import com.pulumi.policypacks.aws.appstream.StackUserSetting;
+import com.pulumi.policypacks.aws.appstream.outputs.StackAccessEndpoint;
+import com.pulumi.policypacks.aws.appstream.outputs.StackApplicationSettings;
+import com.pulumi.policypacks.aws.appstream.outputs.StackStorageConnector;
+import com.pulumi.policypacks.aws.appstream.outputs.StackStreamingExperienceSettings;
+import com.pulumi.policypacks.aws.appstream.outputs.StackUserSetting;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appstream/stack:Stack")
-public final class Stack extends com.pulumi.resources.PolicyResource {
+public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `access_endpoints` below.
      * 
      */
-    public List<StackAccessEndpoint> accessEndpoints;
+    private UndeferrableValue<List<StackAccessEndpoint>> accessEndpoints;
 
-
+    public List<StackAccessEndpoint> accessEndpoints() {
+        if (accessEndpoints == null) return null;
+        return accessEndpoints.getValue("Stack.accessEndpoints");
+    }
 
     /**
      * Settings for application settings persistence.
      * See `application_settings` below.
      * 
      */
-    public StackApplicationSettings applicationSettings;
+    private UndeferrableValue<StackApplicationSettings> applicationSettings;
 
-
+    public StackApplicationSettings applicationSettings() {
+        if (applicationSettings == null) return null;
+        return applicationSettings.getValue("Stack.applicationSettings");
+    }
 
     /**
      * ARN of the appstream stack.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stack.arn");
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Stack.createdTime");
+    }
 
     /**
      * Description for the AppStream stack.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Stack.description");
+    }
 
     /**
      * Stack name to display.
      * 
      */
-    public String displayName;
+    private @Nullable UndeferrableValue<String> displayName;
 
-
+    public @Nullable String displayName() {
+        if (displayName == null) return null;
+        return displayName.getValue("Stack.displayName");
+    }
 
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      * 
      */
-    public List<String> embedHostDomains;
+    private UndeferrableValue<List<String>> embedHostDomains;
 
-
+    public List<String> embedHostDomains() {
+        if (embedHostDomains == null) return null;
+        return embedHostDomains.getValue("Stack.embedHostDomains");
+    }
 
     /**
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      * 
      */
-    public String feedbackUrl;
+    private UndeferrableValue<String> feedbackUrl;
 
-
+    public String feedbackUrl() {
+        if (feedbackUrl == null) return null;
+        return feedbackUrl.getValue("Stack.feedbackUrl");
+    }
 
     /**
      * Unique name for the AppStream stack.
@@ -89,43 +115,58 @@ public final class Stack extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Stack.name");
+    }
 
     /**
      * URL that users are redirected to after their streaming session ends.
      * 
      */
-    public String redirectUrl;
+    private UndeferrableValue<String> redirectUrl;
 
-
+    public String redirectUrl() {
+        if (redirectUrl == null) return null;
+        return redirectUrl.getValue("Stack.redirectUrl");
+    }
 
     /**
      * Configuration block for the storage connectors to enable.
      * See `storage_connectors` below.
      * 
      */
-    public List<StackStorageConnector> storageConnectors;
+    private UndeferrableValue<List<StackStorageConnector>> storageConnectors;
 
-
+    public List<StackStorageConnector> storageConnectors() {
+        if (storageConnectors == null) return null;
+        return storageConnectors.getValue("Stack.storageConnectors");
+    }
 
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streaming_experience_settings` below.
      * 
      */
-    public StackStreamingExperienceSettings streamingExperienceSettings;
+    private UndeferrableValue<StackStreamingExperienceSettings> streamingExperienceSettings;
 
-
+    public StackStreamingExperienceSettings streamingExperienceSettings() {
+        if (streamingExperienceSettings == null) return null;
+        return streamingExperienceSettings.getValue("Stack.streamingExperienceSettings");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stack.tags");
+    }
 
     /**
      * @deprecated
@@ -133,17 +174,23 @@ public final class Stack extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stack.tagsAll");
+    }
 
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */
-    public List<StackUserSetting> userSettings;
+    private UndeferrableValue<List<StackUserSetting>> userSettings;
 
-
+    public List<StackUserSetting> userSettings() {
+        if (userSettings == null) return null;
+        return userSettings.getValue("Stack.userSettings");
+    }
 
 }

@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:backup/vaultLockConfiguration:VaultLockConfiguration")
-public final class VaultLockConfiguration extends com.pulumi.resources.PolicyResource {
+public final class VaultLockConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the vault.
      * 
      */
-    public String backupVaultArn;
+    private UndeferrableValue<String> backupVaultArn;
 
-
+    public String backupVaultArn() {
+        if (backupVaultArn == null) return null;
+        return backupVaultArn.getValue("VaultLockConfiguration.backupVaultArn");
+    }
 
     /**
      * Name of the backup vault to add a lock configuration for.
      * 
      */
-    public String backupVaultName;
+    private UndeferrableValue<String> backupVaultName;
 
-
+    public String backupVaultName() {
+        if (backupVaultName == null) return null;
+        return backupVaultName.getValue("VaultLockConfiguration.backupVaultName");
+    }
 
     /**
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
-    public Integer changeableForDays;
+    private @Nullable UndeferrableValue<Integer> changeableForDays;
 
-
+    public @Nullable Integer changeableForDays() {
+        if (changeableForDays == null) return null;
+        return changeableForDays.getValue("VaultLockConfiguration.changeableForDays");
+    }
 
     /**
      * The maximum retention period that the vault retains its recovery points.
      * 
      */
-    public Integer maxRetentionDays;
+    private @Nullable UndeferrableValue<Integer> maxRetentionDays;
 
-
+    public @Nullable Integer maxRetentionDays() {
+        if (maxRetentionDays == null) return null;
+        return maxRetentionDays.getValue("VaultLockConfiguration.maxRetentionDays");
+    }
 
     /**
      * The minimum retention period that the vault retains its recovery points.
      * 
      */
-    public Integer minRetentionDays;
+    private @Nullable UndeferrableValue<Integer> minRetentionDays;
 
-
+    public @Nullable Integer minRetentionDays() {
+        if (minRetentionDays == null) return null;
+        return minRetentionDays.getValue("VaultLockConfiguration.minRetentionDays");
+    }
 
 }

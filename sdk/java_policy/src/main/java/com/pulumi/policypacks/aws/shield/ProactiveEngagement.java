@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.shield;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.shield.ProactiveEngagementEmergencyContact;
+import com.pulumi.policypacks.aws.shield.outputs.ProactiveEngagementEmergencyContact;
 import java.lang.Boolean;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:shield/proactiveEngagement:ProactiveEngagement")
-public final class ProactiveEngagement extends com.pulumi.resources.PolicyResource {
+public final class ProactiveEngagement extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
      * 
      */
-    public List<ProactiveEngagementEmergencyContact> emergencyContacts;
+    private @Nullable UndeferrableValue<List<ProactiveEngagementEmergencyContact>> emergencyContacts;
 
-
+    public @Nullable List<ProactiveEngagementEmergencyContact> emergencyContacts() {
+        if (emergencyContacts == null) return null;
+        return emergencyContacts.getValue("ProactiveEngagement.emergencyContacts");
+    }
 
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("ProactiveEngagement.enabled");
+    }
 
 }

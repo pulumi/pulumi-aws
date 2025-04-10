@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecs.CapacityProviderAutoScalingGroupProvider;
+import com.pulumi.policypacks.aws.ecs.outputs.CapacityProviderAutoScalingGroupProvider;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecs/capacityProvider:CapacityProvider")
-public final class CapacityProvider extends com.pulumi.resources.PolicyResource {
+public final class CapacityProvider extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN that identifies the capacity provider.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CapacityProvider.arn");
+    }
 
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      * 
      */
-    public CapacityProviderAutoScalingGroupProvider autoScalingGroupProvider;
+    private UndeferrableValue<CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider;
 
-
+    public CapacityProviderAutoScalingGroupProvider autoScalingGroupProvider() {
+        if (autoScalingGroupProvider == null) return null;
+        return autoScalingGroupProvider.getValue("CapacityProvider.autoScalingGroupProvider");
+    }
 
     /**
      * Name of the capacity provider.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("CapacityProvider.name");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CapacityProvider.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class CapacityProvider extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CapacityProvider.tagsAll");
+    }
 
 }

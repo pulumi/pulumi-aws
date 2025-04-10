@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 
 
 @PolicyResourceType(type="aws:macie2/organizationConfiguration:OrganizationConfiguration")
-public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
      * 
      */
-    public Boolean autoEnable;
+    private UndeferrableValue<Boolean> autoEnable;
 
-
+    public Boolean autoEnable() {
+        if (autoEnable == null) return null;
+        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+    }
 
 }

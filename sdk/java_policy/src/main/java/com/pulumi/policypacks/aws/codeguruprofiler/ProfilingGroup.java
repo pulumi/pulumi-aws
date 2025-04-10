@@ -3,38 +3,49 @@
 
 package com.pulumi.policypacks.aws.codeguruprofiler;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig;
+import com.pulumi.policypacks.aws.codeguruprofiler.outputs.ProfilingGroupAgentOrchestrationConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codeguruprofiler/profilingGroup:ProfilingGroup")
-public final class ProfilingGroup extends com.pulumi.resources.PolicyResource {
+public final class ProfilingGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    public ProfilingGroupAgentOrchestrationConfig agentOrchestrationConfig;
+    private @Nullable UndeferrableValue<ProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfig;
 
-
+    public @Nullable ProfilingGroupAgentOrchestrationConfig agentOrchestrationConfig() {
+        if (agentOrchestrationConfig == null) return null;
+        return agentOrchestrationConfig.getValue("ProfilingGroup.agentOrchestrationConfig");
+    }
 
     /**
      * ARN of the profiling group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ProfilingGroup.arn");
+    }
 
     /**
      * Compute platform of the profiling group.
      * 
      */
-    public String computePlatform;
+    private UndeferrableValue<String> computePlatform;
 
-
+    public String computePlatform() {
+        if (computePlatform == null) return null;
+        return computePlatform.getValue("ProfilingGroup.computePlatform");
+    }
 
     /**
      * Name of the profiling group.
@@ -42,17 +53,23 @@ public final class ProfilingGroup extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProfilingGroup.name");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProfilingGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,8 +79,11 @@ public final class ProfilingGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProfilingGroup.tagsAll");
+    }
 
 }

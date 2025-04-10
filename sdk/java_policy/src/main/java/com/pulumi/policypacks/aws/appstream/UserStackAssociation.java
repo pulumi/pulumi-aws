@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appstream/userStackAssociation:UserStackAssociation")
-public final class UserStackAssociation extends com.pulumi.resources.PolicyResource {
+public final class UserStackAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Authentication type for the user.
      * 
      */
-    public String authenticationType;
+    private UndeferrableValue<String> authenticationType;
 
-
+    public String authenticationType() {
+        if (authenticationType == null) return null;
+        return authenticationType.getValue("UserStackAssociation.authenticationType");
+    }
 
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
-    public Boolean sendEmailNotification;
+    private @Nullable UndeferrableValue<Boolean> sendEmailNotification;
 
-
+    public @Nullable Boolean sendEmailNotification() {
+        if (sendEmailNotification == null) return null;
+        return sendEmailNotification.getValue("UserStackAssociation.sendEmailNotification");
+    }
 
     /**
      * Name of the stack that is associated with the user.
      * 
      */
-    public String stackName;
+    private UndeferrableValue<String> stackName;
 
-
+    public String stackName() {
+        if (stackName == null) return null;
+        return stackName.getValue("UserStackAssociation.stackName");
+    }
 
     /**
      * Email address of the user who is associated with the stack.
@@ -41,8 +52,11 @@ public final class UserStackAssociation extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("UserStackAssociation.userName");
+    }
 
 }

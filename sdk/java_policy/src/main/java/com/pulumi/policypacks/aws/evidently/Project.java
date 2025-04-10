@@ -3,119 +3,160 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.evidently.ProjectDataDelivery;
+import com.pulumi.policypacks.aws.evidently.outputs.ProjectDataDelivery;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:evidently/project:Project")
-public final class Project extends com.pulumi.resources.PolicyResource {
+public final class Project extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The number of ongoing experiments currently in the project.
      * 
      */
-    public Integer activeExperimentCount;
+    private UndeferrableValue<Integer> activeExperimentCount;
 
-
+    public Integer activeExperimentCount() {
+        if (activeExperimentCount == null) return null;
+        return activeExperimentCount.getValue("Project.activeExperimentCount");
+    }
 
     /**
      * The number of ongoing launches currently in the project.
      * 
      */
-    public Integer activeLaunchCount;
+    private UndeferrableValue<Integer> activeLaunchCount;
 
-
+    public Integer activeLaunchCount() {
+        if (activeLaunchCount == null) return null;
+        return activeLaunchCount.getValue("Project.activeLaunchCount");
+    }
 
     /**
      * The ARN of the project.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Project.arn");
+    }
 
     /**
      * The date and time that the project is created.
      * 
      */
-    public String createdTime;
+    private UndeferrableValue<String> createdTime;
 
-
+    public String createdTime() {
+        if (createdTime == null) return null;
+        return createdTime.getValue("Project.createdTime");
+    }
 
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      * 
      */
-    public ProjectDataDelivery dataDelivery;
+    private @Nullable UndeferrableValue<ProjectDataDelivery> dataDelivery;
 
-
+    public @Nullable ProjectDataDelivery dataDelivery() {
+        if (dataDelivery == null) return null;
+        return dataDelivery.getValue("Project.dataDelivery");
+    }
 
     /**
      * Specifies the description of the project.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Project.description");
+    }
 
     /**
      * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    public Integer experimentCount;
+    private UndeferrableValue<Integer> experimentCount;
 
-
+    public Integer experimentCount() {
+        if (experimentCount == null) return null;
+        return experimentCount.getValue("Project.experimentCount");
+    }
 
     /**
      * The number of features currently in the project.
      * 
      */
-    public Integer featureCount;
+    private UndeferrableValue<Integer> featureCount;
 
-
+    public Integer featureCount() {
+        if (featureCount == null) return null;
+        return featureCount.getValue("Project.featureCount");
+    }
 
     /**
      * The date and time that the project was most recently updated.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("Project.lastUpdatedTime");
+    }
 
     /**
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    public Integer launchCount;
+    private UndeferrableValue<Integer> launchCount;
 
-
+    public Integer launchCount() {
+        if (launchCount == null) return null;
+        return launchCount.getValue("Project.launchCount");
+    }
 
     /**
      * A name for the project.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Project.name");
+    }
 
     /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Project.status");
+    }
 
     /**
      * Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Project.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -125,8 +166,11 @@ public final class Project extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Project.tagsAll");
+    }
 
 }

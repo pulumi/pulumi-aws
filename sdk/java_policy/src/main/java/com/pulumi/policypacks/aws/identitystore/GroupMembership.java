@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:identitystore/groupMembership:GroupMembership")
-public final class GroupMembership extends com.pulumi.resources.PolicyResource {
+public final class GroupMembership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The identifier for a group in the Identity Store.
      * 
      */
-    public String groupId;
+    private UndeferrableValue<String> groupId;
 
-
+    public String groupId() {
+        if (groupId == null) return null;
+        return groupId.getValue("GroupMembership.groupId");
+    }
 
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
      */
-    public String identityStoreId;
+    private UndeferrableValue<String> identityStoreId;
 
-
+    public String identityStoreId() {
+        if (identityStoreId == null) return null;
+        return identityStoreId.getValue("GroupMembership.identityStoreId");
+    }
 
     /**
      * The identifier for a user in the Identity Store.
      * 
      */
-    public String memberId;
+    private UndeferrableValue<String> memberId;
 
-
+    public String memberId() {
+        if (memberId == null) return null;
+        return memberId.getValue("GroupMembership.memberId");
+    }
 
     /**
      * The identifier of the newly created group membership in the Identity Store.
      * 
      */
-    public String membershipId;
+    private UndeferrableValue<String> membershipId;
 
-
+    public String membershipId() {
+        if (membershipId == null) return null;
+        return membershipId.getValue("GroupMembership.membershipId");
+    }
 
 }

@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")
-public final class OrganizationAdminAccountRegistration extends com.pulumi.resources.PolicyResource {
+public final class OrganizationAdminAccountRegistration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier for the organization administrator account.
      * 
      */
-    public String adminAccountId;
+    private UndeferrableValue<String> adminAccountId;
 
-
+    public String adminAccountId() {
+        if (adminAccountId == null) return null;
+        return adminAccountId.getValue("OrganizationAdminAccountRegistration.adminAccountId");
+    }
 
     /**
      * Identifier for the organization.
      * 
      */
-    public String organizationId;
+    private UndeferrableValue<String> organizationId;
 
-
+    public String organizationId() {
+        if (organizationId == null) return null;
+        return organizationId.getValue("OrganizationAdminAccountRegistration.organizationId");
+    }
 
 }

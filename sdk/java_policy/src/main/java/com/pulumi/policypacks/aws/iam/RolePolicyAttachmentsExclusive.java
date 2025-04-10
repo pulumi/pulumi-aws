@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")
-public final class RolePolicyAttachmentsExclusive extends com.pulumi.resources.PolicyResource {
+public final class RolePolicyAttachmentsExclusive extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
      * 
      */
-    public List<String> policyArns;
+    private UndeferrableValue<List<String>> policyArns;
 
-
+    public List<String> policyArns() {
+        if (policyArns == null) return null;
+        return policyArns.getValue("RolePolicyAttachmentsExclusive.policyArns");
+    }
 
     /**
      * IAM role name.
      * 
      */
-    public String roleName;
+    private UndeferrableValue<String> roleName;
 
-
+    public String roleName() {
+        if (roleName == null) return null;
+        return roleName.getValue("RolePolicyAttachmentsExclusive.roleName");
+    }
 
 }

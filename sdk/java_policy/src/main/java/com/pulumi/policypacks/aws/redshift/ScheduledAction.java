@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.redshift.ScheduledActionTargetAction;
+import com.pulumi.policypacks.aws.redshift.outputs.ScheduledActionTargetAction;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/scheduledAction:ScheduledAction")
-public final class ScheduledAction extends com.pulumi.resources.PolicyResource {
+public final class ScheduledAction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The description of the scheduled action.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("ScheduledAction.description");
+    }
 
     /**
      * Whether to enable the scheduled action. Default is `true` .
      * 
      */
-    public Boolean enable;
+    private @Nullable UndeferrableValue<Boolean> enable;
 
-
+    public @Nullable Boolean enable() {
+        if (enable == null) return null;
+        return enable.getValue("ScheduledAction.enable");
+    }
 
     /**
      * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    public String endTime;
+    private @Nullable UndeferrableValue<String> endTime;
 
-
+    public @Nullable String endTime() {
+        if (endTime == null) return null;
+        return endTime.getValue("ScheduledAction.endTime");
+    }
 
     /**
      * The IAM role to assume to run the scheduled action.
      * 
      */
-    public String iamRole;
+    private UndeferrableValue<String> iamRole;
 
-
+    public String iamRole() {
+        if (iamRole == null) return null;
+        return iamRole.getValue("ScheduledAction.iamRole");
+    }
 
     /**
      * The scheduled action name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ScheduledAction.name");
+    }
 
     /**
      * The schedule of action. The schedule is defined format of &#34;at expression&#34; or &#34;cron expression&#34;, for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      * 
      */
-    public String schedule;
+    private UndeferrableValue<String> schedule;
 
-
+    public String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("ScheduledAction.schedule");
+    }
 
     /**
      * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    public String startTime;
+    private @Nullable UndeferrableValue<String> startTime;
 
-
+    public @Nullable String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("ScheduledAction.startTime");
+    }
 
     /**
      * Target action. Documented below.
      * 
      */
-    public ScheduledActionTargetAction targetAction;
+    private UndeferrableValue<ScheduledActionTargetAction> targetAction;
 
-
+    public ScheduledActionTargetAction targetAction() {
+        if (targetAction == null) return null;
+        return targetAction.getValue("ScheduledAction.targetAction");
+    }
 
 }

@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cfg.ConformancePackInputParameter;
+import com.pulumi.policypacks.aws.cfg.outputs.ConformancePackInputParameter;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cfg/conformancePack:ConformancePack")
-public final class ConformancePack extends com.pulumi.resources.PolicyResource {
+public final class ConformancePack extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the conformance pack.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ConformancePack.arn");
+    }
 
     /**
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
      * 
      */
-    public String deliveryS3Bucket;
+    private @Nullable UndeferrableValue<String> deliveryS3Bucket;
 
-
+    public @Nullable String deliveryS3Bucket() {
+        if (deliveryS3Bucket == null) return null;
+        return deliveryS3Bucket.getValue("ConformancePack.deliveryS3Bucket");
+    }
 
     /**
      * The prefix for the Amazon S3 bucket. Maximum length of 1024.
      * 
      */
-    public String deliveryS3KeyPrefix;
+    private @Nullable UndeferrableValue<String> deliveryS3KeyPrefix;
 
-
+    public @Nullable String deliveryS3KeyPrefix() {
+        if (deliveryS3KeyPrefix == null) return null;
+        return deliveryS3KeyPrefix.getValue("ConformancePack.deliveryS3KeyPrefix");
+    }
 
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
      * 
      */
-    public List<ConformancePackInputParameter> inputParameters;
+    private @Nullable UndeferrableValue<List<ConformancePackInputParameter>> inputParameters;
 
-
+    public @Nullable List<ConformancePackInputParameter> inputParameters() {
+        if (inputParameters == null) return null;
+        return inputParameters.getValue("ConformancePack.inputParameters");
+    }
 
     /**
      * The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ConformancePack.name");
+    }
 
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      * 
      */
-    public String templateBody;
+    private @Nullable UndeferrableValue<String> templateBody;
 
-
+    public @Nullable String templateBody() {
+        if (templateBody == null) return null;
+        return templateBody.getValue("ConformancePack.templateBody");
+    }
 
     /**
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
-    public String templateS3Uri;
+    private @Nullable UndeferrableValue<String> templateS3Uri;
 
-
+    public @Nullable String templateS3Uri() {
+        if (templateS3Uri == null) return null;
+        return templateS3Uri.getValue("ConformancePack.templateS3Uri");
+    }
 
 }

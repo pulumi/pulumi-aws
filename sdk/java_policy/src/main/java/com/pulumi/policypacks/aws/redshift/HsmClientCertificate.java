@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/hsmClientCertificate:HsmClientCertificate")
-public final class HsmClientCertificate extends com.pulumi.resources.PolicyResource {
+public final class HsmClientCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HsmClientCertificate.arn");
+    }
 
     /**
      * The identifier of the HSM client certificate.
      * 
      */
-    public String hsmClientCertificateIdentifier;
+    private UndeferrableValue<String> hsmClientCertificateIdentifier;
 
-
+    public String hsmClientCertificateIdentifier() {
+        if (hsmClientCertificateIdentifier == null) return null;
+        return hsmClientCertificateIdentifier.getValue("HsmClientCertificate.hsmClientCertificateIdentifier");
+    }
 
     /**
      * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      * 
      */
-    public String hsmClientCertificatePublicKey;
+    private UndeferrableValue<String> hsmClientCertificatePublicKey;
 
-
+    public String hsmClientCertificatePublicKey() {
+        if (hsmClientCertificatePublicKey == null) return null;
+        return hsmClientCertificatePublicKey.getValue("HsmClientCertificate.hsmClientCertificatePublicKey");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HsmClientCertificate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -51,8 +65,11 @@ public final class HsmClientCertificate extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HsmClientCertificate.tagsAll");
+    }
 
 }

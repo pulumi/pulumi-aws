@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")
-public final class VpcIpamScope extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamScope extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the scope.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpamScope.arn");
+    }
 
     /**
      * A description for the scope you&#39;re creating.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("VpcIpamScope.description");
+    }
 
     /**
      * The ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    public String ipamArn;
+    private UndeferrableValue<String> ipamArn;
 
-
+    public String ipamArn() {
+        if (ipamArn == null) return null;
+        return ipamArn.getValue("VpcIpamScope.ipamArn");
+    }
 
     /**
      * The ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    public String ipamId;
+    private UndeferrableValue<String> ipamId;
 
+    public String ipamId() {
+        if (ipamId == null) return null;
+        return ipamId.getValue("VpcIpamScope.ipamId");
+    }
 
+    private UndeferrableValue<String> ipamScopeType;
 
-    public String ipamScopeType;
-
-
+    public String ipamScopeType() {
+        if (ipamScopeType == null) return null;
+        return ipamScopeType.getValue("VpcIpamScope.ipamScopeType");
+    }
 
     /**
      * Defines if the scope is the default scope or not.
      * 
      */
-    public Boolean isDefault;
+    private UndeferrableValue<Boolean> isDefault;
 
-
+    public Boolean isDefault() {
+        if (isDefault == null) return null;
+        return isDefault.getValue("VpcIpamScope.isDefault");
+    }
 
     /**
      * The number of pools in the scope.
      * 
      */
-    public Integer poolCount;
+    private UndeferrableValue<Integer> poolCount;
 
-
+    public Integer poolCount() {
+        if (poolCount == null) return null;
+        return poolCount.getValue("VpcIpamScope.poolCount");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIpamScope.tags");
+    }
 
     /**
      * @deprecated
@@ -79,8 +105,11 @@ public final class VpcIpamScope extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIpamScope.tagsAll");
+    }
 
 }

@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/prefixListReference:PrefixListReference")
-public final class PrefixListReference extends com.pulumi.resources.PolicyResource {
+public final class PrefixListReference extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      * 
      */
-    public Boolean blackhole;
+    private @Nullable UndeferrableValue<Boolean> blackhole;
 
-
+    public @Nullable Boolean blackhole() {
+        if (blackhole == null) return null;
+        return blackhole.getValue("PrefixListReference.blackhole");
+    }
 
     /**
      * Identifier of EC2 Prefix List.
      * 
      */
-    public String prefixListId;
+    private UndeferrableValue<String> prefixListId;
 
+    public String prefixListId() {
+        if (prefixListId == null) return null;
+        return prefixListId.getValue("PrefixListReference.prefixListId");
+    }
 
+    private UndeferrableValue<String> prefixListOwnerId;
 
-    public String prefixListOwnerId;
-
-
+    public String prefixListOwnerId() {
+        if (prefixListOwnerId == null) return null;
+        return prefixListOwnerId.getValue("PrefixListReference.prefixListOwnerId");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private @Nullable UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public @Nullable String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("PrefixListReference.transitGatewayAttachmentId");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
@@ -45,8 +59,11 @@ public final class PrefixListReference extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String transitGatewayRouteTableId;
+    private UndeferrableValue<String> transitGatewayRouteTableId;
 
-
+    public String transitGatewayRouteTableId() {
+        if (transitGatewayRouteTableId == null) return null;
+        return transitGatewayRouteTableId.getValue("PrefixListReference.transitGatewayRouteTableId");
+    }
 
 }

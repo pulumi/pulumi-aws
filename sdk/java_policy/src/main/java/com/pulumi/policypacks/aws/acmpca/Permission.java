@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:acmpca/permission:Permission")
-public final class Permission extends com.pulumi.resources.PolicyResource {
+public final class Permission extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
-    public List<String> actions;
+    private UndeferrableValue<List<String>> actions;
 
-
+    public List<String> actions() {
+        if (actions == null) return null;
+        return actions.getValue("Permission.actions");
+    }
 
     /**
      * ARN of the CA that grants the permissions.
      * 
      */
-    public String certificateAuthorityArn;
+    private UndeferrableValue<String> certificateAuthorityArn;
 
-
+    public String certificateAuthorityArn() {
+        if (certificateAuthorityArn == null) return null;
+        return certificateAuthorityArn.getValue("Permission.certificateAuthorityArn");
+    }
 
     /**
      * IAM policy that is associated with the permission.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Permission.policy");
+    }
 
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
-    public String principal;
+    private UndeferrableValue<String> principal;
 
-
+    public String principal() {
+        if (principal == null) return null;
+        return principal.getValue("Permission.principal");
+    }
 
     /**
      * ID of the calling account
      * 
      */
-    public String sourceAccount;
+    private UndeferrableValue<String> sourceAccount;
 
-
+    public String sourceAccount() {
+        if (sourceAccount == null) return null;
+        return sourceAccount.getValue("Permission.sourceAccount");
+    }
 
 }

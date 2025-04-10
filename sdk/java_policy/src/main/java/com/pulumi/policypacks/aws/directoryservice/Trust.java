@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directoryservice/trust:Trust")
-public final class Trust extends com.pulumi.resources.PolicyResource {
+public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Set of IPv4 addresses for the DNS server associated with the remote Directory.
      * Can contain between 1 and 4 values.
      * 
      */
-    public List<String> conditionalForwarderIpAddrs;
+    private @Nullable UndeferrableValue<List<String>> conditionalForwarderIpAddrs;
 
-
+    public @Nullable List<String> conditionalForwarderIpAddrs() {
+        if (conditionalForwarderIpAddrs == null) return null;
+        return conditionalForwarderIpAddrs.getValue("Trust.conditionalForwarderIpAddrs");
+    }
 
     /**
      * Date and time when the Trust was created.
      * 
      */
-    public String createdDateTime;
+    private UndeferrableValue<String> createdDateTime;
 
-
+    public String createdDateTime() {
+        if (createdDateTime == null) return null;
+        return createdDateTime.getValue("Trust.createdDateTime");
+    }
 
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      * 
      */
-    public Boolean deleteAssociatedConditionalForwarder;
+    private UndeferrableValue<Boolean> deleteAssociatedConditionalForwarder;
 
-
+    public Boolean deleteAssociatedConditionalForwarder() {
+        if (deleteAssociatedConditionalForwarder == null) return null;
+        return deleteAssociatedConditionalForwarder.getValue("Trust.deleteAssociatedConditionalForwarder");
+    }
 
     /**
      * ID of the Directory.
      * 
      */
-    public String directoryId;
+    private UndeferrableValue<String> directoryId;
 
-
+    public String directoryId() {
+        if (directoryId == null) return null;
+        return directoryId.getValue("Trust.directoryId");
+    }
 
     /**
      * Date and time when the Trust was last updated.
      * 
      */
-    public String lastUpdatedDateTime;
+    private UndeferrableValue<String> lastUpdatedDateTime;
 
-
+    public String lastUpdatedDateTime() {
+        if (lastUpdatedDateTime == null) return null;
+        return lastUpdatedDateTime.getValue("Trust.lastUpdatedDateTime");
+    }
 
     /**
      * Fully qualified domain name of the remote Directory.
      * 
      */
-    public String remoteDomainName;
+    private UndeferrableValue<String> remoteDomainName;
 
-
+    public String remoteDomainName() {
+        if (remoteDomainName == null) return null;
+        return remoteDomainName.getValue("Trust.remoteDomainName");
+    }
 
     /**
      * Whether to enable selective authentication.
@@ -67,26 +87,35 @@ public final class Trust extends com.pulumi.resources.PolicyResource {
      * Default value is `Disabled`.
      * 
      */
-    public String selectiveAuth;
+    private UndeferrableValue<String> selectiveAuth;
 
-
+    public String selectiveAuth() {
+        if (selectiveAuth == null) return null;
+        return selectiveAuth.getValue("Trust.selectiveAuth");
+    }
 
     /**
      * Date and time when the Trust state in `trust_state` was last updated.
      * 
      */
-    public String stateLastUpdatedDateTime;
+    private UndeferrableValue<String> stateLastUpdatedDateTime;
 
-
+    public String stateLastUpdatedDateTime() {
+        if (stateLastUpdatedDateTime == null) return null;
+        return stateLastUpdatedDateTime.getValue("Trust.stateLastUpdatedDateTime");
+    }
 
     /**
      * The direction of the Trust relationship.
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
      * 
      */
-    public String trustDirection;
+    private UndeferrableValue<String> trustDirection;
 
-
+    public String trustDirection() {
+        if (trustDirection == null) return null;
+        return trustDirection.getValue("Trust.trustDirection");
+    }
 
     /**
      * Password for the Trust.
@@ -95,26 +124,35 @@ public final class Trust extends com.pulumi.resources.PolicyResource {
      * May be up to 128 characters long.
      * 
      */
-    public String trustPassword;
+    private UndeferrableValue<String> trustPassword;
 
-
+    public String trustPassword() {
+        if (trustPassword == null) return null;
+        return trustPassword.getValue("Trust.trustPassword");
+    }
 
     /**
      * State of the Trust relationship.
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      * 
      */
-    public String trustState;
+    private UndeferrableValue<String> trustState;
 
-
+    public String trustState() {
+        if (trustState == null) return null;
+        return trustState.getValue("Trust.trustState");
+    }
 
     /**
      * Reason for the Trust state set in `trust_state`.
      * 
      */
-    public String trustStateReason;
+    private UndeferrableValue<String> trustStateReason;
 
-
+    public String trustStateReason() {
+        if (trustStateReason == null) return null;
+        return trustStateReason.getValue("Trust.trustStateReason");
+    }
 
     /**
      * Type of the Trust relationship.
@@ -122,8 +160,11 @@ public final class Trust extends com.pulumi.resources.PolicyResource {
      * Default value is `Forest`.
      * 
      */
-    public String trustType;
+    private UndeferrableValue<String> trustType;
 
-
+    public String trustType() {
+        if (trustType == null) return null;
+        return trustType.getValue("Trust.trustType");
+    }
 
 }

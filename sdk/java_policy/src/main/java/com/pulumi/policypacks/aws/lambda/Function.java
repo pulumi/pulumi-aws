@@ -4,217 +4,291 @@
 package com.pulumi.policypacks.aws.lambda;
 
 import com.pulumi.asset.Archive;
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.FunctionDeadLetterConfig;
-import com.pulumi.policypacks.aws.lambda.FunctionEnvironment;
-import com.pulumi.policypacks.aws.lambda.FunctionEphemeralStorage;
-import com.pulumi.policypacks.aws.lambda.FunctionFileSystemConfig;
-import com.pulumi.policypacks.aws.lambda.FunctionImageConfig;
-import com.pulumi.policypacks.aws.lambda.FunctionLoggingConfig;
-import com.pulumi.policypacks.aws.lambda.FunctionSnapStart;
-import com.pulumi.policypacks.aws.lambda.FunctionTracingConfig;
-import com.pulumi.policypacks.aws.lambda.FunctionVpcConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionDeadLetterConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionEnvironment;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionEphemeralStorage;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionFileSystemConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionImageConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionLoggingConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionSnapStart;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionTracingConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.FunctionVpcConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/function:Function")
-public final class Function extends com.pulumi.resources.PolicyResource {
+public final class Function extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    public List<String> architectures;
+    private UndeferrableValue<List<String>> architectures;
 
-
+    public List<String> architectures() {
+        if (architectures == null) return null;
+        return architectures.getValue("Function.architectures");
+    }
 
     /**
      * Amazon Resource Name (ARN) identifying your Lambda Function.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Function.arn");
+    }
 
     /**
      * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
-    public Archive code;
+    private @Nullable UndeferrableValue<Archive> code;
 
-
+    public @Nullable Archive code() {
+        if (code == null) return null;
+        return code.getValue("Function.code");
+    }
 
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    public String codeSha256;
+    private UndeferrableValue<String> codeSha256;
 
-
+    public String codeSha256() {
+        if (codeSha256 == null) return null;
+        return codeSha256.getValue("Function.codeSha256");
+    }
 
     /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      * 
      */
-    public String codeSigningConfigArn;
+    private @Nullable UndeferrableValue<String> codeSigningConfigArn;
 
-
+    public @Nullable String codeSigningConfigArn() {
+        if (codeSigningConfigArn == null) return null;
+        return codeSigningConfigArn.getValue("Function.codeSigningConfigArn");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionDeadLetterConfig deadLetterConfig;
+    private @Nullable UndeferrableValue<FunctionDeadLetterConfig> deadLetterConfig;
 
-
+    public @Nullable FunctionDeadLetterConfig deadLetterConfig() {
+        if (deadLetterConfig == null) return null;
+        return deadLetterConfig.getValue("Function.deadLetterConfig");
+    }
 
     /**
      * Description of what your Lambda Function does.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Function.description");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionEnvironment environment;
+    private @Nullable UndeferrableValue<FunctionEnvironment> environment;
 
-
+    public @Nullable FunctionEnvironment environment() {
+        if (environment == null) return null;
+        return environment.getValue("Function.environment");
+    }
 
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      * 
      */
-    public FunctionEphemeralStorage ephemeralStorage;
+    private UndeferrableValue<FunctionEphemeralStorage> ephemeralStorage;
 
-
+    public FunctionEphemeralStorage ephemeralStorage() {
+        if (ephemeralStorage == null) return null;
+        return ephemeralStorage.getValue("Function.ephemeralStorage");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionFileSystemConfig fileSystemConfig;
+    private @Nullable UndeferrableValue<FunctionFileSystemConfig> fileSystemConfig;
 
-
+    public @Nullable FunctionFileSystemConfig fileSystemConfig() {
+        if (fileSystemConfig == null) return null;
+        return fileSystemConfig.getValue("Function.fileSystemConfig");
+    }
 
     /**
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      * 
      */
-    public String handler;
+    private @Nullable UndeferrableValue<String> handler;
 
-
+    public @Nullable String handler() {
+        if (handler == null) return null;
+        return handler.getValue("Function.handler");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionImageConfig imageConfig;
+    private @Nullable UndeferrableValue<FunctionImageConfig> imageConfig;
 
-
+    public @Nullable FunctionImageConfig imageConfig() {
+        if (imageConfig == null) return null;
+        return imageConfig.getValue("Function.imageConfig");
+    }
 
     /**
      * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
-    public String imageUri;
+    private @Nullable UndeferrableValue<String> imageUri;
 
-
+    public @Nullable String imageUri() {
+        if (imageUri == null) return null;
+        return imageUri.getValue("Function.imageUri");
+    }
 
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    public String invokeArn;
+    private UndeferrableValue<String> invokeArn;
 
-
+    public String invokeArn() {
+        if (invokeArn == null) return null;
+        return invokeArn.getValue("Function.invokeArn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      * 
      */
-    public String kmsKeyArn;
+    private @Nullable UndeferrableValue<String> kmsKeyArn;
 
-
+    public @Nullable String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("Function.kmsKeyArn");
+    }
 
     /**
      * Date this resource was last modified.
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("Function.lastModified");
+    }
 
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      * 
      */
-    public List<String> layers;
+    private @Nullable UndeferrableValue<List<String>> layers;
 
-
+    public @Nullable List<String> layers() {
+        if (layers == null) return null;
+        return layers.getValue("Function.layers");
+    }
 
     /**
      * Configuration block used to specify advanced logging settings. Detailed below.
      * 
      */
-    public FunctionLoggingConfig loggingConfig;
+    private UndeferrableValue<FunctionLoggingConfig> loggingConfig;
 
-
+    public FunctionLoggingConfig loggingConfig() {
+        if (loggingConfig == null) return null;
+        return loggingConfig.getValue("Function.loggingConfig");
+    }
 
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      * 
      */
-    public Integer memorySize;
+    private @Nullable UndeferrableValue<Integer> memorySize;
 
-
+    public @Nullable Integer memorySize() {
+        if (memorySize == null) return null;
+        return memorySize.getValue("Function.memorySize");
+    }
 
     /**
      * Unique name for your Lambda Function.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Function.name");
+    }
 
     /**
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      * 
      */
-    public String packageType;
+    private @Nullable UndeferrableValue<String> packageType;
 
-
+    public @Nullable String packageType() {
+        if (packageType == null) return null;
+        return packageType.getValue("Function.packageType");
+    }
 
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      * 
      */
-    public Boolean publish;
+    private @Nullable UndeferrableValue<Boolean> publish;
 
-
+    public @Nullable Boolean publish() {
+        if (publish == null) return null;
+        return publish.getValue("Function.publish");
+    }
 
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      * 
      */
-    public String qualifiedArn;
+    private UndeferrableValue<String> qualifiedArn;
 
-
+    public String qualifiedArn() {
+        if (qualifiedArn == null) return null;
+        return qualifiedArn.getValue("Function.qualifiedArn");
+    }
 
     /**
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    public String qualifiedInvokeArn;
+    private UndeferrableValue<String> qualifiedInvokeArn;
 
-
+    public String qualifiedInvokeArn() {
+        if (qualifiedInvokeArn == null) return null;
+        return qualifiedInvokeArn.getValue("Function.qualifiedInvokeArn");
+    }
 
     /**
      * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
@@ -223,26 +297,35 @@ public final class Function extends com.pulumi.resources.PolicyResource {
      * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
      * 
      */
-    public Boolean replaceSecurityGroupsOnDestroy;
+    private @Nullable UndeferrableValue<Boolean> replaceSecurityGroupsOnDestroy;
 
-
+    public @Nullable Boolean replaceSecurityGroupsOnDestroy() {
+        if (replaceSecurityGroupsOnDestroy == null) return null;
+        return replaceSecurityGroupsOnDestroy.getValue("Function.replaceSecurityGroupsOnDestroy");
+    }
 
     /**
      * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
      * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
      * 
      */
-    public List<String> replacementSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> replacementSecurityGroupIds;
 
-
+    public @Nullable List<String> replacementSecurityGroupIds() {
+        if (replacementSecurityGroupIds == null) return null;
+        return replacementSecurityGroupIds.getValue("Function.replacementSecurityGroupIds");
+    }
 
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
-    public Integer reservedConcurrentExecutions;
+    private @Nullable UndeferrableValue<Integer> reservedConcurrentExecutions;
 
-
+    public @Nullable Integer reservedConcurrentExecutions() {
+        if (reservedConcurrentExecutions == null) return null;
+        return reservedConcurrentExecutions.getValue("Function.reservedConcurrentExecutions");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
@@ -250,97 +333,133 @@ public final class Function extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("Function.role");
+    }
 
     /**
      * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
-    public String runtime;
+    private @Nullable UndeferrableValue<String> runtime;
 
-
+    public @Nullable String runtime() {
+        if (runtime == null) return null;
+        return runtime.getValue("Function.runtime");
+    }
 
     /**
      * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
-    public String s3Bucket;
+    private @Nullable UndeferrableValue<String> s3Bucket;
 
-
+    public @Nullable String s3Bucket() {
+        if (s3Bucket == null) return null;
+        return s3Bucket.getValue("Function.s3Bucket");
+    }
 
     /**
      * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
-    public String s3Key;
+    private @Nullable UndeferrableValue<String> s3Key;
 
-
+    public @Nullable String s3Key() {
+        if (s3Key == null) return null;
+        return s3Key.getValue("Function.s3Key");
+    }
 
     /**
      * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
      * 
      */
-    public String s3ObjectVersion;
+    private @Nullable UndeferrableValue<String> s3ObjectVersion;
 
-
+    public @Nullable String s3ObjectVersion() {
+        if (s3ObjectVersion == null) return null;
+        return s3ObjectVersion.getValue("Function.s3ObjectVersion");
+    }
 
     /**
      * ARN of the signing job.
      * 
      */
-    public String signingJobArn;
+    private UndeferrableValue<String> signingJobArn;
 
-
+    public String signingJobArn() {
+        if (signingJobArn == null) return null;
+        return signingJobArn.getValue("Function.signingJobArn");
+    }
 
     /**
      * ARN of the signing profile version.
      * 
      */
-    public String signingProfileVersionArn;
+    private UndeferrableValue<String> signingProfileVersionArn;
 
-
+    public String signingProfileVersionArn() {
+        if (signingProfileVersionArn == null) return null;
+        return signingProfileVersionArn.getValue("Function.signingProfileVersionArn");
+    }
 
     /**
      * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
      * 
      */
-    public Boolean skipDestroy;
+    private @Nullable UndeferrableValue<Boolean> skipDestroy;
 
-
+    public @Nullable Boolean skipDestroy() {
+        if (skipDestroy == null) return null;
+        return skipDestroy.getValue("Function.skipDestroy");
+    }
 
     /**
      * Snap start settings block. Detailed below.
      * 
      */
-    public FunctionSnapStart snapStart;
+    private @Nullable UndeferrableValue<FunctionSnapStart> snapStart;
 
-
+    public @Nullable FunctionSnapStart snapStart() {
+        if (snapStart == null) return null;
+        return snapStart.getValue("Function.snapStart");
+    }
 
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    public String sourceCodeHash;
+    private UndeferrableValue<String> sourceCodeHash;
 
-
+    public String sourceCodeHash() {
+        if (sourceCodeHash == null) return null;
+        return sourceCodeHash.getValue("Function.sourceCodeHash");
+    }
 
     /**
      * Size in bytes of the function .zip file.
      * 
      */
-    public Integer sourceCodeSize;
+    private UndeferrableValue<Integer> sourceCodeSize;
 
-
+    public Integer sourceCodeSize() {
+        if (sourceCodeSize == null) return null;
+        return sourceCodeSize.getValue("Function.sourceCodeSize");
+    }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Function.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -350,40 +469,55 @@ public final class Function extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Function.tagsAll");
+    }
 
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      * 
      */
-    public Integer timeout;
+    private @Nullable UndeferrableValue<Integer> timeout;
 
-
+    public @Nullable Integer timeout() {
+        if (timeout == null) return null;
+        return timeout.getValue("Function.timeout");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionTracingConfig tracingConfig;
+    private UndeferrableValue<FunctionTracingConfig> tracingConfig;
 
-
+    public FunctionTracingConfig tracingConfig() {
+        if (tracingConfig == null) return null;
+        return tracingConfig.getValue("Function.tracingConfig");
+    }
 
     /**
      * Latest published version of your Lambda Function.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("Function.version");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public FunctionVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<FunctionVpcConfig> vpcConfig;
 
-
+    public @Nullable FunctionVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Function.vpcConfig");
+    }
 
 }

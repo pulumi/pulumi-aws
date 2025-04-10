@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter")
-public final class PeeringAttachmentAccepter extends com.pulumi.resources.PolicyResource {
+public final class PeeringAttachmentAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the AWS account that owns the EC2 TGW peering.
      * 
      */
-    public String peerAccountId;
+    private UndeferrableValue<String> peerAccountId;
 
+    public String peerAccountId() {
+        if (peerAccountId == null) return null;
+        return peerAccountId.getValue("PeeringAttachmentAccepter.peerAccountId");
+    }
 
+    private UndeferrableValue<String> peerRegion;
 
-    public String peerRegion;
-
-
+    public String peerRegion() {
+        if (peerRegion == null) return null;
+        return peerRegion.getValue("PeeringAttachmentAccepter.peerRegion");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    public String peerTransitGatewayId;
+    private UndeferrableValue<String> peerTransitGatewayId;
 
-
+    public String peerTransitGatewayId() {
+        if (peerTransitGatewayId == null) return null;
+        return peerTransitGatewayId.getValue("PeeringAttachmentAccepter.peerTransitGatewayId");
+    }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PeeringAttachmentAccepter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -47,24 +61,33 @@ public final class PeeringAttachmentAccepter extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PeeringAttachmentAccepter.tagsAll");
+    }
 
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      * 
      */
-    public String transitGatewayAttachmentId;
+    private UndeferrableValue<String> transitGatewayAttachmentId;
 
-
+    public String transitGatewayAttachmentId() {
+        if (transitGatewayAttachmentId == null) return null;
+        return transitGatewayAttachmentId.getValue("PeeringAttachmentAccepter.transitGatewayAttachmentId");
+    }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    public String transitGatewayId;
+    private UndeferrableValue<String> transitGatewayId;
 
-
+    public String transitGatewayId() {
+        if (transitGatewayId == null) return null;
+        return transitGatewayId.getValue("PeeringAttachmentAccepter.transitGatewayId");
+    }
 
 }

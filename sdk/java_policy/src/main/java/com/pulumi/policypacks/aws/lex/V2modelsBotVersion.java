@@ -3,39 +3,50 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsBotVersionLocaleSpecification;
-import com.pulumi.policypacks.aws.lex.V2modelsBotVersionTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotVersionLocaleSpecification;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotVersionTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsBotVersion:V2modelsBotVersion")
-public final class V2modelsBotVersion extends com.pulumi.resources.PolicyResource {
+public final class V2modelsBotVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Idientifier of the bot to create the version for.
      * 
      */
-    public String botId;
+    private UndeferrableValue<String> botId;
 
-
+    public String botId() {
+        if (botId == null) return null;
+        return botId.getValue("V2modelsBotVersion.botId");
+    }
 
     /**
      * Version number assigned to the version.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("V2modelsBotVersion.botVersion");
+    }
 
     /**
      * A description of the version. Use the description to help identify the version in lists.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsBotVersion.description");
+    }
 
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
@@ -44,12 +55,18 @@ public final class V2modelsBotVersion extends com.pulumi.resources.PolicyResourc
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
-    public Map<String,V2modelsBotVersionLocaleSpecification> localeSpecification;
+    private UndeferrableValue<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification;
 
+    public Map<String,V2modelsBotVersionLocaleSpecification> localeSpecification() {
+        if (localeSpecification == null) return null;
+        return localeSpecification.getValue("V2modelsBotVersion.localeSpecification");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsBotVersionTimeouts> timeouts;
 
-    public V2modelsBotVersionTimeouts timeouts;
-
-
+    public @Nullable V2modelsBotVersionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsBotVersion.timeouts");
+    }
 
 }

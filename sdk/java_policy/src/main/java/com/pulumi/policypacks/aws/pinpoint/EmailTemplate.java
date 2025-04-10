@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.pinpoint.EmailTemplateEmailTemplate;
+import com.pulumi.policypacks.aws.pinpoint.outputs.EmailTemplateEmailTemplate;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/emailTemplate:EmailTemplate")
-public final class EmailTemplate extends com.pulumi.resources.PolicyResource {
+public final class EmailTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the message template.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EmailTemplate.arn");
+    }
 
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      * 
      */
-    public List<EmailTemplateEmailTemplate> emailTemplates;
+    private @Nullable UndeferrableValue<List<EmailTemplateEmailTemplate>> emailTemplates;
 
+    public @Nullable List<EmailTemplateEmailTemplate> emailTemplates() {
+        if (emailTemplates == null) return null;
+        return emailTemplates.getValue("EmailTemplate.emailTemplates");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EmailTemplate.tags");
+    }
 
     /**
      * @deprecated
@@ -39,16 +50,22 @@ public final class EmailTemplate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EmailTemplate.tagsAll");
+    }
 
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      */
-    public String templateName;
+    private UndeferrableValue<String> templateName;
 
-
+    public String templateName() {
+        if (templateName == null) return null;
+        return templateName.getValue("EmailTemplate.templateName");
+    }
 
 }

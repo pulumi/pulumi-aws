@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.HoursOfOperationConfig;
+import com.pulumi.policypacks.aws.connect.outputs.HoursOfOperationConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/hoursOfOperation:HoursOfOperation")
-public final class HoursOfOperation extends com.pulumi.resources.PolicyResource {
+public final class HoursOfOperation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the Hours of Operation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("HoursOfOperation.arn");
+    }
 
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      * 
      */
-    public List<HoursOfOperationConfig> configs;
+    private UndeferrableValue<List<HoursOfOperationConfig>> configs;
 
-
+    public List<HoursOfOperationConfig> configs() {
+        if (configs == null) return null;
+        return configs.getValue("HoursOfOperation.configs");
+    }
 
     /**
      * Specifies the description of the Hours of Operation.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("HoursOfOperation.description");
+    }
 
     /**
      * The identifier for the hours of operation.
      * 
      */
-    public String hoursOfOperationId;
+    private UndeferrableValue<String> hoursOfOperationId;
 
-
+    public String hoursOfOperationId() {
+        if (hoursOfOperationId == null) return null;
+        return hoursOfOperationId.getValue("HoursOfOperation.hoursOfOperationId");
+    }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("HoursOfOperation.instanceId");
+    }
 
     /**
      * Specifies the name of the Hours of Operation.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("HoursOfOperation.name");
+    }
 
     /**
      * Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("HoursOfOperation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,16 +100,22 @@ public final class HoursOfOperation extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("HoursOfOperation.tagsAll");
+    }
 
     /**
      * Specifies the time zone of the Hours of Operation.
      * 
      */
-    public String timeZone;
+    private UndeferrableValue<String> timeZone;
 
-
+    public String timeZone() {
+        if (timeZone == null) return null;
+        return timeZone.getValue("HoursOfOperation.timeZone");
+    }
 
 }

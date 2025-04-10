@@ -3,84 +3,113 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:quicksight/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) for the user.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    public String awsAccountId;
+    private UndeferrableValue<String> awsAccountId;
 
-
+    public String awsAccountId() {
+        if (awsAccountId == null) return null;
+        return awsAccountId.getValue("User.awsAccountId");
+    }
 
     /**
      * Email address of the user that you want to register.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("User.email");
+    }
 
     /**
      * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
-    public String iamArn;
+    private @Nullable UndeferrableValue<String> iamArn;
 
-
+    public @Nullable String iamArn() {
+        if (iamArn == null) return null;
+        return iamArn.getValue("User.iamArn");
+    }
 
     /**
      * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
-    public String identityType;
+    private UndeferrableValue<String> identityType;
 
-
+    public String identityType() {
+        if (identityType == null) return null;
+        return identityType.getValue("User.identityType");
+    }
 
     /**
      * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      * 
      */
-    public String namespace;
+    private @Nullable UndeferrableValue<String> namespace;
 
-
+    public @Nullable String namespace() {
+        if (namespace == null) return null;
+        return namespace.getValue("User.namespace");
+    }
 
     /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
-    public String sessionName;
+    private @Nullable UndeferrableValue<String> sessionName;
 
-
+    public @Nullable String sessionName() {
+        if (sessionName == null) return null;
+        return sessionName.getValue("User.sessionName");
+    }
 
     /**
      * URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
      * 
      */
-    public String userInvitationUrl;
+    private UndeferrableValue<String> userInvitationUrl;
 
-
+    public String userInvitationUrl() {
+        if (userInvitationUrl == null) return null;
+        return userInvitationUrl.getValue("User.userInvitationUrl");
+    }
 
     /**
      * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
-    public String userName;
+    private @Nullable UndeferrableValue<String> userName;
 
-
+    public @Nullable String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
     /**
      * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
@@ -88,8 +117,11 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String userRole;
+    private UndeferrableValue<String> userRole;
 
-
+    public String userRole() {
+        if (userRole == null) return null;
+        return userRole.getValue("User.userRole");
+    }
 
 }

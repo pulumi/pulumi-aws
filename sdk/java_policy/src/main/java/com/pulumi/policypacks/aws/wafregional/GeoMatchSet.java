@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.wafregional.GeoMatchSetGeoMatchConstraint;
+import com.pulumi.policypacks.aws.wafregional.outputs.GeoMatchSetGeoMatchConstraint;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:wafregional/geoMatchSet:GeoMatchSet")
-public final class GeoMatchSet extends com.pulumi.resources.PolicyResource {
+public final class GeoMatchSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
-    public List<GeoMatchSetGeoMatchConstraint> geoMatchConstraints;
+    private @Nullable UndeferrableValue<List<GeoMatchSetGeoMatchConstraint>> geoMatchConstraints;
 
-
+    public @Nullable List<GeoMatchSetGeoMatchConstraint> geoMatchConstraints() {
+        if (geoMatchConstraints == null) return null;
+        return geoMatchConstraints.getValue("GeoMatchSet.geoMatchConstraints");
+    }
 
     /**
      * The name or description of the Geo Match Set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("GeoMatchSet.name");
+    }
 
 }

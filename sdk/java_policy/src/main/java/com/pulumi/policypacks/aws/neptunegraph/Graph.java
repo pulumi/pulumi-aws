@@ -3,42 +3,53 @@
 
 package com.pulumi.policypacks.aws.neptunegraph;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.neptunegraph.GraphTimeouts;
-import com.pulumi.policypacks.aws.neptunegraph.GraphVectorSearchConfiguration;
+import com.pulumi.policypacks.aws.neptunegraph.outputs.GraphTimeouts;
+import com.pulumi.policypacks.aws.neptunegraph.outputs.GraphVectorSearchConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:neptunegraph/graph:Graph")
-public final class Graph extends com.pulumi.resources.PolicyResource {
+public final class Graph extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * (String) Graph resource ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Graph.arn");
+    }
 
     /**
      * A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
      * protection is enabled.
      * 
      */
-    public Boolean deletionProtection;
+    private UndeferrableValue<Boolean> deletionProtection;
 
-
+    public Boolean deletionProtection() {
+        if (deletionProtection == null) return null;
+        return deletionProtection.getValue("Graph.deletionProtection");
+    }
 
     /**
      * (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Graph.endpoint");
+    }
 
     /**
      * The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
@@ -47,33 +58,45 @@ public final class Graph extends com.pulumi.resources.PolicyResource {
      * UUID.
      * 
      */
-    public String graphName;
+    private UndeferrableValue<String> graphName;
 
-
+    public String graphName() {
+        if (graphName == null) return null;
+        return graphName.getValue("Graph.graphName");
+    }
 
     /**
      * Allows user to specify name prefix and have remainder of name automatically generated.
      * 
      */
-    public String graphNamePrefix;
+    private @Nullable UndeferrableValue<String> graphNamePrefix;
 
-
+    public @Nullable String graphNamePrefix() {
+        if (graphNamePrefix == null) return null;
+        return graphNamePrefix.getValue("Graph.graphNamePrefix");
+    }
 
     /**
      * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
      * 
      */
-    public String kmsKeyIdentifier;
+    private UndeferrableValue<String> kmsKeyIdentifier;
 
-
+    public String kmsKeyIdentifier() {
+        if (kmsKeyIdentifier == null) return null;
+        return kmsKeyIdentifier.getValue("Graph.kmsKeyIdentifier");
+    }
 
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
      */
-    public Integer provisionedMemory;
+    private UndeferrableValue<Integer> provisionedMemory;
 
-
+    public Integer provisionedMemory() {
+        if (provisionedMemory == null) return null;
+        return provisionedMemory.getValue("Graph.provisionedMemory");
+    }
 
     /**
      * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
@@ -82,21 +105,30 @@ public final class Graph extends com.pulumi.resources.PolicyResource {
      * the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
-    public Boolean publicConnectivity;
+    private UndeferrableValue<Boolean> publicConnectivity;
 
-
+    public Boolean publicConnectivity() {
+        if (publicConnectivity == null) return null;
+        return publicConnectivity.getValue("Graph.publicConnectivity");
+    }
 
     /**
      * The number of replicas in other AZs. Value must be between 0 and 2.
      * 
      */
-    public Integer replicaCount;
+    private UndeferrableValue<Integer> replicaCount;
 
+    public Integer replicaCount() {
+        if (replicaCount == null) return null;
+        return replicaCount.getValue("Graph.replicaCount");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Graph.tags");
+    }
 
     /**
      * @deprecated
@@ -104,20 +136,29 @@ public final class Graph extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Graph.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<GraphTimeouts> timeouts;
 
-    public GraphTimeouts timeouts;
-
-
+    public @Nullable GraphTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Graph.timeouts");
+    }
 
     /**
      * Vector search configuration for the Neptune Graph
      * 
      */
-    public GraphVectorSearchConfiguration vectorSearchConfiguration;
+    private @Nullable UndeferrableValue<GraphVectorSearchConfiguration> vectorSearchConfiguration;
 
-
+    public @Nullable GraphVectorSearchConfiguration vectorSearchConfiguration() {
+        if (vectorSearchConfiguration == null) return null;
+        return vectorSearchConfiguration.getValue("Graph.vectorSearchConfiguration");
+    }
 
 }

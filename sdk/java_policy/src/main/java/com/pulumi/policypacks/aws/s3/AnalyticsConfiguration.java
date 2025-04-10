@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.AnalyticsConfigurationFilter;
-import com.pulumi.policypacks.aws.s3.AnalyticsConfigurationStorageClassAnalysis;
+import com.pulumi.policypacks.aws.s3.outputs.AnalyticsConfigurationFilter;
+import com.pulumi.policypacks.aws.s3.outputs.AnalyticsConfigurationStorageClassAnalysis;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/analyticsConfiguration:AnalyticsConfiguration")
-public final class AnalyticsConfiguration extends com.pulumi.resources.PolicyResource {
+public final class AnalyticsConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket this analytics configuration is associated with.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("AnalyticsConfiguration.bucket");
+    }
 
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      * 
      */
-    public AnalyticsConfigurationFilter filter;
+    private @Nullable UndeferrableValue<AnalyticsConfigurationFilter> filter;
 
-
+    public @Nullable AnalyticsConfigurationFilter filter() {
+        if (filter == null) return null;
+        return filter.getValue("AnalyticsConfiguration.filter");
+    }
 
     /**
      * Unique identifier of the analytics configuration for the bucket.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AnalyticsConfiguration.name");
+    }
 
     /**
      * Configuration for the analytics data export (documented below).
      * 
      */
-    public AnalyticsConfigurationStorageClassAnalysis storageClassAnalysis;
+    private @Nullable UndeferrableValue<AnalyticsConfigurationStorageClassAnalysis> storageClassAnalysis;
 
-
+    public @Nullable AnalyticsConfigurationStorageClassAnalysis storageClassAnalysis() {
+        if (storageClassAnalysis == null) return null;
+        return storageClassAnalysis.getValue("AnalyticsConfiguration.storageClassAnalysis");
+    }
 
 }

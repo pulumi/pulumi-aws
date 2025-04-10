@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.connect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.connect.PhoneNumberStatus;
+import com.pulumi.policypacks.aws.connect.outputs.PhoneNumberStatus;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:connect/phoneNumber:PhoneNumber")
-public final class PhoneNumber extends com.pulumi.resources.PolicyResource {
+public final class PhoneNumber extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the phone number.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PhoneNumber.arn");
+    }
 
     /**
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
      * 
      */
-    public String countryCode;
+    private UndeferrableValue<String> countryCode;
 
-
+    public String countryCode() {
+        if (countryCode == null) return null;
+        return countryCode.getValue("PhoneNumber.countryCode");
+    }
 
     /**
      * The description of the phone number.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PhoneNumber.description");
+    }
 
     /**
      * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
      * 
      */
-    public String phoneNumber;
+    private UndeferrableValue<String> phoneNumber;
 
-
+    public String phoneNumber() {
+        if (phoneNumber == null) return null;
+        return phoneNumber.getValue("PhoneNumber.phoneNumber");
+    }
 
     /**
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      * 
      */
-    public String prefix;
+    private @Nullable UndeferrableValue<String> prefix;
 
-
+    public @Nullable String prefix() {
+        if (prefix == null) return null;
+        return prefix.getValue("PhoneNumber.prefix");
+    }
 
     /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      * 
      */
-    public List<PhoneNumberStatus> statuses;
+    private UndeferrableValue<List<PhoneNumberStatus>> statuses;
 
-
+    public List<PhoneNumberStatus> statuses() {
+        if (statuses == null) return null;
+        return statuses.getValue("PhoneNumber.statuses");
+    }
 
     /**
      * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PhoneNumber.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -77,24 +100,33 @@ public final class PhoneNumber extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PhoneNumber.tagsAll");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
-
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("PhoneNumber.targetArn");
+    }
 
     /**
      * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("PhoneNumber.type");
+    }
 
 }

@@ -3,59 +3,78 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:redshift/partner:Partner")
-public final class Partner extends com.pulumi.resources.PolicyResource {
+public final class Partner extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Web Services account ID that owns the cluster.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Partner.accountId");
+    }
 
     /**
      * The cluster identifier of the cluster that receives data from the partner.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("Partner.clusterIdentifier");
+    }
 
     /**
      * The name of the database that receives data from the partner.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Partner.databaseName");
+    }
 
     /**
      * The name of the partner that is authorized to send data.
      * 
      */
-    public String partnerName;
+    private UndeferrableValue<String> partnerName;
 
-
+    public String partnerName() {
+        if (partnerName == null) return null;
+        return partnerName.getValue("Partner.partnerName");
+    }
 
     /**
      * (Optional) The partner integration status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Partner.status");
+    }
 
     /**
      * (Optional) The status message provided by the partner.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
-
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("Partner.statusMessage");
+    }
 
 }

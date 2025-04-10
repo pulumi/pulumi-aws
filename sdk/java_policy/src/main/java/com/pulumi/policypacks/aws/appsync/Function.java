@@ -3,118 +3,159 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appsync.FunctionRuntime;
-import com.pulumi.policypacks.aws.appsync.FunctionSyncConfig;
+import com.pulumi.policypacks.aws.appsync.outputs.FunctionRuntime;
+import com.pulumi.policypacks.aws.appsync.outputs.FunctionSyncConfig;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appsync/function:Function")
-public final class Function extends com.pulumi.resources.PolicyResource {
+public final class Function extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID of the associated AppSync API.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Function.apiId");
+    }
 
     /**
      * ARN of the Function object.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Function.arn");
+    }
 
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
-    public String code;
+    private @Nullable UndeferrableValue<String> code;
 
-
+    public @Nullable String code() {
+        if (code == null) return null;
+        return code.getValue("Function.code");
+    }
 
     /**
      * Function data source name.
      * 
      */
-    public String dataSource;
+    private UndeferrableValue<String> dataSource;
 
-
+    public String dataSource() {
+        if (dataSource == null) return null;
+        return dataSource.getValue("Function.dataSource");
+    }
 
     /**
      * Function description.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Function.description");
+    }
 
     /**
      * Unique ID representing the Function object.
      * 
      */
-    public String functionId;
+    private UndeferrableValue<String> functionId;
 
-
+    public String functionId() {
+        if (functionId == null) return null;
+        return functionId.getValue("Function.functionId");
+    }
 
     /**
      * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
-    public String functionVersion;
+    private UndeferrableValue<String> functionVersion;
 
-
+    public String functionVersion() {
+        if (functionVersion == null) return null;
+        return functionVersion.getValue("Function.functionVersion");
+    }
 
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
-    public Integer maxBatchSize;
+    private @Nullable UndeferrableValue<Integer> maxBatchSize;
 
-
+    public @Nullable Integer maxBatchSize() {
+        if (maxBatchSize == null) return null;
+        return maxBatchSize.getValue("Function.maxBatchSize");
+    }
 
     /**
      * Function name. The function name does not have to be unique.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Function.name");
+    }
 
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
-    public String requestMappingTemplate;
+    private @Nullable UndeferrableValue<String> requestMappingTemplate;
 
-
+    public @Nullable String requestMappingTemplate() {
+        if (requestMappingTemplate == null) return null;
+        return requestMappingTemplate.getValue("Function.requestMappingTemplate");
+    }
 
     /**
      * Function response mapping template.
      * 
      */
-    public String responseMappingTemplate;
+    private @Nullable UndeferrableValue<String> responseMappingTemplate;
 
-
+    public @Nullable String responseMappingTemplate() {
+        if (responseMappingTemplate == null) return null;
+        return responseMappingTemplate.getValue("Function.responseMappingTemplate");
+    }
 
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
-    public FunctionRuntime runtime;
+    private @Nullable UndeferrableValue<FunctionRuntime> runtime;
 
-
+    public @Nullable FunctionRuntime runtime() {
+        if (runtime == null) return null;
+        return runtime.getValue("Function.runtime");
+    }
 
     /**
      * Describes a Sync configuration for a resolver. See `sync_config` Block for details.
      * 
      */
-    public FunctionSyncConfig syncConfig;
+    private @Nullable UndeferrableValue<FunctionSyncConfig> syncConfig;
 
-
+    public @Nullable FunctionSyncConfig syncConfig() {
+        if (syncConfig == null) return null;
+        return syncConfig.getValue("Function.syncConfig");
+    }
 
 }

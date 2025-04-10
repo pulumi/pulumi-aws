@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")
-public final class TransitGatewayConnectPeerAssociation extends com.pulumi.resources.PolicyResource {
+public final class TransitGatewayConnectPeerAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the device.
      * 
      */
-    public String deviceId;
+    private UndeferrableValue<String> deviceId;
 
-
+    public String deviceId() {
+        if (deviceId == null) return null;
+        return deviceId.getValue("TransitGatewayConnectPeerAssociation.deviceId");
+    }
 
     /**
      * The ID of the global network.
      * 
      */
-    public String globalNetworkId;
+    private UndeferrableValue<String> globalNetworkId;
 
-
+    public String globalNetworkId() {
+        if (globalNetworkId == null) return null;
+        return globalNetworkId.getValue("TransitGatewayConnectPeerAssociation.globalNetworkId");
+    }
 
     /**
      * The ID of the link.
      * 
      */
-    public String linkId;
+    private @Nullable UndeferrableValue<String> linkId;
 
-
+    public @Nullable String linkId() {
+        if (linkId == null) return null;
+        return linkId.getValue("TransitGatewayConnectPeerAssociation.linkId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Connect peer.
      * 
      */
-    public String transitGatewayConnectPeerArn;
+    private UndeferrableValue<String> transitGatewayConnectPeerArn;
 
-
+    public String transitGatewayConnectPeerArn() {
+        if (transitGatewayConnectPeerArn == null) return null;
+        return transitGatewayConnectPeerArn.getValue("TransitGatewayConnectPeerAssociation.transitGatewayConnectPeerArn");
+    }
 
 }

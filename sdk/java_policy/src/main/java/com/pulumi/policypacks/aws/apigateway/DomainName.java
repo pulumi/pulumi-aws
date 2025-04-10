@@ -3,135 +3,182 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.DomainNameEndpointConfiguration;
-import com.pulumi.policypacks.aws.apigateway.DomainNameMutualTlsAuthentication;
+import com.pulumi.policypacks.aws.apigateway.outputs.DomainNameEndpointConfiguration;
+import com.pulumi.policypacks.aws.apigateway.outputs.DomainNameMutualTlsAuthentication;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/domainName:DomainName")
-public final class DomainName extends com.pulumi.resources.PolicyResource {
+public final class DomainName extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of domain name.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DomainName.arn");
+    }
 
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    public String certificateArn;
+    private @Nullable UndeferrableValue<String> certificateArn;
 
-
+    public @Nullable String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("DomainName.certificateArn");
+    }
 
     /**
      * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    public String certificateBody;
+    private @Nullable UndeferrableValue<String> certificateBody;
 
-
+    public @Nullable String certificateBody() {
+        if (certificateBody == null) return null;
+        return certificateBody.getValue("DomainName.certificateBody");
+    }
 
     /**
      * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    public String certificateChain;
+    private @Nullable UndeferrableValue<String> certificateChain;
 
-
+    public @Nullable String certificateChain() {
+        if (certificateChain == null) return null;
+        return certificateChain.getValue("DomainName.certificateChain");
+    }
 
     /**
      * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
      * 
      */
-    public String certificateName;
+    private @Nullable UndeferrableValue<String> certificateName;
 
-
+    public @Nullable String certificateName() {
+        if (certificateName == null) return null;
+        return certificateName.getValue("DomainName.certificateName");
+    }
 
     /**
      * Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    public String certificatePrivateKey;
+    private @Nullable UndeferrableValue<String> certificatePrivateKey;
 
-
+    public @Nullable String certificatePrivateKey() {
+        if (certificatePrivateKey == null) return null;
+        return certificatePrivateKey.getValue("DomainName.certificatePrivateKey");
+    }
 
     /**
      * Upload date associated with the domain certificate.
      * 
      */
-    public String certificateUploadDate;
+    private UndeferrableValue<String> certificateUploadDate;
 
-
+    public String certificateUploadDate() {
+        if (certificateUploadDate == null) return null;
+        return certificateUploadDate.getValue("DomainName.certificateUploadDate");
+    }
 
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      * 
      */
-    public String cloudfrontDomainName;
+    private UndeferrableValue<String> cloudfrontDomainName;
 
-
+    public String cloudfrontDomainName() {
+        if (cloudfrontDomainName == null) return null;
+        return cloudfrontDomainName.getValue("DomainName.cloudfrontDomainName");
+    }
 
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      * 
      */
-    public String cloudfrontZoneId;
+    private UndeferrableValue<String> cloudfrontZoneId;
 
-
+    public String cloudfrontZoneId() {
+        if (cloudfrontZoneId == null) return null;
+        return cloudfrontZoneId.getValue("DomainName.cloudfrontZoneId");
+    }
 
     /**
      * Fully-qualified domain name to register.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainName.domainName");
+    }
 
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
-    public String domainNameId;
+    private UndeferrableValue<String> domainNameId;
 
-
+    public String domainNameId() {
+        if (domainNameId == null) return null;
+        return domainNameId.getValue("DomainName.domainNameId");
+    }
 
     /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
-    public DomainNameEndpointConfiguration endpointConfiguration;
+    private UndeferrableValue<DomainNameEndpointConfiguration> endpointConfiguration;
 
-
+    public DomainNameEndpointConfiguration endpointConfiguration() {
+        if (endpointConfiguration == null) return null;
+        return endpointConfiguration.getValue("DomainName.endpointConfiguration");
+    }
 
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      * 
      */
-    public DomainNameMutualTlsAuthentication mutualTlsAuthentication;
+    private @Nullable UndeferrableValue<DomainNameMutualTlsAuthentication> mutualTlsAuthentication;
 
-
+    public @Nullable DomainNameMutualTlsAuthentication mutualTlsAuthentication() {
+        if (mutualTlsAuthentication == null) return null;
+        return mutualTlsAuthentication.getValue("DomainName.mutualTlsAuthentication");
+    }
 
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
-    public String ownershipVerificationCertificateArn;
+    private UndeferrableValue<String> ownershipVerificationCertificateArn;
 
-
+    public String ownershipVerificationCertificateArn() {
+        if (ownershipVerificationCertificateArn == null) return null;
+        return ownershipVerificationCertificateArn.getValue("DomainName.ownershipVerificationCertificateArn");
+    }
 
     /**
      * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
-    public String policy;
+    private @Nullable UndeferrableValue<String> policy;
 
-
+    public @Nullable String policy() {
+        if (policy == null) return null;
+        return policy.getValue("DomainName.policy");
+    }
 
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
@@ -139,41 +186,56 @@ public final class DomainName extends com.pulumi.resources.PolicyResource {
      * When uploading a certificate, the following arguments are supported:
      * 
      */
-    public String regionalCertificateArn;
+    private @Nullable UndeferrableValue<String> regionalCertificateArn;
 
-
+    public @Nullable String regionalCertificateArn() {
+        if (regionalCertificateArn == null) return null;
+        return regionalCertificateArn.getValue("DomainName.regionalCertificateArn");
+    }
 
     /**
      * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      * 
      */
-    public String regionalCertificateName;
+    private @Nullable UndeferrableValue<String> regionalCertificateName;
 
-
+    public @Nullable String regionalCertificateName() {
+        if (regionalCertificateName == null) return null;
+        return regionalCertificateName.getValue("DomainName.regionalCertificateName");
+    }
 
     /**
      * Hostname for the custom domain&#39;s regional endpoint.
      * 
      */
-    public String regionalDomainName;
+    private UndeferrableValue<String> regionalDomainName;
 
-
+    public String regionalDomainName() {
+        if (regionalDomainName == null) return null;
+        return regionalDomainName.getValue("DomainName.regionalDomainName");
+    }
 
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      * 
      */
-    public String regionalZoneId;
+    private UndeferrableValue<String> regionalZoneId;
 
-
+    public String regionalZoneId() {
+        if (regionalZoneId == null) return null;
+        return regionalZoneId.getValue("DomainName.regionalZoneId");
+    }
 
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      * 
      */
-    public String securityPolicy;
+    private UndeferrableValue<String> securityPolicy;
 
-
+    public String securityPolicy() {
+        if (securityPolicy == null) return null;
+        return securityPolicy.getValue("DomainName.securityPolicy");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,9 +243,12 @@ public final class DomainName extends com.pulumi.resources.PolicyResource {
      * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DomainName.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -193,8 +258,11 @@ public final class DomainName extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DomainName.tagsAll");
+    }
 
 }

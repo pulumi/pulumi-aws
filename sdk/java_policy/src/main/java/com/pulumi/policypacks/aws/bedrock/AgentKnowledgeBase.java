@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentKnowledgeBaseStorageConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentKnowledgeBaseTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")
-public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResource {
+public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the knowledge base.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AgentKnowledgeBase.arn");
+    }
 
     /**
      * Time at which the knowledge base was created.
      * 
      */
-    public String createdAt;
+    private UndeferrableValue<String> createdAt;
 
-
+    public String createdAt() {
+        if (createdAt == null) return null;
+        return createdAt.getValue("AgentKnowledgeBase.createdAt");
+    }
 
     /**
      * Description of the knowledge base.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AgentKnowledgeBase.description");
+    }
 
+    private UndeferrableValue<List<String>> failureReasons;
 
-    public List<String> failureReasons;
-
-
+    public List<String> failureReasons() {
+        if (failureReasons == null) return null;
+        return failureReasons.getValue("AgentKnowledgeBase.failureReasons");
+    }
 
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
-    public AgentKnowledgeBaseKnowledgeBaseConfiguration knowledgeBaseConfiguration;
+    private @Nullable UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
 
-
+    public @Nullable AgentKnowledgeBaseKnowledgeBaseConfiguration knowledgeBaseConfiguration() {
+        if (knowledgeBaseConfiguration == null) return null;
+        return knowledgeBaseConfiguration.getValue("AgentKnowledgeBase.knowledgeBaseConfiguration");
+    }
 
     /**
      * Name of the knowledge base.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AgentKnowledgeBase.name");
+    }
 
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("AgentKnowledgeBase.roleArn");
+    }
 
     /**
      * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
@@ -73,17 +96,23 @@ public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public AgentKnowledgeBaseStorageConfiguration storageConfiguration;
+    private @Nullable UndeferrableValue<AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
 
-
+    public @Nullable AgentKnowledgeBaseStorageConfiguration storageConfiguration() {
+        if (storageConfiguration == null) return null;
+        return storageConfiguration.getValue("AgentKnowledgeBase.storageConfiguration");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AgentKnowledgeBase.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -93,20 +122,29 @@ public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AgentKnowledgeBase.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<AgentKnowledgeBaseTimeouts> timeouts;
 
-    public AgentKnowledgeBaseTimeouts timeouts;
-
-
+    public @Nullable AgentKnowledgeBaseTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentKnowledgeBase.timeouts");
+    }
 
     /**
      * Time at which the knowledge base was last updated.
      * 
      */
-    public String updatedAt;
+    private UndeferrableValue<String> updatedAt;
 
-
+    public String updatedAt() {
+        if (updatedAt == null) return null;
+        return updatedAt.getValue("AgentKnowledgeBase.updatedAt");
+    }
 
 }

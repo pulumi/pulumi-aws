@@ -3,68 +3,91 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lambda.AliasRoutingConfig;
+import com.pulumi.policypacks.aws.lambda.outputs.AliasRoutingConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lambda/alias:Alias")
-public final class Alias extends com.pulumi.resources.PolicyResource {
+public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Alias.arn");
+    }
 
     /**
      * Description of the alias.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Alias.description");
+    }
 
     /**
      * Lambda Function name or ARN.
      * 
      */
-    public String functionName;
+    private UndeferrableValue<String> functionName;
 
-
+    public String functionName() {
+        if (functionName == null) return null;
+        return functionName.getValue("Alias.functionName");
+    }
 
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      * 
      */
-    public String functionVersion;
+    private UndeferrableValue<String> functionVersion;
 
-
+    public String functionVersion() {
+        if (functionVersion == null) return null;
+        return functionVersion.getValue("Alias.functionVersion");
+    }
 
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
      * 
      */
-    public String invokeArn;
+    private UndeferrableValue<String> invokeArn;
 
-
+    public String invokeArn() {
+        if (invokeArn == null) return null;
+        return invokeArn.getValue("Alias.invokeArn");
+    }
 
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Alias.name");
+    }
 
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
      */
-    public AliasRoutingConfig routingConfig;
+    private @Nullable UndeferrableValue<AliasRoutingConfig> routingConfig;
 
-
+    public @Nullable AliasRoutingConfig routingConfig() {
+        if (routingConfig == null) return null;
+        return routingConfig.getValue("Alias.routingConfig");
+    }
 
 }

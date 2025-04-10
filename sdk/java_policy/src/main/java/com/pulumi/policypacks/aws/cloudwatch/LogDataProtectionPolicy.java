@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")
-public final class LogDataProtectionPolicy extends com.pulumi.resources.PolicyResource {
+public final class LogDataProtectionPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("LogDataProtectionPolicy.logGroupName");
+    }
 
     /**
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("LogDataProtectionPolicy.policyDocument");
+    }
 
 }

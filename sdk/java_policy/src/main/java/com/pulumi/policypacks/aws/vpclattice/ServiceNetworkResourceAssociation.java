@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ServiceNetworkResourceAssociationDnsEntry;
-import com.pulumi.policypacks.aws.vpclattice.ServiceNetworkResourceAssociationTimeouts;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ServiceNetworkResourceAssociationDnsEntry;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ServiceNetworkResourceAssociationTimeouts;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")
-public final class ServiceNetworkResourceAssociation extends com.pulumi.resources.PolicyResource {
+public final class ServiceNetworkResourceAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Service Network Resource Association.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ServiceNetworkResourceAssociation.arn");
+    }
 
     /**
      * DNS entry of the association in the service network.
      * 
      */
-    public List<ServiceNetworkResourceAssociationDnsEntry> dnsEntries;
+    private UndeferrableValue<List<ServiceNetworkResourceAssociationDnsEntry>> dnsEntries;
 
-
+    public List<ServiceNetworkResourceAssociationDnsEntry> dnsEntries() {
+        if (dnsEntries == null) return null;
+        return dnsEntries.getValue("ServiceNetworkResourceAssociation.dnsEntries");
+    }
 
     /**
      * Identifier of Resource Configuration to associate to the Service Network.
      * 
      */
-    public String resourceConfigurationIdentifier;
+    private UndeferrableValue<String> resourceConfigurationIdentifier;
 
-
+    public String resourceConfigurationIdentifier() {
+        if (resourceConfigurationIdentifier == null) return null;
+        return resourceConfigurationIdentifier.getValue("ServiceNetworkResourceAssociation.resourceConfigurationIdentifier");
+    }
 
     /**
      * Identifier of the Service Network to associate the Resource to.
@@ -44,17 +55,23 @@ public final class ServiceNetworkResourceAssociation extends com.pulumi.resource
      * The following arguments are optional:
      * 
      */
-    public String serviceNetworkIdentifier;
+    private UndeferrableValue<String> serviceNetworkIdentifier;
 
-
+    public String serviceNetworkIdentifier() {
+        if (serviceNetworkIdentifier == null) return null;
+        return serviceNetworkIdentifier.getValue("ServiceNetworkResourceAssociation.serviceNetworkIdentifier");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ServiceNetworkResourceAssociation.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -64,12 +81,18 @@ public final class ServiceNetworkResourceAssociation extends com.pulumi.resource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ServiceNetworkResourceAssociation.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ServiceNetworkResourceAssociationTimeouts> timeouts;
 
-    public ServiceNetworkResourceAssociationTimeouts timeouts;
-
-
+    public @Nullable ServiceNetworkResourceAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ServiceNetworkResourceAssociation.timeouts");
+    }
 
 }

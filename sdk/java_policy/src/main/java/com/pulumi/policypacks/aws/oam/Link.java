@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.oam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.oam.LinkLinkConfiguration;
+import com.pulumi.policypacks.aws.oam.outputs.LinkLinkConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:oam/link:Link")
-public final class Link extends com.pulumi.resources.PolicyResource {
+public final class Link extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the link.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Link.arn");
+    }
 
     /**
      * Label that is assigned to this link.
      * 
      */
-    public String label;
+    private UndeferrableValue<String> label;
 
-
+    public String label() {
+        if (label == null) return null;
+        return label.getValue("Link.label");
+    }
 
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      * 
      */
-    public String labelTemplate;
+    private UndeferrableValue<String> labelTemplate;
 
-
+    public String labelTemplate() {
+        if (labelTemplate == null) return null;
+        return labelTemplate.getValue("Link.labelTemplate");
+    }
 
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
      * 
      */
-    public LinkLinkConfiguration linkConfiguration;
+    private @Nullable UndeferrableValue<LinkLinkConfiguration> linkConfiguration;
 
-
+    public @Nullable LinkLinkConfiguration linkConfiguration() {
+        if (linkConfiguration == null) return null;
+        return linkConfiguration.getValue("Link.linkConfiguration");
+    }
 
     /**
      * ID string that AWS generated as part of the link ARN.
      * 
      */
-    public String linkId;
+    private UndeferrableValue<String> linkId;
 
-
+    public String linkId() {
+        if (linkId == null) return null;
+        return linkId.getValue("Link.linkId");
+    }
 
     /**
      * Types of data that the source account shares with the monitoring account.
      * 
      */
-    public List<String> resourceTypes;
+    private UndeferrableValue<List<String>> resourceTypes;
 
-
+    public List<String> resourceTypes() {
+        if (resourceTypes == null) return null;
+        return resourceTypes.getValue("Link.resourceTypes");
+    }
 
     /**
      * ARN of the sink that is used for this link.
      * 
      */
-    public String sinkArn;
+    private UndeferrableValue<String> sinkArn;
 
-
+    public String sinkArn() {
+        if (sinkArn == null) return null;
+        return sinkArn.getValue("Link.sinkArn");
+    }
 
     /**
      * Identifier of the sink to use to create this link.
@@ -75,17 +98,23 @@ public final class Link extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String sinkIdentifier;
+    private UndeferrableValue<String> sinkIdentifier;
 
-
+    public String sinkIdentifier() {
+        if (sinkIdentifier == null) return null;
+        return sinkIdentifier.getValue("Link.sinkIdentifier");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Link.tags");
+    }
 
     /**
      * @deprecated
@@ -93,8 +122,11 @@ public final class Link extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Link.tagsAll");
+    }
 
 }

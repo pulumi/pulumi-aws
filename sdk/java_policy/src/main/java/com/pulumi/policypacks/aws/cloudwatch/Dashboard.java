@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/dashboard:Dashboard")
-public final class Dashboard extends com.pulumi.resources.PolicyResource {
+public final class Dashboard extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      * 
      */
-    public String dashboardArn;
+    private UndeferrableValue<String> dashboardArn;
 
-
+    public String dashboardArn() {
+        if (dashboardArn == null) return null;
+        return dashboardArn.getValue("Dashboard.dashboardArn");
+    }
 
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      * 
      */
-    public String dashboardBody;
+    private UndeferrableValue<String> dashboardBody;
 
-
+    public String dashboardBody() {
+        if (dashboardBody == null) return null;
+        return dashboardBody.getValue("Dashboard.dashboardBody");
+    }
 
     /**
      * The name of the dashboard.
      * 
      */
-    public String dashboardName;
+    private UndeferrableValue<String> dashboardName;
 
-
+    public String dashboardName() {
+        if (dashboardName == null) return null;
+        return dashboardName.getValue("Dashboard.dashboardName");
+    }
 
 }

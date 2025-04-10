@@ -3,143 +3,193 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.verifiedaccess.EndpointCidrOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.EndpointLoadBalancerOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.EndpointNetworkInterfaceOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.EndpointRdsOptions;
-import com.pulumi.policypacks.aws.verifiedaccess.EndpointSseSpecification;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointCidrOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointLoadBalancerOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointNetworkInterfaceOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointRdsOptions;
+import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointSseSpecification;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:verifiedaccess/endpoint:Endpoint")
-public final class Endpoint extends com.pulumi.resources.PolicyResource {
+public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    public String applicationDomain;
+    private @Nullable UndeferrableValue<String> applicationDomain;
 
-
+    public @Nullable String applicationDomain() {
+        if (applicationDomain == null) return null;
+        return applicationDomain.getValue("Endpoint.applicationDomain");
+    }
 
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      * 
      */
-    public String attachmentType;
+    private UndeferrableValue<String> attachmentType;
 
-
+    public String attachmentType() {
+        if (attachmentType == null) return null;
+        return attachmentType.getValue("Endpoint.attachmentType");
+    }
 
     /**
      * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
      * 
      */
-    public EndpointCidrOptions cidrOptions;
+    private @Nullable UndeferrableValue<EndpointCidrOptions> cidrOptions;
 
-
+    public @Nullable EndpointCidrOptions cidrOptions() {
+        if (cidrOptions == null) return null;
+        return cidrOptions.getValue("Endpoint.cidrOptions");
+    }
 
     /**
      * A description for the Verified Access endpoint.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Endpoint.description");
+    }
 
     /**
      * Returned if endpoint has a device trust provider attached.
      * 
      */
-    public String deviceValidationDomain;
+    private UndeferrableValue<String> deviceValidationDomain;
 
-
+    public String deviceValidationDomain() {
+        if (deviceValidationDomain == null) return null;
+        return deviceValidationDomain.getValue("Endpoint.deviceValidationDomain");
+    }
 
     /**
      * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    public String domainCertificateArn;
+    private @Nullable UndeferrableValue<String> domainCertificateArn;
 
-
+    public @Nullable String domainCertificateArn() {
+        if (domainCertificateArn == null) return null;
+        return domainCertificateArn.getValue("Endpoint.domainCertificateArn");
+    }
 
     /**
      * A DNS name that is generated for the endpoint.
      * 
      */
-    public String endpointDomain;
+    private UndeferrableValue<String> endpointDomain;
 
-
+    public String endpointDomain() {
+        if (endpointDomain == null) return null;
+        return endpointDomain.getValue("Endpoint.endpointDomain");
+    }
 
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
-    public String endpointDomainPrefix;
+    private @Nullable UndeferrableValue<String> endpointDomainPrefix;
 
-
+    public @Nullable String endpointDomainPrefix() {
+        if (endpointDomainPrefix == null) return null;
+        return endpointDomainPrefix.getValue("Endpoint.endpointDomainPrefix");
+    }
 
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
      * 
      */
-    public String endpointType;
+    private UndeferrableValue<String> endpointType;
 
-
+    public String endpointType() {
+        if (endpointType == null) return null;
+        return endpointType.getValue("Endpoint.endpointType");
+    }
 
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      * 
      */
-    public EndpointLoadBalancerOptions loadBalancerOptions;
+    private @Nullable UndeferrableValue<EndpointLoadBalancerOptions> loadBalancerOptions;
 
-
+    public @Nullable EndpointLoadBalancerOptions loadBalancerOptions() {
+        if (loadBalancerOptions == null) return null;
+        return loadBalancerOptions.getValue("Endpoint.loadBalancerOptions");
+    }
 
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      * 
      */
-    public EndpointNetworkInterfaceOptions networkInterfaceOptions;
+    private @Nullable UndeferrableValue<EndpointNetworkInterfaceOptions> networkInterfaceOptions;
 
-
+    public @Nullable EndpointNetworkInterfaceOptions networkInterfaceOptions() {
+        if (networkInterfaceOptions == null) return null;
+        return networkInterfaceOptions.getValue("Endpoint.networkInterfaceOptions");
+    }
 
     /**
      * The policy document that is associated with this resource.
      * 
      */
-    public String policyDocument;
+    private @Nullable UndeferrableValue<String> policyDocument;
 
+    public @Nullable String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("Endpoint.policyDocument");
+    }
 
+    private @Nullable UndeferrableValue<EndpointRdsOptions> rdsOptions;
 
-    public EndpointRdsOptions rdsOptions;
-
-
+    public @Nullable EndpointRdsOptions rdsOptions() {
+        if (rdsOptions == null) return null;
+        return rdsOptions.getValue("Endpoint.rdsOptions");
+    }
 
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("Endpoint.securityGroupIds");
+    }
 
     /**
      * The options in use for server side encryption.
      * 
      */
-    public EndpointSseSpecification sseSpecification;
+    private UndeferrableValue<EndpointSseSpecification> sseSpecification;
 
-
+    public EndpointSseSpecification sseSpecification() {
+        if (sseSpecification == null) return null;
+        return sseSpecification.getValue("Endpoint.sseSpecification");
+    }
 
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Endpoint.tags");
+    }
 
     /**
      * @deprecated
@@ -147,9 +197,12 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Endpoint.tagsAll");
+    }
 
     /**
      * The ID of the Verified Access group to associate the endpoint with.
@@ -157,12 +210,18 @@ public final class Endpoint extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String verifiedAccessGroupId;
+    private UndeferrableValue<String> verifiedAccessGroupId;
 
+    public String verifiedAccessGroupId() {
+        if (verifiedAccessGroupId == null) return null;
+        return verifiedAccessGroupId.getValue("Endpoint.verifiedAccessGroupId");
+    }
 
+    private UndeferrableValue<String> verifiedAccessInstanceId;
 
-    public String verifiedAccessInstanceId;
-
-
+    public String verifiedAccessInstanceId() {
+        if (verifiedAccessInstanceId == null) return null;
+        return verifiedAccessInstanceId.getValue("Endpoint.verifiedAccessInstanceId");
+    }
 
 }

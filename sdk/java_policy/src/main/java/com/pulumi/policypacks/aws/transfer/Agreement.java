@@ -3,89 +3,121 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/agreement:Agreement")
-public final class Agreement extends com.pulumi.resources.PolicyResource {
+public final class Agreement extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
-    public String accessRole;
+    private UndeferrableValue<String> accessRole;
 
-
+    public String accessRole() {
+        if (accessRole == null) return null;
+        return accessRole.getValue("Agreement.accessRole");
+    }
 
     /**
      * The unique identifier for the AS2 agreement.
      * 
      */
-    public String agreementId;
+    private UndeferrableValue<String> agreementId;
 
-
+    public String agreementId() {
+        if (agreementId == null) return null;
+        return agreementId.getValue("Agreement.agreementId");
+    }
 
     /**
      * The ARN of the agreement.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Agreement.arn");
+    }
 
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      * 
      */
-    public String baseDirectory;
+    private UndeferrableValue<String> baseDirectory;
 
-
+    public String baseDirectory() {
+        if (baseDirectory == null) return null;
+        return baseDirectory.getValue("Agreement.baseDirectory");
+    }
 
     /**
      * The Optional description of the transdfer.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Agreement.description");
+    }
 
     /**
      * The unique identifier for the AS2 local profile.
      * 
      */
-    public String localProfileId;
+    private UndeferrableValue<String> localProfileId;
 
-
+    public String localProfileId() {
+        if (localProfileId == null) return null;
+        return localProfileId.getValue("Agreement.localProfileId");
+    }
 
     /**
      * The unique identifier for the AS2 partner profile.
      * 
      */
-    public String partnerProfileId;
+    private UndeferrableValue<String> partnerProfileId;
 
-
+    public String partnerProfileId() {
+        if (partnerProfileId == null) return null;
+        return partnerProfileId.getValue("Agreement.partnerProfileId");
+    }
 
     /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
-    public String serverId;
+    private UndeferrableValue<String> serverId;
 
+    public String serverId() {
+        if (serverId == null) return null;
+        return serverId.getValue("Agreement.serverId");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
-
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Agreement.status");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Agreement.tags");
+    }
 
     /**
      * @deprecated
@@ -93,8 +125,11 @@ public final class Agreement extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Agreement.tagsAll");
+    }
 
 }

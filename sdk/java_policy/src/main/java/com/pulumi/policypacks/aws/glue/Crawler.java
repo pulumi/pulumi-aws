@@ -3,210 +3,281 @@
 
 package com.pulumi.policypacks.aws.glue;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.glue.CrawlerCatalogTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerDeltaTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerDynamodbTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerHudiTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerIcebergTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerJdbcTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerLakeFormationConfiguration;
-import com.pulumi.policypacks.aws.glue.CrawlerLineageConfiguration;
-import com.pulumi.policypacks.aws.glue.CrawlerMongodbTarget;
-import com.pulumi.policypacks.aws.glue.CrawlerRecrawlPolicy;
-import com.pulumi.policypacks.aws.glue.CrawlerS3Target;
-import com.pulumi.policypacks.aws.glue.CrawlerSchemaChangePolicy;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerCatalogTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerDeltaTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerDynamodbTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerHudiTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerIcebergTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerJdbcTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerLakeFormationConfiguration;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerLineageConfiguration;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerMongodbTarget;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerRecrawlPolicy;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerS3Target;
+import com.pulumi.policypacks.aws.glue.outputs.CrawlerSchemaChangePolicy;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:glue/crawler:Crawler")
-public final class Crawler extends com.pulumi.resources.PolicyResource {
+public final class Crawler extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the crawler
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Crawler.arn");
+    }
 
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      * 
      */
-    public List<CrawlerCatalogTarget> catalogTargets;
+    private @Nullable UndeferrableValue<List<CrawlerCatalogTarget>> catalogTargets;
 
-
+    public @Nullable List<CrawlerCatalogTarget> catalogTargets() {
+        if (catalogTargets == null) return null;
+        return catalogTargets.getValue("Crawler.catalogTargets");
+    }
 
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      * 
      */
-    public List<String> classifiers;
+    private @Nullable UndeferrableValue<List<String>> classifiers;
 
-
+    public @Nullable List<String> classifiers() {
+        if (classifiers == null) return null;
+        return classifiers.getValue("Crawler.classifiers");
+    }
 
     /**
      * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      * 
      */
-    public String configuration;
+    private @Nullable UndeferrableValue<String> configuration;
 
-
+    public @Nullable String configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Crawler.configuration");
+    }
 
     /**
      * Glue database where results are written.
      * 
      */
-    public String databaseName;
+    private UndeferrableValue<String> databaseName;
 
-
+    public String databaseName() {
+        if (databaseName == null) return null;
+        return databaseName.getValue("Crawler.databaseName");
+    }
 
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      * 
      */
-    public List<CrawlerDeltaTarget> deltaTargets;
+    private @Nullable UndeferrableValue<List<CrawlerDeltaTarget>> deltaTargets;
 
-
+    public @Nullable List<CrawlerDeltaTarget> deltaTargets() {
+        if (deltaTargets == null) return null;
+        return deltaTargets.getValue("Crawler.deltaTargets");
+    }
 
     /**
      * Description of the crawler.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Crawler.description");
+    }
 
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      * 
      */
-    public List<CrawlerDynamodbTarget> dynamodbTargets;
+    private @Nullable UndeferrableValue<List<CrawlerDynamodbTarget>> dynamodbTargets;
 
-
+    public @Nullable List<CrawlerDynamodbTarget> dynamodbTargets() {
+        if (dynamodbTargets == null) return null;
+        return dynamodbTargets.getValue("Crawler.dynamodbTargets");
+    }
 
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      * 
      */
-    public List<CrawlerHudiTarget> hudiTargets;
+    private @Nullable UndeferrableValue<List<CrawlerHudiTarget>> hudiTargets;
 
-
+    public @Nullable List<CrawlerHudiTarget> hudiTargets() {
+        if (hudiTargets == null) return null;
+        return hudiTargets.getValue("Crawler.hudiTargets");
+    }
 
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
-    public List<CrawlerIcebergTarget> icebergTargets;
+    private @Nullable UndeferrableValue<List<CrawlerIcebergTarget>> icebergTargets;
 
-
+    public @Nullable List<CrawlerIcebergTarget> icebergTargets() {
+        if (icebergTargets == null) return null;
+        return icebergTargets.getValue("Crawler.icebergTargets");
+    }
 
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
-    public List<CrawlerJdbcTarget> jdbcTargets;
+    private @Nullable UndeferrableValue<List<CrawlerJdbcTarget>> jdbcTargets;
 
-
+    public @Nullable List<CrawlerJdbcTarget> jdbcTargets() {
+        if (jdbcTargets == null) return null;
+        return jdbcTargets.getValue("Crawler.jdbcTargets");
+    }
 
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      * 
      */
-    public CrawlerLakeFormationConfiguration lakeFormationConfiguration;
+    private @Nullable UndeferrableValue<CrawlerLakeFormationConfiguration> lakeFormationConfiguration;
 
-
+    public @Nullable CrawlerLakeFormationConfiguration lakeFormationConfiguration() {
+        if (lakeFormationConfiguration == null) return null;
+        return lakeFormationConfiguration.getValue("Crawler.lakeFormationConfiguration");
+    }
 
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      * 
      */
-    public CrawlerLineageConfiguration lineageConfiguration;
+    private @Nullable UndeferrableValue<CrawlerLineageConfiguration> lineageConfiguration;
 
-
+    public @Nullable CrawlerLineageConfiguration lineageConfiguration() {
+        if (lineageConfiguration == null) return null;
+        return lineageConfiguration.getValue("Crawler.lineageConfiguration");
+    }
 
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
-    public List<CrawlerMongodbTarget> mongodbTargets;
+    private @Nullable UndeferrableValue<List<CrawlerMongodbTarget>> mongodbTargets;
 
-
+    public @Nullable List<CrawlerMongodbTarget> mongodbTargets() {
+        if (mongodbTargets == null) return null;
+        return mongodbTargets.getValue("Crawler.mongodbTargets");
+    }
 
     /**
      * Name of the crawler.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Crawler.name");
+    }
 
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      * 
      */
-    public CrawlerRecrawlPolicy recrawlPolicy;
+    private @Nullable UndeferrableValue<CrawlerRecrawlPolicy> recrawlPolicy;
 
-
+    public @Nullable CrawlerRecrawlPolicy recrawlPolicy() {
+        if (recrawlPolicy == null) return null;
+        return recrawlPolicy.getValue("Crawler.recrawlPolicy");
+    }
 
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("Crawler.role");
+    }
 
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
-    public List<CrawlerS3Target> s3Targets;
+    private @Nullable UndeferrableValue<List<CrawlerS3Target>> s3Targets;
 
-
+    public @Nullable List<CrawlerS3Target> s3Targets() {
+        if (s3Targets == null) return null;
+        return s3Targets.getValue("Crawler.s3Targets");
+    }
 
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
-    public String schedule;
+    private @Nullable UndeferrableValue<String> schedule;
 
-
+    public @Nullable String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("Crawler.schedule");
+    }
 
     /**
      * Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
      * 
      */
-    public CrawlerSchemaChangePolicy schemaChangePolicy;
+    private @Nullable UndeferrableValue<CrawlerSchemaChangePolicy> schemaChangePolicy;
 
-
+    public @Nullable CrawlerSchemaChangePolicy schemaChangePolicy() {
+        if (schemaChangePolicy == null) return null;
+        return schemaChangePolicy.getValue("Crawler.schemaChangePolicy");
+    }
 
     /**
      * The name of Security Configuration to be used by the crawler
      * 
      */
-    public String securityConfiguration;
+    private @Nullable UndeferrableValue<String> securityConfiguration;
 
-
+    public @Nullable String securityConfiguration() {
+        if (securityConfiguration == null) return null;
+        return securityConfiguration.getValue("Crawler.securityConfiguration");
+    }
 
     /**
      * The table prefix used for catalog tables that are created.
      * 
      */
-    public String tablePrefix;
+    private @Nullable UndeferrableValue<String> tablePrefix;
 
-
+    public @Nullable String tablePrefix() {
+        if (tablePrefix == null) return null;
+        return tablePrefix.getValue("Crawler.tablePrefix");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Crawler.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -216,8 +287,11 @@ public final class Crawler extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Crawler.tagsAll");
+    }
 
 }

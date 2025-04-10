@@ -3,104 +3,139 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.docdb.ElasticClusterTimeouts;
+import com.pulumi.policypacks.aws.docdb.outputs.ElasticClusterTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:docdb/elasticCluster:ElasticCluster")
-public final class ElasticCluster extends com.pulumi.resources.PolicyResource {
+public final class ElasticCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Elastic DocumentDB cluster administrator
      * 
      */
-    public String adminUserName;
+    private UndeferrableValue<String> adminUserName;
 
-
+    public String adminUserName() {
+        if (adminUserName == null) return null;
+        return adminUserName.getValue("ElasticCluster.adminUserName");
+    }
 
     /**
      * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
      * 
      */
-    public String adminUserPassword;
+    private UndeferrableValue<String> adminUserPassword;
 
-
+    public String adminUserPassword() {
+        if (adminUserPassword == null) return null;
+        return adminUserPassword.getValue("ElasticCluster.adminUserPassword");
+    }
 
     /**
      * ARN of the DocumentDB Elastic Cluster
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ElasticCluster.arn");
+    }
 
     /**
      * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
      * 
      */
-    public String authType;
+    private UndeferrableValue<String> authType;
 
-
+    public String authType() {
+        if (authType == null) return null;
+        return authType.getValue("ElasticCluster.authType");
+    }
 
     /**
      * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      * 
      */
-    public Integer backupRetentionPeriod;
+    private UndeferrableValue<Integer> backupRetentionPeriod;
 
-
+    public Integer backupRetentionPeriod() {
+        if (backupRetentionPeriod == null) return null;
+        return backupRetentionPeriod.getValue("ElasticCluster.backupRetentionPeriod");
+    }
 
     /**
      * The DNS address of the DocDB instance
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ElasticCluster.endpoint");
+    }
 
     /**
      * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ElasticCluster.kmsKeyId");
+    }
 
     /**
      * Name of the Elastic DocumentDB cluster
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ElasticCluster.name");
+    }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
      * 
      */
-    public String preferredBackupWindow;
+    private UndeferrableValue<String> preferredBackupWindow;
 
-
+    public String preferredBackupWindow() {
+        if (preferredBackupWindow == null) return null;
+        return preferredBackupWindow.getValue("ElasticCluster.preferredBackupWindow");
+    }
 
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      * 
      */
-    public String preferredMaintenanceWindow;
+    private UndeferrableValue<String> preferredMaintenanceWindow;
 
-
+    public String preferredMaintenanceWindow() {
+        if (preferredMaintenanceWindow == null) return null;
+        return preferredMaintenanceWindow.getValue("ElasticCluster.preferredMaintenanceWindow");
+    }
 
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      * 
      */
-    public Integer shardCapacity;
+    private UndeferrableValue<Integer> shardCapacity;
 
-
+    public Integer shardCapacity() {
+        if (shardCapacity == null) return null;
+        return shardCapacity.getValue("ElasticCluster.shardCapacity");
+    }
 
     /**
      * Number of shards assigned to the elastic cluster. Maximum is 32
@@ -108,25 +143,34 @@ public final class ElasticCluster extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public Integer shardCount;
+    private UndeferrableValue<Integer> shardCount;
 
-
+    public Integer shardCount() {
+        if (shardCount == null) return null;
+        return shardCount.getValue("ElasticCluster.shardCount");
+    }
 
     /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("ElasticCluster.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ElasticCluster.tags");
+    }
 
     /**
      * @deprecated
@@ -134,20 +178,29 @@ public final class ElasticCluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ElasticCluster.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ElasticClusterTimeouts> timeouts;
 
-    public ElasticClusterTimeouts timeouts;
-
-
+    public @Nullable ElasticClusterTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ElasticCluster.timeouts");
+    }
 
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("ElasticCluster.vpcSecurityGroupIds");
+    }
 
 }

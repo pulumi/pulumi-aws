@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.ses;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ses/receiptFilter:ReceiptFilter")
-public final class ReceiptFilter extends com.pulumi.resources.PolicyResource {
+public final class ReceiptFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The SES receipt filter ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ReceiptFilter.arn");
+    }
 
     /**
      * The IP address or address range to filter, in CIDR notation
      * 
      */
-    public String cidr;
+    private UndeferrableValue<String> cidr;
 
-
+    public String cidr() {
+        if (cidr == null) return null;
+        return cidr.getValue("ReceiptFilter.cidr");
+    }
 
     /**
      * The name of the filter
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ReceiptFilter.name");
+    }
 
     /**
      * Block or Allow
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("ReceiptFilter.policy");
+    }
 
 }

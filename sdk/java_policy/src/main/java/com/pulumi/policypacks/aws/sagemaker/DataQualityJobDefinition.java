@@ -3,108 +3,143 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionDataQualityJobInput;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionJobResources;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionNetworkConfig;
-import com.pulumi.policypacks.aws.sagemaker.DataQualityJobDefinitionStoppingCondition;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityAppSpecification;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityBaselineConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInput;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobOutputConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionJobResources;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionNetworkConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionStoppingCondition;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")
-public final class DataQualityJobDefinition extends com.pulumi.resources.PolicyResource {
+public final class DataQualityJobDefinition extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DataQualityJobDefinition.arn");
+    }
 
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionDataQualityAppSpecification dataQualityAppSpecification;
+    private UndeferrableValue<DataQualityJobDefinitionDataQualityAppSpecification> dataQualityAppSpecification;
 
-
+    public DataQualityJobDefinitionDataQualityAppSpecification dataQualityAppSpecification() {
+        if (dataQualityAppSpecification == null) return null;
+        return dataQualityAppSpecification.getValue("DataQualityJobDefinition.dataQualityAppSpecification");
+    }
 
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionDataQualityBaselineConfig dataQualityBaselineConfig;
+    private @Nullable UndeferrableValue<DataQualityJobDefinitionDataQualityBaselineConfig> dataQualityBaselineConfig;
 
-
+    public @Nullable DataQualityJobDefinitionDataQualityBaselineConfig dataQualityBaselineConfig() {
+        if (dataQualityBaselineConfig == null) return null;
+        return dataQualityBaselineConfig.getValue("DataQualityJobDefinition.dataQualityBaselineConfig");
+    }
 
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionDataQualityJobInput dataQualityJobInput;
+    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobInput> dataQualityJobInput;
 
-
+    public DataQualityJobDefinitionDataQualityJobInput dataQualityJobInput() {
+        if (dataQualityJobInput == null) return null;
+        return dataQualityJobInput.getValue("DataQualityJobDefinition.dataQualityJobInput");
+    }
 
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionDataQualityJobOutputConfig dataQualityJobOutputConfig;
+    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobOutputConfig> dataQualityJobOutputConfig;
 
-
+    public DataQualityJobDefinitionDataQualityJobOutputConfig dataQualityJobOutputConfig() {
+        if (dataQualityJobOutputConfig == null) return null;
+        return dataQualityJobOutputConfig.getValue("DataQualityJobDefinition.dataQualityJobOutputConfig");
+    }
 
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionJobResources jobResources;
+    private UndeferrableValue<DataQualityJobDefinitionJobResources> jobResources;
 
-
+    public DataQualityJobDefinitionJobResources jobResources() {
+        if (jobResources == null) return null;
+        return jobResources.getValue("DataQualityJobDefinition.jobResources");
+    }
 
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DataQualityJobDefinition.name");
+    }
 
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionNetworkConfig networkConfig;
+    private @Nullable UndeferrableValue<DataQualityJobDefinitionNetworkConfig> networkConfig;
 
-
+    public @Nullable DataQualityJobDefinitionNetworkConfig networkConfig() {
+        if (networkConfig == null) return null;
+        return networkConfig.getValue("DataQualityJobDefinition.networkConfig");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("DataQualityJobDefinition.roleArn");
+    }
 
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      * 
      */
-    public DataQualityJobDefinitionStoppingCondition stoppingCondition;
+    private UndeferrableValue<DataQualityJobDefinitionStoppingCondition> stoppingCondition;
 
-
+    public DataQualityJobDefinitionStoppingCondition stoppingCondition() {
+        if (stoppingCondition == null) return null;
+        return stoppingCondition.getValue("DataQualityJobDefinition.stoppingCondition");
+    }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DataQualityJobDefinition.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -114,8 +149,11 @@ public final class DataQualityJobDefinition extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DataQualityJobDefinition.tagsAll");
+    }
 
 }

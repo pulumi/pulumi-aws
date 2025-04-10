@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.ProvisionedModelThroughputTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.ProvisionedModelThroughputTimeouts;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")
-public final class ProvisionedModelThroughput extends com.pulumi.resources.PolicyResource {
+public final class ProvisionedModelThroughput extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
      * 
      */
-    public String commitmentDuration;
+    private @Nullable UndeferrableValue<String> commitmentDuration;
 
-
+    public @Nullable String commitmentDuration() {
+        if (commitmentDuration == null) return null;
+        return commitmentDuration.getValue("ProvisionedModelThroughput.commitmentDuration");
+    }
 
     /**
      * ARN of the model to associate with this Provisioned Throughput.
      * 
      */
-    public String modelArn;
+    private UndeferrableValue<String> modelArn;
 
-
+    public String modelArn() {
+        if (modelArn == null) return null;
+        return modelArn.getValue("ProvisionedModelThroughput.modelArn");
+    }
 
     /**
      * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
      * 
      */
-    public Integer modelUnits;
+    private UndeferrableValue<Integer> modelUnits;
 
-
+    public Integer modelUnits() {
+        if (modelUnits == null) return null;
+        return modelUnits.getValue("ProvisionedModelThroughput.modelUnits");
+    }
 
     /**
      * The ARN of the Provisioned Throughput.
      * 
      */
-    public String provisionedModelArn;
+    private UndeferrableValue<String> provisionedModelArn;
 
-
+    public String provisionedModelArn() {
+        if (provisionedModelArn == null) return null;
+        return provisionedModelArn.getValue("ProvisionedModelThroughput.provisionedModelArn");
+    }
 
     /**
      * Unique name for this Provisioned Throughput.
      * 
      */
-    public String provisionedModelName;
+    private UndeferrableValue<String> provisionedModelName;
 
-
+    public String provisionedModelName() {
+        if (provisionedModelName == null) return null;
+        return provisionedModelName.getValue("ProvisionedModelThroughput.provisionedModelName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ProvisionedModelThroughput.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,12 +89,18 @@ public final class ProvisionedModelThroughput extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ProvisionedModelThroughput.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<ProvisionedModelThroughputTimeouts> timeouts;
 
-    public ProvisionedModelThroughputTimeouts timeouts;
-
-
+    public @Nullable ProvisionedModelThroughputTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ProvisionedModelThroughput.timeouts");
+    }
 
 }

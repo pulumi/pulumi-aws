@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.vpclattice.ServiceDnsEntry;
+import com.pulumi.policypacks.aws.vpclattice.outputs.ServiceDnsEntry;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/service:Service")
-public final class Service extends com.pulumi.resources.PolicyResource {
+public final class Service extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Service.arn");
+    }
 
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    public String authType;
+    private UndeferrableValue<String> authType;
 
-
+    public String authType() {
+        if (authType == null) return null;
+        return authType.getValue("Service.authType");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    public String certificateArn;
+    private @Nullable UndeferrableValue<String> certificateArn;
 
-
+    public @Nullable String certificateArn() {
+        if (certificateArn == null) return null;
+        return certificateArn.getValue("Service.certificateArn");
+    }
 
     /**
      * Custom domain name of the service.
      * 
      */
-    public String customDomainName;
+    private @Nullable UndeferrableValue<String> customDomainName;
 
-
+    public @Nullable String customDomainName() {
+        if (customDomainName == null) return null;
+        return customDomainName.getValue("Service.customDomainName");
+    }
 
     /**
      * DNS name of the service.
      * 
      */
-    public List<ServiceDnsEntry> dnsEntries;
+    private UndeferrableValue<List<ServiceDnsEntry>> dnsEntries;
 
-
+    public List<ServiceDnsEntry> dnsEntries() {
+        if (dnsEntries == null) return null;
+        return dnsEntries.getValue("Service.dnsEntries");
+    }
 
     /**
      * Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
@@ -59,25 +76,34 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Service.name");
+    }
 
     /**
      * Status of the service.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Service.status");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Service.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -87,8 +113,11 @@ public final class Service extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Service.tagsAll");
+    }
 
 }

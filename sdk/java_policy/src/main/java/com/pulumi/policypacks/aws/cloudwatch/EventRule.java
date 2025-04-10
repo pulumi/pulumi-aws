@@ -3,55 +3,72 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudwatch/eventRule:EventRule")
-public final class EventRule extends com.pulumi.resources.PolicyResource {
+public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the rule.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("EventRule.arn");
+    }
 
     /**
      * The description of the rule.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("EventRule.description");
+    }
 
     /**
      * The name or ARN of the event bus to associate with this rule.
      * If you omit this, the `default` event bus is used.
      * 
      */
-    public String eventBusName;
+    private @Nullable UndeferrableValue<String> eventBusName;
 
-
+    public @Nullable String eventBusName() {
+        if (eventBusName == null) return null;
+        return eventBusName.getValue("EventRule.eventBusName");
+    }
 
     /**
      * The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
      * 
      */
-    public String eventPattern;
+    private @Nullable UndeferrableValue<String> eventPattern;
 
-
+    public @Nullable String eventPattern() {
+        if (eventPattern == null) return null;
+        return eventPattern.getValue("EventRule.eventPattern");
+    }
 
     /**
      * Used to delete managed rules created by AWS. Defaults to `false`.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("EventRule.forceDestroy");
+    }
 
     /**
      * Whether the rule should be enabled.
@@ -63,41 +80,56 @@ public final class EventRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* is_enabled is deprecated. Use state instead. */
-    public Boolean isEnabled;
+    private @Nullable UndeferrableValue<Boolean> isEnabled;
 
-
+    public @Nullable Boolean isEnabled() {
+        if (isEnabled == null) return null;
+        return isEnabled.getValue("EventRule.isEnabled");
+    }
 
     /**
      * The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("EventRule.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("EventRule.namePrefix");
+    }
 
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("EventRule.roleArn");
+    }
 
     /**
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      * 
      */
-    public String scheduleExpression;
+    private @Nullable UndeferrableValue<String> scheduleExpression;
 
-
+    public @Nullable String scheduleExpression() {
+        if (scheduleExpression == null) return null;
+        return scheduleExpression.getValue("EventRule.scheduleExpression");
+    }
 
     /**
      * State of the rule.
@@ -110,17 +142,23 @@ public final class EventRule extends com.pulumi.resources.PolicyResource {
      * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("EventRule.state");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("EventRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -130,8 +168,11 @@ public final class EventRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("EventRule.tagsAll");
+    }
 
 }

@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:codedeploy/application:Application")
-public final class Application extends com.pulumi.resources.PolicyResource {
+public final class Application extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
-
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("Application.applicationId");
+    }
 
     /**
      * The ARN of the CodeDeploy application.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Application.arn");
+    }
 
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      * 
      */
-    public String computePlatform;
+    private @Nullable UndeferrableValue<String> computePlatform;
 
-
+    public @Nullable String computePlatform() {
+        if (computePlatform == null) return null;
+        return computePlatform.getValue("Application.computePlatform");
+    }
 
     /**
      * The name for a connection to a GitHub account.
      * 
      */
-    public String githubAccountName;
+    private UndeferrableValue<String> githubAccountName;
 
-
+    public String githubAccountName() {
+        if (githubAccountName == null) return null;
+        return githubAccountName.getValue("Application.githubAccountName");
+    }
 
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      * 
      */
-    public Boolean linkedToGithub;
+    private UndeferrableValue<Boolean> linkedToGithub;
 
-
+    public Boolean linkedToGithub() {
+        if (linkedToGithub == null) return null;
+        return linkedToGithub.getValue("Application.linkedToGithub");
+    }
 
     /**
      * The name of the application.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Application.name");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Application.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class Application extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Application.tagsAll");
+    }
 
 }

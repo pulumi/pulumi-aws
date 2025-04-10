@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketServerSideEncryptionConfigurationV2Rule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketServerSideEncryptionConfigurationV2Rule;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
-public final class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ID (name) of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketServerSideEncryptionConfigurationV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketServerSideEncryptionConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
-    public List<BucketServerSideEncryptionConfigurationV2Rule> rules;
+    private UndeferrableValue<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
 
-
+    public List<BucketServerSideEncryptionConfigurationV2Rule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("BucketServerSideEncryptionConfigurationV2.rules");
+    }
 
 }

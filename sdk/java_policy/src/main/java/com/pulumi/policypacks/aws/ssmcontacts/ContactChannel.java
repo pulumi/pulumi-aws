@@ -3,60 +3,79 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssmcontacts.ContactChannelDeliveryAddress;
+import com.pulumi.policypacks.aws.ssmcontacts.outputs.ContactChannelDeliveryAddress;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ssmcontacts/contactChannel:ContactChannel")
-public final class ContactChannel extends com.pulumi.resources.PolicyResource {
+public final class ContactChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
      * 
      */
-    public String activationStatus;
+    private UndeferrableValue<String> activationStatus;
 
-
+    public String activationStatus() {
+        if (activationStatus == null) return null;
+        return activationStatus.getValue("ContactChannel.activationStatus");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the contact channel.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ContactChannel.arn");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
-    public String contactId;
+    private UndeferrableValue<String> contactId;
 
-
+    public String contactId() {
+        if (contactId == null) return null;
+        return contactId.getValue("ContactChannel.contactId");
+    }
 
     /**
      * Block that contains contact engagement details. See details below.
      * 
      */
-    public ContactChannelDeliveryAddress deliveryAddress;
+    private UndeferrableValue<ContactChannelDeliveryAddress> deliveryAddress;
 
-
+    public ContactChannelDeliveryAddress deliveryAddress() {
+        if (deliveryAddress == null) return null;
+        return deliveryAddress.getValue("ContactChannel.deliveryAddress");
+    }
 
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ContactChannel.name");
+    }
 
     /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ContactChannel.type");
+    }
 
 }

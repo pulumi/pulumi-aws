@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/staticIpAttachment:StaticIpAttachment")
-public final class StaticIpAttachment extends com.pulumi.resources.PolicyResource {
+public final class StaticIpAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the Lightsail instance to attach the IP to
      * 
      */
-    public String instanceName;
+    private UndeferrableValue<String> instanceName;
 
-
+    public String instanceName() {
+        if (instanceName == null) return null;
+        return instanceName.getValue("StaticIpAttachment.instanceName");
+    }
 
     /**
      * The allocated static IP address
      * 
      */
-    public String ipAddress;
+    private UndeferrableValue<String> ipAddress;
 
-
+    public String ipAddress() {
+        if (ipAddress == null) return null;
+        return ipAddress.getValue("StaticIpAttachment.ipAddress");
+    }
 
     /**
      * The name of the allocated static IP
      * 
      */
-    public String staticIpName;
+    private UndeferrableValue<String> staticIpName;
 
-
+    public String staticIpName() {
+        if (staticIpName == null) return null;
+        return staticIpName.getValue("StaticIpAttachment.staticIpName");
+    }
 
 }

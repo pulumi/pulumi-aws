@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securityhub/account:Account")
-public final class Account extends com.pulumi.resources.PolicyResource {
+public final class Account extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the SecurityHub Hub created in the account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Account.arn");
+    }
 
     /**
      * Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
      * 
      */
-    public Boolean autoEnableControls;
+    private @Nullable UndeferrableValue<Boolean> autoEnableControls;
 
-
+    public @Nullable Boolean autoEnableControls() {
+        if (autoEnableControls == null) return null;
+        return autoEnableControls.getValue("Account.autoEnableControls");
+    }
 
     /**
      * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
      * 
      */
-    public String controlFindingGenerator;
+    private UndeferrableValue<String> controlFindingGenerator;
 
-
+    public String controlFindingGenerator() {
+        if (controlFindingGenerator == null) return null;
+        return controlFindingGenerator.getValue("Account.controlFindingGenerator");
+    }
 
     /**
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      * 
      */
-    public Boolean enableDefaultStandards;
+    private @Nullable UndeferrableValue<Boolean> enableDefaultStandards;
 
-
+    public @Nullable Boolean enableDefaultStandards() {
+        if (enableDefaultStandards == null) return null;
+        return enableDefaultStandards.getValue("Account.enableDefaultStandards");
+    }
 
 }

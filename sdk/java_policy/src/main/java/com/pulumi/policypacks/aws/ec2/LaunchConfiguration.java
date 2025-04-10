@@ -3,82 +3,108 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.LaunchConfigurationEbsBlockDevice;
-import com.pulumi.policypacks.aws.ec2.LaunchConfigurationEphemeralBlockDevice;
-import com.pulumi.policypacks.aws.ec2.LaunchConfigurationMetadataOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchConfigurationRootBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationEbsBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationEphemeralBlockDevice;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationMetadataOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationRootBlockDevice;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/launchConfiguration:LaunchConfiguration")
-public final class LaunchConfiguration extends com.pulumi.resources.PolicyResource {
+public final class LaunchConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name of the launch configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LaunchConfiguration.arn");
+    }
 
     /**
      * Associate a public ip address with an instance in a VPC.
      * 
      */
-    public Boolean associatePublicIpAddress;
+    private @Nullable UndeferrableValue<Boolean> associatePublicIpAddress;
 
-
+    public @Nullable Boolean associatePublicIpAddress() {
+        if (associatePublicIpAddress == null) return null;
+        return associatePublicIpAddress.getValue("LaunchConfiguration.associatePublicIpAddress");
+    }
 
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
-    public List<LaunchConfigurationEbsBlockDevice> ebsBlockDevices;
+    private UndeferrableValue<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
 
-
+    public List<LaunchConfigurationEbsBlockDevice> ebsBlockDevices() {
+        if (ebsBlockDevices == null) return null;
+        return ebsBlockDevices.getValue("LaunchConfiguration.ebsBlockDevices");
+    }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    public Boolean ebsOptimized;
+    private UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("LaunchConfiguration.ebsOptimized");
+    }
 
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      * 
      */
-    public Boolean enableMonitoring;
+    private @Nullable UndeferrableValue<Boolean> enableMonitoring;
 
-
+    public @Nullable Boolean enableMonitoring() {
+        if (enableMonitoring == null) return null;
+        return enableMonitoring.getValue("LaunchConfiguration.enableMonitoring");
+    }
 
     /**
      * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
-    public List<LaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices;
+    private @Nullable UndeferrableValue<List<LaunchConfigurationEphemeralBlockDevice>> ephemeralBlockDevices;
 
-
+    public @Nullable List<LaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices() {
+        if (ephemeralBlockDevices == null) return null;
+        return ephemeralBlockDevices.getValue("LaunchConfiguration.ephemeralBlockDevices");
+    }
 
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
-    public String iamInstanceProfile;
+    private @Nullable UndeferrableValue<String> iamInstanceProfile;
 
-
+    public @Nullable String iamInstanceProfile() {
+        if (iamInstanceProfile == null) return null;
+        return iamInstanceProfile.getValue("LaunchConfiguration.iamInstanceProfile");
+    }
 
     /**
      * The EC2 image ID to launch.
      * 
      */
-    public String imageId;
+    private UndeferrableValue<String> imageId;
 
-
+    public String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("LaunchConfiguration.imageId");
+    }
 
     /**
      * The size of instance to launch.
@@ -86,88 +112,121 @@ public final class LaunchConfiguration extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("LaunchConfiguration.instanceType");
+    }
 
     /**
      * The key name that should be used for the instance.
      * 
      */
-    public String keyName;
+    private UndeferrableValue<String> keyName;
 
-
+    public String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("LaunchConfiguration.keyName");
+    }
 
     /**
      * The metadata options for the instance.
      * 
      */
-    public LaunchConfigurationMetadataOptions metadataOptions;
+    private UndeferrableValue<LaunchConfigurationMetadataOptions> metadataOptions;
 
-
+    public LaunchConfigurationMetadataOptions metadataOptions() {
+        if (metadataOptions == null) return null;
+        return metadataOptions.getValue("LaunchConfiguration.metadataOptions");
+    }
 
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LaunchConfiguration.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("LaunchConfiguration.namePrefix");
+    }
 
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
-    public String placementTenancy;
+    private @Nullable UndeferrableValue<String> placementTenancy;
 
-
+    public @Nullable String placementTenancy() {
+        if (placementTenancy == null) return null;
+        return placementTenancy.getValue("LaunchConfiguration.placementTenancy");
+    }
 
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
-    public LaunchConfigurationRootBlockDevice rootBlockDevice;
+    private UndeferrableValue<LaunchConfigurationRootBlockDevice> rootBlockDevice;
 
-
+    public LaunchConfigurationRootBlockDevice rootBlockDevice() {
+        if (rootBlockDevice == null) return null;
+        return rootBlockDevice.getValue("LaunchConfiguration.rootBlockDevice");
+    }
 
     /**
      * A list of associated security group IDS.
      * 
      */
-    public List<String> securityGroups;
+    private @Nullable UndeferrableValue<List<String>> securityGroups;
 
-
+    public @Nullable List<String> securityGroups() {
+        if (securityGroups == null) return null;
+        return securityGroups.getValue("LaunchConfiguration.securityGroups");
+    }
 
     /**
      * The maximum price to use for reserving spot instances.
      * 
      */
-    public String spotPrice;
+    private @Nullable UndeferrableValue<String> spotPrice;
 
-
+    public @Nullable String spotPrice() {
+        if (spotPrice == null) return null;
+        return spotPrice.getValue("LaunchConfiguration.spotPrice");
+    }
 
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      * 
      */
-    public String userData;
+    private @Nullable UndeferrableValue<String> userData;
 
-
+    public @Nullable String userData() {
+        if (userData == null) return null;
+        return userData.getValue("LaunchConfiguration.userData");
+    }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      * 
      */
-    public String userDataBase64;
+    private @Nullable UndeferrableValue<String> userDataBase64;
 
-
+    public @Nullable String userDataBase64() {
+        if (userDataBase64 == null) return null;
+        return userDataBase64.getValue("LaunchConfiguration.userDataBase64");
+    }
 
 }

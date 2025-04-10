@@ -3,84 +3,110 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.StageAccessLogSettings;
-import com.pulumi.policypacks.aws.apigatewayv2.StageDefaultRouteSettings;
-import com.pulumi.policypacks.aws.apigatewayv2.StageRouteSetting;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.StageAccessLogSettings;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.StageDefaultRouteSettings;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.StageRouteSetting;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/stage:Stage")
-public final class Stage extends com.pulumi.resources.PolicyResource {
+public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Settings for logging access in this stage.
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      * 
      */
-    public StageAccessLogSettings accessLogSettings;
+    private @Nullable UndeferrableValue<StageAccessLogSettings> accessLogSettings;
 
-
+    public @Nullable StageAccessLogSettings accessLogSettings() {
+        if (accessLogSettings == null) return null;
+        return accessLogSettings.getValue("Stage.accessLogSettings");
+    }
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Stage.apiId");
+    }
 
     /**
      * ARN of the stage.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stage.arn");
+    }
 
     /**
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    public Boolean autoDeploy;
+    private @Nullable UndeferrableValue<Boolean> autoDeploy;
 
-
+    public @Nullable Boolean autoDeploy() {
+        if (autoDeploy == null) return null;
+        return autoDeploy.getValue("Stage.autoDeploy");
+    }
 
     /**
      * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
      * Supported only for WebSocket APIs.
      * 
      */
-    public String clientCertificateId;
+    private @Nullable UndeferrableValue<String> clientCertificateId;
 
-
+    public @Nullable String clientCertificateId() {
+        if (clientCertificateId == null) return null;
+        return clientCertificateId.getValue("Stage.clientCertificateId");
+    }
 
     /**
      * Default route settings for the stage.
      * 
      */
-    public StageDefaultRouteSettings defaultRouteSettings;
+    private @Nullable UndeferrableValue<StageDefaultRouteSettings> defaultRouteSettings;
 
-
+    public @Nullable StageDefaultRouteSettings defaultRouteSettings() {
+        if (defaultRouteSettings == null) return null;
+        return defaultRouteSettings.getValue("Stage.defaultRouteSettings");
+    }
 
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
-    public String deploymentId;
+    private UndeferrableValue<String> deploymentId;
 
-
+    public String deploymentId() {
+        if (deploymentId == null) return null;
+        return deploymentId.getValue("Stage.deploymentId");
+    }
 
     /**
      * Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Stage.description");
+    }
 
     /**
      * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute.
@@ -88,18 +114,24 @@ public final class Stage extends com.pulumi.resources.PolicyResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    public String executionArn;
+    private UndeferrableValue<String> executionArn;
 
-
+    public String executionArn() {
+        if (executionArn == null) return null;
+        return executionArn.getValue("Stage.executionArn");
+    }
 
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
-    public String invokeUrl;
+    private UndeferrableValue<String> invokeUrl;
 
-
+    public String invokeUrl() {
+        if (invokeUrl == null) return null;
+        return invokeUrl.getValue("Stage.invokeUrl");
+    }
 
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
@@ -107,33 +139,45 @@ public final class Stage extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Stage.name");
+    }
 
     /**
      * Route settings for the stage.
      * 
      */
-    public List<StageRouteSetting> routeSettings;
+    private @Nullable UndeferrableValue<List<StageRouteSetting>> routeSettings;
 
-
+    public @Nullable List<StageRouteSetting> routeSettings() {
+        if (routeSettings == null) return null;
+        return routeSettings.getValue("Stage.routeSettings");
+    }
 
     /**
      * Map that defines the stage variables for the stage.
      * 
      */
-    public Map<String,String> stageVariables;
+    private @Nullable UndeferrableValue<Map<String,String>> stageVariables;
 
-
+    public @Nullable Map<String,String> stageVariables() {
+        if (stageVariables == null) return null;
+        return stageVariables.getValue("Stage.stageVariables");
+    }
 
     /**
      * Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stage.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -143,8 +187,11 @@ public final class Stage extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stage.tagsAll");
+    }
 
 }

@@ -3,77 +3,103 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/trustStore:TrustStore")
-public final class TrustStore extends com.pulumi.resources.PolicyResource {
+public final class TrustStore extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Trust Store (matches `id`).
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrustStore.arn");
+    }
 
     /**
      * ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    public String arnSuffix;
+    private UndeferrableValue<String> arnSuffix;
 
-
+    public String arnSuffix() {
+        if (arnSuffix == null) return null;
+        return arnSuffix.getValue("TrustStore.arnSuffix");
+    }
 
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      * 
      */
-    public String caCertificatesBundleS3Bucket;
+    private UndeferrableValue<String> caCertificatesBundleS3Bucket;
 
-
+    public String caCertificatesBundleS3Bucket() {
+        if (caCertificatesBundleS3Bucket == null) return null;
+        return caCertificatesBundleS3Bucket.getValue("TrustStore.caCertificatesBundleS3Bucket");
+    }
 
     /**
      * S3 object key holding the client certificate CA bundle.
      * 
      */
-    public String caCertificatesBundleS3Key;
+    private UndeferrableValue<String> caCertificatesBundleS3Key;
 
-
+    public String caCertificatesBundleS3Key() {
+        if (caCertificatesBundleS3Key == null) return null;
+        return caCertificatesBundleS3Key.getValue("TrustStore.caCertificatesBundleS3Key");
+    }
 
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
-    public String caCertificatesBundleS3ObjectVersion;
+    private @Nullable UndeferrableValue<String> caCertificatesBundleS3ObjectVersion;
 
-
+    public @Nullable String caCertificatesBundleS3ObjectVersion() {
+        if (caCertificatesBundleS3ObjectVersion == null) return null;
+        return caCertificatesBundleS3ObjectVersion.getValue("TrustStore.caCertificatesBundleS3ObjectVersion");
+    }
 
     /**
      * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TrustStore.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("TrustStore.namePrefix");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrustStore.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -83,8 +109,11 @@ public final class TrustStore extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrustStore.tagsAll");
+    }
 
 }

@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.emrcontainers.VirtualClusterContainerProvider;
+import com.pulumi.policypacks.aws.emrcontainers.outputs.VirtualClusterContainerProvider;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:emrcontainers/virtualCluster:VirtualCluster")
-public final class VirtualCluster extends com.pulumi.resources.PolicyResource {
+public final class VirtualCluster extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the cluster.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VirtualCluster.arn");
+    }
 
     /**
      * Configuration block for the container provider associated with your cluster.
      * 
      */
-    public VirtualClusterContainerProvider containerProvider;
+    private UndeferrableValue<VirtualClusterContainerProvider> containerProvider;
 
-
+    public VirtualClusterContainerProvider containerProvider() {
+        if (containerProvider == null) return null;
+        return containerProvider.getValue("VirtualCluster.containerProvider");
+    }
 
     /**
      * Name of the virtual cluster.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VirtualCluster.name");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VirtualCluster.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,8 +66,11 @@ public final class VirtualCluster extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VirtualCluster.tagsAll");
+    }
 
 }

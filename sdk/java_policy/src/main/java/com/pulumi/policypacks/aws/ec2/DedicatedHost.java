@@ -3,93 +3,125 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/dedicatedHost:DedicatedHost")
-public final class DedicatedHost extends com.pulumi.resources.PolicyResource {
+public final class DedicatedHost extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Dedicated Host.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DedicatedHost.arn");
+    }
 
     /**
      * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      * 
      */
-    public String assetId;
+    private UndeferrableValue<String> assetId;
 
-
+    public String assetId() {
+        if (assetId == null) return null;
+        return assetId.getValue("DedicatedHost.assetId");
+    }
 
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      * 
      */
-    public String autoPlacement;
+    private @Nullable UndeferrableValue<String> autoPlacement;
 
-
+    public @Nullable String autoPlacement() {
+        if (autoPlacement == null) return null;
+        return autoPlacement.getValue("DedicatedHost.autoPlacement");
+    }
 
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("DedicatedHost.availabilityZone");
+    }
 
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      * 
      */
-    public String hostRecovery;
+    private @Nullable UndeferrableValue<String> hostRecovery;
 
-
+    public @Nullable String hostRecovery() {
+        if (hostRecovery == null) return null;
+        return hostRecovery.getValue("DedicatedHost.hostRecovery");
+    }
 
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    public String instanceFamily;
+    private @Nullable UndeferrableValue<String> instanceFamily;
 
-
+    public @Nullable String instanceFamily() {
+        if (instanceFamily == null) return null;
+        return instanceFamily.getValue("DedicatedHost.instanceFamily");
+    }
 
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    public String instanceType;
+    private @Nullable UndeferrableValue<String> instanceType;
 
-
+    public @Nullable String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("DedicatedHost.instanceType");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
-    public String outpostArn;
+    private @Nullable UndeferrableValue<String> outpostArn;
 
-
+    public @Nullable String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("DedicatedHost.outpostArn");
+    }
 
     /**
      * The ID of the AWS account that owns the Dedicated Host.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("DedicatedHost.ownerId");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DedicatedHost.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -99,8 +131,11 @@ public final class DedicatedHost extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DedicatedHost.tagsAll");
+    }
 
 }

@@ -3,59 +3,79 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationConnectionAuthRequest;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationConnectionTenant;
-import com.pulumi.policypacks.aws.appfabric.AppAuthorizationConnectionTimeouts;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationConnectionAuthRequest;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationConnectionTenant;
+import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationConnectionTimeouts;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")
-public final class AppAuthorizationConnection extends com.pulumi.resources.PolicyResource {
+public final class AppAuthorizationConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the application.
      * 
      */
-    public String app;
+    private UndeferrableValue<String> app;
 
-
+    public String app() {
+        if (app == null) return null;
+        return app.getValue("AppAuthorizationConnection.app");
+    }
 
     /**
      * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
-    public String appAuthorizationArn;
+    private UndeferrableValue<String> appAuthorizationArn;
 
-
+    public String appAuthorizationArn() {
+        if (appAuthorizationArn == null) return null;
+        return appAuthorizationArn.getValue("AppAuthorizationConnection.appAuthorizationArn");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    public String appBundleArn;
+    private UndeferrableValue<String> appBundleArn;
 
-
+    public String appBundleArn() {
+        if (appBundleArn == null) return null;
+        return appBundleArn.getValue("AppAuthorizationConnection.appBundleArn");
+    }
 
     /**
      * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
      * 
      */
-    public AppAuthorizationConnectionAuthRequest authRequest;
+    private @Nullable UndeferrableValue<AppAuthorizationConnectionAuthRequest> authRequest;
 
-
+    public @Nullable AppAuthorizationConnectionAuthRequest authRequest() {
+        if (authRequest == null) return null;
+        return authRequest.getValue("AppAuthorizationConnection.authRequest");
+    }
 
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    public List<AppAuthorizationConnectionTenant> tenants;
+    private UndeferrableValue<List<AppAuthorizationConnectionTenant>> tenants;
 
+    public List<AppAuthorizationConnectionTenant> tenants() {
+        if (tenants == null) return null;
+        return tenants.getValue("AppAuthorizationConnection.tenants");
+    }
 
+    private @Nullable UndeferrableValue<AppAuthorizationConnectionTimeouts> timeouts;
 
-    public AppAuthorizationConnectionTimeouts timeouts;
-
-
+    public @Nullable AppAuthorizationConnectionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AppAuthorizationConnection.timeouts");
+    }
 
 }

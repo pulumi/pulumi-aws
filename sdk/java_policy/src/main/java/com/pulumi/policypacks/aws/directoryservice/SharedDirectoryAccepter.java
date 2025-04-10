@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")
-public final class SharedDirectoryAccepter extends com.pulumi.resources.PolicyResource {
+public final class SharedDirectoryAccepter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      * 
      */
-    public String method;
+    private UndeferrableValue<String> method;
 
-
+    public String method() {
+        if (method == null) return null;
+        return method.getValue("SharedDirectoryAccepter.method");
+    }
 
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    public String notes;
+    private UndeferrableValue<String> notes;
 
-
+    public String notes() {
+        if (notes == null) return null;
+        return notes.getValue("SharedDirectoryAccepter.notes");
+    }
 
     /**
      * Account identifier of the directory owner.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("SharedDirectoryAccepter.ownerAccountId");
+    }
 
     /**
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      * 
      */
-    public String ownerDirectoryId;
+    private UndeferrableValue<String> ownerDirectoryId;
 
-
+    public String ownerDirectoryId() {
+        if (ownerDirectoryId == null) return null;
+        return ownerDirectoryId.getValue("SharedDirectoryAccepter.ownerDirectoryId");
+    }
 
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    public String sharedDirectoryId;
+    private UndeferrableValue<String> sharedDirectoryId;
 
-
+    public String sharedDirectoryId() {
+        if (sharedDirectoryId == null) return null;
+        return sharedDirectoryId.getValue("SharedDirectoryAccepter.sharedDirectoryId");
+    }
 
 }

@@ -3,65 +3,85 @@
 
 package com.pulumi.policypacks.aws.lb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lb.ListenerRuleAction;
-import com.pulumi.policypacks.aws.lb.ListenerRuleCondition;
+import com.pulumi.policypacks.aws.lb.outputs.ListenerRuleAction;
+import com.pulumi.policypacks.aws.lb.outputs.ListenerRuleCondition;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lb/listenerRule:ListenerRule")
-public final class ListenerRule extends com.pulumi.resources.PolicyResource {
+public final class ListenerRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An Action block. Action blocks are documented below.
      * 
      */
-    public List<ListenerRuleAction> actions;
+    private UndeferrableValue<List<ListenerRuleAction>> actions;
 
-
+    public List<ListenerRuleAction> actions() {
+        if (actions == null) return null;
+        return actions.getValue("ListenerRule.actions");
+    }
 
     /**
      * The ARN of the rule (matches `id`)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ListenerRule.arn");
+    }
 
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      * 
      */
-    public List<ListenerRuleCondition> conditions;
+    private UndeferrableValue<List<ListenerRuleCondition>> conditions;
 
-
+    public List<ListenerRuleCondition> conditions() {
+        if (conditions == null) return null;
+        return conditions.getValue("ListenerRule.conditions");
+    }
 
     /**
      * The ARN of the listener to which to attach the rule.
      * 
      */
-    public String listenerArn;
+    private UndeferrableValue<String> listenerArn;
 
-
+    public String listenerArn() {
+        if (listenerArn == null) return null;
+        return listenerArn.getValue("ListenerRule.listenerArn");
+    }
 
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
      * 
      */
-    public Integer priority;
+    private UndeferrableValue<Integer> priority;
 
-
+    public Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("ListenerRule.priority");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ListenerRule.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,8 +91,11 @@ public final class ListenerRule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ListenerRule.tagsAll");
+    }
 
 }

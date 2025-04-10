@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/proxyTarget:ProxyTarget")
-public final class ProxyTarget extends com.pulumi.resources.PolicyResource {
+public final class ProxyTarget extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * DB cluster identifier.
@@ -17,80 +19,110 @@ public final class ProxyTarget extends com.pulumi.resources.PolicyResource {
      * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
      * 
      */
-    public String dbClusterIdentifier;
+    private @Nullable UndeferrableValue<String> dbClusterIdentifier;
 
-
+    public @Nullable String dbClusterIdentifier() {
+        if (dbClusterIdentifier == null) return null;
+        return dbClusterIdentifier.getValue("ProxyTarget.dbClusterIdentifier");
+    }
 
     /**
      * DB instance identifier.
      * 
      */
-    public String dbInstanceIdentifier;
+    private @Nullable UndeferrableValue<String> dbInstanceIdentifier;
 
-
+    public @Nullable String dbInstanceIdentifier() {
+        if (dbInstanceIdentifier == null) return null;
+        return dbInstanceIdentifier.getValue("ProxyTarget.dbInstanceIdentifier");
+    }
 
     /**
      * The name of the DB proxy.
      * 
      */
-    public String dbProxyName;
+    private UndeferrableValue<String> dbProxyName;
 
-
+    public String dbProxyName() {
+        if (dbProxyName == null) return null;
+        return dbProxyName.getValue("ProxyTarget.dbProxyName");
+    }
 
     /**
      * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("ProxyTarget.endpoint");
+    }
 
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("ProxyTarget.port");
+    }
 
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      * 
      */
-    public String rdsResourceId;
+    private UndeferrableValue<String> rdsResourceId;
 
-
+    public String rdsResourceId() {
+        if (rdsResourceId == null) return null;
+        return rdsResourceId.getValue("ProxyTarget.rdsResourceId");
+    }
 
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
-    public String targetArn;
+    private UndeferrableValue<String> targetArn;
 
-
+    public String targetArn() {
+        if (targetArn == null) return null;
+        return targetArn.getValue("ProxyTarget.targetArn");
+    }
 
     /**
      * The name of the target group.
      * 
      */
-    public String targetGroupName;
+    private UndeferrableValue<String> targetGroupName;
 
-
+    public String targetGroupName() {
+        if (targetGroupName == null) return null;
+        return targetGroupName.getValue("ProxyTarget.targetGroupName");
+    }
 
     /**
      * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      * 
      */
-    public String trackedClusterId;
+    private UndeferrableValue<String> trackedClusterId;
 
-
+    public String trackedClusterId() {
+        if (trackedClusterId == null) return null;
+        return trackedClusterId.getValue("ProxyTarget.trackedClusterId");
+    }
 
     /**
      * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ProxyTarget.type");
+    }
 
 }

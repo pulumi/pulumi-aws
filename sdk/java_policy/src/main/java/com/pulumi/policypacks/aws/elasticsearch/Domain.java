@@ -3,97 +3,126 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elasticsearch.DomainAdvancedSecurityOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainAutoTuneOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainClusterConfig;
-import com.pulumi.policypacks.aws.elasticsearch.DomainCognitoOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainDomainEndpointOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainEbsOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainEncryptAtRest;
-import com.pulumi.policypacks.aws.elasticsearch.DomainLogPublishingOption;
-import com.pulumi.policypacks.aws.elasticsearch.DomainNodeToNodeEncryption;
-import com.pulumi.policypacks.aws.elasticsearch.DomainSnapshotOptions;
-import com.pulumi.policypacks.aws.elasticsearch.DomainVpcOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainAdvancedSecurityOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainAutoTuneOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainClusterConfig;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainCognitoOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainDomainEndpointOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainEbsOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainEncryptAtRest;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainLogPublishingOption;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainNodeToNodeEncryption;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainSnapshotOptions;
+import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainVpcOptions;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:elasticsearch/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IAM policy document specifying the access policies for the domain.
      * 
      */
-    public String accessPolicies;
+    private UndeferrableValue<String> accessPolicies;
 
-
+    public String accessPolicies() {
+        if (accessPolicies == null) return null;
+        return accessPolicies.getValue("Domain.accessPolicies");
+    }
 
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      * 
      */
-    public Map<String,String> advancedOptions;
+    private UndeferrableValue<Map<String,String>> advancedOptions;
 
-
+    public Map<String,String> advancedOptions() {
+        if (advancedOptions == null) return null;
+        return advancedOptions.getValue("Domain.advancedOptions");
+    }
 
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    public DomainAdvancedSecurityOptions advancedSecurityOptions;
+    private UndeferrableValue<DomainAdvancedSecurityOptions> advancedSecurityOptions;
 
-
+    public DomainAdvancedSecurityOptions advancedSecurityOptions() {
+        if (advancedSecurityOptions == null) return null;
+        return advancedSecurityOptions.getValue("Domain.advancedSecurityOptions");
+    }
 
     /**
      * ARN of the domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    public DomainAutoTuneOptions autoTuneOptions;
+    private UndeferrableValue<DomainAutoTuneOptions> autoTuneOptions;
 
-
+    public DomainAutoTuneOptions autoTuneOptions() {
+        if (autoTuneOptions == null) return null;
+        return autoTuneOptions.getValue("Domain.autoTuneOptions");
+    }
 
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    public DomainClusterConfig clusterConfig;
+    private UndeferrableValue<DomainClusterConfig> clusterConfig;
 
-
+    public DomainClusterConfig clusterConfig() {
+        if (clusterConfig == null) return null;
+        return clusterConfig.getValue("Domain.clusterConfig");
+    }
 
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      * 
      */
-    public DomainCognitoOptions cognitoOptions;
+    private @Nullable UndeferrableValue<DomainCognitoOptions> cognitoOptions;
 
-
+    public @Nullable DomainCognitoOptions cognitoOptions() {
+        if (cognitoOptions == null) return null;
+        return cognitoOptions.getValue("Domain.cognitoOptions");
+    }
 
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    public DomainDomainEndpointOptions domainEndpointOptions;
+    private UndeferrableValue<DomainDomainEndpointOptions> domainEndpointOptions;
 
-
+    public DomainDomainEndpointOptions domainEndpointOptions() {
+        if (domainEndpointOptions == null) return null;
+        return domainEndpointOptions.getValue("Domain.domainEndpointOptions");
+    }
 
     /**
      * Unique identifier for the domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("Domain.domainId");
+    }
 
     /**
      * Name of the domain.
@@ -101,81 +130,111 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      * 
      */
-    public DomainEbsOptions ebsOptions;
+    private UndeferrableValue<DomainEbsOptions> ebsOptions;
 
-
+    public DomainEbsOptions ebsOptions() {
+        if (ebsOptions == null) return null;
+        return ebsOptions.getValue("Domain.ebsOptions");
+    }
 
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      * 
      */
-    public String elasticsearchVersion;
+    private @Nullable UndeferrableValue<String> elasticsearchVersion;
 
-
+    public @Nullable String elasticsearchVersion() {
+        if (elasticsearchVersion == null) return null;
+        return elasticsearchVersion.getValue("Domain.elasticsearchVersion");
+    }
 
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      * 
      */
-    public DomainEncryptAtRest encryptAtRest;
+    private UndeferrableValue<DomainEncryptAtRest> encryptAtRest;
 
-
+    public DomainEncryptAtRest encryptAtRest() {
+        if (encryptAtRest == null) return null;
+        return encryptAtRest.getValue("Domain.encryptAtRest");
+    }
 
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Domain.endpoint");
+    }
 
     /**
      * Domain-specific endpoint for kibana without https scheme.
      * 
      */
-    public String kibanaEndpoint;
+    private UndeferrableValue<String> kibanaEndpoint;
 
-
+    public String kibanaEndpoint() {
+        if (kibanaEndpoint == null) return null;
+        return kibanaEndpoint.getValue("Domain.kibanaEndpoint");
+    }
 
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
-    public List<DomainLogPublishingOption> logPublishingOptions;
+    private @Nullable UndeferrableValue<List<DomainLogPublishingOption>> logPublishingOptions;
 
-
+    public @Nullable List<DomainLogPublishingOption> logPublishingOptions() {
+        if (logPublishingOptions == null) return null;
+        return logPublishingOptions.getValue("Domain.logPublishingOptions");
+    }
 
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    public DomainNodeToNodeEncryption nodeToNodeEncryption;
+    private UndeferrableValue<DomainNodeToNodeEncryption> nodeToNodeEncryption;
 
-
+    public DomainNodeToNodeEncryption nodeToNodeEncryption() {
+        if (nodeToNodeEncryption == null) return null;
+        return nodeToNodeEncryption.getValue("Domain.nodeToNodeEncryption");
+    }
 
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      * 
      */
-    public DomainSnapshotOptions snapshotOptions;
+    private @Nullable UndeferrableValue<DomainSnapshotOptions> snapshotOptions;
 
-
+    public @Nullable DomainSnapshotOptions snapshotOptions() {
+        if (snapshotOptions == null) return null;
+        return snapshotOptions.getValue("Domain.snapshotOptions");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -185,16 +244,22 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      * 
      */
-    public DomainVpcOptions vpcOptions;
+    private @Nullable UndeferrableValue<DomainVpcOptions> vpcOptions;
 
-
+    public @Nullable DomainVpcOptions vpcOptions() {
+        if (vpcOptions == null) return null;
+        return vpcOptions.getValue("Domain.vpcOptions");
+    }
 
 }

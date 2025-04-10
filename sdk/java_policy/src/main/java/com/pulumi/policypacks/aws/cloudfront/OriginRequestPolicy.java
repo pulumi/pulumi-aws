@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudfront.OriginRequestPolicyCookiesConfig;
-import com.pulumi.policypacks.aws.cloudfront.OriginRequestPolicyHeadersConfig;
-import com.pulumi.policypacks.aws.cloudfront.OriginRequestPolicyQueryStringsConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyCookiesConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyHeadersConfig;
+import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyQueryStringsConfig;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cloudfront/originRequestPolicy:OriginRequestPolicy")
-public final class OriginRequestPolicy extends com.pulumi.resources.PolicyResource {
+public final class OriginRequestPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The origin request policy ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OriginRequestPolicy.arn");
+    }
 
     /**
      * Comment to describe the origin request policy.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("OriginRequestPolicy.comment");
+    }
 
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    public OriginRequestPolicyCookiesConfig cookiesConfig;
+    private UndeferrableValue<OriginRequestPolicyCookiesConfig> cookiesConfig;
 
-
+    public OriginRequestPolicyCookiesConfig cookiesConfig() {
+        if (cookiesConfig == null) return null;
+        return cookiesConfig.getValue("OriginRequestPolicy.cookiesConfig");
+    }
 
     /**
      * The current version of the origin request policy.
      * 
      */
-    public String etag;
+    private UndeferrableValue<String> etag;
 
-
+    public String etag() {
+        if (etag == null) return null;
+        return etag.getValue("OriginRequestPolicy.etag");
+    }
 
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    public OriginRequestPolicyHeadersConfig headersConfig;
+    private UndeferrableValue<OriginRequestPolicyHeadersConfig> headersConfig;
 
-
+    public OriginRequestPolicyHeadersConfig headersConfig() {
+        if (headersConfig == null) return null;
+        return headersConfig.getValue("OriginRequestPolicy.headersConfig");
+    }
 
     /**
      * Unique name to identify the origin request policy.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OriginRequestPolicy.name");
+    }
 
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      * 
      */
-    public OriginRequestPolicyQueryStringsConfig queryStringsConfig;
+    private UndeferrableValue<OriginRequestPolicyQueryStringsConfig> queryStringsConfig;
 
-
+    public OriginRequestPolicyQueryStringsConfig queryStringsConfig() {
+        if (queryStringsConfig == null) return null;
+        return queryStringsConfig.getValue("OriginRequestPolicy.queryStringsConfig");
+    }
 
 }

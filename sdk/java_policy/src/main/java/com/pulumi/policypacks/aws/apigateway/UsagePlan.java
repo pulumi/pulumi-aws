@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.UsagePlanApiStage;
-import com.pulumi.policypacks.aws.apigateway.UsagePlanQuotaSettings;
-import com.pulumi.policypacks.aws.apigateway.UsagePlanThrottleSettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.UsagePlanApiStage;
+import com.pulumi.policypacks.aws.apigateway.outputs.UsagePlanQuotaSettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.UsagePlanThrottleSettings;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/usagePlan:UsagePlan")
-public final class UsagePlan extends com.pulumi.resources.PolicyResource {
+public final class UsagePlan extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Associated API stages of the usage plan.
      * 
      */
-    public List<UsagePlanApiStage> apiStages;
+    private @Nullable UndeferrableValue<List<UsagePlanApiStage>> apiStages;
 
-
+    public @Nullable List<UsagePlanApiStage> apiStages() {
+        if (apiStages == null) return null;
+        return apiStages.getValue("UsagePlan.apiStages");
+    }
 
     /**
      * ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("UsagePlan.arn");
+    }
 
     /**
      * Description of a usage plan.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("UsagePlan.description");
+    }
 
     /**
      * Name of the usage plan.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("UsagePlan.name");
+    }
 
     /**
      * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
-    public String productCode;
+    private @Nullable UndeferrableValue<String> productCode;
 
-
+    public @Nullable String productCode() {
+        if (productCode == null) return null;
+        return productCode.getValue("UsagePlan.productCode");
+    }
 
     /**
      * Quota of the usage plan.
      * 
      */
-    public UsagePlanQuotaSettings quotaSettings;
+    private @Nullable UndeferrableValue<UsagePlanQuotaSettings> quotaSettings;
 
+    public @Nullable UsagePlanQuotaSettings quotaSettings() {
+        if (quotaSettings == null) return null;
+        return quotaSettings.getValue("UsagePlan.quotaSettings");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("UsagePlan.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -75,16 +98,22 @@ public final class UsagePlan extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("UsagePlan.tagsAll");
+    }
 
     /**
      * Throttling limits of the usage plan.
      * 
      */
-    public UsagePlanThrottleSettings throttleSettings;
+    private @Nullable UndeferrableValue<UsagePlanThrottleSettings> throttleSettings;
 
-
+    public @Nullable UsagePlanThrottleSettings throttleSettings() {
+        if (throttleSettings == null) return null;
+        return throttleSettings.getValue("UsagePlan.throttleSettings");
+    }
 
 }

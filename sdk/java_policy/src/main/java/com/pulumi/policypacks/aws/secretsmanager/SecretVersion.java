@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")
-public final class SecretVersion extends com.pulumi.resources.PolicyResource {
+public final class SecretVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the secret.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("SecretVersion.arn");
+    }
 
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
-    public String secretBinary;
+    private @Nullable UndeferrableValue<String> secretBinary;
 
-
+    public @Nullable String secretBinary() {
+        if (secretBinary == null) return null;
+        return secretBinary.getValue("SecretVersion.secretBinary");
+    }
 
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
-    public String secretId;
+    private UndeferrableValue<String> secretId;
 
-
+    public String secretId() {
+        if (secretId == null) return null;
+        return secretId.getValue("SecretVersion.secretId");
+    }
 
     /**
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
      * 
      */
-    public String secretString;
+    private @Nullable UndeferrableValue<String> secretString;
 
-
+    public @Nullable String secretString() {
+        if (secretString == null) return null;
+        return secretString.getValue("SecretVersion.secretString");
+    }
 
     /**
      * The unique identifier of the version of the secret.
      * 
      */
-    public String versionId;
+    private UndeferrableValue<String> versionId;
 
-
+    public String versionId() {
+        if (versionId == null) return null;
+        return versionId.getValue("SecretVersion.versionId");
+    }
 
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -57,8 +74,11 @@ public final class SecretVersion extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
-    public List<String> versionStages;
+    private UndeferrableValue<List<String>> versionStages;
 
-
+    public List<String> versionStages() {
+        if (versionStages == null) return null;
+        return versionStages.getValue("SecretVersion.versionStages");
+    }
 
 }

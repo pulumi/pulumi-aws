@@ -3,79 +3,105 @@
 
 package com.pulumi.policypacks.aws.macie;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.macie.FindingsFilterFindingCriteria;
+import com.pulumi.policypacks.aws.macie.outputs.FindingsFilterFindingCriteria;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:macie/findingsFilter:FindingsFilter")
-public final class FindingsFilter extends com.pulumi.resources.PolicyResource {
+public final class FindingsFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
      * 
      */
-    public String action;
+    private UndeferrableValue<String> action;
 
-
+    public String action() {
+        if (action == null) return null;
+        return action.getValue("FindingsFilter.action");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Findings Filter.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FindingsFilter.arn");
+    }
 
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("FindingsFilter.description");
+    }
 
     /**
      * The criteria to use to filter findings.
      * 
      */
-    public FindingsFilterFindingCriteria findingCriteria;
+    private UndeferrableValue<FindingsFilterFindingCriteria> findingCriteria;
 
-
+    public FindingsFilterFindingCriteria findingCriteria() {
+        if (findingCriteria == null) return null;
+        return findingCriteria.getValue("FindingsFilter.findingCriteria");
+    }
 
     /**
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("FindingsFilter.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("FindingsFilter.namePrefix");
+    }
 
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
-    public Integer position;
+    private UndeferrableValue<Integer> position;
 
-
+    public Integer position() {
+        if (position == null) return null;
+        return position.getValue("FindingsFilter.position");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FindingsFilter.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -85,8 +111,11 @@ public final class FindingsFilter extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FindingsFilter.tagsAll");
+    }
 
 }

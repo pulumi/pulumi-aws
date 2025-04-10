@@ -3,120 +3,161 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.grafana.WorkspaceNetworkAccessControl;
-import com.pulumi.policypacks.aws.grafana.WorkspaceVpcConfiguration;
+import com.pulumi.policypacks.aws.grafana.outputs.WorkspaceNetworkAccessControl;
+import com.pulumi.policypacks.aws.grafana.outputs.WorkspaceVpcConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:grafana/workspace:Workspace")
-public final class Workspace extends com.pulumi.resources.PolicyResource {
+public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    public String accountAccessType;
+    private UndeferrableValue<String> accountAccessType;
 
-
+    public String accountAccessType() {
+        if (accountAccessType == null) return null;
+        return accountAccessType.getValue("Workspace.accountAccessType");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workspace.arn");
+    }
 
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
-    public List<String> authenticationProviders;
+    private UndeferrableValue<List<String>> authenticationProviders;
 
-
+    public List<String> authenticationProviders() {
+        if (authenticationProviders == null) return null;
+        return authenticationProviders.getValue("Workspace.authenticationProviders");
+    }
 
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
-    public String configuration;
+    private UndeferrableValue<String> configuration;
 
-
+    public String configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Workspace.configuration");
+    }
 
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      * 
      */
-    public List<String> dataSources;
+    private @Nullable UndeferrableValue<List<String>> dataSources;
 
-
+    public @Nullable List<String> dataSources() {
+        if (dataSources == null) return null;
+        return dataSources.getValue("Workspace.dataSources");
+    }
 
     /**
      * The workspace description.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Workspace.description");
+    }
 
     /**
      * The endpoint of the Grafana workspace.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Workspace.endpoint");
+    }
 
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
      * 
      */
-    public String grafanaVersion;
+    private UndeferrableValue<String> grafanaVersion;
 
-
+    public String grafanaVersion() {
+        if (grafanaVersion == null) return null;
+        return grafanaVersion.getValue("Workspace.grafanaVersion");
+    }
 
     /**
      * The Grafana workspace name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Workspace.name");
+    }
 
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      * 
      */
-    public WorkspaceNetworkAccessControl networkAccessControl;
+    private @Nullable UndeferrableValue<WorkspaceNetworkAccessControl> networkAccessControl;
 
-
+    public @Nullable WorkspaceNetworkAccessControl networkAccessControl() {
+        if (networkAccessControl == null) return null;
+        return networkAccessControl.getValue("Workspace.networkAccessControl");
+    }
 
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
-    public List<String> notificationDestinations;
+    private @Nullable UndeferrableValue<List<String>> notificationDestinations;
 
-
+    public @Nullable List<String> notificationDestinations() {
+        if (notificationDestinations == null) return null;
+        return notificationDestinations.getValue("Workspace.notificationDestinations");
+    }
 
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    public String organizationRoleName;
+    private @Nullable UndeferrableValue<String> organizationRoleName;
 
-
+    public @Nullable String organizationRoleName() {
+        if (organizationRoleName == null) return null;
+        return organizationRoleName.getValue("Workspace.organizationRoleName");
+    }
 
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
-    public List<String> organizationalUnits;
+    private @Nullable UndeferrableValue<List<String>> organizationalUnits;
 
-
+    public @Nullable List<String> organizationalUnits() {
+        if (organizationalUnits == null) return null;
+        return organizationalUnits.getValue("Workspace.organizationalUnits");
+    }
 
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
@@ -124,37 +165,52 @@ public final class Workspace extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String permissionType;
+    private UndeferrableValue<String> permissionType;
 
-
+    public String permissionType() {
+        if (permissionType == null) return null;
+        return permissionType.getValue("Workspace.permissionType");
+    }
 
     /**
      * The IAM role ARN that the workspace assumes.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Workspace.roleArn");
+    }
 
+    private UndeferrableValue<String> samlConfigurationStatus;
 
-    public String samlConfigurationStatus;
-
-
+    public String samlConfigurationStatus() {
+        if (samlConfigurationStatus == null) return null;
+        return samlConfigurationStatus.getValue("Workspace.samlConfigurationStatus");
+    }
 
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    public String stackSetName;
+    private @Nullable UndeferrableValue<String> stackSetName;
 
-
+    public @Nullable String stackSetName() {
+        if (stackSetName == null) return null;
+        return stackSetName.getValue("Workspace.stackSetName");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workspace.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -164,16 +220,22 @@ public final class Workspace extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workspace.tagsAll");
+    }
 
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      * 
      */
-    public WorkspaceVpcConfiguration vpcConfiguration;
+    private @Nullable UndeferrableValue<WorkspaceVpcConfiguration> vpcConfiguration;
 
-
+    public @Nullable WorkspaceVpcConfiguration vpcConfiguration() {
+        if (vpcConfiguration == null) return null;
+        return vpcConfiguration.getValue("Workspace.vpcConfiguration");
+    }
 
 }

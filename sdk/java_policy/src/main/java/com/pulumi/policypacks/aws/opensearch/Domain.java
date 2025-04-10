@@ -3,123 +3,161 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.opensearch.DomainAdvancedSecurityOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainAutoTuneOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainClusterConfig;
-import com.pulumi.policypacks.aws.opensearch.DomainCognitoOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainDomainEndpointOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainEbsOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainEncryptAtRest;
-import com.pulumi.policypacks.aws.opensearch.DomainLogPublishingOption;
-import com.pulumi.policypacks.aws.opensearch.DomainNodeToNodeEncryption;
-import com.pulumi.policypacks.aws.opensearch.DomainOffPeakWindowOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainSnapshotOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainSoftwareUpdateOptions;
-import com.pulumi.policypacks.aws.opensearch.DomainVpcOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainAdvancedSecurityOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainAutoTuneOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainClusterConfig;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainCognitoOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainDomainEndpointOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainEbsOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainEncryptAtRest;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainLogPublishingOption;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainNodeToNodeEncryption;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainOffPeakWindowOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainSnapshotOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainSoftwareUpdateOptions;
+import com.pulumi.policypacks.aws.opensearch.outputs.DomainVpcOptions;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:opensearch/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * IAM policy document specifying the access policies for the domain.
      * 
      */
-    public String accessPolicies;
+    private UndeferrableValue<String> accessPolicies;
 
-
+    public String accessPolicies() {
+        if (accessPolicies == null) return null;
+        return accessPolicies.getValue("Domain.accessPolicies");
+    }
 
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      * 
      */
-    public Map<String,String> advancedOptions;
+    private UndeferrableValue<Map<String,String>> advancedOptions;
 
-
+    public Map<String,String> advancedOptions() {
+        if (advancedOptions == null) return null;
+        return advancedOptions.getValue("Domain.advancedOptions");
+    }
 
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    public DomainAdvancedSecurityOptions advancedSecurityOptions;
+    private UndeferrableValue<DomainAdvancedSecurityOptions> advancedSecurityOptions;
 
-
+    public DomainAdvancedSecurityOptions advancedSecurityOptions() {
+        if (advancedSecurityOptions == null) return null;
+        return advancedSecurityOptions.getValue("Domain.advancedSecurityOptions");
+    }
 
     /**
      * ARN of the domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    public DomainAutoTuneOptions autoTuneOptions;
+    private UndeferrableValue<DomainAutoTuneOptions> autoTuneOptions;
 
-
+    public DomainAutoTuneOptions autoTuneOptions() {
+        if (autoTuneOptions == null) return null;
+        return autoTuneOptions.getValue("Domain.autoTuneOptions");
+    }
 
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    public DomainClusterConfig clusterConfig;
+    private UndeferrableValue<DomainClusterConfig> clusterConfig;
 
-
+    public DomainClusterConfig clusterConfig() {
+        if (clusterConfig == null) return null;
+        return clusterConfig.getValue("Domain.clusterConfig");
+    }
 
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
-    public DomainCognitoOptions cognitoOptions;
+    private @Nullable UndeferrableValue<DomainCognitoOptions> cognitoOptions;
 
-
+    public @Nullable DomainCognitoOptions cognitoOptions() {
+        if (cognitoOptions == null) return null;
+        return cognitoOptions.getValue("Domain.cognitoOptions");
+    }
 
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      * 
      */
-    public String dashboardEndpoint;
+    private UndeferrableValue<String> dashboardEndpoint;
 
-
+    public String dashboardEndpoint() {
+        if (dashboardEndpoint == null) return null;
+        return dashboardEndpoint.getValue("Domain.dashboardEndpoint");
+    }
 
     /**
      * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
      * 
      */
-    public String dashboardEndpointV2;
+    private UndeferrableValue<String> dashboardEndpointV2;
 
-
+    public String dashboardEndpointV2() {
+        if (dashboardEndpointV2 == null) return null;
+        return dashboardEndpointV2.getValue("Domain.dashboardEndpointV2");
+    }
 
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    public DomainDomainEndpointOptions domainEndpointOptions;
+    private UndeferrableValue<DomainDomainEndpointOptions> domainEndpointOptions;
 
-
+    public DomainDomainEndpointOptions domainEndpointOptions() {
+        if (domainEndpointOptions == null) return null;
+        return domainEndpointOptions.getValue("Domain.domainEndpointOptions");
+    }
 
     /**
      * Dual stack hosted zone ID for the domain.
      * 
      */
-    public String domainEndpointV2HostedZoneId;
+    private UndeferrableValue<String> domainEndpointV2HostedZoneId;
 
-
+    public String domainEndpointV2HostedZoneId() {
+        if (domainEndpointV2HostedZoneId == null) return null;
+        return domainEndpointV2HostedZoneId.getValue("Domain.domainEndpointV2HostedZoneId");
+    }
 
     /**
      * Unique identifier for the domain.
      * 
      */
-    public String domainId;
+    private UndeferrableValue<String> domainId;
 
-
+    public String domainId() {
+        if (domainId == null) return null;
+        return domainId.getValue("Domain.domainId");
+    }
 
     /**
      * Name of the domain.
@@ -127,41 +165,56 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("Domain.domainName");
+    }
 
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      * 
      */
-    public DomainEbsOptions ebsOptions;
+    private UndeferrableValue<DomainEbsOptions> ebsOptions;
 
-
+    public DomainEbsOptions ebsOptions() {
+        if (ebsOptions == null) return null;
+        return ebsOptions.getValue("Domain.ebsOptions");
+    }
 
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      * 
      */
-    public DomainEncryptAtRest encryptAtRest;
+    private UndeferrableValue<DomainEncryptAtRest> encryptAtRest;
 
-
+    public DomainEncryptAtRest encryptAtRest() {
+        if (encryptAtRest == null) return null;
+        return encryptAtRest.getValue("Domain.encryptAtRest");
+    }
 
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    public String endpoint;
+    private UndeferrableValue<String> endpoint;
 
-
+    public String endpoint() {
+        if (endpoint == null) return null;
+        return endpoint.getValue("Domain.endpoint");
+    }
 
     /**
      * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
      * 
      */
-    public String endpointV2;
+    private UndeferrableValue<String> endpointV2;
 
-
+    public String endpointV2() {
+        if (endpointV2 == null) return null;
+        return endpointV2.getValue("Domain.endpointV2");
+    }
 
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
@@ -169,17 +222,23 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * Defaults to the lastest version of OpenSearch.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("Domain.engineVersion");
+    }
 
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      * 
      */
-    public String ipAddressType;
+    private UndeferrableValue<String> ipAddressType;
 
-
+    public String ipAddressType() {
+        if (ipAddressType == null) return null;
+        return ipAddressType.getValue("Domain.ipAddressType");
+    }
 
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
@@ -189,57 +248,78 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    public String kibanaEndpoint;
+    private UndeferrableValue<String> kibanaEndpoint;
 
-
+    public String kibanaEndpoint() {
+        if (kibanaEndpoint == null) return null;
+        return kibanaEndpoint.getValue("Domain.kibanaEndpoint");
+    }
 
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
-    public List<DomainLogPublishingOption> logPublishingOptions;
+    private @Nullable UndeferrableValue<List<DomainLogPublishingOption>> logPublishingOptions;
 
-
+    public @Nullable List<DomainLogPublishingOption> logPublishingOptions() {
+        if (logPublishingOptions == null) return null;
+        return logPublishingOptions.getValue("Domain.logPublishingOptions");
+    }
 
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    public DomainNodeToNodeEncryption nodeToNodeEncryption;
+    private UndeferrableValue<DomainNodeToNodeEncryption> nodeToNodeEncryption;
 
-
+    public DomainNodeToNodeEncryption nodeToNodeEncryption() {
+        if (nodeToNodeEncryption == null) return null;
+        return nodeToNodeEncryption.getValue("Domain.nodeToNodeEncryption");
+    }
 
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      * 
      */
-    public DomainOffPeakWindowOptions offPeakWindowOptions;
+    private UndeferrableValue<DomainOffPeakWindowOptions> offPeakWindowOptions;
 
-
+    public DomainOffPeakWindowOptions offPeakWindowOptions() {
+        if (offPeakWindowOptions == null) return null;
+        return offPeakWindowOptions.getValue("Domain.offPeakWindowOptions");
+    }
 
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      * 
      */
-    public DomainSnapshotOptions snapshotOptions;
+    private @Nullable UndeferrableValue<DomainSnapshotOptions> snapshotOptions;
 
-
+    public @Nullable DomainSnapshotOptions snapshotOptions() {
+        if (snapshotOptions == null) return null;
+        return snapshotOptions.getValue("Domain.snapshotOptions");
+    }
 
     /**
      * Software update options for the domain. Detailed below.
      * 
      */
-    public DomainSoftwareUpdateOptions softwareUpdateOptions;
+    private UndeferrableValue<DomainSoftwareUpdateOptions> softwareUpdateOptions;
 
-
+    public DomainSoftwareUpdateOptions softwareUpdateOptions() {
+        if (softwareUpdateOptions == null) return null;
+        return softwareUpdateOptions.getValue("Domain.softwareUpdateOptions");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -249,16 +329,22 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      * 
      */
-    public DomainVpcOptions vpcOptions;
+    private @Nullable UndeferrableValue<DomainVpcOptions> vpcOptions;
 
-
+    public @Nullable DomainVpcOptions vpcOptions() {
+        if (vpcOptions == null) return null;
+        return vpcOptions.getValue("Domain.vpcOptions");
+    }
 
 }

@@ -3,44 +3,57 @@
 
 package com.pulumi.policypacks.aws.backup;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:backup/vaultNotifications:VaultNotifications")
-public final class VaultNotifications extends com.pulumi.resources.PolicyResource {
+public final class VaultNotifications extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the vault.
      * 
      */
-    public String backupVaultArn;
+    private UndeferrableValue<String> backupVaultArn;
 
-
+    public String backupVaultArn() {
+        if (backupVaultArn == null) return null;
+        return backupVaultArn.getValue("VaultNotifications.backupVaultArn");
+    }
 
     /**
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
-    public List<String> backupVaultEvents;
+    private UndeferrableValue<List<String>> backupVaultEvents;
 
-
+    public List<String> backupVaultEvents() {
+        if (backupVaultEvents == null) return null;
+        return backupVaultEvents.getValue("VaultNotifications.backupVaultEvents");
+    }
 
     /**
      * Name of the backup vault to add notifications for.
      * 
      */
-    public String backupVaultName;
+    private UndeferrableValue<String> backupVaultName;
 
-
+    public String backupVaultName() {
+        if (backupVaultName == null) return null;
+        return backupVaultName.getValue("VaultNotifications.backupVaultName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      * 
      */
-    public String snsTopicArn;
+    private UndeferrableValue<String> snsTopicArn;
 
-
+    public String snsTopicArn() {
+        if (snsTopicArn == null) return null;
+        return snsTopicArn.getValue("VaultNotifications.snsTopicArn");
+    }
 
 }

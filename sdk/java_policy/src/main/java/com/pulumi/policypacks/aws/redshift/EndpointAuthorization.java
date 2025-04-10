@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:redshift/endpointAuthorization:EndpointAuthorization")
-public final class EndpointAuthorization extends com.pulumi.resources.PolicyResource {
+public final class EndpointAuthorization extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Web Services account ID to grant access to.
      * 
      */
-    public String account;
+    private UndeferrableValue<String> account;
 
-
+    public String account() {
+        if (account == null) return null;
+        return account.getValue("EndpointAuthorization.account");
+    }
 
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      * 
      */
-    public Boolean allowedAllVpcs;
+    private UndeferrableValue<Boolean> allowedAllVpcs;
 
-
+    public Boolean allowedAllVpcs() {
+        if (allowedAllVpcs == null) return null;
+        return allowedAllVpcs.getValue("EndpointAuthorization.allowedAllVpcs");
+    }
 
     /**
      * The cluster identifier of the cluster to grant access to.
      * 
      */
-    public String clusterIdentifier;
+    private UndeferrableValue<String> clusterIdentifier;
 
-
+    public String clusterIdentifier() {
+        if (clusterIdentifier == null) return null;
+        return clusterIdentifier.getValue("EndpointAuthorization.clusterIdentifier");
+    }
 
     /**
      * The number of Redshift-managed VPC endpoints created for the authorization.
      * 
      */
-    public Integer endpointCount;
+    private UndeferrableValue<Integer> endpointCount;
 
-
+    public Integer endpointCount() {
+        if (endpointCount == null) return null;
+        return endpointCount.getValue("EndpointAuthorization.endpointCount");
+    }
 
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      * 
      */
-    public Boolean forceDelete;
+    private @Nullable UndeferrableValue<Boolean> forceDelete;
 
-
+    public @Nullable Boolean forceDelete() {
+        if (forceDelete == null) return null;
+        return forceDelete.getValue("EndpointAuthorization.forceDelete");
+    }
 
     /**
      * The Amazon Web Services account ID of the grantee of the cluster.
      * 
      */
-    public String grantee;
+    private UndeferrableValue<String> grantee;
 
-
+    public String grantee() {
+        if (grantee == null) return null;
+        return grantee.getValue("EndpointAuthorization.grantee");
+    }
 
     /**
      * The Amazon Web Services account ID of the cluster owner.
      * 
      */
-    public String grantor;
+    private UndeferrableValue<String> grantor;
 
-
+    public String grantor() {
+        if (grantor == null) return null;
+        return grantor.getValue("EndpointAuthorization.grantor");
+    }
 
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
-    public List<String> vpcIds;
+    private @Nullable UndeferrableValue<List<String>> vpcIds;
 
-
+    public @Nullable List<String> vpcIds() {
+        if (vpcIds == null) return null;
+        return vpcIds.getValue("EndpointAuthorization.vpcIds");
+    }
 
 }

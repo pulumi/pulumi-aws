@@ -3,86 +3,115 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appmesh.VirtualServiceSpec;
+import com.pulumi.policypacks.aws.appmesh.outputs.VirtualServiceSpec;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appmesh/virtualService:VirtualService")
-public final class VirtualService extends com.pulumi.resources.PolicyResource {
+public final class VirtualService extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the virtual service.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VirtualService.arn");
+    }
 
     /**
      * Creation date of the virtual service.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("VirtualService.createdDate");
+    }
 
     /**
      * Last update date of the virtual service.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("VirtualService.lastUpdatedDate");
+    }
 
     /**
      * Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
-    public String meshName;
+    private UndeferrableValue<String> meshName;
 
-
+    public String meshName() {
+        if (meshName == null) return null;
+        return meshName.getValue("VirtualService.meshName");
+    }
 
     /**
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    public String meshOwner;
+    private UndeferrableValue<String> meshOwner;
 
-
+    public String meshOwner() {
+        if (meshOwner == null) return null;
+        return meshOwner.getValue("VirtualService.meshOwner");
+    }
 
     /**
      * Name to use for the virtual service. Must be between 1 and 255 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VirtualService.name");
+    }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("VirtualService.resourceOwner");
+    }
 
     /**
      * Virtual service specification to apply.
      * 
      */
-    public VirtualServiceSpec spec;
+    private UndeferrableValue<VirtualServiceSpec> spec;
 
-
+    public VirtualServiceSpec spec() {
+        if (spec == null) return null;
+        return spec.getValue("VirtualService.spec");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VirtualService.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,8 +121,11 @@ public final class VirtualService extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VirtualService.tagsAll");
+    }
 
 }

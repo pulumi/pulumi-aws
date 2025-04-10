@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
 
 
 @PolicyResourceType(type="aws:inspector/resourceGroup:ResourceGroup")
-public final class ResourceGroup extends com.pulumi.resources.PolicyResource {
+public final class ResourceGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The resource group ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ResourceGroup.arn");
+    }
 
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
-    public Map<String,String> tags;
+    private UndeferrableValue<Map<String,String>> tags;
 
-
+    public Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ResourceGroup.tags");
+    }
 
 }

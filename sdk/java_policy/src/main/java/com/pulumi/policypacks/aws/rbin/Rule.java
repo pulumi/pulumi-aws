@@ -3,69 +3,92 @@
 
 package com.pulumi.policypacks.aws.rbin;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rbin.RuleLockConfiguration;
-import com.pulumi.policypacks.aws.rbin.RuleResourceTag;
-import com.pulumi.policypacks.aws.rbin.RuleRetentionPeriod;
+import com.pulumi.policypacks.aws.rbin.outputs.RuleLockConfiguration;
+import com.pulumi.policypacks.aws.rbin.outputs.RuleResourceTag;
+import com.pulumi.policypacks.aws.rbin.outputs.RuleRetentionPeriod;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rbin/rule:Rule")
-public final class Rule extends com.pulumi.resources.PolicyResource {
+public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
 
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Rule.arn");
+    }
 
     /**
      * The retention rule description.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Rule.description");
+    }
 
     /**
      * Information about the retention rule lock configuration. See `lock_configuration` below.
      * 
      */
-    public RuleLockConfiguration lockConfiguration;
+    private @Nullable UndeferrableValue<RuleLockConfiguration> lockConfiguration;
 
-
+    public @Nullable RuleLockConfiguration lockConfiguration() {
+        if (lockConfiguration == null) return null;
+        return lockConfiguration.getValue("Rule.lockConfiguration");
+    }
 
     /**
      * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      * 
      */
-    public String lockEndTime;
+    private UndeferrableValue<String> lockEndTime;
 
-
+    public String lockEndTime() {
+        if (lockEndTime == null) return null;
+        return lockEndTime.getValue("Rule.lockEndTime");
+    }
 
     /**
      * (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
-    public String lockState;
+    private UndeferrableValue<String> lockState;
 
-
+    public String lockState() {
+        if (lockState == null) return null;
+        return lockState.getValue("Rule.lockState");
+    }
 
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
-    public List<RuleResourceTag> resourceTags;
+    private UndeferrableValue<List<RuleResourceTag>> resourceTags;
 
-
+    public List<RuleResourceTag> resourceTags() {
+        if (resourceTags == null) return null;
+        return resourceTags.getValue("Rule.resourceTags");
+    }
 
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("Rule.resourceType");
+    }
 
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
@@ -73,21 +96,30 @@ public final class Rule extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public RuleRetentionPeriod retentionPeriod;
+    private UndeferrableValue<RuleRetentionPeriod> retentionPeriod;
 
-
+    public RuleRetentionPeriod retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("Rule.retentionPeriod");
+    }
 
     /**
      * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Rule.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Rule.tags");
+    }
 
     /**
      * @deprecated
@@ -95,8 +127,11 @@ public final class Rule extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Rule.tagsAll");
+    }
 
 }

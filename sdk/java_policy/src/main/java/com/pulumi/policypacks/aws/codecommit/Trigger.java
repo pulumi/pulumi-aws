@@ -3,37 +3,47 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.codecommit.TriggerTrigger;
+import com.pulumi.policypacks.aws.codecommit.outputs.TriggerTrigger;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:codecommit/trigger:Trigger")
-public final class Trigger extends com.pulumi.resources.PolicyResource {
+public final class Trigger extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * System-generated unique identifier.
      * 
      */
-    public String configurationId;
+    private UndeferrableValue<String> configurationId;
 
-
+    public String configurationId() {
+        if (configurationId == null) return null;
+        return configurationId.getValue("Trigger.configurationId");
+    }
 
     /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    public String repositoryName;
+    private UndeferrableValue<String> repositoryName;
 
-
+    public String repositoryName() {
+        if (repositoryName == null) return null;
+        return repositoryName.getValue("Trigger.repositoryName");
+    }
 
     /**
      * The name of the trigger.
      * 
      */
-    public List<TriggerTrigger> triggers;
+    private UndeferrableValue<List<TriggerTrigger>> triggers;
 
-
+    public List<TriggerTrigger> triggers() {
+        if (triggers == null) return null;
+        return triggers.getValue("Trigger.triggers");
+    }
 
 }

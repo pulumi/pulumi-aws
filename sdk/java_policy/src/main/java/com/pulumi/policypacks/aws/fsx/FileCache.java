@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.FileCacheDataRepositoryAssociation;
-import com.pulumi.policypacks.aws.fsx.FileCacheLustreConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.FileCacheDataRepositoryAssociation;
+import com.pulumi.policypacks.aws.fsx.outputs.FileCacheLustreConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/fileCache:FileCache")
-public final class FileCache extends com.pulumi.resources.PolicyResource {
+public final class FileCache extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the resource.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FileCache.arn");
+    }
 
     /**
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      * 
      */
-    public Boolean copyTagsToDataRepositoryAssociations;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToDataRepositoryAssociations;
 
-
+    public @Nullable Boolean copyTagsToDataRepositoryAssociations() {
+        if (copyTagsToDataRepositoryAssociations == null) return null;
+        return copyTagsToDataRepositoryAssociations.getValue("FileCache.copyTagsToDataRepositoryAssociations");
+    }
 
     /**
      * A list of IDs of data repository associations that are associated with this cache.
      * 
      */
-    public List<String> dataRepositoryAssociationIds;
+    private UndeferrableValue<List<String>> dataRepositoryAssociationIds;
 
-
+    public List<String> dataRepositoryAssociationIds() {
+        if (dataRepositoryAssociationIds == null) return null;
+        return dataRepositoryAssociationIds.getValue("FileCache.dataRepositoryAssociationIds");
+    }
 
     /**
      * See the `data_repository_association` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      * 
      */
-    public List<FileCacheDataRepositoryAssociation> dataRepositoryAssociations;
+    private @Nullable UndeferrableValue<List<FileCacheDataRepositoryAssociation>> dataRepositoryAssociations;
 
-
+    public @Nullable List<FileCacheDataRepositoryAssociation> dataRepositoryAssociations() {
+        if (dataRepositoryAssociations == null) return null;
+        return dataRepositoryAssociations.getValue("FileCache.dataRepositoryAssociations");
+    }
 
     /**
      * The Domain Name System (DNS) name for the cache.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("FileCache.dnsName");
+    }
 
     /**
      * The system-generated, unique ID of the cache.
      * 
      */
-    public String fileCacheId;
+    private UndeferrableValue<String> fileCacheId;
 
-
+    public String fileCacheId() {
+        if (fileCacheId == null) return null;
+        return fileCacheId.getValue("FileCache.fileCacheId");
+    }
 
     /**
      * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
      * 
      */
-    public String fileCacheType;
+    private UndeferrableValue<String> fileCacheType;
 
-
+    public String fileCacheType() {
+        if (fileCacheType == null) return null;
+        return fileCacheType.getValue("FileCache.fileCacheType");
+    }
 
     /**
      * The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
      * 
      */
-    public String fileCacheTypeVersion;
+    private UndeferrableValue<String> fileCacheTypeVersion;
 
-
+    public String fileCacheTypeVersion() {
+        if (fileCacheTypeVersion == null) return null;
+        return fileCacheTypeVersion.getValue("FileCache.fileCacheTypeVersion");
+    }
 
     /**
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("FileCache.kmsKeyId");
+    }
 
     /**
      * See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
      * 
      */
-    public List<FileCacheLustreConfiguration> lustreConfigurations;
+    private @Nullable UndeferrableValue<List<FileCacheLustreConfiguration>> lustreConfigurations;
 
-
+    public @Nullable List<FileCacheLustreConfiguration> lustreConfigurations() {
+        if (lustreConfigurations == null) return null;
+        return lustreConfigurations.getValue("FileCache.lustreConfigurations");
+    }
 
     /**
      * A list of network interface IDs.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("FileCache.networkInterfaceIds");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
-
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("FileCache.ownerId");
+    }
 
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("FileCache.securityGroupIds");
+    }
 
     /**
      * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
-    public Integer storageCapacity;
+    private UndeferrableValue<Integer> storageCapacity;
 
-
+    public Integer storageCapacity() {
+        if (storageCapacity == null) return null;
+        return storageCapacity.getValue("FileCache.storageCapacity");
+    }
 
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
@@ -131,17 +175,23 @@ public final class FileCache extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public List<String> subnetIds;
+    private UndeferrableValue<List<String>> subnetIds;
 
-
+    public List<String> subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("FileCache.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FileCache.tags");
+    }
 
     /**
      * @deprecated
@@ -149,16 +199,22 @@ public final class FileCache extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FileCache.tagsAll");
+    }
 
     /**
      * The ID of your virtual private cloud (VPC).
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("FileCache.vpcId");
+    }
 
 }

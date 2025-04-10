@@ -3,121 +3,165 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sfn.StateMachineEncryptionConfiguration;
-import com.pulumi.policypacks.aws.sfn.StateMachineLoggingConfiguration;
-import com.pulumi.policypacks.aws.sfn.StateMachineTracingConfiguration;
+import com.pulumi.policypacks.aws.sfn.outputs.StateMachineEncryptionConfiguration;
+import com.pulumi.policypacks.aws.sfn.outputs.StateMachineLoggingConfiguration;
+import com.pulumi.policypacks.aws.sfn.outputs.StateMachineTracingConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sfn/stateMachine:StateMachine")
-public final class StateMachine extends com.pulumi.resources.PolicyResource {
+public final class StateMachine extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the state machine.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StateMachine.arn");
+    }
 
     /**
      * The date the state machine was created.
      * 
      */
-    public String creationDate;
+    private UndeferrableValue<String> creationDate;
 
-
+    public String creationDate() {
+        if (creationDate == null) return null;
+        return creationDate.getValue("StateMachine.creationDate");
+    }
 
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      * 
      */
-    public String definition;
+    private UndeferrableValue<String> definition;
 
+    public String definition() {
+        if (definition == null) return null;
+        return definition.getValue("StateMachine.definition");
+    }
 
+    private UndeferrableValue<String> description;
 
-    public String description;
-
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("StateMachine.description");
+    }
 
     /**
      * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
      * 
      */
-    public StateMachineEncryptionConfiguration encryptionConfiguration;
+    private UndeferrableValue<StateMachineEncryptionConfiguration> encryptionConfiguration;
 
-
+    public StateMachineEncryptionConfiguration encryptionConfiguration() {
+        if (encryptionConfiguration == null) return null;
+        return encryptionConfiguration.getValue("StateMachine.encryptionConfiguration");
+    }
 
     /**
      * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
      * 
      */
-    public StateMachineLoggingConfiguration loggingConfiguration;
+    private UndeferrableValue<StateMachineLoggingConfiguration> loggingConfiguration;
 
-
+    public StateMachineLoggingConfiguration loggingConfiguration() {
+        if (loggingConfiguration == null) return null;
+        return loggingConfiguration.getValue("StateMachine.loggingConfiguration");
+    }
 
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StateMachine.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("StateMachine.namePrefix");
+    }
 
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      * 
      */
-    public Boolean publish;
+    private @Nullable UndeferrableValue<Boolean> publish;
 
+    public @Nullable Boolean publish() {
+        if (publish == null) return null;
+        return publish.getValue("StateMachine.publish");
+    }
 
+    private UndeferrableValue<String> revisionId;
 
-    public String revisionId;
-
-
+    public String revisionId() {
+        if (revisionId == null) return null;
+        return revisionId.getValue("StateMachine.revisionId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("StateMachine.roleArn");
+    }
 
     /**
      * The ARN of the state machine version.
      * 
      */
-    public String stateMachineVersionArn;
+    private UndeferrableValue<String> stateMachineVersionArn;
 
-
+    public String stateMachineVersionArn() {
+        if (stateMachineVersionArn == null) return null;
+        return stateMachineVersionArn.getValue("StateMachine.stateMachineVersionArn");
+    }
 
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("StateMachine.status");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StateMachine.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,28 +171,40 @@ public final class StateMachine extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StateMachine.tagsAll");
+    }
 
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      * 
      */
-    public StateMachineTracingConfiguration tracingConfiguration;
+    private UndeferrableValue<StateMachineTracingConfiguration> tracingConfiguration;
 
-
+    public StateMachineTracingConfiguration tracingConfiguration() {
+        if (tracingConfiguration == null) return null;
+        return tracingConfiguration.getValue("StateMachine.tracingConfiguration");
+    }
 
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      * 
      */
-    public String type;
+    private @Nullable UndeferrableValue<String> type;
 
+    public @Nullable String type() {
+        if (type == null) return null;
+        return type.getValue("StateMachine.type");
+    }
 
+    private UndeferrableValue<String> versionDescription;
 
-    public String versionDescription;
-
-
+    public String versionDescription() {
+        if (versionDescription == null) return null;
+        return versionDescription.getValue("StateMachine.versionDescription");
+    }
 
 }

@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigateway.StageAccessLogSettings;
-import com.pulumi.policypacks.aws.apigateway.StageCanarySettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.StageAccessLogSettings;
+import com.pulumi.policypacks.aws.apigateway.outputs.StageCanarySettings;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/stage:Stage")
-public final class Stage extends com.pulumi.resources.PolicyResource {
+public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      * 
      */
-    public StageAccessLogSettings accessLogSettings;
+    private @Nullable UndeferrableValue<StageAccessLogSettings> accessLogSettings;
 
-
+    public @Nullable StageAccessLogSettings accessLogSettings() {
+        if (accessLogSettings == null) return null;
+        return accessLogSettings.getValue("Stage.accessLogSettings");
+    }
 
     /**
      * ARN
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Stage.arn");
+    }
 
     /**
      * Whether a cache cluster is enabled for the stage
      * 
      */
-    public Boolean cacheClusterEnabled;
+    private @Nullable UndeferrableValue<Boolean> cacheClusterEnabled;
 
-
+    public @Nullable Boolean cacheClusterEnabled() {
+        if (cacheClusterEnabled == null) return null;
+        return cacheClusterEnabled.getValue("Stage.cacheClusterEnabled");
+    }
 
     /**
      * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
-    public String cacheClusterSize;
+    private @Nullable UndeferrableValue<String> cacheClusterSize;
 
-
+    public @Nullable String cacheClusterSize() {
+        if (cacheClusterSize == null) return null;
+        return cacheClusterSize.getValue("Stage.cacheClusterSize");
+    }
 
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      * 
      */
-    public StageCanarySettings canarySettings;
+    private @Nullable UndeferrableValue<StageCanarySettings> canarySettings;
 
-
+    public @Nullable StageCanarySettings canarySettings() {
+        if (canarySettings == null) return null;
+        return canarySettings.getValue("Stage.canarySettings");
+    }
 
     /**
      * Identifier of a client certificate for the stage.
      * 
      */
-    public String clientCertificateId;
+    private @Nullable UndeferrableValue<String> clientCertificateId;
 
-
+    public @Nullable String clientCertificateId() {
+        if (clientCertificateId == null) return null;
+        return clientCertificateId.getValue("Stage.clientCertificateId");
+    }
 
     /**
      * ID of the deployment that the stage points to
      * 
      */
-    public String deployment;
+    private UndeferrableValue<String> deployment;
 
-
+    public String deployment() {
+        if (deployment == null) return null;
+        return deployment.getValue("Stage.deployment");
+    }
 
     /**
      * Description of the stage.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Stage.description");
+    }
 
     /**
      * Version of the associated API documentation
      * 
      */
-    public String documentationVersion;
+    private @Nullable UndeferrableValue<String> documentationVersion;
 
-
+    public @Nullable String documentationVersion() {
+        if (documentationVersion == null) return null;
+        return documentationVersion.getValue("Stage.documentationVersion");
+    }
 
     /**
      * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
@@ -92,42 +121,57 @@ public final class Stage extends com.pulumi.resources.PolicyResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    public String executionArn;
+    private UndeferrableValue<String> executionArn;
 
-
+    public String executionArn() {
+        if (executionArn == null) return null;
+        return executionArn.getValue("Stage.executionArn");
+    }
 
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    public String invokeUrl;
+    private UndeferrableValue<String> invokeUrl;
 
-
+    public String invokeUrl() {
+        if (invokeUrl == null) return null;
+        return invokeUrl.getValue("Stage.invokeUrl");
+    }
 
     /**
      * ID of the associated REST API
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("Stage.restApi");
+    }
 
     /**
      * Name of the stage
      * 
      */
-    public String stageName;
+    private UndeferrableValue<String> stageName;
 
-
+    public String stageName() {
+        if (stageName == null) return null;
+        return stageName.getValue("Stage.stageName");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Stage.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -137,32 +181,44 @@ public final class Stage extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Stage.tagsAll");
+    }
 
     /**
      * Map that defines the stage variables
      * 
      */
-    public Map<String,String> variables;
+    private @Nullable UndeferrableValue<Map<String,String>> variables;
 
-
+    public @Nullable Map<String,String> variables() {
+        if (variables == null) return null;
+        return variables.getValue("Stage.variables");
+    }
 
     /**
      * ARN of the WebAcl associated with the Stage.
      * 
      */
-    public String webAclArn;
+    private UndeferrableValue<String> webAclArn;
 
-
+    public String webAclArn() {
+        if (webAclArn == null) return null;
+        return webAclArn.getValue("Stage.webAclArn");
+    }
 
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      * 
      */
-    public Boolean xrayTracingEnabled;
+    private @Nullable UndeferrableValue<Boolean> xrayTracingEnabled;
 
-
+    public @Nullable Boolean xrayTracingEnabled() {
+        if (xrayTracingEnabled == null) return null;
+        return xrayTracingEnabled.getValue("Stage.xrayTracingEnabled");
+    }
 
 }

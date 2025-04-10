@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.rekognition.CollectionTimeouts;
+import com.pulumi.policypacks.aws.rekognition.outputs.CollectionTimeouts;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rekognition/collection:Collection")
-public final class Collection extends com.pulumi.resources.PolicyResource {
+public final class Collection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Collection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Collection.arn");
+    }
 
     /**
      * The name of the collection
@@ -26,25 +31,34 @@ public final class Collection extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String collectionId;
+    private UndeferrableValue<String> collectionId;
 
-
+    public String collectionId() {
+        if (collectionId == null) return null;
+        return collectionId.getValue("Collection.collectionId");
+    }
 
     /**
      * The Face Model Version that the collection was initialized with
      * 
      */
-    public String faceModelVersion;
+    private UndeferrableValue<String> faceModelVersion;
 
-
+    public String faceModelVersion() {
+        if (faceModelVersion == null) return null;
+        return faceModelVersion.getValue("Collection.faceModelVersion");
+    }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Collection.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -54,12 +68,18 @@ public final class Collection extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Collection.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<CollectionTimeouts> timeouts;
 
-    public CollectionTimeouts timeouts;
-
-
+    public @Nullable CollectionTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Collection.timeouts");
+    }
 
 }

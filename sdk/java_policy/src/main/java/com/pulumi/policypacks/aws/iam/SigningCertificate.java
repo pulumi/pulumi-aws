@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:iam/signingCertificate:SigningCertificate")
-public final class SigningCertificate extends com.pulumi.resources.PolicyResource {
+public final class SigningCertificate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The contents of the signing certificate in PEM-encoded format.
      * 
      */
-    public String certificateBody;
+    private UndeferrableValue<String> certificateBody;
 
-
+    public String certificateBody() {
+        if (certificateBody == null) return null;
+        return certificateBody.getValue("SigningCertificate.certificateBody");
+    }
 
     /**
      * The ID for the signing certificate.
      * 
      */
-    public String certificateId;
+    private UndeferrableValue<String> certificateId;
 
-
+    public String certificateId() {
+        if (certificateId == null) return null;
+        return certificateId.getValue("SigningCertificate.certificateId");
+    }
 
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      * 
      */
-    public String status;
+    private @Nullable UndeferrableValue<String> status;
 
-
+    public @Nullable String status() {
+        if (status == null) return null;
+        return status.getValue("SigningCertificate.status");
+    }
 
     /**
      * The name of the user the signing certificate is for.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("SigningCertificate.userName");
+    }
 
 }

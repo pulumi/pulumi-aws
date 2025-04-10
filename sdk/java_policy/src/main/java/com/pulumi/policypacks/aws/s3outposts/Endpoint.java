@@ -3,85 +3,114 @@
 
 package com.pulumi.policypacks.aws.s3outposts;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3outposts.EndpointNetworkInterface;
+import com.pulumi.policypacks.aws.s3outposts.outputs.EndpointNetworkInterface;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3outposts/endpoint:Endpoint")
-public final class Endpoint extends com.pulumi.resources.PolicyResource {
+public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      * 
      */
-    public String accessType;
+    private UndeferrableValue<String> accessType;
 
-
+    public String accessType() {
+        if (accessType == null) return null;
+        return accessType.getValue("Endpoint.accessType");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Endpoint.arn");
+    }
 
     /**
      * VPC CIDR block of the endpoint.
      * 
      */
-    public String cidrBlock;
+    private UndeferrableValue<String> cidrBlock;
 
-
+    public String cidrBlock() {
+        if (cidrBlock == null) return null;
+        return cidrBlock.getValue("Endpoint.cidrBlock");
+    }
 
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String creationTime;
+    private UndeferrableValue<String> creationTime;
 
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("Endpoint.creationTime");
+    }
 
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      * 
      */
-    public String customerOwnedIpv4Pool;
+    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
 
-
+    public @Nullable String customerOwnedIpv4Pool() {
+        if (customerOwnedIpv4Pool == null) return null;
+        return customerOwnedIpv4Pool.getValue("Endpoint.customerOwnedIpv4Pool");
+    }
 
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      * 
      */
-    public List<EndpointNetworkInterface> networkInterfaces;
+    private UndeferrableValue<List<EndpointNetworkInterface>> networkInterfaces;
 
-
+    public List<EndpointNetworkInterface> networkInterfaces() {
+        if (networkInterfaces == null) return null;
+        return networkInterfaces.getValue("Endpoint.networkInterfaces");
+    }
 
     /**
      * Identifier of the Outpost to contain this endpoint.
      * 
      */
-    public String outpostId;
+    private UndeferrableValue<String> outpostId;
 
-
+    public String outpostId() {
+        if (outpostId == null) return null;
+        return outpostId.getValue("Endpoint.outpostId");
+    }
 
     /**
      * Identifier of the EC2 Security Group.
      * 
      */
-    public String securityGroupId;
+    private UndeferrableValue<String> securityGroupId;
 
-
+    public String securityGroupId() {
+        if (securityGroupId == null) return null;
+        return securityGroupId.getValue("Endpoint.securityGroupId");
+    }
 
     /**
      * Identifier of the EC2 Subnet.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("Endpoint.subnetId");
+    }
 
 }

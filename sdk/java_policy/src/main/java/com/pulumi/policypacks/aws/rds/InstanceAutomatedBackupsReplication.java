@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")
-public final class InstanceAutomatedBackupsReplication extends com.pulumi.resources.PolicyResource {
+public final class InstanceAutomatedBackupsReplication extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("InstanceAutomatedBackupsReplication.kmsKeyId");
+    }
 
     /**
      * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
-    public String preSignedUrl;
+    private @Nullable UndeferrableValue<String> preSignedUrl;
 
-
+    public @Nullable String preSignedUrl() {
+        if (preSignedUrl == null) return null;
+        return preSignedUrl.getValue("InstanceAutomatedBackupsReplication.preSignedUrl");
+    }
 
     /**
      * The retention period for the replicated automated backups, defaults to `7`.
      * 
      */
-    public Integer retentionPeriod;
+    private @Nullable UndeferrableValue<Integer> retentionPeriod;
 
-
+    public @Nullable Integer retentionPeriod() {
+        if (retentionPeriod == null) return null;
+        return retentionPeriod.getValue("InstanceAutomatedBackupsReplication.retentionPeriod");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
-    public String sourceDbInstanceArn;
+    private UndeferrableValue<String> sourceDbInstanceArn;
 
-
+    public String sourceDbInstanceArn() {
+        if (sourceDbInstanceArn == null) return null;
+        return sourceDbInstanceArn.getValue("InstanceAutomatedBackupsReplication.sourceDbInstanceArn");
+    }
 
 }

@@ -3,97 +3,129 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.secretsmanager.SecretReplica;
+import com.pulumi.policypacks.aws.secretsmanager.outputs.SecretReplica;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:secretsmanager/secret:Secret")
-public final class Secret extends com.pulumi.resources.PolicyResource {
+public final class Secret extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the secret.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Secret.arn");
+    }
 
     /**
      * Description of the secret.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Secret.description");
+    }
 
     /**
      * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
      * 
      */
-    public Boolean forceOverwriteReplicaSecret;
+    private @Nullable UndeferrableValue<Boolean> forceOverwriteReplicaSecret;
 
-
+    public @Nullable Boolean forceOverwriteReplicaSecret() {
+        if (forceOverwriteReplicaSecret == null) return null;
+        return forceOverwriteReplicaSecret.getValue("Secret.forceOverwriteReplicaSecret");
+    }
 
     /**
      * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("Secret.kmsKeyId");
+    }
 
     /**
      * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Secret.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("Secret.namePrefix");
+    }
 
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Secret.policy");
+    }
 
     /**
      * Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      * 
      */
-    public Integer recoveryWindowInDays;
+    private @Nullable UndeferrableValue<Integer> recoveryWindowInDays;
 
-
+    public @Nullable Integer recoveryWindowInDays() {
+        if (recoveryWindowInDays == null) return null;
+        return recoveryWindowInDays.getValue("Secret.recoveryWindowInDays");
+    }
 
     /**
      * Configuration block to support secret replication. See details below.
      * 
      */
-    public List<SecretReplica> replicas;
+    private UndeferrableValue<List<SecretReplica>> replicas;
 
-
+    public List<SecretReplica> replicas() {
+        if (replicas == null) return null;
+        return replicas.getValue("Secret.replicas");
+    }
 
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Secret.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -103,8 +135,11 @@ public final class Secret extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Secret.tagsAll");
+    }
 
 }

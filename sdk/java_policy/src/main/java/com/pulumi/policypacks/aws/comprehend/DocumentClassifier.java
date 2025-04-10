@@ -3,50 +3,64 @@
 
 package com.pulumi.policypacks.aws.comprehend;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.comprehend.DocumentClassifierInputDataConfig;
-import com.pulumi.policypacks.aws.comprehend.DocumentClassifierOutputDataConfig;
-import com.pulumi.policypacks.aws.comprehend.DocumentClassifierVpcConfig;
+import com.pulumi.policypacks.aws.comprehend.outputs.DocumentClassifierInputDataConfig;
+import com.pulumi.policypacks.aws.comprehend.outputs.DocumentClassifierOutputDataConfig;
+import com.pulumi.policypacks.aws.comprehend.outputs.DocumentClassifierVpcConfig;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:comprehend/documentClassifier:DocumentClassifier")
-public final class DocumentClassifier extends com.pulumi.resources.PolicyResource {
+public final class DocumentClassifier extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Document Classifier version.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DocumentClassifier.arn");
+    }
 
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      * 
      */
-    public String dataAccessRoleArn;
+    private UndeferrableValue<String> dataAccessRoleArn;
 
-
+    public String dataAccessRoleArn() {
+        if (dataAccessRoleArn == null) return null;
+        return dataAccessRoleArn.getValue("DocumentClassifier.dataAccessRoleArn");
+    }
 
     /**
      * Configuration for the training and testing data.
      * See the `input_data_config` Configuration Block section below.
      * 
      */
-    public DocumentClassifierInputDataConfig inputDataConfig;
+    private UndeferrableValue<DocumentClassifierInputDataConfig> inputDataConfig;
 
-
+    public DocumentClassifierInputDataConfig inputDataConfig() {
+        if (inputDataConfig == null) return null;
+        return inputDataConfig.getValue("DocumentClassifier.inputDataConfig");
+    }
 
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      * 
      */
-    public String languageCode;
+    private UndeferrableValue<String> languageCode;
 
-
+    public String languageCode() {
+        if (languageCode == null) return null;
+        return languageCode.getValue("DocumentClassifier.languageCode");
+    }
 
     /**
      * The document classification mode.
@@ -54,18 +68,24 @@ public final class DocumentClassifier extends com.pulumi.resources.PolicyResourc
      * `MULTI_CLASS` is also known as &#34;Single Label&#34; in the AWS Console.
      * 
      */
-    public String mode;
+    private @Nullable UndeferrableValue<String> mode;
 
-
+    public @Nullable String mode() {
+        if (mode == null) return null;
+        return mode.getValue("DocumentClassifier.mode");
+    }
 
     /**
      * KMS Key used to encrypt trained Document Classifiers.
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    public String modelKmsKeyId;
+    private @Nullable UndeferrableValue<String> modelKmsKeyId;
 
-
+    public @Nullable String modelKmsKeyId() {
+        if (modelKmsKeyId == null) return null;
+        return modelKmsKeyId.getValue("DocumentClassifier.modelKmsKeyId");
+    }
 
     /**
      * Name for the Document Classifier.
@@ -75,26 +95,35 @@ public final class DocumentClassifier extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DocumentClassifier.name");
+    }
 
     /**
      * Configuration for the output results of training.
      * See the `output_data_config` Configuration Block section below.
      * 
      */
-    public DocumentClassifierOutputDataConfig outputDataConfig;
+    private UndeferrableValue<DocumentClassifierOutputDataConfig> outputDataConfig;
 
-
+    public DocumentClassifierOutputDataConfig outputDataConfig() {
+        if (outputDataConfig == null) return null;
+        return outputDataConfig.getValue("DocumentClassifier.outputDataConfig");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DocumentClassifier.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,9 +133,12 @@ public final class DocumentClassifier extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DocumentClassifier.tagsAll");
+    }
 
     /**
      * Name for the version of the Document Classifier.
@@ -118,9 +150,12 @@ public final class DocumentClassifier extends com.pulumi.resources.PolicyResourc
      * Conflicts with `version_name_prefix`.
      * 
      */
-    public String versionName;
+    private UndeferrableValue<String> versionName;
 
-
+    public String versionName() {
+        if (versionName == null) return null;
+        return versionName.getValue("DocumentClassifier.versionName");
+    }
 
     /**
      * Creates a unique version name beginning with the specified prefix.
@@ -129,26 +164,35 @@ public final class DocumentClassifier extends com.pulumi.resources.PolicyResourc
      * Conflicts with `version_name`.
      * 
      */
-    public String versionNamePrefix;
+    private UndeferrableValue<String> versionNamePrefix;
 
-
+    public String versionNamePrefix() {
+        if (versionNamePrefix == null) return null;
+        return versionNamePrefix.getValue("DocumentClassifier.versionNamePrefix");
+    }
 
     /**
      * KMS Key used to encrypt storage volumes during job processing.
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    public String volumeKmsKeyId;
+    private @Nullable UndeferrableValue<String> volumeKmsKeyId;
 
-
+    public @Nullable String volumeKmsKeyId() {
+        if (volumeKmsKeyId == null) return null;
+        return volumeKmsKeyId.getValue("DocumentClassifier.volumeKmsKeyId");
+    }
 
     /**
      * Configuration parameters for VPC to contain Document Classifier resources.
      * See the `vpc_config` Configuration Block section below.
      * 
      */
-    public DocumentClassifierVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<DocumentClassifierVpcConfig> vpcConfig;
 
-
+    public @Nullable DocumentClassifierVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("DocumentClassifier.vpcConfig");
+    }
 
 }

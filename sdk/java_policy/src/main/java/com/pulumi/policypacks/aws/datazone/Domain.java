@@ -3,32 +3,40 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.datazone.DomainSingleSignOn;
-import com.pulumi.policypacks.aws.datazone.DomainTimeouts;
+import com.pulumi.policypacks.aws.datazone.outputs.DomainSingleSignOn;
+import com.pulumi.policypacks.aws.datazone.outputs.DomainTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:datazone/domain:Domain")
-public final class Domain extends com.pulumi.resources.PolicyResource {
+public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Domain.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Domain.arn");
+    }
 
     /**
      * Description of the Domain.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Domain.description");
+    }
 
     /**
      * ARN of the role used by DataZone to configure the Domain.
@@ -36,53 +44,74 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String domainExecutionRole;
+    private UndeferrableValue<String> domainExecutionRole;
 
-
+    public String domainExecutionRole() {
+        if (domainExecutionRole == null) return null;
+        return domainExecutionRole.getValue("Domain.domainExecutionRole");
+    }
 
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      * 
      */
-    public String kmsKeyIdentifier;
+    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
 
-
+    public @Nullable String kmsKeyIdentifier() {
+        if (kmsKeyIdentifier == null) return null;
+        return kmsKeyIdentifier.getValue("Domain.kmsKeyIdentifier");
+    }
 
     /**
      * Name of the Domain.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Domain.name");
+    }
 
     /**
      * URL of the data portal for the Domain.
      * 
      */
-    public String portalUrl;
+    private UndeferrableValue<String> portalUrl;
 
-
+    public String portalUrl() {
+        if (portalUrl == null) return null;
+        return portalUrl.getValue("Domain.portalUrl");
+    }
 
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      * 
      */
-    public DomainSingleSignOn singleSignOn;
+    private @Nullable UndeferrableValue<DomainSingleSignOn> singleSignOn;
 
-
+    public @Nullable DomainSingleSignOn singleSignOn() {
+        if (singleSignOn == null) return null;
+        return singleSignOn.getValue("Domain.singleSignOn");
+    }
 
     /**
      * Whether to skip the deletion check for the Domain.
      * 
      */
-    public Boolean skipDeletionCheck;
+    private @Nullable UndeferrableValue<Boolean> skipDeletionCheck;
 
+    public @Nullable Boolean skipDeletionCheck() {
+        if (skipDeletionCheck == null) return null;
+        return skipDeletionCheck.getValue("Domain.skipDeletionCheck");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Domain.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -92,12 +121,18 @@ public final class Domain extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Domain.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<DomainTimeouts> timeouts;
 
-    public DomainTimeouts timeouts;
-
-
+    public @Nullable DomainTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("Domain.timeouts");
+    }
 
 }

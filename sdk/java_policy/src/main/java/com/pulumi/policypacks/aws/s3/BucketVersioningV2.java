@@ -3,44 +3,58 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketVersioningV2VersioningConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.BucketVersioningV2VersioningConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketVersioningV2:BucketVersioningV2")
-public final class BucketVersioningV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketVersioningV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the S3 bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketVersioningV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketVersioningV2.expectedBucketOwner");
+    }
 
     /**
      * Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
-    public String mfa;
+    private @Nullable UndeferrableValue<String> mfa;
 
-
+    public @Nullable String mfa() {
+        if (mfa == null) return null;
+        return mfa.getValue("BucketVersioningV2.mfa");
+    }
 
     /**
      * Configuration block for the versioning parameters. See below.
      * 
      */
-    public BucketVersioningV2VersioningConfiguration versioningConfiguration;
+    private UndeferrableValue<BucketVersioningV2VersioningConfiguration> versioningConfiguration;
 
-
+    public BucketVersioningV2VersioningConfiguration versioningConfiguration() {
+        if (versioningConfiguration == null) return null;
+        return versioningConfiguration.getValue("BucketVersioningV2.versioningConfiguration");
+    }
 
 }

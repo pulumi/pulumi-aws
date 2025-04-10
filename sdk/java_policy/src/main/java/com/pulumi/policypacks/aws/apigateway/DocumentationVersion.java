@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/documentationVersion:DocumentationVersion")
-public final class DocumentationVersion extends com.pulumi.resources.PolicyResource {
+public final class DocumentationVersion extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Description of the API documentation version.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DocumentationVersion.description");
+    }
 
     /**
      * ID of the associated Rest API
      * 
      */
-    public String restApiId;
+    private UndeferrableValue<String> restApiId;
 
-
+    public String restApiId() {
+        if (restApiId == null) return null;
+        return restApiId.getValue("DocumentationVersion.restApiId");
+    }
 
     /**
      * Version identifier of the API documentation snapshot.
      * 
      */
-    public String version;
+    private UndeferrableValue<String> version;
 
-
+    public String version() {
+        if (version == null) return null;
+        return version.getValue("DocumentationVersion.version");
+    }
 
 }

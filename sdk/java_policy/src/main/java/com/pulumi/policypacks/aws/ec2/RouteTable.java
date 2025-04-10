@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.RouteTableRoute;
+import com.pulumi.policypacks.aws.ec2.outputs.RouteTableRoute;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/routeTable:RouteTable")
-public final class RouteTable extends com.pulumi.resources.PolicyResource {
+public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the route table.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RouteTable.arn");
+    }
 
     /**
      * The ID of the AWS account that owns the route table.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("RouteTable.ownerId");
+    }
 
     /**
      * A list of virtual gateways for propagation.
      * 
      */
-    public List<String> propagatingVgws;
+    private UndeferrableValue<List<String>> propagatingVgws;
 
-
+    public List<String> propagatingVgws() {
+        if (propagatingVgws == null) return null;
+        return propagatingVgws.getValue("RouteTable.propagatingVgws");
+    }
 
     /**
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
-    public List<RouteTableRoute> routes;
+    private UndeferrableValue<List<RouteTableRoute>> routes;
 
-
+    public List<RouteTableRoute> routes() {
+        if (routes == null) return null;
+        return routes.getValue("RouteTable.routes");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("RouteTable.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -62,16 +79,22 @@ public final class RouteTable extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("RouteTable.tagsAll");
+    }
 
     /**
      * The VPC ID.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("RouteTable.vpcId");
+    }
 
 }

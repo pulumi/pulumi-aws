@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cfg/recorderStatus:RecorderStatus")
-public final class RecorderStatus extends com.pulumi.resources.PolicyResource {
+public final class RecorderStatus extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether the configuration recorder should be enabled or disabled.
      * 
      */
-    public Boolean isEnabled;
+    private UndeferrableValue<Boolean> isEnabled;
 
-
+    public Boolean isEnabled() {
+        if (isEnabled == null) return null;
+        return isEnabled.getValue("RecorderStatus.isEnabled");
+    }
 
     /**
      * The name of the recorder
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RecorderStatus.name");
+    }
 
 }

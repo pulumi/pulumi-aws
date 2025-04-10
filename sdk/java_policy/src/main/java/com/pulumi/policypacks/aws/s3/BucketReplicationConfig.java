@@ -3,30 +3,38 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketReplicationConfigRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketReplicationConfigRule;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketReplicationConfig:BucketReplicationConfig")
-public final class BucketReplicationConfig extends com.pulumi.resources.PolicyResource {
+public final class BucketReplicationConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketReplicationConfig.bucket");
+    }
 
     /**
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("BucketReplicationConfig.role");
+    }
 
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
@@ -38,17 +46,23 @@ public final class BucketReplicationConfig extends com.pulumi.resources.PolicyRe
      * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      * 
      */
-    public List<BucketReplicationConfigRule> rules;
+    private UndeferrableValue<List<BucketReplicationConfigRule>> rules;
 
-
+    public List<BucketReplicationConfigRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("BucketReplicationConfig.rules");
+    }
 
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
-    public String token;
+    private @Nullable UndeferrableValue<String> token;
 
-
+    public @Nullable String token() {
+        if (token == null) return null;
+        return token.getValue("BucketReplicationConfig.token");
+    }
 
 }

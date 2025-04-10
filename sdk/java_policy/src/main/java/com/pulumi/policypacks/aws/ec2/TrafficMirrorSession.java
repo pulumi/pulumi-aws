@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/trafficMirrorSession:TrafficMirrorSession")
-public final class TrafficMirrorSession extends com.pulumi.resources.PolicyResource {
+public final class TrafficMirrorSession extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the traffic mirror session.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TrafficMirrorSession.arn");
+    }
 
     /**
      * A description of the traffic mirror session.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TrafficMirrorSession.description");
+    }
 
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("TrafficMirrorSession.networkInterfaceId");
+    }
 
     /**
      * The AWS account ID of the session owner.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("TrafficMirrorSession.ownerId");
+    }
 
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      * 
      */
-    public Integer packetLength;
+    private UndeferrableValue<Integer> packetLength;
 
-
+    public Integer packetLength() {
+        if (packetLength == null) return null;
+        return packetLength.getValue("TrafficMirrorSession.packetLength");
+    }
 
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      * 
      */
-    public Integer sessionNumber;
+    private UndeferrableValue<Integer> sessionNumber;
 
-
+    public Integer sessionNumber() {
+        if (sessionNumber == null) return null;
+        return sessionNumber.getValue("TrafficMirrorSession.sessionNumber");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TrafficMirrorSession.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,32 +99,44 @@ public final class TrafficMirrorSession extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TrafficMirrorSession.tagsAll");
+    }
 
     /**
      * ID of the traffic mirror filter to be used
      * 
      */
-    public String trafficMirrorFilterId;
+    private UndeferrableValue<String> trafficMirrorFilterId;
 
-
+    public String trafficMirrorFilterId() {
+        if (trafficMirrorFilterId == null) return null;
+        return trafficMirrorFilterId.getValue("TrafficMirrorSession.trafficMirrorFilterId");
+    }
 
     /**
      * ID of the traffic mirror target to be used
      * 
      */
-    public String trafficMirrorTargetId;
+    private UndeferrableValue<String> trafficMirrorTargetId;
 
-
+    public String trafficMirrorTargetId() {
+        if (trafficMirrorTargetId == null) return null;
+        return trafficMirrorTargetId.getValue("TrafficMirrorSession.trafficMirrorTargetId");
+    }
 
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      * 
      */
-    public Integer virtualNetworkId;
+    private UndeferrableValue<Integer> virtualNetworkId;
 
-
+    public Integer virtualNetworkId() {
+        if (virtualNetworkId == null) return null;
+        return virtualNetworkId.getValue("TrafficMirrorSession.virtualNetworkId");
+    }
 
 }

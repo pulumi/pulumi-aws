@@ -3,63 +3,83 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.guardduty.DetectorDatasources;
+import com.pulumi.policypacks.aws.guardduty.outputs.DetectorDatasources;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/detector:Detector")
-public final class Detector extends com.pulumi.resources.PolicyResource {
+public final class Detector extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS account ID of the GuardDuty detector
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("Detector.accountId");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the GuardDuty detector
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Detector.arn");
+    }
 
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
-    public DetectorDatasources datasources;
+    private UndeferrableValue<DetectorDatasources> datasources;
 
-
+    public DetectorDatasources datasources() {
+        if (datasources == null) return null;
+        return datasources.getValue("Detector.datasources");
+    }
 
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
-    public Boolean enable;
+    private @Nullable UndeferrableValue<Boolean> enable;
 
-
+    public @Nullable Boolean enable() {
+        if (enable == null) return null;
+        return enable.getValue("Detector.enable");
+    }
 
     /**
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      * 
      */
-    public String findingPublishingFrequency;
+    private UndeferrableValue<String> findingPublishingFrequency;
 
-
+    public String findingPublishingFrequency() {
+        if (findingPublishingFrequency == null) return null;
+        return findingPublishingFrequency.getValue("Detector.findingPublishingFrequency");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Detector.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,8 +89,11 @@ public final class Detector extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Detector.tagsAll");
+    }
 
 }

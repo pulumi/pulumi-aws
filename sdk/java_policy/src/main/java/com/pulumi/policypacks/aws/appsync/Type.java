@@ -3,59 +3,78 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:appsync/type:Type")
-public final class Type extends com.pulumi.resources.PolicyResource {
+public final class Type extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * GraphQL API ID.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Type.apiId");
+    }
 
     /**
      * The ARN of the type.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Type.arn");
+    }
 
     /**
      * The type definition.
      * 
      */
-    public String definition;
+    private UndeferrableValue<String> definition;
 
-
+    public String definition() {
+        if (definition == null) return null;
+        return definition.getValue("Type.definition");
+    }
 
     /**
      * The type description.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Type.description");
+    }
 
     /**
      * The type format: `SDL` or `JSON`.
      * 
      */
-    public String format;
+    private UndeferrableValue<String> format;
 
-
+    public String format() {
+        if (format == null) return null;
+        return format.getValue("Type.format");
+    }
 
     /**
      * The type name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Type.name");
+    }
 
 }

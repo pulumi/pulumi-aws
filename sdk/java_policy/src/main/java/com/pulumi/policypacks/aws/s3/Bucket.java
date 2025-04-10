@@ -3,128 +3,169 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3.BucketCorsRule;
-import com.pulumi.policypacks.aws.s3.BucketGrant;
-import com.pulumi.policypacks.aws.s3.BucketLifecycleRule;
-import com.pulumi.policypacks.aws.s3.BucketLogging;
-import com.pulumi.policypacks.aws.s3.BucketObjectLockConfiguration;
-import com.pulumi.policypacks.aws.s3.BucketReplicationConfiguration;
-import com.pulumi.policypacks.aws.s3.BucketServerSideEncryptionConfiguration;
-import com.pulumi.policypacks.aws.s3.BucketVersioning;
-import com.pulumi.policypacks.aws.s3.BucketWebsite;
+import com.pulumi.policypacks.aws.s3.outputs.BucketCorsRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketGrant;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleRule;
+import com.pulumi.policypacks.aws.s3.outputs.BucketLogging;
+import com.pulumi.policypacks.aws.s3.outputs.BucketObjectLockConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.BucketReplicationConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.BucketServerSideEncryptionConfiguration;
+import com.pulumi.policypacks.aws.s3.outputs.BucketVersioning;
+import com.pulumi.policypacks.aws.s3.outputs.BucketWebsite;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucket:Bucket")
-public final class Bucket extends com.pulumi.resources.PolicyResource {
+public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      * 
      */
-    public String accelerationStatus;
+    private UndeferrableValue<String> accelerationStatus;
 
-
+    public String accelerationStatus() {
+        if (accelerationStatus == null) return null;
+        return accelerationStatus.getValue("Bucket.accelerationStatus");
+    }
 
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      * 
      */
-    public String acl;
+    private @Nullable UndeferrableValue<String> acl;
 
-
+    public @Nullable String acl() {
+        if (acl == null) return null;
+        return acl.getValue("Bucket.acl");
+    }
 
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Bucket.arn");
+    }
 
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("Bucket.bucket");
+    }
 
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    public String bucketDomainName;
+    private UndeferrableValue<String> bucketDomainName;
 
-
+    public String bucketDomainName() {
+        if (bucketDomainName == null) return null;
+        return bucketDomainName.getValue("Bucket.bucketDomainName");
+    }
 
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    public String bucketPrefix;
+    private @Nullable UndeferrableValue<String> bucketPrefix;
 
-
+    public @Nullable String bucketPrefix() {
+        if (bucketPrefix == null) return null;
+        return bucketPrefix.getValue("Bucket.bucketPrefix");
+    }
 
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      * 
      */
-    public String bucketRegionalDomainName;
+    private UndeferrableValue<String> bucketRegionalDomainName;
 
-
+    public String bucketRegionalDomainName() {
+        if (bucketRegionalDomainName == null) return null;
+        return bucketRegionalDomainName.getValue("Bucket.bucketRegionalDomainName");
+    }
 
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      * 
      */
-    public List<BucketCorsRule> corsRules;
+    private @Nullable UndeferrableValue<List<BucketCorsRule>> corsRules;
 
-
+    public @Nullable List<BucketCorsRule> corsRules() {
+        if (corsRules == null) return null;
+        return corsRules.getValue("Bucket.corsRules");
+    }
 
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Bucket.forceDestroy");
+    }
 
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      * 
      */
-    public List<BucketGrant> grants;
+    private @Nullable UndeferrableValue<List<BucketGrant>> grants;
 
-
+    public @Nullable List<BucketGrant> grants() {
+        if (grants == null) return null;
+        return grants.getValue("Bucket.grants");
+    }
 
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    public String hostedZoneId;
+    private UndeferrableValue<String> hostedZoneId;
 
-
+    public String hostedZoneId() {
+        if (hostedZoneId == null) return null;
+        return hostedZoneId.getValue("Bucket.hostedZoneId");
+    }
 
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      * 
      */
-    public List<BucketLifecycleRule> lifecycleRules;
+    private @Nullable UndeferrableValue<List<BucketLifecycleRule>> lifecycleRules;
 
-
+    public @Nullable List<BucketLifecycleRule> lifecycleRules() {
+        if (lifecycleRules == null) return null;
+        return lifecycleRules.getValue("Bucket.lifecycleRules");
+    }
 
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      * 
      */
-    public List<BucketLogging> loggings;
+    private @Nullable UndeferrableValue<List<BucketLogging>> loggings;
 
-
+    public @Nullable List<BucketLogging> loggings() {
+        if (loggings == null) return null;
+        return loggings.getValue("Bucket.loggings");
+    }
 
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
@@ -132,33 +173,45 @@ public final class Bucket extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
      * 
      */
-    public BucketObjectLockConfiguration objectLockConfiguration;
+    private @Nullable UndeferrableValue<BucketObjectLockConfiguration> objectLockConfiguration;
 
-
+    public @Nullable BucketObjectLockConfiguration objectLockConfiguration() {
+        if (objectLockConfiguration == null) return null;
+        return objectLockConfiguration.getValue("Bucket.objectLockConfiguration");
+    }
 
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
      * 
      */
-    public String policy;
+    private @Nullable UndeferrableValue<String> policy;
 
-
+    public @Nullable String policy() {
+        if (policy == null) return null;
+        return policy.getValue("Bucket.policy");
+    }
 
     /**
      * The AWS region this bucket resides in.
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("Bucket.region");
+    }
 
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      * 
      */
-    public BucketReplicationConfiguration replicationConfiguration;
+    private @Nullable UndeferrableValue<BucketReplicationConfiguration> replicationConfiguration;
 
-
+    public @Nullable BucketReplicationConfiguration replicationConfiguration() {
+        if (replicationConfiguration == null) return null;
+        return replicationConfiguration.getValue("Bucket.replicationConfiguration");
+    }
 
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
@@ -167,25 +220,34 @@ public final class Bucket extends com.pulumi.resources.PolicyResource {
      * developer guide for more information.
      * 
      */
-    public String requestPayer;
+    private UndeferrableValue<String> requestPayer;
 
-
+    public String requestPayer() {
+        if (requestPayer == null) return null;
+        return requestPayer.getValue("Bucket.requestPayer");
+    }
 
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      * 
      */
-    public BucketServerSideEncryptionConfiguration serverSideEncryptionConfiguration;
+    private UndeferrableValue<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
-
+    public BucketServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
+        if (serverSideEncryptionConfiguration == null) return null;
+        return serverSideEncryptionConfiguration.getValue("Bucket.serverSideEncryptionConfiguration");
+    }
 
     /**
      * A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Bucket.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -195,40 +257,55 @@ public final class Bucket extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Bucket.tagsAll");
+    }
 
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      * 
      */
-    public BucketVersioning versioning;
+    private UndeferrableValue<BucketVersioning> versioning;
 
-
+    public BucketVersioning versioning() {
+        if (versioning == null) return null;
+        return versioning.getValue("Bucket.versioning");
+    }
 
     /**
      * A website object (documented below).
      * 
      */
-    public BucketWebsite website;
+    private @Nullable UndeferrableValue<BucketWebsite> website;
 
-
+    public @Nullable BucketWebsite website() {
+        if (website == null) return null;
+        return website.getValue("Bucket.website");
+    }
 
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    public String websiteDomain;
+    private UndeferrableValue<String> websiteDomain;
 
-
+    public String websiteDomain() {
+        if (websiteDomain == null) return null;
+        return websiteDomain.getValue("Bucket.websiteDomain");
+    }
 
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    public String websiteEndpoint;
+    private UndeferrableValue<String> websiteEndpoint;
 
-
+    public String websiteEndpoint() {
+        if (websiteEndpoint == null) return null;
+        return websiteEndpoint.getValue("Bucket.websiteEndpoint");
+    }
 
 }

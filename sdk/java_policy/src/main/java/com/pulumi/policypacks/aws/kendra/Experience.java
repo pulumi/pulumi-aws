@@ -3,71 +3,94 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.ExperienceConfiguration;
-import com.pulumi.policypacks.aws.kendra.ExperienceEndpoint;
+import com.pulumi.policypacks.aws.kendra.outputs.ExperienceConfiguration;
+import com.pulumi.policypacks.aws.kendra.outputs.ExperienceEndpoint;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/experience:Experience")
-public final class Experience extends com.pulumi.resources.PolicyResource {
+public final class Experience extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the Experience.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Experience.arn");
+    }
 
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
-    public ExperienceConfiguration configuration;
+    private UndeferrableValue<ExperienceConfiguration> configuration;
 
-
+    public ExperienceConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Experience.configuration");
+    }
 
     /**
      * A description for your Amazon Kendra experience.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Experience.description");
+    }
 
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
-    public List<ExperienceEndpoint> endpoints;
+    private UndeferrableValue<List<ExperienceEndpoint>> endpoints;
 
-
+    public List<ExperienceEndpoint> endpoints() {
+        if (endpoints == null) return null;
+        return endpoints.getValue("Experience.endpoints");
+    }
 
     /**
      * The unique identifier of the experience.
      * 
      */
-    public String experienceId;
+    private UndeferrableValue<String> experienceId;
 
-
+    public String experienceId() {
+        if (experienceId == null) return null;
+        return experienceId.getValue("Experience.experienceId");
+    }
 
     /**
      * The identifier of the index for your Amazon Kendra experience.
      * 
      */
-    public String indexId;
+    private UndeferrableValue<String> indexId;
 
-
+    public String indexId() {
+        if (indexId == null) return null;
+        return indexId.getValue("Experience.indexId");
+    }
 
     /**
      * A name for your Amazon Kendra experience.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Experience.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
@@ -75,16 +98,22 @@ public final class Experience extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Experience.roleArn");
+    }
 
     /**
      * The current processing status of your Amazon Kendra experience.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Experience.status");
+    }
 
 }

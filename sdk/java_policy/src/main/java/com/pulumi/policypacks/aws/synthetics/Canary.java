@@ -3,133 +3,177 @@
 
 package com.pulumi.policypacks.aws.synthetics;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.synthetics.CanaryArtifactConfig;
-import com.pulumi.policypacks.aws.synthetics.CanaryRunConfig;
-import com.pulumi.policypacks.aws.synthetics.CanarySchedule;
-import com.pulumi.policypacks.aws.synthetics.CanaryTimeline;
-import com.pulumi.policypacks.aws.synthetics.CanaryVpcConfig;
+import com.pulumi.policypacks.aws.synthetics.outputs.CanaryArtifactConfig;
+import com.pulumi.policypacks.aws.synthetics.outputs.CanaryRunConfig;
+import com.pulumi.policypacks.aws.synthetics.outputs.CanarySchedule;
+import com.pulumi.policypacks.aws.synthetics.outputs.CanaryTimeline;
+import com.pulumi.policypacks.aws.synthetics.outputs.CanaryVpcConfig;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:synthetics/canary:Canary")
-public final class Canary extends com.pulumi.resources.PolicyResource {
+public final class Canary extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the Canary.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Canary.arn");
+    }
 
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      * 
      */
-    public CanaryArtifactConfig artifactConfig;
+    private @Nullable UndeferrableValue<CanaryArtifactConfig> artifactConfig;
 
-
+    public @Nullable CanaryArtifactConfig artifactConfig() {
+        if (artifactConfig == null) return null;
+        return artifactConfig.getValue("Canary.artifactConfig");
+    }
 
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      * 
      */
-    public String artifactS3Location;
+    private UndeferrableValue<String> artifactS3Location;
 
-
+    public String artifactS3Location() {
+        if (artifactS3Location == null) return null;
+        return artifactS3Location.getValue("Canary.artifactS3Location");
+    }
 
     /**
      * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
      * 
      */
-    public Boolean deleteLambda;
+    private @Nullable UndeferrableValue<Boolean> deleteLambda;
 
-
+    public @Nullable Boolean deleteLambda() {
+        if (deleteLambda == null) return null;
+        return deleteLambda.getValue("Canary.deleteLambda");
+    }
 
     /**
      * ARN of the Lambda function that is used as your canary&#39;s engine.
      * 
      */
-    public String engineArn;
+    private UndeferrableValue<String> engineArn;
 
-
+    public String engineArn() {
+        if (engineArn == null) return null;
+        return engineArn.getValue("Canary.engineArn");
+    }
 
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      * 
      */
-    public String executionRoleArn;
+    private UndeferrableValue<String> executionRoleArn;
 
-
+    public String executionRoleArn() {
+        if (executionRoleArn == null) return null;
+        return executionRoleArn.getValue("Canary.executionRoleArn");
+    }
 
     /**
      * Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      * 
      */
-    public Integer failureRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> failureRetentionPeriod;
 
-
+    public @Nullable Integer failureRetentionPeriod() {
+        if (failureRetentionPeriod == null) return null;
+        return failureRetentionPeriod.getValue("Canary.failureRetentionPeriod");
+    }
 
     /**
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      * 
      */
-    public String handler;
+    private UndeferrableValue<String> handler;
 
-
+    public String handler() {
+        if (handler == null) return null;
+        return handler.getValue("Canary.handler");
+    }
 
     /**
      * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Canary.name");
+    }
 
     /**
      * Configuration block for individual canary runs. Detailed below.
      * 
      */
-    public CanaryRunConfig runConfig;
+    private UndeferrableValue<CanaryRunConfig> runConfig;
 
-
+    public CanaryRunConfig runConfig() {
+        if (runConfig == null) return null;
+        return runConfig.getValue("Canary.runConfig");
+    }
 
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      * 
      */
-    public String runtimeVersion;
+    private UndeferrableValue<String> runtimeVersion;
 
-
+    public String runtimeVersion() {
+        if (runtimeVersion == null) return null;
+        return runtimeVersion.getValue("Canary.runtimeVersion");
+    }
 
     /**
      * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
-    public String s3Bucket;
+    private @Nullable UndeferrableValue<String> s3Bucket;
 
-
+    public @Nullable String s3Bucket() {
+        if (s3Bucket == null) return null;
+        return s3Bucket.getValue("Canary.s3Bucket");
+    }
 
     /**
      * S3 key of your script. **Conflicts with `zip_file`.**
      * 
      */
-    public String s3Key;
+    private @Nullable UndeferrableValue<String> s3Key;
 
-
+    public @Nullable String s3Key() {
+        if (s3Key == null) return null;
+        return s3Key.getValue("Canary.s3Key");
+    }
 
     /**
      * S3 version ID of your script. **Conflicts with `zip_file`.**
      * 
      */
-    public String s3Version;
+    private @Nullable UndeferrableValue<String> s3Version;
 
-
+    public @Nullable String s3Version() {
+        if (s3Version == null) return null;
+        return s3Version.getValue("Canary.s3Version");
+    }
 
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
@@ -137,49 +181,67 @@ public final class Canary extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public CanarySchedule schedule;
+    private UndeferrableValue<CanarySchedule> schedule;
 
-
+    public CanarySchedule schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("Canary.schedule");
+    }
 
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      * 
      */
-    public String sourceLocationArn;
+    private UndeferrableValue<String> sourceLocationArn;
 
-
+    public String sourceLocationArn() {
+        if (sourceLocationArn == null) return null;
+        return sourceLocationArn.getValue("Canary.sourceLocationArn");
+    }
 
     /**
      * Whether to run or stop the canary.
      * 
      */
-    public Boolean startCanary;
+    private @Nullable UndeferrableValue<Boolean> startCanary;
 
-
+    public @Nullable Boolean startCanary() {
+        if (startCanary == null) return null;
+        return startCanary.getValue("Canary.startCanary");
+    }
 
     /**
      * Canary status.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Canary.status");
+    }
 
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      * 
      */
-    public Integer successRetentionPeriod;
+    private @Nullable UndeferrableValue<Integer> successRetentionPeriod;
 
-
+    public @Nullable Integer successRetentionPeriod() {
+        if (successRetentionPeriod == null) return null;
+        return successRetentionPeriod.getValue("Canary.successRetentionPeriod");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Canary.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -189,32 +251,44 @@ public final class Canary extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Canary.tagsAll");
+    }
 
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      * 
      */
-    public List<CanaryTimeline> timelines;
+    private UndeferrableValue<List<CanaryTimeline>> timelines;
 
-
+    public List<CanaryTimeline> timelines() {
+        if (timelines == null) return null;
+        return timelines.getValue("Canary.timelines");
+    }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    public CanaryVpcConfig vpcConfig;
+    private @Nullable UndeferrableValue<CanaryVpcConfig> vpcConfig;
 
-
+    public @Nullable CanaryVpcConfig vpcConfig() {
+        if (vpcConfig == null) return null;
+        return vpcConfig.getValue("Canary.vpcConfig");
+    }
 
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
      * 
      */
-    public String zipFile;
+    private @Nullable UndeferrableValue<String> zipFile;
 
-
+    public @Nullable String zipFile() {
+        if (zipFile == null) return null;
+        return zipFile.getValue("Canary.zipFile");
+    }
 
 }

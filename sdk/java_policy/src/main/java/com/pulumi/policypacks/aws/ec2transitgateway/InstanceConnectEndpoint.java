@@ -3,96 +3,128 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2transitgateway.InstanceConnectEndpointTimeouts;
+import com.pulumi.policypacks.aws.ec2transitgateway.outputs.InstanceConnectEndpointTimeouts;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")
-public final class InstanceConnectEndpoint extends com.pulumi.resources.PolicyResource {
+public final class InstanceConnectEndpoint extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("InstanceConnectEndpoint.arn");
+    }
 
     /**
      * The Availability Zone of the EC2 Instance Connect Endpoint.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("InstanceConnectEndpoint.availabilityZone");
+    }
 
     /**
      * The DNS name of the EC2 Instance Connect Endpoint.
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("InstanceConnectEndpoint.dnsName");
+    }
 
     /**
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      * 
      */
-    public String fipsDnsName;
+    private UndeferrableValue<String> fipsDnsName;
 
-
+    public String fipsDnsName() {
+        if (fipsDnsName == null) return null;
+        return fipsDnsName.getValue("InstanceConnectEndpoint.fipsDnsName");
+    }
 
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
-
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("InstanceConnectEndpoint.networkInterfaceIds");
+    }
 
     /**
      * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("InstanceConnectEndpoint.ownerId");
+    }
 
     /**
      * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
-    public Boolean preserveClientIp;
+    private UndeferrableValue<Boolean> preserveClientIp;
 
-
+    public Boolean preserveClientIp() {
+        if (preserveClientIp == null) return null;
+        return preserveClientIp.getValue("InstanceConnectEndpoint.preserveClientIp");
+    }
 
     /**
      * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
-    public List<String> securityGroupIds;
+    private UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("InstanceConnectEndpoint.securityGroupIds");
+    }
 
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("InstanceConnectEndpoint.subnetId");
+    }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("InstanceConnectEndpoint.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -102,20 +134,29 @@ public final class InstanceConnectEndpoint extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("InstanceConnectEndpoint.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<InstanceConnectEndpointTimeouts> timeouts;
 
-    public InstanceConnectEndpointTimeouts timeouts;
-
-
+    public @Nullable InstanceConnectEndpointTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("InstanceConnectEndpoint.timeouts");
+    }
 
     /**
      * The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("InstanceConnectEndpoint.vpcId");
+    }
 
 }

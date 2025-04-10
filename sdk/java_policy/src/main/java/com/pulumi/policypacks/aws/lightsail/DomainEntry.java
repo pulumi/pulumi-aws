@@ -3,52 +3,69 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lightsail/domainEntry:DomainEntry")
-public final class DomainEntry extends com.pulumi.resources.PolicyResource {
+public final class DomainEntry extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the Lightsail domain in which to create the entry
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("DomainEntry.domainName");
+    }
 
     /**
      * If the entry should be an alias Defaults to `false`
      * 
      */
-    public Boolean isAlias;
+    private @Nullable UndeferrableValue<Boolean> isAlias;
 
-
+    public @Nullable Boolean isAlias() {
+        if (isAlias == null) return null;
+        return isAlias.getValue("DomainEntry.isAlias");
+    }
 
     /**
      * Name of the entry record
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("DomainEntry.name");
+    }
 
     /**
      * Target of the domain entry
      * 
      */
-    public String target;
+    private UndeferrableValue<String> target;
 
-
+    public String target() {
+        if (target == null) return null;
+        return target.getValue("DomainEntry.target");
+    }
 
     /**
      * Type of record
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("DomainEntry.type");
+    }
 
 }

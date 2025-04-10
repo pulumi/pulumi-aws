@@ -3,43 +3,57 @@
 
 package com.pulumi.policypacks.aws.athena;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:athena/preparedStatement:PreparedStatement")
-public final class PreparedStatement extends com.pulumi.resources.PolicyResource {
+public final class PreparedStatement extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Brief explanation of prepared statement. Maximum length of 1024.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("PreparedStatement.description");
+    }
 
     /**
      * The name of the prepared statement. Maximum length of 256.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PreparedStatement.name");
+    }
 
     /**
      * The query string for the prepared statement.
      * 
      */
-    public String queryStatement;
+    private UndeferrableValue<String> queryStatement;
 
-
+    public String queryStatement() {
+        if (queryStatement == null) return null;
+        return queryStatement.getValue("PreparedStatement.queryStatement");
+    }
 
     /**
      * The name of the workgroup to which the prepared statement belongs.
      * 
      */
-    public String workgroup;
+    private UndeferrableValue<String> workgroup;
 
-
+    public String workgroup() {
+        if (workgroup == null) return null;
+        return workgroup.getValue("PreparedStatement.workgroup");
+    }
 
 }

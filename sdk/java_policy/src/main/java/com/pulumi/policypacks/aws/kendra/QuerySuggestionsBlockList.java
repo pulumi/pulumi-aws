@@ -3,74 +3,103 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.kendra.QuerySuggestionsBlockListSourceS3Path;
+import com.pulumi.policypacks.aws.kendra.outputs.QuerySuggestionsBlockListSourceS3Path;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")
-public final class QuerySuggestionsBlockList extends com.pulumi.resources.PolicyResource {
+public final class QuerySuggestionsBlockList extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the block list.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("QuerySuggestionsBlockList.arn");
+    }
 
+    private @Nullable UndeferrableValue<String> description;
 
-    public String description;
-
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("QuerySuggestionsBlockList.description");
+    }
 
     /**
      * Identifier of the index for a block list.
      * 
      */
-    public String indexId;
+    private UndeferrableValue<String> indexId;
 
-
+    public String indexId() {
+        if (indexId == null) return null;
+        return indexId.getValue("QuerySuggestionsBlockList.indexId");
+    }
 
     /**
      * Name for the block list.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("QuerySuggestionsBlockList.name");
+    }
 
     /**
      * Unique identifier of the block list.
      * 
      */
-    public String querySuggestionsBlockListId;
+    private UndeferrableValue<String> querySuggestionsBlockListId;
 
-
+    public String querySuggestionsBlockListId() {
+        if (querySuggestionsBlockListId == null) return null;
+        return querySuggestionsBlockListId.getValue("QuerySuggestionsBlockList.querySuggestionsBlockListId");
+    }
 
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("QuerySuggestionsBlockList.roleArn");
+    }
 
     /**
      * S3 path where your block list text file is located. See details below.
      * 
      */
-    public QuerySuggestionsBlockListSourceS3Path sourceS3Path;
+    private UndeferrableValue<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
+    public QuerySuggestionsBlockListSourceS3Path sourceS3Path() {
+        if (sourceS3Path == null) return null;
+        return sourceS3Path.getValue("QuerySuggestionsBlockList.sourceS3Path");
+    }
 
+    private UndeferrableValue<String> status;
 
-    public String status;
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("QuerySuggestionsBlockList.status");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("QuerySuggestionsBlockList.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
@@ -80,8 +109,11 @@ public final class QuerySuggestionsBlockList extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("QuerySuggestionsBlockList.tagsAll");
+    }
 
 }

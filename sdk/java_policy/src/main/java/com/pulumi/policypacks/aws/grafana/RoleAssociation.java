@@ -3,37 +3,48 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:grafana/roleAssociation:RoleAssociation")
-public final class RoleAssociation extends com.pulumi.resources.PolicyResource {
+public final class RoleAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The AWS SSO group ids to be assigned the role given in `role`.
      * 
      */
-    public List<String> groupIds;
+    private @Nullable UndeferrableValue<List<String>> groupIds;
 
-
+    public @Nullable List<String> groupIds() {
+        if (groupIds == null) return null;
+        return groupIds.getValue("RoleAssociation.groupIds");
+    }
 
     /**
      * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("RoleAssociation.role");
+    }
 
     /**
      * The AWS SSO user ids to be assigned the role given in `role`.
      * 
      */
-    public List<String> userIds;
+    private @Nullable UndeferrableValue<List<String>> userIds;
 
-
+    public @Nullable List<String> userIds() {
+        if (userIds == null) return null;
+        return userIds.getValue("RoleAssociation.userIds");
+    }
 
     /**
      * The workspace id.
@@ -41,8 +52,11 @@ public final class RoleAssociation extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String workspaceId;
+    private UndeferrableValue<String> workspaceId;
 
-
+    public String workspaceId() {
+        if (workspaceId == null) return null;
+        return workspaceId.getValue("RoleAssociation.workspaceId");
+    }
 
 }

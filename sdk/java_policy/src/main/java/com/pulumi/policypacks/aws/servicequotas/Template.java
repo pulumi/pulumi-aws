@@ -3,6 +3,7 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -10,70 +11,94 @@ import java.lang.String;
 
 
 @PolicyResourceType(type="aws:servicequotas/template:Template")
-public final class Template extends com.pulumi.resources.PolicyResource {
+public final class Template extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Indicates whether the quota is global.
      * 
      */
-    public Boolean globalQuota;
+    private UndeferrableValue<Boolean> globalQuota;
 
-
+    public Boolean globalQuota() {
+        if (globalQuota == null) return null;
+        return globalQuota.getValue("Template.globalQuota");
+    }
 
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      * 
      */
-    public String quotaCode;
+    private UndeferrableValue<String> quotaCode;
 
-
+    public String quotaCode() {
+        if (quotaCode == null) return null;
+        return quotaCode.getValue("Template.quotaCode");
+    }
 
     /**
      * Quota name.
      * 
      */
-    public String quotaName;
+    private UndeferrableValue<String> quotaName;
 
-
+    public String quotaName() {
+        if (quotaName == null) return null;
+        return quotaName.getValue("Template.quotaName");
+    }
 
     /**
      * AWS Region to which the template applies.
      * 
      */
-    public String region;
+    private UndeferrableValue<String> region;
 
-
+    public String region() {
+        if (region == null) return null;
+        return region.getValue("Template.region");
+    }
 
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      * 
      */
-    public String serviceCode;
+    private UndeferrableValue<String> serviceCode;
 
-
+    public String serviceCode() {
+        if (serviceCode == null) return null;
+        return serviceCode.getValue("Template.serviceCode");
+    }
 
     /**
      * Service name.
      * 
      */
-    public String serviceName;
+    private UndeferrableValue<String> serviceName;
 
-
+    public String serviceName() {
+        if (serviceName == null) return null;
+        return serviceName.getValue("Template.serviceName");
+    }
 
     /**
      * Unit of measurement.
      * 
      */
-    public String unit;
+    private UndeferrableValue<String> unit;
 
-
+    public String unit() {
+        if (unit == null) return null;
+        return unit.getValue("Template.unit");
+    }
 
     /**
      * The new, increased value for the quota.
      * 
      */
-    public Double value;
+    private UndeferrableValue<Double> value;
 
-
+    public Double value() {
+        if (value == null) return null;
+        return value.getValue("Template.value");
+    }
 
 }

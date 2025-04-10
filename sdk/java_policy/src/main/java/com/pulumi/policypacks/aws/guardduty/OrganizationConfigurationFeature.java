@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration;
+import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationFeatureAdditionalConfiguration;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")
-public final class OrganizationConfigurationFeature extends com.pulumi.resources.PolicyResource {
+public final class OrganizationConfigurationFeature extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
-    public List<OrganizationConfigurationFeatureAdditionalConfiguration> additionalConfigurations;
+    private @Nullable UndeferrableValue<List<OrganizationConfigurationFeatureAdditionalConfiguration>> additionalConfigurations;
 
-
+    public @Nullable List<OrganizationConfigurationFeatureAdditionalConfiguration> additionalConfigurations() {
+        if (additionalConfigurations == null) return null;
+        return additionalConfigurations.getValue("OrganizationConfigurationFeature.additionalConfigurations");
+    }
 
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
-    public String autoEnable;
+    private UndeferrableValue<String> autoEnable;
 
-
+    public String autoEnable() {
+        if (autoEnable == null) return null;
+        return autoEnable.getValue("OrganizationConfigurationFeature.autoEnable");
+    }
 
     /**
      * The ID of the detector that configures the delegated administrator.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("OrganizationConfigurationFeature.detectorId");
+    }
 
     /**
      * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OrganizationConfigurationFeature.name");
+    }
 
 }

@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cloudwatch.LogMetricFilterMetricTransformation;
+import com.pulumi.policypacks.aws.cloudwatch.outputs.LogMetricFilterMetricTransformation;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudwatch/logMetricFilter:LogMetricFilter")
-public final class LogMetricFilter extends com.pulumi.resources.PolicyResource {
+public final class LogMetricFilter extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the log group to associate the metric filter with.
      * 
      */
-    public String logGroupName;
+    private UndeferrableValue<String> logGroupName;
 
-
+    public String logGroupName() {
+        if (logGroupName == null) return null;
+        return logGroupName.getValue("LogMetricFilter.logGroupName");
+    }
 
     /**
      * A block defining collection of information needed to define how metric data gets emitted. See below.
      * 
      */
-    public LogMetricFilterMetricTransformation metricTransformation;
+    private UndeferrableValue<LogMetricFilterMetricTransformation> metricTransformation;
 
-
+    public LogMetricFilterMetricTransformation metricTransformation() {
+        if (metricTransformation == null) return null;
+        return metricTransformation.getValue("LogMetricFilter.metricTransformation");
+    }
 
     /**
      * A name for the metric filter.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LogMetricFilter.name");
+    }
 
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
      * 
      */
-    public String pattern;
+    private UndeferrableValue<String> pattern;
 
-
+    public String pattern() {
+        if (pattern == null) return null;
+        return pattern.getValue("LogMetricFilter.pattern");
+    }
 
 }

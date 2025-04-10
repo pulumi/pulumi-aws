@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cognito.RiskConfigurationAccountTakeoverRiskConfiguration;
-import com.pulumi.policypacks.aws.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration;
-import com.pulumi.policypacks.aws.cognito.RiskConfigurationRiskExceptionConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration;
+import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationRiskExceptionConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cognito/riskConfiguration:RiskConfiguration")
-public final class RiskConfiguration extends com.pulumi.resources.PolicyResource {
+public final class RiskConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The account takeover risk configuration. See details below.
      * 
      */
-    public RiskConfigurationAccountTakeoverRiskConfiguration accountTakeoverRiskConfiguration;
+    private @Nullable UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfiguration> accountTakeoverRiskConfiguration;
 
-
+    public @Nullable RiskConfigurationAccountTakeoverRiskConfiguration accountTakeoverRiskConfiguration() {
+        if (accountTakeoverRiskConfiguration == null) return null;
+        return accountTakeoverRiskConfiguration.getValue("RiskConfiguration.accountTakeoverRiskConfiguration");
+    }
 
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      * 
      */
-    public String clientId;
+    private @Nullable UndeferrableValue<String> clientId;
 
-
+    public @Nullable String clientId() {
+        if (clientId == null) return null;
+        return clientId.getValue("RiskConfiguration.clientId");
+    }
 
     /**
      * The compromised credentials risk configuration. See details below.
      * 
      */
-    public RiskConfigurationCompromisedCredentialsRiskConfiguration compromisedCredentialsRiskConfiguration;
+    private @Nullable UndeferrableValue<RiskConfigurationCompromisedCredentialsRiskConfiguration> compromisedCredentialsRiskConfiguration;
 
-
+    public @Nullable RiskConfigurationCompromisedCredentialsRiskConfiguration compromisedCredentialsRiskConfiguration() {
+        if (compromisedCredentialsRiskConfiguration == null) return null;
+        return compromisedCredentialsRiskConfiguration.getValue("RiskConfiguration.compromisedCredentialsRiskConfiguration");
+    }
 
     /**
      * The configuration to override the risk decision. See details below.
      * 
      */
-    public RiskConfigurationRiskExceptionConfiguration riskExceptionConfiguration;
+    private @Nullable UndeferrableValue<RiskConfigurationRiskExceptionConfiguration> riskExceptionConfiguration;
 
-
+    public @Nullable RiskConfigurationRiskExceptionConfiguration riskExceptionConfiguration() {
+        if (riskExceptionConfiguration == null) return null;
+        return riskExceptionConfiguration.getValue("RiskConfiguration.riskExceptionConfiguration");
+    }
 
     /**
      * The user pool ID.
      * 
      */
-    public String userPoolId;
+    private UndeferrableValue<String> userPoolId;
 
-
+    public String userPoolId() {
+        if (userPoolId == null) return null;
+        return userPoolId.getValue("RiskConfiguration.userPoolId");
+    }
 
 }

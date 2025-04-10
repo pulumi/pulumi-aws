@@ -3,123 +3,164 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.fsx.LustreFileSystemLogConfiguration;
-import com.pulumi.policypacks.aws.fsx.LustreFileSystemMetadataConfiguration;
-import com.pulumi.policypacks.aws.fsx.LustreFileSystemRootSquashConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.LustreFileSystemLogConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.LustreFileSystemMetadataConfiguration;
+import com.pulumi.policypacks.aws.fsx.outputs.LustreFileSystemRootSquashConfiguration;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/lustreFileSystem:LustreFileSystem")
-public final class LustreFileSystem extends com.pulumi.resources.PolicyResource {
+public final class LustreFileSystem extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LustreFileSystem.arn");
+    }
 
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public String autoImportPolicy;
+    private UndeferrableValue<String> autoImportPolicy;
 
-
+    public String autoImportPolicy() {
+        if (autoImportPolicy == null) return null;
+        return autoImportPolicy.getValue("LustreFileSystem.autoImportPolicy");
+    }
 
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
-    public Integer automaticBackupRetentionDays;
+    private UndeferrableValue<Integer> automaticBackupRetentionDays;
 
-
+    public Integer automaticBackupRetentionDays() {
+        if (automaticBackupRetentionDays == null) return null;
+        return automaticBackupRetentionDays.getValue("LustreFileSystem.automaticBackupRetentionDays");
+    }
 
     /**
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    public String backupId;
+    private @Nullable UndeferrableValue<String> backupId;
 
-
+    public @Nullable String backupId() {
+        if (backupId == null) return null;
+        return backupId.getValue("LustreFileSystem.backupId");
+    }
 
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
-    public Boolean copyTagsToBackups;
+    private @Nullable UndeferrableValue<Boolean> copyTagsToBackups;
 
-
+    public @Nullable Boolean copyTagsToBackups() {
+        if (copyTagsToBackups == null) return null;
+        return copyTagsToBackups.getValue("LustreFileSystem.copyTagsToBackups");
+    }
 
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    public String dailyAutomaticBackupStartTime;
+    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
 
-
+    public String dailyAutomaticBackupStartTime() {
+        if (dailyAutomaticBackupStartTime == null) return null;
+        return dailyAutomaticBackupStartTime.getValue("LustreFileSystem.dailyAutomaticBackupStartTime");
+    }
 
     /**
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      * 
      */
-    public String dataCompressionType;
+    private @Nullable UndeferrableValue<String> dataCompressionType;
 
-
+    public @Nullable String dataCompressionType() {
+        if (dataCompressionType == null) return null;
+        return dataCompressionType.getValue("LustreFileSystem.dataCompressionType");
+    }
 
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
-    public String deploymentType;
+    private @Nullable UndeferrableValue<String> deploymentType;
 
-
+    public @Nullable String deploymentType() {
+        if (deploymentType == null) return null;
+        return deploymentType.getValue("LustreFileSystem.deploymentType");
+    }
 
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      * 
      */
-    public String dnsName;
+    private UndeferrableValue<String> dnsName;
 
-
+    public String dnsName() {
+        if (dnsName == null) return null;
+        return dnsName.getValue("LustreFileSystem.dnsName");
+    }
 
     /**
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
-    public String driveCacheType;
+    private @Nullable UndeferrableValue<String> driveCacheType;
 
-
+    public @Nullable String driveCacheType() {
+        if (driveCacheType == null) return null;
+        return driveCacheType.getValue("LustreFileSystem.driveCacheType");
+    }
 
     /**
      * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
      * 
      */
-    public Boolean efaEnabled;
+    private UndeferrableValue<Boolean> efaEnabled;
 
-
+    public Boolean efaEnabled() {
+        if (efaEnabled == null) return null;
+        return efaEnabled.getValue("LustreFileSystem.efaEnabled");
+    }
 
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public String exportPath;
+    private UndeferrableValue<String> exportPath;
 
-
+    public String exportPath() {
+        if (exportPath == null) return null;
+        return exportPath.getValue("LustreFileSystem.exportPath");
+    }
 
     /**
      * Sets the Lustre version for the file system that you&#39;re creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      * 
      */
-    public String fileSystemTypeVersion;
+    private UndeferrableValue<String> fileSystemTypeVersion;
 
-
+    public String fileSystemTypeVersion() {
+        if (fileSystemTypeVersion == null) return null;
+        return fileSystemTypeVersion.getValue("LustreFileSystem.fileSystemTypeVersion");
+    }
 
     /**
      * A map of tags to apply to the file system&#39;s final backup.
@@ -127,97 +168,133 @@ public final class LustreFileSystem extends com.pulumi.resources.PolicyResource 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
      */
-    public Map<String,String> finalBackupTags;
+    private @Nullable UndeferrableValue<Map<String,String>> finalBackupTags;
 
-
+    public @Nullable Map<String,String> finalBackupTags() {
+        if (finalBackupTags == null) return null;
+        return finalBackupTags.getValue("LustreFileSystem.finalBackupTags");
+    }
 
     /**
      * S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public String importPath;
+    private @Nullable UndeferrableValue<String> importPath;
 
-
+    public @Nullable String importPath() {
+        if (importPath == null) return null;
+        return importPath.getValue("LustreFileSystem.importPath");
+    }
 
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public Integer importedFileChunkSize;
+    private UndeferrableValue<Integer> importedFileChunkSize;
 
-
+    public Integer importedFileChunkSize() {
+        if (importedFileChunkSize == null) return null;
+        return importedFileChunkSize.getValue("LustreFileSystem.importedFileChunkSize");
+    }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("LustreFileSystem.kmsKeyId");
+    }
 
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
-    public LustreFileSystemLogConfiguration logConfiguration;
+    private UndeferrableValue<LustreFileSystemLogConfiguration> logConfiguration;
 
-
+    public LustreFileSystemLogConfiguration logConfiguration() {
+        if (logConfiguration == null) return null;
+        return logConfiguration.getValue("LustreFileSystem.logConfiguration");
+    }
 
     /**
      * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
-    public LustreFileSystemMetadataConfiguration metadataConfiguration;
+    private UndeferrableValue<LustreFileSystemMetadataConfiguration> metadataConfiguration;
 
-
+    public LustreFileSystemMetadataConfiguration metadataConfiguration() {
+        if (metadataConfiguration == null) return null;
+        return metadataConfiguration.getValue("LustreFileSystem.metadataConfiguration");
+    }
 
     /**
      * The value to be used when mounting the filesystem.
      * 
      */
-    public String mountName;
+    private UndeferrableValue<String> mountName;
 
-
+    public String mountName() {
+        if (mountName == null) return null;
+        return mountName.getValue("LustreFileSystem.mountName");
+    }
 
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      * 
      */
-    public List<String> networkInterfaceIds;
+    private UndeferrableValue<List<String>> networkInterfaceIds;
 
-
+    public List<String> networkInterfaceIds() {
+        if (networkInterfaceIds == null) return null;
+        return networkInterfaceIds.getValue("LustreFileSystem.networkInterfaceIds");
+    }
 
     /**
      * AWS account identifier that created the file system.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("LustreFileSystem.ownerId");
+    }
 
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
      * 
      */
-    public Integer perUnitStorageThroughput;
+    private @Nullable UndeferrableValue<Integer> perUnitStorageThroughput;
 
-
+    public @Nullable Integer perUnitStorageThroughput() {
+        if (perUnitStorageThroughput == null) return null;
+        return perUnitStorageThroughput.getValue("LustreFileSystem.perUnitStorageThroughput");
+    }
 
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
-    public LustreFileSystemRootSquashConfiguration rootSquashConfiguration;
+    private @Nullable UndeferrableValue<LustreFileSystemRootSquashConfiguration> rootSquashConfiguration;
 
-
+    public @Nullable LustreFileSystemRootSquashConfiguration rootSquashConfiguration() {
+        if (rootSquashConfiguration == null) return null;
+        return rootSquashConfiguration.getValue("LustreFileSystem.rootSquashConfiguration");
+    }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    public List<String> securityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
 
-
+    public @Nullable List<String> securityGroupIds() {
+        if (securityGroupIds == null) return null;
+        return securityGroupIds.getValue("LustreFileSystem.securityGroupIds");
+    }
 
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
@@ -225,25 +302,34 @@ public final class LustreFileSystem extends com.pulumi.resources.PolicyResource 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
      */
-    public Boolean skipFinalBackup;
+    private @Nullable UndeferrableValue<Boolean> skipFinalBackup;
 
-
+    public @Nullable Boolean skipFinalBackup() {
+        if (skipFinalBackup == null) return null;
+        return skipFinalBackup.getValue("LustreFileSystem.skipFinalBackup");
+    }
 
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
-    public Integer storageCapacity;
+    private @Nullable UndeferrableValue<Integer> storageCapacity;
 
-
+    public @Nullable Integer storageCapacity() {
+        if (storageCapacity == null) return null;
+        return storageCapacity.getValue("LustreFileSystem.storageCapacity");
+    }
 
     /**
      * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    public String storageType;
+    private @Nullable UndeferrableValue<String> storageType;
 
-
+    public @Nullable String storageType() {
+        if (storageType == null) return null;
+        return storageType.getValue("LustreFileSystem.storageType");
+    }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
@@ -251,17 +337,23 @@ public final class LustreFileSystem extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String subnetIds;
+    private UndeferrableValue<String> subnetIds;
 
-
+    public String subnetIds() {
+        if (subnetIds == null) return null;
+        return subnetIds.getValue("LustreFileSystem.subnetIds");
+    }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LustreFileSystem.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -271,24 +363,33 @@ public final class LustreFileSystem extends com.pulumi.resources.PolicyResource 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LustreFileSystem.tagsAll");
+    }
 
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("LustreFileSystem.vpcId");
+    }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    public String weeklyMaintenanceStartTime;
+    private UndeferrableValue<String> weeklyMaintenanceStartTime;
 
-
+    public String weeklyMaintenanceStartTime() {
+        if (weeklyMaintenanceStartTime == null) return null;
+        return weeklyMaintenanceStartTime.getValue("LustreFileSystem.weeklyMaintenanceStartTime");
+    }
 
 }

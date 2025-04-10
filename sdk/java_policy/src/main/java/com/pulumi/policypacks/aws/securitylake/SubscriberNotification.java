@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.securitylake.SubscriberNotificationConfiguration;
+import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberNotificationConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:securitylake/subscriberNotification:SubscriberNotification")
-public final class SubscriberNotification extends com.pulumi.resources.PolicyResource {
+public final class SubscriberNotification extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    public SubscriberNotificationConfiguration configuration;
+    private @Nullable UndeferrableValue<SubscriberNotificationConfiguration> configuration;
 
-
+    public @Nullable SubscriberNotificationConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("SubscriberNotification.configuration");
+    }
 
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
@@ -27,24 +32,33 @@ public final class SubscriberNotification extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Use subscriber_endpoint instead */
-    public String endpointId;
+    private UndeferrableValue<String> endpointId;
 
-
+    public String endpointId() {
+        if (endpointId == null) return null;
+        return endpointId.getValue("SubscriberNotification.endpointId");
+    }
 
     /**
      * The subscriber endpoint to which exception messages are posted.
      * 
      */
-    public String subscriberEndpoint;
+    private UndeferrableValue<String> subscriberEndpoint;
 
-
+    public String subscriberEndpoint() {
+        if (subscriberEndpoint == null) return null;
+        return subscriberEndpoint.getValue("SubscriberNotification.subscriberEndpoint");
+    }
 
     /**
      * The subscriber ID for the notification subscription.
      * 
      */
-    public String subscriberId;
+    private UndeferrableValue<String> subscriberId;
 
-
+    public String subscriberId() {
+        if (subscriberId == null) return null;
+        return subscriberId.getValue("SubscriberNotification.subscriberId");
+    }
 
 }

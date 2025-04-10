@@ -3,127 +3,171 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/capacityReservation:CapacityReservation")
-public final class CapacityReservation extends com.pulumi.resources.PolicyResource {
+public final class CapacityReservation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the Capacity Reservation.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CapacityReservation.arn");
+    }
 
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      * 
      */
-    public String availabilityZone;
+    private UndeferrableValue<String> availabilityZone;
 
-
+    public String availabilityZone() {
+        if (availabilityZone == null) return null;
+        return availabilityZone.getValue("CapacityReservation.availabilityZone");
+    }
 
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      * 
      */
-    public Boolean ebsOptimized;
+    private @Nullable UndeferrableValue<Boolean> ebsOptimized;
 
-
+    public @Nullable Boolean ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("CapacityReservation.ebsOptimized");
+    }
 
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    public String endDate;
+    private @Nullable UndeferrableValue<String> endDate;
 
-
+    public @Nullable String endDate() {
+        if (endDate == null) return null;
+        return endDate.getValue("CapacityReservation.endDate");
+    }
 
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      * 
      */
-    public String endDateType;
+    private @Nullable UndeferrableValue<String> endDateType;
 
-
+    public @Nullable String endDateType() {
+        if (endDateType == null) return null;
+        return endDateType.getValue("CapacityReservation.endDateType");
+    }
 
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      * 
      */
-    public Boolean ephemeralStorage;
+    private @Nullable UndeferrableValue<Boolean> ephemeralStorage;
 
-
+    public @Nullable Boolean ephemeralStorage() {
+        if (ephemeralStorage == null) return null;
+        return ephemeralStorage.getValue("CapacityReservation.ephemeralStorage");
+    }
 
     /**
      * The number of instances for which to reserve capacity.
      * 
      */
-    public Integer instanceCount;
+    private UndeferrableValue<Integer> instanceCount;
 
-
+    public Integer instanceCount() {
+        if (instanceCount == null) return null;
+        return instanceCount.getValue("CapacityReservation.instanceCount");
+    }
 
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      * 
      */
-    public String instanceMatchCriteria;
+    private @Nullable UndeferrableValue<String> instanceMatchCriteria;
 
-
+    public @Nullable String instanceMatchCriteria() {
+        if (instanceMatchCriteria == null) return null;
+        return instanceMatchCriteria.getValue("CapacityReservation.instanceMatchCriteria");
+    }
 
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      * 
      */
-    public String instancePlatform;
+    private UndeferrableValue<String> instancePlatform;
 
-
+    public String instancePlatform() {
+        if (instancePlatform == null) return null;
+        return instancePlatform.getValue("CapacityReservation.instancePlatform");
+    }
 
     /**
      * The instance type for which to reserve capacity.
      * 
      */
-    public String instanceType;
+    private UndeferrableValue<String> instanceType;
 
-
+    public String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("CapacityReservation.instanceType");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      * 
      */
-    public String outpostArn;
+    private @Nullable UndeferrableValue<String> outpostArn;
 
-
+    public @Nullable String outpostArn() {
+        if (outpostArn == null) return null;
+        return outpostArn.getValue("CapacityReservation.outpostArn");
+    }
 
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("CapacityReservation.ownerId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
-    public String placementGroupArn;
+    private @Nullable UndeferrableValue<String> placementGroupArn;
 
-
+    public @Nullable String placementGroupArn() {
+        if (placementGroupArn == null) return null;
+        return placementGroupArn.getValue("CapacityReservation.placementGroupArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("CapacityReservation.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
@@ -133,16 +177,22 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("CapacityReservation.tagsAll");
+    }
 
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      * 
      */
-    public String tenancy;
+    private @Nullable UndeferrableValue<String> tenancy;
 
-
+    public @Nullable String tenancy() {
+        if (tenancy == null) return null;
+        return tenancy.getValue("CapacityReservation.tenancy");
+    }
 
 }

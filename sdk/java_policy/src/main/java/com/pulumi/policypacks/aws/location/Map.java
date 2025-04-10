@@ -3,45 +3,59 @@
 
 package com.pulumi.policypacks.aws.location;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.location.MapConfiguration;
+import com.pulumi.policypacks.aws.location.outputs.MapConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:location/map:Map")
-public final class Map extends com.pulumi.resources.PolicyResource {
+public final class Map extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Configuration block with the map style selected from an available data provider. Detailed below.
      * 
      */
-    public MapConfiguration configuration;
+    private UndeferrableValue<MapConfiguration> configuration;
 
-
+    public MapConfiguration configuration() {
+        if (configuration == null) return null;
+        return configuration.getValue("Map.configuration");
+    }
 
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("Map.createTime");
+    }
 
     /**
      * An optional description for the map resource.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Map.description");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      * 
      */
-    public String mapArn;
+    private UndeferrableValue<String> mapArn;
 
-
+    public String mapArn() {
+        if (mapArn == null) return null;
+        return mapArn.getValue("Map.mapArn");
+    }
 
     /**
      * The name for the map resource.
@@ -49,17 +63,23 @@ public final class Map extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String mapName;
+    private UndeferrableValue<String> mapName;
 
-
+    public String mapName() {
+        if (mapName == null) return null;
+        return mapName.getValue("Map.mapName");
+    }
 
     /**
      * Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public java.util.Map<String,String> tags;
+    private @Nullable UndeferrableValue<java.util.Map<String,String>> tags;
 
-
+    public @Nullable java.util.Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Map.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -69,16 +89,22 @@ public final class Map extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public java.util.Map<String,String> tagsAll;
+    private UndeferrableValue<java.util.Map<String,String>> tagsAll;
 
-
+    public java.util.Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Map.tagsAll");
+    }
 
     /**
      * The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("Map.updateTime");
+    }
 
 }

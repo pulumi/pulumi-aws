@@ -3,76 +3,102 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:autoscaling/lifecycleHook:LifecycleHook")
-public final class LifecycleHook extends com.pulumi.resources.PolicyResource {
+public final class LifecycleHook extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
-    public String autoscalingGroupName;
+    private UndeferrableValue<String> autoscalingGroupName;
 
-
+    public String autoscalingGroupName() {
+        if (autoscalingGroupName == null) return null;
+        return autoscalingGroupName.getValue("LifecycleHook.autoscalingGroupName");
+    }
 
     /**
      * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      * 
      */
-    public String defaultResult;
+    private UndeferrableValue<String> defaultResult;
 
-
+    public String defaultResult() {
+        if (defaultResult == null) return null;
+        return defaultResult.getValue("LifecycleHook.defaultResult");
+    }
 
     /**
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
      * 
      */
-    public Integer heartbeatTimeout;
+    private @Nullable UndeferrableValue<Integer> heartbeatTimeout;
 
-
+    public @Nullable Integer heartbeatTimeout() {
+        if (heartbeatTimeout == null) return null;
+        return heartbeatTimeout.getValue("LifecycleHook.heartbeatTimeout");
+    }
 
     /**
      * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
-    public String lifecycleTransition;
+    private UndeferrableValue<String> lifecycleTransition;
 
-
+    public String lifecycleTransition() {
+        if (lifecycleTransition == null) return null;
+        return lifecycleTransition.getValue("LifecycleHook.lifecycleTransition");
+    }
 
     /**
      * Name of the lifecycle hook.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LifecycleHook.name");
+    }
 
     /**
      * Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
      * 
      */
-    public String notificationMetadata;
+    private @Nullable UndeferrableValue<String> notificationMetadata;
 
-
+    public @Nullable String notificationMetadata() {
+        if (notificationMetadata == null) return null;
+        return notificationMetadata.getValue("LifecycleHook.notificationMetadata");
+    }
 
     /**
      * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
-    public String notificationTargetArn;
+    private @Nullable UndeferrableValue<String> notificationTargetArn;
 
-
+    public @Nullable String notificationTargetArn() {
+        if (notificationTargetArn == null) return null;
+        return notificationTargetArn.getValue("LifecycleHook.notificationTargetArn");
+    }
 
     /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
-    public String roleArn;
+    private @Nullable UndeferrableValue<String> roleArn;
 
-
+    public @Nullable String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("LifecycleHook.roleArn");
+    }
 
 }

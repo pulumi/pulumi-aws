@@ -3,19 +3,23 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 
 
 @PolicyResourceType(type="aws:servicecatalog/organizationsAccess:OrganizationsAccess")
-public final class OrganizationsAccess extends com.pulumi.resources.PolicyResource {
+public final class OrganizationsAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Whether to enable AWS Organizations access.
      * 
      */
-    public Boolean enabled;
+    private UndeferrableValue<Boolean> enabled;
 
-
+    public Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("OrganizationsAccess.enabled");
+    }
 
 }

@@ -3,176 +3,238 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ssm.DocumentAttachmentsSource;
-import com.pulumi.policypacks.aws.ssm.DocumentParameter;
+import com.pulumi.policypacks.aws.ssm.outputs.DocumentAttachmentsSource;
+import com.pulumi.policypacks.aws.ssm.outputs.DocumentParameter;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ssm/document:Document")
-public final class Document extends com.pulumi.resources.PolicyResource {
+public final class Document extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the document.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Document.arn");
+    }
 
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
-    public List<DocumentAttachmentsSource> attachmentsSources;
+    private @Nullable UndeferrableValue<List<DocumentAttachmentsSource>> attachmentsSources;
 
-
+    public @Nullable List<DocumentAttachmentsSource> attachmentsSources() {
+        if (attachmentsSources == null) return null;
+        return attachmentsSources.getValue("Document.attachmentsSources");
+    }
 
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
-    public String content;
+    private UndeferrableValue<String> content;
 
-
+    public String content() {
+        if (content == null) return null;
+        return content.getValue("Document.content");
+    }
 
     /**
      * The date the document was created.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Document.createdDate");
+    }
 
     /**
      * The default version of the document.
      * 
      */
-    public String defaultVersion;
+    private UndeferrableValue<String> defaultVersion;
 
-
+    public String defaultVersion() {
+        if (defaultVersion == null) return null;
+        return defaultVersion.getValue("Document.defaultVersion");
+    }
 
     /**
      * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Document.description");
+    }
 
     /**
      * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
-    public String documentFormat;
+    private @Nullable UndeferrableValue<String> documentFormat;
 
-
+    public @Nullable String documentFormat() {
+        if (documentFormat == null) return null;
+        return documentFormat.getValue("Document.documentFormat");
+    }
 
     /**
      * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
-    public String documentType;
+    private UndeferrableValue<String> documentType;
 
-
+    public String documentType() {
+        if (documentType == null) return null;
+        return documentType.getValue("Document.documentType");
+    }
 
     /**
      * The document version.
      * 
      */
-    public String documentVersion;
+    private UndeferrableValue<String> documentVersion;
 
-
+    public String documentVersion() {
+        if (documentVersion == null) return null;
+        return documentVersion.getValue("Document.documentVersion");
+    }
 
     /**
      * The Sha256 or Sha1 hash created by the system when the document was created.
      * 
      */
-    public String hash;
+    private UndeferrableValue<String> hash;
 
-
+    public String hash() {
+        if (hash == null) return null;
+        return hash.getValue("Document.hash");
+    }
 
     /**
      * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      * 
      */
-    public String hashType;
+    private UndeferrableValue<String> hashType;
 
-
+    public String hashType() {
+        if (hashType == null) return null;
+        return hashType.getValue("Document.hashType");
+    }
 
     /**
      * The latest version of the document.
      * 
      */
-    public String latestVersion;
+    private UndeferrableValue<String> latestVersion;
 
-
+    public String latestVersion() {
+        if (latestVersion == null) return null;
+        return latestVersion.getValue("Document.latestVersion");
+    }
 
     /**
      * The name of the document.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Document.name");
+    }
 
     /**
      * The Amazon Web Services user that created the document.
      * 
      */
-    public String owner;
+    private UndeferrableValue<String> owner;
 
-
+    public String owner() {
+        if (owner == null) return null;
+        return owner.getValue("Document.owner");
+    }
 
     /**
      * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      * 
      */
-    public List<DocumentParameter> parameters;
+    private UndeferrableValue<List<DocumentParameter>> parameters;
 
-
+    public List<DocumentParameter> parameters() {
+        if (parameters == null) return null;
+        return parameters.getValue("Document.parameters");
+    }
 
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
-    public Map<String,String> permissions;
+    private @Nullable UndeferrableValue<Map<String,String>> permissions;
 
-
+    public @Nullable Map<String,String> permissions() {
+        if (permissions == null) return null;
+        return permissions.getValue("Document.permissions");
+    }
 
     /**
      * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      * 
      */
-    public List<String> platformTypes;
+    private UndeferrableValue<List<String>> platformTypes;
 
-
+    public List<String> platformTypes() {
+        if (platformTypes == null) return null;
+        return platformTypes.getValue("Document.platformTypes");
+    }
 
     /**
      * The schema version of the document.
      * 
      */
-    public String schemaVersion;
+    private UndeferrableValue<String> schemaVersion;
 
-
+    public String schemaVersion() {
+        if (schemaVersion == null) return null;
+        return schemaVersion.getValue("Document.schemaVersion");
+    }
 
     /**
      * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Document.status");
+    }
 
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Document.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -182,24 +244,33 @@ public final class Document extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Document.tagsAll");
+    }
 
     /**
      * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
-    public String targetType;
+    private @Nullable UndeferrableValue<String> targetType;
 
-
+    public @Nullable String targetType() {
+        if (targetType == null) return null;
+        return targetType.getValue("Document.targetType");
+    }
 
     /**
      * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
-    public String versionName;
+    private @Nullable UndeferrableValue<String> versionName;
 
-
+    public @Nullable String versionName() {
+        if (versionName == null) return null;
+        return versionName.getValue("Document.versionName");
+    }
 
 }

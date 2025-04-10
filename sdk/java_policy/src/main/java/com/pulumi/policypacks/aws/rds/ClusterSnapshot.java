@@ -3,136 +3,186 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:rds/clusterSnapshot:ClusterSnapshot")
-public final class ClusterSnapshot extends com.pulumi.resources.PolicyResource {
+public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Allocated storage size in gigabytes (GB).
      * 
      */
-    public Integer allocatedStorage;
+    private UndeferrableValue<Integer> allocatedStorage;
 
-
+    public Integer allocatedStorage() {
+        if (allocatedStorage == null) return null;
+        return allocatedStorage.getValue("ClusterSnapshot.allocatedStorage");
+    }
 
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    public List<String> availabilityZones;
+    private UndeferrableValue<List<String>> availabilityZones;
 
-
+    public List<String> availabilityZones() {
+        if (availabilityZones == null) return null;
+        return availabilityZones.getValue("ClusterSnapshot.availabilityZones");
+    }
 
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      * 
      */
-    public String dbClusterIdentifier;
+    private UndeferrableValue<String> dbClusterIdentifier;
 
-
+    public String dbClusterIdentifier() {
+        if (dbClusterIdentifier == null) return null;
+        return dbClusterIdentifier.getValue("ClusterSnapshot.dbClusterIdentifier");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      * 
      */
-    public String dbClusterSnapshotArn;
+    private UndeferrableValue<String> dbClusterSnapshotArn;
 
-
+    public String dbClusterSnapshotArn() {
+        if (dbClusterSnapshotArn == null) return null;
+        return dbClusterSnapshotArn.getValue("ClusterSnapshot.dbClusterSnapshotArn");
+    }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    public String dbClusterSnapshotIdentifier;
+    private UndeferrableValue<String> dbClusterSnapshotIdentifier;
 
-
+    public String dbClusterSnapshotIdentifier() {
+        if (dbClusterSnapshotIdentifier == null) return null;
+        return dbClusterSnapshotIdentifier.getValue("ClusterSnapshot.dbClusterSnapshotIdentifier");
+    }
 
     /**
      * Name of the database engine.
      * 
      */
-    public String engine;
+    private UndeferrableValue<String> engine;
 
-
+    public String engine() {
+        if (engine == null) return null;
+        return engine.getValue("ClusterSnapshot.engine");
+    }
 
     /**
      * Version of the database engine for this DB cluster snapshot.
      * 
      */
-    public String engineVersion;
+    private UndeferrableValue<String> engineVersion;
 
-
+    public String engineVersion() {
+        if (engineVersion == null) return null;
+        return engineVersion.getValue("ClusterSnapshot.engineVersion");
+    }
 
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    public String kmsKeyId;
+    private UndeferrableValue<String> kmsKeyId;
 
-
+    public String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("ClusterSnapshot.kmsKeyId");
+    }
 
     /**
      * License model information for the restored DB cluster.
      * 
      */
-    public String licenseModel;
+    private UndeferrableValue<String> licenseModel;
 
-
+    public String licenseModel() {
+        if (licenseModel == null) return null;
+        return licenseModel.getValue("ClusterSnapshot.licenseModel");
+    }
 
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    public Integer port;
+    private UndeferrableValue<Integer> port;
 
-
+    public Integer port() {
+        if (port == null) return null;
+        return port.getValue("ClusterSnapshot.port");
+    }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    public List<String> sharedAccounts;
+    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
 
+    public @Nullable List<String> sharedAccounts() {
+        if (sharedAccounts == null) return null;
+        return sharedAccounts.getValue("ClusterSnapshot.sharedAccounts");
+    }
 
+    private UndeferrableValue<String> snapshotType;
 
-    public String snapshotType;
+    public String snapshotType() {
+        if (snapshotType == null) return null;
+        return snapshotType.getValue("ClusterSnapshot.snapshotType");
+    }
 
+    private UndeferrableValue<String> sourceDbClusterSnapshotArn;
 
-
-    public String sourceDbClusterSnapshotArn;
-
-
+    public String sourceDbClusterSnapshotArn() {
+        if (sourceDbClusterSnapshotArn == null) return null;
+        return sourceDbClusterSnapshotArn.getValue("ClusterSnapshot.sourceDbClusterSnapshotArn");
+    }
 
     /**
      * The status of this DB Cluster Snapshot.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ClusterSnapshot.status");
+    }
 
     /**
      * Whether the DB cluster snapshot is encrypted.
      * 
      */
-    public Boolean storageEncrypted;
+    private UndeferrableValue<Boolean> storageEncrypted;
 
-
+    public Boolean storageEncrypted() {
+        if (storageEncrypted == null) return null;
+        return storageEncrypted.getValue("ClusterSnapshot.storageEncrypted");
+    }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ClusterSnapshot.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -142,16 +192,22 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ClusterSnapshot.tagsAll");
+    }
 
     /**
      * The VPC ID associated with the DB cluster snapshot.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("ClusterSnapshot.vpcId");
+    }
 
 }

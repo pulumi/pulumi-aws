@@ -3,118 +3,150 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateBlockDeviceMapping;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateCapacityReservationSpecification;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateCpuOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateCreditSpecification;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateElasticGpuSpecification;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateElasticInferenceAccelerator;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateEnclaveOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateHibernationOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateIamInstanceProfile;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateInstanceMarketOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateInstanceRequirements;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateLicenseSpecification;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateMaintenanceOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateMetadataOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateMonitoring;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateNetworkInterface;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplatePlacement;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplatePrivateDnsNameOptions;
-import com.pulumi.policypacks.aws.ec2.LaunchTemplateTagSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateBlockDeviceMapping;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateCapacityReservationSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateCpuOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateCreditSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateElasticGpuSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateElasticInferenceAccelerator;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateEnclaveOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateHibernationOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateIamInstanceProfile;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceMarketOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceRequirements;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateLicenseSpecification;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateMaintenanceOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateMetadataOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateMonitoring;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateNetworkInterface;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplatePlacement;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplatePrivateDnsNameOptions;
+import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateTagSpecification;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/launchTemplate:LaunchTemplate")
-public final class LaunchTemplate extends com.pulumi.resources.PolicyResource {
+public final class LaunchTemplate extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the launch template.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LaunchTemplate.arn");
+    }
 
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      * 
      */
-    public List<LaunchTemplateBlockDeviceMapping> blockDeviceMappings;
+    private @Nullable UndeferrableValue<List<LaunchTemplateBlockDeviceMapping>> blockDeviceMappings;
 
-
+    public @Nullable List<LaunchTemplateBlockDeviceMapping> blockDeviceMappings() {
+        if (blockDeviceMappings == null) return null;
+        return blockDeviceMappings.getValue("LaunchTemplate.blockDeviceMappings");
+    }
 
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      * 
      */
-    public LaunchTemplateCapacityReservationSpecification capacityReservationSpecification;
+    private @Nullable UndeferrableValue<LaunchTemplateCapacityReservationSpecification> capacityReservationSpecification;
 
-
+    public @Nullable LaunchTemplateCapacityReservationSpecification capacityReservationSpecification() {
+        if (capacityReservationSpecification == null) return null;
+        return capacityReservationSpecification.getValue("LaunchTemplate.capacityReservationSpecification");
+    }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    public LaunchTemplateCpuOptions cpuOptions;
+    private @Nullable UndeferrableValue<LaunchTemplateCpuOptions> cpuOptions;
 
-
+    public @Nullable LaunchTemplateCpuOptions cpuOptions() {
+        if (cpuOptions == null) return null;
+        return cpuOptions.getValue("LaunchTemplate.cpuOptions");
+    }
 
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      * 
      */
-    public LaunchTemplateCreditSpecification creditSpecification;
+    private @Nullable UndeferrableValue<LaunchTemplateCreditSpecification> creditSpecification;
 
-
+    public @Nullable LaunchTemplateCreditSpecification creditSpecification() {
+        if (creditSpecification == null) return null;
+        return creditSpecification.getValue("LaunchTemplate.creditSpecification");
+    }
 
     /**
      * Default Version of the launch template.
      * 
      */
-    public Integer defaultVersion;
+    private UndeferrableValue<Integer> defaultVersion;
 
-
+    public Integer defaultVersion() {
+        if (defaultVersion == null) return null;
+        return defaultVersion.getValue("LaunchTemplate.defaultVersion");
+    }
 
     /**
      * Description of the launch template.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("LaunchTemplate.description");
+    }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
-    public Boolean disableApiStop;
+    private @Nullable UndeferrableValue<Boolean> disableApiStop;
 
-
+    public @Nullable Boolean disableApiStop() {
+        if (disableApiStop == null) return null;
+        return disableApiStop.getValue("LaunchTemplate.disableApiStop");
+    }
 
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
-    public Boolean disableApiTermination;
+    private @Nullable UndeferrableValue<Boolean> disableApiTermination;
 
-
+    public @Nullable Boolean disableApiTermination() {
+        if (disableApiTermination == null) return null;
+        return disableApiTermination.getValue("LaunchTemplate.disableApiTermination");
+    }
 
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    public String ebsOptimized;
+    private @Nullable UndeferrableValue<String> ebsOptimized;
 
-
+    public @Nullable String ebsOptimized() {
+        if (ebsOptimized == null) return null;
+        return ebsOptimized.getValue("LaunchTemplate.ebsOptimized");
+    }
 
     /**
      * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
@@ -125,9 +157,12 @@ public final class LaunchTemplate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    public List<LaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
+    private @Nullable UndeferrableValue<List<LaunchTemplateElasticGpuSpecification>> elasticGpuSpecifications;
 
-
+    public @Nullable List<LaunchTemplateElasticGpuSpecification> elasticGpuSpecifications() {
+        if (elasticGpuSpecifications == null) return null;
+        return elasticGpuSpecifications.getValue("LaunchTemplate.elasticGpuSpecifications");
+    }
 
     /**
      * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
@@ -137,206 +172,281 @@ public final class LaunchTemplate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    public LaunchTemplateElasticInferenceAccelerator elasticInferenceAccelerator;
+    private @Nullable UndeferrableValue<LaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerator;
 
-
+    public @Nullable LaunchTemplateElasticInferenceAccelerator elasticInferenceAccelerator() {
+        if (elasticInferenceAccelerator == null) return null;
+        return elasticInferenceAccelerator.getValue("LaunchTemplate.elasticInferenceAccelerator");
+    }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    public LaunchTemplateEnclaveOptions enclaveOptions;
+    private @Nullable UndeferrableValue<LaunchTemplateEnclaveOptions> enclaveOptions;
 
-
+    public @Nullable LaunchTemplateEnclaveOptions enclaveOptions() {
+        if (enclaveOptions == null) return null;
+        return enclaveOptions.getValue("LaunchTemplate.enclaveOptions");
+    }
 
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      * 
      */
-    public LaunchTemplateHibernationOptions hibernationOptions;
+    private @Nullable UndeferrableValue<LaunchTemplateHibernationOptions> hibernationOptions;
 
-
+    public @Nullable LaunchTemplateHibernationOptions hibernationOptions() {
+        if (hibernationOptions == null) return null;
+        return hibernationOptions.getValue("LaunchTemplate.hibernationOptions");
+    }
 
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      * 
      */
-    public LaunchTemplateIamInstanceProfile iamInstanceProfile;
+    private @Nullable UndeferrableValue<LaunchTemplateIamInstanceProfile> iamInstanceProfile;
 
-
+    public @Nullable LaunchTemplateIamInstanceProfile iamInstanceProfile() {
+        if (iamInstanceProfile == null) return null;
+        return iamInstanceProfile.getValue("LaunchTemplate.iamInstanceProfile");
+    }
 
     /**
      * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
-    public String imageId;
+    private @Nullable UndeferrableValue<String> imageId;
 
-
+    public @Nullable String imageId() {
+        if (imageId == null) return null;
+        return imageId.getValue("LaunchTemplate.imageId");
+    }
 
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      * 
      */
-    public String instanceInitiatedShutdownBehavior;
+    private @Nullable UndeferrableValue<String> instanceInitiatedShutdownBehavior;
 
-
+    public @Nullable String instanceInitiatedShutdownBehavior() {
+        if (instanceInitiatedShutdownBehavior == null) return null;
+        return instanceInitiatedShutdownBehavior.getValue("LaunchTemplate.instanceInitiatedShutdownBehavior");
+    }
 
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      * 
      */
-    public LaunchTemplateInstanceMarketOptions instanceMarketOptions;
+    private @Nullable UndeferrableValue<LaunchTemplateInstanceMarketOptions> instanceMarketOptions;
 
-
+    public @Nullable LaunchTemplateInstanceMarketOptions instanceMarketOptions() {
+        if (instanceMarketOptions == null) return null;
+        return instanceMarketOptions.getValue("LaunchTemplate.instanceMarketOptions");
+    }
 
     /**
      * The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
      * 
      */
-    public LaunchTemplateInstanceRequirements instanceRequirements;
+    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirements> instanceRequirements;
 
-
+    public @Nullable LaunchTemplateInstanceRequirements instanceRequirements() {
+        if (instanceRequirements == null) return null;
+        return instanceRequirements.getValue("LaunchTemplate.instanceRequirements");
+    }
 
     /**
      * The type of the instance. If present then `instance_requirements` cannot be present.
      * 
      */
-    public String instanceType;
+    private @Nullable UndeferrableValue<String> instanceType;
 
-
+    public @Nullable String instanceType() {
+        if (instanceType == null) return null;
+        return instanceType.getValue("LaunchTemplate.instanceType");
+    }
 
     /**
      * The kernel ID.
      * 
      */
-    public String kernelId;
+    private @Nullable UndeferrableValue<String> kernelId;
 
-
+    public @Nullable String kernelId() {
+        if (kernelId == null) return null;
+        return kernelId.getValue("LaunchTemplate.kernelId");
+    }
 
     /**
      * The key name to use for the instance.
      * 
      */
-    public String keyName;
+    private @Nullable UndeferrableValue<String> keyName;
 
-
+    public @Nullable String keyName() {
+        if (keyName == null) return null;
+        return keyName.getValue("LaunchTemplate.keyName");
+    }
 
     /**
      * The latest version of the launch template.
      * 
      */
-    public Integer latestVersion;
+    private UndeferrableValue<Integer> latestVersion;
 
-
+    public Integer latestVersion() {
+        if (latestVersion == null) return null;
+        return latestVersion.getValue("LaunchTemplate.latestVersion");
+    }
 
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      * 
      */
-    public List<LaunchTemplateLicenseSpecification> licenseSpecifications;
+    private @Nullable UndeferrableValue<List<LaunchTemplateLicenseSpecification>> licenseSpecifications;
 
-
+    public @Nullable List<LaunchTemplateLicenseSpecification> licenseSpecifications() {
+        if (licenseSpecifications == null) return null;
+        return licenseSpecifications.getValue("LaunchTemplate.licenseSpecifications");
+    }
 
     /**
      * The maintenance options for the instance. See Maintenance Options below for more details.
      * 
      */
-    public LaunchTemplateMaintenanceOptions maintenanceOptions;
+    private @Nullable UndeferrableValue<LaunchTemplateMaintenanceOptions> maintenanceOptions;
 
-
+    public @Nullable LaunchTemplateMaintenanceOptions maintenanceOptions() {
+        if (maintenanceOptions == null) return null;
+        return maintenanceOptions.getValue("LaunchTemplate.maintenanceOptions");
+    }
 
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      * 
      */
-    public LaunchTemplateMetadataOptions metadataOptions;
+    private UndeferrableValue<LaunchTemplateMetadataOptions> metadataOptions;
 
-
+    public LaunchTemplateMetadataOptions metadataOptions() {
+        if (metadataOptions == null) return null;
+        return metadataOptions.getValue("LaunchTemplate.metadataOptions");
+    }
 
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      * 
      */
-    public LaunchTemplateMonitoring monitoring;
+    private @Nullable UndeferrableValue<LaunchTemplateMonitoring> monitoring;
 
-
+    public @Nullable LaunchTemplateMonitoring monitoring() {
+        if (monitoring == null) return null;
+        return monitoring.getValue("LaunchTemplate.monitoring");
+    }
 
     /**
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LaunchTemplate.name");
+    }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public String namePrefix;
+    private UndeferrableValue<String> namePrefix;
 
-
+    public String namePrefix() {
+        if (namePrefix == null) return null;
+        return namePrefix.getValue("LaunchTemplate.namePrefix");
+    }
 
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      * 
      */
-    public List<LaunchTemplateNetworkInterface> networkInterfaces;
+    private @Nullable UndeferrableValue<List<LaunchTemplateNetworkInterface>> networkInterfaces;
 
-
+    public @Nullable List<LaunchTemplateNetworkInterface> networkInterfaces() {
+        if (networkInterfaces == null) return null;
+        return networkInterfaces.getValue("LaunchTemplate.networkInterfaces");
+    }
 
     /**
      * The placement of the instance. See Placement below for more details.
      * 
      */
-    public LaunchTemplatePlacement placement;
+    private @Nullable UndeferrableValue<LaunchTemplatePlacement> placement;
 
-
+    public @Nullable LaunchTemplatePlacement placement() {
+        if (placement == null) return null;
+        return placement.getValue("LaunchTemplate.placement");
+    }
 
     /**
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    public LaunchTemplatePrivateDnsNameOptions privateDnsNameOptions;
+    private @Nullable UndeferrableValue<LaunchTemplatePrivateDnsNameOptions> privateDnsNameOptions;
 
-
+    public @Nullable LaunchTemplatePrivateDnsNameOptions privateDnsNameOptions() {
+        if (privateDnsNameOptions == null) return null;
+        return privateDnsNameOptions.getValue("LaunchTemplate.privateDnsNameOptions");
+    }
 
     /**
      * The ID of the RAM disk.
      * 
      */
-    public String ramDiskId;
+    private @Nullable UndeferrableValue<String> ramDiskId;
 
-
+    public @Nullable String ramDiskId() {
+        if (ramDiskId == null) return null;
+        return ramDiskId.getValue("LaunchTemplate.ramDiskId");
+    }
 
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      * 
      */
-    public List<String> securityGroupNames;
+    private @Nullable UndeferrableValue<List<String>> securityGroupNames;
 
-
+    public @Nullable List<String> securityGroupNames() {
+        if (securityGroupNames == null) return null;
+        return securityGroupNames.getValue("LaunchTemplate.securityGroupNames");
+    }
 
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
-    public List<LaunchTemplateTagSpecification> tagSpecifications;
+    private @Nullable UndeferrableValue<List<LaunchTemplateTagSpecification>> tagSpecifications;
 
-
+    public @Nullable List<LaunchTemplateTagSpecification> tagSpecifications() {
+        if (tagSpecifications == null) return null;
+        return tagSpecifications.getValue("LaunchTemplate.tagSpecifications");
+    }
 
     /**
      * A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LaunchTemplate.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -346,32 +456,44 @@ public final class LaunchTemplate extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LaunchTemplate.tagsAll");
+    }
 
     /**
      * Whether to update Default Version each update. Conflicts with `default_version`.
      * 
      */
-    public Boolean updateDefaultVersion;
+    private @Nullable UndeferrableValue<Boolean> updateDefaultVersion;
 
-
+    public @Nullable Boolean updateDefaultVersion() {
+        if (updateDefaultVersion == null) return null;
+        return updateDefaultVersion.getValue("LaunchTemplate.updateDefaultVersion");
+    }
 
     /**
      * The base64-encoded user data to provide when launching the instance.
      * 
      */
-    public String userData;
+    private @Nullable UndeferrableValue<String> userData;
 
-
+    public @Nullable String userData() {
+        if (userData == null) return null;
+        return userData.getValue("LaunchTemplate.userData");
+    }
 
     /**
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      * 
      */
-    public List<String> vpcSecurityGroupIds;
+    private @Nullable UndeferrableValue<List<String>> vpcSecurityGroupIds;
 
-
+    public @Nullable List<String> vpcSecurityGroupIds() {
+        if (vpcSecurityGroupIds == null) return null;
+        return vpcSecurityGroupIds.getValue("LaunchTemplate.vpcSecurityGroupIds");
+    }
 
 }

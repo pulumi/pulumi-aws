@@ -3,104 +3,139 @@
 
 package com.pulumi.policypacks.aws.batch;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.batch.ComputeEnvironmentComputeResources;
-import com.pulumi.policypacks.aws.batch.ComputeEnvironmentEksConfiguration;
-import com.pulumi.policypacks.aws.batch.ComputeEnvironmentUpdatePolicy;
+import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentComputeResources;
+import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentEksConfiguration;
+import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentUpdatePolicy;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:batch/computeEnvironment:ComputeEnvironment")
-public final class ComputeEnvironment extends com.pulumi.resources.PolicyResource {
+public final class ComputeEnvironment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ComputeEnvironment.arn");
+    }
 
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
-    public String computeEnvironmentName;
+    private UndeferrableValue<String> computeEnvironmentName;
 
-
+    public String computeEnvironmentName() {
+        if (computeEnvironmentName == null) return null;
+        return computeEnvironmentName.getValue("ComputeEnvironment.computeEnvironmentName");
+    }
 
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
      * 
      */
-    public String computeEnvironmentNamePrefix;
+    private UndeferrableValue<String> computeEnvironmentNamePrefix;
 
-
+    public String computeEnvironmentNamePrefix() {
+        if (computeEnvironmentNamePrefix == null) return null;
+        return computeEnvironmentNamePrefix.getValue("ComputeEnvironment.computeEnvironmentNamePrefix");
+    }
 
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      * 
      */
-    public ComputeEnvironmentComputeResources computeResources;
+    private @Nullable UndeferrableValue<ComputeEnvironmentComputeResources> computeResources;
 
-
+    public @Nullable ComputeEnvironmentComputeResources computeResources() {
+        if (computeResources == null) return null;
+        return computeResources.getValue("ComputeEnvironment.computeResources");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    public String ecsClusterArn;
+    private UndeferrableValue<String> ecsClusterArn;
 
-
+    public String ecsClusterArn() {
+        if (ecsClusterArn == null) return null;
+        return ecsClusterArn.getValue("ComputeEnvironment.ecsClusterArn");
+    }
 
     /**
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      * 
      */
-    public ComputeEnvironmentEksConfiguration eksConfiguration;
+    private @Nullable UndeferrableValue<ComputeEnvironmentEksConfiguration> eksConfiguration;
 
-
+    public @Nullable ComputeEnvironmentEksConfiguration eksConfiguration() {
+        if (eksConfiguration == null) return null;
+        return eksConfiguration.getValue("ComputeEnvironment.eksConfiguration");
+    }
 
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    public String serviceRole;
+    private UndeferrableValue<String> serviceRole;
 
-
+    public String serviceRole() {
+        if (serviceRole == null) return null;
+        return serviceRole.getValue("ComputeEnvironment.serviceRole");
+    }
 
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("ComputeEnvironment.state");
+    }
 
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ComputeEnvironment.status");
+    }
 
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    public String statusReason;
+    private UndeferrableValue<String> statusReason;
 
-
+    public String statusReason() {
+        if (statusReason == null) return null;
+        return statusReason.getValue("ComputeEnvironment.statusReason");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("ComputeEnvironment.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -110,24 +145,33 @@ public final class ComputeEnvironment extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("ComputeEnvironment.tagsAll");
+    }
 
     /**
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
-    public String type;
+    private UndeferrableValue<String> type;
 
-
+    public String type() {
+        if (type == null) return null;
+        return type.getValue("ComputeEnvironment.type");
+    }
 
     /**
      * Specifies the infrastructure update policy for the compute environment. See details below.
      * 
      */
-    public ComputeEnvironmentUpdatePolicy updatePolicy;
+    private @Nullable UndeferrableValue<ComputeEnvironmentUpdatePolicy> updatePolicy;
 
-
+    public @Nullable ComputeEnvironmentUpdatePolicy updatePolicy() {
+        if (updatePolicy == null) return null;
+        return updatePolicy.getValue("ComputeEnvironment.updatePolicy");
+    }
 
 }

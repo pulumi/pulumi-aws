@@ -3,28 +3,35 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.autoscaling.TagTag;
+import com.pulumi.policypacks.aws.autoscaling.outputs.TagTag;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:autoscaling/tag:Tag")
-public final class Tag extends com.pulumi.resources.PolicyResource {
+public final class Tag extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Autoscaling Group to apply the tag to.
      * 
      */
-    public String autoscalingGroupName;
+    private UndeferrableValue<String> autoscalingGroupName;
 
-
+    public String autoscalingGroupName() {
+        if (autoscalingGroupName == null) return null;
+        return autoscalingGroupName.getValue("Tag.autoscalingGroupName");
+    }
 
     /**
      * Tag to create. The `tag` block is documented below.
      * 
      */
-    public TagTag tag;
+    private UndeferrableValue<TagTag> tag;
 
-
+    public TagTag tag() {
+        if (tag == null) return null;
+        return tag.getValue("Tag.tag");
+    }
 
 }

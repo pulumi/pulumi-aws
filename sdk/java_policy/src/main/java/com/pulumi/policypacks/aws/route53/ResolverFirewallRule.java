@@ -3,100 +3,135 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/resolverFirewallRule:ResolverFirewallRule")
-public final class ResolverFirewallRule extends com.pulumi.resources.PolicyResource {
+public final class ResolverFirewallRule extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
      * 
      */
-    public String action;
+    private UndeferrableValue<String> action;
 
-
+    public String action() {
+        if (action == null) return null;
+        return action.getValue("ResolverFirewallRule.action");
+    }
 
     /**
      * The DNS record&#39;s type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
      * 
      */
-    public String blockOverrideDnsType;
+    private @Nullable UndeferrableValue<String> blockOverrideDnsType;
 
-
+    public @Nullable String blockOverrideDnsType() {
+        if (blockOverrideDnsType == null) return null;
+        return blockOverrideDnsType.getValue("ResolverFirewallRule.blockOverrideDnsType");
+    }
 
     /**
      * The custom DNS record to send back in response to the query.
      * 
      */
-    public String blockOverrideDomain;
+    private @Nullable UndeferrableValue<String> blockOverrideDomain;
 
-
+    public @Nullable String blockOverrideDomain() {
+        if (blockOverrideDomain == null) return null;
+        return blockOverrideDomain.getValue("ResolverFirewallRule.blockOverrideDomain");
+    }
 
     /**
      * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
      * 
      */
-    public Integer blockOverrideTtl;
+    private @Nullable UndeferrableValue<Integer> blockOverrideTtl;
 
-
+    public @Nullable Integer blockOverrideTtl() {
+        if (blockOverrideTtl == null) return null;
+        return blockOverrideTtl.getValue("ResolverFirewallRule.blockOverrideTtl");
+    }
 
     /**
      * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
      * 
      */
-    public String blockResponse;
+    private @Nullable UndeferrableValue<String> blockResponse;
 
-
+    public @Nullable String blockResponse() {
+        if (blockResponse == null) return null;
+        return blockResponse.getValue("ResolverFirewallRule.blockResponse");
+    }
 
     /**
      * The ID of the domain list that you want to use in the rule.
      * 
      */
-    public String firewallDomainListId;
+    private UndeferrableValue<String> firewallDomainListId;
 
-
+    public String firewallDomainListId() {
+        if (firewallDomainListId == null) return null;
+        return firewallDomainListId.getValue("ResolverFirewallRule.firewallDomainListId");
+    }
 
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
      * 
      */
-    public String firewallDomainRedirectionAction;
+    private @Nullable UndeferrableValue<String> firewallDomainRedirectionAction;
 
-
+    public @Nullable String firewallDomainRedirectionAction() {
+        if (firewallDomainRedirectionAction == null) return null;
+        return firewallDomainRedirectionAction.getValue("ResolverFirewallRule.firewallDomainRedirectionAction");
+    }
 
     /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      * 
      */
-    public String firewallRuleGroupId;
+    private UndeferrableValue<String> firewallRuleGroupId;
 
-
+    public String firewallRuleGroupId() {
+        if (firewallRuleGroupId == null) return null;
+        return firewallRuleGroupId.getValue("ResolverFirewallRule.firewallRuleGroupId");
+    }
 
     /**
      * A name that lets you identify the rule, to manage and use it.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ResolverFirewallRule.name");
+    }
 
     /**
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      * 
      */
-    public Integer priority;
+    private UndeferrableValue<Integer> priority;
 
-
+    public Integer priority() {
+        if (priority == null) return null;
+        return priority.getValue("ResolverFirewallRule.priority");
+    }
 
     /**
      * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
      * 
      */
-    public String qType;
+    private @Nullable UndeferrableValue<String> qType;
 
-
+    public @Nullable String qType() {
+        if (qType == null) return null;
+        return qType.getValue("ResolverFirewallRule.qType");
+    }
 
 }

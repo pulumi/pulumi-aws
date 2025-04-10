@@ -3,29 +3,37 @@
 
 package com.pulumi.policypacks.aws.xray;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:xray/resourcePolicy:ResourcePolicy")
-public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
+public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      * 
      */
-    public Boolean bypassPolicyLockoutCheck;
+    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutCheck;
 
-
+    public @Nullable Boolean bypassPolicyLockoutCheck() {
+        if (bypassPolicyLockoutCheck == null) return null;
+        return bypassPolicyLockoutCheck.getValue("ResourcePolicy.bypassPolicyLockoutCheck");
+    }
 
     /**
      * When the policy was last updated, in Unix time seconds.
      * 
      */
-    public String lastUpdatedTime;
+    private UndeferrableValue<String> lastUpdatedTime;
 
-
+    public String lastUpdatedTime() {
+        if (lastUpdatedTime == null) return null;
+        return lastUpdatedTime.getValue("ResourcePolicy.lastUpdatedTime");
+    }
 
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
@@ -33,24 +41,33 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String policyDocument;
+    private UndeferrableValue<String> policyDocument;
 
-
+    public String policyDocument() {
+        if (policyDocument == null) return null;
+        return policyDocument.getValue("ResourcePolicy.policyDocument");
+    }
 
     /**
      * name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
-    public String policyName;
+    private UndeferrableValue<String> policyName;
 
-
+    public String policyName() {
+        if (policyName == null) return null;
+        return policyName.getValue("ResourcePolicy.policyName");
+    }
 
     /**
      * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      * 
      */
-    public String policyRevisionId;
+    private UndeferrableValue<String> policyRevisionId;
 
-
+    public String policyRevisionId() {
+        if (policyRevisionId == null) return null;
+        return policyRevisionId.getValue("ResourcePolicy.policyRevisionId");
+    }
 
 }

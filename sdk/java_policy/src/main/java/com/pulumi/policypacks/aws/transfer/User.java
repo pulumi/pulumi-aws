@@ -3,88 +3,117 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.transfer.UserHomeDirectoryMapping;
-import com.pulumi.policypacks.aws.transfer.UserPosixProfile;
+import com.pulumi.policypacks.aws.transfer.outputs.UserHomeDirectoryMapping;
+import com.pulumi.policypacks.aws.transfer.outputs.UserPosixProfile;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:transfer/user:User")
-public final class User extends com.pulumi.resources.PolicyResource {
+public final class User extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of Transfer User
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("User.arn");
+    }
 
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
-    public String homeDirectory;
+    private @Nullable UndeferrableValue<String> homeDirectory;
 
-
+    public @Nullable String homeDirectory() {
+        if (homeDirectory == null) return null;
+        return homeDirectory.getValue("User.homeDirectory");
+    }
 
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      * 
      */
-    public List<UserHomeDirectoryMapping> homeDirectoryMappings;
+    private @Nullable UndeferrableValue<List<UserHomeDirectoryMapping>> homeDirectoryMappings;
 
-
+    public @Nullable List<UserHomeDirectoryMapping> homeDirectoryMappings() {
+        if (homeDirectoryMappings == null) return null;
+        return homeDirectoryMappings.getValue("User.homeDirectoryMappings");
+    }
 
     /**
      * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
-    public String homeDirectoryType;
+    private @Nullable UndeferrableValue<String> homeDirectoryType;
 
-
+    public @Nullable String homeDirectoryType() {
+        if (homeDirectoryType == null) return null;
+        return homeDirectoryType.getValue("User.homeDirectoryType");
+    }
 
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      * 
      */
-    public String policy;
+    private @Nullable UndeferrableValue<String> policy;
 
-
+    public @Nullable String policy() {
+        if (policy == null) return null;
+        return policy.getValue("User.policy");
+    }
 
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
      * 
      */
-    public UserPosixProfile posixProfile;
+    private @Nullable UndeferrableValue<UserPosixProfile> posixProfile;
 
-
+    public @Nullable UserPosixProfile posixProfile() {
+        if (posixProfile == null) return null;
+        return posixProfile.getValue("User.posixProfile");
+    }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
-    public String role;
+    private UndeferrableValue<String> role;
 
-
+    public String role() {
+        if (role == null) return null;
+        return role.getValue("User.role");
+    }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    public String serverId;
+    private UndeferrableValue<String> serverId;
 
-
+    public String serverId() {
+        if (serverId == null) return null;
+        return serverId.getValue("User.serverId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("User.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -94,16 +123,22 @@ public final class User extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("User.tagsAll");
+    }
 
     /**
      * The name used for log in to your SFTP server.
      * 
      */
-    public String userName;
+    private UndeferrableValue<String> userName;
 
-
+    public String userName() {
+        if (userName == null) return null;
+        return userName.getValue("User.userName");
+    }
 
 }

@@ -3,41 +3,55 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:fsx/openZfsSnapshot:OpenZfsSnapshot")
-public final class OpenZfsSnapshot extends com.pulumi.resources.PolicyResource {
+public final class OpenZfsSnapshot extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name of the snapshot.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OpenZfsSnapshot.arn");
+    }
 
+    private UndeferrableValue<String> creationTime;
 
-    public String creationTime;
-
-
+    public String creationTime() {
+        if (creationTime == null) return null;
+        return creationTime.getValue("OpenZfsSnapshot.creationTime");
+    }
 
     /**
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OpenZfsSnapshot.name");
+    }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("OpenZfsSnapshot.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -47,16 +61,22 @@ public final class OpenZfsSnapshot extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("OpenZfsSnapshot.tagsAll");
+    }
 
     /**
      * The ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
-    public String volumeId;
+    private UndeferrableValue<String> volumeId;
 
-
+    public String volumeId() {
+        if (volumeId == null) return null;
+        return volumeId.getValue("OpenZfsSnapshot.volumeId");
+    }
 
 }

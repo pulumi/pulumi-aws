@@ -3,75 +3,101 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.DeviceFleetOutputConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.DeviceFleetOutputConfig;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/deviceFleet:DeviceFleet")
-public final class DeviceFleet extends com.pulumi.resources.PolicyResource {
+public final class DeviceFleet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("DeviceFleet.arn");
+    }
 
     /**
      * A description of the fleet.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("DeviceFleet.description");
+    }
 
     /**
      * The name of the Device Fleet (must be unique).
      * 
      */
-    public String deviceFleetName;
+    private UndeferrableValue<String> deviceFleetName;
 
-
+    public String deviceFleetName() {
+        if (deviceFleetName == null) return null;
+        return deviceFleetName.getValue("DeviceFleet.deviceFleetName");
+    }
 
     /**
      * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
      * 
      */
-    public Boolean enableIotRoleAlias;
+    private @Nullable UndeferrableValue<Boolean> enableIotRoleAlias;
 
+    public @Nullable Boolean enableIotRoleAlias() {
+        if (enableIotRoleAlias == null) return null;
+        return enableIotRoleAlias.getValue("DeviceFleet.enableIotRoleAlias");
+    }
 
+    private UndeferrableValue<String> iotRoleAlias;
 
-    public String iotRoleAlias;
-
-
+    public String iotRoleAlias() {
+        if (iotRoleAlias == null) return null;
+        return iotRoleAlias.getValue("DeviceFleet.iotRoleAlias");
+    }
 
     /**
      * Specifies details about the repository. see Output Config details below.
      * 
      */
-    public DeviceFleetOutputConfig outputConfig;
+    private UndeferrableValue<DeviceFleetOutputConfig> outputConfig;
 
-
+    public DeviceFleetOutputConfig outputConfig() {
+        if (outputConfig == null) return null;
+        return outputConfig.getValue("DeviceFleet.outputConfig");
+    }
 
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("DeviceFleet.roleArn");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("DeviceFleet.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -81,8 +107,11 @@ public final class DeviceFleet extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("DeviceFleet.tagsAll");
+    }
 
 }

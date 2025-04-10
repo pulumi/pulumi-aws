@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.AliasRoutingStrategy;
+import com.pulumi.policypacks.aws.gamelift.outputs.AliasRoutingStrategy;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/alias:Alias")
-public final class Alias extends com.pulumi.resources.PolicyResource {
+public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Alias ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Alias.arn");
+    }
 
     /**
      * Description of the alias.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("Alias.description");
+    }
 
     /**
      * Name of the alias.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Alias.name");
+    }
 
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      * 
      */
-    public AliasRoutingStrategy routingStrategy;
+    private UndeferrableValue<AliasRoutingStrategy> routingStrategy;
 
-
+    public AliasRoutingStrategy routingStrategy() {
+        if (routingStrategy == null) return null;
+        return routingStrategy.getValue("Alias.routingStrategy");
+    }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Alias.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -60,8 +77,11 @@ public final class Alias extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Alias.tagsAll");
+    }
 
 }

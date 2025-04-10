@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:kinesis/streamConsumer:StreamConsumer")
-public final class StreamConsumer extends com.pulumi.resources.PolicyResource {
+public final class StreamConsumer extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the stream consumer.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StreamConsumer.arn");
+    }
 
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    public String creationTimestamp;
+    private UndeferrableValue<String> creationTimestamp;
 
-
+    public String creationTimestamp() {
+        if (creationTimestamp == null) return null;
+        return creationTimestamp.getValue("StreamConsumer.creationTimestamp");
+    }
 
     /**
      * Name of the stream consumer.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("StreamConsumer.name");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      * 
      */
-    public String streamArn;
+    private UndeferrableValue<String> streamArn;
 
-
+    public String streamArn() {
+        if (streamArn == null) return null;
+        return streamArn.getValue("StreamConsumer.streamArn");
+    }
 
 }

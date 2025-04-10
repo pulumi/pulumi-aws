@@ -3,29 +3,36 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.s3control.BucketLifecycleConfigurationRule;
+import com.pulumi.policypacks.aws.s3control.outputs.BucketLifecycleConfigurationRule;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")
-public final class BucketLifecycleConfiguration extends com.pulumi.resources.PolicyResource {
+public final class BucketLifecycleConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketLifecycleConfiguration.bucket");
+    }
 
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      * 
      */
-    public List<BucketLifecycleConfigurationRule> rules;
+    private UndeferrableValue<List<BucketLifecycleConfigurationRule>> rules;
 
-
+    public List<BucketLifecycleConfigurationRule> rules() {
+        if (rules == null) return null;
+        return rules.getValue("BucketLifecycleConfiguration.rules");
+    }
 
 }

@@ -3,76 +3,105 @@
 
 package com.pulumi.policypacks.aws.route53;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.route53.ProfilesResourceAssociationTimeouts;
+import com.pulumi.policypacks.aws.route53.outputs.ProfilesResourceAssociationTimeouts;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:route53/profilesResourceAssociation:ProfilesResourceAssociation")
-public final class ProfilesResourceAssociation extends com.pulumi.resources.PolicyResource {
+public final class ProfilesResourceAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the Profile Resource Association.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ProfilesResourceAssociation.name");
+    }
 
+    private UndeferrableValue<String> ownerId;
 
-    public String ownerId;
-
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("ProfilesResourceAssociation.ownerId");
+    }
 
     /**
      * ID of the profile associated with the VPC.
      * 
      */
-    public String profileId;
+    private UndeferrableValue<String> profileId;
 
-
+    public String profileId() {
+        if (profileId == null) return null;
+        return profileId.getValue("ProfilesResourceAssociation.profileId");
+    }
 
     /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */
-    public String resourceArn;
+    private UndeferrableValue<String> resourceArn;
 
-
+    public String resourceArn() {
+        if (resourceArn == null) return null;
+        return resourceArn.getValue("ProfilesResourceAssociation.resourceArn");
+    }
 
     /**
      * Resource properties for the resource to be associated with the profile.
      * 
      */
-    public String resourceProperties;
+    private @Nullable UndeferrableValue<String> resourceProperties;
 
-
+    public @Nullable String resourceProperties() {
+        if (resourceProperties == null) return null;
+        return resourceProperties.getValue("ProfilesResourceAssociation.resourceProperties");
+    }
 
     /**
      * Type of resource associated with the profile.
      * 
      */
-    public String resourceType;
+    private UndeferrableValue<String> resourceType;
 
-
+    public String resourceType() {
+        if (resourceType == null) return null;
+        return resourceType.getValue("ProfilesResourceAssociation.resourceType");
+    }
 
     /**
      * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("ProfilesResourceAssociation.status");
+    }
 
     /**
      * Status message of the Profile Resource Association.
      * 
      */
-    public String statusMessage;
+    private UndeferrableValue<String> statusMessage;
 
+    public String statusMessage() {
+        if (statusMessage == null) return null;
+        return statusMessage.getValue("ProfilesResourceAssociation.statusMessage");
+    }
 
+    private @Nullable UndeferrableValue<ProfilesResourceAssociationTimeouts> timeouts;
 
-    public ProfilesResourceAssociationTimeouts timeouts;
-
-
+    public @Nullable ProfilesResourceAssociationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("ProfilesResourceAssociation.timeouts");
+    }
 
 }

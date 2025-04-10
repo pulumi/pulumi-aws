@@ -3,51 +3,68 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigateway/basePathMapping:BasePathMapping")
-public final class BasePathMapping extends com.pulumi.resources.PolicyResource {
+public final class BasePathMapping extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      * 
      */
-    public String basePath;
+    private @Nullable UndeferrableValue<String> basePath;
 
-
+    public @Nullable String basePath() {
+        if (basePath == null) return null;
+        return basePath.getValue("BasePathMapping.basePath");
+    }
 
     /**
      * Already-registered domain name to connect the API to.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("BasePathMapping.domainName");
+    }
 
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
-    public String domainNameId;
+    private @Nullable UndeferrableValue<String> domainNameId;
 
-
+    public @Nullable String domainNameId() {
+        if (domainNameId == null) return null;
+        return domainNameId.getValue("BasePathMapping.domainNameId");
+    }
 
     /**
      * ID of the API to connect.
      * 
      */
-    public String restApi;
+    private UndeferrableValue<String> restApi;
 
-
+    public String restApi() {
+        if (restApi == null) return null;
+        return restApi.getValue("BasePathMapping.restApi");
+    }
 
     /**
      * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
-    public String stageName;
+    private @Nullable UndeferrableValue<String> stageName;
 
-
+    public @Nullable String stageName() {
+        if (stageName == null) return null;
+        return stageName.getValue("BasePathMapping.stageName");
+    }
 
 }

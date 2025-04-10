@@ -3,132 +3,179 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/privateVirtualInterface:PrivateVirtualInterface")
-public final class PrivateVirtualInterface extends com.pulumi.resources.PolicyResource {
+public final class PrivateVirtualInterface extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    public String addressFamily;
+    private UndeferrableValue<String> addressFamily;
 
-
+    public String addressFamily() {
+        if (addressFamily == null) return null;
+        return addressFamily.getValue("PrivateVirtualInterface.addressFamily");
+    }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    public String amazonAddress;
+    private UndeferrableValue<String> amazonAddress;
 
+    public String amazonAddress() {
+        if (amazonAddress == null) return null;
+        return amazonAddress.getValue("PrivateVirtualInterface.amazonAddress");
+    }
 
+    private UndeferrableValue<String> amazonSideAsn;
 
-    public String amazonSideAsn;
-
-
+    public String amazonSideAsn() {
+        if (amazonSideAsn == null) return null;
+        return amazonSideAsn.getValue("PrivateVirtualInterface.amazonSideAsn");
+    }
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("PrivateVirtualInterface.arn");
+    }
 
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    public String awsDevice;
+    private UndeferrableValue<String> awsDevice;
 
-
+    public String awsDevice() {
+        if (awsDevice == null) return null;
+        return awsDevice.getValue("PrivateVirtualInterface.awsDevice");
+    }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    public Integer bgpAsn;
+    private UndeferrableValue<Integer> bgpAsn;
 
-
+    public Integer bgpAsn() {
+        if (bgpAsn == null) return null;
+        return bgpAsn.getValue("PrivateVirtualInterface.bgpAsn");
+    }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    public String bgpAuthKey;
+    private UndeferrableValue<String> bgpAuthKey;
 
-
+    public String bgpAuthKey() {
+        if (bgpAuthKey == null) return null;
+        return bgpAuthKey.getValue("PrivateVirtualInterface.bgpAuthKey");
+    }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    public String connectionId;
+    private UndeferrableValue<String> connectionId;
 
-
+    public String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("PrivateVirtualInterface.connectionId");
+    }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    public String customerAddress;
+    private UndeferrableValue<String> customerAddress;
 
-
+    public String customerAddress() {
+        if (customerAddress == null) return null;
+        return customerAddress.getValue("PrivateVirtualInterface.customerAddress");
+    }
 
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    public String dxGatewayId;
+    private @Nullable UndeferrableValue<String> dxGatewayId;
 
-
+    public @Nullable String dxGatewayId() {
+        if (dxGatewayId == null) return null;
+        return dxGatewayId.getValue("PrivateVirtualInterface.dxGatewayId");
+    }
 
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      * 
      */
-    public Boolean jumboFrameCapable;
+    private UndeferrableValue<Boolean> jumboFrameCapable;
 
-
+    public Boolean jumboFrameCapable() {
+        if (jumboFrameCapable == null) return null;
+        return jumboFrameCapable.getValue("PrivateVirtualInterface.jumboFrameCapable");
+    }
 
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
      * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
      * 
      */
-    public Integer mtu;
+    private @Nullable UndeferrableValue<Integer> mtu;
 
-
+    public @Nullable Integer mtu() {
+        if (mtu == null) return null;
+        return mtu.getValue("PrivateVirtualInterface.mtu");
+    }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("PrivateVirtualInterface.name");
+    }
 
     /**
      * Indicates whether to enable or disable SiteLink.
      * 
      */
-    public Boolean sitelinkEnabled;
+    private @Nullable UndeferrableValue<Boolean> sitelinkEnabled;
 
-
+    public @Nullable Boolean sitelinkEnabled() {
+        if (sitelinkEnabled == null) return null;
+        return sitelinkEnabled.getValue("PrivateVirtualInterface.sitelinkEnabled");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("PrivateVirtualInterface.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -138,24 +185,33 @@ public final class PrivateVirtualInterface extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("PrivateVirtualInterface.tagsAll");
+    }
 
     /**
      * The VLAN ID.
      * 
      */
-    public Integer vlan;
+    private UndeferrableValue<Integer> vlan;
 
-
+    public Integer vlan() {
+        if (vlan == null) return null;
+        return vlan.getValue("PrivateVirtualInterface.vlan");
+    }
 
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      * 
      */
-    public String vpnGatewayId;
+    private @Nullable UndeferrableValue<String> vpnGatewayId;
 
-
+    public @Nullable String vpnGatewayId() {
+        if (vpnGatewayId == null) return null;
+        return vpnGatewayId.getValue("PrivateVirtualInterface.vpnGatewayId");
+    }
 
 }

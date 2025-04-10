@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:vpclattice/authPolicy:AuthPolicy")
-public final class AuthPolicy extends com.pulumi.resources.PolicyResource {
+public final class AuthPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
-    public String policy;
+    private UndeferrableValue<String> policy;
 
-
+    public String policy() {
+        if (policy == null) return null;
+        return policy.getValue("AuthPolicy.policy");
+    }
 
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
-    public String resourceIdentifier;
+    private UndeferrableValue<String> resourceIdentifier;
 
-
+    public String resourceIdentifier() {
+        if (resourceIdentifier == null) return null;
+        return resourceIdentifier.getValue("AuthPolicy.resourceIdentifier");
+    }
 
     /**
      * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
-    public String state;
+    private @Nullable UndeferrableValue<String> state;
 
-
+    public @Nullable String state() {
+        if (state == null) return null;
+        return state.getValue("AuthPolicy.state");
+    }
 
 }

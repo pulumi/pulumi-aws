@@ -3,22 +3,27 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.waf.ByteMatchSetByteMatchTuple;
+import com.pulumi.policypacks.aws.waf.outputs.ByteMatchSetByteMatchTuple;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/byteMatchSet:ByteMatchSet")
-public final class ByteMatchSet extends com.pulumi.resources.PolicyResource {
+public final class ByteMatchSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the byte match set.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ByteMatchSet.arn");
+    }
 
     /**
      * Specifies the bytes (typically a string that corresponds
@@ -26,16 +31,22 @@ public final class ByteMatchSet extends com.pulumi.resources.PolicyResource {
      * the location in requests that you want to search, and other settings.
      * 
      */
-    public List<ByteMatchSetByteMatchTuple> byteMatchTuples;
+    private @Nullable UndeferrableValue<List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
-
+    public @Nullable List<ByteMatchSetByteMatchTuple> byteMatchTuples() {
+        if (byteMatchTuples == null) return null;
+        return byteMatchTuples.getValue("ByteMatchSet.byteMatchTuples");
+    }
 
     /**
      * The name or description of the Byte Match Set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ByteMatchSet.name");
+    }
 
 }

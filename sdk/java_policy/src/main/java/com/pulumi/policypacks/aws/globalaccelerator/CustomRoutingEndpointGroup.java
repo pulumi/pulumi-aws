@@ -3,54 +3,71 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration;
-import com.pulumi.policypacks.aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingEndpointGroupDestinationConfiguration;
+import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingEndpointGroupEndpointConfiguration;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")
-public final class CustomRoutingEndpointGroup extends com.pulumi.resources.PolicyResource {
+public final class CustomRoutingEndpointGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the custom routing endpoint group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("CustomRoutingEndpointGroup.arn");
+    }
 
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      * 
      */
-    public List<CustomRoutingEndpointGroupDestinationConfiguration> destinationConfigurations;
+    private UndeferrableValue<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations;
 
-
+    public List<CustomRoutingEndpointGroupDestinationConfiguration> destinationConfigurations() {
+        if (destinationConfigurations == null) return null;
+        return destinationConfigurations.getValue("CustomRoutingEndpointGroup.destinationConfigurations");
+    }
 
     /**
      * The list of endpoint objects. Fields documented below.
      * 
      */
-    public List<CustomRoutingEndpointGroupEndpointConfiguration> endpointConfigurations;
+    private @Nullable UndeferrableValue<List<CustomRoutingEndpointGroupEndpointConfiguration>> endpointConfigurations;
 
-
+    public @Nullable List<CustomRoutingEndpointGroupEndpointConfiguration> endpointConfigurations() {
+        if (endpointConfigurations == null) return null;
+        return endpointConfigurations.getValue("CustomRoutingEndpointGroup.endpointConfigurations");
+    }
 
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      * 
      */
-    public String endpointGroupRegion;
+    private UndeferrableValue<String> endpointGroupRegion;
 
-
+    public String endpointGroupRegion() {
+        if (endpointGroupRegion == null) return null;
+        return endpointGroupRegion.getValue("CustomRoutingEndpointGroup.endpointGroupRegion");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      * 
      */
-    public String listenerArn;
+    private UndeferrableValue<String> listenerArn;
 
-
+    public String listenerArn() {
+        if (listenerArn == null) return null;
+        return listenerArn.getValue("CustomRoutingEndpointGroup.listenerArn");
+    }
 
 }

@@ -3,65 +3,85 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.WorkteamMemberDefinition;
-import com.pulumi.policypacks.aws.sagemaker.WorkteamNotificationConfiguration;
-import com.pulumi.policypacks.aws.sagemaker.WorkteamWorkerAccessConfiguration;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkteamMemberDefinition;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkteamNotificationConfiguration;
+import com.pulumi.policypacks.aws.sagemaker.outputs.WorkteamWorkerAccessConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/workteam:Workteam")
-public final class Workteam extends com.pulumi.resources.PolicyResource {
+public final class Workteam extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Workteam.arn");
+    }
 
     /**
      * A description of the work team.
      * 
      */
-    public String description;
+    private UndeferrableValue<String> description;
 
-
+    public String description() {
+        if (description == null) return null;
+        return description.getValue("Workteam.description");
+    }
 
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      * 
      */
-    public List<WorkteamMemberDefinition> memberDefinitions;
+    private UndeferrableValue<List<WorkteamMemberDefinition>> memberDefinitions;
 
-
+    public List<WorkteamMemberDefinition> memberDefinitions() {
+        if (memberDefinitions == null) return null;
+        return memberDefinitions.getValue("Workteam.memberDefinitions");
+    }
 
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      * 
      */
-    public WorkteamNotificationConfiguration notificationConfiguration;
+    private @Nullable UndeferrableValue<WorkteamNotificationConfiguration> notificationConfiguration;
 
-
+    public @Nullable WorkteamNotificationConfiguration notificationConfiguration() {
+        if (notificationConfiguration == null) return null;
+        return notificationConfiguration.getValue("Workteam.notificationConfiguration");
+    }
 
     /**
      * The subdomain for your OIDC Identity Provider.
      * 
      */
-    public String subdomain;
+    private UndeferrableValue<String> subdomain;
 
-
+    public String subdomain() {
+        if (subdomain == null) return null;
+        return subdomain.getValue("Workteam.subdomain");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Workteam.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -71,32 +91,44 @@ public final class Workteam extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Workteam.tagsAll");
+    }
 
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      * 
      */
-    public WorkteamWorkerAccessConfiguration workerAccessConfiguration;
+    private UndeferrableValue<WorkteamWorkerAccessConfiguration> workerAccessConfiguration;
 
-
+    public WorkteamWorkerAccessConfiguration workerAccessConfiguration() {
+        if (workerAccessConfiguration == null) return null;
+        return workerAccessConfiguration.getValue("Workteam.workerAccessConfiguration");
+    }
 
     /**
      * The name of the workforce.
      * 
      */
-    public String workforceName;
+    private @Nullable UndeferrableValue<String> workforceName;
 
-
+    public @Nullable String workforceName() {
+        if (workforceName == null) return null;
+        return workforceName.getValue("Workteam.workforceName");
+    }
 
     /**
      * The name of the Workteam (must be unique).
      * 
      */
-    public String workteamName;
+    private UndeferrableValue<String> workteamName;
 
-
+    public String workteamName() {
+        if (workteamName == null) return null;
+        return workteamName.getValue("Workteam.workteamName");
+    }
 
 }

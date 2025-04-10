@@ -3,53 +3,70 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")
-public final class StudioLifecycleConfig extends com.pulumi.resources.PolicyResource {
+public final class StudioLifecycleConfig extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("StudioLifecycleConfig.arn");
+    }
 
     /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
-    public String studioLifecycleConfigAppType;
+    private UndeferrableValue<String> studioLifecycleConfigAppType;
 
-
+    public String studioLifecycleConfigAppType() {
+        if (studioLifecycleConfigAppType == null) return null;
+        return studioLifecycleConfigAppType.getValue("StudioLifecycleConfig.studioLifecycleConfigAppType");
+    }
 
     /**
      * The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
      * 
      */
-    public String studioLifecycleConfigContent;
+    private UndeferrableValue<String> studioLifecycleConfigContent;
 
-
+    public String studioLifecycleConfigContent() {
+        if (studioLifecycleConfigContent == null) return null;
+        return studioLifecycleConfigContent.getValue("StudioLifecycleConfig.studioLifecycleConfigContent");
+    }
 
     /**
      * The name of the Studio Lifecycle Configuration to create.
      * 
      */
-    public String studioLifecycleConfigName;
+    private UndeferrableValue<String> studioLifecycleConfigName;
 
-
+    public String studioLifecycleConfigName() {
+        if (studioLifecycleConfigName == null) return null;
+        return studioLifecycleConfigName.getValue("StudioLifecycleConfig.studioLifecycleConfigName");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("StudioLifecycleConfig.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -59,8 +76,11 @@ public final class StudioLifecycleConfig extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("StudioLifecycleConfig.tagsAll");
+    }
 
 }

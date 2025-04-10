@@ -3,70 +3,93 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apprunner.VpcIngressConnectionIngressVpcConfiguration;
+import com.pulumi.policypacks.aws.apprunner.outputs.VpcIngressConnectionIngressVpcConfiguration;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apprunner/vpcIngressConnection:VpcIngressConnection")
-public final class VpcIngressConnection extends com.pulumi.resources.PolicyResource {
+public final class VpcIngressConnection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIngressConnection.arn");
+    }
 
     /**
      * The domain name associated with the VPC Ingress Connection resource.
      * 
      */
-    public String domainName;
+    private UndeferrableValue<String> domainName;
 
-
+    public String domainName() {
+        if (domainName == null) return null;
+        return domainName.getValue("VpcIngressConnection.domainName");
+    }
 
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      * 
      */
-    public VpcIngressConnectionIngressVpcConfiguration ingressVpcConfiguration;
+    private UndeferrableValue<VpcIngressConnectionIngressVpcConfiguration> ingressVpcConfiguration;
 
-
+    public VpcIngressConnectionIngressVpcConfiguration ingressVpcConfiguration() {
+        if (ingressVpcConfiguration == null) return null;
+        return ingressVpcConfiguration.getValue("VpcIngressConnection.ingressVpcConfiguration");
+    }
 
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("VpcIngressConnection.name");
+    }
 
     /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
-    public String serviceArn;
+    private UndeferrableValue<String> serviceArn;
 
-
+    public String serviceArn() {
+        if (serviceArn == null) return null;
+        return serviceArn.getValue("VpcIngressConnection.serviceArn");
+    }
 
     /**
      * The current status of the VPC Ingress Connection.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("VpcIngressConnection.status");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIngressConnection.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -76,8 +99,11 @@ public final class VpcIngressConnection extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIngressConnection.tagsAll");
+    }
 
 }

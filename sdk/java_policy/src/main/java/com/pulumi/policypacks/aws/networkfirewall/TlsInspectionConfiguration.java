@@ -3,80 +3,106 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.networkfirewall.TlsInspectionConfigurationCertificate;
-import com.pulumi.policypacks.aws.networkfirewall.TlsInspectionConfigurationCertificateAuthority;
-import com.pulumi.policypacks.aws.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration;
-import com.pulumi.policypacks.aws.networkfirewall.TlsInspectionConfigurationTimeouts;
-import com.pulumi.policypacks.aws.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationCertificate;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationCertificateAuthority;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationEncryptionConfiguration;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTimeouts;
+import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfiguration;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration")
-public final class TlsInspectionConfiguration extends com.pulumi.resources.PolicyResource {
+public final class TlsInspectionConfiguration extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the TLS Inspection Configuration.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("TlsInspectionConfiguration.arn");
+    }
 
     /**
      * Certificate Manager certificate block. See Certificate Authority below for details.
      * 
      */
-    public List<TlsInspectionConfigurationCertificateAuthority> certificateAuthorities;
+    private UndeferrableValue<List<TlsInspectionConfigurationCertificateAuthority>> certificateAuthorities;
 
-
+    public List<TlsInspectionConfigurationCertificateAuthority> certificateAuthorities() {
+        if (certificateAuthorities == null) return null;
+        return certificateAuthorities.getValue("TlsInspectionConfiguration.certificateAuthorities");
+    }
 
     /**
      * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
      * 
      */
-    public List<TlsInspectionConfigurationCertificate> certificates;
+    private UndeferrableValue<List<TlsInspectionConfigurationCertificate>> certificates;
 
-
+    public List<TlsInspectionConfigurationCertificate> certificates() {
+        if (certificates == null) return null;
+        return certificates.getValue("TlsInspectionConfiguration.certificates");
+    }
 
     /**
      * Description of the TLS inspection configuration.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("TlsInspectionConfiguration.description");
+    }
 
     /**
      * Encryption configuration block. Detailed below.
      * 
      */
-    public List<TlsInspectionConfigurationEncryptionConfiguration> encryptionConfigurations;
+    private UndeferrableValue<List<TlsInspectionConfigurationEncryptionConfiguration>> encryptionConfigurations;
 
-
+    public List<TlsInspectionConfigurationEncryptionConfiguration> encryptionConfigurations() {
+        if (encryptionConfigurations == null) return null;
+        return encryptionConfigurations.getValue("TlsInspectionConfiguration.encryptionConfigurations");
+    }
 
     /**
      * Descriptive name of the TLS inspection configuration.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("TlsInspectionConfiguration.name");
+    }
 
     /**
      * Number of firewall policies that use this TLS inspection configuration.
      * 
      */
-    public Integer numberOfAssociations;
+    private UndeferrableValue<Integer> numberOfAssociations;
 
+    public Integer numberOfAssociations() {
+        if (numberOfAssociations == null) return null;
+        return numberOfAssociations.getValue("TlsInspectionConfiguration.numberOfAssociations");
+    }
 
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-    public Map<String,String> tags;
-
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("TlsInspectionConfiguration.tags");
+    }
 
     /**
      * @deprecated
@@ -84,13 +110,19 @@ public final class TlsInspectionConfiguration extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("TlsInspectionConfiguration.tagsAll");
+    }
 
+    private @Nullable UndeferrableValue<TlsInspectionConfigurationTimeouts> timeouts;
 
-    public TlsInspectionConfigurationTimeouts timeouts;
-
-
+    public @Nullable TlsInspectionConfigurationTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("TlsInspectionConfiguration.timeouts");
+    }
 
     /**
      * TLS inspection configuration block. Detailed below.
@@ -98,24 +130,33 @@ public final class TlsInspectionConfiguration extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    public TlsInspectionConfigurationTlsInspectionConfiguration tlsInspectionConfiguration;
+    private @Nullable UndeferrableValue<TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration;
 
-
+    public @Nullable TlsInspectionConfigurationTlsInspectionConfiguration tlsInspectionConfiguration() {
+        if (tlsInspectionConfiguration == null) return null;
+        return tlsInspectionConfiguration.getValue("TlsInspectionConfiguration.tlsInspectionConfiguration");
+    }
 
     /**
      * A unique identifier for the TLS inspection configuration.
      * 
      */
-    public String tlsInspectionConfigurationId;
+    private UndeferrableValue<String> tlsInspectionConfigurationId;
 
-
+    public String tlsInspectionConfigurationId() {
+        if (tlsInspectionConfigurationId == null) return null;
+        return tlsInspectionConfigurationId.getValue("TlsInspectionConfiguration.tlsInspectionConfigurationId");
+    }
 
     /**
      * String token used when updating the rule group.
      * 
      */
-    public String updateToken;
+    private UndeferrableValue<String> updateToken;
 
-
+    public String updateToken() {
+        if (updateToken == null) return null;
+        return updateToken.getValue("TlsInspectionConfiguration.updateToken");
+    }
 
 }

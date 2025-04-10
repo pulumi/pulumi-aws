@@ -3,102 +3,137 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:directconnect/linkAggregationGroup:LinkAggregationGroup")
-public final class LinkAggregationGroup extends com.pulumi.resources.PolicyResource {
+public final class LinkAggregationGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the LAG.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("LinkAggregationGroup.arn");
+    }
 
     /**
      * The ID of an existing dedicated connection to migrate to the LAG.
      * 
      */
-    public String connectionId;
+    private @Nullable UndeferrableValue<String> connectionId;
 
-
+    public @Nullable String connectionId() {
+        if (connectionId == null) return null;
+        return connectionId.getValue("LinkAggregationGroup.connectionId");
+    }
 
     /**
      * The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
      * 
      */
-    public String connectionsBandwidth;
+    private UndeferrableValue<String> connectionsBandwidth;
 
-
+    public String connectionsBandwidth() {
+        if (connectionsBandwidth == null) return null;
+        return connectionsBandwidth.getValue("LinkAggregationGroup.connectionsBandwidth");
+    }
 
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      * 
      */
-    public Boolean forceDestroy;
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("LinkAggregationGroup.forceDestroy");
+    }
 
     /**
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    public String hasLogicalRedundancy;
+    private UndeferrableValue<String> hasLogicalRedundancy;
 
-
+    public String hasLogicalRedundancy() {
+        if (hasLogicalRedundancy == null) return null;
+        return hasLogicalRedundancy.getValue("LinkAggregationGroup.hasLogicalRedundancy");
+    }
 
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      * 
      */
-    public Boolean jumboFrameCapable;
+    private UndeferrableValue<Boolean> jumboFrameCapable;
 
-
+    public Boolean jumboFrameCapable() {
+        if (jumboFrameCapable == null) return null;
+        return jumboFrameCapable.getValue("LinkAggregationGroup.jumboFrameCapable");
+    }
 
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      * 
      */
-    public String location;
+    private UndeferrableValue<String> location;
 
-
+    public String location() {
+        if (location == null) return null;
+        return location.getValue("LinkAggregationGroup.location");
+    }
 
     /**
      * The name of the LAG.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("LinkAggregationGroup.name");
+    }
 
     /**
      * The ID of the AWS account that owns the LAG.
      * 
      */
-    public String ownerAccountId;
+    private UndeferrableValue<String> ownerAccountId;
 
-
+    public String ownerAccountId() {
+        if (ownerAccountId == null) return null;
+        return ownerAccountId.getValue("LinkAggregationGroup.ownerAccountId");
+    }
 
     /**
      * The name of the service provider associated with the LAG.
      * 
      */
-    public String providerName;
+    private UndeferrableValue<String> providerName;
 
-
+    public String providerName() {
+        if (providerName == null) return null;
+        return providerName.getValue("LinkAggregationGroup.providerName");
+    }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("LinkAggregationGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,8 +143,11 @@ public final class LinkAggregationGroup extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("LinkAggregationGroup.tagsAll");
+    }
 
 }

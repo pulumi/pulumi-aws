@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.iam;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:iam/userPolicyAttachment:UserPolicyAttachment")
-public final class UserPolicyAttachment extends com.pulumi.resources.PolicyResource {
+public final class UserPolicyAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the policy you want to apply
      * 
      */
-    public String policyArn;
+    private UndeferrableValue<String> policyArn;
 
-
+    public String policyArn() {
+        if (policyArn == null) return null;
+        return policyArn.getValue("UserPolicyAttachment.policyArn");
+    }
 
     /**
      * The user the policy should be applied to
      * 
      */
-    public String user;
+    private UndeferrableValue<String> user;
 
-
+    public String user() {
+        if (user == null) return null;
+        return user.getValue("UserPolicyAttachment.user");
+    }
 
 }

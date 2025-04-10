@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:lightsail/bucketResourceAccess:BucketResourceAccess")
-public final class BucketResourceAccess extends com.pulumi.resources.PolicyResource {
+public final class BucketResourceAccess extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The name of the bucket to grant access to.
      * 
      */
-    public String bucketName;
+    private UndeferrableValue<String> bucketName;
 
-
+    public String bucketName() {
+        if (bucketName == null) return null;
+        return bucketName.getValue("BucketResourceAccess.bucketName");
+    }
 
     /**
      * The name of the resource to be granted bucket access.
      * 
      */
-    public String resourceName;
+    private UndeferrableValue<String> resourceName;
 
-
+    public String resourceName() {
+        if (resourceName == null) return null;
+        return resourceName.getValue("BucketResourceAccess.resourceName");
+    }
 
 }

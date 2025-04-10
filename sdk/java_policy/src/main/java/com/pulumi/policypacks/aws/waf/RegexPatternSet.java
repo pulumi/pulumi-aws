@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.waf;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:waf/regexPatternSet:RegexPatternSet")
-public final class RegexPatternSet extends com.pulumi.resources.PolicyResource {
+public final class RegexPatternSet extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN)
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("RegexPatternSet.arn");
+    }
 
     /**
      * The name or description of the Regex Pattern Set.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("RegexPatternSet.name");
+    }
 
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
      * 
      */
-    public List<String> regexPatternStrings;
+    private @Nullable UndeferrableValue<List<String>> regexPatternStrings;
 
-
+    public @Nullable List<String> regexPatternStrings() {
+        if (regexPatternStrings == null) return null;
+        return regexPatternStrings.getValue("RegexPatternSet.regexPatternStrings");
+    }
 
 }

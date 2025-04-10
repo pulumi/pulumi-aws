@@ -3,35 +3,45 @@
 
 package com.pulumi.policypacks.aws.rds;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:rds/clusterRoleAssociation:ClusterRoleAssociation")
-public final class ClusterRoleAssociation extends com.pulumi.resources.PolicyResource {
+public final class ClusterRoleAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * DB Cluster Identifier to associate with the IAM Role.
      * 
      */
-    public String dbClusterIdentifier;
+    private UndeferrableValue<String> dbClusterIdentifier;
 
-
+    public String dbClusterIdentifier() {
+        if (dbClusterIdentifier == null) return null;
+        return dbClusterIdentifier.getValue("ClusterRoleAssociation.dbClusterIdentifier");
+    }
 
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    public String featureName;
+    private UndeferrableValue<String> featureName;
 
-
+    public String featureName() {
+        if (featureName == null) return null;
+        return featureName.getValue("ClusterRoleAssociation.featureName");
+    }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("ClusterRoleAssociation.roleArn");
+    }
 
 }

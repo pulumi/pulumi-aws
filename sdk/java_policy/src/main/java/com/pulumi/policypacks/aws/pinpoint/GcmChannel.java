@@ -3,44 +3,61 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")
-public final class GcmChannel extends com.pulumi.resources.PolicyResource {
+public final class GcmChannel extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Platform credential API key from Google.
      * 
      */
-    public String apiKey;
+    private @Nullable UndeferrableValue<String> apiKey;
 
-
+    public @Nullable String apiKey() {
+        if (apiKey == null) return null;
+        return apiKey.getValue("GcmChannel.apiKey");
+    }
 
     /**
      * The application ID.
      * 
      */
-    public String applicationId;
+    private UndeferrableValue<String> applicationId;
 
+    public String applicationId() {
+        if (applicationId == null) return null;
+        return applicationId.getValue("GcmChannel.applicationId");
+    }
 
+    private @Nullable UndeferrableValue<String> defaultAuthenticationMethod;
 
-    public String defaultAuthenticationMethod;
-
-
+    public @Nullable String defaultAuthenticationMethod() {
+        if (defaultAuthenticationMethod == null) return null;
+        return defaultAuthenticationMethod.getValue("GcmChannel.defaultAuthenticationMethod");
+    }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    public Boolean enabled;
+    private @Nullable UndeferrableValue<Boolean> enabled;
 
+    public @Nullable Boolean enabled() {
+        if (enabled == null) return null;
+        return enabled.getValue("GcmChannel.enabled");
+    }
 
+    private @Nullable UndeferrableValue<String> serviceJson;
 
-    public String serviceJson;
-
-
+    public @Nullable String serviceJson() {
+        if (serviceJson == null) return null;
+        return serviceJson.getValue("GcmChannel.serviceJson");
+    }
 
 }

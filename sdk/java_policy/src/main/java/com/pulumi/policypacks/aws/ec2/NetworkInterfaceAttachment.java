@@ -3,52 +3,68 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")
-public final class NetworkInterfaceAttachment extends com.pulumi.resources.PolicyResource {
+public final class NetworkInterfaceAttachment extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ENI Attachment ID.
      * 
      */
-    public String attachmentId;
+    private UndeferrableValue<String> attachmentId;
 
-
+    public String attachmentId() {
+        if (attachmentId == null) return null;
+        return attachmentId.getValue("NetworkInterfaceAttachment.attachmentId");
+    }
 
     /**
      * Network interface index (int).
      * 
      */
-    public Integer deviceIndex;
+    private UndeferrableValue<Integer> deviceIndex;
 
-
+    public Integer deviceIndex() {
+        if (deviceIndex == null) return null;
+        return deviceIndex.getValue("NetworkInterfaceAttachment.deviceIndex");
+    }
 
     /**
      * Instance ID to attach.
      * 
      */
-    public String instanceId;
+    private UndeferrableValue<String> instanceId;
 
-
+    public String instanceId() {
+        if (instanceId == null) return null;
+        return instanceId.getValue("NetworkInterfaceAttachment.instanceId");
+    }
 
     /**
      * ENI ID to attach.
      * 
      */
-    public String networkInterfaceId;
+    private UndeferrableValue<String> networkInterfaceId;
 
-
+    public String networkInterfaceId() {
+        if (networkInterfaceId == null) return null;
+        return networkInterfaceId.getValue("NetworkInterfaceAttachment.networkInterfaceId");
+    }
 
     /**
      * The status of the Network Interface Attachment.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("NetworkInterfaceAttachment.status");
+    }
 
 }

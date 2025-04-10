@@ -3,51 +3,67 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount")
-public final class OrganizationDelegatedAdminAccount extends com.pulumi.resources.PolicyResource {
+public final class OrganizationDelegatedAdminAccount extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * An organization member account ID that you want to designate as a delegated administrator.
      * 
      */
-    public String accountId;
+    private UndeferrableValue<String> accountId;
 
-
+    public String accountId() {
+        if (accountId == null) return null;
+        return accountId.getValue("OrganizationDelegatedAdminAccount.accountId");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("OrganizationDelegatedAdminAccount.arn");
+    }
 
     /**
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    public String email;
+    private UndeferrableValue<String> email;
 
-
+    public String email() {
+        if (email == null) return null;
+        return email.getValue("OrganizationDelegatedAdminAccount.email");
+    }
 
     /**
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("OrganizationDelegatedAdminAccount.name");
+    }
 
     /**
      * The AWS CloudTrail service principal name.
      * 
      */
-    public String servicePrincipal;
+    private UndeferrableValue<String> servicePrincipal;
 
-
+    public String servicePrincipal() {
+        if (servicePrincipal == null) return null;
+        return servicePrincipal.getValue("OrganizationDelegatedAdminAccount.servicePrincipal");
+    }
 
 }

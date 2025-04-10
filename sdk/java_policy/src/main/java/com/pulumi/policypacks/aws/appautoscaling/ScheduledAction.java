@@ -3,92 +3,124 @@
 
 package com.pulumi.policypacks.aws.appautoscaling;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appautoscaling.ScheduledActionScalableTargetAction;
+import com.pulumi.policypacks.aws.appautoscaling.outputs.ScheduledActionScalableTargetAction;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appautoscaling/scheduledAction:ScheduledAction")
-public final class ScheduledAction extends com.pulumi.resources.PolicyResource {
+public final class ScheduledAction extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the scheduled action.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("ScheduledAction.arn");
+    }
 
     /**
      * Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      * 
      */
-    public String endTime;
+    private @Nullable UndeferrableValue<String> endTime;
 
-
+    public @Nullable String endTime() {
+        if (endTime == null) return null;
+        return endTime.getValue("ScheduledAction.endTime");
+    }
 
     /**
      * Name of the scheduled action.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("ScheduledAction.name");
+    }
 
     /**
      * Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("ScheduledAction.resourceId");
+    }
 
     /**
      * Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
      * 
      */
-    public String scalableDimension;
+    private UndeferrableValue<String> scalableDimension;
 
-
+    public String scalableDimension() {
+        if (scalableDimension == null) return null;
+        return scalableDimension.getValue("ScheduledAction.scalableDimension");
+    }
 
     /**
      * New minimum and maximum capacity. You can set both values or just one. See below
      * 
      */
-    public ScheduledActionScalableTargetAction scalableTargetAction;
+    private UndeferrableValue<ScheduledActionScalableTargetAction> scalableTargetAction;
 
-
+    public ScheduledActionScalableTargetAction scalableTargetAction() {
+        if (scalableTargetAction == null) return null;
+        return scalableTargetAction.getValue("ScheduledAction.scalableTargetAction");
+    }
 
     /**
      * Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      * 
      */
-    public String schedule;
+    private UndeferrableValue<String> schedule;
 
-
+    public String schedule() {
+        if (schedule == null) return null;
+        return schedule.getValue("ScheduledAction.schedule");
+    }
 
     /**
      * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
      * 
      */
-    public String serviceNamespace;
+    private UndeferrableValue<String> serviceNamespace;
 
-
+    public String serviceNamespace() {
+        if (serviceNamespace == null) return null;
+        return serviceNamespace.getValue("ScheduledAction.serviceNamespace");
+    }
 
     /**
      * Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
      * 
      */
-    public String startTime;
+    private @Nullable UndeferrableValue<String> startTime;
 
-
+    public @Nullable String startTime() {
+        if (startTime == null) return null;
+        return startTime.getValue("ScheduledAction.startTime");
+    }
 
     /**
      * Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
      * 
      */
-    public String timezone;
+    private @Nullable UndeferrableValue<String> timezone;
 
-
+    public @Nullable String timezone() {
+        if (timezone == null) return null;
+        return timezone.getValue("ScheduledAction.timezone");
+    }
 
 }

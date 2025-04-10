@@ -3,20 +3,25 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:guardduty/publishingDestination:PublishingDestination")
-public final class PublishingDestination extends com.pulumi.resources.PolicyResource {
+public final class PublishingDestination extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
-    public String destinationArn;
+    private UndeferrableValue<String> destinationArn;
 
-
+    public String destinationArn() {
+        if (destinationArn == null) return null;
+        return destinationArn.getValue("PublishingDestination.destinationArn");
+    }
 
     /**
      * Currently there is only &#34;S3&#34; available as destination type which is also the default value
@@ -24,24 +29,33 @@ public final class PublishingDestination extends com.pulumi.resources.PolicyReso
      * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
-    public String destinationType;
+    private @Nullable UndeferrableValue<String> destinationType;
 
-
+    public @Nullable String destinationType() {
+        if (destinationType == null) return null;
+        return destinationType.getValue("PublishingDestination.destinationType");
+    }
 
     /**
      * The detector ID of the GuardDuty.
      * 
      */
-    public String detectorId;
+    private UndeferrableValue<String> detectorId;
 
-
+    public String detectorId() {
+        if (detectorId == null) return null;
+        return detectorId.getValue("PublishingDestination.detectorId");
+    }
 
     /**
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
-    public String kmsKeyArn;
+    private UndeferrableValue<String> kmsKeyArn;
 
-
+    public String kmsKeyArn() {
+        if (kmsKeyArn == null) return null;
+        return kmsKeyArn.getValue("PublishingDestination.kmsKeyArn");
+    }
 
 }

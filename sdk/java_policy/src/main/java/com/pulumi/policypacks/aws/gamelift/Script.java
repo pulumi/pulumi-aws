@@ -3,46 +3,60 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.gamelift.ScriptStorageLocation;
+import com.pulumi.policypacks.aws.gamelift.outputs.ScriptStorageLocation;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:gamelift/script:Script")
-public final class Script extends com.pulumi.resources.PolicyResource {
+public final class Script extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * GameLift Script ARN.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Script.arn");
+    }
 
     /**
      * Name of the script
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Script.name");
+    }
 
     /**
      * Information indicating where your game script files are stored. See below.
      * 
      */
-    public ScriptStorageLocation storageLocation;
+    private UndeferrableValue<ScriptStorageLocation> storageLocation;
 
-
+    public ScriptStorageLocation storageLocation() {
+        if (storageLocation == null) return null;
+        return storageLocation.getValue("Script.storageLocation");
+    }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Script.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -52,24 +66,33 @@ public final class Script extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Script.tagsAll");
+    }
 
     /**
      * Version that is associated with this script.
      * 
      */
-    public String version;
+    private @Nullable UndeferrableValue<String> version;
 
-
+    public @Nullable String version() {
+        if (version == null) return null;
+        return version.getValue("Script.version");
+    }
 
     /**
      * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
-    public String zipFile;
+    private @Nullable UndeferrableValue<String> zipFile;
 
-
+    public @Nullable String zipFile() {
+        if (zipFile == null) return null;
+        return zipFile.getValue("Script.zipFile");
+    }
 
 }

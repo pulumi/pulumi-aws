@@ -3,21 +3,26 @@
 
 package com.pulumi.policypacks.aws.location;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:location/geofenceCollection:GeofenceCollection")
-public final class GeofenceCollection extends com.pulumi.resources.PolicyResource {
+public final class GeofenceCollection extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    public String collectionArn;
+    private UndeferrableValue<String> collectionArn;
 
-
+    public String collectionArn() {
+        if (collectionArn == null) return null;
+        return collectionArn.getValue("GeofenceCollection.collectionArn");
+    }
 
     /**
      * The name of the geofence collection.
@@ -25,41 +30,56 @@ public final class GeofenceCollection extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    public String collectionName;
+    private UndeferrableValue<String> collectionName;
 
-
+    public String collectionName() {
+        if (collectionName == null) return null;
+        return collectionName.getValue("GeofenceCollection.collectionName");
+    }
 
     /**
      * The timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("GeofenceCollection.createTime");
+    }
 
     /**
      * The optional description for the geofence collection.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("GeofenceCollection.description");
+    }
 
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    public String kmsKeyId;
+    private @Nullable UndeferrableValue<String> kmsKeyId;
 
-
+    public @Nullable String kmsKeyId() {
+        if (kmsKeyId == null) return null;
+        return kmsKeyId.getValue("GeofenceCollection.kmsKeyId");
+    }
 
     /**
      * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("GeofenceCollection.tags");
+    }
 
     /**
      * @deprecated
@@ -67,16 +87,22 @@ public final class GeofenceCollection extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("GeofenceCollection.tagsAll");
+    }
 
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("GeofenceCollection.updateTime");
+    }
 
 }

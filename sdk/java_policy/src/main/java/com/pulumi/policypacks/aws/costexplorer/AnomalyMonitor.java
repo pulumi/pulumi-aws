@@ -3,61 +3,81 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:costexplorer/anomalyMonitor:AnomalyMonitor")
-public final class AnomalyMonitor extends com.pulumi.resources.PolicyResource {
+public final class AnomalyMonitor extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the anomaly monitor.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("AnomalyMonitor.arn");
+    }
 
     /**
      * The dimensions to evaluate. Valid values: `SERVICE`.
      * 
      */
-    public String monitorDimension;
+    private @Nullable UndeferrableValue<String> monitorDimension;
 
-
+    public @Nullable String monitorDimension() {
+        if (monitorDimension == null) return null;
+        return monitorDimension.getValue("AnomalyMonitor.monitorDimension");
+    }
 
     /**
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      * 
      */
-    public String monitorSpecification;
+    private @Nullable UndeferrableValue<String> monitorSpecification;
 
-
+    public @Nullable String monitorSpecification() {
+        if (monitorSpecification == null) return null;
+        return monitorSpecification.getValue("AnomalyMonitor.monitorSpecification");
+    }
 
     /**
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      * 
      */
-    public String monitorType;
+    private UndeferrableValue<String> monitorType;
 
-
+    public String monitorType() {
+        if (monitorType == null) return null;
+        return monitorType.getValue("AnomalyMonitor.monitorType");
+    }
 
     /**
      * The name of the monitor.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AnomalyMonitor.name");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("AnomalyMonitor.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -67,8 +87,11 @@ public final class AnomalyMonitor extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("AnomalyMonitor.tagsAll");
+    }
 
 }

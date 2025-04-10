@@ -3,36 +3,47 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:auditmanager/frameworkShare:FrameworkShare")
-public final class FrameworkShare extends com.pulumi.resources.PolicyResource {
+public final class FrameworkShare extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Comment from the sender about the share request.
      * 
      */
-    public String comment;
+    private @Nullable UndeferrableValue<String> comment;
 
-
+    public @Nullable String comment() {
+        if (comment == null) return null;
+        return comment.getValue("FrameworkShare.comment");
+    }
 
     /**
      * Amazon Web Services account of the recipient.
      * 
      */
-    public String destinationAccount;
+    private UndeferrableValue<String> destinationAccount;
 
-
+    public String destinationAccount() {
+        if (destinationAccount == null) return null;
+        return destinationAccount.getValue("FrameworkShare.destinationAccount");
+    }
 
     /**
      * Amazon Web Services region of the recipient.
      * 
      */
-    public String destinationRegion;
+    private UndeferrableValue<String> destinationRegion;
 
-
+    public String destinationRegion() {
+        if (destinationRegion == null) return null;
+        return destinationRegion.getValue("FrameworkShare.destinationRegion");
+    }
 
     /**
      * Unique identifier for the shared custom framework.
@@ -40,16 +51,22 @@ public final class FrameworkShare extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String frameworkId;
+    private UndeferrableValue<String> frameworkId;
 
-
+    public String frameworkId() {
+        if (frameworkId == null) return null;
+        return frameworkId.getValue("FrameworkShare.frameworkId");
+    }
 
     /**
      * Status of the share request.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("FrameworkShare.status");
+    }
 
 }

@@ -3,116 +3,157 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.cleanrooms.MembershipDefaultResultConfiguration;
-import com.pulumi.policypacks.aws.cleanrooms.MembershipPaymentConfiguration;
+import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipDefaultResultConfiguration;
+import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipPaymentConfiguration;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:cleanrooms/membership:Membership")
-public final class Membership extends com.pulumi.resources.PolicyResource {
+public final class Membership extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ARN of the membership.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Membership.arn");
+    }
 
     /**
      * The ARN of the joined collaboration.
      * 
      */
-    public String collaborationArn;
+    private UndeferrableValue<String> collaborationArn;
 
-
+    public String collaborationArn() {
+        if (collaborationArn == null) return null;
+        return collaborationArn.getValue("Membership.collaborationArn");
+    }
 
     /**
      * The account ID of the collaboration&#39;s creator.
      * 
      */
-    public String collaborationCreatorAccountId;
+    private UndeferrableValue<String> collaborationCreatorAccountId;
 
-
+    public String collaborationCreatorAccountId() {
+        if (collaborationCreatorAccountId == null) return null;
+        return collaborationCreatorAccountId.getValue("Membership.collaborationCreatorAccountId");
+    }
 
     /**
      * The display name of the collaboration&#39;s creator.
      * 
      */
-    public String collaborationCreatorDisplayName;
+    private UndeferrableValue<String> collaborationCreatorDisplayName;
 
-
+    public String collaborationCreatorDisplayName() {
+        if (collaborationCreatorDisplayName == null) return null;
+        return collaborationCreatorDisplayName.getValue("Membership.collaborationCreatorDisplayName");
+    }
 
     /**
      * The ID of the collaboration to which the member was invited.
      * 
      */
-    public String collaborationId;
+    private UndeferrableValue<String> collaborationId;
 
-
+    public String collaborationId() {
+        if (collaborationId == null) return null;
+        return collaborationId.getValue("Membership.collaborationId");
+    }
 
     /**
      * The name of the joined collaboration.
      * 
      */
-    public String collaborationName;
+    private UndeferrableValue<String> collaborationName;
 
-
+    public String collaborationName() {
+        if (collaborationName == null) return null;
+        return collaborationName.getValue("Membership.collaborationName");
+    }
 
     /**
      * The date and time the membership was created.
      * 
      */
-    public String createTime;
+    private UndeferrableValue<String> createTime;
 
-
+    public String createTime() {
+        if (createTime == null) return null;
+        return createTime.getValue("Membership.createTime");
+    }
 
     /**
      * The default configuration for a query result.
      * 
      */
-    public MembershipDefaultResultConfiguration defaultResultConfiguration;
+    private @Nullable UndeferrableValue<MembershipDefaultResultConfiguration> defaultResultConfiguration;
 
-
+    public @Nullable MembershipDefaultResultConfiguration defaultResultConfiguration() {
+        if (defaultResultConfiguration == null) return null;
+        return defaultResultConfiguration.getValue("Membership.defaultResultConfiguration");
+    }
 
     /**
      * The list of abilities for the invited member.
      * 
      */
-    public List<String> memberAbilities;
+    private UndeferrableValue<List<String>> memberAbilities;
 
+    public List<String> memberAbilities() {
+        if (memberAbilities == null) return null;
+        return memberAbilities.getValue("Membership.memberAbilities");
+    }
 
+    private @Nullable UndeferrableValue<MembershipPaymentConfiguration> paymentConfiguration;
 
-    public MembershipPaymentConfiguration paymentConfiguration;
-
-
+    public @Nullable MembershipPaymentConfiguration paymentConfiguration() {
+        if (paymentConfiguration == null) return null;
+        return paymentConfiguration.getValue("Membership.paymentConfiguration");
+    }
 
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      * 
      */
-    public String queryLogStatus;
+    private UndeferrableValue<String> queryLogStatus;
 
-
+    public String queryLogStatus() {
+        if (queryLogStatus == null) return null;
+        return queryLogStatus.getValue("Membership.queryLogStatus");
+    }
 
     /**
      * The status of the membership.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("Membership.status");
+    }
 
     /**
      * Key value pairs which tag the membership.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Membership.tags");
+    }
 
     /**
      * @deprecated
@@ -120,16 +161,22 @@ public final class Membership extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Membership.tagsAll");
+    }
 
     /**
      * The date and time the membership was last updated.
      * 
      */
-    public String updateTime;
+    private UndeferrableValue<String> updateTime;
 
-
+    public String updateTime() {
+        if (updateTime == null) return null;
+        return updateTime.getValue("Membership.updateTime");
+    }
 
 }

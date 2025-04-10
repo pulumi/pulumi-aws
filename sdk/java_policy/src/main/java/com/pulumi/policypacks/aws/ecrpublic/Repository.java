@@ -3,67 +3,90 @@
 
 package com.pulumi.policypacks.aws.ecrpublic;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ecrpublic.RepositoryCatalogData;
+import com.pulumi.policypacks.aws.ecrpublic.outputs.RepositoryCatalogData;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ecrpublic/repository:Repository")
-public final class Repository extends com.pulumi.resources.PolicyResource {
+public final class Repository extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Full ARN of the repository.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Repository.arn");
+    }
 
     /**
      * Catalog data configuration for the repository. See below for schema.
      * 
      */
-    public RepositoryCatalogData catalogData;
+    private @Nullable UndeferrableValue<RepositoryCatalogData> catalogData;
 
+    public @Nullable RepositoryCatalogData catalogData() {
+        if (catalogData == null) return null;
+        return catalogData.getValue("Repository.catalogData");
+    }
 
+    private @Nullable UndeferrableValue<Boolean> forceDestroy;
 
-    public Boolean forceDestroy;
-
-
+    public @Nullable Boolean forceDestroy() {
+        if (forceDestroy == null) return null;
+        return forceDestroy.getValue("Repository.forceDestroy");
+    }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    public String registryId;
+    private UndeferrableValue<String> registryId;
 
-
+    public String registryId() {
+        if (registryId == null) return null;
+        return registryId.getValue("Repository.registryId");
+    }
 
     /**
      * Name of the repository.
      * 
      */
-    public String repositoryName;
+    private UndeferrableValue<String> repositoryName;
 
-
+    public String repositoryName() {
+        if (repositoryName == null) return null;
+        return repositoryName.getValue("Repository.repositoryName");
+    }
 
     /**
      * The URI of the repository.
      * 
      */
-    public String repositoryUri;
+    private UndeferrableValue<String> repositoryUri;
 
-
+    public String repositoryUri() {
+        if (repositoryUri == null) return null;
+        return repositoryUri.getValue("Repository.repositoryUri");
+    }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Repository.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -73,8 +96,11 @@ public final class Repository extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Repository.tagsAll");
+    }
 
 }

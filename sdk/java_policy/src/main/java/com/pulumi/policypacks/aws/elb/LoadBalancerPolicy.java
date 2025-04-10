@@ -3,45 +3,58 @@
 
 package com.pulumi.policypacks.aws.elb;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.elb.LoadBalancerPolicyPolicyAttribute;
+import com.pulumi.policypacks.aws.elb.outputs.LoadBalancerPolicyPolicyAttribute;
 import java.lang.String;
 import java.util.List;
 
 
 @PolicyResourceType(type="aws:elb/loadBalancerPolicy:LoadBalancerPolicy")
-public final class LoadBalancerPolicy extends com.pulumi.resources.PolicyResource {
+public final class LoadBalancerPolicy extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The load balancer on which the policy is defined.
      * 
      */
-    public String loadBalancerName;
+    private UndeferrableValue<String> loadBalancerName;
 
-
+    public String loadBalancerName() {
+        if (loadBalancerName == null) return null;
+        return loadBalancerName.getValue("LoadBalancerPolicy.loadBalancerName");
+    }
 
     /**
      * Policy attribute to apply to the policy.
      * 
      */
-    public List<LoadBalancerPolicyPolicyAttribute> policyAttributes;
+    private UndeferrableValue<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes;
 
-
+    public List<LoadBalancerPolicyPolicyAttribute> policyAttributes() {
+        if (policyAttributes == null) return null;
+        return policyAttributes.getValue("LoadBalancerPolicy.policyAttributes");
+    }
 
     /**
      * The name of the load balancer policy.
      * 
      */
-    public String policyName;
+    private UndeferrableValue<String> policyName;
 
-
+    public String policyName() {
+        if (policyName == null) return null;
+        return policyName.getValue("LoadBalancerPolicy.policyName");
+    }
 
     /**
      * The policy type.
      * 
      */
-    public String policyTypeName;
+    private UndeferrableValue<String> policyTypeName;
 
-
+    public String policyTypeName() {
+        if (policyTypeName == null) return null;
+        return policyTypeName.getValue("LoadBalancerPolicy.policyTypeName");
+    }
 
 }

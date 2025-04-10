@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")
-public final class BudgetResourceAssociation extends com.pulumi.resources.PolicyResource {
+public final class BudgetResourceAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Budget name.
      * 
      */
-    public String budgetName;
+    private UndeferrableValue<String> budgetName;
 
-
+    public String budgetName() {
+        if (budgetName == null) return null;
+        return budgetName.getValue("BudgetResourceAssociation.budgetName");
+    }
 
     /**
      * Resource identifier.
      * 
      */
-    public String resourceId;
+    private UndeferrableValue<String> resourceId;
 
-
+    public String resourceId() {
+        if (resourceId == null) return null;
+        return resourceId.getValue("BudgetResourceAssociation.resourceId");
+    }
 
 }

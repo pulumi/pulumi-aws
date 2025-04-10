@@ -3,56 +3,73 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.bedrock.AgentDataSourceDataSourceConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentDataSourceServerSideEncryptionConfiguration;
-import com.pulumi.policypacks.aws.bedrock.AgentDataSourceTimeouts;
-import com.pulumi.policypacks.aws.bedrock.AgentDataSourceVectorIngestionConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceServerSideEncryptionConfiguration;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceTimeouts;
+import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfiguration;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:bedrock/agentDataSource:AgentDataSource")
-public final class AgentDataSource extends com.pulumi.resources.PolicyResource {
+public final class AgentDataSource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
      * 
      */
-    public String dataDeletionPolicy;
+    private UndeferrableValue<String> dataDeletionPolicy;
 
-
+    public String dataDeletionPolicy() {
+        if (dataDeletionPolicy == null) return null;
+        return dataDeletionPolicy.getValue("AgentDataSource.dataDeletionPolicy");
+    }
 
     /**
      * Details about how the data source is stored. See `data_source_configuration` block for details.
      * 
      */
-    public AgentDataSourceDataSourceConfiguration dataSourceConfiguration;
+    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfiguration> dataSourceConfiguration;
 
-
+    public @Nullable AgentDataSourceDataSourceConfiguration dataSourceConfiguration() {
+        if (dataSourceConfiguration == null) return null;
+        return dataSourceConfiguration.getValue("AgentDataSource.dataSourceConfiguration");
+    }
 
     /**
      * Unique identifier of the data source.
      * 
      */
-    public String dataSourceId;
+    private UndeferrableValue<String> dataSourceId;
 
-
+    public String dataSourceId() {
+        if (dataSourceId == null) return null;
+        return dataSourceId.getValue("AgentDataSource.dataSourceId");
+    }
 
     /**
      * Description of the data source.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("AgentDataSource.description");
+    }
 
     /**
      * Unique identifier of the knowledge base to which the data source belongs.
      * 
      */
-    public String knowledgeBaseId;
+    private UndeferrableValue<String> knowledgeBaseId;
 
-
+    public String knowledgeBaseId() {
+        if (knowledgeBaseId == null) return null;
+        return knowledgeBaseId.getValue("AgentDataSource.knowledgeBaseId");
+    }
 
     /**
      * Name of the data source.
@@ -60,28 +77,40 @@ public final class AgentDataSource extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("AgentDataSource.name");
+    }
 
     /**
      * Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
      * 
      */
-    public AgentDataSourceServerSideEncryptionConfiguration serverSideEncryptionConfiguration;
+    private @Nullable UndeferrableValue<AgentDataSourceServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
+    public @Nullable AgentDataSourceServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
+        if (serverSideEncryptionConfiguration == null) return null;
+        return serverSideEncryptionConfiguration.getValue("AgentDataSource.serverSideEncryptionConfiguration");
+    }
 
+    private @Nullable UndeferrableValue<AgentDataSourceTimeouts> timeouts;
 
-    public AgentDataSourceTimeouts timeouts;
-
-
+    public @Nullable AgentDataSourceTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("AgentDataSource.timeouts");
+    }
 
     /**
      * Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
      * 
      */
-    public AgentDataSourceVectorIngestionConfiguration vectorIngestionConfiguration;
+    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfiguration> vectorIngestionConfiguration;
 
-
+    public @Nullable AgentDataSourceVectorIngestionConfiguration vectorIngestionConfiguration() {
+        if (vectorIngestionConfiguration == null) return null;
+        return vectorIngestionConfiguration.getValue("AgentDataSource.vectorIngestionConfiguration");
+    }
 
 }

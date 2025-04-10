@@ -3,98 +3,130 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.sagemaker.FeatureGroupFeatureDefinition;
-import com.pulumi.policypacks.aws.sagemaker.FeatureGroupOfflineStoreConfig;
-import com.pulumi.policypacks.aws.sagemaker.FeatureGroupOnlineStoreConfig;
-import com.pulumi.policypacks.aws.sagemaker.FeatureGroupThroughputConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FeatureGroupFeatureDefinition;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FeatureGroupOnlineStoreConfig;
+import com.pulumi.policypacks.aws.sagemaker.outputs.FeatureGroupThroughputConfig;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:sagemaker/featureGroup:FeatureGroup")
-public final class FeatureGroup extends com.pulumi.resources.PolicyResource {
+public final class FeatureGroup extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("FeatureGroup.arn");
+    }
 
     /**
      * A free-form description of a Feature Group.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("FeatureGroup.description");
+    }
 
     /**
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      * 
      */
-    public String eventTimeFeatureName;
+    private UndeferrableValue<String> eventTimeFeatureName;
 
-
+    public String eventTimeFeatureName() {
+        if (eventTimeFeatureName == null) return null;
+        return eventTimeFeatureName.getValue("FeatureGroup.eventTimeFeatureName");
+    }
 
     /**
      * A list of Feature names and types. See Feature Definition Below.
      * 
      */
-    public List<FeatureGroupFeatureDefinition> featureDefinitions;
+    private UndeferrableValue<List<FeatureGroupFeatureDefinition>> featureDefinitions;
 
-
+    public List<FeatureGroupFeatureDefinition> featureDefinitions() {
+        if (featureDefinitions == null) return null;
+        return featureDefinitions.getValue("FeatureGroup.featureDefinitions");
+    }
 
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      * 
      */
-    public String featureGroupName;
+    private UndeferrableValue<String> featureGroupName;
 
-
+    public String featureGroupName() {
+        if (featureGroupName == null) return null;
+        return featureGroupName.getValue("FeatureGroup.featureGroupName");
+    }
 
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      * 
      */
-    public FeatureGroupOfflineStoreConfig offlineStoreConfig;
+    private @Nullable UndeferrableValue<FeatureGroupOfflineStoreConfig> offlineStoreConfig;
 
-
+    public @Nullable FeatureGroupOfflineStoreConfig offlineStoreConfig() {
+        if (offlineStoreConfig == null) return null;
+        return offlineStoreConfig.getValue("FeatureGroup.offlineStoreConfig");
+    }
 
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      * 
      */
-    public FeatureGroupOnlineStoreConfig onlineStoreConfig;
+    private @Nullable UndeferrableValue<FeatureGroupOnlineStoreConfig> onlineStoreConfig;
 
-
+    public @Nullable FeatureGroupOnlineStoreConfig onlineStoreConfig() {
+        if (onlineStoreConfig == null) return null;
+        return onlineStoreConfig.getValue("FeatureGroup.onlineStoreConfig");
+    }
 
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      * 
      */
-    public String recordIdentifierFeatureName;
+    private UndeferrableValue<String> recordIdentifierFeatureName;
 
-
+    public String recordIdentifierFeatureName() {
+        if (recordIdentifierFeatureName == null) return null;
+        return recordIdentifierFeatureName.getValue("FeatureGroup.recordIdentifierFeatureName");
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("FeatureGroup.roleArn");
+    }
 
     /**
      * Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("FeatureGroup.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -104,12 +136,18 @@ public final class FeatureGroup extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("FeatureGroup.tagsAll");
+    }
 
+    private UndeferrableValue<FeatureGroupThroughputConfig> throughputConfig;
 
-    public FeatureGroupThroughputConfig throughputConfig;
-
-
+    public FeatureGroupThroughputConfig throughputConfig() {
+        if (throughputConfig == null) return null;
+        return throughputConfig.getValue("FeatureGroup.throughputConfig");
+    }
 
 }

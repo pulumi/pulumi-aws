@@ -3,78 +3,104 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.appmesh.MeshSpec;
+import com.pulumi.policypacks.aws.appmesh.outputs.MeshSpec;
 import java.lang.String;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:appmesh/mesh:Mesh")
-public final class Mesh extends com.pulumi.resources.PolicyResource {
+public final class Mesh extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * ARN of the service mesh.
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Mesh.arn");
+    }
 
     /**
      * Creation date of the service mesh.
      * 
      */
-    public String createdDate;
+    private UndeferrableValue<String> createdDate;
 
-
+    public String createdDate() {
+        if (createdDate == null) return null;
+        return createdDate.getValue("Mesh.createdDate");
+    }
 
     /**
      * Last update date of the service mesh.
      * 
      */
-    public String lastUpdatedDate;
+    private UndeferrableValue<String> lastUpdatedDate;
 
-
+    public String lastUpdatedDate() {
+        if (lastUpdatedDate == null) return null;
+        return lastUpdatedDate.getValue("Mesh.lastUpdatedDate");
+    }
 
     /**
      * AWS account ID of the service mesh&#39;s owner.
      * 
      */
-    public String meshOwner;
+    private UndeferrableValue<String> meshOwner;
 
-
+    public String meshOwner() {
+        if (meshOwner == null) return null;
+        return meshOwner.getValue("Mesh.meshOwner");
+    }
 
     /**
      * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("Mesh.name");
+    }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    public String resourceOwner;
+    private UndeferrableValue<String> resourceOwner;
 
-
+    public String resourceOwner() {
+        if (resourceOwner == null) return null;
+        return resourceOwner.getValue("Mesh.resourceOwner");
+    }
 
     /**
      * Service mesh specification to apply.
      * 
      */
-    public MeshSpec spec;
+    private @Nullable UndeferrableValue<MeshSpec> spec;
 
-
+    public @Nullable MeshSpec spec() {
+        if (spec == null) return null;
+        return spec.getValue("Mesh.spec");
+    }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("Mesh.tags");
+    }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -84,8 +110,11 @@ public final class Mesh extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("Mesh.tagsAll");
+    }
 
 }

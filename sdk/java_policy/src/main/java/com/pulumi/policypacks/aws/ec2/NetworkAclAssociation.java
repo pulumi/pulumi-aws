@@ -3,27 +3,34 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2/networkAclAssociation:NetworkAclAssociation")
-public final class NetworkAclAssociation extends com.pulumi.resources.PolicyResource {
+public final class NetworkAclAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The ID of the network ACL.
      * 
      */
-    public String networkAclId;
+    private UndeferrableValue<String> networkAclId;
 
-
+    public String networkAclId() {
+        if (networkAclId == null) return null;
+        return networkAclId.getValue("NetworkAclAssociation.networkAclId");
+    }
 
     /**
      * The ID of the associated Subnet.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("NetworkAclAssociation.subnetId");
+    }
 
 }

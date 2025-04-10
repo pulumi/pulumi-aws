@@ -3,13 +3,15 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lakeformation/resource:Resource")
-public final class Resource extends com.pulumi.resources.PolicyResource {
+public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of the resource.
@@ -17,9 +19,12 @@ public final class Resource extends com.pulumi.resources.PolicyResource {
      * The following arguments are optional:
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("Resource.arn");
+    }
 
     /**
      * Flag to enable AWS LakeFormation hybrid access permission mode.
@@ -27,36 +32,51 @@ public final class Resource extends com.pulumi.resources.PolicyResource {
      * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
-    public Boolean hybridAccessEnabled;
+    private UndeferrableValue<Boolean> hybridAccessEnabled;
 
-
+    public Boolean hybridAccessEnabled() {
+        if (hybridAccessEnabled == null) return null;
+        return hybridAccessEnabled.getValue("Resource.hybridAccessEnabled");
+    }
 
     /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    public String lastModified;
+    private UndeferrableValue<String> lastModified;
 
-
+    public String lastModified() {
+        if (lastModified == null) return null;
+        return lastModified.getValue("Resource.lastModified");
+    }
 
     /**
      * Role that has read/write access to the resource.
      * 
      */
-    public String roleArn;
+    private UndeferrableValue<String> roleArn;
 
-
+    public String roleArn() {
+        if (roleArn == null) return null;
+        return roleArn.getValue("Resource.roleArn");
+    }
 
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
      */
-    public Boolean useServiceLinkedRole;
+    private @Nullable UndeferrableValue<Boolean> useServiceLinkedRole;
 
+    public @Nullable Boolean useServiceLinkedRole() {
+        if (useServiceLinkedRole == null) return null;
+        return useServiceLinkedRole.getValue("Resource.useServiceLinkedRole");
+    }
 
+    private UndeferrableValue<Boolean> withFederation;
 
-    public Boolean withFederation;
-
-
+    public Boolean withFederation() {
+        if (withFederation == null) return null;
+        return withFederation.getValue("Resource.withFederation");
+    }
 
 }

@@ -3,68 +3,88 @@
 
 package com.pulumi.policypacks.aws.lex;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTypeCompositeSlotTypeSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTypeExternalSourceSetting;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTypeSlotTypeValues;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTypeTimeouts;
-import com.pulumi.policypacks.aws.lex.V2modelsSlotTypeValueSelectionSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeCompositeSlotTypeSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeExternalSourceSetting;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeSlotTypeValues;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeTimeouts;
+import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeValueSelectionSetting;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:lex/v2modelsSlotType:V2modelsSlotType")
-public final class V2modelsSlotType extends com.pulumi.resources.PolicyResource {
+public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Identifier of the bot associated with this slot type.
      * 
      */
-    public String botId;
+    private UndeferrableValue<String> botId;
 
-
+    public String botId() {
+        if (botId == null) return null;
+        return botId.getValue("V2modelsSlotType.botId");
+    }
 
     /**
      * Version of the bot associated with this slot type.
      * 
      */
-    public String botVersion;
+    private UndeferrableValue<String> botVersion;
 
-
+    public String botVersion() {
+        if (botVersion == null) return null;
+        return botVersion.getValue("V2modelsSlotType.botVersion");
+    }
 
     /**
      * Specifications for a composite slot type.
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    public V2modelsSlotTypeCompositeSlotTypeSetting compositeSlotTypeSetting;
+    private @Nullable UndeferrableValue<V2modelsSlotTypeCompositeSlotTypeSetting> compositeSlotTypeSetting;
 
-
+    public @Nullable V2modelsSlotTypeCompositeSlotTypeSetting compositeSlotTypeSetting() {
+        if (compositeSlotTypeSetting == null) return null;
+        return compositeSlotTypeSetting.getValue("V2modelsSlotType.compositeSlotTypeSetting");
+    }
 
     /**
      * Description of the slot type.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("V2modelsSlotType.description");
+    }
 
     /**
      * Type of external information used to create the slot type.
      * See `external_source_setting` argument reference below.
      * 
      */
-    public V2modelsSlotTypeExternalSourceSetting externalSourceSetting;
+    private @Nullable UndeferrableValue<V2modelsSlotTypeExternalSourceSetting> externalSourceSetting;
 
-
+    public @Nullable V2modelsSlotTypeExternalSourceSetting externalSourceSetting() {
+        if (externalSourceSetting == null) return null;
+        return externalSourceSetting.getValue("V2modelsSlotType.externalSourceSetting");
+    }
 
     /**
      * Identifier of the language and locale where this slot type is used.
      * All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
-    public String localeId;
+    private UndeferrableValue<String> localeId;
 
-
+    public String localeId() {
+        if (localeId == null) return null;
+        return localeId.getValue("V2modelsSlotType.localeId");
+    }
 
     /**
      * Name of the slot type.
@@ -72,9 +92,12 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResource 
      * The following arguments are optional:
      * 
      */
-    public String name;
+    private UndeferrableValue<String> name;
 
-
+    public String name() {
+        if (name == null) return null;
+        return name.getValue("V2modelsSlotType.name");
+    }
 
     /**
      * Built-in slot type used as a parent of this slot type.
@@ -82,17 +105,23 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResource 
      * Only `AMAZON.AlphaNumeric` is supported.
      * 
      */
-    public String parentSlotTypeSignature;
+    private @Nullable UndeferrableValue<String> parentSlotTypeSignature;
 
-
+    public @Nullable String parentSlotTypeSignature() {
+        if (parentSlotTypeSignature == null) return null;
+        return parentSlotTypeSignature.getValue("V2modelsSlotType.parentSlotTypeSignature");
+    }
 
     /**
      * Unique identifier for the slot type.
      * 
      */
-    public String slotTypeId;
+    private UndeferrableValue<String> slotTypeId;
 
-
+    public String slotTypeId() {
+        if (slotTypeId == null) return null;
+        return slotTypeId.getValue("V2modelsSlotType.slotTypeId");
+    }
 
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -100,21 +129,30 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResource 
      * See `slot_type_values` argument reference below.
      * 
      */
-    public V2modelsSlotTypeSlotTypeValues slotTypeValues;
+    private @Nullable UndeferrableValue<V2modelsSlotTypeSlotTypeValues> slotTypeValues;
 
+    public @Nullable V2modelsSlotTypeSlotTypeValues slotTypeValues() {
+        if (slotTypeValues == null) return null;
+        return slotTypeValues.getValue("V2modelsSlotType.slotTypeValues");
+    }
 
+    private @Nullable UndeferrableValue<V2modelsSlotTypeTimeouts> timeouts;
 
-    public V2modelsSlotTypeTimeouts timeouts;
-
-
+    public @Nullable V2modelsSlotTypeTimeouts timeouts() {
+        if (timeouts == null) return null;
+        return timeouts.getValue("V2modelsSlotType.timeouts");
+    }
 
     /**
      * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
      * See `value_selection_setting` argument reference below.
      * 
      */
-    public V2modelsSlotTypeValueSelectionSetting valueSelectionSetting;
+    private @Nullable UndeferrableValue<V2modelsSlotTypeValueSelectionSetting> valueSelectionSetting;
 
-
+    public @Nullable V2modelsSlotTypeValueSelectionSetting valueSelectionSetting() {
+        if (valueSelectionSetting == null) return null;
+        return valueSelectionSetting.getValue("V2modelsSlotType.valueSelectionSetting");
+    }
 
 }

@@ -3,35 +3,46 @@
 
 package com.pulumi.policypacks.aws.s3;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
-public final class BucketAccelerateConfigurationV2 extends com.pulumi.resources.PolicyResource {
+public final class BucketAccelerateConfigurationV2 extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Name of the bucket.
      * 
      */
-    public String bucket;
+    private UndeferrableValue<String> bucket;
 
-
+    public String bucket() {
+        if (bucket == null) return null;
+        return bucket.getValue("BucketAccelerateConfigurationV2.bucket");
+    }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    public String expectedBucketOwner;
+    private @Nullable UndeferrableValue<String> expectedBucketOwner;
 
-
+    public @Nullable String expectedBucketOwner() {
+        if (expectedBucketOwner == null) return null;
+        return expectedBucketOwner.getValue("BucketAccelerateConfigurationV2.expectedBucketOwner");
+    }
 
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
-    public String status;
+    private UndeferrableValue<String> status;
 
-
+    public String status() {
+        if (status == null) return null;
+        return status.getValue("BucketAccelerateConfigurationV2.status");
+    }
 
 }

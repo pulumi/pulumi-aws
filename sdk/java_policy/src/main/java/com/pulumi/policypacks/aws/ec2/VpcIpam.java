@@ -3,106 +3,141 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcIpamOperatingRegion;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcIpamOperatingRegion;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpam:VpcIpam")
-public final class VpcIpam extends com.pulumi.resources.PolicyResource {
+public final class VpcIpam extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of IPAM
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpam.arn");
+    }
 
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
-    public Boolean cascade;
+    private @Nullable UndeferrableValue<Boolean> cascade;
 
-
+    public @Nullable Boolean cascade() {
+        if (cascade == null) return null;
+        return cascade.getValue("VpcIpam.cascade");
+    }
 
     /**
      * The IPAM&#39;s default resource discovery association ID.
      * 
      */
-    public String defaultResourceDiscoveryAssociationId;
+    private UndeferrableValue<String> defaultResourceDiscoveryAssociationId;
 
-
+    public String defaultResourceDiscoveryAssociationId() {
+        if (defaultResourceDiscoveryAssociationId == null) return null;
+        return defaultResourceDiscoveryAssociationId.getValue("VpcIpam.defaultResourceDiscoveryAssociationId");
+    }
 
     /**
      * The IPAM&#39;s default resource discovery ID.
      * 
      */
-    public String defaultResourceDiscoveryId;
+    private UndeferrableValue<String> defaultResourceDiscoveryId;
 
-
+    public String defaultResourceDiscoveryId() {
+        if (defaultResourceDiscoveryId == null) return null;
+        return defaultResourceDiscoveryId.getValue("VpcIpam.defaultResourceDiscoveryId");
+    }
 
     /**
      * A description for the IPAM.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("VpcIpam.description");
+    }
 
     /**
      * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
-    public Boolean enablePrivateGua;
+    private @Nullable UndeferrableValue<Boolean> enablePrivateGua;
 
-
+    public @Nullable Boolean enablePrivateGua() {
+        if (enablePrivateGua == null) return null;
+        return enablePrivateGua.getValue("VpcIpam.enablePrivateGua");
+    }
 
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */
-    public List<VpcIpamOperatingRegion> operatingRegions;
+    private UndeferrableValue<List<VpcIpamOperatingRegion>> operatingRegions;
 
-
+    public List<VpcIpamOperatingRegion> operatingRegions() {
+        if (operatingRegions == null) return null;
+        return operatingRegions.getValue("VpcIpam.operatingRegions");
+    }
 
     /**
      * The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    public String privateDefaultScopeId;
+    private UndeferrableValue<String> privateDefaultScopeId;
 
-
+    public String privateDefaultScopeId() {
+        if (privateDefaultScopeId == null) return null;
+        return privateDefaultScopeId.getValue("VpcIpam.privateDefaultScopeId");
+    }
 
     /**
      * The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
      * IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    public String publicDefaultScopeId;
+    private UndeferrableValue<String> publicDefaultScopeId;
 
-
+    public String publicDefaultScopeId() {
+        if (publicDefaultScopeId == null) return null;
+        return publicDefaultScopeId.getValue("VpcIpam.publicDefaultScopeId");
+    }
 
     /**
      * The number of scopes in the IPAM.
      * 
      */
-    public Integer scopeCount;
+    private UndeferrableValue<Integer> scopeCount;
 
-
+    public Integer scopeCount() {
+        if (scopeCount == null) return null;
+        return scopeCount.getValue("VpcIpam.scopeCount");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIpam.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -112,16 +147,22 @@ public final class VpcIpam extends com.pulumi.resources.PolicyResource {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIpam.tagsAll");
+    }
 
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      * 
      */
-    public String tier;
+    private @Nullable UndeferrableValue<String> tier;
 
-
+    public @Nullable String tier() {
+        if (tier == null) return null;
+        return tier.getValue("VpcIpam.tier");
+    }
 
 }

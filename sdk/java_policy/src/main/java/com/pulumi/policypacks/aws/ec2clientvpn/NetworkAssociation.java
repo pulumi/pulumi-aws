@@ -3,43 +3,56 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
 
 @PolicyResourceType(type="aws:ec2clientvpn/networkAssociation:NetworkAssociation")
-public final class NetworkAssociation extends com.pulumi.resources.PolicyResource {
+public final class NetworkAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * The unique ID of the target network association.
      * 
      */
-    public String associationId;
+    private UndeferrableValue<String> associationId;
 
-
+    public String associationId() {
+        if (associationId == null) return null;
+        return associationId.getValue("NetworkAssociation.associationId");
+    }
 
     /**
      * The ID of the Client VPN endpoint.
      * 
      */
-    public String clientVpnEndpointId;
+    private UndeferrableValue<String> clientVpnEndpointId;
 
-
+    public String clientVpnEndpointId() {
+        if (clientVpnEndpointId == null) return null;
+        return clientVpnEndpointId.getValue("NetworkAssociation.clientVpnEndpointId");
+    }
 
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
-    public String subnetId;
+    private UndeferrableValue<String> subnetId;
 
-
+    public String subnetId() {
+        if (subnetId == null) return null;
+        return subnetId.getValue("NetworkAssociation.subnetId");
+    }
 
     /**
      * The ID of the VPC in which the target subnet is located.
      * 
      */
-    public String vpcId;
+    private UndeferrableValue<String> vpcId;
 
-
+    public String vpcId() {
+        if (vpcId == null) return null;
+        return vpcId.getValue("NetworkAssociation.vpcId");
+    }
 
 }

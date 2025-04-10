@@ -3,40 +3,51 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.apigatewayv2.RouteRequestParameter;
+import com.pulumi.policypacks.aws.apigatewayv2.outputs.RouteRequestParameter;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:apigatewayv2/route:Route")
-public final class Route extends com.pulumi.resources.PolicyResource {
+public final class Route extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * API identifier.
      * 
      */
-    public String apiId;
+    private UndeferrableValue<String> apiId;
 
-
+    public String apiId() {
+        if (apiId == null) return null;
+        return apiId.getValue("Route.apiId");
+    }
 
     /**
      * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
-    public Boolean apiKeyRequired;
+    private @Nullable UndeferrableValue<Boolean> apiKeyRequired;
 
-
+    public @Nullable Boolean apiKeyRequired() {
+        if (apiKeyRequired == null) return null;
+        return apiKeyRequired.getValue("Route.apiKeyRequired");
+    }
 
     /**
      * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
-    public List<String> authorizationScopes;
+    private @Nullable UndeferrableValue<List<String>> authorizationScopes;
 
-
+    public @Nullable List<String> authorizationScopes() {
+        if (authorizationScopes == null) return null;
+        return authorizationScopes.getValue("Route.authorizationScopes");
+    }
 
     /**
      * Authorization type for the route.
@@ -45,72 +56,99 @@ public final class Route extends com.pulumi.resources.PolicyResource {
      * Defaults to `NONE`.
      * 
      */
-    public String authorizationType;
+    private @Nullable UndeferrableValue<String> authorizationType;
 
-
+    public @Nullable String authorizationType() {
+        if (authorizationType == null) return null;
+        return authorizationType.getValue("Route.authorizationType");
+    }
 
     /**
      * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
-    public String authorizerId;
+    private @Nullable UndeferrableValue<String> authorizerId;
 
-
+    public @Nullable String authorizerId() {
+        if (authorizerId == null) return null;
+        return authorizerId.getValue("Route.authorizerId");
+    }
 
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
-    public String modelSelectionExpression;
+    private @Nullable UndeferrableValue<String> modelSelectionExpression;
 
-
+    public @Nullable String modelSelectionExpression() {
+        if (modelSelectionExpression == null) return null;
+        return modelSelectionExpression.getValue("Route.modelSelectionExpression");
+    }
 
     /**
      * Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
-    public String operationName;
+    private @Nullable UndeferrableValue<String> operationName;
 
-
+    public @Nullable String operationName() {
+        if (operationName == null) return null;
+        return operationName.getValue("Route.operationName");
+    }
 
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
-    public Map<String,String> requestModels;
+    private @Nullable UndeferrableValue<Map<String,String>> requestModels;
 
-
+    public @Nullable Map<String,String> requestModels() {
+        if (requestModels == null) return null;
+        return requestModels.getValue("Route.requestModels");
+    }
 
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
-    public List<RouteRequestParameter> requestParameters;
+    private @Nullable UndeferrableValue<List<RouteRequestParameter>> requestParameters;
 
-
+    public @Nullable List<RouteRequestParameter> requestParameters() {
+        if (requestParameters == null) return null;
+        return requestParameters.getValue("Route.requestParameters");
+    }
 
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
-    public String routeKey;
+    private UndeferrableValue<String> routeKey;
 
-
+    public String routeKey() {
+        if (routeKey == null) return null;
+        return routeKey.getValue("Route.routeKey");
+    }
 
     /**
      * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
-    public String routeResponseSelectionExpression;
+    private @Nullable UndeferrableValue<String> routeResponseSelectionExpression;
 
-
+    public @Nullable String routeResponseSelectionExpression() {
+        if (routeResponseSelectionExpression == null) return null;
+        return routeResponseSelectionExpression.getValue("Route.routeResponseSelectionExpression");
+    }
 
     /**
      * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
-    public String target;
+    private @Nullable UndeferrableValue<String> target;
 
-
+    public @Nullable String target() {
+        if (target == null) return null;
+        return target.getValue("Route.target");
+    }
 
 }

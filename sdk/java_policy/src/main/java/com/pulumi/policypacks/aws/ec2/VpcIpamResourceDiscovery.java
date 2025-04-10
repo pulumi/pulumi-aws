@@ -3,72 +3,95 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
+import com.pulumi.core.UndeferrableValue;
 import com.pulumi.core.annotations.PolicyResourceType;
-import com.pulumi.policypacks.aws.ec2.VpcIpamResourceDiscoveryOperatingRegion;
+import com.pulumi.policypacks.aws.ec2.outputs.VpcIpamResourceDiscoveryOperatingRegion;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nullable;
 
 
 @PolicyResourceType(type="aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")
-public final class VpcIpamResourceDiscovery extends com.pulumi.resources.PolicyResource {
+public final class VpcIpamResourceDiscovery extends com.pulumi.resources.PolicyResourceOutput {
 
     /**
      * Amazon Resource Name (ARN) of IPAM Resource Discovery
      * 
      */
-    public String arn;
+    private UndeferrableValue<String> arn;
 
-
+    public String arn() {
+        if (arn == null) return null;
+        return arn.getValue("VpcIpamResourceDiscovery.arn");
+    }
 
     /**
      * A description for the IPAM Resource Discovery.
      * 
      */
-    public String description;
+    private @Nullable UndeferrableValue<String> description;
 
-
+    public @Nullable String description() {
+        if (description == null) return null;
+        return description.getValue("VpcIpamResourceDiscovery.description");
+    }
 
     /**
      * The home region of the Resource Discovery
      * 
      */
-    public String ipamResourceDiscoveryRegion;
+    private UndeferrableValue<String> ipamResourceDiscoveryRegion;
 
-
+    public String ipamResourceDiscoveryRegion() {
+        if (ipamResourceDiscoveryRegion == null) return null;
+        return ipamResourceDiscoveryRegion.getValue("VpcIpamResourceDiscovery.ipamResourceDiscoveryRegion");
+    }
 
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
-    public Boolean isDefault;
+    private UndeferrableValue<Boolean> isDefault;
 
-
+    public Boolean isDefault() {
+        if (isDefault == null) return null;
+        return isDefault.getValue("VpcIpamResourceDiscovery.isDefault");
+    }
 
     /**
      * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
      * 
      */
-    public List<VpcIpamResourceDiscoveryOperatingRegion> operatingRegions;
+    private UndeferrableValue<List<VpcIpamResourceDiscoveryOperatingRegion>> operatingRegions;
 
-
+    public List<VpcIpamResourceDiscoveryOperatingRegion> operatingRegions() {
+        if (operatingRegions == null) return null;
+        return operatingRegions.getValue("VpcIpamResourceDiscovery.operatingRegions");
+    }
 
     /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
-    public String ownerId;
+    private UndeferrableValue<String> ownerId;
 
-
+    public String ownerId() {
+        if (ownerId == null) return null;
+        return ownerId.getValue("VpcIpamResourceDiscovery.ownerId");
+    }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Map<String,String> tags;
+    private @Nullable UndeferrableValue<Map<String,String>> tags;
 
-
+    public @Nullable Map<String,String> tags() {
+        if (tags == null) return null;
+        return tags.getValue("VpcIpamResourceDiscovery.tags");
+    }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -78,8 +101,11 @@ public final class VpcIpamResourceDiscovery extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    public Map<String,String> tagsAll;
+    private UndeferrableValue<Map<String,String>> tagsAll;
 
-
+    public Map<String,String> tagsAll() {
+        if (tagsAll == null) return null;
+        return tagsAll.getValue("VpcIpamResourceDiscovery.tagsAll");
+    }
 
 }
